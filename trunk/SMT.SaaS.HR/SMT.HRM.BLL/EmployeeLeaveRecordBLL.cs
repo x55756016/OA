@@ -79,11 +79,13 @@ namespace SMT.HRM.BLL
                 ents = ents.OrderBy(sort);
 
                 var entrs = from e in ents
+                            join vDepartment in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals vDepartment.DEPARTMENTID
                             select new V_EmpLeaveRdInfo
                             {
                                 CHECKSTATE = e.CHECKSTATE,
                                 OWNERCOMPANYID = e.OWNERCOMPANYID,
                                 OWNERDEPARTMENTID = e.OWNERDEPARTMENTID,
+                                DEPARTMENTNAME = vDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                 OWNERPOSTID = e.OWNERPOSTID,
                                 OWNERID = e.OWNERID,
                                 EMPLOYEEID = e.EMPLOYEEID,
@@ -105,6 +107,153 @@ namespace SMT.HRM.BLL
                                 CANCELTOTALHOURS = e.T_HR_EMPLOYEECANCELLEAVE.Where(t => t.CHECKSTATE == "2").Sum(t => t.TOTALHOURS),                                
                                 REASON = e.REASON
                             };
+                entrs = entrs.OrderBy(sort);
+                entrs = Utility.Pager<V_EmpLeaveRdInfo>(entrs, pageIndex, pageSize, ref pageCount);
+
+                return entrs;
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("员工请假发生错误：EmployeeLeaveRecordPaging：" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// 用于实体Grid中显示数据的分页查询
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">所有者</param>
+        /// <param name="startDate">开始日期</param>
+        /// <param name="recorderDate">截止日期</param>
+        /// <returns>查询结果集</returns>
+        public IQueryable<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        {
+            try
+            {
+                string filter1 = string.Empty, filter2 = string.Empty;
+                List<object> paraTemp1 = new List<object>();
+                List<object> paraTemp2 = new List<object>();
+                //处理跨月
+                if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(recorderDate))
+                {
+                    if (!string.IsNullOrEmpty(filter1))
+                    {
+                        filter1 += " and ";
+                    }
+                    DateTime startFirstDay = new DateTime(Convert.ToDateTime(startDate).Year, Convert.ToDateTime(startDate).Month, 1);
+                    DateTime startLastDay = new DateTime(Convert.ToDateTime(startDate).AddMonths(1).Year, Convert.ToDateTime(startDate).AddMonths(1).Month, 1).AddDays(-1);
+                    filter1 += " STARTDATETIME>=@" + paraTemp1.Count().ToString();
+                    paraTemp1.Add(startFirstDay);
+                    filter1 += " and STARTDATETIME<=@" + paraTemp1.Count().ToString();
+                    paraTemp1.Add(startLastDay);
+                    filter1 += " and ENDDATETIME>@" + paraTemp1.Count().ToString();
+                    paraTemp1.Add(startLastDay);
+                    DateTime recorderFirstDay = new DateTime(Convert.ToDateTime(startDate).Year, Convert.ToDateTime(startDate).Month, 1);
+                    DateTime recorderLastDay = new DateTime(Convert.ToDateTime(startDate).AddMonths(1).Year, Convert.ToDateTime(startDate).AddMonths(1).Month, 1).AddDays(-1);
+                    if (!string.IsNullOrEmpty(filter2))
+                    {
+                        filter2 += " and ";
+                    }
+                    filter2 += " STARTDATETIME<@" + paraTemp2.Count().ToString();
+                    paraTemp2.Add(recorderFirstDay);
+                    filter2 += " and ENDDATETIME>=@" + paraTemp2.Count().ToString();
+                    paraTemp2.Add(recorderFirstDay);
+                    filter2 += " and ENDDATETIME<@" + paraTemp2.Count().ToString();
+                    paraTemp2.Add(recorderLastDay);
+                }
+                if (strCheckState != Convert.ToInt32(SMT.HRM.BLL.Common.CheckStates.WaittingApproval).ToString())
+                {
+                    if (strCheckState == Convert.ToInt32(SMT.HRM.BLL.Common.CheckStates.All).ToString())
+                    {
+                        strCheckState = string.Empty;
+                    }
+                    SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
+                    SetOrganizationFilter(ref filter1, ref paraTemp1, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
+                    SetOrganizationFilter(ref filter2, ref paraTemp2, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
+                }
+                else
+                {
+                    string strCheckfilter = string.Copy(filterString);
+                    SetFilterWithflow("LEAVERECORDID", "T_HR_EMPLOYEELEAVERECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
+                    if (string.Compare(strCheckfilter, filterString) == 0)
+                    {
+                        return null;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(strCheckState))
+                {
+                    int iIndex = 0;
+                    if (!string.IsNullOrEmpty(filterString))
+                    {
+                        filterString += " AND";
+                    }
+
+                    if (paras.Count() > 0)
+                    {
+                        iIndex = paras.Count();
+                    }
+
+                    filterString += " CHECKSTATE == @" + iIndex.ToString();
+                    paras.Add(strCheckState);
+                }
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET");
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> ents1 = null;
+                IQueryable<T_HR_EMPLOYEELEAVERECORD> ents2 = null;
+                if (!string.IsNullOrEmpty(filter1))
+                {
+                    ents1 = ents.Where(filter1, paraTemp1.ToArray());
+                }
+                if (!string.IsNullOrEmpty(filter2))
+                {
+                    ents2 = ents.Where(filter2, paraTemp2.ToArray());
+                }
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    ents = ents.Where(filterString, paras.ToArray()).Union(ents1).Union(ents2);
+                }
+                //if (!string.IsNullOrEmpty(recorderDate))
+                //{
+                //    DateTime tmpDate = Convert.ToDateTime(recorderDate);
+                //    ents = ents.Where(p => p.STARTDATETIME.Value.Year == tmpDate.Year && p.STARTDATETIME.Value.Month == tmpDate.Month);
+                //}
+
+                var entrs = from e in ents
+                            join vDepartment in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals vDepartment.DEPARTMENTID
+                            select new V_EmpLeaveRdInfo
+                            {
+                                CHECKSTATE = e.CHECKSTATE,
+                                OWNERCOMPANYID = e.OWNERCOMPANYID,
+                                OWNERDEPARTMENTID = e.OWNERDEPARTMENTID,
+                                DEPARTMENTNAME = vDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                                OWNERPOSTID = e.OWNERPOSTID,
+                                OWNERID = e.OWNERID,
+                                EMPLOYEEID = e.EMPLOYEEID,
+                                EMPLOYEECODE = e.EMPLOYEECODE,
+                                EMPLOYEENAME = e.EMPLOYEENAME,
+                                LEAVEDAYS = e.LEAVEDAYS,
+                                LEAVEHOURS = e.LEAVEHOURS,
+                                TOTALHOURS = e.TOTALHOURS,
+                                STARTDATETIME = e.STARTDATETIME,
+                                ENDDATETIME = e.ENDDATETIME,
+                                LEAVERECORDID = e.LEAVERECORDID,
+                                LEAVETYPENAME = e.T_HR_LEAVETYPESET.LEAVETYPENAME,
+                                CREATECOMPANYID = e.CREATECOMPANYID,
+                                CREATEDEPARTMENTID = e.CREATEDEPARTMENTID,
+                                CREATEPOSTID = e.CREATEPOSTID,
+                                CREATEUSERID = e.CREATEUSERID,
+                                CREATEDATE = e.CREATEDATE,
+                                UPDATEDATE = e.UPDATEDATE,
+                                CANCELTOTALHOURS = e.T_HR_EMPLOYEECANCELLEAVE.Where(t => t.CHECKSTATE == "2").Sum(t => t.TOTALHOURS),
+                                REASON = e.REASON
+                            };
+                entrs = entrs.OrderBy(sort);
 
                 entrs = Utility.Pager<V_EmpLeaveRdInfo>(entrs, pageIndex, pageSize, ref pageCount);
 
@@ -116,7 +265,111 @@ namespace SMT.HRM.BLL
                 return null;
             }
         }
+        #region 导出报表
+        /// <summary>
+        /// 导出请假报表
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">所有者</param>
+        /// <param name="startDate">开始日期</param>
+        /// <param name="recorderDate">截止日期</param>
+        /// <returns>查询结果集</returns>
+        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        {
 
+            byte[] result = null;
+            try
+            {
+                List<V_EmpLeaveRdInfo> entlist = new List<V_EmpLeaveRdInfo>();
+                IQueryable<V_EmpLeaveRdInfo> leaveRecordInfos = EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+                if (leaveRecordInfos.Count() > 0)
+                {
+                    entlist = leaveRecordInfos.ToList();
+                }
+                result = EmployeeLeaveRecordStream(entlist);
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("ExportEmployeeLeftOfficeConfirmReports:" + ex.Message);
+
+            }
+            return result;
+
+
+        }
+
+        public static byte[] EmployeeLeaveRecordStream(List<V_EmpLeaveRdInfo> leaveRecordInfos)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Utility.GetHeader().ToString());
+            sb.Append(GetEmployeeLeaveRecordBody(leaveRecordInfos).ToString());
+            byte[] by = Encoding.UTF8.GetBytes(sb.ToString());
+
+            return by;
+        }
+
+        public static StringBuilder GetEmployeeLeaveRecordBody(List<V_EmpLeaveRdInfo> Collects)
+        {
+            StringBuilder s = new StringBuilder();
+            var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "CHECKSTATE" });
+            string checkStateName = string.Empty;
+            s.Append("<body>\n\r");
+            s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
+            s.Append("<tr>");
+            s.Append("<td align=center class=\"title\" >员工编号</td>");
+            s.Append("<td align=center class=\"title\" >员工姓名</td>");
+            s.Append("<td align=center class=\"title\" >部门</td>");
+            s.Append("<td align=center class=\"title\" >假期标准</td>");
+            s.Append("<td align=center class=\"title\" >开始时间</td>");
+            s.Append("<td align=center class=\"title\" >结束时间</td>");
+            s.Append("<td align=center class=\"title\" >请假天数</td>");
+            s.Append("<td align=center class=\"title\" >请假时长(小时)</td>");
+            s.Append("<td align=center class=\"title\" >审批状态</td>");
+            s.Append("<td align=center class=\"title\" >原因</td>");
+            s.Append("<td align=center class=\"title\" >销假合计时长(小时)</td>");
+            s.Append("</tr>");
+
+            if (Collects.Count() > 0)
+            {
+                for (int i = 0; i < Collects.Count; i++)
+                {
+                    try
+                    {
+                        checkStateName = tmp.Where(e => e.DICTIONARYVALUE == decimal.Parse(Collects[i].CHECKSTATE.Trim())).FirstOrDefault().DICTIONARYNAME;
+                    }
+                    catch (Exception ex)
+                    {
+                        SMT.Foundation.Log.Tracer.Debug("GetEmployeeLeaveRecordBody:" + ex.Message);
+                    }
+                    s.Append("<tr>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].EMPLOYEECODE + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].EMPLOYEENAME + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].DEPARTMENTNAME + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].LEAVETYPENAME + "</td>");//应出勤天数，注释的为原来的
+                    s.Append("<td class=\"x1282\">" + Collects[i].STARTDATETIME.Value.ToString("yyyy-MM-dd HH:mm") + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].ENDDATETIME.Value.ToString("yyyy-MM-dd HH:mm") + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].LEAVEDAYS + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].LEAVEHOURS + "</td>");
+                    s.Append("<td class=\"x1282\">" + checkStateName + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].REASON + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].CANCELTOTALHOURS + "</td>");
+                    s.Append("</tr>");
+                }
+            }
+            s.Append("</table>");
+            s.Append("</body></html>");
+            return s;
+        }
+
+
+
+        #endregion
         /// <summary>
         /// 根据员工ID，请假的起止时间查询请假记录
         /// </summary>

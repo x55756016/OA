@@ -274,6 +274,7 @@
       <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENTRYDATE" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ISCONFIRMED" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LEFTOFFICECATEGORY" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LEFTOFFICEDATE" nillable="true" type="xs:dateTime" />

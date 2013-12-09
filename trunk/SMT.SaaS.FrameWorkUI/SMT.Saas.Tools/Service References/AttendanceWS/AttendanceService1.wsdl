@@ -4,6 +4,33 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
       <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" style="document" />
       <wsdl:input>
@@ -778,6 +805,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordPaged">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveRecordReports">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeLeaveRecordReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetRealLeaveDayByEmployeeIdAndDate">
       <soap:operation soapAction="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate" style="document" />
       <wsdl:input>
@@ -1084,6 +1129,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
+      <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddAttendMonthlyBalance">
       <soap:operation soapAction="urn:AttendanceService/AddAttendMonthlyBalance" style="document" />
       <wsdl:input>
@@ -1113,33 +1167,6 @@
     </wsdl:operation>
     <wsdl:operation name="CalculateEmployeeAttendanceMonthly">
       <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthly" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
-      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
-      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
-      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

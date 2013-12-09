@@ -1446,8 +1446,10 @@ namespace SMT.HRM.UI.Form.Personnel
 
                         ///Modified by 罗捷
                         ///做是否是兼职岗位的判断
-                        string isAgencyPara = temp.T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID == postid).FirstOrDefault().ISAGENCY;
-                        BanChangeAgencyPost(isAgencyPara);            
+                        ///modified by zhangwei 去掉兼职岗位判断 2013-12-2
+                        //string isAgencyPara = temp.T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID == postid).FirstOrDefault().ISAGENCY;
+                        //BanChangeAgencyPost(isAgencyPara);            
+
 
                         postChange.FROMPOSTLEVEL = temp.T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID == postid).FirstOrDefault().POSTLEVEL;
                         fromPostLevel = postChange.FROMPOSTLEVEL.ToString();
@@ -1509,14 +1511,16 @@ namespace SMT.HRM.UI.Form.Personnel
                 lkPost.IsEnabled = false;
                 cbxPostLevel.IsEnabled = false;
                 cbxPostLevel.SelectedItem = null;
-                pgCaution.Text = "兼职岗位不能异动，请重新选择";
-                pgCaution.Visibility = Visibility;
+                pgCaution.Text = "兼职岗位不能异动,请重新选择";
+                pgCaution.Visibility = Visibility.Visible;
             }
             else
             {
+                pgCaution.Text = "主岗位异动";
+                pgCaution.Visibility = Visibility;
                 lkPost.IsEnabled = true;
                 cbxPostLevel.IsEnabled = true;
-                pgCaution.Visibility = Visibility.Collapsed;
+                pgCaution.Visibility = Visibility.Visible;
             }
         }
 

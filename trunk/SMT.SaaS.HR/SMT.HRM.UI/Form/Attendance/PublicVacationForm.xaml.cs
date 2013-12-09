@@ -143,7 +143,7 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 return;
             }
-
+            RefreshUI(RefreshedTypes.ShowProgressBar);
             clientAtt.GetVacationSetByIDAsync(VacationID);
         }
 
@@ -301,8 +301,15 @@ namespace SMT.HRM.UI.Form.Attendance
             }
 
             DatePicker dtpStartDate = dgList.Columns[3].GetCellContent(dgList.SelectedItem) as DatePicker;
-            DatePicker dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem) as DatePicker;
-
+            DatePicker dtpEndDate;
+            if (dgList == dgWorkDayList)
+            {
+                dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
+            }
+            else
+            {
+                dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
+            }
             if (dtpStartDate == null)
             {
                 return;
@@ -334,7 +341,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
             decimal dDay = 0;
             dDay = CalculateDayCount(dtStart, dtEnd);
-            nudDays.Value = dDay.ToDouble();
+            nudDays.Value = dDay.ToDouble();           
         }
 
         /// <summary>
@@ -673,7 +680,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 {
                     return false;
                 }
-
+                RefreshUI(RefreshedTypes.ShowProgressBar);
                 if (FormType == FormTypes.New)
                 {
                     clientAtt.AddVacationSetAsync(entVacationSet);
@@ -716,36 +723,48 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetVacationSetByIDCompleted(object sender, GetVacationSetByIDCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                entVacationSet = e.Result;
-                this.DataContext = entVacationSet;
+                if (e.Error == null)
+                {
+                    entVacationSet = e.Result;
+                    this.DataContext = entVacationSet;
 
-                if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Company) + 1).ToString())
-                {
-                    clientOrg.GetCompanyByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
-                }
-                else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString())
-                {
-                    clientOrg.GetDepartmentByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
-                }
-                else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Post) + 1).ToString())
-                {
-                    clientOrg.GetPostByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
-                }
-                else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Personnel) + 1).ToString())
-                {
-                    string[] sArray = entVacationSet.ASSIGNEDOBJECTID.Split(',');
-                    clientPer.GetEmployeeByIDAsync(sArray[0].ToString());
-                }
+                    if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Company) + 1).ToString())
+                    {
+                        clientOrg.GetCompanyByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
+                    }
+                    else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString())
+                    {
+                        clientOrg.GetDepartmentByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
+                    }
+                    else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Post) + 1).ToString())
+                    {
+                        clientOrg.GetPostByIdAsync(entVacationSet.ASSIGNEDOBJECTID);
+                    }
+                    else if (entVacationSet.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Personnel) + 1).ToString())
+                    {
+                        string[] sArray = entVacationSet.ASSIGNEDOBJECTID.Split(',');
+                        clientPer.GetEmployeeByIDAsync(sArray[0].ToString());
+                    }
 
-                BindGrid();
+                    BindGrid();
 
-                SetToolBar();
+                    SetToolBar();
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
             }
         }
 
@@ -893,27 +912,37 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_AddVacationSetCompleted(object sender, AddVacationSetCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                if (e.Result == "{SAVESUCCESSED}")
+                if (e.Error == null)
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SAVESUCCESSED"));
-                    FormType = FormTypes.Edit;
-                    EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                    entBrowser.FormType = FormTypes.Edit;
-                    RefreshUI(RefreshedTypes.AuditInfo);
+                    if (e.Result == "{SAVESUCCESSED}")
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SAVESUCCESSED"));
+                        FormType = FormTypes.Edit;
+                        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                        entBrowser.FormType = FormTypes.Edit;
+                        RefreshUI(RefreshedTypes.AuditInfo);
+                    }
+                    else
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.TrimStart(new char[] { '{' }).TrimEnd(new char[] { '}' })));
+                    }
                 }
                 else
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.TrimStart(new char[] { '{' }).TrimEnd(new char[] { '}' })));
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
             }
-
-            RefreshUI(RefreshedTypes.All);
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
+            }
         }
 
         /// <summary>
@@ -923,24 +952,34 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_ModifyVacationSetCompleted(object sender, ModifyVacationSetCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                if (e.Result == "{SAVESUCCESSED}")
+                if (e.Error == null)
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "PUBLICVACATIONFORM")));
-                    InitParas();
+                    if (e.Result == "{SAVESUCCESSED}")
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "PUBLICVACATIONFORM")));
+                        InitParas();
+                    }
+                    else
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.TrimStart(new char[] { '{' }).TrimEnd(new char[] { '}' })));
+                    }
                 }
                 else
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.TrimStart(new char[] { '{' }).TrimEnd(new char[] { '}' })));
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
             }
-
-            RefreshUI(RefreshedTypes.All);
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
+            }
         }
 
         /// <summary>
@@ -1242,8 +1281,173 @@ namespace SMT.HRM.UI.Form.Attendance
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
             }
         }
+        #region 公共假期设置半天
+        private void checkHaftDay_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dgVacDayList.SelectedItem == null)
+                {
+                    return;
+                }
+                CheckBox ck = sender as CheckBox;
+                
+                DatePicker txtTFSubsidies = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
+                ComboBox ComboBoxHalfDay = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("comboHatfDay") as ComboBox;
+                NumericUpDown nudVacDays = dgVacDayList.Columns[5].GetCellContent(dgVacDayList.SelectedItem).FindName("nudVacDays") as NumericUpDown;
+            
+                if (ComboBoxHalfDay.SelectedIndex == -1)
+                {
+                    ComboBoxHalfDay.SelectedIndex = 0;
+                }
+               
+                if (ck.IsChecked.Value==true)
+                {
+                   if (txtTFSubsidies != null)
+                    {
+                        txtTFSubsidies.Visibility = Visibility.Collapsed;
+                    }
+                    if (ComboBoxHalfDay != null)
+                    {
+                        ComboBoxHalfDay.Visibility = Visibility.Visible;
+                    }
+                    if (nudVacDays != null)
+                    {
+                        nudVacDays.Value = 0.5;
+                    }
+                }
+                else
+                {
+                    if (txtTFSubsidies != null)
+                    {
+                        txtTFSubsidies.Visibility = Visibility.Visible;
+                    }
+                    if (ComboBoxHalfDay != null)
+                    {
+                        ComboBoxHalfDay.Visibility = Visibility.Collapsed;
+                    }
+                    CalculateDayCount(dgVacDayList);  
+                }
+                //设置值
+                T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+                if (entTemp == null)
+                {
+                    return;
+                }
+                ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgVacDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
+                foreach (T_HR_OUTPLANDAYS item in entTemps)
+                {
+                    if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
+                    {
+                        if (ck.IsChecked.Value == true)
+                        {
+                            item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                            if (ComboBoxHalfDay.SelectedIndex == 0)//上午
+                            {
+                                item.PEROID = "0";
+                            }
+                            else
+                            {
+                                item.PEROID = "1";
+                            }
+                        }
+                        else
+                        {
+                            item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
+            }
+        }
+        #endregion
 
+        #region "工作日设置半天"
+        private void workCheckHaftDay_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (dgWorkDayList.SelectedItem == null)
+                {
+                    return;
+                }
+                CheckBox ck = sender as CheckBox;
 
+                DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
+                ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("workComboHatfDay") as ComboBox;
+                NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(dgWorkDayList.SelectedItem).FindName("nudWorkDays") as NumericUpDown;
+             
+                if (workComboHatfDay.SelectedIndex == -1)
+                {
+                    workComboHatfDay.SelectedIndex = 0;
+                }
+                if (ck.IsChecked.Value)
+                {
+                    if (WorkdayEnddate != null)
+                    {
+                        WorkdayEnddate.Visibility = Visibility.Collapsed;
+                    }
+                    if (workComboHatfDay != null)
+                    {
+                        workComboHatfDay.Visibility = Visibility.Visible;
+                    }
+                    if (nudVacDays != null)
+                    {
+                        nudVacDays.Value = 0.5;
+                    }
+                }
+                else
+                {
+                    if (WorkdayEnddate != null)
+                    {
+                        WorkdayEnddate.Visibility = Visibility.Visible;
+                    }
+                    if (workComboHatfDay != null)
+                    {
+                        workComboHatfDay.Visibility = Visibility.Collapsed;
+                    }
+                    CalculateDayCount(dgWorkDayList);  
+                }
+
+                //设置值
+                T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+                if (entTemp == null)
+                {
+                    return;
+                }
+                ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgVacDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
+                foreach (T_HR_OUTPLANDAYS item in entTemps)
+                {
+                    if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
+                    {
+                        if (ck.IsChecked.Value == true)
+                        {
+                            item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                            if (workComboHatfDay.SelectedIndex == 0)//上午
+                            {
+                                item.PEROID = "0";
+                            }
+                            else
+                            {
+                                item.PEROID = "1";
+                            }
+                        }
+                        else
+                        {
+                            item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
+            }
+        }
+        #endregion
     }
 }
 

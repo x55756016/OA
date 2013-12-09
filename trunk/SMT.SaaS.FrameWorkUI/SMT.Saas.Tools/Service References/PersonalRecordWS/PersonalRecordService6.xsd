@@ -1,29 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EngineDataModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EngineDataModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="T_PF_PERSONALRECORD">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CONFIGINFO" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="ISFORWARD" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ISVIEW" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MODELDESCRIPTION" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MODELID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PERSONALRECORDID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SYSTYPE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="T_PF_PERSONALRECORD" nillable="true" type="tns:T_PF_PERSONALRECORD" />
-  <xs:complexType name="ArrayOfT_PF_PERSONALRECORD">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_PERSONALRECORD" nillable="true" type="tns:T_PF_PERSONALRECORD" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_PF_PERSONALRECORD" nillable="true" type="tns:ArrayOfT_PF_PERSONALRECORD" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+  <xs:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
+  <xs:element name="AddPersonalRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="model" nillable="true" type="q1:T_PF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPersonalRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPersonalRecordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPersonalRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="models" nillable="true" type="q2:ArrayOfT_PF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPersonalRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddPersonalRecordsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePersonalRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="model" nillable="true" type="q3:T_PF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePersonalRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePersonalRecordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCreateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetPersonalRecordResult" nillable="true" type="q4:ArrayOfT_PF_PERSONALRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePersonalRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_personalrecordID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePersonalRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeletePersonalRecordResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordModelByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_personalrecordID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordModelByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetPersonalRecordModelByIDResult" nillable="true" type="q5:T_PF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordModelByModelID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="_sysType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_modelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_modelID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="_IsForward" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordModelByModelIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetPersonalRecordModelByModelIDResult" nillable="true" type="q6:T_PF_PERSONALRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCreateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Isforward" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetPersonalRecordListResult" nillable="true" type="q7:ArrayOfT_PF_PERSONALRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordListNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Isforward" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalRecordListNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetPersonalRecordListNewResult" nillable="true" type="q8:ArrayOfT_PF_PERSONALRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCachePersonalRecordListNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" minOccurs="0" name="msgParams" nillable="true" type="q9:MsgParms" />
+        <xs:element minOccurs="0" name="IsAutofresh" type="xs:boolean" />
+        <xs:element minOccurs="0" name="HaveNewTask" type="xs:boolean" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="checkstate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Isforward" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCachePersonalRecordListNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/EngineDataModel" minOccurs="0" name="GetCachePersonalRecordListNewResult" nillable="true" type="q10:ArrayOfT_PF_PERSONALRECORD" />
+        <xs:element minOccurs="0" name="IsAutofresh" type="xs:boolean" />
+        <xs:element minOccurs="0" name="HaveNewTask" type="xs:boolean" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

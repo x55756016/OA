@@ -2779,6 +2779,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="DAYS" Type="number" />
     <Property Name="DAYTYPE" Type="nvarchar2" MaxLength="2" />
     <Property Name="ISADJUSTLEAVE" Type="nvarchar2" MaxLength="2" />
+    <Property Name="ISHALFDAY" Type="nvarchar2" MaxLength="100" />
+    <Property Name="PEROID" Type="nvarchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="T_HR_OVERTIMEREWARD">
     <Key>
@@ -7996,6 +7998,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="DAYS" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="DAYTYPE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
     <Property Name="ISADJUSTLEAVE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="ISHALFDAY" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="PEROID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_HR_VACATIONSET" Relationship="SMT_HRM_EFModel.FK_T_HR_OUT_REFERENCE_T_HR_VAC" FromRole="T_HR_OUTPLANDAYS" ToRole="T_HR_VACATIONSET" />
   </EntityType>
   <EntityType Name="T_HR_OVERTIMEREWARD">
@@ -11853,6 +11857,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
           <ScalarProperty Name="DAYS" ColumnName="DAYS" />
           <ScalarProperty Name="DAYTYPE" ColumnName="DAYTYPE" />
           <ScalarProperty Name="ISADJUSTLEAVE" ColumnName="ISADJUSTLEAVE" />
+          <ScalarProperty Name="ISHALFDAY" ColumnName="ISHALFDAY" />
+          <ScalarProperty Name="PEROID" ColumnName="PEROID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

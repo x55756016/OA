@@ -127,12 +127,6 @@
       <endpoint address="http://portal.smt-online.net/New/Services/PublicInterface/PublicService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
         contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
-      <endpoint address="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
-        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://172.16.1.57/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
-        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
       <endpoint address="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
         contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
@@ -145,9 +139,6 @@
       <endpoint address="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
         contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
-      <endpoint address="http://172.16.1.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
-        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
@@ -160,6 +151,15 @@
       <endpoint address="http://localhost:1604/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
+        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
+      <endpoint address="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
     </client>
 
   </system.serviceModel>

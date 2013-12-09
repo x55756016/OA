@@ -105,6 +105,7 @@ namespace SMT.HRM.BLL
 
             }
             IQueryable<V_LEFTOFFICEVIEW> ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEE").Include("T_HR_EMPLOYEEPOST.T_HR_POST")
+                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID 
                                                 join b in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on c.DIMISSIONID equals b.T_HR_LEFTOFFICE.DIMISSIONID into temp
                                                 from d in temp.DefaultIfEmpty()
                                                 select new V_LEFTOFFICEVIEW
@@ -126,8 +127,8 @@ namespace SMT.HRM.BLL
                                                     REMARK = c.REMARK,
                                                     LEFTOFFICEREASON = c.LEFTOFFICEREASON,
                                                     EMPLOYEEPOSTID = c.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID,
-                                                    POSTID = c.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID
-
+                                                    POSTID = c.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID,
+                                                    ENTRYDATE = v.ENTRYDATE
                                                 };
 
             if (!string.IsNullOrEmpty(filterString))

@@ -8847,9 +8847,13 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string ISADJUSTLEAVEField;
         
+        private string ISHALFDAYField;
+        
         private string OUTPLANDAYIDField;
         
         private string OUTPLANNAMEField;
+        
+        private string PEROIDField;
         
         private System.Nullable<System.DateTime> STARTDATEField;
         
@@ -8910,6 +8914,19 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISHALFDAY {
+            get {
+                return this.ISHALFDAYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISHALFDAYField, value) != true)) {
+                    this.ISHALFDAYField = value;
+                    this.RaisePropertyChanged("ISHALFDAY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string OUTPLANDAYID {
             get {
                 return this.OUTPLANDAYIDField;
@@ -8931,6 +8948,19 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((object.ReferenceEquals(this.OUTPLANNAMEField, value) != true)) {
                     this.OUTPLANNAMEField = value;
                     this.RaisePropertyChanged("OUTPLANNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PEROID {
+            get {
+                return this.PEROIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PEROIDField, value) != true)) {
+                    this.PEROIDField = value;
+                    this.RaisePropertyChanged("PEROID");
                 }
             }
         }
@@ -12579,6 +12609,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string CREATEUSERIDField;
         
+        private string DEPARTMENTNAMEField;
+        
         private string EMPLOYEECODEField;
         
         private string EMPLOYEEIDField;
@@ -12700,6 +12732,19 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
                     this.CREATEUSERIDField = value;
                     this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
                 }
             }
         }
@@ -13636,6 +13681,21 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="AttendanceWS.AttendanceService")]
     public interface AttendanceService {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse")]
+        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState);
+        
+        void EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostIDResponse")]
+        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState);
+        
+        void EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse")]
+        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState);
+        
+        void EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyIDResponse")]
         System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByCompanyID(string strCurDateMonth, string strCompanyID, System.AsyncCallback callback, object asyncState);
         
@@ -14375,6 +14435,222 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> EndEmployeeLeaveRecordPaging(ref int pageCount, System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/EmployeeLeaveRecordPaged", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordPagedResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_VACATIONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.UploadFileModel))]
+        System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> EndEmployeeLeaveRecordPaged(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/ExportEmployeeLeaveRecordReports", ReplyAction="urn:AttendanceService/ExportEmployeeLeaveRecordReportsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_VACATIONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.UploadFileModel))]
+        System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndExportEmployeeLeaveRecordReports(ref int pageCount, System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate", ReplyAction="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDateResponse")]
         System.IAsyncResult BeginGetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime, System.AsyncCallback callback, object asyncState);
         
@@ -14648,6 +14924,11 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         void EndImportAttendMonthlyBalanceFromCSV(ref string strMsg, System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShow", ReplyAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShowResponse")]
+        System.IAsyncResult BeginImportAttendMonthlyBalanceForShow(SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> EndImportAttendMonthlyBalanceForShow(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/AddAttendMonthlyBalance", ReplyAction="urn:AttendanceService/AddAttendMonthlyBalanceResponse")]
         System.IAsyncResult BeginAddAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState);
         
@@ -14667,21 +14948,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         System.IAsyncResult BeginCalculateEmployeeAttendanceMonthly(string strIsCurrentMonth, string strAssignedObjectType, string strAssignedObjectID, System.AsyncCallback callback, object asyncState);
         
         void EndCalculateEmployeeAttendanceMonthly(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse")]
-        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState);
-        
-        void EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostIDResponse")]
-        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState);
-        
-        void EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID", ReplyAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse")]
-        System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState);
-        
-        void EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/DoWork", ReplyAction="urn:AttendanceService/DoWorkResponse")]
         System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState);
@@ -17085,6 +17351,58 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeLeaveRecordPagedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeLeaveRecordPagedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ExportEmployeeLeaveRecordReportsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ExportEmployeeLeaveRecordReportsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GetRealLeaveDayByEmployeeIdAndDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -17704,6 +18022,25 @@ namespace SMT.Saas.Tools.AttendanceWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ImportAttendMonthlyBalanceForShowCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ImportAttendMonthlyBalanceForShowCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>)(this.results[0]));
             }
         }
     }
@@ -19444,6 +19781,24 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AttendanceServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.AttendanceWS.AttendanceService>, SMT.Saas.Tools.AttendanceWS.AttendanceService {
         
+        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate;
+        
+        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate;
+        
+        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate;
+        
+        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate;
+        
         private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByCompanyIDDelegate;
         
         private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByCompanyIDDelegate;
@@ -19960,6 +20315,18 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private System.Threading.SendOrPostCallback onEmployeeLeaveRecordPagingCompletedDelegate;
         
+        private BeginOperationDelegate onBeginEmployeeLeaveRecordPagedDelegate;
+        
+        private EndOperationDelegate onEndEmployeeLeaveRecordPagedDelegate;
+        
+        private System.Threading.SendOrPostCallback onEmployeeLeaveRecordPagedCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginExportEmployeeLeaveRecordReportsDelegate;
+        
+        private EndOperationDelegate onEndExportEmployeeLeaveRecordReportsDelegate;
+        
+        private System.Threading.SendOrPostCallback onExportEmployeeLeaveRecordReportsCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetRealLeaveDayByEmployeeIdAndDateDelegate;
         
         private EndOperationDelegate onEndGetRealLeaveDayByEmployeeIdAndDateDelegate;
@@ -20164,6 +20531,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private System.Threading.SendOrPostCallback onImportAttendMonthlyBalanceFromCSVCompletedDelegate;
         
+        private BeginOperationDelegate onBeginImportAttendMonthlyBalanceForShowDelegate;
+        
+        private EndOperationDelegate onEndImportAttendMonthlyBalanceForShowDelegate;
+        
+        private System.Threading.SendOrPostCallback onImportAttendMonthlyBalanceForShowCompletedDelegate;
+        
         private BeginOperationDelegate onBeginAddAttendMonthlyBalanceDelegate;
         
         private EndOperationDelegate onEndAddAttendMonthlyBalanceDelegate;
@@ -20187,24 +20560,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyDelegate;
         
         private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate;
-        
-        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate;
-        
-        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate;
-        
-        private EndOperationDelegate onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate;
         
         private BeginOperationDelegate onBeginDoWorkDelegate;
         
@@ -20768,6 +21123,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
             }
         }
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByPostIDCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByCompanyIDCompleted;
         
         public event System.EventHandler<GetAttendMonthlyBatchBalanceByIDCompletedEventArgs> GetAttendMonthlyBatchBalanceByIDCompleted;
@@ -20940,6 +21301,10 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         public event System.EventHandler<EmployeeLeaveRecordPagingCompletedEventArgs> EmployeeLeaveRecordPagingCompleted;
         
+        public event System.EventHandler<EmployeeLeaveRecordPagedCompletedEventArgs> EmployeeLeaveRecordPagedCompleted;
+        
+        public event System.EventHandler<ExportEmployeeLeaveRecordReportsCompletedEventArgs> ExportEmployeeLeaveRecordReportsCompleted;
+        
         public event System.EventHandler<GetRealLeaveDayByEmployeeIdAndDateCompletedEventArgs> GetRealLeaveDayByEmployeeIdAndDateCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeLeaveRecordAddCompleted;
@@ -21008,6 +21373,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         public event System.EventHandler<ImportAttendMonthlyBalanceFromCSVCompletedEventArgs> ImportAttendMonthlyBalanceFromCSVCompleted;
         
+        public event System.EventHandler<ImportAttendMonthlyBalanceForShowCompletedEventArgs> ImportAttendMonthlyBalanceForShowCompleted;
+        
         public event System.EventHandler<AddAttendMonthlyBalanceCompletedEventArgs> AddAttendMonthlyBalanceCompleted;
         
         public event System.EventHandler<ModifyAttendMonthlyBalanceCompletedEventArgs> ModifyAttendMonthlyBalanceCompleted;
@@ -21015,12 +21382,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         public event System.EventHandler<RemoveAttendMonthlyBalanceCompletedEventArgs> RemoveAttendMonthlyBalanceCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByPostIDCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DoWorkCompleted;
         
@@ -21195,6 +21556,147 @@ namespace SMT.Saas.Tools.AttendanceWS {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(strCurDateMonth, strEmployeeID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
+            base.Channel.EndCalculateEmployeeAttendanceMonthlyByEmployeeID(result);
+        }
+        
+        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strCurDateMonth = ((string)(inValues[0]));
+            string strEmployeeID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(strCurDateMonth, strEmployeeID, callback, asyncState);
+        }
+        
+        private object[] OnEndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByEmployeeID(result);
+            return null;
+        }
+        
+        private void OnCalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted(object state) {
+            if ((this.CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(string strCurDateMonth, string strEmployeeID) {
+            this.CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(strCurDateMonth, strEmployeeID, null);
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(string strCurDateMonth, string strEmployeeID, object userState) {
+            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate == null)) {
+                this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByEmployeeID);
+            }
+            if ((this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate == null)) {
+                this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByEmployeeID);
+            }
+            if ((this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate == null)) {
+                this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate, new object[] {
+                        strCurDateMonth,
+                        strEmployeeID}, this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByPostID(strCurDateMonth, strPostID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
+            base.Channel.EndCalculateEmployeeAttendanceMonthlyByPostID(result);
+        }
+        
+        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByPostID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strCurDateMonth = ((string)(inValues[0]));
+            string strPostID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByPostID(strCurDateMonth, strPostID, callback, asyncState);
+        }
+        
+        private object[] OnEndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByPostID(result);
+            return null;
+        }
+        
+        private void OnCalculateEmployeeAttendanceMonthlyByPostIDCompleted(object state) {
+            if ((this.CalculateEmployeeAttendanceMonthlyByPostIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CalculateEmployeeAttendanceMonthlyByPostIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByPostIDAsync(string strCurDateMonth, string strPostID) {
+            this.CalculateEmployeeAttendanceMonthlyByPostIDAsync(strCurDateMonth, strPostID, null);
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByPostIDAsync(string strCurDateMonth, string strPostID, object userState) {
+            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate == null)) {
+                this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByPostID);
+            }
+            if ((this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate == null)) {
+                this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByPostID);
+            }
+            if ((this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate == null)) {
+                this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByPostIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate, new object[] {
+                        strCurDateMonth,
+                        strPostID}, this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(strCurDateMonth, strDepartmentID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
+            base.Channel.EndCalculateEmployeeAttendanceMonthlyByDepartmentID(result);
+        }
+        
+        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByDepartmentID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strCurDateMonth = ((string)(inValues[0]));
+            string strDepartmentID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(strCurDateMonth, strDepartmentID, callback, asyncState);
+        }
+        
+        private object[] OnEndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByDepartmentID(result);
+            return null;
+        }
+        
+        private void OnCalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted(object state) {
+            if ((this.CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(string strCurDateMonth, string strDepartmentID) {
+            this.CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(strCurDateMonth, strDepartmentID, null);
+        }
+        
+        public void CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(string strCurDateMonth, string strDepartmentID, object userState) {
+            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate == null)) {
+                this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByDepartmentID);
+            }
+            if ((this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate == null)) {
+                this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByDepartmentID);
+            }
+            if ((this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate == null)) {
+                this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate, new object[] {
+                        strCurDateMonth,
+                        strDepartmentID}, this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByCompanyID(string strCurDateMonth, string strCompanyID, System.AsyncCallback callback, object asyncState) {
@@ -25436,6 +25938,138 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeLeaveRecordPaged(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndEmployeeLeaveRecordPaged(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginEmployeeLeaveRecordPaged(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string strCheckState = ((string)(inValues[6]));
+            string strOwnerID = ((string)(inValues[7]));
+            string startDate = ((string)(inValues[8]));
+            string recorderDate = ((string)(inValues[9]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        }
+        
+        private object[] OnEndEmployeeLeaveRecordPaged(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeLeaveRecordPaged(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnEmployeeLeaveRecordPagedCompleted(object state) {
+            if ((this.EmployeeLeaveRecordPagedCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.EmployeeLeaveRecordPagedCompleted(this, new EmployeeLeaveRecordPagedCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate) {
+            this.EmployeeLeaveRecordPagedAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, null);
+        }
+        
+        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, object userState) {
+            if ((this.onBeginEmployeeLeaveRecordPagedDelegate == null)) {
+                this.onBeginEmployeeLeaveRecordPagedDelegate = new BeginOperationDelegate(this.OnBeginEmployeeLeaveRecordPaged);
+            }
+            if ((this.onEndEmployeeLeaveRecordPagedDelegate == null)) {
+                this.onEndEmployeeLeaveRecordPagedDelegate = new EndOperationDelegate(this.OnEndEmployeeLeaveRecordPaged);
+            }
+            if ((this.onEmployeeLeaveRecordPagedCompletedDelegate == null)) {
+                this.onEmployeeLeaveRecordPagedCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeLeaveRecordPagedCompleted);
+            }
+            base.InvokeAsync(this.onBeginEmployeeLeaveRecordPagedDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        strCheckState,
+                        strOwnerID,
+                        startDate,
+                        recorderDate}, this.onEndEmployeeLeaveRecordPagedDelegate, this.onEmployeeLeaveRecordPagedCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        byte[] SMT.Saas.Tools.AttendanceWS.AttendanceService.EndExportEmployeeLeaveRecordReports(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndExportEmployeeLeaveRecordReports(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginExportEmployeeLeaveRecordReports(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string strCheckState = ((string)(inValues[6]));
+            string strOwnerID = ((string)(inValues[7]));
+            string startDate = ((string)(inValues[8]));
+            string recorderDate = ((string)(inValues[9]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        }
+        
+        private object[] OnEndExportEmployeeLeaveRecordReports(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            byte[] retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndExportEmployeeLeaveRecordReports(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnExportEmployeeLeaveRecordReportsCompleted(object state) {
+            if ((this.ExportEmployeeLeaveRecordReportsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ExportEmployeeLeaveRecordReportsCompleted(this, new ExportEmployeeLeaveRecordReportsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate) {
+            this.ExportEmployeeLeaveRecordReportsAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, null);
+        }
+        
+        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, object userState) {
+            if ((this.onBeginExportEmployeeLeaveRecordReportsDelegate == null)) {
+                this.onBeginExportEmployeeLeaveRecordReportsDelegate = new BeginOperationDelegate(this.OnBeginExportEmployeeLeaveRecordReports);
+            }
+            if ((this.onEndExportEmployeeLeaveRecordReportsDelegate == null)) {
+                this.onEndExportEmployeeLeaveRecordReportsDelegate = new EndOperationDelegate(this.OnEndExportEmployeeLeaveRecordReports);
+            }
+            if ((this.onExportEmployeeLeaveRecordReportsCompletedDelegate == null)) {
+                this.onExportEmployeeLeaveRecordReportsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnExportEmployeeLeaveRecordReportsCompleted);
+            }
+            base.InvokeAsync(this.onBeginExportEmployeeLeaveRecordReportsDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        strCheckState,
+                        strOwnerID,
+                        startDate,
+                        recorderDate}, this.onEndExportEmployeeLeaveRecordReportsDelegate, this.onExportEmployeeLeaveRecordReportsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginGetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetRealLeaveDayByEmployeeIdAndDate(strLeaveRecordId, strEmployeeID, dtLeaveStartTime, dtLeaveEndTime, ref dLeaveDay, ref dLeaveTime, ref dLeaveTotalTime, callback, asyncState);
         }
@@ -27240,6 +27874,52 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginImportAttendMonthlyBalanceForShow(SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginImportAttendMonthlyBalanceForShow(UploadFile, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> SMT.Saas.Tools.AttendanceWS.AttendanceService.EndImportAttendMonthlyBalanceForShow(System.IAsyncResult result) {
+            return base.Channel.EndImportAttendMonthlyBalanceForShow(result);
+        }
+        
+        private System.IAsyncResult OnBeginImportAttendMonthlyBalanceForShow(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile = ((SMT.Saas.Tools.AttendanceWS.UploadFileModel)(inValues[0]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginImportAttendMonthlyBalanceForShow(UploadFile, callback, asyncState);
+        }
+        
+        private object[] OnEndImportAttendMonthlyBalanceForShow(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndImportAttendMonthlyBalanceForShow(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnImportAttendMonthlyBalanceForShowCompleted(object state) {
+            if ((this.ImportAttendMonthlyBalanceForShowCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ImportAttendMonthlyBalanceForShowCompleted(this, new ImportAttendMonthlyBalanceForShowCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ImportAttendMonthlyBalanceForShowAsync(SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile) {
+            this.ImportAttendMonthlyBalanceForShowAsync(UploadFile, null);
+        }
+        
+        public void ImportAttendMonthlyBalanceForShowAsync(SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile, object userState) {
+            if ((this.onBeginImportAttendMonthlyBalanceForShowDelegate == null)) {
+                this.onBeginImportAttendMonthlyBalanceForShowDelegate = new BeginOperationDelegate(this.OnBeginImportAttendMonthlyBalanceForShow);
+            }
+            if ((this.onEndImportAttendMonthlyBalanceForShowDelegate == null)) {
+                this.onEndImportAttendMonthlyBalanceForShowDelegate = new EndOperationDelegate(this.OnEndImportAttendMonthlyBalanceForShow);
+            }
+            if ((this.onImportAttendMonthlyBalanceForShowCompletedDelegate == null)) {
+                this.onImportAttendMonthlyBalanceForShowCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnImportAttendMonthlyBalanceForShowCompleted);
+            }
+            base.InvokeAsync(this.onBeginImportAttendMonthlyBalanceForShowDelegate, new object[] {
+                        UploadFile}, this.onEndImportAttendMonthlyBalanceForShowDelegate, this.onImportAttendMonthlyBalanceForShowCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginAddAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginAddAttendMonthlyBalance(entTemp, callback, asyncState);
         }
@@ -27424,147 +28104,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
                         strIsCurrentMonth,
                         strAssignedObjectType,
                         strAssignedObjectID}, this.onEndCalculateEmployeeAttendanceMonthlyDelegate, this.onCalculateEmployeeAttendanceMonthlyCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(strCurDateMonth, strEmployeeID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
-            base.Channel.EndCalculateEmployeeAttendanceMonthlyByEmployeeID(result);
-        }
-        
-        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string strCurDateMonth = ((string)(inValues[0]));
-            string strEmployeeID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(strCurDateMonth, strEmployeeID, callback, asyncState);
-        }
-        
-        private object[] OnEndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByEmployeeID(result);
-            return null;
-        }
-        
-        private void OnCalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted(object state) {
-            if ((this.CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(string strCurDateMonth, string strEmployeeID) {
-            this.CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(strCurDateMonth, strEmployeeID, null);
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByEmployeeIDAsync(string strCurDateMonth, string strEmployeeID, object userState) {
-            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate == null)) {
-                this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByEmployeeID);
-            }
-            if ((this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate == null)) {
-                this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByEmployeeID);
-            }
-            if ((this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate == null)) {
-                this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByEmployeeIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate, new object[] {
-                        strCurDateMonth,
-                        strEmployeeID}, this.onEndCalculateEmployeeAttendanceMonthlyByEmployeeIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByEmployeeIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByPostID(strCurDateMonth, strPostID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
-            base.Channel.EndCalculateEmployeeAttendanceMonthlyByPostID(result);
-        }
-        
-        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByPostID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string strCurDateMonth = ((string)(inValues[0]));
-            string strPostID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByPostID(strCurDateMonth, strPostID, callback, asyncState);
-        }
-        
-        private object[] OnEndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByPostID(result);
-            return null;
-        }
-        
-        private void OnCalculateEmployeeAttendanceMonthlyByPostIDCompleted(object state) {
-            if ((this.CalculateEmployeeAttendanceMonthlyByPostIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CalculateEmployeeAttendanceMonthlyByPostIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByPostIDAsync(string strCurDateMonth, string strPostID) {
-            this.CalculateEmployeeAttendanceMonthlyByPostIDAsync(strCurDateMonth, strPostID, null);
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByPostIDAsync(string strCurDateMonth, string strPostID, object userState) {
-            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate == null)) {
-                this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByPostID);
-            }
-            if ((this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate == null)) {
-                this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByPostID);
-            }
-            if ((this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate == null)) {
-                this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByPostIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByPostIDDelegate, new object[] {
-                        strCurDateMonth,
-                        strPostID}, this.onEndCalculateEmployeeAttendanceMonthlyByPostIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByPostIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(strCurDateMonth, strDepartmentID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
-            base.Channel.EndCalculateEmployeeAttendanceMonthlyByDepartmentID(result);
-        }
-        
-        private System.IAsyncResult OnBeginCalculateEmployeeAttendanceMonthlyByDepartmentID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string strCurDateMonth = ((string)(inValues[0]));
-            string strDepartmentID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(strCurDateMonth, strDepartmentID, callback, asyncState);
-        }
-        
-        private object[] OnEndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndCalculateEmployeeAttendanceMonthlyByDepartmentID(result);
-            return null;
-        }
-        
-        private void OnCalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted(object state) {
-            if ((this.CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(string strCurDateMonth, string strDepartmentID) {
-            this.CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(strCurDateMonth, strDepartmentID, null);
-        }
-        
-        public void CalculateEmployeeAttendanceMonthlyByDepartmentIDAsync(string strCurDateMonth, string strDepartmentID, object userState) {
-            if ((this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate == null)) {
-                this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate = new BeginOperationDelegate(this.OnBeginCalculateEmployeeAttendanceMonthlyByDepartmentID);
-            }
-            if ((this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate == null)) {
-                this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate = new EndOperationDelegate(this.OnEndCalculateEmployeeAttendanceMonthlyByDepartmentID);
-            }
-            if ((this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate == null)) {
-                this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCalculateEmployeeAttendanceMonthlyByDepartmentIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate, new object[] {
-                        strCurDateMonth,
-                        strDepartmentID}, this.onEndCalculateEmployeeAttendanceMonthlyByDepartmentIDDelegate, this.onCalculateEmployeeAttendanceMonthlyByDepartmentIDCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -31839,6 +32378,45 @@ namespace SMT.Saas.Tools.AttendanceWS {
                     base(client) {
             }
             
+            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = strCurDateMonth;
+                _args[1] = strEmployeeID;
+                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByEmployeeID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByEmployeeID", _args, result);
+            }
+            
+            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = strCurDateMonth;
+                _args[1] = strPostID;
+                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByPostID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByPostID", _args, result);
+            }
+            
+            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = strCurDateMonth;
+                _args[1] = strDepartmentID;
+                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByDepartmentID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByDepartmentID", _args, result);
+            }
+            
             public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByCompanyID(string strCurDateMonth, string strCompanyID, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = strCurDateMonth;
@@ -33127,6 +33705,56 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 return _result;
             }
             
+            public System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[10];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = strCheckState;
+                _args[7] = strOwnerID;
+                _args[8] = startDate;
+                _args[9] = recorderDate;
+                System.IAsyncResult _result = base.BeginInvoke("EmployeeLeaveRecordPaged", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> EndEmployeeLeaveRecordPaged(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>)(base.EndInvoke("EmployeeLeaveRecordPaged", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[10];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = strCheckState;
+                _args[7] = strOwnerID;
+                _args[8] = startDate;
+                _args[9] = recorderDate;
+                System.IAsyncResult _result = base.BeginInvoke("ExportEmployeeLeaveRecordReports", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public byte[] EndExportEmployeeLeaveRecordReports(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                byte[] _result = ((byte[])(base.EndInvoke("ExportEmployeeLeaveRecordReports", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginGetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[7];
                 _args[0] = strLeaveRecordId;
@@ -33722,6 +34350,19 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 strMsg = ((string)(_args[0]));
             }
             
+            public System.IAsyncResult BeginImportAttendMonthlyBalanceForShow(SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = UploadFile;
+                System.IAsyncResult _result = base.BeginInvoke("ImportAttendMonthlyBalanceForShow", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> EndImportAttendMonthlyBalanceForShow(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>)(base.EndInvoke("ImportAttendMonthlyBalanceForShow", _args, result)));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginAddAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entTemp;
@@ -33773,45 +34414,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
             public void EndCalculateEmployeeAttendanceMonthly(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("CalculateEmployeeAttendanceMonthly", _args, result);
-            }
-            
-            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByEmployeeID(string strCurDateMonth, string strEmployeeID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = strCurDateMonth;
-                _args[1] = strEmployeeID;
-                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByEmployeeID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndCalculateEmployeeAttendanceMonthlyByEmployeeID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByEmployeeID", _args, result);
-            }
-            
-            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByPostID(string strCurDateMonth, string strPostID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = strCurDateMonth;
-                _args[1] = strPostID;
-                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByPostID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndCalculateEmployeeAttendanceMonthlyByPostID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByPostID", _args, result);
-            }
-            
-            public System.IAsyncResult BeginCalculateEmployeeAttendanceMonthlyByDepartmentID(string strCurDateMonth, string strDepartmentID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = strCurDateMonth;
-                _args[1] = strDepartmentID;
-                System.IAsyncResult _result = base.BeginInvoke("CalculateEmployeeAttendanceMonthlyByDepartmentID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndCalculateEmployeeAttendanceMonthlyByDepartmentID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("CalculateEmployeeAttendanceMonthlyByDepartmentID", _args, result);
             }
             
             public System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState) {

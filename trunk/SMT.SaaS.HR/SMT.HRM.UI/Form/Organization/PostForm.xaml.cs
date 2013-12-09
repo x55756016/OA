@@ -354,13 +354,17 @@ namespace SMT.HRM.UI.Form
                         rbtNoCore.IsChecked = false;
                     }
                     //是否为撤销，2为撤销中，3为已撤销
-                    if (Post.EDITSTATE == "3" || Post.EDITSTATE == "2")
+                    //if (Post.EDITSTATE == "3" || Post.EDITSTATE == "2")
+                    //{
+                    //    this.rbtYesCancel.IsChecked = true;
+                    //}
+                    //else
+                    //{
+                    //    this.rbtNoCancel.IsChecked = true;
+                    //}
+                    if (Post.EDITSTATE=="2")
                     {
-                        this.rbtYesCancel.IsChecked = true;
-                    }
-                    else
-                    {
-                        this.rbtNoCancel.IsChecked = true;
+                        this.tbTip.Visibility = Visibility.Visible;
                     }
                     //显示岗位的公司
                     lkCompany.DataContext = Post.T_HR_DEPARTMENT.T_HR_COMPANY;

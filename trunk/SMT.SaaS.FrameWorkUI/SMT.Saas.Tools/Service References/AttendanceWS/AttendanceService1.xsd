@@ -67,6 +67,7 @@
       <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />

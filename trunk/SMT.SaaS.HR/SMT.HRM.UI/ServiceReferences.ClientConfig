@@ -97,6 +97,9 @@
       <endpoint address="http://localhost:12168/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
+      <!--<endpoint address="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />-->       
       <endpoint address="http://portal.smt-online.net/New/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Bc6+sExZuJZ1v+nWYf5S63obzMA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NFP8YYriGDQOw2Y3LqPKwN9R2mQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="customBinding" name="WSHttpBinding_IEngineWcfGlobalFunction">
       <properties>
@@ -66,6 +66,9 @@
         <property path="/httpTransport/allowCookies" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>False</serializedValue>
         </property>
+        <property path="/httpTransport/requestInitializationTimeout" isComplexType="false" isExplicitlyDefined="false" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>00:00:00</serializedValue>
+        </property>
         <property path="/httpTransport/authenticationScheme" isComplexType="false" isExplicitlyDefined="false" clrType="System.Net.AuthenticationSchemes, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Anonymous</serializedValue>
         </property>
@@ -83,6 +86,18 @@
         </property>
         <property path="/httpTransport/maxBufferSize" isComplexType="false" isExplicitlyDefined="true" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>2147483647</serializedValue>
+        </property>
+        <property path="/httpTransport/maxPendingAccepts" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
+        <property path="/httpTransport/messageHandlerFactory" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.HttpMessageHandlerFactoryElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.HttpMessageHandlerFactoryElement</serializedValue>
+        </property>
+        <property path="/httpTransport/messageHandlerFactory/handlers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.DelegatingHandlerElementCollection, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>(集合)</serializedValue>
+        </property>
+        <property path="/httpTransport/messageHandlerFactory/type" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
         </property>
         <property path="/httpTransport/proxyAddress" isComplexType="false" isExplicitlyDefined="false" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -114,14 +129,35 @@
         <property path="/httpTransport/extendedProtectionPolicy/customServiceNames" isComplexType="true" isExplicitlyDefined="false" clrType="System.Security.Authentication.ExtendedProtection.Configuration.ServiceNameElementCollection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>(集合)</serializedValue>
         </property>
+        <property path="/httpTransport/webSocketSettings" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.WebSocketTransportSettingsElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>System.ServiceModel.Configuration.WebSocketTransportSettingsElement</serializedValue>
+        </property>
+        <property path="/httpTransport/webSocketSettings/transportUsage" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.Channels.WebSocketTransportUsage, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>Never</serializedValue>
+        </property>
+        <property path="/httpTransport/webSocketSettings/createNotificationOnConnection" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
+        </property>
+        <property path="/httpTransport/webSocketSettings/keepAliveInterval" isComplexType="false" isExplicitlyDefined="false" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>00:00:00</serializedValue>
+        </property>
+        <property path="/httpTransport/webSocketSettings/subProtocol" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue />
+        </property>
+        <property path="/httpTransport/webSocketSettings/disablePayloadMasking" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
+        </property>
+        <property path="/httpTransport/webSocketSettings/maxPendingConnections" isComplexType="false" isExplicitlyDefined="false" clrType="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>0</serializedValue>
+        </property>
       </properties>
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://172.16.1.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
+    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://172.16.1.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
+          <serializedValue>http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

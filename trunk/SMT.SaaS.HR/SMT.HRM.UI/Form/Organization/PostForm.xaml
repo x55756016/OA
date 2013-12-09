@@ -226,7 +226,7 @@
                       GroupName="rbtYNCore"  
                       Style="{StaticResource RadioButtonStyle}"/>
         <!--row11是否为撤销操作-->
-        <TextBlock Text="是否撤销岗位" Grid.Row="11" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+        <!--<TextBlock Text="是否撤销岗位" Grid.Row="11" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
         <RadioButton   Grid.Row="11" 
                        Grid.Column="1" 
                        Margin="5 8 0 2" 
@@ -245,7 +245,7 @@
                       IsEnabled="False"
                       IsChecked="True" 
                       GroupName="rbtYNCancel"  
-                      Style="{StaticResource RadioButtonStyle}"/>
-
+                      Style="{StaticResource RadioButtonStyle}"/>-->
+        <TextBlock Text="该岗位为撤销申请" Grid.Row="11" Grid.Column="1"  FontSize="20" Visibility="Collapsed" Foreground="Red" Name="tbTip"></TextBlock>
     </Grid>
 </smtLocal:BaseForm>

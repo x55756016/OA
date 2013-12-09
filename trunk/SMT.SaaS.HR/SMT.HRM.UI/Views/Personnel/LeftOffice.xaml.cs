@@ -427,7 +427,7 @@ namespace SMT.HRM.UI.Views.Personnel
             SetRowLogo(DtGrid, e.Row, "T_HR_LEFTOFFICE");
             V_LEFTOFFICEVIEW view = e.Row.DataContext as V_LEFTOFFICEVIEW;
             //ImageButton ReportButton = DtGrid.Columns[6].GetCellContent(e.Row).FindName("ReportBtn") as ImageButton;
-            Button ReportButton = DtGrid.Columns[7].GetCellContent(e.Row).FindName("ReportBtn") as Button;
+            Button ReportButton = DtGrid.Columns[8].GetCellContent(e.Row).FindName("ReportBtn") as Button;
             ReportButton.IsEnabled = false;
             int ISCONFIRMED = Convert.ToInt32(view.ISCONFIRMED);
             if (ISCONFIRMED < 0)

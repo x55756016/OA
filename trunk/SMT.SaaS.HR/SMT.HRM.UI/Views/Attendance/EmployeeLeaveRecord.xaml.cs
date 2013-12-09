@@ -19,6 +19,7 @@ using System.Collections.ObjectModel;
 using SMT.SAAS.Main.CurrentContext;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
+using System.IO;
 
 namespace SMT.HRM.UI.Views.Attendance
 {
@@ -28,6 +29,8 @@ namespace SMT.HRM.UI.Views.Attendance
         public string Checkstate { get; set; }
         AttendanceServiceClient client = new AttendanceServiceClient();
         private SMTLoading loadbar = new SMTLoading();
+        private SaveFileDialog dialog = new SaveFileDialog();
+        private bool? result;
         //请假类型
         public string strleaveType { get; set; }
         #endregion
@@ -58,9 +61,10 @@ namespace SMT.HRM.UI.Views.Attendance
             nuYear.Value = DateTime.Now.Year;
             nuMonth.Value = DateTime.Now.Month;
             endYear.Value = DateTime.Now.Year;
-            client.EmployeeLeaveRecordPagingCompleted += new EventHandler<EmployeeLeaveRecordPagingCompletedEventArgs>(client_EmployeeLeaveRecordPagingCompleted);
+            //client.EmployeeLeaveRecordPagingCompleted += new EventHandler<EmployeeLeaveRecordPagingCompletedEventArgs>(client_EmployeeLeaveRecordPagingCompleted);
             client.EmployeeLeaveRecordDeleteCompleted += new EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs>(client_EmployeeLeaveRecordDeleteCompleted);
-
+            client.EmployeeLeaveRecordPagedCompleted += new EventHandler<EmployeeLeaveRecordPagedCompletedEventArgs>(client_EmployeeLeaveRecordPagedCompleted);
+            client.ExportEmployeeLeaveRecordReportsCompleted += new EventHandler<ExportEmployeeLeaveRecordReportsCompletedEventArgs>(client_ExportEmployeeLeaveRecordReportsCompleted);
             toolbar1.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             toolbar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             toolbar1.btnEdit.Click += new RoutedEventHandler(btnEdit_Click);
@@ -72,6 +76,58 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
             toolbar1.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
         }
+        /// <summary>
+        /// 导出事件
+        /// </summary>
+        /// <param name="sender">发送事件对象</param>
+        /// <param name="e">发送者</param>
+        void client_ExportEmployeeLeaveRecordReportsCompleted(object sender, ExportEmployeeLeaveRecordReportsCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (result == true)
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                        using (Stream stream = dialog.OpenFile())
+                        {
+                            stream.Write(e.Result, 0, e.Result.Length);
+                        }
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                }
+            }
+        }
+
+        void client_EmployeeLeaveRecordPagedCompleted(object sender, EmployeeLeaveRecordPagedCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                List<V_EmpLeaveRdInfo> list = new List<V_EmpLeaveRdInfo>();
+                if (e.Result != null)
+                {
+                    list = e.Result.ToList();
+                }
+                dgEmpLeaveRdList.ItemsSource = list;
+
+                dataPager.PageCount = e.pageCount;
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+
+            loadbar.Stop();
+        }
 
         /// <summary>
         /// 导出
@@ -80,7 +136,95 @@ namespace SMT.HRM.UI.Views.Attendance
         /// <param name="e"></param>
         void btnOutExcel_Click(object sender, RoutedEventArgs e)
         {
-            ExportToCSV.ExportDataGridSaveAs(dgEmpLeaveRdList);
+            //ExportToCSV.ExportDataGridSaveAs(dgEmpLeaveRdList);
+            dialog.DefaultExt = ".xls";
+            dialog.Filter = "MS Excel Files|*.xls";
+            dialog.FilterIndex = 1;
+
+            result = dialog.ShowDialog();
+            if (result.Value == true)
+            {
+                int pageCount = 0;
+                string filter = "";
+
+                //string filter2 = "";
+                System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
+                string startDate = string.Empty, recorderDate = string.Empty;//起始时间和结束时间
+                if (lkEmpName.DataContext != null)
+                {
+                    SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE ent = lkEmpName.DataContext as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
+
+                    if (!string.IsNullOrEmpty(ent.EMPLOYEEID))
+                    {
+                        if (!string.IsNullOrEmpty(filter))
+                        {
+                            filter += " and ";
+                        }
+                        filter += "EMPLOYEEID==@" + paras.Count().ToString();
+                        paras.Add(ent.EMPLOYEEID);
+                    }
+                }
+
+                if (this.lkLeaveTypeName.DataContext != null)
+                {
+                    T_HR_LEAVETYPESET entLeaveType = this.lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
+
+                    if (!string.IsNullOrEmpty(entLeaveType.LEAVETYPESETID))
+                    {
+                        if (!string.IsNullOrEmpty(filter))
+                        {
+                            filter += " and ";
+                        }
+                        filter += "T_HR_LEAVETYPESET.LEAVETYPESETID==@" + paras.Count().ToString();
+                        paras.Add(entLeaveType.LEAVETYPESETID);
+                    }
+                }
+
+                startDate = nuYear.Value.ToString() + "-" + startMonth.Value.ToString() + "-1";
+                recorderDate = endYear.Value.ToString() + "-" + (nuMonth.Value + 1).ToString() + "-1";
+                if (nuMonth.Value == 12)
+                {
+                    recorderDate = (endYear.Value + 1).ToString() + "-1-1";
+                }
+                if (DateTime.Parse(startDate) <= DateTime.Parse("1900-1-1"))
+                {
+                    startDate = string.Empty;
+                }
+                if (DateTime.Parse(recorderDate) <= DateTime.Parse("1900-1-1"))
+                {
+                    recorderDate = string.Empty;
+                }
+                //起始时间
+                if (!string.IsNullOrEmpty(startDate))
+                {
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        filter += " and ";
+                    }
+                    filter += "STARTDATETIME>=@" + paras.Count().ToString();
+                    paras.Add(Convert.ToDateTime(startDate));
+                }
+                //结束时间
+                if (!string.IsNullOrEmpty(recorderDate))
+                {
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        filter += " and ";
+                    }
+                    filter += "ENDDATETIME<@" + paras.Count().ToString();
+                    paras.Add(Convert.ToDateTime(recorderDate));
+                }
+
+                if (toolbar1.cbxCheckState.SelectedItem != null)
+                {
+                    T_SYS_DICTIONARY entDic = toolbar1.cbxCheckState.SelectedItem as T_SYS_DICTIONARY;
+                    Checkstate = entDic.DICTIONARYVALUE.ToString();
+                }
+                dataPager.PageSize = int.MaxValue;
+                client.ExportEmployeeLeaveRecordReportsAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate);
+
+                loadbar.Start();
+            }
         }
 
         /// <summary>
@@ -170,20 +314,15 @@ namespace SMT.HRM.UI.Views.Attendance
                 paras.Add(Convert.ToDateTime(recorderDate));
             }
 
-           
-
             if (toolbar1.cbxCheckState.SelectedItem != null)
             {
                 T_SYS_DICTIONARY entDic = toolbar1.cbxCheckState.SelectedItem as T_SYS_DICTIONARY;
                 Checkstate = entDic.DICTIONARYVALUE.ToString();
             }
 
-            client.EmployeeLeaveRecordPagingAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, recorderDate);
+            client.EmployeeLeaveRecordPagedAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID,startDate,recorderDate);
             loadbar.Start();
         }
-
-        /// <summary>
-        /// 提交子窗口的表单后，回刷父页面
         /// </summary>
         void browser_ReloadDataEvent()
         {

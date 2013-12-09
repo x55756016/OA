@@ -25,5 +25,6 @@ namespace SMT.HRM.CustomModel
         public string EMPLOYEEPOSTID { get; set; }
         public string CREATEUSERID { get; set; }
         public string POSTID { get; set; }
+        public DateTime? ENTRYDATE { get; set; }  
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd0" />
@@ -12,6 +12,18 @@
       <xsd:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractEngineXml" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeContractEngineXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAlarm_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAlarm" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_EmployeeContractAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeContractAlarmResponse" />
+  </wsdl:message>
   <wsdl:message name="PersonnelService_AssessmentFormMasterAdd_InputMessage">
     <wsdl:part name="parameters" element="AssessmentFormMasterAdd" />
   </wsdl:message>
@@ -251,6 +263,18 @@
   </wsdl:message>
   <wsdl:message name="PersonnelService_ExportEmployeeTructReports_OutputMessage">
     <wsdl:part name="parameters" element="ExportEmployeeTructReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterAdd_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterAdd" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PensionMasterUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_PensionMasterUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PensionMasterUpdateResponse" />
   </wsdl:message>
   <wsdl:message name="PersonnelService_PensionMasterDelete_InputMessage">
     <wsdl:part name="parameters" element="PensionMasterDelete" />
@@ -750,18 +774,6 @@
   <wsdl:message name="PersonnelService_GetEmployeeContractByEmployeeID_OutputMessage">
     <wsdl:part name="parameters" element="GetEmployeeContractByEmployeeIDResponse" />
   </wsdl:message>
-  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeContractEngineXml" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_GetEmployeeContractEngineXml_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeContractEngineXmlResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_EmployeeContractAlarm_InputMessage">
-    <wsdl:part name="parameters" element="EmployeeContractAlarm" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_EmployeeContractAlarm_OutputMessage">
-    <wsdl:part name="parameters" element="EmployeeContractAlarmResponse" />
-  </wsdl:message>
   <wsdl:message name="PersonnelService_DoWork_InputMessage">
     <wsdl:part name="parameters" element="DoWork" />
   </wsdl:message>
@@ -1007,6 +1019,18 @@
   </wsdl:message>
   <wsdl:message name="PersonnelService_GetEmployeeByNumberID_OutputMessage">
     <wsdl:part name="parameters" element="GetEmployeeByNumberIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByFingerPrintID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByFingerPrintID" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeByFingerPrintID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeByFingerPrintIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeOrgByEmployeeid_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeOrgByEmployeeid" />
+  </wsdl:message>
+  <wsdl:message name="PersonnelService_GetEmployeeOrgByEmployeeid_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeOrgByEmployeeidResponse" />
   </wsdl:message>
   <wsdl:message name="PersonnelService_IsExistFingerPrintID_InputMessage">
     <wsdl:part name="parameters" element="IsExistFingerPrintID" />
@@ -1260,19 +1284,15 @@
   <wsdl:message name="PersonnelService_PensionMaterToEmployee_OutputMessage">
     <wsdl:part name="parameters" element="PensionMaterToEmployeeResponse" />
   </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterAdd_InputMessage">
-    <wsdl:part name="parameters" element="PensionMasterAdd" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterAdd_OutputMessage">
-    <wsdl:part name="parameters" element="PensionMasterAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterUpdate_InputMessage">
-    <wsdl:part name="parameters" element="PensionMasterUpdate" />
-  </wsdl:message>
-  <wsdl:message name="PersonnelService_PensionMasterUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="PensionMasterUpdateResponse" />
-  </wsdl:message>
   <wsdl:portType name="PersonnelService">
+    <wsdl:operation name="GetEmployeeContractEngineXml">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXml" message="PersonnelService_GetEmployeeContractEngineXml_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXmlResponse" message="PersonnelService_GetEmployeeContractEngineXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeContractAlarm">
+      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractAlarm" message="PersonnelService_EmployeeContractAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractAlarmResponse" message="PersonnelService_EmployeeContractAlarm_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AssessmentFormMasterAdd">
       <wsdl:input wsaw:Action="urn:PersonnelService/AssessmentFormMasterAdd" message="PersonnelService_AssessmentFormMasterAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/AssessmentFormMasterAddResponse" message="PersonnelService_AssessmentFormMasterAdd_OutputMessage" />
@@ -1432,6 +1452,14 @@
     <wsdl:operation name="ExportEmployeeTructReports">
       <wsdl:input wsaw:Action="urn:PersonnelService/ExportEmployeeTructReports" message="PersonnelService_ExportEmployeeTructReports_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/ExportEmployeeTructReportsResponse" message="PersonnelService_ExportEmployeeTructReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterAdd">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterAdd" message="PersonnelService_PensionMasterAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterAddResponse" message="PersonnelService_PensionMasterAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PensionMasterUpdate">
+      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterUpdate" message="PersonnelService_PensionMasterUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterUpdateResponse" message="PersonnelService_PensionMasterUpdate_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PensionMasterDelete">
       <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterDelete" message="PersonnelService_PensionMasterDelete_InputMessage" />
@@ -1765,14 +1793,6 @@
       <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractByEmployeeID" message="PersonnelService_GetEmployeeContractByEmployeeID_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractByEmployeeIDResponse" message="PersonnelService_GetEmployeeContractByEmployeeID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeContractEngineXml">
-      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXml" message="PersonnelService_GetEmployeeContractEngineXml_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeContractEngineXmlResponse" message="PersonnelService_GetEmployeeContractEngineXml_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeContractAlarm">
-      <wsdl:input wsaw:Action="urn:PersonnelService/EmployeeContractAlarm" message="PersonnelService_EmployeeContractAlarm_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/EmployeeContractAlarmResponse" message="PersonnelService_EmployeeContractAlarm_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="urn:PersonnelService/DoWork" message="PersonnelService_DoWork_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/DoWorkResponse" message="PersonnelService_DoWork_OutputMessage" />
@@ -1936,6 +1956,14 @@
     <wsdl:operation name="GetEmployeeByNumberID">
       <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByNumberID" message="PersonnelService_GetEmployeeByNumberID_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByNumberIDResponse" message="PersonnelService_GetEmployeeByNumberID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByFingerPrintID">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeByFingerPrintID" message="PersonnelService_GetEmployeeByFingerPrintID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeByFingerPrintIDResponse" message="PersonnelService_GetEmployeeByFingerPrintID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeOrgByEmployeeid">
+      <wsdl:input wsaw:Action="urn:PersonnelService/GetEmployeeOrgByEmployeeid" message="PersonnelService_GetEmployeeOrgByEmployeeid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:PersonnelService/GetEmployeeOrgByEmployeeidResponse" message="PersonnelService_GetEmployeeOrgByEmployeeid_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="IsExistFingerPrintID">
       <wsdl:input wsaw:Action="urn:PersonnelService/IsExistFingerPrintID" message="PersonnelService_IsExistFingerPrintID_InputMessage" />
@@ -2104,14 +2132,6 @@
     <wsdl:operation name="PensionMaterToEmployee">
       <wsdl:input wsaw:Action="urn:PersonnelService/PensionMaterToEmployee" message="PersonnelService_PensionMaterToEmployee_InputMessage" />
       <wsdl:output wsaw:Action="urn:PersonnelService/PensionMaterToEmployeeResponse" message="PersonnelService_PensionMaterToEmployee_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PensionMasterAdd">
-      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterAdd" message="PersonnelService_PensionMasterAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterAddResponse" message="PersonnelService_PensionMasterAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PensionMasterUpdate">
-      <wsdl:input wsaw:Action="urn:PersonnelService/PensionMasterUpdate" message="PersonnelService_PensionMasterUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:PersonnelService/PensionMasterUpdateResponse" message="PersonnelService_PensionMasterUpdate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

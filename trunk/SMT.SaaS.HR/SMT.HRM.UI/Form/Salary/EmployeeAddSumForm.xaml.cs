@@ -133,11 +133,14 @@ namespace SMT.HRM.UI.Form.Salary
                         combProtectType.SelectedItem = item;
                     }
                 }
+                //PROJECTNAME传递的是员工全名
+                EmployeeAddSumView.PROJECTNAME = EmployeeAddSumView.EMPLOYEENAME + "-" + EmployeeAddSumView.DepartmentName + "-" + EmployeeAddSumView.CompanyName;
                 EmployeeAddsumInfoList.Add(EmployeeAddSumView);
                 initAddSum();
                 DtGrid.ItemsSource = EmployeeAddsumInfoList;
                 RefreshUI(RefreshedTypes.AuditInfo);
                 SetToolBar();
+                SetProjectMoneySum();
             }
         }
 
@@ -228,6 +231,7 @@ namespace SMT.HRM.UI.Form.Salary
         //    }
         //}
 
+
         private void initAddSum()
         {
             EmployeeAddSum = new T_HR_EMPLOYEEADDSUM();
@@ -248,7 +252,8 @@ namespace SMT.HRM.UI.Form.Salary
             EmployeeAddSum.OWNERPOSTID = EmployeeAddSumView.OWNERPOSTID;
             EmployeeAddSum.OWNERID = EmployeeAddSumView.OWNERID;
             EmployeeAddSum.PROJECTMONEY = EmployeeAddSumView.PROJECTMONEY;
-            EmployeeAddSum.PROJECTNAME = EmployeeAddSumView.PROJECTNAME;
+            //去掉PROJECTNAME，先用该字段显示员工姓名（形式：姓名-部门-公司）
+            EmployeeAddSum.PROJECTNAME = EmployeeAddSumView.EMPLOYEENAME + "-" + EmployeeAddSumView.DepartmentName + "-" + EmployeeAddSumView.CompanyName;
             //加扣款类型，this.DataContext绑定的值为EmployeeAddSum不是EmployeeAddSumView，所以EmployeeAddSumView值不会改变
             EmployeeAddSumView.SYSTEMTYPE = Convert.ToString(combProtectType.SelectedIndex);
             EmployeeAddSum.SYSTEMTYPE = EmployeeAddSumView.SYSTEMTYPE;
@@ -380,7 +385,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYVALUE.ToString() : "0", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYNAME : ""));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEEID", Info.EMPLOYEEID, Info.EMPLOYEEID));
-            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME, ownerCompanyName + "-" + ownerDepartmentName + "-" + ownerPostName+"-" + Info.EMPLOYEENAME));
+            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME, ownerCompanyName + "-" + ownerDepartmentName + "-" + ownerPostName + "-" + Info.EMPLOYEENAME));
 
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
@@ -488,6 +493,10 @@ namespace SMT.HRM.UI.Form.Salary
             return state;
         }
         #endregion
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <returns>保存结果</returns>
         public bool Save()
         {
             RefreshUI(RefreshedTypes.ProgressBar);
@@ -517,11 +526,11 @@ namespace SMT.HRM.UI.Form.Salary
                 {
                     if (admSum.PROJECTMONEY == 0 || isZore())
                     {
-                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("输入的金额不能为0"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("输入的金额不能为0"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         RefreshUI(RefreshedTypes.ProgressBar);
                         return false;
                     }
-                    if(admSum.PROJECTMONEY == null)
+                    if (admSum.PROJECTMONEY == null)
                     {
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("请输入正确的金额"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         RefreshUI(RefreshedTypes.ProgressBar);
@@ -530,7 +539,7 @@ namespace SMT.HRM.UI.Form.Salary
 
 
                     T_HR_EMPLOYEEADDSUM EmployeeAddSumNew = new T_HR_EMPLOYEEADDSUM();
-                    EmployeeAddSumNew.PROJECTNAME = admSum.PROJECTNAME;
+                    //EmployeeAddSumNew.PROJECTNAME = admSum.PROJECTNAME;
                     EmployeeAddSumNew.PROJECTMONEY = admSum.PROJECTMONEY;
                     EmployeeAddSumNew.SYSTEMTYPE = combProtectType.SelectedIndex.ToString();
                     EmployeeAddSumNew.DEALYEAR = numYear.Value.ToString();
@@ -655,11 +664,13 @@ namespace SMT.HRM.UI.Form.Salary
                     addSumInfo.OWNERCOMPANYID = corpid;
                     addSumInfo.OWNERDEPARTMENTID = deptid;
                     addSumInfo.OWNERPOSTID = postid;
-
+                    //PROJECTNAME用于显示员工全名
+                    addSumInfo.PROJECTNAME = temp.EMPLOYEECNAME + "-" + depName + "-" + companyName;
                     EmployeeAddsumInfoList.Add(addSumInfo);
                 }
 
                 DtGrid.ItemsSource = EmployeeAddsumInfoList;
+                SetProjectMoneySum();
             };
 
             lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
@@ -715,10 +726,12 @@ namespace SMT.HRM.UI.Form.Salary
                         addSumInfo.OWNERCOMPANYID = ent.OWNERCOMPANYID;
                         addSumInfo.OWNERDEPARTMENTID = ent.OWNERDEPARTMENTID;
                         addSumInfo.OWNERPOSTID = ent.OWNERPOSTID;
-
+                        //去掉PROJECTNAME，先用该字段显示员工姓名（形式：姓名-部门-公司）
+                        addSumInfo.PROJECTNAME = ent.EMPLOYEENAME + "-" + ent.DepartmentName + "-" + ent.CompanyName;
                         EmployeeAddsumInfoList.Add(addSumInfo);
                     }
                     DtGrid.ItemsSource = EmployeeAddsumInfoList;
+                    SetProjectMoneySum();
                 }
             };
             //  form.MinWidth = 450;
@@ -762,10 +775,10 @@ namespace SMT.HRM.UI.Form.Salary
             }
         }
 
-      /// <summary>
-      /// 2012-9-10
-      /// 项目金额判断，只有数字才能输入,判断写得不好，可以改正
-      /// </summary>
+        /// <summary>
+        /// 2012-9-10
+        /// 项目金额判断，只有数字才能输入,判断写得不好，可以改正
+        /// </summary>
         //string param = "";
         //private void txtProjectMoney_TextChanged(object sender, TextChangedEventArgs e)
         //{
@@ -828,16 +841,16 @@ namespace SMT.HRM.UI.Form.Salary
         //    }
         //}
 
-      
 
-      /// <summary>
-      /// 2012-9-22
-      /// 当离开文本框且什么都没输入时，向param存入inputIsNull
-      /// 然后在保存时判断,貌似没用..只能判断一次，再想办法
-      /// 修改2012-12-6，以前不行，注释掉
-      /// </summary>
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
+
+        /// <summary>
+        /// 2012-9-22
+        /// 当离开文本框且什么都没输入时，向param存入inputIsNull
+        /// 然后在保存时判断,貌似没用..只能判断一次，再想办法
+        /// 修改2012-12-6，以前不行，注释掉
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtProjectMoney_LostFocus(object sender, RoutedEventArgs e)
         {
             //TextBox txt = sender as TextBox;
@@ -854,7 +867,10 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 txt.Text = "0";
             }
+            LostFocusProjectMoneySum();
         }
+
+
 
         /// <summary>
         /// 比较传入的值是不是数字
@@ -873,6 +889,11 @@ namespace SMT.HRM.UI.Form.Salary
             return flag;
         }
 
+
+        /// <summary>
+        /// 判断是否为0
+        /// </summary>
+        /// <returns>判断是否为0</returns>
         private bool isZore()
         {
             bool flag = false;
@@ -887,7 +908,40 @@ namespace SMT.HRM.UI.Form.Salary
             }
             return flag;
         }
-       
+
+
+
+        /// <summary>
+        /// 计算项目金额总和
+        /// </summary>
+        private void SetProjectMoneySum()
+        {
+            //计算汇总金额
+            decimal sumMoney = 0;
+            
+            foreach (var obj in DtGrid.ItemsSource)
+            {
+                var addsumView = obj as V_EmployeeAddsumView;
+                sumMoney += addsumView.PROJECTMONEY == null ? 0 : addsumView.PROJECTMONEY.Value;
+            }
+            txtProjectMoneySum.Text = sumMoney.ToString();
+        }
+
+        /// <summary>
+        /// 计算项目金额总和
+        /// </summary>
+        private void LostFocusProjectMoneySum()
+        {
+            //计算汇总金额
+            decimal sumMoney = 0;
+
+            foreach (var obj in DtGrid.ItemsSource)
+            {
+                TextBox txtMoney = DtGrid.Columns[6].GetCellContent(obj).FindName("txtProjectMoney") as TextBox;
+                sumMoney += Decimal.Parse(txtMoney.Text);
+            }
+            txtProjectMoneySum.Text = sumMoney.ToString();
+        }
     }
 
 }

@@ -22,9 +22,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="32"></RowDefinition>
             <RowDefinition Height="26"></RowDefinition>
+            <!--<RowDefinition Height="32"></RowDefinition>-->
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-
         </Grid.RowDefinitions>
         <validator:ValidatorManager x:Name="Group1"></validator:ValidatorManager>
 
@@ -50,21 +51,18 @@
         <appCtr:DictionaryComboBox Grid.Row="0" Margin="5 0 0 0" IsShowNull="False" Grid.Column="4"  Height="22" x:Name="combProtectType"  Width="Auto"
                 Category="PROTECTTYPE"  SelectedValue="{Binding SYSTEMTYPE, Mode=TwoWay}" HorizontalAlignment="Stretch" ></appCtr:DictionaryComboBox>
 
-        <!--Row 2-->
-        <!--DEALYEAR-->
-        <TextBlock   Grid.Column="0" Grid.Row="1"  
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEALYEAR}" />
-
-        <inputToolkit:NumericUpDown Name="numYear" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Maximum="1000000"  Grid.Row="1" Grid.Column="1" Value="{Binding DEALYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="True" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
-
-        <!--DEALMONTH-->
-        <TextBlock  Grid.Row="1" Grid.Column="3" 
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEALMONTH}" />
-
-        <inputToolkit:NumericUpDown Name="numMonth" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch"  Minimum="1" Maximum="12" Grid.Row="1" Grid.Column="4" Value="{Binding DEALMONTH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
+        <!--薪资年月-->
+        <TextBlock   Grid.Column="0" Grid.Row="1" Text="薪资年月" />
+        <inputToolkit:NumericUpDown Name="numYear" Style="{StaticResource NumericUpDownStyle}" Width="100" HorizontalAlignment="Left" Maximum="1000000"  Grid.Row="1" Grid.Column="1" Value="{Binding DEALYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="True" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
+        <TextBlock   Grid.Column="1" Grid.Row="1" Text="年" Margin="110 8 0 0"/>
+        <inputToolkit:NumericUpDown Name="numMonth" Style="{StaticResource NumericUpDownStyle}" Width="50" HorizontalAlignment="Left"  Minimum="1" Maximum="12" Grid.Row="1" Grid.Column="1" Value="{Binding DEALMONTH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="130,0,0,0"></inputToolkit:NumericUpDown>
+        <TextBlock   Grid.Column="1" Grid.Row="1" Text="月" Margin="185 8 0 0" />
+        <!--摘要-->
+        <!--<TextBlock  Grid.Row="2" Grid.Column="0" Margin="0 12 0 0" Text="摘    要" />
+        <TextBox x:Name="tbRemark"  Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="4" Margin="5 5 0 0" Height="22"  MaxLength="200"/>-->
         <!--addsumList-->
         <data:DataGrid x:Name="DtGrid" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" AutoGenerateColumns="False"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource DataGridStyle}"
-              LoadingRow="DtGrid_LoadingRow"                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"    >
+              LoadingRow="DtGrid_LoadingRow"        CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"   Margin="0 10 0 0" >
             <data:DataGrid.Columns>
                 <data:DataGridTemplateColumn Header="序号" IsReadOnly="True" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="30">
                     <data:DataGridTemplateColumn.CellTemplate>
@@ -76,32 +74,19 @@
                         </DataTemplate>
                     </data:DataGridTemplateColumn.CellTemplate>
                 </data:DataGridTemplateColumn>
-                <data:DataGridTextColumn Header="COMPANYNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CompanyName}" IsReadOnly="True"/>
-                <data:DataGridTextColumn Header="DEPARTMENTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DepartmentName}" IsReadOnly="True"/>
-                <data:DataGridTextColumn Header="POSTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PostName}" IsReadOnly="True"/>
-                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}" IsReadOnly="True"/>
-                <data:DataGridTemplateColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="120">
+                <data:DataGridTextColumn Header="COMPANYNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CompanyName}" IsReadOnly="True"  Visibility="Collapsed"/>
+                <data:DataGridTextColumn Header="DEPARTMENTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DepartmentName}" IsReadOnly="True"  Visibility="Collapsed"/>
+                <data:DataGridTextColumn Header="POSTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PostName}" IsReadOnly="True"  Visibility="Collapsed"/>
+                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}" IsReadOnly="True" Visibility="Collapsed"/>
+                <!--PROJECTNAME-->
+                <data:DataGridTextColumn Header="员工姓名"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}" IsReadOnly="True" Width="250" />
+                <data:DataGridTemplateColumn Header="金额" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="150">
                     <data:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName"  HorizontalAlignment="Stretch" Width="120" AcceptsReturn="True"
-            					HorizontalScrollBarVisibility="Disabled" TextWrapping="Wrap" Text="{Binding PROJECTNAME, Mode=TwoWay}" MaxLength="50" >
-                                </TextBox>
-                            </StackPanel>
-                        </DataTemplate>
-                    </data:DataGridTemplateColumn.CellTemplate>
-                </data:DataGridTemplateColumn>
-                <data:DataGridTemplateColumn Header="PROJECTMONEY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="90">
-                    <data:DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtProjectMoney"  HorizontalAlignment="Stretch" Width="90" MaxLength="15"
+                                <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtProjectMoney"  HorizontalAlignment="Stretch" Width="150" MaxLength="15"
             					Text="{Binding PROJECTMONEY, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" 
                                           LostFocus="txtProjectMoney_LostFocus" >
-                                    <!--<validator:ValidatorService.Validator>
-                                        <validator:RegexValidator ManagerName="Group1" ErrorMessage="FORMATERRORS" ErrorMessageParameter="ACCOMMODATION"
-				                                                      Expression="^[0-9]+(.[0-9]{1,3})?$"></validator:RegexValidator>
-                                    </validator:ValidatorService.Validator>-->
                                 </TextBox>
                             </StackPanel>
                         </DataTemplate>
@@ -129,7 +114,8 @@
                 </data:DataGridTemplateColumn>
             </data:DataGrid.Columns>
         </data:DataGrid>
-        <TextBox x:Name="txtErrorMsg" TextWrapping="Wrap" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" Visibility="Collapsed"/>
-
+        <TextBlock Margin="5,0,0,-5"  Grid.Row="3" Grid.Column="0"   Height="22" Text="金额总计" />
+        <TextBox x:Name="txtProjectMoneySum" IsReadOnly="True" Margin="5 0 0 5" Grid.Row="3" Grid.Column="1" Height="22"/>
+        <TextBox x:Name="txtErrorMsg" TextWrapping="Wrap" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" MaxLength="500" Height="Auto" Width="Auto"  Margin="5,0,0,0" Visibility="Collapsed"/>
     </Grid>
 </smtLocal:BaseForm>

@@ -17,7 +17,7 @@ namespace SMT.HRM.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public partial class OutAppliecrecordService 
     {
-        #region T_HR_OUTAPPLYRECORD 员工外出申请服务
+        #region T_HR_OUTAPPLYRECORD 员工外出申请服务n
         /// <summary>
         /// 用于实体Grid中显示数据的分页查询,获取所有的出差记录信息
         /// </summary>

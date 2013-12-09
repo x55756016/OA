@@ -2364,6 +2364,58 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
+        /// 用于实体Grid中显示数据的分页查询
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">所有者</param>
+        /// <param name="startDate">开始日期</param>
+        /// <param name="recorderDate">截止日期</param>
+        /// <returns>查询结果集</returns>
+        [OperationContract]
+        public List<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        {
+            using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
+            {
+                var ents = bll.EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+
+                if (ents == null)
+                {
+                    return null;
+                }
+
+                return ents.ToList();
+            }
+        }
+        /// <summary>
+        /// 导出考勤报表
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">所有者</param>
+        /// <param name="startDate">开始日期</param>
+        /// <param name="recorderDate">截止日期</param>
+        /// <returns>查询结果集</returns>
+        [OperationContract]
+        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        {
+            using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
+            {
+                return bll.ExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+
+            }
+        }
+        /// <summary>
         /// 获取指定员工的实际请假天数(实际请假天数=请假天数-公休假天数-每周休息天数)，实际请假时长(按小时计，实际请假合计时长=非整天请假时长-当日作息间隙休息时间+整天请假时长)
         /// </summary>
         /// <param name="strLeaveRecordId">当前请假记录的ID</param>
@@ -3001,6 +3053,23 @@ namespace SMT.HRM.Services
             using (AttendMonthlyBalanceBLL bllAttendMonthlyBalance = new AttendMonthlyBalanceBLL())
             {
                 bllAttendMonthlyBalance.ImportMonthlyBalance(strCreateUserID, strPhysicalPath, strUnitType, strUnitObjectId, dBalanceYear, dBalanceMonth, ref strMsg);
+            }
+        }
+
+        /// <summary>
+        /// 导入Excel,并绑定DtGrid
+        /// </summary>
+        /// <param name="UploadFile"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_HR_ATTENDMONTHLYBALANCE> ImportAttendMonthlyBalanceForShow(UploadFileModel UploadFile)
+        {
+            string strPath = string.Empty;
+            SaveFile(UploadFile, out strPath);
+            string strPhysicalPath = HttpContext.Current.Server.MapPath(strPath);
+            using (AttendMonthlyBalanceBLL bllAttendMonthlyBalance = new AttendMonthlyBalanceBLL())
+            {
+                return bllAttendMonthlyBalance.ImportMonthlyBalanceForShow(strPhysicalPath);
             }
         }
 

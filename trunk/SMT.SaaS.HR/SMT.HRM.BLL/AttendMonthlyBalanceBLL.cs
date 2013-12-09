@@ -670,6 +670,74 @@ namespace SMT.HRM.BLL
             }
         }
 
+        /// <summary>
+        /// 从Excel读取数据
+        /// </summary>
+        /// <param name="strPhysicalPath"></param>
+        /// <returns></returns>
+        public List<T_HR_ATTENDMONTHLYBALANCE> ImportMonthlyBalanceForShow(string strPhysicalPath)
+        {
+            Microsoft.VisualBasic.FileIO.TextFieldParser TF = new Microsoft.VisualBasic.FileIO.TextFieldParser(strPhysicalPath, Encoding.GetEncoding("GB2312"));
+            List<T_HR_ATTENDMONTHLYBALANCE> balanceList = new List<T_HR_ATTENDMONTHLYBALANCE>();
+            TF.Delimiters = new string[] { "," }; //设置分隔符
+            string[] strLine;
+            while (!TF.EndOfData)
+            {
+                try
+                {
+                    strLine = TF.ReadFields();
+                    string strFingerPrintId = strLine[0];
+                    decimal dWorkServiceMonths = 0; //在职总月份数
+
+                    T_HR_ATTENDMONTHLYBALANCE entTemp = new T_HR_ATTENDMONTHLYBALANCE();
+                    entTemp.EMPLOYEECODE = strLine[0];
+                    entTemp.EMPLOYEENAME = strLine[1];
+                    entTemp.NEEDATTENDDAYS = GetDecimalValue(strLine[2]);
+                    entTemp.REALATTENDDAYS = GetDecimalValue(strLine[3]);
+
+                    entTemp.WORKSERVICEMONTHS = dWorkServiceMonths;
+
+                    entTemp.FORGETCARDTIMES = GetDecimalValue(strLine[4]);
+                    entTemp.LATETIMES = GetDecimalValue(strLine[5]);
+                    entTemp.LEAVEEARLYTIMES = GetDecimalValue(strLine[6]);
+
+                    entTemp.LATEDAYS = GetDecimalValue(strLine[5]);
+                    entTemp.LEAVEEARLYDAYS = GetDecimalValue(strLine[6]);
+                    entTemp.ABSENTDAYS = GetDecimalValue(strLine[7]);
+
+                    entTemp.AFFAIRLEAVEDAYS = GetDecimalValue(strLine[8]);
+                    entTemp.SICKLEAVEDAYS = GetDecimalValue(strLine[9]);
+                    entTemp.ANNUALLEVELDAYS = GetDecimalValue(strLine[10]);
+                    entTemp.LEAVEUSEDDAYS = GetDecimalValue(strLine[11]);
+                    entTemp.MARRYDAYS = GetDecimalValue(strLine[12]);
+                    entTemp.MATERNITYLEAVEDAYS = GetDecimalValue(strLine[13]);
+                    entTemp.NURSESDAYS = GetDecimalValue(strLine[14]);
+                    entTemp.FUNERALLEAVEDAYS = GetDecimalValue(strLine[15]);
+                    entTemp.TRIPDAYS = GetDecimalValue(strLine[16]);
+                    entTemp.INJURYLEAVEDAYS = GetDecimalValue(strLine[17]);
+                    entTemp.PRENATALCARELEAVEDAYS = GetDecimalValue(strLine[18]);
+                    entTemp.OTHERLEAVEDAYS = entTemp.AFFAIRLEAVEDAYS + entTemp.SICKLEAVEDAYS + entTemp.ANNUALLEVELDAYS + entTemp.LEAVEUSEDDAYS
+                        + entTemp.MARRYDAYS + entTemp.MATERNITYLEAVEDAYS + entTemp.NURSESDAYS + entTemp.FUNERALLEAVEDAYS + entTemp.TRIPDAYS
+                        + entTemp.INJURYLEAVEDAYS + entTemp.PRENATALCARELEAVEDAYS;
+
+                    entTemp.EVECTIONTIME = GetDecimalValue(strLine[19]);
+                    entTemp.OVERTIMETIMES = GetDecimalValue(strLine[20]);
+                    entTemp.OVERTIMESUMHOURS = GetDecimalValue(strLine[21]);
+                    entTemp.OVERTIMESUMDAYS = GetDecimalValue(strLine[22]);
+
+                    entTemp.REMARK = strLine[23];
+
+                    balanceList.Add(entTemp);
+                }
+                catch (Exception ex)
+                {
+                    Utility.SaveLog(ex.ToString());
+                }
+            }
+            TF.Close();
+            return balanceList;
+        }
+
 
         /// <summary>
         /// 判断员工在该月是否已经有审核中的月度考勤
@@ -2823,33 +2891,37 @@ namespace SMT.HRM.BLL
                 {
                     return;
                 }
-
-                decimal? dCurEvecDays = entAttRdTemps.Count();
-
-                IQueryable<T_HR_EMPLOYEEEVECTIONRECORD> entEvecRds = from n in dal.GetObjects<T_HR_EMPLOYEEEVECTIONRECORD>()
-                                                                     where n.EMPLOYEEID == strEmployeeID 
-                                                                     && n.STARTDATE>=dtStart
-                                                                     && n.ENDDATE <=dtEnd
-                                                                     select n;
-
-                if (entEvecRds.Count() == 0)
+                else
                 {
-                    return;
+                    dEvectionTime = entAttRdTemps.Count();
                 }
-                List<string> startDayList = new List<string>();
-                foreach (T_HR_EMPLOYEEEVECTIONRECORD item in entEvecRds)
-                {
-                    string starDay=item.STARTDATE.Value.ToString("yyyy-MM-dd");
-                    if (startDayList.Contains(starDay))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        dEvectionTime += item.TOTALDAYS;
-                        startDayList.Add(starDay);
-                    }
-                }
+
+                //decimal? dCurEvecDays = entAttRdTemps.Count();
+
+                //IQueryable<T_HR_EMPLOYEEEVECTIONRECORD> entEvecRds = from n in dal.GetObjects<T_HR_EMPLOYEEEVECTIONRECORD>()
+                //                                                     where n.EMPLOYEEID == strEmployeeID 
+                //                                                     && n.STARTDATE>=dtStart
+                //                                                     && n.ENDDATE <=dtEnd
+                //                                                     select n;
+
+                //if (entEvecRds.Count() == 0)
+                //{
+                //    return;
+                //}
+                //List<string> startDayList = new List<string>();
+                //foreach (T_HR_EMPLOYEEEVECTIONRECORD item in entEvecRds)
+                //{
+                //    string starDay=item.STARTDATE.Value.ToString("yyyy-MM-dd");
+                //    if (startDayList.Contains(starDay))
+                //    {
+                //        continue;
+                //    }
+                //    else
+                //    {
+                //        dEvectionTime += item.TOTALDAYS;
+                //        startDayList.Add(starDay);
+                //    }
+                //}
             }
             catch (Exception ex)
             {

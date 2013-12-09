@@ -84,6 +84,7 @@
                     </data:DataGridTemplateColumn>
                     <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding EMPLOYEECODE}"/>
                     <data:DataGridTextColumn Header="EMPLOYEENAME" Binding="{Binding EMPLOYEENAME}"/>
+                    <data:DataGridTextColumn Header="DEPARTMENTNAME" Binding="{Binding DEPARTMENTNAME}"/>
                     <data:DataGridTextColumn Header="LEAVETYPESET" Binding="{Binding LEAVETYPENAME}"/>
                     <data:DataGridTextColumn Header="STARTDATETIME" Binding="{Binding STARTDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>
                     <data:DataGridTextColumn Header="ENDDATETIME" Binding="{Binding ENDDATETIME, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"/>

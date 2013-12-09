@@ -59,6 +59,7 @@
                     <data:DataGridTextColumn Header="EMPLOYEECODE" Binding="{Binding EMPLOYEECODE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="EMPLOYEECNAME" Binding="{Binding EMPLOYEECNAME}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="LEFTOFFICECATEGORY" Binding="{Binding LEFTOFFICECATEGORY, Converter={StaticResource DictionaryConverter},ConverterParameter=LEFTOFFICECATEGORY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="ENTRYDATE" Binding="{Binding ENTRYDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="LEFTOFFICEDATE" Binding="{Binding LEFTOFFICEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="APPLYDATE" Binding="{Binding APPLYDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <!--<data:DataGridTextColumn Header="LEFTOFFICEREASON" Binding="{Binding LEFTOFFICEREASON}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->

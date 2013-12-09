@@ -35,6 +35,9 @@ namespace SMT.HRM.CustomModel
 
         public string OWNERDEPARTMENTID { get; set; }
 
+        public string DEPARTMENTNAME { get; set; }
+
+
         public string OWNERID { get; set; }
 
         public string OWNERPOSTID { get; set; }

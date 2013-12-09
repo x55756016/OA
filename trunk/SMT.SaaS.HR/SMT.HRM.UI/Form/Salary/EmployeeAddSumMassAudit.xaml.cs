@@ -340,6 +340,7 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 listDetail = e.Result.ToList();
                 dgMassAuditList.ItemsSource = e.Result;
+                SetProjectMoneySum();
                 dataPager.PageCount = e.pageCount;
                 if (e.UserState != null)
                 {
@@ -707,6 +708,21 @@ namespace SMT.HRM.UI.Form.Salary
         private void lkAssignObject_FindClick(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 计算项目金额总和
+        /// </summary>
+        private void SetProjectMoneySum()
+        {
+            //计算汇总金额
+            decimal sumMoney = 0;
+            foreach (var obj in dgMassAuditList.ItemsSource)
+            {
+                var addsumView = obj as T_HR_EMPLOYEEADDSUM;
+                sumMoney += addsumView.PROJECTMONEY == null ? 0 : addsumView.PROJECTMONEY.Value;
+            }
+            txtProjectMoneySum.Text = sumMoney.ToString();
         }
     }
 }

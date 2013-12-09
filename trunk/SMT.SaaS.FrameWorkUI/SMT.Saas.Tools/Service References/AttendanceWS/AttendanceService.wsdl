@@ -13,6 +13,24 @@
       <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage">
+    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_InputMessage">
     <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByCompanyID" />
   </wsdl:message>
@@ -529,6 +547,18 @@
   <wsdl:message name="AttendanceService_EmployeeLeaveRecordPaging_OutputMessage">
     <wsdl:part name="parameters" element="EmployeeLeaveRecordPagingResponse" />
   </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordPaged_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordPaged" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeLeaveRecordPaged_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeLeaveRecordPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ExportEmployeeLeaveRecordReports_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeLeaveRecordReports" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ExportEmployeeLeaveRecordReports_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeLeaveRecordReportsResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_InputMessage">
     <wsdl:part name="parameters" element="GetRealLeaveDayByEmployeeIdAndDate" />
   </wsdl:message>
@@ -733,6 +763,12 @@
   <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage">
     <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSVResponse" />
   </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShow" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShowResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_InputMessage">
     <wsdl:part name="parameters" element="AddAttendMonthlyBalance" />
   </wsdl:message>
@@ -756,24 +792,6 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthly_OutputMessage">
     <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByPostIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage">
-    <wsdl:part name="parameters" element="CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_DoWork_InputMessage">
     <wsdl:part name="parameters" element="DoWork" />
@@ -1286,6 +1304,18 @@
     <wsdl:part name="parameters" element="RemoveAttendanceSolutionDeductResponse" />
   </wsdl:message>
   <wsdl:portType name="AttendanceService">
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
       <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByCompanyID_OutputMessage" />
@@ -1630,6 +1660,14 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPaging" message="AttendanceService_EmployeeLeaveRecordPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPagingResponse" message="AttendanceService_EmployeeLeaveRecordPaging_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordPaged">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPaged" message="AttendanceService_EmployeeLeaveRecordPaged_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeLeaveRecordPagedResponse" message="AttendanceService_EmployeeLeaveRecordPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveRecordReports">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ExportEmployeeLeaveRecordReports" message="AttendanceService_ExportEmployeeLeaveRecordReports_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ExportEmployeeLeaveRecordReportsResponse" message="AttendanceService_ExportEmployeeLeaveRecordReports_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetRealLeaveDayByEmployeeIdAndDate">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate" message="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDateResponse" message="AttendanceService_GetRealLeaveDayByEmployeeIdAndDate_OutputMessage" />
@@ -1766,6 +1804,10 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSVResponse" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" message="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShowResponse" message="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddAttendMonthlyBalance">
       <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalance" message="AttendanceService_AddAttendMonthlyBalance_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalanceResponse" message="AttendanceService_AddAttendMonthlyBalance_OutputMessage" />
@@ -1781,18 +1823,6 @@
     <wsdl:operation name="CalculateEmployeeAttendanceMonthly">
       <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthly" message="AttendanceService_CalculateEmployeeAttendanceMonthly_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthly_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByEmployeeID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByPostID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse" message="AttendanceService_CalculateEmployeeAttendanceMonthlyByDepartmentID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="urn:AttendanceService/DoWork" message="AttendanceService_DoWork_InputMessage" />

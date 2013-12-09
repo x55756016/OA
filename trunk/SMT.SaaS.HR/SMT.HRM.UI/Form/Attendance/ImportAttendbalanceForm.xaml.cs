@@ -16,11 +16,21 @@ using System.ServiceModel;
 using System.IO;
 using SMT.SaaS.FrameworkUI;
 using SMT.Saas.Tools.PermissionWS;
+using System.Net.Browser;
+using System.Threading;
+using System.Windows.Browser;
+using SMT.SaaS.FrameworkUI.ChildWidow;
+using System.Collections.ObjectModel;
+
 
 namespace SMT.HRM.UI.Form.Attendance
 {
     public partial class ImportAttendbalanceForm : BaseForm, IEntityEditor
     {
+        public delegate void SaveFileHandler(int bytesRead, byte[] buffer);
+        public delegate void UploadFileHandler(int bytesRead);
+        ObservableCollection<T_HR_ATTENDMONTHLYBALANCE> ListBalance = new ObservableCollection<T_HR_ATTENDMONTHLYBALANCE>();
+
         public OpenFileDialog OpenFileDialog = null;
         AttendanceServiceClient clientAtt;
         byte[] byExport;
@@ -37,8 +47,39 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             clientAtt = new AttendanceServiceClient();
             clientAtt.ImportAttendMonthlyBalanceFromCSVCompleted += new EventHandler<ImportAttendMonthlyBalanceFromCSVCompletedEventArgs>(clientAtt_ImportAttendMonthlyBalanceFromCSVCompleted);
-
+            clientAtt.ImportAttendMonthlyBalanceForShowCompleted += new EventHandler<ImportAttendMonthlyBalanceForShowCompletedEventArgs>(clientAtt_ImportAttendMonthlyBalanceForShowCompleted);
             this.Loaded += new RoutedEventHandler(ImportAttendbalanceForm_Loaded);
+        }
+
+        void clientAtt_ImportAttendMonthlyBalanceForShowCompleted(object sender, ImportAttendMonthlyBalanceForShowCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+
+                if (e.Result != null)
+                {
+                    ListBalance = e.Result;
+                    this.LoadData(ListBalance.ToList());
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "没有导入的数据",
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "导入月度考勤结算记录失败",
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+            }
+        }
+
+        private void LoadData(List<T_HR_ATTENDMONTHLYBALANCE> ListPensions)
+        {
+            ListPensions.RemoveAt(0);
+            DtGrid.ItemsSource = ListPensions;
         }
 
         void ImportAttendbalanceForm_Loaded(object sender, RoutedEventArgs e)
@@ -79,7 +120,18 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public void DoAction(string actionType)
         {
-
+            switch (actionType)
+            {
+                case "0":
+                    ImportBalance();
+                    break;
+                case "2":
+                    DownloadFile();
+                    break;
+                case "1":
+                    //  Cancel();
+                    break;
+            }
         }
 
         public List<NavigateItem> GetLeftMenuItems()
@@ -90,8 +142,29 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public List<ToolbarItem> GetToolBarItems()
         {
-            return ToolbarItems;
+            List<ToolbarItem> items = new List<ToolbarItem>();
+
+            ToolbarItem item2 = new ToolbarItem
+            {
+                DisplayType = ToolbarItemDisplayTypes.Image,
+                Key = "2",
+                Title = "下载模版",
+                ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/area/18_workrules.png"
+            };
+            items.Add(item2);
+
+            ToolbarItem item = new ToolbarItem
+            {
+                DisplayType = ToolbarItemDisplayTypes.Image,
+                Key = "0",
+                Title = Utility.GetResourceStr("IMPORT"),
+                ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/area/18_import.png"
+            };
+
+            items.Add(item);
+            return items;
         }
+
 
         public event UIRefreshedHandler OnUIRefreshed;
         public void RefreshUI(RefreshedTypes type)
@@ -197,6 +270,22 @@ namespace SMT.HRM.UI.Form.Attendance
 
             tbFileName.Text = OpenFileDialog.File.Name;
             txtUploadResMsg.Text = string.Empty;
+            ShowDTGrid();
+        }
+
+        private void ShowDTGrid()
+        {
+            Stream Stream = (System.IO.Stream)OpenFileDialog.File.OpenRead();
+
+            byte[] Buffer = new byte[Stream.Length];
+            Stream.Read(Buffer, 0, (int)Stream.Length);
+
+            Stream.Dispose();
+            Stream.Close();
+            SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile = new Saas.Tools.AttendanceWS.UploadFileModel();
+            UploadFile.FileName = OpenFileDialog.File.Name;
+            UploadFile.File = Buffer;
+            clientAtt.ImportAttendMonthlyBalanceForShowAsync(UploadFile);
         }
 
         /// <summary>
@@ -300,6 +389,19 @@ namespace SMT.HRM.UI.Form.Attendance
             catch (Exception ex)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message.ToString()));
+            }
+        }
+
+        private void DownloadFile()
+        {
+            if (HtmlPage.IsPopupWindowAllowed)
+            {
+                //一定要有三个参数
+                HtmlPage.PopupWindow(new System.Uri("http://newportal.smt-online.net/download/月度考勤结算批量导入模板.csv"), "_blank", null);
+            }
+            else
+            {
+                HtmlPage.Window.Navigate(new System.Uri("http://newportal.smt-online.net/download/月度考勤结算批量导入模板.csv"), "_blank");
             }
         }
     }

@@ -20,14 +20,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.95/New/Services/smtengine/PersonalRecordService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PersonalRecordService6.xsd" MetadataType="Schema" ID="fcfd103c-b80a-4c8f-b07e-29543fd2d799" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd2" />
-    <MetadataFile FileName="PersonalRecordService1.disco" MetadataType="Disco" ID="50746b6c-32aa-44c9-9dff-bde8075ae15d" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?disco" />
-    <MetadataFile FileName="PersonalRecordService7.xsd" MetadataType="Schema" ID="27a6ca32-7ef9-4dc4-8392-3c934a4ce5fd" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PersonalRecordService2.wsdl" MetadataType="Wsdl" ID="c56d2a35-f91d-43dd-a288-db808924d882" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?wsdl" />
-    <MetadataFile FileName="PersonalRecordService8.xsd" MetadataType="Schema" ID="388f56b3-ac2c-485a-801e-cbafecfc9ad7" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonalRecordService2.wsdl" MetadataType="Wsdl" ID="8c3851db-b0de-476c-ad96-716e582185e2" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?wsdl" />
+    <MetadataFile FileName="PersonalRecordService6.xsd" MetadataType="Schema" ID="808f6eb7-dbf9-45e2-a992-f30b47afa60f" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonalRecordService1.disco" MetadataType="Disco" ID="f91368ed-8181-46eb-bf4b-2d4f24a898bf" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?disco" />
+    <MetadataFile FileName="PersonalRecordService7.xsd" MetadataType="Schema" ID="dfad6116-59df-414c-8419-42e924c4994a" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonalRecordService8.xsd" MetadataType="Schema" ID="2e4cde39-7914-4346-8c94-a9c37afe640f" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PersonalRecordService12.xsd" MetadataType="Schema" ID="38f16f49-265d-4628-b455-640fab735b80" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

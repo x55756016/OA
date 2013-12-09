@@ -4,6 +4,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
     xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
     xmlns:smtx="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
     xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl"    
@@ -15,7 +16,7 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
-            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -26,6 +27,7 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
         <!--Row 0:BalanceUnitType & BalanceUnit-->
@@ -41,15 +43,52 @@
             <inputToolkit:NumericUpDown Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="5000" x:Name="nuYear" HorizontalAlignment="Left"></inputToolkit:NumericUpDown>
             <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=YEAR}" Width="auto" HorizontalAlignment="Left"/>
             <inputToolkit:NumericUpDown Minimum="1" Style="{StaticResource NumericUpDownStyle}" Width="80"  Maximum="12" x:Name="nuMonth" HorizontalAlignment="Left"></inputToolkit:NumericUpDown>
-            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto" HorizontalAlignment="Left"/>            
+            <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=MONTH}" Width="auto" HorizontalAlignment="Left"/>
         </StackPanel>
-		
-		<TextBlock x:Name="tbFileNameTitle" Grid.Row="1"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORTFILENAME}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4" />
+
+        <TextBlock x:Name="tbFileNameTitle" Grid.Row="1"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORTFILENAME}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Grid.Column="4" />
         <TextBox x:Name="tbFileName" Grid.Row="1" Grid.Column="6" Height="22" IsEnabled="False" Margin="5,0,70,0"/>
         <Button x:Name="BrowseFiles" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Right" Width="70" Margin="0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORTSELECT}" Click="BrowseFiles_Click" Height="22" />
 
         <!--Row 2:UploadFile-->
-        <Button x:Name="Add" Grid.Row="2" Grid.Column="2" Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORT}" Click="Add_Click" HorizontalAlignment="Left" Style="{StaticResource CommonButtonStyle}" Margin="5,0,0,0"/>
+        <Button x:Name="Add" Grid.Row="2" Grid.Column="2" Visibility="Collapsed" Content="{Binding Converter={StaticResource ResourceConveter}, Source=IMPORT}" Click="Add_Click" HorizontalAlignment="Left" Style="{StaticResource CommonButtonStyle}" Margin="5,0,0,0"/>
+
         <TextBlock x:Name="txtUploadResMsg" Text="" Grid.Row="2" Visibility="Collapsed" />
+
+        <data:DataGrid x:Name="DtGrid" AutoGenerateColumns="False"  FrozenColumnCount="2" Grid.ColumnSpan="8"
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Grid.Row="3" 
+                       Style="{StaticResource DataGridStyle}"
+                       CellStyle="{StaticResource DataGridCellStyle}" 
+                       RowStyle="{StaticResource DataGridRowStyle}" 
+                       RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}"
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                       >
+            <data:DataGrid.Columns>
+                <data:DataGridTextColumn Header="员工指纹编号" Binding="{Binding EMPLOYEECODE}"  />
+                <data:DataGridTextColumn Header="员工姓名" Binding="{Binding EMPLOYEENAME}" />
+                <data:DataGridTextColumn Header="应出勤天数" Binding="{Binding NEEDATTENDDAYS}" />
+                <data:DataGridTextColumn Header="实际出勤天数" Binding="{Binding REALATTENDDAYS}"/>
+                <data:DataGridTextColumn Header="漏打卡次数" Binding="{Binding FORGETCARDTIMES}"/>
+                <data:DataGridTextColumn Header="迟到次数" Binding="{Binding LATEDAYS}" />
+                <data:DataGridTextColumn Header="早退次数" Binding="{Binding LEAVEEARLYDAYS}" />
+                <data:DataGridTextColumn Header="旷工天数" Binding="{Binding ABSENTDAYS}" />
+                <data:DataGridTextColumn Header="事假天数"  Binding="{Binding AFFAIRLEAVEDAYS}" />
+                <data:DataGridTextColumn Header="病假天数" Binding="{Binding SICKLEAVEDAYS}"/>
+                <data:DataGridTextColumn Header="年休假天数" Binding="{Binding ANNUALLEVELDAYS}"/>
+                <data:DataGridTextColumn Header="调休假天数" Binding="{Binding LEAVEUSEDDAYS}" />
+                <data:DataGridTextColumn Header="婚假天数" Binding="{Binding MARRYDAYS}" />
+                <data:DataGridTextColumn Header="产假天数" Binding="{Binding MATERNITYLEAVEDAYS}" />
+                <data:DataGridTextColumn Header="看护假天数" Binding="{Binding NURSESDAYS}" />
+                <data:DataGridTextColumn Header="丧假天数" Binding="{Binding FUNERALLEAVEDAYS}" />
+                <data:DataGridTextColumn Header="路程假天数" Binding="{Binding TRIPDAYS}" />
+                <data:DataGridTextColumn Header="工伤假天数" Binding="{Binding INJURYLEAVEDAYS}" />
+                <data:DataGridTextColumn Header="产前检查假天数" Binding="{Binding PRENATALCARELEAVEDAYS}" />
+                <data:DataGridTextColumn Header="出差时长" Binding="{Binding EVECTIONTIME}" />
+                <data:DataGridTextColumn Header="加班次数" Binding="{Binding OVERTIMETIMES}"/>
+                <data:DataGridTextColumn Header="加班累计时间(小时)" Binding="{Binding OVERTIMESUMHOURS}" />
+                <data:DataGridTextColumn Header="加班累计天数" Binding="{Binding OVERTIMESUMDAYS}"/>
+                <data:DataGridTextColumn Header="备注" Binding="{Binding REMARK}"/>
+            </data:DataGrid.Columns>
+        </data:DataGrid>
     </Grid>
 </smtLocal:BaseForm>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PersonalRecordService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PersonalRecordService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+      <xsd:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+      <xsd:import schemaLocation="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPersonalRecordService_AddPersonalRecord_InputMessage">
@@ -55,6 +56,18 @@
   <wsdl:message name="IPersonalRecordService_GetPersonalRecordList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPersonalRecordListResponse" />
   </wsdl:message>
+  <wsdl:message name="IPersonalRecordService_GetPersonalRecordListNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalRecordListNew" />
+  </wsdl:message>
+  <wsdl:message name="IPersonalRecordService_GetPersonalRecordListNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonalRecordListNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonalRecordService_GetCachePersonalRecordListNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCachePersonalRecordListNew" />
+  </wsdl:message>
+  <wsdl:message name="IPersonalRecordService_GetCachePersonalRecordListNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCachePersonalRecordListNewResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPersonalRecordService">
     <wsdl:operation name="AddPersonalRecord">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonalRecordService/AddPersonalRecord" message="tns:IPersonalRecordService_AddPersonalRecord_InputMessage" />
@@ -87,6 +100,14 @@
     <wsdl:operation name="GetPersonalRecordList">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonalRecordService/GetPersonalRecordList" message="tns:IPersonalRecordService_GetPersonalRecordList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonalRecordService/GetPersonalRecordListResponse" message="tns:IPersonalRecordService_GetPersonalRecordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalRecordListNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonalRecordService/GetPersonalRecordListNew" message="tns:IPersonalRecordService_GetPersonalRecordListNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonalRecordService/GetPersonalRecordListNewResponse" message="tns:IPersonalRecordService_GetPersonalRecordListNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCachePersonalRecordListNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonalRecordService/GetCachePersonalRecordListNew" message="tns:IPersonalRecordService_GetCachePersonalRecordListNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonalRecordService/GetCachePersonalRecordListNewResponse" message="tns:IPersonalRecordService_GetCachePersonalRecordListNew_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPersonalRecordService" type="tns:IPersonalRecordService">
@@ -163,10 +184,28 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPersonalRecordListNew">
+      <soap:operation soapAction="http://tempuri.org/IPersonalRecordService/GetPersonalRecordListNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCachePersonalRecordListNew">
+      <soap:operation soapAction="http://tempuri.org/IPersonalRecordService/GetCachePersonalRecordListNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="PersonalRecordService">
     <wsdl:port name="BasicHttpBinding_IPersonalRecordService" binding="tns:BasicHttpBinding_IPersonalRecordService">
-      <soap:address location="http://portal.smt-online.net/New/Services/MyRecord/PersonalRecordService.svc" />
+      <soap:address location="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
