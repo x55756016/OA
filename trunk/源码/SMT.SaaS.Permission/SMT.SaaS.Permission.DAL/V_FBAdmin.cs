@@ -51,5 +51,17 @@ namespace SMT.SaaS.Permission.DAL
         /// 添加时间
         /// </summary>
         public DateTime? AddDate { get; set; }
+        /// <summary>
+        /// 员工公司ID
+        /// </summary>
+        public string EMPLOYEECOMPANYID { get; set; }
+        /// <summary>
+        /// 员工部门ID
+        /// </summary>
+        public string EMPLOYEEDEPARTMENTID { get; set; }
+        /// <summary>
+        /// 员工岗位ID
+        /// </summary>
+        public string EMPLOYEEPOSTID { get; set; }
     }
 }

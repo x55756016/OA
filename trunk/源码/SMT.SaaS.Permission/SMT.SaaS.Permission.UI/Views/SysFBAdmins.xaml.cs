@@ -51,6 +51,7 @@ namespace SMT.SaaS.Permission.UI.Views
         private  string ListEmployeeids = "";  //员工集合
         private string strSelectEmployeeID = "";//选择的员工ID
         private List<V_FBAdmin> LstFbAdmin = new List<V_FBAdmin>();
+        private List<V_FBAdmin> TempLstFbAdmin = new List<V_FBAdmin>();
         public SysFBAdmins()
         {
             InitializeComponent();
@@ -619,6 +620,7 @@ namespace SMT.SaaS.Permission.UI.Views
                         {
                             list.Add(item);
                             LstFbAdmin.Remove(Employees);
+                            TempLstFbAdmin.Add(Employees);
                         }
                         else
                         {
@@ -632,6 +634,7 @@ namespace SMT.SaaS.Permission.UI.Views
                             {
                                 list.Add(item);
                                 LstFbAdmin.Remove(Employees);
+                                TempLstFbAdmin.Add(Employees);
                             }
                             else
                             {
@@ -644,6 +647,7 @@ namespace SMT.SaaS.Permission.UI.Views
                                 {
                                     list.Add(item);
                                     LstFbAdmin.Remove(Employees);
+                                    TempLstFbAdmin.Add(Employees);
                                 }
                             }
                         }
@@ -683,6 +687,7 @@ namespace SMT.SaaS.Permission.UI.Views
 
         void LoadData()
         {
+           LstFbAdmin.AddRange(TempLstFbAdmin);
             loadbar.Start();
             int pageCount = 0;
             string filter = "";
