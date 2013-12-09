@@ -35,7 +35,7 @@ namespace SMT.HRM.BLL
             {
                 ents = ents.Where(filterString, queryParas.ToArray());
             }
-            ents = ents.OrderBy(sort);
+            ents = ents.OrderByDescending(t => t.PENSIONYEAR).ThenByDescending(t => t.PENSIONMOTH);
 
             ents = Utility.Pager<T_HR_PENSIONDETAIL>(ents, pageIndex, pageSize, ref pageCount);
 

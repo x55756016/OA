@@ -92,7 +92,10 @@
                             </Grid.RowDefinitions>
                             <smtx:FormToolBar x:Name="toolbarVacDay" Width="auto" Grid.Row="0"></smtx:FormToolBar>
                             <data:DataGrid x:Name="dgVacDayList" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
-                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="216">
+                                 Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                                 RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto" 
+                                 HorizontalScrollBarVisibility="Auto" Height="216"
+                                 LoadingRow="dgVacDayList_LoadingRow">
                                 <data:DataGrid.Columns>
                                     <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
                                         <data:DataGridTemplateColumn.CellTemplate>
@@ -169,7 +172,10 @@
                             </Grid.RowDefinitions>
                             <smtx:FormToolBar x:Name="toolbarWorkDay" Width="auto" Grid.Row="0"></smtx:FormToolBar>
                             <data:DataGrid x:Name="dgWorkDayList" Grid.Row="1" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True"
-                       Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="216" >
+                                    Style="{StaticResource DataGridStyle}" CellStyle="{StaticResource DataGridCellStyle}" 
+                                    RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" 
+                                    VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="216" 
+                                    LoadingRow="dgWorkDayList_LoadingRow">
                                 <data:DataGrid.Columns>
                                     <data:DataGridTemplateColumn HeaderStyle="{StaticResource DataGridCheckBoxColumnHeaderStyle}">
                                         <data:DataGridTemplateColumn.CellTemplate>

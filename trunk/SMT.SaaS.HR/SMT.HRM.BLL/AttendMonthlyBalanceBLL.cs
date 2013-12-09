@@ -650,10 +650,10 @@ namespace SMT.HRM.BLL
                         entTemp.CREATEDATE = DateTime.Now;
 
                         entTemp.REMARK = string.Empty;
-                        if (strLine.Length > 22)
-                        {
-                            entTemp.REMARK = strLine[22];
-                        }
+                        //if (strLine.Length > 22)
+                        //{
+                        //    entTemp.REMARK = strLine[22];
+                        //}
                         //bool flag = this.IsExitEmployeeMonthlyBalance(entCurrEmp.EMPLOYEEID, dBalanceYear, dBalanceMonth);
                         //if (!flag)//返回false，即没有该员工该月审核中月度考勤才进行添加 //AddMonthlyBalance里面已有判断
                         //{

@@ -759,12 +759,9 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
-            }
-            finally
-            {
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 RefreshUI(RefreshedTypes.All);
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
             }
         }
 
@@ -775,57 +772,72 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetAllOutPlanDaysRdListByMultSearchCompleted(object sender, GetAllOutPlanDaysRdListByMultSearchCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                ObservableCollection<T_HR_OUTPLANDAYS> entlist = e.Result;
-
-                if (entlist == null)
+                if (e.Error == null)
                 {
-                    return;
-                }
+                    ObservableCollection<T_HR_OUTPLANDAYS> entlist = e.Result;
 
-                if (entlist.Count() == 0)
-                {
-                    return;
-                }
-
-                ObservableCollection<T_HR_OUTPLANDAYS> entVacDaylist = new ObservableCollection<T_HR_OUTPLANDAYS>();
-                ObservableCollection<T_HR_OUTPLANDAYS> entWorkDaylist = new ObservableCollection<T_HR_OUTPLANDAYS>();
-
-
-                string strVacDayType = (Convert.ToInt32(OutPlanDaysType.Vacation) + 1).ToString();
-                string strWorkDayType = (Convert.ToInt32(OutPlanDaysType.WorkDay) + 1).ToString();
-                var qv = from v in entlist
-                         where v.DAYTYPE == strVacDayType
-                         select v;
-
-                if (qv.Count() > 0)
-                {
-                    qv.ForEach(itemVac =>
+                    if (entlist == null)
                     {
-                        entVacDaylist.Add(itemVac);
-                    });
-                }
+                        return;
+                    }
 
-                dgVacDayList.ItemsSource = entVacDaylist;
-
-                var qw = from w in entlist
-                         where w.DAYTYPE == strWorkDayType
-                         select w;
-
-                if (qv.Count() > 0)
-                {
-                    qw.ForEach(itemWork =>
+                    if (entlist.Count() == 0)
                     {
-                        entWorkDaylist.Add(itemWork);
-                    });
-                }
+                        return;
+                    }
 
-                dgWorkDayList.ItemsSource = entWorkDaylist;
+                    ObservableCollection<T_HR_OUTPLANDAYS> entVacDaylist = new ObservableCollection<T_HR_OUTPLANDAYS>();
+                    ObservableCollection<T_HR_OUTPLANDAYS> entWorkDaylist = new ObservableCollection<T_HR_OUTPLANDAYS>();
+
+
+                    string strVacDayType = (Convert.ToInt32(OutPlanDaysType.Vacation) + 1).ToString();
+                    string strWorkDayType = (Convert.ToInt32(OutPlanDaysType.WorkDay) + 1).ToString();
+                    var qv = from v in entlist
+                             where v.DAYTYPE == strVacDayType
+                             select v;
+
+                    if (qv.Count() > 0)
+                    {
+                        qv.ForEach(itemVac =>
+                        {
+                            entVacDaylist.Add(itemVac);
+                        });
+                    }
+
+                    dgVacDayList.ItemsSource = entVacDaylist;
+
+                    var qw = from w in entlist
+                             where w.DAYTYPE == strWorkDayType
+                             select w;
+
+                    if (qv.Count() > 0)
+                    {
+                        qw.ForEach(itemWork =>
+                        {
+                            entWorkDaylist.Add(itemWork);
+                        });
+                    }
+
+                    dgWorkDayList.ItemsSource = entWorkDaylist;
+
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
             }
         }
 
@@ -1281,6 +1293,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
             }
         }
+
         #region 公共假期设置半天
         private void checkHaftDay_Click(object sender, RoutedEventArgs e)
         {
@@ -1290,77 +1303,100 @@ namespace SMT.HRM.UI.Form.Attendance
                 {
                     return;
                 }
-                CheckBox ck = sender as CheckBox;
-                
-                DatePicker txtTFSubsidies = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
+                CheckBox ck = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("checkHaftDay") as CheckBox;                
+                DatePicker WorkdayEnddate = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
                 ComboBox ComboBoxHalfDay = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("comboHatfDay") as ComboBox;
                 NumericUpDown nudVacDays = dgVacDayList.Columns[5].GetCellContent(dgVacDayList.SelectedItem).FindName("nudVacDays") as NumericUpDown;
-            
-                if (ComboBoxHalfDay.SelectedIndex == -1)
-                {
-                    ComboBoxHalfDay.SelectedIndex = 0;
-                }
-               
-                if (ck.IsChecked.Value==true)
-                {
-                   if (txtTFSubsidies != null)
-                    {
-                        txtTFSubsidies.Visibility = Visibility.Collapsed;
-                    }
-                    if (ComboBoxHalfDay != null)
-                    {
-                        ComboBoxHalfDay.Visibility = Visibility.Visible;
-                    }
-                    if (nudVacDays != null)
-                    {
-                        nudVacDays.Value = 0.5;
-                    }
-                }
-                else
-                {
-                    if (txtTFSubsidies != null)
-                    {
-                        txtTFSubsidies.Visibility = Visibility.Visible;
-                    }
-                    if (ComboBoxHalfDay != null)
-                    {
-                        ComboBoxHalfDay.Visibility = Visibility.Collapsed;
-                    }
-                    CalculateDayCount(dgVacDayList);  
-                }
-                //设置值
-                T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
-                if (entTemp == null)
-                {
-                    return;
-                }
-                ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgVacDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
-                foreach (T_HR_OUTPLANDAYS item in entTemps)
-                {
-                    if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
-                    {
-                        if (ck.IsChecked.Value == true)
-                        {
-                            item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
-                            if (ComboBoxHalfDay.SelectedIndex == 0)//上午
-                            {
-                                item.PEROID = "0";
-                            }
-                            else
-                            {
-                                item.PEROID = "1";
-                            }
-                        }
-                        else
-                        {
-                            item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
-                        }
-                    }
-                }
+                VacDayCheckHalfDay(ck, WorkdayEnddate, ComboBoxHalfDay, nudVacDays);               
             }
             catch (Exception ex)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
+            }
+        }
+
+        private void dgVacDayList_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+
+            T_HR_OUTPLANDAYS obje = e.Row.DataContext as T_HR_OUTPLANDAYS;
+            CheckBox ck = dgVacDayList.Columns[4].GetCellContent(e.Row).FindName("checkHaftDay") as CheckBox;
+            ComboBox workComboHatfDay = dgVacDayList.Columns[4].GetCellContent(e.Row).FindName("comboHatfDay") as ComboBox;
+            DatePicker WorkdayEnddate = dgVacDayList.Columns[4].GetCellContent(e.Row).FindName("dpVacdayEnddate") as DatePicker;
+            NumericUpDown nudVacDays = dgVacDayList.Columns[5].GetCellContent(e.Row).FindName("nudVacDays") as NumericUpDown;
+
+            if (obje.ISHALFDAY == "1")
+            {
+                ck.IsChecked = true;
+            }
+            else
+            {
+                ck.IsChecked = false;
+            }
+            VacDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);
+        }
+
+        private void VacDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate, ComboBox ComboBoxHalfDay, NumericUpDown nudVacDays)
+        {
+            if (ComboBoxHalfDay.SelectedIndex == -1)
+            {
+                ComboBoxHalfDay.SelectedIndex = 0;
+            }
+
+            if (ck.IsChecked.Value == true)
+            {
+                if (WorkdayEnddate != null)
+                {
+                    WorkdayEnddate.Visibility = Visibility.Collapsed;
+                }
+                if (ComboBoxHalfDay != null)
+                {
+                    ComboBoxHalfDay.Visibility = Visibility.Visible;
+                }
+                if (nudVacDays != null)
+                {
+                    nudVacDays.Value = 0.5;
+                }
+            }
+            else
+            {
+                if (WorkdayEnddate != null)
+                {
+                    WorkdayEnddate.Visibility = Visibility.Visible;
+                }
+                if (ComboBoxHalfDay != null)
+                {
+                    ComboBoxHalfDay.Visibility = Visibility.Collapsed;
+                }
+                CalculateDayCount(dgVacDayList);
+            }
+            //设置值
+            T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            if (entTemp == null)
+            {
+                return;
+            }
+            ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgVacDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
+            foreach (T_HR_OUTPLANDAYS item in entTemps)
+            {
+                if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
+                {
+                    if (ck.IsChecked.Value == true)
+                    {
+                        item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        if (ComboBoxHalfDay.SelectedIndex == 0)//上午
+                        {
+                            item.PEROID = "0";
+                        }
+                        else
+                        {
+                            item.PEROID = "1";
+                        }
+                    }
+                    else
+                    {
+                        item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
+                    }
+                }
             }
         }
         #endregion
@@ -1374,80 +1410,106 @@ namespace SMT.HRM.UI.Form.Attendance
                 {
                     return;
                 }
-                CheckBox ck = sender as CheckBox;
 
+                CheckBox ck = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("checkHaftDay") as CheckBox;
                 DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
                 ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("workComboHatfDay") as ComboBox;
                 NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(dgWorkDayList.SelectedItem).FindName("nudWorkDays") as NumericUpDown;
-             
-                if (workComboHatfDay.SelectedIndex == -1)
-                {
-                    workComboHatfDay.SelectedIndex = 0;
-                }
-                if (ck.IsChecked.Value)
-                {
-                    if (WorkdayEnddate != null)
-                    {
-                        WorkdayEnddate.Visibility = Visibility.Collapsed;
-                    }
-                    if (workComboHatfDay != null)
-                    {
-                        workComboHatfDay.Visibility = Visibility.Visible;
-                    }
-                    if (nudVacDays != null)
-                    {
-                        nudVacDays.Value = 0.5;
-                    }
-                }
-                else
-                {
-                    if (WorkdayEnddate != null)
-                    {
-                        WorkdayEnddate.Visibility = Visibility.Visible;
-                    }
-                    if (workComboHatfDay != null)
-                    {
-                        workComboHatfDay.Visibility = Visibility.Collapsed;
-                    }
-                    CalculateDayCount(dgWorkDayList);  
-                }
 
-                //设置值
-                T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
-                if (entTemp == null)
-                {
-                    return;
-                }
-                ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgVacDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
-                foreach (T_HR_OUTPLANDAYS item in entTemps)
-                {
-                    if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
-                    {
-                        if (ck.IsChecked.Value == true)
-                        {
-                            item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
-                            if (workComboHatfDay.SelectedIndex == 0)//上午
-                            {
-                                item.PEROID = "0";
-                            }
-                            else
-                            {
-                                item.PEROID = "1";
-                            }
-                        }
-                        else
-                        {
-                            item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
-                        }
-                    }
-                }
+                WorkDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);                
             }
             catch (Exception ex)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message);
             }
         }
+        
+        private void dgWorkDayList_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            T_HR_OUTPLANDAYS obje = e.Row.DataContext as T_HR_OUTPLANDAYS;
+            CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("workCheckHaftDay") as CheckBox;
+            ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("workComboHatfDay") as ComboBox;
+            DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("dpWorkdayEnddate") as DatePicker;
+            NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(e.Row).FindName("nudWorkDays") as NumericUpDown;
+
+            if (obje.ISHALFDAY == "1")
+            {
+                ck.IsChecked = true;
+            }
+            else
+            {
+                ck.IsChecked = false;
+            }
+            WorkDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);
+        }
+        
+        private void WorkDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate, ComboBox workComboHatfDay, NumericUpDown nudVacDays)
+        {
+           
+            if (workComboHatfDay.SelectedIndex == -1)
+            {
+                workComboHatfDay.SelectedIndex = 0;
+            }
+            if (ck.IsChecked.Value)
+            {
+                if (WorkdayEnddate != null)
+                {
+                    WorkdayEnddate.Visibility = Visibility.Collapsed;
+                }
+                if (workComboHatfDay != null)
+                {
+                    workComboHatfDay.Visibility = Visibility.Visible;
+                }
+                if (nudVacDays != null)
+                {
+                    nudVacDays.Value = 0.5;
+                }
+            }
+            else
+            {
+                if (WorkdayEnddate != null)
+                {
+                    WorkdayEnddate.Visibility = Visibility.Visible;
+                }
+                if (workComboHatfDay != null)
+                {
+                    workComboHatfDay.Visibility = Visibility.Collapsed;
+                }
+                CalculateDayCount(dgWorkDayList);
+            }
+
+            //设置值
+            T_HR_OUTPLANDAYS entTemp = dgWorkDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            if (entTemp == null)
+            {
+                return;
+            }
+            ObservableCollection<T_HR_OUTPLANDAYS> entTemps = dgWorkDayList.ItemsSource as ObservableCollection<T_HR_OUTPLANDAYS>;
+            foreach (T_HR_OUTPLANDAYS item in entTemps)
+            {
+                if (item.OUTPLANDAYID == entTemp.OUTPLANDAYID)
+                {
+                    if (ck.IsChecked.Value == true)
+                    {
+                        item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        if (workComboHatfDay.SelectedIndex == 0)//上午
+                        {
+                            item.PEROID = "0";
+                        }
+                        else
+                        {
+                            item.PEROID = "1";
+                        }
+                    }
+                    else
+                    {
+                        item.ISHALFDAY = Convert.ToInt32(IsChecked.No).ToString();
+                    }
+                }
+            }
+        }
         #endregion
+
     }
 }
 

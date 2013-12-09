@@ -22,26 +22,26 @@ using System.Windows.Browser;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using System.Collections.ObjectModel;
 
-
 namespace SMT.HRM.UI.Form.Attendance
-{
+{  
     public partial class ImportAttendbalanceForm : BaseForm, IEntityEditor
     {
         public delegate void SaveFileHandler(int bytesRead, byte[] buffer);
         public delegate void UploadFileHandler(int bytesRead);
-        ObservableCollection<T_HR_ATTENDMONTHLYBALANCE> ListBalance = new ObservableCollection<T_HR_ATTENDMONTHLYBALANCE>();
-
         public OpenFileDialog OpenFileDialog = null;
         AttendanceServiceClient clientAtt;
         byte[] byExport;
 
         private List<ToolbarItem> ToolbarItems = new List<ToolbarItem>();
 
+        ObservableCollection<T_HR_ATTENDMONTHLYBALANCE> ListBalance = new ObservableCollection<T_HR_ATTENDMONTHLYBALANCE>();
+
         public ImportAttendbalanceForm()
         {
             InitializeComponent();
             RegisterEvents();
         }
+
 
         private void RegisterEvents()
         {
@@ -118,6 +118,13 @@ namespace SMT.HRM.UI.Form.Attendance
                 return "上传完毕";
         }
 
+
+        public List<NavigateItem> GetLeftMenuItems()
+        {
+            List<NavigateItem> items = new List<NavigateItem>();
+            return items;
+        }
+
         public void DoAction(string actionType)
         {
             switch (actionType)
@@ -132,12 +139,6 @@ namespace SMT.HRM.UI.Form.Attendance
                     //  Cancel();
                     break;
             }
-        }
-
-        public List<NavigateItem> GetLeftMenuItems()
-        {
-            List<NavigateItem> items = new List<NavigateItem>();
-            return items;
         }
 
         public List<ToolbarItem> GetToolBarItems()
@@ -164,7 +165,6 @@ namespace SMT.HRM.UI.Form.Attendance
             items.Add(item);
             return items;
         }
-
 
         public event UIRefreshedHandler OnUIRefreshed;
         public void RefreshUI(RefreshedTypes type)
@@ -306,7 +306,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 string strUnitType = string.Empty, strUnitObjectId = string.Empty;
                 int dYear = 0, dMonth = 0;
                 DateTime dtImportDate = new DateTime(), dtCurDate = new DateTime();
-                
+
 
                 int.TryParse(nuYear.Value.ToString(), out dYear);
                 int.TryParse(nuMonth.Value.ToString(), out dMonth);
@@ -378,7 +378,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 Stream.Dispose();
                 Stream.Close();
 
-                SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile = new SMT.Saas.Tools.AttendanceWS.UploadFileModel();
+                SMT.Saas.Tools.AttendanceWS.UploadFileModel UploadFile = new Saas.Tools.AttendanceWS.UploadFileModel();
                 UploadFile.FileName = OpenFileDialog.File.Name;
                 UploadFile.File = Buffer;
 
@@ -404,5 +404,6 @@ namespace SMT.HRM.UI.Form.Attendance
                 HtmlPage.Window.Navigate(new System.Uri("http://newportal.smt-online.net/download/月度考勤结算批量导入模板.csv"), "_blank");
             }
         }
+
     }
 }

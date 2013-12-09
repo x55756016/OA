@@ -70,24 +70,23 @@
                 <data:DataGridTextColumn Header="实际出勤天数" Binding="{Binding REALATTENDDAYS}"/>
                 <data:DataGridTextColumn Header="漏打卡次数" Binding="{Binding FORGETCARDTIMES}"/>
                 <data:DataGridTextColumn Header="迟到次数" Binding="{Binding LATEDAYS}" />
+                <data:DataGridTextColumn Header="迟到时长(分钟)" Binding="{Binding LATEMINUTES}" />
                 <data:DataGridTextColumn Header="早退次数" Binding="{Binding LEAVEEARLYDAYS}" />
                 <data:DataGridTextColumn Header="旷工天数" Binding="{Binding ABSENTDAYS}" />
-                <data:DataGridTextColumn Header="事假天数"  Binding="{Binding AFFAIRLEAVEDAYS}" />
-                <data:DataGridTextColumn Header="病假天数" Binding="{Binding SICKLEAVEDAYS}"/>
+                <data:DataGridTextColumn Header="矿工时长" Binding="{Binding ABSENTMINUTES}" />
                 <data:DataGridTextColumn Header="年休假天数" Binding="{Binding ANNUALLEVELDAYS}"/>
                 <data:DataGridTextColumn Header="调休假天数" Binding="{Binding LEAVEUSEDDAYS}" />
+                <data:DataGridTextColumn Header="事假天数"  Binding="{Binding AFFAIRLEAVEDAYS}" />
+                <data:DataGridTextColumn Header="病假天数" Binding="{Binding SICKLEAVEDAYS}"/>
                 <data:DataGridTextColumn Header="婚假天数" Binding="{Binding MARRYDAYS}" />
                 <data:DataGridTextColumn Header="产假天数" Binding="{Binding MATERNITYLEAVEDAYS}" />
                 <data:DataGridTextColumn Header="看护假天数" Binding="{Binding NURSESDAYS}" />
-                <data:DataGridTextColumn Header="丧假天数" Binding="{Binding FUNERALLEAVEDAYS}" />
                 <data:DataGridTextColumn Header="路程假天数" Binding="{Binding TRIPDAYS}" />
                 <data:DataGridTextColumn Header="工伤假天数" Binding="{Binding INJURYLEAVEDAYS}" />
                 <data:DataGridTextColumn Header="产前检查假天数" Binding="{Binding PRENATALCARELEAVEDAYS}" />
+                <data:DataGridTextColumn Header="丧假天数" Binding="{Binding FUNERALLEAVEDAYS}" />
                 <data:DataGridTextColumn Header="出差时长" Binding="{Binding EVECTIONTIME}" />
-                <data:DataGridTextColumn Header="加班次数" Binding="{Binding OVERTIMETIMES}"/>
-                <data:DataGridTextColumn Header="加班累计时间(小时)" Binding="{Binding OVERTIMESUMHOURS}" />
-                <data:DataGridTextColumn Header="加班累计天数" Binding="{Binding OVERTIMESUMDAYS}"/>
-                <data:DataGridTextColumn Header="备注" Binding="{Binding REMARK}"/>
+                <data:DataGridTextColumn Header="外出时长" Binding="{Binding OUTAPPLYTIME}" />
             </data:DataGrid.Columns>
         </data:DataGrid>
     </Grid>

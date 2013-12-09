@@ -20,6 +20,7 @@ using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.HRM.UI.Form.Personnel;
 using System.Windows.Media.Imaging;
 using System.IO;
+using SMT.SAAS.Main.CurrentContext;
 
 namespace SMT.HRM.UI.Views.Personnel
 {
@@ -53,7 +54,7 @@ namespace SMT.HRM.UI.Views.Personnel
 
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            LoadDefaultData();
             UnVisibleGridToolControl();
         }
 
@@ -263,6 +264,50 @@ namespace SMT.HRM.UI.Views.Personnel
             ToolBar.retNew.Visibility = Visibility.Collapsed;
             ToolBar.txtCheckStateName.Visibility = Visibility.Collapsed;
             ToolBar.cbxCheckState.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// 社保缴纳记录：普通员工进去后默认显示一年的缴纳记录按降序排列
+        /// </summary>
+        private void LoadDefaultData()
+        {
+
+            int pageCount = 0;
+            string filter = string.Empty;
+            ObservableCollection<object> paras = new ObservableCollection<object>();
+            DateTime nowDate = DateTime.Now;
+            DateTime yeDate = DateTime.Now.AddYears(-1);
+            for (int j = yeDate.Year; j <= nowDate.Year; j++)
+            {
+                int tempMonth = 1;//如果跨年查询，则最大为12月
+                if (j != nowDate.Year)
+                {
+                    tempMonth = nowDate.Month;
+                }
+                for (int i = tempMonth; i <= nowDate.Month; i++)
+                {
+                    if (!string.IsNullOrEmpty(filter))
+                    {
+                        filter += " or ";//&&操作优先级大于||，不用括号
+                    }
+                    else
+                    {
+                        filter += " ( ";//括号包含薪资年月
+                    }
+                    filter += " PENSIONYEAR==@" + paras.Count.ToString();
+                    paras.Add(j);
+                    filter += " and ";
+                    filter += " PENSIONMOTH==@" + paras.Count.ToString();
+                    paras.Add(i);
+                }
+            }
+            filter += " ) ";//括号包含薪资年月
+            filter += " and ";
+            filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEENAME)";
+            paras.Add(Common.CurrentLoginUserInfo.EmployeeName);
+            loadbar.Start();
+            client.PensionDetailPagingAsync(dataPager.PageIndex, dataPager.PageSize, "PENSIONMOTH", filter,
+                paras, pageCount, Common.CurrentLoginUserInfo.EmployeeID);
         }
 
         private void LoadData()
