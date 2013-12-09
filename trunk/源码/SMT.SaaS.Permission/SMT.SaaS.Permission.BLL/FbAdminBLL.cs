@@ -244,6 +244,53 @@ namespace SMT.SaaS.Permission.BLL
         }
 
 
+        /// <summary>
+        /// 修改预算管理员
+        /// </summary>
+        /// <param name="employeeid">员工ID</param>
+        /// <param name="ownercompanyid">公司ID</param>
+        /// <param name="fbAdmin">新员工信息（只需要取员工信息）</param>
+        /// <returns></returns>
+        public string UpdateFbAdmin(string employeeid, string employeeCompanyID, T_SYS_FBADMIN fbAdmin)
+        {
+            string strMsg = string.Empty;
+            try
+            {
+               var ents = (from ent in dal.GetObjects<T_SYS_FBADMIN>()
+                           where ent.EMPLOYEEID == employeeid && ent.EMPLOYEECOMPANYID == employeeCompanyID
+                           select ent).FirstOrDefault();
+               var entusers = (from ent in dal.GetObjects<T_SYS_USER>()
+                               where ent.EMPLOYEEID == fbAdmin.EMPLOYEEID
+                              select ent).FirstOrDefault();
+               if (ents != null && entusers != null)
+               {
+                   ents.SYSUSERID = entusers.SYSUSERID;//员工系统用户ID
+                   ents.UPDATEUSERID = fbAdmin.UPDATEUSERID;
+                   ents.UPDATEDATE = DateTime.Now;
+                   ents.UPDATEUSERNAME = fbAdmin.UPDATEUSERNAME;
+                   ents.EMPLOYEEID = fbAdmin.EMPLOYEEID;
+                   ents.EMPLOYEEPOSTID = fbAdmin.EMPLOYEEPOSTID;
+                   ents.EMPLOYEEDEPARTMENTID = fbAdmin.EMPLOYEEDEPARTMENTID;
+                   ents.EMPLOYEECOMPANYID = fbAdmin.EMPLOYEECOMPANYID;
+
+                   int IntFb = dal.Update(ents);
+                   if (IntFb <= 0)
+                   {
+                       strMsg = "修改失败";
+                   }
+               }
+               else
+               {
+                   strMsg = "获取员工预算管理员或系统用户信息失败";
+               }
+            }
+            catch (Exception ex)
+            {
+                strMsg = "更新出错：" + ex.ToString();
+            }
+            return strMsg;
+        }
+
         #region 添加用户角色
         
         /// <summary>
@@ -592,6 +639,9 @@ namespace SMT.SaaS.Permission.BLL
                             fbadmin.OWNERCOMPANYID = item.OWNERCOMPANYID;
                             fbadmin.OWNERDEPARTMENTID = item.OWNERDEPARTMENTID;
                             fbadmin.OWNERPOSTID = item.OWNERPOSTID;
+                            fbadmin.EMPLOYEECOMPANYID = item.EMPLOYEECOMPANYID;
+                            fbadmin.EMPLOYEEDEPARTMENTID = item.EMPLOYEEDEPARTMENTID;
+                            fbadmin.EMPLOYEEPOSTID = item.EMPLOYEEPOSTID;
                             fbadmin.AddDate =(DateTime?) item.CREATEDATE;
                             FbAdmins.Add(fbadmin);
                         });
@@ -695,14 +745,14 @@ namespace SMT.SaaS.Permission.BLL
             return IntResult;
         }
 
-        public string DeleteFbAdmin(string employeeid, string ownercompanyid)
+        public string DeleteFbAdmin(string employeeid, string employeeCompanyID)
         {
             string StrReturn = "";
             dal.BeginTransaction();
             try
             {
                 var ents = from ent in dal.GetObjects<T_SYS_FBADMIN>()
-                           where ent.EMPLOYEEID == employeeid && ent.EMPLOYEECOMPANYID == ownercompanyid
+                           where ent.EMPLOYEEID == employeeid && ent.EMPLOYEECOMPANYID == employeeCompanyID
                            select ent;
                 if (ents != null)
                 {

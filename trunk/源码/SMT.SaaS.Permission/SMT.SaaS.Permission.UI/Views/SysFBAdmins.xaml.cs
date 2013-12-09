@@ -206,13 +206,13 @@ namespace SMT.SaaS.Permission.UI.Views
             
             this.ToolBar.btnNew.Click += new RoutedEventHandler(btnAdd_Click);
             
-            //this.ToolBar.btnEdit.Click += new RoutedEventHandler(BtnAlter_Click);
+            this.ToolBar.btnEdit.Click += new RoutedEventHandler(BtnAlter_Click);
             this.ToolBar.btnDelete.Click += new RoutedEventHandler(btnDel_Click);
             //this.ToolBar.btnDelete.Visibility = Visibility.Collapsed;
             this.ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             this.ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             this.ToolBar.retNew.Visibility = Visibility.Collapsed;
-            this.ToolBar.btnEdit.Visibility = Visibility.Collapsed;
+            //this.ToolBar.btnEdit.Visibility = Visibility.Collapsed;
             this.ToolBar.cbxCheckState.Visibility = Visibility.Collapsed;
             this.ToolBar.txtCheckStateName.Visibility = Visibility.Collapsed;
             
@@ -224,7 +224,7 @@ namespace SMT.SaaS.Permission.UI.Views
             ToolBar.stpOtherAction.Children.Clear();
             
             ImageButton ChangeMeetingBtn = new ImageButton();                
-            ChangeMeetingBtn.TextBlock.Text = "预算管理员可以为子公司设置管理员，还可以进行跨级设置，请根据实际情况进行操作，列表只显示员工主岗位";             
+            ChangeMeetingBtn.TextBlock.Text = "预算管理员可以为子公司设置管理员，还可以进行跨级设置，请根据实际情况进行操作";             
             SolidColorBrush brush = new SolidColorBrush();                    
             brush.Color = Colors.Red;
             
@@ -606,19 +606,48 @@ namespace SMT.SaaS.Permission.UI.Views
                 if (e.Result != null && e.Result.Any())
                 {
                     List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> tempList = e.Result.ToList();
-                        tempList.ForEach(item =>
+                    tempList.ForEach(item =>
+                    {
+                        var Employees = (from ent in LstFbAdmin
+                                         join c in companyids on ent.OWNERCOMPANYID equals c
+                                         where ent.EMPLOYEEID == item.EMPLOYEEID
+                                         && ent.EMPLOYEECOMPANYID== item.OWNERCOMPANYID
+                                         && ent.EMPLOYEEPOSTID == item.OWNERPOSTID
+                                         && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
+                                         select ent).FirstOrDefault();
+                        if (Employees != null)//查询到岗位
                         {
-                            var Employees = from ent in LstFbAdmin
-                                            join c in companyids on ent.OWNERCOMPANYID equals c
-                                            where ent.EMPLOYEEID == item.EMPLOYEEID
-                                            //&& ent.OWNERPOSTID == item.OWNERPOSTID
-                                            //&& ent.OWNERDEPARTMENTID == item.OWNERDEPARTMENTID 
-                                            select ent;
-                            if (Employees != null && Employees.Any() && item.ISAGENCY=="0")//只显示主岗位
+                            list.Add(item);
+                            LstFbAdmin.Remove(Employees);
+                        }
+                        else
+                        {
+                            Employees = (from ent in LstFbAdmin
+                                         join c in companyids on ent.OWNERCOMPANYID equals c
+                                         where ent.EMPLOYEEID == item.EMPLOYEEID
+                                         &&  ent.EMPLOYEECOMPANYID==item.OWNERCOMPANYID
+                                         && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
+                                         select ent).FirstOrDefault();
+                            if (Employees != null)//岗位没有则查询到部门
                             {
-                                    list.Add(item);
+                                list.Add(item);
+                                LstFbAdmin.Remove(Employees);
                             }
-                        });
+                            else
+                            {
+                                Employees = (from ent in LstFbAdmin
+                                             join c in companyids on ent.OWNERCOMPANYID equals c
+                                             where ent.EMPLOYEEID == item.EMPLOYEEID
+                                             &&  ent.EMPLOYEECOMPANYID==item.OWNERCOMPANYID
+                                             select ent).FirstOrDefault();
+                                if (Employees != null)//部门也没有则只查询到公司
+                                {
+                                    list.Add(item);
+                                    LstFbAdmin.Remove(Employees);
+                                }
+                            }
+                        }
+                    });
                 }
                 DtGrid.ItemsSource = list;
                 dataPager.PageCount = e.pageCount;
@@ -768,10 +797,10 @@ namespace SMT.SaaS.Permission.UI.Views
         {
             if (SelectedEmployee != null)
             {
-                Form.SysUserForms editForm = new SMT.SaaS.Permission.UI.Form.SysUserForms(FormTypes.Edit, SelectedEmployee.EMPLOYEEID);
-
+                Form.FbAdminEditForm editForm = new SMT.SaaS.Permission.UI.Form.FbAdminEditForm(SelectedEmployee);
                 EntityBrowser browser = new EntityBrowser(editForm);
-                browser.MinHeight = 450;
+                browser.MinHeight = 370;
+                browser.MinWidth = 400;
                 browser.ReloadDataEvent += new EntityBrowser.refreshGridView(AddWin_ReloadDataEvent);
                 browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { });
             }

@@ -40,8 +40,9 @@ namespace SMT.SaaS.Permission.UI.Form
 
         private List<ExtOrgObj> issuanceExtOrgObj;
 
+        private List<V_EMPLOYEEVIEW> listEmpolyeeView = new List<V_EMPLOYEEVIEW>();
         
-        private List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST> vemployeeObj = new List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST>();
+        //private List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST> vemployeeObj = new List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST>();
         private RefreshedTypes RefreshType = RefreshedTypes.Close;
         public FbAdminForm()
         {
@@ -54,45 +55,45 @@ namespace SMT.SaaS.Permission.UI.Form
         {
             //personclient.GetEmployeeDetailByParasCompleted += new EventHandler<GetEmployeeDetailByParasCompletedEventArgs>(personclient_GetEmployeeDetailByParasCompleted);
             PermClient.BatchAddFBAdminsCompleted += new EventHandler<BatchAddFBAdminsCompletedEventArgs>(PermClient_BatchAddFBAdminsCompleted);
-            personclient.GetEmployeeDetailByIDsCompleted += new EventHandler<GetEmployeeDetailByIDsCompletedEventArgs>(personclient_GetEmployeeDetailByIDsCompleted);
+           // personclient.GetEmployeeDetailByIDsCompleted += new EventHandler<GetEmployeeDetailByIDsCompletedEventArgs>(personclient_GetEmployeeDetailByIDsCompleted);
         }
 
-        void personclient_GetEmployeeDetailByIDsCompleted(object sender, GetEmployeeDetailByIDsCompletedEventArgs e)
-        {
-            try
-            {
-                if (e.Error == null)
-                {
-                    vemployeeObj.Clear();
-                    StrStaffList.Clear();//清空员工ID集合 否则会逐条记录添加
-                    StrDepartmentIDsList.Clear();
-                    StrCompanyIDsList.Clear();
-                    StrPositionIDsList.Clear();
-                    if (e.Result != null)
-                    {
-                        List<V_EMPLOYEEPOST> allPost = e.Result.ToList();
-                        if (allPost.Count() > 0)
-                        {
+        //void personclient_GetEmployeeDetailByIDsCompleted(object sender, GetEmployeeDetailByIDsCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (e.Error == null)
+        //        {
+        //            vemployeeObj.Clear();
+        //            StrStaffList.Clear();//清空员工ID集合 否则会逐条记录添加
+        //            StrDepartmentIDsList.Clear();
+        //            StrCompanyIDsList.Clear();
+        //            StrPositionIDsList.Clear();
+        //            if (e.Result != null)
+        //            {
+        //                List<V_EMPLOYEEPOST> allPost = e.Result.ToList();
+        //                if (allPost.Count() > 0)
+        //                {
 
-                        }
-                        vemployeeObj = e.Result.ToList();
+        //                }
+        //                vemployeeObj = e.Result.ToList();
 
-                        BindData();
-                    }
-                }
-                else
-                {
-                    //HtmlPage.Window.Alert(e.Error.ToString());
+        //                BindData();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            //HtmlPage.Window.Alert(e.Error.ToString());
 
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
-                }
-            }
-            catch (Exception ex)
-            {
+        //            Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message.ToString()));
-            }
-        }
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message.ToString()));
+        //    }
+        //}
 
         void PermClient_BatchAddFBAdminsCompleted(object sender, BatchAddFBAdminsCompletedEventArgs e)
         {
@@ -137,20 +138,20 @@ namespace SMT.SaaS.Permission.UI.Form
             if (tmpMeetingMember != null)
             {
                 ListFbAdmins.Clear();
-                foreach (var employ in vemployeeObj)
+                foreach (var employ in listEmpolyeeView)//可以设置为兼职岗位，组织架构选择谁就是谁岗位信息
                 {
                     T_SYS_FBADMIN fbadmin = new T_SYS_FBADMIN();
                     fbadmin.FBADMINID = System.Guid.NewGuid().ToString();
-                    fbadmin.EMPLOYEEID = employ.T_HR_EMPLOYEE.EMPLOYEEID;
+                    fbadmin.EMPLOYEEID = employ.EMPLOYEEID;
                     fbadmin.SYSUSERID = "";
                     fbadmin.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
                     fbadmin.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                     fbadmin.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                    fbadmin.EMPLOYEECOMPANYID = employ.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-                    fbadmin.EMPLOYEEDEPARTMENTID = employ.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
-                    fbadmin.EMPLOYEEPOSTID = employ.EMPLOYEEPOSTS[0].T_HR_POST.POSTID;
+                    fbadmin.EMPLOYEECOMPANYID = employ.OWNERCOMPANYID;
+                    fbadmin.EMPLOYEEDEPARTMENTID = employ.OWNERDEPARTMENTID;
+                    fbadmin.EMPLOYEEPOSTID = employ.OWNERPOSTID;
                     fbadmin.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
-                    fbadmin.ROLENAME = employ.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME + "预算配置员";
+                    fbadmin.ROLENAME = employ.COMPANYNAME + "预算配置员";
                     fbadmin.ISCOMPANYADMIN = "1";
                     fbadmin.ISSUPPERADMIN = "0";
                     fbadmin.ADDUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
@@ -184,27 +185,31 @@ namespace SMT.SaaS.Permission.UI.Form
 
                     foreach (var h in ent)
                     {
-                        if (h.ObjectType == SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Company)//公司
-                        {
-                            StrCompanyIDsList.Add(h.ObjectID);
-                        }
-                        if (h.ObjectType == SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Department)//部门
-                        {
+                        V_EMPLOYEEVIEW view = new V_EMPLOYEEVIEW();
+                        SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj userInfo = ent.FirstOrDefault();
 
-                            StrDepartmentIDsList.Add(h.ObjectID);
-                        }
-                        if (h.ObjectType == SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Post)//岗位
-                        {
-                            StrPositionIDsList.Add(h.ObjectID);
-                        }
-                        if (h.ObjectType == SMT.SaaS.FrameworkUI.OrgTreeItemTypes.Personnel)
-                        {
-                            StrStaffList.Add(h.ObjectID);
-                        }
+                        SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
+                        view.OWNERPOSTID = post.ObjectID;
+                        view.POSTNAME = post.ObjectName;//岗位
+
+                        SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj dept = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)post.ParentObject;
+                        view.OWNERDEPARTMENTID = dept.ObjectID;
+                        view.DEPARTMENTNAME = dept.ObjectName;//部门
+
+                        SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
+                        view.OWNERCOMPANYID = corp.COMPANYID;
+                        view.COMPANYNAME  = corp.CNAME;//公司
+
+                        SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE emp = userInfo.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
+                        view.EMPLOYEEID = emp.EMPLOYEEID;
+                        view.EMPLOYEECNAME = emp.EMPLOYEECNAME;
+
+                        listEmpolyeeView.Add(view);
                     }
                     //issuanceExtOrgObj = ent;
                     tmpMeetingMember = ent;                    
-                    personclient.GetEmployeeDetailByIDsAsync(StrStaffList);                    
+                   // personclient.GetEmployeeDetailByIDsAsync(StrStaffList);  
+                    BindData();
                 }
             };
             lookup.MultiSelected = true;
@@ -218,7 +223,7 @@ namespace SMT.SaaS.Permission.UI.Form
         private void BindData()
         {
 
-            if (vemployeeObj == null || vemployeeObj.Count < 1)
+            if (listEmpolyeeView == null || listEmpolyeeView.Count < 1)
             {
                 dgmember.ItemsSource = null;
 
@@ -226,7 +231,7 @@ namespace SMT.SaaS.Permission.UI.Form
             }
             else
             {
-                dgmember.ItemsSource = vemployeeObj;
+                dgmember.ItemsSource = listEmpolyeeView;
             }
 
         }
@@ -237,7 +242,7 @@ namespace SMT.SaaS.Permission.UI.Form
 
         private void dgmember_LoadingRow(object sender, DataGridRowEventArgs e)
         {
-            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST StaffV = (SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST)e.Row.DataContext;
+            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW StaffV = (SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW)e.Row.DataContext;
 
             Button DelBtn = dgmember.Columns[4].GetCellContent(e.Row).FindName("BtnDel") as Button;
             DelBtn.Tag = StaffV;
@@ -256,8 +261,8 @@ namespace SMT.SaaS.Permission.UI.Form
         private void BtnDel_Click(object sender, RoutedEventArgs e)
         {
             Button delBtn = sender as Button;
-            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST MeetingV = delBtn.Tag as SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST;
-            vemployeeObj.Remove(MeetingV);
+            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW MeetingV = delBtn.Tag as SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW;
+            listEmpolyeeView.Remove(MeetingV);
             dgmember.ItemsSource = null;
             BindData();
         }

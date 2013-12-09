@@ -256,84 +256,9 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfT_SYS_ROLE" nillable="true" type="tns:ArrayOfT_SYS_ROLE" />
-  <xs:complexType name="T_SYS_USERLOGINRECORD">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="LOGINDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="LOGINIP" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LOGINMONTH" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="LOGINRECORDID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LOGINTIME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LOGINYEAR" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="ONLINESTATE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_SYS_USERLOGINRECORD" nillable="true" type="tns:T_SYS_USERLOGINRECORD" />
-  <xs:complexType name="ArrayOfT_SYS_USERLOGINRECORD">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_USERLOGINRECORD" nillable="true" type="tns:T_SYS_USERLOGINRECORD" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_SYS_USERLOGINRECORD" nillable="true" type="tns:ArrayOfT_SYS_USERLOGINRECORD" />
-  <xs:complexType name="T_SYS_USERLOGINRECORDHIS">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="LOGINDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="LOGINIP" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LOGINRECORDHISID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="LOGINTIME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ONLINESTATE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_SYS_USERLOGINRECORDHIS" nillable="true" type="tns:T_SYS_USERLOGINRECORDHIS" />
-  <xs:complexType name="ArrayOfT_SYS_COUNTRY">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_COUNTRY" nillable="true" type="tns:T_SYS_COUNTRY" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_SYS_COUNTRY" nillable="true" type="tns:ArrayOfT_SYS_COUNTRY" />
-  <xs:complexType name="T_SYS_COUNTRY">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="COUNTRYID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="COUNTRYNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_SYS_COUNTRY" nillable="true" type="tns:T_SYS_COUNTRY" />
-  <xs:complexType name="ArrayOfT_SYS_FBADMIN">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_FBADMIN" nillable="true" type="tns:T_SYS_FBADMIN" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_SYS_FBADMIN" nillable="true" type="tns:ArrayOfT_SYS_FBADMIN" />
   <xs:complexType name="T_SYS_FBADMIN">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ADDUSERNAME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
@@ -368,18 +293,93 @@
   <xs:element name="ArrayOfT_SYS_FBADMINROLE" nillable="true" type="tns:ArrayOfT_SYS_FBADMINROLE" />
   <xs:complexType name="T_SYS_FBADMINROLE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ADDDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="FBADMINROLEID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ROLEID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_FBADMIN" nillable="true" type="tns:T_SYS_FBADMIN" />
-          <xs:element minOccurs="0" name="T_SYS_FBADMINReference" nillable="true" type="q13:EntityReferenceOfT_SYS_FBADMINCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_FBADMINReference" nillable="true" type="q10:EntityReferenceOfT_SYS_FBADMINCIR1sILv" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="T_SYS_FBADMINROLE" nillable="true" type="tns:T_SYS_FBADMINROLE" />
+  <xs:complexType name="T_SYS_USERLOGINRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LOGINDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LOGINIP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGINMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LOGINRECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGINTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGINYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ONLINESTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_SYS_USERLOGINRECORD" nillable="true" type="tns:T_SYS_USERLOGINRECORD" />
+  <xs:complexType name="ArrayOfT_SYS_USERLOGINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_USERLOGINRECORD" nillable="true" type="tns:T_SYS_USERLOGINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_SYS_USERLOGINRECORD" nillable="true" type="tns:ArrayOfT_SYS_USERLOGINRECORD" />
+  <xs:complexType name="T_SYS_USERLOGINRECORDHIS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LOGINDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LOGINIP" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGINRECORDHISID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LOGINTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ONLINESTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_SYS_USERLOGINRECORDHIS" nillable="true" type="tns:T_SYS_USERLOGINRECORDHIS" />
+  <xs:complexType name="ArrayOfT_SYS_COUNTRY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_COUNTRY" nillable="true" type="tns:T_SYS_COUNTRY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_SYS_COUNTRY" nillable="true" type="tns:ArrayOfT_SYS_COUNTRY" />
+  <xs:complexType name="T_SYS_COUNTRY">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COUNTRYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COUNTRYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_SYS_COUNTRY" nillable="true" type="tns:T_SYS_COUNTRY" />
+  <xs:complexType name="ArrayOfT_SYS_FBADMIN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_FBADMIN" nillable="true" type="tns:T_SYS_FBADMIN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_SYS_FBADMIN" nillable="true" type="tns:ArrayOfT_SYS_FBADMIN" />
   <xs:complexType name="ArrayOfT_SYS_DICTIONARY">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_DICTIONARY" nillable="true" type="tns:T_SYS_DICTIONARY" />

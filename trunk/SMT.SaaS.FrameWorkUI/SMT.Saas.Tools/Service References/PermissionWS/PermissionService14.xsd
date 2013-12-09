@@ -153,8 +153,11 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ADDUSERID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AddDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMPLOYEECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEDEPARTMENTID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEPOSTID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FBADMINID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />

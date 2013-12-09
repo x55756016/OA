@@ -203,6 +203,9 @@
       <DependentUpon>EntityMenuCustomPermForms.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Form\FbAdminEditForm.xaml.cs">
+      <DependentUpon>FbAdminEditForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FbAdminForm.xaml.cs">
       <DependentUpon>FbAdminForm.xaml</DependentUpon>
     </Compile>
@@ -402,6 +405,10 @@
     <Page Include="Form\EntityMenuCustomPermForms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FbAdminEditForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Form\FbAdminForm.xaml">
       <SubType>Designer</SubType>

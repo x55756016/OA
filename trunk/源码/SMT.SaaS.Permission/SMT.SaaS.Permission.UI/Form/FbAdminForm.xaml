@@ -31,9 +31,9 @@
                         </DataTemplate>
                     </data:DataGridTemplateColumn.CellTemplate>
                 </data:DataGridTemplateColumn>
-                <data:DataGridTextColumn Header="RESPECTIVECOMPANIES" Binding="{Binding EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}" />
-                <data:DataGridTextColumn Header="BelongsDepartment" Binding="{Binding EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}" />
-                <data:DataGridTextColumn Header="NAME" Binding="{Binding T_HR_EMPLOYEE.EMPLOYEECNAME}" />
+                <data:DataGridTextColumn Header="RESPECTIVECOMPANIES" Binding="{Binding COMPANYNAME}" />
+                <data:DataGridTextColumn Header="BelongsDepartment" Binding="{Binding DEPARTMENTNAME}" />
+                <data:DataGridTextColumn Header="NAME" Binding="{Binding EMPLOYEECNAME}" />
                 <data:DataGridTemplateColumn Header="OPERATION">
                     <data:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

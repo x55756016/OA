@@ -2636,7 +2636,21 @@ namespace SMT.SaaS.Permission.Services
             }
         }
 
-
+        /// <summary>
+        /// 修改预算管理员
+        /// </summary>
+        /// <param name="employeeid">员工ID</param>
+        /// <param name="ownercompanyid">公司ID</param>
+        /// <param name="fbAdmin">新员工信息（只需要取员工信息）</param>
+        /// <returns></returns>
+        [OperationContract]
+        public string UpdateFbAdmin(string employeeid, string ownercompanyid, T_SYS_FBADMIN fbAdmin)
+        {
+            using (FbAdminBLL bll = new FbAdminBLL())
+            {
+                return bll.UpdateFbAdmin(employeeid, ownercompanyid, fbAdmin);
+            }
+        }
         /// <summary>
         /// 根据用户名称得到用户所拥有的权限  简化版 2010-9-27 添加了预算管理员的判断 2011-12-15
         /// 
