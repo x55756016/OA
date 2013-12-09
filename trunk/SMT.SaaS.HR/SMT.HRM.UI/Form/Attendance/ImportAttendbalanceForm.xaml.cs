@@ -23,11 +23,12 @@ using SMT.SaaS.FrameworkUI.ChildWidow;
 using System.Collections.ObjectModel;
 
 namespace SMT.HRM.UI.Form.Attendance
-{  
+{
+    public delegate void SaveFileHandler(int bytesRead, byte[] buffer);
+    public delegate void UploadFileHandler(int bytesRead);
+
     public partial class ImportAttendbalanceForm : BaseForm, IEntityEditor
     {
-        public delegate void SaveFileHandler(int bytesRead, byte[] buffer);
-        public delegate void UploadFileHandler(int bytesRead);
         public OpenFileDialog OpenFileDialog = null;
         AttendanceServiceClient clientAtt;
         byte[] byExport;

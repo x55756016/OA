@@ -675,7 +675,7 @@ namespace SMT.HRM.BLL
                 Utility.SaveLog(ex.ToString());
             }
         }
-       
+
         /// <summary>
         /// 从Excel读取数据
         /// </summary>
@@ -693,45 +693,31 @@ namespace SMT.HRM.BLL
                 {
                     strLine = TF.ReadFields();
                     string strFingerPrintId = strLine[0];
-                    decimal dWorkServiceMonths = 0; //在职总月份数
 
                     T_HR_ATTENDMONTHLYBALANCE entTemp = new T_HR_ATTENDMONTHLYBALANCE();
                     entTemp.EMPLOYEECODE = strLine[0];
                     entTemp.EMPLOYEENAME = strLine[1];
                     entTemp.NEEDATTENDDAYS = GetDecimalValue(strLine[2]);
                     entTemp.REALATTENDDAYS = GetDecimalValue(strLine[3]);
-
-                    entTemp.WORKSERVICEMONTHS = dWorkServiceMonths;
-
                     entTemp.FORGETCARDTIMES = GetDecimalValue(strLine[4]);
-                    entTemp.LATETIMES = GetDecimalValue(strLine[5]);
-                    entTemp.LEAVEEARLYTIMES = GetDecimalValue(strLine[6]);
-
                     entTemp.LATEDAYS = GetDecimalValue(strLine[5]);
-                    entTemp.LEAVEEARLYDAYS = GetDecimalValue(strLine[6]);
-                    entTemp.ABSENTDAYS = GetDecimalValue(strLine[7]);
-
-                    entTemp.AFFAIRLEAVEDAYS = GetDecimalValue(strLine[8]);
-                    entTemp.SICKLEAVEDAYS = GetDecimalValue(strLine[9]);
+                    entTemp.LATEMINUTES = GetDecimalValue(strLine[6]);
+                    entTemp.LEAVEEARLYDAYS = GetDecimalValue(strLine[7]);
+                    entTemp.ABSENTDAYS = GetDecimalValue(strLine[8]);
+                    entTemp.ABSENTMINUTES = GetDecimalValue(strLine[9]);
                     entTemp.ANNUALLEVELDAYS = GetDecimalValue(strLine[10]);
                     entTemp.LEAVEUSEDDAYS = GetDecimalValue(strLine[11]);
-                    entTemp.MARRYDAYS = GetDecimalValue(strLine[12]);
-                    entTemp.MATERNITYLEAVEDAYS = GetDecimalValue(strLine[13]);
-                    entTemp.NURSESDAYS = GetDecimalValue(strLine[14]);
-                    entTemp.FUNERALLEAVEDAYS = GetDecimalValue(strLine[15]);
-                    entTemp.TRIPDAYS = GetDecimalValue(strLine[16]);
-                    entTemp.INJURYLEAVEDAYS = GetDecimalValue(strLine[17]);
-                    entTemp.PRENATALCARELEAVEDAYS = GetDecimalValue(strLine[18]);
-                    entTemp.OTHERLEAVEDAYS = entTemp.AFFAIRLEAVEDAYS + entTemp.SICKLEAVEDAYS + entTemp.ANNUALLEVELDAYS + entTemp.LEAVEUSEDDAYS
-                        + entTemp.MARRYDAYS + entTemp.MATERNITYLEAVEDAYS + entTemp.NURSESDAYS + entTemp.FUNERALLEAVEDAYS + entTemp.TRIPDAYS
-                        + entTemp.INJURYLEAVEDAYS + entTemp.PRENATALCARELEAVEDAYS;
-
-                    entTemp.EVECTIONTIME = GetDecimalValue(strLine[19]);
-                    entTemp.OVERTIMETIMES = GetDecimalValue(strLine[20]);
-                    entTemp.OVERTIMESUMHOURS = GetDecimalValue(strLine[21]);
-                    entTemp.OVERTIMESUMDAYS = GetDecimalValue(strLine[22]);
-
-                    entTemp.REMARK = strLine[23];
+                    entTemp.AFFAIRLEAVEDAYS = GetDecimalValue(strLine[12]);
+                    entTemp.SICKLEAVEDAYS = GetDecimalValue(strLine[13]);
+                    entTemp.MARRYDAYS = GetDecimalValue(strLine[14]);
+                    entTemp.MATERNITYLEAVEDAYS = GetDecimalValue(strLine[15]);
+                    entTemp.NURSESDAYS = GetDecimalValue(strLine[16]);
+                    entTemp.TRIPDAYS = GetDecimalValue(strLine[17]);
+                    entTemp.INJURYLEAVEDAYS = GetDecimalValue(strLine[18]);
+                    entTemp.PRENATALCARELEAVEDAYS = GetDecimalValue(strLine[19]);
+                    entTemp.FUNERALLEAVEDAYS = GetDecimalValue(strLine[20]);
+                    entTemp.EVECTIONTIME = GetDecimalValue(strLine[21]);
+                    entTemp.OUTAPPLYTIME = GetDecimalValue(strLine[22]);
 
                     balanceList.Add(entTemp);
                 }

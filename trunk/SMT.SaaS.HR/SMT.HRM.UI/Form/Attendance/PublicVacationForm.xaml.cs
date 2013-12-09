@@ -1327,6 +1327,14 @@ namespace SMT.HRM.UI.Form.Attendance
             if (obje.ISHALFDAY == "1")
             {
                 ck.IsChecked = true;
+                if (obje.PEROID == "0")
+                {
+                    workComboHatfDay.SelectedIndex = 0;//上午
+                }
+                else
+                {
+                    workComboHatfDay.SelectedIndex = 1;//下午
+                }
             }
             else
             {
@@ -1428,19 +1436,27 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             T_HR_OUTPLANDAYS obje = e.Row.DataContext as T_HR_OUTPLANDAYS;
             CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("workCheckHaftDay") as CheckBox;
-            ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("workComboHatfDay") as ComboBox;
-            DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("dpWorkdayEnddate") as DatePicker;
+            ComboBox vacComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("workComboHatfDay") as ComboBox;
+            DatePicker vacdayEnddate = dgWorkDayList.Columns[4].GetCellContent(e.Row).FindName("dpWorkdayEnddate") as DatePicker;
             NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(e.Row).FindName("nudWorkDays") as NumericUpDown;
 
             if (obje.ISHALFDAY == "1")
             {
                 ck.IsChecked = true;
+                if (obje.PEROID == "0")
+                {
+                    vacComboHatfDay.SelectedIndex = 0;//上午
+                }
+                else
+                {
+                    vacComboHatfDay.SelectedIndex = 1;//下午
+                }
             }
             else
             {
                 ck.IsChecked = false;
             }
-            WorkDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);
+            WorkDayCheckHalfDay(ck, vacdayEnddate, vacComboHatfDay, nudVacDays);
         }
         
         private void WorkDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate, ComboBox workComboHatfDay, NumericUpDown nudVacDays)
