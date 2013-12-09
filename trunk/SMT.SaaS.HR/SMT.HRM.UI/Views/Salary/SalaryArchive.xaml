@@ -38,7 +38,7 @@
                 <controlsToolkit:Expander.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent" >
+                            <Grid Width="auto" HorizontalAlignment="Left" Background="Transparent"  >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="24"></RowDefinition>
                                 </Grid.RowDefinitions>
@@ -55,12 +55,12 @@
                                 <TextBlock Width="50"  Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" Margin="0,6,0,0"/>
                                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtName" Grid.Row="0" Grid.Column="1" Width="130"  Margin="10,0,0,0"/>
                                 <ComboBox Name="cmbUsable" Grid.Row="0" Grid.Column="4" Margin="10,6,0,0" Width="60">
-                                    <ComboBoxItem x:Name="cmbItemUsing" Content="可用" IsSelected="True"/>
-                                    <ComboBoxItem x:Name="cmbItemAll" Content="所有"/>
-                                </ComboBox>   
+                                    <ComboBoxItem x:Name="cmbItemUsing" Content="有效" IsSelected="True"/>
+                                    <ComboBoxItem x:Name="cmbItemAll" Content="历史"/>
+                                </ComboBox>
                                 <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="5" Margin="10,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" HorizontalAlignment="Right" VerticalAlignment="Top" Click="btnFind_Click" Width="70" Height="24"/>
-                                <TextBlock x:Name="textIsUsable" Grid.Row="0" Grid.Column="6" Text="可用状态下只显示审核通过的记录" Visibility="Visible"
-                                           Foreground="Red" Margin="10,0,0,0"></TextBlock>
+                                <!--<TextBlock x:Name="textIsUsable" Grid.Row="0" Grid.Column="6" Text="可用状态下只显示审核通过的记录" Visibility="Visible"
+                                           Foreground="Red" Margin="10,0,0,0"></TextBlock>-->
                             </Grid>
                         </StackPanel>
                     </DataTemplate>
@@ -68,7 +68,7 @@
 
             </controlsToolkit:Expander>
 
-            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2" Grid.ColumnSpan="5"/>
+            <smt:FormToolBar x:Name="ToolBar" Width="auto" Grid.Row="2" Grid.ColumnSpan="5" Loaded="ToolBar_Loaded"/>
             <!--<controls:TreeView x:Name="treeOrganization" Grid.RowSpan="5" Grid.Column="0" Grid.Row="3"
                            SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}" >
             </controls:TreeView>-->

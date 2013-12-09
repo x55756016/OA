@@ -276,12 +276,12 @@ namespace SMT.HRM.UI.Views.Organization
             {
                 T_HR_POSTDICTIONARY tmpEnt = DtGrid.SelectedItems[0] as T_HR_POSTDICTIONARY;
 
-                if (tmpEnt.CHECKSTATE == Utility.GetCheckState(CheckStates.Approved))
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("REPEATAUDITERROR"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
+                //if (tmpEnt.CHECKSTATE == Utility.GetCheckState(CheckStates.Approved))
+                //{
+                //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("REPEATAUDITERROR"),
+                //Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //    return;
+                //}
 
                 PostDictionaryForms form = new PostDictionaryForms(FormTypes.Resubmit, tmpEnt.POSTDICTIONARYID);
                 EntityBrowser browser = new EntityBrowser(form);

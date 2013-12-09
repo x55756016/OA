@@ -393,7 +393,6 @@ namespace SMT.HRM.UI.Form.Salary
                         item.SALARYITEMNAME = it.SALARYITEMNAME;
                         item.REMARK = it.REMARK;
                         archiveItemsList.Add(item);
-
                     }
                     try
                     {
@@ -404,9 +403,19 @@ namespace SMT.HRM.UI.Form.Salary
                         }
                     }
                     catch { }
+                    for (int i = 0; i < its.Count; )
+                    {
+                        if (its[i].SALARYITEMNAME == "应发小计" || its[i].SALARYITEMNAME == "实发工资")
+                        {
+                            its.Remove(its[i]);
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
                     DtGrid.ItemsSource = its;
                     dataPager.PageCount = e.pageCount;
-
                 }
             }
         }
@@ -1438,7 +1447,7 @@ namespace SMT.HRM.UI.Form.Salary
             }
             catch (Exception ex)
             {
-                Utility.Log(ex.ToString());
+                //Utility.Log(ex.ToString());
             }
             return orgName;
         }

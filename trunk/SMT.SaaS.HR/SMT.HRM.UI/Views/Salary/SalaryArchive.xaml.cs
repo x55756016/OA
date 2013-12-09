@@ -21,6 +21,7 @@ using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.Saas.Tools.OrganizationWS;
 using SMT.SAAS.Main.CurrentContext;
 using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
+using SMT.SaaS.FrameworkUI.Common;
 
 namespace SMT.HRM.UI.Views.Salary
 {
@@ -32,6 +33,7 @@ namespace SMT.HRM.UI.Views.Salary
         DataGrid DtGrid;
         bool flag = false;
         int recordcol = 1;
+        PermissionServiceClient perclient;
         T_HR_SALARYSTANDARD selectedStandard = new T_HR_SALARYSTANDARD();
         List<V_SALARYARCHIVEITEM> listItems;
         ObservableCollection<string> archiveids;
@@ -59,7 +61,7 @@ namespace SMT.HRM.UI.Views.Salary
         {
             InitParas();
             GetEntityLogo("T_HR_SALARYARCHIVE");
-                   
+
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -93,9 +95,119 @@ namespace SMT.HRM.UI.Views.Salary
             //orgClient.GetDepartmentActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentActivedCompletedEventArgs>(orgClient_GetDepartmentActivedCompleted);
             //orgClient.GetPostActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostActivedCompletedEventArgs>(orgClient_GetPostActivedCompleted);
             //BindTree();
+            SetToolBarBtn();
+            SetOrgTree();
             loadbar.Stop();
         }
 
+        void SetOrgTree()
+        {
+            switch (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.Browse))
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    SetTreeOrganization();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 根据权限设置隐藏组织架构树
+        /// </summary>
+        void SetTreeOrganization()
+        {
+            expander.Visibility = Visibility.Collapsed;
+            Utility.CbxItemBinder(ToolBar.cbxCheckState, "CHECKSTATE", Convert.ToInt32(CheckStates.Approved).ToString());
+            ToolBar.cbxCheckState.IsEnabled = false;
+            ToolBar.btnRefresh.Visibility = Visibility.Collapsed;
+            LayoutRoot.ColumnDefinitions.Clear();
+            ColumnDefinition col1 = new ColumnDefinition();
+            LayoutRoot.ColumnDefinitions.Add(col1);
+            treeOrganization.Visibility = Visibility.Collapsed;
+            DtGridStand.SetValue(Grid.ColumnProperty, 0);
+            DtGridStand.SetValue(Grid.ColumnSpanProperty, 5);
+            ToolBar.SetValue(Grid.ColumnSpanProperty, 5);
+            DtGridStand.HorizontalAlignment = HorizontalAlignment.Stretch;
+        }
+
+        /// <summary>
+        /// 获取当前登录人权限范围
+        /// </summary>
+        /// <param name="menuCode">菜单代码</param>
+        /// <param name="perm">权限</param>
+        /// <returns></returns>
+        int GetPermissionDataRange(string menuCode, Permissions perm)
+        {
+            //return 1;
+            // edit liujx  将rslt=0 改为rslt=-1 有集团的权限为0 ，为最大权限
+            int rslt = -1;
+            try
+            {
+                if (Common.CurrentLoginUserInfo != null)
+                {
+                    if (Common.CurrentLoginUserInfo.PermissionInfoUI != null)
+                    {
+
+                        int permvalue = Convert.ToInt32(perm);
+                        var objs = from o in Common.CurrentLoginUserInfo.PermissionInfoUI
+                                   where o.PermissionValue == Convert.ToInt32(permvalue).ToString()
+                                   && o.MenuCode == menuCode
+                                   select o;
+                        //获取查询的权限,值越小，权限越大
+                        if (objs == null || objs.Count() <= 0)
+                        {
+                            rslt = -1;
+                        }
+                        else
+                        {
+                            rslt = objs.Min(p => Convert.ToInt32(p.DataRange));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return rslt;
+        }
+
+
+        /// <summary>
+        /// 根据权限控制ToolBar按钮显示
+        /// </summary>
+        void SetToolBarBtn()
+        {
+            if (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.Add) < 0)
+            {
+                ToolBar.btnNew.Visibility = Visibility.Collapsed;
+            }
+            if (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.Edit) < 0)
+            {
+                ToolBar.btnEdit.Visibility = Visibility.Collapsed;
+            }
+            if (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.Delete) < 0)
+            {
+                ToolBar.btnDelete.Visibility = Visibility.Collapsed;
+            }
+            if (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.Audit) < 0)
+            {
+                ToolBar.btnAudit.Visibility = Visibility.Collapsed;
+            }
+            if (PermissionHelper.GetPermissionValue("T_HR_SALARYARCHIVE", Permissions.ReSubmit) < 0)
+            {
+                ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
+            }
+        }
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
             LoadData();
@@ -171,7 +283,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     spDetail.Children.Clear();
                     DtGrid.CanUserSortColumns = false;
                     spDetail.Children.Add(DtGrid);
-                    
+
                     spDetail.Loaded += new RoutedEventHandler(SpStandDetail_Loaded);
                 }
                 catch { }
@@ -200,6 +312,11 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             {
                                 string sn = DtGrid.Columns[i].Header.ToString();
                                 V_SALARYARCHIVEITEM ent = list.Where(m => m.SALARYITEMNAME == sn).ToList().FirstOrDefault();
+                                if (sn == "应发小计" || sn == "实发工资")
+                                {
+                                    DtGrid.Columns[i].Visibility = Visibility.Collapsed;
+                                    continue;
+                                }
                                 DtGrid.Columns[i].GetCellContent(obj).DataContext = ent;
                             }
                         }
@@ -230,7 +347,14 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 if (list.Count > 0)
                 {
                     selectedStandard = list.FirstOrDefault() as T_HR_SALARYSTANDARD;
-                    LoadData();
+                    if (treeOrganization.Visibility == Visibility.Collapsed)
+                    {
+                        LoadDefaultData();
+                    }
+                    else
+                    {
+                        LoadData();
+                    }
                 }
                 else
                     loadbar.Stop();
@@ -284,17 +408,26 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 if (dict.DICTIONARYVALUE.Value.ToInt32() == Convert.ToInt32(CheckStates.Approved))
                 {
                     ToolBar.btnReSubmit.Visibility = Visibility.Visible;
+                    SetToolBarBtn();
                 }
                 else
                 {
                     ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
                 }
-                LoadData();
+                if (treeOrganization.Visibility == Visibility.Collapsed)
+                {
+                    LoadDefaultData();
+                }
+                else
+                {
+                    LoadData();
+                }
             }
             // }
             //ToolBar.btnAudit.Visibility = Visibility.Visible;
             ToolBar.btnNew.Visibility = Visibility.Visible;
             ToolBar.btnEdit.Visibility = Visibility.Visible;
+            SetToolBarBtn();
         }
         void AuditState_Loaded(object sender, RoutedEventArgs e)
         {
@@ -358,7 +491,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         list[i].OTHERADDDEDUCTDESC = list[i].OTHERSUBJOIN + "年" + list[i].OTHERADDDEDUCT + "月";
                     }
 
-                        DtGrid.Columns.Add(txtCol1);
+                    DtGrid.Columns.Add(txtCol1);
                     DtGrid.Columns.Add(txtCol2);
                     DtGrid.Columns.Add(txtCol);
                     DtGrid.Columns.Add(txtCol3);
@@ -400,11 +533,25 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
 
         private void GridPager_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            if (treeOrganization.Visibility == Visibility.Collapsed)
+            {
+                LoadDefaultData();
+            }
+            else
+            {
+                LoadData();
+            }
         }
         private void btnFind_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            if (treeOrganization.Visibility == Visibility.Collapsed)
+            {
+                LoadDefaultData();
+            }
+            else
+            {
+                LoadData();
+            }
         }
 
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
@@ -427,10 +574,19 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
 
         void browser_ReloadDataEvent()
         {
-            LoadData();
+            if (treeOrganization.Visibility == Visibility.Collapsed)
+            {
+                LoadDefaultData();
+            }
+            else
+            {
+                LoadData();
+            }
         }
 
-
+        /// <summary>
+        /// 根据组织架构加载数据
+        /// </summary>
         private void LoadData()
         {
             loadbar.Start();
@@ -472,7 +628,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 //paras.Add(txtName.Text.Trim());
                 filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEENAME)";
 
-               // filter += " EMPLOYEENAME.Contains(@" + paras.Count().ToString() + ")";
+                // filter += " EMPLOYEENAME.Contains(@" + paras.Count().ToString() + ")";
                 paras.Add(txtName.Text);
             }
 
@@ -494,27 +650,47 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             //client.GetSalaryArchivePagingAsync(dataPager.PageIndex, dataPager.PageSize, "SALARYARCHIVEID", filter, paras, pageCount, userID, Checkstate, sType, sValue);
             // by luojie
             ComboBox cmbUsable = Utility.FindChildControl<ComboBox>(expander, "cmbUsable");
-            int queryCode = 0; 
+            int queryCode = 0;
             string companyID = null;
-            TextBlock textIsUsable = Utility.FindChildControl<TextBlock>(expander, "textIsUsable");
-            if (cmbUsable != null && (string)cmbUsable.SelectionBoxItem == "可用")
+            //TextBlock textIsUsable = Utility.FindChildControl<TextBlock>(expander, "textIsUsable");
+            if (cmbUsable != null && (string)cmbUsable.SelectionBoxItem == "有效")
             {
-                queryCode=0;
+                queryCode = 0;
                 if (treeOrganization != null)
                 {
                     companyID = treeOrganization.sValue;
-                    textIsUsable.Visibility = Visibility.Visible;
+                    //textIsUsable.Visibility = Visibility.Visible;
                 }
             }
             else
             {
-                queryCode=1;
+                queryCode = 1;
                 companyID = null;
-                textIsUsable.Visibility = Visibility.Collapsed;
+                //textIsUsable.Visibility = Visibility.Collapsed;
             }
-            client.GetSalaryArchivePagingAsync(dataPager.PageIndex, dataPager.PageSize, "SALARYARCHIVEID", filter, paras, 
-                pageCount, userID, Checkstate, sType, sValue, queryCode,companyID);
+            client.GetSalaryArchivePagingAsync(dataPager.PageIndex, dataPager.PageSize, "SALARYARCHIVEID", filter, paras,
+                pageCount, userID, Checkstate, sType, sValue, queryCode, companyID);
             //loadbar.Stop();
+        }
+
+        /// <summary>
+        /// 加载默认数据
+        /// </summary>
+        private void LoadDefaultData()
+        {
+            loadbar.Start();
+            int pageCount = 0;
+            string filter = "";
+            int sType = 4;
+            string sValue = userID;
+
+            System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
+            filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEENAME)";
+            paras.Add(Common.CurrentLoginUserInfo.EmployeeName);
+            int queryCode = 0;
+            queryCode = 0;
+            client.GetSalaryArchivePagingAsync(dataPager.PageIndex, dataPager.PageSize, "SALARYARCHIVEID", filter, paras,
+                pageCount, userID, "2", sType, sValue, queryCode, null);
         }
 
         void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -675,7 +851,14 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
 
         void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            if (treeOrganization.Visibility == Visibility.Collapsed)
+            {
+                LoadDefaultData();
+            }
+            else
+            {
+                LoadData();
+            }
         }
 
         private void treeOrganization_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
@@ -691,7 +874,14 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             if (DtGridStand.SelectedItems.Count > 0)
             {
                 selectedStandard = DtGridStand.SelectedItems[0] as T_HR_SALARYSTANDARD;
-                LoadData();
+                if (treeOrganization.Visibility == Visibility.Collapsed)
+                {
+                    LoadDefaultData();
+                }
+                else
+                {
+                    LoadData();
+                }
             }
         }
         void LoadStander()
@@ -761,6 +951,12 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
         private void Login_HandlerClick(object sender, EventArgs e)
         {
             LayoutRoot.Visibility = Visibility.Visible;
+            LoadDefaultData();
+        }
+
+        private void ToolBar_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
 
 

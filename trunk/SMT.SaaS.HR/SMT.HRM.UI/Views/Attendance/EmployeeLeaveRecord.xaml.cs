@@ -220,8 +220,7 @@ namespace SMT.HRM.UI.Views.Attendance
                     T_SYS_DICTIONARY entDic = toolbar1.cbxCheckState.SelectedItem as T_SYS_DICTIONARY;
                     Checkstate = entDic.DICTIONARYVALUE.ToString();
                 }
-                dataPager.PageSize = int.MaxValue;
-                client.ExportEmployeeLeaveRecordReportsAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate);
+                client.ExportEmployeeLeaveRecordReportsAsync(dataPager.PageIndex,int.MaxValue, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate);
 
                 loadbar.Start();
             }

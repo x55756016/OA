@@ -246,6 +246,8 @@
                       IsChecked="True" 
                       GroupName="rbtYNCancel"  
                       Style="{StaticResource RadioButtonStyle}"/>-->
-        <TextBlock Text="该岗位为撤销申请" Grid.Row="11" Grid.Column="1"  FontSize="20" Visibility="Collapsed" Foreground="Red" Name="tbTip"></TextBlock>
+        <TextBlock Text="生效状态" Grid.Row="11" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbEdit" Height="24" Width="50"
+          Text="{Binding EDITSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=EDITSTATE}" Grid.Row="11" Grid.Column="1" HorizontalAlignment="Left"  IsEnabled="False"/>
     </Grid>
 </smtLocal:BaseForm>

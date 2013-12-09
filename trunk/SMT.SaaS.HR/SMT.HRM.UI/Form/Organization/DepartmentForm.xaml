@@ -43,12 +43,12 @@
                  Grid.Row="0" Grid.Column="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Height="24"/>
 
         <!--审核状态-->
-        <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" 
+        <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=CHECKSTATE}" 
                    Grid.Row="2" Grid.Column="3"></TextBlock>
         <appCtr:DictionaryComboBox  x:Name="cbxCheckState" Category="CHECKSTATE" SelectedValue="{Binding CHECKSTATE, Mode=TwoWay}"  Margin="5,0,0,0"
          IsEnabled="False" Grid.Row="2" Grid.Column="4" Width="auto" HorizontalAlignment="Stretch">
 
-        </appCtr:DictionaryComboBox>
+        </appCtr:DictionaryComboBox>-->
 
         <!--Row 1-->
         <!--部门字典-->
@@ -93,10 +93,10 @@
         </smt:LookUp>
         <!--排序-->
         <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=SORTORDER}" 
-                   Grid.Row="3" Grid.Column="0"  ></TextBlock>
+                   Grid.Row="2" Grid.Column="3"  ></TextBlock>
         <!--<TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtManageNmber"   Width="Auto" MaxLength="10"
                  Text="{Binding UNDERNUMBER,Mode=TwoWay}" Grid.Row="4" Grid.Column="4" HorizontalAlignment="Stretch" />-->
-        <Grid Grid.Row="3" Grid.Column="1">
+        <Grid Grid.Row="2" Grid.Column="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="70"></ColumnDefinition>
@@ -110,19 +110,19 @@
         <!--Row 2-->
         <!--部门职责-->
         <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=DEPARTMENTFUNCTION}" 
-                   Grid.Row="4" Grid.Column="0" Height="22" VerticalAlignment="Top"></TextBlock>
+                   Grid.Row="3" Grid.Column="0" Height="22" VerticalAlignment="Top"></TextBlock>
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtDepFun"  AcceptsReturn="True" 
                  Text="{Binding DEPARTMENTFUNCTION,Mode=TwoWay}"  Margin="5,2,0,0" Height="AUTO"
-                 Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap"  MaxLength="2000" >
+                 Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap"  MaxLength="2000" >
             <!--<validator:ValidatorService.Validator>
                 <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="DEPARTMENTFUNCTION" ></validator:RequiredValidator>
             </validator:ValidatorService.Validator>-->
         </TextBox>
         <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=REMARK}" 
-                   Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" ></TextBlock>
+                   Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" ></TextBlock>
 
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" 
-                 Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="5" Grid.Column="1" MaxLength="1000" Margin="5,2,0,0" Height="AUTO"
+                 Text="{Binding REMARK,Mode=TwoWay}" Grid.Row="4" Grid.Column="1" MaxLength="1000" Margin="5,2,0,0" Height="AUTO"
 				 Grid.ColumnSpan="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" AcceptsReturn="True" 
 				 />
         <!--<ScrollViewer x:Name="scvAudit" Grid.Row="4"  Grid.ColumnSpan="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
@@ -130,7 +130,7 @@
             </audit:AuditControl>
         </ScrollViewer>-->
         <TextBlock Text="是否前台" 
-                   Grid.Row="6" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+                   Grid.Row="5" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
 
         <RadioButton x:Name="rbtYes"
                         Click="rbtYes_Click"
@@ -139,17 +139,21 @@
                         Width="46"
                         Content="是"
                         Grid.Column="1"
-                        Grid.Row="6"
+                        Grid.Row="5"
                         Style="{StaticResource RadioButtonStyle}" />
         <RadioButton x:Name="rbtNo"
                         Click="rbtNo_Click"
                         Margin="65,8,0,2"
                         Content="否"
                         Grid.Column="1"
-                        Grid.Row="6"
+                        Grid.Row="5"
                         HorizontalAlignment="Left"
                         Width="52"
                         IsChecked="True"
                         Style="{StaticResource RadioButtonStyle}" />
+        <!--row 7生效状态-->
+        <TextBlock Text="生效状态" Grid.Row="6" Grid.Column="0" Margin="0,8,0,2"></TextBlock>
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="tbEdit" Height="7" Width="50"
+          Text="{Binding EDITSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=EDITSTATE}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"  IsEnabled="False"/>
     </Grid>
 </smtLocal:BaseForm>

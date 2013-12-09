@@ -362,10 +362,10 @@ namespace SMT.HRM.UI.Form
                     //{
                     //    this.rbtNoCancel.IsChecked = true;
                     //}
-                    if (Post.EDITSTATE=="2")
-                    {
-                        this.tbTip.Visibility = Visibility.Visible;
-                    }
+                    //if (Post.EDITSTATE=="2")
+                    //{
+                    //    this.tbTip.Visibility = Visibility.Visible;
+                    //}
                     //显示岗位的公司
                     lkCompany.DataContext = Post.T_HR_DEPARTMENT.T_HR_COMPANY;
                     lkDepart.DataContext = Post.T_HR_DEPARTMENT;
@@ -788,6 +788,7 @@ namespace SMT.HRM.UI.Form
             AutoList.Add(basedata("T_HR_POST", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_POST", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
             AutoList.Add(basedata("T_HR_POST", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
+            AutoList.Add(basedata("T_HR_POST", "EDITSTATE", Info.EDITSTATE, this.tbEdit.Text));//生效状态
             string a = mx.TableToXml(Info, null, StrSource, AutoList);
 
             return a;

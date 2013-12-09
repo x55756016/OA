@@ -87,7 +87,7 @@ namespace SMT.HRM.UI.Form
             txtDepartmentCode.IsReadOnly = true;
             txtDepFun.IsReadOnly = true;
             txtRemark.IsReadOnly = true;
-            cbxCheckState.IsEnabled = false;
+            //cbxCheckState.IsEnabled = false;
             //cbxDepartMent.IsEnabled = false;
             acbDepName.IsEnabled = false;
             acbDepName.ToggleButton.IsEnabled = false;
@@ -695,6 +695,7 @@ namespace SMT.HRM.UI.Form
             AutoList.Add(basedata("T_HR_DEPARTMENT", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_DEPARTMENT", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
             AutoList.Add(basedata("T_HR_DEPARTMENT", "OWNERPOSTID", Info.OWNERPOSTID, ownerPostName));
+            AutoList.Add(basedata("T_HR_DEPARTMENT", "EDITSTATE", Info.EDITSTATE, this.tbEdit.Text));//生效状态
             string a = mx.TableToXml(Info, null, StrSource, AutoList);
 
             return a;

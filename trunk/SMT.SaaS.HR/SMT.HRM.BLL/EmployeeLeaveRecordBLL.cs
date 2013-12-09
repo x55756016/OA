@@ -136,9 +136,10 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                string filter1 = string.Empty, filter2 = string.Empty;
+                string filter1 = string.Empty, filter2 = string.Empty, filter3 = string.Empty;
                 List<object> paraTemp1 = new List<object>();
                 List<object> paraTemp2 = new List<object>();
+                List<object> paraTemp3 = new List<object>();
                 //处理跨月
                 if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(recorderDate))
                 {
@@ -154,8 +155,8 @@ namespace SMT.HRM.BLL
                     paraTemp1.Add(startLastDay);
                     filter1 += " and ENDDATETIME>@" + paraTemp1.Count().ToString();
                     paraTemp1.Add(startLastDay);
-                    DateTime recorderFirstDay = new DateTime(Convert.ToDateTime(startDate).Year, Convert.ToDateTime(startDate).Month, 1);
-                    DateTime recorderLastDay = new DateTime(Convert.ToDateTime(startDate).AddMonths(1).Year, Convert.ToDateTime(startDate).AddMonths(1).Month, 1).AddDays(-1);
+                    DateTime recorderFirstDay = new DateTime(Convert.ToDateTime(recorderDate).Year, Convert.ToDateTime(recorderDate).Month, 1);
+                    DateTime recorderLastDay = new DateTime(Convert.ToDateTime(recorderDate).AddMonths(1).Year, Convert.ToDateTime(recorderDate).AddMonths(1).Month, 1).AddDays(-1);
                     if (!string.IsNullOrEmpty(filter2))
                     {
                         filter2 += " and ";
@@ -166,6 +167,14 @@ namespace SMT.HRM.BLL
                     paraTemp2.Add(recorderFirstDay);
                     filter2 += " and ENDDATETIME<@" + paraTemp2.Count().ToString();
                     paraTemp2.Add(recorderLastDay);
+                    //if (!string.IsNullOrEmpty(filter3))
+                    //{
+                    //    filter3 += " and ";
+                    //}
+                    //filter3 += " STARTDATETIME>=@" + paraTemp3.Count().ToString();
+                    //paraTemp3.Add(startFirstDay);
+                    //filter3 += " and STARTDATETIME<@" + paraTemp3.Count().ToString();
+                    //paraTemp3.Add(recorderLastDay);
                 }
                 if (strCheckState != Convert.ToInt32(SMT.HRM.BLL.Common.CheckStates.WaittingApproval).ToString())
                 {
@@ -176,11 +185,15 @@ namespace SMT.HRM.BLL
                     SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
                     SetOrganizationFilter(ref filter1, ref paraTemp1, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
                     SetOrganizationFilter(ref filter2, ref paraTemp2, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
+                    //SetOrganizationFilter(ref filter3, ref paraTemp3, strOwnerID, "T_HR_EMPLOYEELEAVERECORD");
                 }
                 else
                 {
                     string strCheckfilter = string.Copy(filterString);
                     SetFilterWithflow("LEAVERECORDID", "T_HR_EMPLOYEELEAVERECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
+                    SetFilterWithflow("LEAVERECORDID", "T_HR_EMPLOYEELEAVERECORD", strOwnerID, ref strCheckState, ref filter1, ref paraTemp1);
+                    SetFilterWithflow("LEAVERECORDID", "T_HR_EMPLOYEELEAVERECORD", strOwnerID, ref strCheckState, ref filter2, ref paraTemp2);
+                    //SetFilterWithflow("LEAVERECORDID", "T_HR_EMPLOYEELEAVERECORD", strOwnerID, ref strCheckState, ref filter3, ref paraTemp3);
                     if (string.Compare(strCheckfilter, filterString) == 0)
                     {
                         return null;
@@ -203,9 +216,58 @@ namespace SMT.HRM.BLL
                     filterString += " CHECKSTATE == @" + iIndex.ToString();
                     paras.Add(strCheckState);
                 }
+                if (!string.IsNullOrEmpty(strCheckState))
+                {
+                    int iIndex1 = 0;
+                    if (!string.IsNullOrEmpty(filter1))
+                    {
+                        filter1 += " AND";
+                    }
+
+                    if (paraTemp1.Count() > 0)
+                    {
+                        iIndex1 = paraTemp1.Count();
+                    }
+
+                    filter1 += " CHECKSTATE == @" + iIndex1.ToString();
+                    paraTemp1.Add(strCheckState);
+                }
+                if (!string.IsNullOrEmpty(strCheckState))
+                {
+                    int iIndex2 = 0;
+                    if (!string.IsNullOrEmpty(filter2))
+                    {
+                        filter2 += " AND";
+                    }
+
+                    if (paraTemp2.Count() > 0)
+                    {
+                        iIndex2 = paraTemp2.Count();
+                    }
+
+                    filter2 += " CHECKSTATE == @" + iIndex2.ToString();
+                    paraTemp2.Add(strCheckState);
+                }
+                //if (!string.IsNullOrEmpty(strCheckState))
+                //{
+                //    int iIndex3 = 0;
+                //    if (!string.IsNullOrEmpty(filter3))
+                //    {
+                //        filter3 += " AND";
+                //    }
+
+                //    if (paraTemp3.Count() > 0)
+                //    {
+                //        iIndex3 = paraTemp3.Count();
+                //    }
+
+                //    filter3 += " CHECKSTATE == @" + iIndex3.ToString();
+                //    paraTemp3.Add(strCheckState);
+                //}
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> ents = dal.GetObjects().Include("T_HR_LEAVETYPESET");
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> ents1 = null;
                 IQueryable<T_HR_EMPLOYEELEAVERECORD> ents2 = null;
+                //IQueryable<T_HR_EMPLOYEELEAVERECORD> ents3 = null;
                 if (!string.IsNullOrEmpty(filter1))
                 {
                     ents1 = ents.Where(filter1, paraTemp1.ToArray());
@@ -214,6 +276,10 @@ namespace SMT.HRM.BLL
                 {
                     ents2 = ents.Where(filter2, paraTemp2.ToArray());
                 }
+                //if (!string.IsNullOrEmpty(filter3))
+                //{
+                //    ents3 = ents.Where(filter3, paraTemp3.ToArray());
+                //}
                 if (!string.IsNullOrEmpty(filterString))
                 {
                     ents = ents.Where(filterString, paras.ToArray()).Union(ents1).Union(ents2);
@@ -223,6 +289,7 @@ namespace SMT.HRM.BLL
                 //    DateTime tmpDate = Convert.ToDateTime(recorderDate);
                 //    ents = ents.Where(p => p.STARTDATETIME.Value.Year == tmpDate.Year && p.STARTDATETIME.Value.Month == tmpDate.Month);
                 //}
+                //ents = ents.OrderBy(sort);
 
                 var entrs = from e in ents
                             join vDepartment in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals vDepartment.DEPARTMENTID
