@@ -267,7 +267,7 @@ namespace SMT.HRM.UI.Views.Attendance
             strSortKey = " T_HR_ATTENDANCERECORD.EMPLOYEEID, ABNORMALDATE ";
             CheckInputFilter(ref strEmployeeID, ref strCurStartDate, ref strCurEndDate);
             pageIndex = dataPager.PageIndex;
-            pageSize = 100000;//导出所有  
+            pageSize = 1000000;//导出所有  
             if (OutCsventList == null)
             {
                 outExcell = true;
