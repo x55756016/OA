@@ -295,7 +295,8 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="nudDays"></param>
         private void CalculateDayCount(DataGrid dgList)
         {
-            if (dgList.SelectedItem == null)
+            T_HR_OUTPLANDAYS entTemp = dgList.SelectedItem as T_HR_OUTPLANDAYS;
+            if (entTemp == null)
             {
                 return;
             }
@@ -338,7 +339,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
             DateTime.TryParse(dtpStartDate.Text, out dtStart);
             DateTime.TryParse(dtpEndDate.Text, out dtEnd);
-
+            
             decimal dDay = 0;
             dDay = CalculateDayCount(dtStart, dtEnd);
             nudDays.Value = dDay.ToDouble();           
@@ -640,12 +641,29 @@ namespace SMT.HRM.UI.Form.Attendance
                         Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ENDDATE"), Utility.GetResourceStr("REQUIRED", "ENDDATE"));
                         break;
                     }
-
-                    if (itemVac.STARTDATE.Value > itemVac.ENDDATE.Value)
+                    DateTime dt = new DateTime(itemVac.STARTDATE.Value.Year, itemVac.STARTDATE.Value.Month, itemVac.STARTDATE.Value.Day);
+                    DateTime dtNow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                    if (dt < dtNow)
                     {
                         flag = false;
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("DATECOMPARE", "ENDDATE,STARTDATE"));
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATE"), "开始日期不能小于当前日期");
                         break;
+                    }
+                    if (string.IsNullOrEmpty(itemVac.ISHALFDAY))
+                    {
+                    }
+                    else
+                    {
+                        if (itemVac.ISHALFDAY == "0")//非半天设置
+                        {
+                            if (itemVac.STARTDATE.Value > itemVac.ENDDATE.Value)
+                            {
+                                flag = false;
+                                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("DATECOMPARE", "ENDDATE,STARTDATE"));
+                                break;
+                            }
+                          
+                        }
                     }
                 }
             }
@@ -1437,7 +1455,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     return;
                 }
 
-                CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("checkHaftDay") as CheckBox;
+                CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("workCheckHaftDay") as CheckBox;
                 DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
                 ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("workComboHatfDay") as ComboBox;
                 NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(dgWorkDayList.SelectedItem).FindName("nudWorkDays") as NumericUpDown;
