@@ -22,6 +22,7 @@ namespace SMT.HRM.UI.Views.Attendance
         #region 全局变量
         private AttendanceServiceClient clientAtt = new AttendanceServiceClient();
         private SMTLoading loadbar = new SMTLoading();
+        IEnumerable<T_HR_EMPLOYEEABNORMRECORD> OutCsventList;
         #endregion
 
         public ExceptionAttRd()
@@ -95,7 +96,8 @@ namespace SMT.HRM.UI.Views.Attendance
             CheckInputFilter(ref strEmployeeID, ref strCurStartDate, ref strCurEndDate);
             pageIndex = dataPager.PageIndex;
             pageSize = dataPager.PageSize;
-
+            outExcell = false;
+            OutCsventList = null;//重置导出数据集合
             clientAtt.GetAbnormRecordRdListByMultSearchAsync(strOwnerID, strEmployeeID, strSignInState,strCurStartDate,strCurEndDate, strSortKey, pageIndex, pageSize, pageCount);
             loadbar.Start();
         }
@@ -132,18 +134,36 @@ namespace SMT.HRM.UI.Views.Attendance
 
         void clientAtt_GetAbnormRecordRdListByMultSearchCompleted(object sender, GetAbnormRecordRdListByMultSearchCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                IEnumerable<T_HR_EMPLOYEEABNORMRECORD> entList = e.Result;
-                dgAbnormRecordList.ItemsSource = entList;
-                dataPager.PageCount = e.pageCount;
+                if (e.Error == null)
+                {
+                    if (outExcell)
+                    {
+                        OutCsventList = e.Result;
+                    }
+                    else
+                    {
+
+                        IEnumerable<T_HR_EMPLOYEEABNORMRECORD> entList = e.Result;
+                        dgAbnormRecordList.ItemsSource = entList;
+                        dataPager.PageCount = e.pageCount;
+                    }
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message.ToString());
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message.ToString());
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.Message.ToString());
+            }
+            finally
+            {
+                loadbar.Stop();
             }
 
-            loadbar.Stop();
         }        
 
         /// <summary>
@@ -228,6 +248,7 @@ namespace SMT.HRM.UI.Views.Attendance
 
         #endregion
 
+        private bool outExcell = false;
         /// <summary>
         /// 导出Excel
         /// </summary>
@@ -235,7 +256,30 @@ namespace SMT.HRM.UI.Views.Attendance
         /// <param name="e"></param>
         private void btnOutExcel_Click(object sender, RoutedEventArgs e)
         {
-            ExportToCSV.ExportDataGridSaveAs(dgAbnormRecordList);
+
+
+            string strEmployeeID = string.Empty, strSignInState = string.Empty, strCurStartDate = string.Empty, strCurEndDate = string.Empty, strSortKey = string.Empty, strOwnerID = string.Empty;
+            int pageIndex = 0, pageSize = 0, pageCount = 0;
+
+            strOwnerID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+            strSignInState = (Convert.ToInt32(IsChecked.No) + 1).ToString();
+
+            strSortKey = " T_HR_ATTENDANCERECORD.EMPLOYEEID, ABNORMALDATE ";
+            CheckInputFilter(ref strEmployeeID, ref strCurStartDate, ref strCurEndDate);
+            pageIndex = dataPager.PageIndex;
+            pageSize = 100000;//导出所有  
+            if (OutCsventList == null)
+            {
+                outExcell = true;
+                MessageBox.Show("由于silverlight安全限制，请等待返回数据后再次点击导出Excel");
+                clientAtt.GetAbnormRecordRdListByMultSearchAsync(strOwnerID, strEmployeeID, strSignInState, strCurStartDate, strCurEndDate, strSortKey, pageIndex, pageSize, pageCount);
+                loadbar.Start();
+            }
+            else
+            {
+                ExportToCSV.ExportDataGridWithDataSourceSaveAs(dgAbnormRecordList, OutCsventList);
+            }
+
         }
     }
 }

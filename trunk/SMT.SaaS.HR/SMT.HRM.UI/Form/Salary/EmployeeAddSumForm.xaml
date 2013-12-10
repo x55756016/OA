@@ -35,24 +35,24 @@
         <!--EMPLOYEE-->
 
         <TextBlock   Grid.Column="0" Grid.Row="0"
-					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" />
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}"  Height="24"  />
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-            <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE, Mode=TwoWay}"  Height="22"  Width="200" HorizontalAlignment="Stretch"
-                    FindClick="LookUp_FindClick" Name="lkEmployeeName" Margin="0,0,0,0" DisplayMemberPath="EMPLOYEECNAME" IsEnabled="False">
+            <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE, Mode=TwoWay}" Height="24"  Width="200" HorizontalAlignment="Stretch"
+                    FindClick="LookUp_FindClick" Name="lkEmployeeName"  DisplayMemberPath="EMPLOYEECNAME" IsEnabled="False">
             </smt:LookUp>
-            <Button x:Name="btHistory" Content="离职人员" Width="auto" Height="22" Click="btHistory_Click"></Button>
+            <Button x:Name="btHistory" Content="离职人员" Width="auto" Height="24" Click="btHistory_Click"></Button>
         </StackPanel>
 
         <!--SYSTEMTYPE-->
 
         <TextBlock   Grid.Column="3" Grid.Row="0"
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=HANDLETYPE}" />
+            					Text="加扣款类型" Height="24"  />
 
-        <appCtr:DictionaryComboBox Grid.Row="0" Margin="5 0 0 0" IsShowNull="False" Grid.Column="4"  Height="22" x:Name="combProtectType"  Width="Auto"
+        <appCtr:DictionaryComboBox Grid.Row="0"   IsShowNull="False" Grid.Column="4" Height="24"  x:Name="combProtectType"  Width="Auto"
                 Category="PROTECTTYPE"  SelectedValue="{Binding SYSTEMTYPE, Mode=TwoWay}" HorizontalAlignment="Stretch" ></appCtr:DictionaryComboBox>
 
         <!--薪资年月-->
-        <TextBlock   Grid.Column="0" Grid.Row="1" Text="薪资年月" Height="24"/>
+        <TextBlock   Grid.Column="0" Grid.Row="1" Text="薪资年月" Height="24" />
         <inputToolkit:NumericUpDown Name="numYear" Style="{StaticResource NumericUpDownStyle}" Width="100" HorizontalAlignment="Left" Maximum="1000000"  Grid.Row="1" Grid.Column="1" Value="{Binding DEALYEAR, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="True" Margin="5,0,0,0"></inputToolkit:NumericUpDown>
         <TextBlock   Grid.Column="1" Grid.Row="1" Height="24" Text="年" Margin="110 8 0 0"/>
         <inputToolkit:NumericUpDown Name="numMonth" Style="{StaticResource NumericUpDownStyle}" Width="50" HorizontalAlignment="Left"  Minimum="1" Maximum="12" Grid.Row="1" Grid.Column="1" Value="{Binding DEALMONTH, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="130,0,0,0"></inputToolkit:NumericUpDown>

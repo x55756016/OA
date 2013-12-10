@@ -256,6 +256,101 @@ namespace SMT.HRM.UI
             }
         }
 
+
+        /// <summary>        
+        /// 导出DataGrid数据到Excel为CVS文件     
+        /// 使用utf8编码 中文是乱码 改用Unicode编码 
+        /// </summary>       
+        /// <param name="withHeaders">是否带列头</param>
+        /// <param name="grid">DataGrid</param>     
+        public static void ExportDataGridWithDataSourceSaveAs(DataGrid grid,object DataSource)
+        {
+            string data = ExportDataGridWithDataSource(true, grid,DataSource);
+            var sfd = new SaveFileDialog
+            {
+                DefaultExt = "csv",
+                Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*",
+                FilterIndex = 1
+            };
+            if (sfd.ShowDialog() == true)
+            {
+                using (Stream stream = sfd.OpenFile())
+                {
+                    using (var writer = new StreamWriter(stream, System.Text.Encoding.Unicode))
+                    {
+                        data = data.Replace(",", "\t");
+                        writer.Write(data);
+                        writer.Close();
+                    }
+                    stream.Close();
+                    MessageBox.Show("导出成功！");
+                }
+            }
+        }
+
+        /// <summary>        
+        /// 导出DataGrid数据到Excel        
+        /// </summary>        
+        /// <param name="withHeaders">是否需要表头</param>        
+        /// <param name="grid">DataGrid</param>        
+        /// <returns>Excel内容字符串</returns>        
+        public static string ExportDataGridWithDataSource(bool withHeaders, DataGrid grid,object DataSource)
+        {
+            System.Reflection.PropertyInfo propInfo;
+            System.Windows.Data.Binding binding;
+            var strBuilder = new System.Text.StringBuilder();
+            DictionaryConverter dicConverter = new DictionaryConverter();
+            var source = DataSource as System.Collections.IList;
+            if (source == null) return "";
+            var headers = new List<string>();
+            grid.Columns.ForEach(col =>
+            {
+                if (col is DataGridBoundColumn)
+                {
+                    string strHeader = ConvertDic(col.Header.ToString());
+                    headers.Add(FormatCsvField(strHeader));
+                }
+            });
+            strBuilder.Append(String.Join(",", headers.ToArray())).Append("\r\n");
+            foreach (Object data in source)
+            {
+                var csvRow = new List<string>();
+                foreach (DataGridColumn col in grid.Columns)
+                {
+                    try
+                    {
+                        if (col is DataGridBoundColumn)
+                        {
+                            binding = (col as DataGridBoundColumn).Binding;
+                            string colPath = binding.Path.Path;
+                            string[] arr = colPath.Split('.');
+                            string dicCategory = Convert.ToString(binding.ConverterParameter);//如有绑定字典值，则为字典类别
+                            propInfo = data.GetType().GetProperty(colPath);
+                            object ob = data;
+                            if (arr.Length > 1)
+                            {
+                                ob = data.GetObjValue(arr[0]);
+                                propInfo = data.GetObjValue(arr[0]).GetType().GetProperty(arr[1]);
+                            }
+                            if (propInfo != null)
+                            {
+                                object obj = propInfo.GetValue(ob, null) == null ? null : propInfo.GetValue(ob, null).ToString();
+                                obj = dicConverter.Convert(obj, null, dicCategory, null);
+                                string value = Convert.ToString(obj);
+                                csvRow.Add(FormatCsvField(value));
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+                strBuilder.Append(String.Join(",", csvRow.ToArray())).Append("\r\n");
+            }
+            return strBuilder.ToString();
+        }
+
         #endregion
     
     }
