@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.BLLCommonServices"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.Permission.CustomerModel", "SMT.SaaS.Permission.CustomerModel\SMT.SaaS.Permission.CustomerModel.csproj", "{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.FrameworkUI", "..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj", "{9A42135A-11F2-4210-A41B-3AC06AC0D835}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = SMT.SaaS.Permission1.vsmdi
@@ -68,12 +70,17 @@ Global
 		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBEDE1B9-39ED-49B4-90D3-4F8320B991B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6673751A-D03D-4D7A-ACF3-F363469B73AE} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
 		{9484C541-B0A2-437A-8C6F-0BFD7E13934E} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
+		{6673751A-D03D-4D7A-ACF3-F363469B73AE} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
+		{9A42135A-11F2-4210-A41B-3AC06AC0D835} = {03A30538-13EB-42A5-8FE8-735720D9E69A}
 	EndGlobalSection
 EndGlobal

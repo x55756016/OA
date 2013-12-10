@@ -51,7 +51,6 @@ namespace SMT.SaaS.Permission.UI.Views
         private  string ListEmployeeids = "";  //员工集合
         private string strSelectEmployeeID = "";//选择的员工ID
         private List<V_FBAdmin> LstFbAdmin = new List<V_FBAdmin>();
-        private List<V_FBAdmin> TempLstFbAdmin = new List<V_FBAdmin>();
         public SysFBAdmins()
         {
             InitializeComponent();
@@ -607,51 +606,48 @@ namespace SMT.SaaS.Permission.UI.Views
                 if (e.Result != null && e.Result.Any())
                 {
                     List<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> tempList = e.Result.ToList();
-                    tempList.ForEach(item =>
-                    {
-                        var Employees = (from ent in LstFbAdmin
-                                         join c in companyids on ent.OWNERCOMPANYID equals c
-                                         where ent.EMPLOYEEID == item.EMPLOYEEID
-                                         && ent.EMPLOYEECOMPANYID== item.OWNERCOMPANYID
-                                         && ent.EMPLOYEEPOSTID == item.OWNERPOSTID
-                                         && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
-                                         select ent).FirstOrDefault();
-                        if (Employees != null)//查询到岗位
+                    LstFbAdmin.ForEach(ent =>
                         {
-                            list.Add(item);
-                            LstFbAdmin.Remove(Employees);
-                            TempLstFbAdmin.Add(Employees);
-                        }
-                        else
-                        {
-                            Employees = (from ent in LstFbAdmin
-                                         join c in companyids on ent.OWNERCOMPANYID equals c
-                                         where ent.EMPLOYEEID == item.EMPLOYEEID
-                                         &&  ent.EMPLOYEECOMPANYID==item.OWNERCOMPANYID
-                                         && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
-                                         select ent).FirstOrDefault();
-                            if (Employees != null)//岗位没有则查询到部门
+                            var Employees = (from item in tempList
+                                             join c in companyids on ent.OWNERCOMPANYID equals c
+                                             where ent.EMPLOYEEID == item.EMPLOYEEID
+                                             && ent.EMPLOYEECOMPANYID == item.OWNERCOMPANYID
+                                             && ent.EMPLOYEEPOSTID == item.OWNERPOSTID
+                                             && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
+                                             select item).FirstOrDefault();
+                            if (Employees != null)//查询到岗位
                             {
-                                list.Add(item);
-                                LstFbAdmin.Remove(Employees);
-                                TempLstFbAdmin.Add(Employees);
+                                list.Add(Employees);
+                                tempList.Remove(Employees);
                             }
                             else
                             {
-                                Employees = (from ent in LstFbAdmin
+                                Employees = (from item in tempList
                                              join c in companyids on ent.OWNERCOMPANYID equals c
                                              where ent.EMPLOYEEID == item.EMPLOYEEID
-                                             &&  ent.EMPLOYEECOMPANYID==item.OWNERCOMPANYID
-                                             select ent).FirstOrDefault();
-                                if (Employees != null)//部门也没有则只查询到公司
+                                             && ent.EMPLOYEECOMPANYID == item.OWNERCOMPANYID
+                                             && ent.EMPLOYEEDEPARTMENTID == item.OWNERDEPARTMENTID
+                                             select item).FirstOrDefault();
+                                if (Employees != null)//岗位没有则查询到部门
                                 {
-                                    list.Add(item);
-                                    LstFbAdmin.Remove(Employees);
-                                    TempLstFbAdmin.Add(Employees);
+                                    list.Add(Employees);
+                                    tempList.Remove(Employees);
+                                }
+                                else
+                                {
+                                    Employees = (from item in tempList
+                                                 join c in companyids on ent.OWNERCOMPANYID equals c
+                                                 where ent.EMPLOYEEID == item.EMPLOYEEID
+                                                 && ent.EMPLOYEECOMPANYID == item.OWNERCOMPANYID
+                                                 select item).FirstOrDefault();
+                                    if (Employees != null)//部门也没有则只查询到公司
+                                    {
+                                        list.Add(Employees);
+                                        tempList.Remove(Employees);
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
                 }
                 DtGrid.ItemsSource = list;
                 dataPager.PageCount = e.pageCount;
@@ -659,7 +655,6 @@ namespace SMT.SaaS.Permission.UI.Views
             loadbar.Stop();
         }
 
-        
         void client_GetEmployeesWithOutPermissionsCompleted(object sender, GetEmployeesWithOutPermissionsCompletedEventArgs e)
         {
            
@@ -687,7 +682,6 @@ namespace SMT.SaaS.Permission.UI.Views
 
         void LoadData()
         {
-           LstFbAdmin.AddRange(TempLstFbAdmin);
             loadbar.Start();
             int pageCount = 0;
             string filter = "";
@@ -703,10 +697,10 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             if (!string.IsNullOrEmpty(ListEmployeeids))
             {
-                if (!string.IsNullOrEmpty(filter))
-                {
-                    filter += " and ";
-                }
+                //if (!string.IsNullOrEmpty(filter))
+                //{
+                //    filter += " and ";
+                //}
                 //filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEEID)";
                 if (ListEmployeeids.IndexOf(',') > 0)
                 {
