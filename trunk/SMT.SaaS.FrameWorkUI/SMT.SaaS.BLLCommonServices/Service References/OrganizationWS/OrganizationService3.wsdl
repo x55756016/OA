@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="/Imports">
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd0" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="OrganizationService_DoWork_InputMessage">
@@ -150,6 +151,12 @@
   <wsdl:message name="OrganizationService_GetCompanyAll_OutputMessage">
     <wsdl:part name="parameters" element="GetCompanyAllResponse" />
   </wsdl:message>
+  <wsdl:message name="OrganizationService_GetAllParentsCompamy_InputMessage">
+    <wsdl:part name="parameters" element="GetAllParentsCompamy" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetAllParentsCompamy_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllParentsCompamyResponse" />
+  </wsdl:message>
   <wsdl:message name="OrganizationService_GetChildCompanyByCompanyID_InputMessage">
     <wsdl:part name="parameters" element="GetChildCompanyByCompanyID" />
   </wsdl:message>
@@ -221,6 +228,12 @@
   </wsdl:message>
   <wsdl:message name="OrganizationService_IsChildCompany_OutputMessage">
     <wsdl:part name="parameters" element="IsChildCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_IsTopCompanySmt_InputMessage">
+    <wsdl:part name="parameters" element="IsTopCompanySmt" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_IsTopCompanySmt_OutputMessage">
+    <wsdl:part name="parameters" element="IsTopCompanySmtResponse" />
   </wsdl:message>
   <wsdl:message name="OrganizationService_GetDepartmentActived_InputMessage">
     <wsdl:part name="parameters" element="GetDepartmentActived" />
@@ -522,6 +535,24 @@
   <wsdl:message name="OrganizationService_PostHistoryAdd_OutputMessage">
     <wsdl:part name="parameters" element="PostHistoryAddResponse" />
   </wsdl:message>
+  <wsdl:message name="OrganizationService_AddBatchOrgInfo_InputMessage">
+    <wsdl:part name="parameters" element="AddBatchOrgInfo" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_AddBatchOrgInfo_OutputMessage">
+    <wsdl:part name="parameters" element="AddBatchOrgInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_ImportOrgInfo_InputMessage">
+    <wsdl:part name="parameters" element="ImportOrgInfo" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_ImportOrgInfo_OutputMessage">
+    <wsdl:part name="parameters" element="ImportOrgInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFileResponse" />
+  </wsdl:message>
   <wsdl:message name="OrganizationService_UpdateCheckState_InputMessage">
     <wsdl:part name="parameters" element="UpdateCheckState" />
   </wsdl:message>
@@ -633,6 +664,10 @@
       <wsdl:input wsaw:Action="urn:OrganizationService/GetCompanyAll" message="OrganizationService_GetCompanyAll_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/GetCompanyAllResponse" message="OrganizationService_GetCompanyAll_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllParentsCompamy">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetAllParentsCompamy" message="OrganizationService_GetAllParentsCompamy_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetAllParentsCompamyResponse" message="OrganizationService_GetAllParentsCompamy_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetChildCompanyByCompanyID">
       <wsdl:input wsaw:Action="urn:OrganizationService/GetChildCompanyByCompanyID" message="OrganizationService_GetChildCompanyByCompanyID_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/GetChildCompanyByCompanyIDResponse" message="OrganizationService_GetChildCompanyByCompanyID_OutputMessage" />
@@ -680,6 +715,10 @@
     <wsdl:operation name="IsChildCompany">
       <wsdl:input wsaw:Action="urn:OrganizationService/IsChildCompany" message="OrganizationService_IsChildCompany_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/IsChildCompanyResponse" message="OrganizationService_IsChildCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTopCompanySmt">
+      <wsdl:input wsaw:Action="urn:OrganizationService/IsTopCompanySmt" message="OrganizationService_IsTopCompanySmt_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/IsTopCompanySmtResponse" message="OrganizationService_IsTopCompanySmt_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDepartmentActived">
       <wsdl:input wsaw:Action="urn:OrganizationService/GetDepartmentActived" message="OrganizationService_GetDepartmentActived_InputMessage" />
@@ -880,6 +919,18 @@
     <wsdl:operation name="PostHistoryAdd">
       <wsdl:input wsaw:Action="urn:OrganizationService/PostHistoryAdd" message="OrganizationService_PostHistoryAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/PostHistoryAddResponse" message="OrganizationService_PostHistoryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBatchOrgInfo">
+      <wsdl:input wsaw:Action="urn:OrganizationService/AddBatchOrgInfo" message="OrganizationService_AddBatchOrgInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/AddBatchOrgInfoResponse" message="OrganizationService_AddBatchOrgInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportOrgInfo">
+      <wsdl:input wsaw:Action="urn:OrganizationService/ImportOrgInfo" message="OrganizationService_ImportOrgInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/ImportOrgInfoResponse" message="OrganizationService_ImportOrgInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="urn:OrganizationService/SaveFile" message="OrganizationService_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/SaveFileResponse" message="OrganizationService_SaveFile_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateCheckState">
       <wsdl:input wsaw:Action="urn:OrganizationService/UpdateCheckState" message="OrganizationService_UpdateCheckState_InputMessage" />

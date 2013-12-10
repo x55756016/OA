@@ -18,20 +18,21 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.1.57/New/Services/HR/OrganizationService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="OrganizationService9.xsd" MetadataType="Schema" ID="d485d8e6-2ee0-48c6-a2c0-1bf9cbbc2b21" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd4" />
-    <MetadataFile FileName="OrganizationService10.xsd" MetadataType="Schema" ID="b4903861-5e10-4ab8-831f-19c85a9f9344" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd0" />
-    <MetadataFile FileName="OrganizationService2.disco" MetadataType="Disco" ID="ce034710-0e0b-4d9a-8e37-d3f91bb17774" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?disco" />
-    <MetadataFile FileName="OrganizationService11.xsd" MetadataType="Schema" ID="028bbe05-28e6-4747-9216-49177ffdcca7" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd1" />
-    <MetadataFile FileName="OrganizationService12.xsd" MetadataType="Schema" ID="0c954497-8938-4a80-a559-bb243da31f99" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd3" />
-    <MetadataFile FileName="OrganizationService3.wsdl" MetadataType="Wsdl" ID="8d4ca8f3-e052-4bc3-a060-0935bc458214" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="OrganizationService13.xsd" MetadataType="Schema" ID="182a28c8-2131-468a-b7be-5e222ecc353f" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd2" />
-    <MetadataFile FileName="OrganizationService14.xsd" MetadataType="Schema" ID="75463e61-baec-44a0-b41f-68242195ca75" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd6" />
-    <MetadataFile FileName="OrganizationService15.xsd" MetadataType="Schema" ID="cb6fc32d-107b-4afb-a386-4189dd497e7c" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd5" />
-    <MetadataFile FileName="OrganizationService4.wsdl" MetadataType="Wsdl" ID="7bc7cf33-c6b0-4d7a-b6a1-17ea7684bb1d" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?wsdl" />
-    <MetadataFile FileName="OrganizationService16.xsd" MetadataType="Schema" ID="e594c5ae-f3ec-435f-8d94-c04a04247f35" SourceId="1" SourceUrl="http://172.16.1.57/New/Services/HR/OrganizationService.svc?xsd=xsd7" />
+    <MetadataFile FileName="OrganizationService3.wsdl" MetadataType="Wsdl" ID="33f03f2a-caa4-4339-9027-14179cd6d90a" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="OrganizationService9.xsd" MetadataType="Schema" ID="110ceeb7-7722-4309-9f68-5a398e623d62" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd3" />
+    <MetadataFile FileName="OrganizationService10.xsd" MetadataType="Schema" ID="865bacb1-0559-4cdc-ab64-b21e9f752bed" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd6" />
+    <MetadataFile FileName="OrganizationService11.xsd" MetadataType="Schema" ID="f7572b37-0ab6-4ced-8925-1e449208312b" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="OrganizationService12.xsd" MetadataType="Schema" ID="4fdf12fa-ae3e-4edf-8b7e-a32307bf96c2" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="OrganizationService13.xsd" MetadataType="Schema" ID="bb212c43-c95a-41e5-bf24-ed6fa4ae1b45" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="OrganizationService14.xsd" MetadataType="Schema" ID="03d7a8a4-8ea3-4ec1-a407-bd41f46bb766" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd7" />
+    <MetadataFile FileName="OrganizationService15.xsd" MetadataType="Schema" ID="8949604e-ec64-4265-bc52-c6606bd55252" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="OrganizationService16.xsd" MetadataType="Schema" ID="93e4a713-049d-47da-8919-11cc48365abc" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd8" />
+    <MetadataFile FileName="OrganizationService17.xsd" MetadataType="Schema" ID="fb1c0845-d795-48d1-b110-474c18a09cf8" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?xsd=xsd5" />
+    <MetadataFile FileName="OrganizationService2.disco" MetadataType="Disco" ID="24abdb52-007d-447c-b8f5-24ba10ef7549" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?disco" />
+    <MetadataFile FileName="OrganizationService4.wsdl" MetadataType="Wsdl" ID="c37ab6bd-98b9-4ad2-a378-5fd597c0caeb" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/HR/OrganizationService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

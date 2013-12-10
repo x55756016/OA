@@ -745,6 +745,9 @@
     <None Include="Service References\OrganizationWS\OrganizationService16.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\OrganizationWS\OrganizationService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\OrganizationWS\OrganizationService2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -775,6 +778,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_DEPARTMENTSWITHCOMPANY1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_ORGANIZATIONINFO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OrganizationWS\SMT.SaaS.BLLCommonServices.OrganizationWS.V_POST.datasource">
@@ -1914,7 +1920,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\OrganizationWS\OrganizationService.disco" />
-    <None Include="Service References\OrganizationWS\OrganizationService2.disco" />
     <None Include="Service References\OAPersonalWS\SmtOAPersonOffice.disco" />
     <None Include="Service References\OAPersonalWS\configuration91.svcinfo" />
     <None Include="Service References\OAPersonalWS\configuration.svcinfo" />
@@ -2385,6 +2390,7 @@
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDEFINE.xml" />
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDRAFT.xml" />
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDRAFTTASK.XML" />
+    <None Include="Service References\OrganizationWS\OrganizationService2.disco" />
     <Content Include="Service References\PersonalRecordWS\PersonalRecordService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
