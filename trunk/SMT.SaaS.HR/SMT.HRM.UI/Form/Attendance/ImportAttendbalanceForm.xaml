@@ -85,7 +85,7 @@
                 <data:DataGridTextColumn Header="工伤假天数" Binding="{Binding INJURYLEAVEDAYS}" />
                 <data:DataGridTextColumn Header="产前检查假天数" Binding="{Binding PRENATALCARELEAVEDAYS}" />
                 <data:DataGridTextColumn Header="丧假天数" Binding="{Binding FUNERALLEAVEDAYS}" />
-                <data:DataGridTextColumn Header="出差时长" Binding="{Binding EVECTIONTIME}" />
+                <data:DataGridTextColumn Header="出差天数" Binding="{Binding EVECTIONTIME}" />
                 <data:DataGridTextColumn Header="外出时长" Binding="{Binding OUTAPPLYTIME}" />
             </data:DataGrid.Columns>
         </data:DataGrid>

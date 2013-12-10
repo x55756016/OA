@@ -133,7 +133,7 @@
                                                 <StackPanel  Orientation="Horizontal" >
                                                     <CheckBox Name="checkHaftDay" Click="checkHaftDay_Click">设置半天</CheckBox>
                                                     <sdk:DatePicker x:Name="dpVacdayEnddate" Width="120" Height="22" Margin="5,0,0,0" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" SelectedDateChanged="dpVacdayEnddate_SelectedDateChanged"  Style="{StaticResource DatePickerStyle}"/>            
-                                                    <ComboBox Name="comboHatfDay" Visibility="Collapsed" Width="70">
+                                                    <ComboBox Name="comboHatfDay" Visibility="Collapsed" Width="70" SelectionChanged="comboHatfDay_SelectionChanged">
                                                         <ComboBoxItem>上午</ComboBoxItem>
                                                         <ComboBoxItem>下午</ComboBoxItem>
                                                     </ComboBox>
@@ -211,7 +211,7 @@
                                                 <StackPanel  Orientation="Horizontal" >
                                                     <CheckBox Name="workCheckHaftDay" Click="workCheckHaftDay_Click">设置半天</CheckBox>
                                                     <sdk:DatePicker x:Name="dpWorkdayEnddate" Width="120" Height="22" Margin="5,0,0,0" Text="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE, Mode=TwoWay}" SelectedDateChanged="dpWorkdayEnddate_SelectedDateChanged"  />
-                                                    <ComboBox Name="workComboHatfDay" Visibility="Collapsed" Width="70">
+                                                    <ComboBox Name="workComboHatfDay" Visibility="Collapsed" SelectionChanged="workComboHatfDay_SelectionChanged" Width="70">
                                                         <ComboBoxItem>上午</ComboBoxItem>
                                                         <ComboBoxItem>下午</ComboBoxItem>
                                                     </ComboBox>

@@ -1299,7 +1299,8 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             try
             {
-                if (dgVacDayList.SelectedItem == null)
+                T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+                if (entTemp == null)
                 {
                     return;
                 }
@@ -1307,7 +1308,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 DatePicker WorkdayEnddate = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
                 ComboBox ComboBoxHalfDay = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("comboHatfDay") as ComboBox;
                 NumericUpDown nudVacDays = dgVacDayList.Columns[5].GetCellContent(dgVacDayList.SelectedItem).FindName("nudVacDays") as NumericUpDown;
-                VacDayCheckHalfDay(ck, WorkdayEnddate, ComboBoxHalfDay, nudVacDays);               
+                VacDayCheckHalfDay(ck, WorkdayEnddate, ComboBoxHalfDay, nudVacDays, entTemp);               
             }
             catch (Exception ex)
             {
@@ -1340,10 +1341,22 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 ck.IsChecked = false;
             }
-            VacDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);
+            VacDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays,obje);
         }
 
-        private void VacDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate, ComboBox ComboBoxHalfDay, NumericUpDown nudVacDays)
+        private void comboHatfDay_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            if (entTemp == null) return;
+            CheckBox ck = dgVacDayList.Columns[4].GetCellContent(entTemp).FindName("checkHaftDay") as CheckBox;
+            ComboBox ComboBoxHalfDay = dgVacDayList.Columns[4].GetCellContent(entTemp).FindName("comboHatfDay") as ComboBox;
+            
+            SetVacDayValue(ck, ComboBoxHalfDay,entTemp);
+        }
+
+        private void VacDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate
+            , ComboBox ComboBoxHalfDay, NumericUpDown nudVacDays
+            ,T_HR_OUTPLANDAYS obje)
         {
             if (ComboBoxHalfDay.SelectedIndex == -1)
             {
@@ -1377,8 +1390,11 @@ namespace SMT.HRM.UI.Form.Attendance
                 }
                 CalculateDayCount(dgVacDayList);
             }
-            //设置值
-            T_HR_OUTPLANDAYS entTemp = dgVacDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            SetVacDayValue(ck, ComboBoxHalfDay,obje);
+        }
+
+        private void SetVacDayValue(CheckBox ck, ComboBox ComboBoxHalfDay, T_HR_OUTPLANDAYS entTemp)
+        {
             if (entTemp == null)
             {
                 return;
@@ -1391,6 +1407,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (ck.IsChecked.Value == true)
                     {
                         item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        item.DAYS = Convert.ToDecimal(0.5);
                         if (ComboBoxHalfDay.SelectedIndex == 0)//上午
                         {
                             item.PEROID = "0";
@@ -1414,17 +1431,18 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             try
             {
-                if (dgWorkDayList.SelectedItem == null)
+                T_HR_OUTPLANDAYS obje = dgWorkDayList.SelectedItem as T_HR_OUTPLANDAYS;
+                if (obje == null)
                 {
                     return;
                 }
 
-                CheckBox ck = dgVacDayList.Columns[4].GetCellContent(dgVacDayList.SelectedItem).FindName("checkHaftDay") as CheckBox;
+                CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("checkHaftDay") as CheckBox;
                 DatePicker WorkdayEnddate = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
                 ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(dgWorkDayList.SelectedItem).FindName("workComboHatfDay") as ComboBox;
                 NumericUpDown nudVacDays = dgWorkDayList.Columns[5].GetCellContent(dgWorkDayList.SelectedItem).FindName("nudWorkDays") as NumericUpDown;
 
-                WorkDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays);                
+                WorkDayCheckHalfDay(ck, WorkdayEnddate, workComboHatfDay, nudVacDays, obje);
             }
             catch (Exception ex)
             {
@@ -1456,10 +1474,21 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 ck.IsChecked = false;
             }
-            WorkDayCheckHalfDay(ck, vacdayEnddate, vacComboHatfDay, nudVacDays);
+            WorkDayCheckHalfDay(ck, vacdayEnddate, vacComboHatfDay, nudVacDays, obje);
         }
-        
-        private void WorkDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate, ComboBox workComboHatfDay, NumericUpDown nudVacDays)
+
+        private void workComboHatfDay_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            T_HR_OUTPLANDAYS entTemp = dgWorkDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            if (entTemp == null) return;
+            CheckBox ck = dgWorkDayList.Columns[4].GetCellContent(entTemp).FindName("workCheckHaftDay") as CheckBox;
+            ComboBox workComboHatfDay = dgWorkDayList.Columns[4].GetCellContent(entTemp).FindName("workComboHatfDay") as ComboBox;
+
+            SetWorkDayValue(ck, workComboHatfDay,entTemp);
+        }
+        private void WorkDayCheckHalfDay(CheckBox ck, DatePicker WorkdayEnddate
+            , ComboBox workComboHatfDay, NumericUpDown nudVacDays
+            , T_HR_OUTPLANDAYS entTemp)
         {
            
             if (workComboHatfDay.SelectedIndex == -1)
@@ -1494,8 +1523,11 @@ namespace SMT.HRM.UI.Form.Attendance
                 CalculateDayCount(dgWorkDayList);
             }
 
-            //设置值
-            T_HR_OUTPLANDAYS entTemp = dgWorkDayList.SelectedItem as T_HR_OUTPLANDAYS;
+            SetWorkDayValue(ck, workComboHatfDay, entTemp);
+        }
+
+        private void SetWorkDayValue(CheckBox ck, ComboBox workComboHatfDay, T_HR_OUTPLANDAYS entTemp)
+        {
             if (entTemp == null)
             {
                 return;
@@ -1508,6 +1540,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (ck.IsChecked.Value == true)
                     {
                         item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        item.DAYS =Convert.ToDecimal(0.5);
                         if (workComboHatfDay.SelectedIndex == 0)//上午
                         {
                             item.PEROID = "0";
@@ -1525,6 +1558,8 @@ namespace SMT.HRM.UI.Form.Attendance
             }
         }
         #endregion
+
+
 
     }
 }
