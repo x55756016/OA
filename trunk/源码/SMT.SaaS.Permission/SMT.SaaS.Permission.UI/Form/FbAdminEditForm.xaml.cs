@@ -37,6 +37,7 @@ namespace SMT.SaaS.Permission.UI.Form
         string postId = string.Empty;//岗位ID
         string deptId = string.Empty;//部门ID
         string corpId = string.Empty;//公司ID
+        string corpName = string.Empty;//公司名称
         /// <summary>
         /// 初始化
         /// </summary>
@@ -98,7 +99,7 @@ namespace SMT.SaaS.Permission.UI.Form
 
                     SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
                      corpId = corp.COMPANYID;
-                    string corpName = corp.CNAME;//公司
+                     corpName = corp.CNAME;//公司
 
                     SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE emp = userInfo.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
                     empId = emp.EMPLOYEEID;
@@ -140,6 +141,14 @@ namespace SMT.SaaS.Permission.UI.Form
             fbadmin.EMPLOYEEPOSTID = postId;
             fbadmin.EMPLOYEEDEPARTMENTID = deptId;
             fbadmin.EMPLOYEECOMPANYID = corpId;
+            fbadmin.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            fbadmin.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+            fbadmin.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+            fbadmin.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
+            fbadmin.ROLENAME = corpName + "预算配置员";
+            fbadmin.ISCOMPANYADMIN = "1";
+            fbadmin.ISSUPPERADMIN = "0";
+            fbadmin.ADDUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
             PermClient.UpdateFbAdminAsync(empInfo.EMPLOYEEID, empInfo.OWNERCOMPANYID,fbadmin);
         }
         #region IEntityEditor 成员

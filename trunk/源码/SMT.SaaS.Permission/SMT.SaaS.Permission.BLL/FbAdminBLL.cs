@@ -248,7 +248,7 @@ namespace SMT.SaaS.Permission.BLL
         /// 修改预算管理员
         /// </summary>
         /// <param name="employeeid">员工ID</param>
-        /// <param name="ownercompanyid">公司ID</param>
+        /// <param name="employeeCompanyID">公司ID</param>
         /// <param name="fbAdmin">新员工信息（只需要取员工信息）</param>
         /// <returns></returns>
         public string UpdateFbAdmin(string employeeid, string employeeCompanyID, T_SYS_FBADMIN fbAdmin)
@@ -256,33 +256,12 @@ namespace SMT.SaaS.Permission.BLL
             string strMsg = string.Empty;
             try
             {
-               var ents = (from ent in dal.GetObjects<T_SYS_FBADMIN>()
-                           where ent.EMPLOYEEID == employeeid && ent.EMPLOYEECOMPANYID == employeeCompanyID
-                           select ent).FirstOrDefault();
-               var entusers = (from ent in dal.GetObjects<T_SYS_USER>()
-                               where ent.EMPLOYEEID == fbAdmin.EMPLOYEEID
-                              select ent).FirstOrDefault();
-               if (ents != null && entusers != null)
-               {
-                   ents.SYSUSERID = entusers.SYSUSERID;//员工系统用户ID
-                   ents.UPDATEUSERID = fbAdmin.UPDATEUSERID;
-                   ents.UPDATEDATE = DateTime.Now;
-                   ents.UPDATEUSERNAME = fbAdmin.UPDATEUSERNAME;
-                   ents.EMPLOYEEID = fbAdmin.EMPLOYEEID;
-                   ents.EMPLOYEEPOSTID = fbAdmin.EMPLOYEEPOSTID;
-                   ents.EMPLOYEEDEPARTMENTID = fbAdmin.EMPLOYEEDEPARTMENTID;
-                   ents.EMPLOYEECOMPANYID = fbAdmin.EMPLOYEECOMPANYID;
-
-                   int IntFb = dal.Update(ents);
-                   if (IntFb <= 0)
-                   {
-                       strMsg = "修改失败";
-                   }
-               }
-               else
-               {
-                   strMsg = "获取员工预算管理员或系统用户信息失败";
-               }
+                strMsg = DeleteFbAdmin(employeeid, employeeCompanyID);//因为添加预算管理员时会去添加角色，所以先删除在添加，直接修改改动太大
+                strMsg = AddFbAdmin(new List<T_SYS_FBADMIN>() { fbAdmin });
+                if (!string.IsNullOrWhiteSpace(strMsg))
+                {
+                    return strMsg;
+                }
             }
             catch (Exception ex)
             {
