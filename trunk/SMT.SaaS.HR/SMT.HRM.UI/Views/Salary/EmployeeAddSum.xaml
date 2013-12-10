@@ -102,15 +102,15 @@
                             </data:DataGridTemplateColumn.CellTemplate>
                         </data:DataGridTemplateColumn>
 
-                        <data:DataGridTextColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}"/>
+                        <!--<data:DataGridTextColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}"/>-->
                         <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}"/>
 
-                        <data:DataGridTextColumn Header="HANDLETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SYSTEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=PROTECTTYPE }"/>
-                        <data:DataGridTextColumn Header="PROJECTMONEY" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTMONEY}"/>
-
-                        <data:DataGridTextColumn Header="DEALYEAR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALYEAR}"/>
-                        <data:DataGridTextColumn Header="DEALMONTH" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALMONTH}"/>
-                        <data:DataGridTextColumn Header="CHECKSTATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE }"/>
+                        <data:DataGridTextColumn Header="加扣款类型" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SYSTEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=PROTECTTYPE }"/>
+                        <data:DataGridTextColumn Header="金额" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTMONEY}"/>
+                        <!--<data:DataGridTextColumn Header="DEALYEAR" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALYEAR}"/>
+                        <data:DataGridTextColumn Header="DEALMONTH" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALMONTH}"/>-->
+                        <data:DataGridTextColumn Header="薪资年月" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DEALYEAR}"/>
+                        <!--<data:DataGridTextColumn Header="CHECKSTATE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE }"/>-->
                         <data:DataGridTextColumn Header="REMARK" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding REMARK}"/>
 
 

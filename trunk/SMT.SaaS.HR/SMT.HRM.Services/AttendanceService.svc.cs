@@ -2378,11 +2378,11 @@ namespace SMT.HRM.Services
         /// <param name="recorderDate">截止日期</param>
         /// <returns>查询结果集</returns>
         [OperationContract]
-        public List<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        public List<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate,string employeeID, string leaveTypeSetID)
         {
             using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
             {
-                var ents = bll.EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+                var ents = bll.EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate,employeeID,leaveTypeSetID);
 
                 if (ents == null)
                 {
@@ -2407,11 +2407,11 @@ namespace SMT.HRM.Services
         /// <param name="recorderDate">截止日期</param>
         /// <returns>查询结果集</returns>
         [OperationContract]
-        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate,string employeeID,string leaveTypeSetID)
         {
             using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
             {
-                return bll.ExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+                return bll.ExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate,employeeID,leaveTypeSetID);
 
             }
         }

@@ -77,9 +77,8 @@
                 <data:DataGridTextColumn Header="COMPANYNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding CompanyName}" IsReadOnly="True"  Visibility="Collapsed"/>
                 <data:DataGridTextColumn Header="DEPARTMENTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding DepartmentName}" IsReadOnly="True"  Visibility="Collapsed"/>
                 <data:DataGridTextColumn Header="POSTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PostName}" IsReadOnly="True"  Visibility="Collapsed"/>
-                <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}" IsReadOnly="True" Visibility="Collapsed"/>
                 <!--PROJECTNAME-->
-                <data:DataGridTextColumn Header="员工姓名"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}" IsReadOnly="True" Width="250" />
+                <data:DataGridTextColumn Header="EMPLOYEENAME"  HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}" IsReadOnly="True" Width="250" />
                 <data:DataGridTemplateColumn Header="金额" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Width="150">
                     <data:DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

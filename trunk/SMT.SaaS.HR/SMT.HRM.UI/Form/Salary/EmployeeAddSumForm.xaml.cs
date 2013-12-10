@@ -134,7 +134,6 @@ namespace SMT.HRM.UI.Form.Salary
                     }
                 }
                 //PROJECTNAME传递的是员工全名
-                EmployeeAddSumView.PROJECTNAME = EmployeeAddSumView.EMPLOYEENAME + "-" + EmployeeAddSumView.PostName + "-" + EmployeeAddSumView.DepartmentName + "-" + EmployeeAddSumView.CompanyName;
                 EmployeeAddsumInfoList.Add(EmployeeAddSumView);
                 initAddSum();
                 DtGrid.ItemsSource = EmployeeAddsumInfoList;
@@ -246,14 +245,15 @@ namespace SMT.HRM.UI.Form.Salary
             EmployeeAddSum.DEALYEAR = EmployeeAddSumView.DEALYEAR;
             EmployeeAddSum.EMPLOYEECODE = EmployeeAddSumView.EMPLOYEECODE;
             EmployeeAddSum.EMPLOYEEID = EmployeeAddSumView.EMPLOYEEID;
-            EmployeeAddSum.EMPLOYEENAME = EmployeeAddSumView.EMPLOYEENAME;
+           // EmployeeAddSum.EMPLOYEENAME = EmployeeAddSumView.EMPLOYEENAME;
             EmployeeAddSum.OWNERCOMPANYID = EmployeeAddSumView.OWNERCOMPANYID;
             EmployeeAddSum.OWNERDEPARTMENTID = EmployeeAddSumView.OWNERDEPARTMENTID;
             EmployeeAddSum.OWNERPOSTID = EmployeeAddSumView.OWNERPOSTID;
             EmployeeAddSum.OWNERID = EmployeeAddSumView.OWNERID;
             EmployeeAddSum.PROJECTMONEY = EmployeeAddSumView.PROJECTMONEY;
             //去掉PROJECTNAME，先用该字段显示员工姓名（形式：姓名-部门-公司）
-            EmployeeAddSum.PROJECTNAME = EmployeeAddSumView.EMPLOYEENAME + "-" + EmployeeAddSumView.PostName + "-" + EmployeeAddSumView.DepartmentName + "-" + EmployeeAddSumView.CompanyName;
+            //EmployeeAddSum.PROJECTNAME = EmployeeAddSumView.EMPLOYEENAME + "-" + EmployeeAddSumView.PostName + "-" + EmployeeAddSumView.DepartmentName + "-" + EmployeeAddSumView.CompanyName;
+            EmployeeAddSum.EMPLOYEENAME = EmployeeAddSumView.EMPLOYEENAME;
             //加扣款类型，this.DataContext绑定的值为EmployeeAddSum不是EmployeeAddSumView，所以EmployeeAddSumView值不会改变
             EmployeeAddSumView.SYSTEMTYPE = Convert.ToString(combProtectType.SelectedIndex);
             EmployeeAddSum.SYSTEMTYPE = EmployeeAddSumView.SYSTEMTYPE;
@@ -385,7 +385,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "SYSTEMTYPE", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYVALUE.ToString() : "0", SYSTEMTYPE != null ? SYSTEMTYPE.DICTIONARYNAME : ""));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEEID", Info.EMPLOYEEID, Info.EMPLOYEEID));
-            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME + "-" + ownerPostName + "-" + ownerDepartmentName + "-" + ownerCompanyName, Info.EMPLOYEENAME + "-" + ownerPostName + "-" + ownerDepartmentName + "-" + ownerCompanyName));
+            AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));
 
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERCOMPANYID", Info.OWNERCOMPANYID, ownerCompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEEADDSUM", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, ownerDepartmentName));
@@ -508,7 +508,7 @@ namespace SMT.HRM.UI.Form.Salary
             }
             if (combProtectType.SelectedIndex == -1)
             {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("处理类型不能为空"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("加扣款类型不能为空"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 RefreshUI(RefreshedTypes.ProgressBar);
                 return false;
             }
@@ -581,7 +581,6 @@ namespace SMT.HRM.UI.Form.Salary
                 }
                 EmployeeAddSum.UPDATEDATE = System.DateTime.Now;
                 EmployeeAddSum.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-
                 client.EmployeeAddSumUpdateAsync(EmployeeAddSum, "Edit");
             }
             return true;
@@ -659,13 +658,11 @@ namespace SMT.HRM.UI.Form.Salary
                     addSumInfo.DepartmentName = depName;
                     addSumInfo.EMPLOYEECODE = temp.EMPLOYEECODE;
                     addSumInfo.EMPLOYEEID = temp.EMPLOYEEID;
-                    addSumInfo.EMPLOYEENAME = temp.EMPLOYEECNAME;
+                    addSumInfo.EMPLOYEENAME = temp.EMPLOYEECNAME + "-" + postName + "-" + depName + "-" + companyName;
                     addSumInfo.OWNERID = temp.EMPLOYEEID;
                     addSumInfo.OWNERCOMPANYID = corpid;
                     addSumInfo.OWNERDEPARTMENTID = deptid;
                     addSumInfo.OWNERPOSTID = postid;
-                    //PROJECTNAME用于显示员工全名
-                    addSumInfo.PROJECTNAME = temp.EMPLOYEECNAME + "-" + postName + "-" + depName + "-" + companyName;
                     EmployeeAddsumInfoList.Add(addSumInfo);
                 }
 
@@ -721,13 +718,15 @@ namespace SMT.HRM.UI.Form.Salary
                         addSumInfo.DepartmentName = ent.DepartmentName;
                         addSumInfo.EMPLOYEECODE = ent.EMPLOYEECODE;
                         addSumInfo.EMPLOYEEID = ent.EMPLOYEEID;
-                        addSumInfo.EMPLOYEENAME = ent.EMPLOYEENAME;
+                        //addSumInfo.EMPLOYEENAME = ent.EMPLOYEENAME;
                         addSumInfo.OWNERID = ent.EMPLOYEEID;
                         addSumInfo.OWNERCOMPANYID = ent.OWNERCOMPANYID;
                         addSumInfo.OWNERDEPARTMENTID = ent.OWNERDEPARTMENTID;
                         addSumInfo.OWNERPOSTID = ent.OWNERPOSTID;
                         //去掉PROJECTNAME，先用该字段显示员工姓名（形式：姓名-部门-公司）
-                        addSumInfo.PROJECTNAME = ent.EMPLOYEENAME + "-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
+                        //addSumInfo.PROJECTNAME = ent.EMPLOYEENAME + "-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
+                        string name = ent.EMPLOYEENAME + "-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
+                        addSumInfo.EMPLOYEENAME = name;
                         EmployeeAddsumInfoList.Add(addSumInfo);
                     }
                     DtGrid.ItemsSource = EmployeeAddsumInfoList;
@@ -759,7 +758,7 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 tborder.Text = (e.Row.GetIndex() + 1).ToString();
             }
-            Button btnDel = DtGrid.Columns[8].GetCellContent(e.Row).FindName("btnDel") as Button;
+            Button btnDel = DtGrid.Columns[7].GetCellContent(e.Row).FindName("btnDel") as Button;
 
             SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM entTemp = this.DataContext as SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM;
 
@@ -899,7 +898,7 @@ namespace SMT.HRM.UI.Form.Salary
             bool flag = false;
             foreach (object obj in DtGrid.ItemsSource)
             {
-                TextBox txtMark = DtGrid.Columns[6].GetCellContent(obj).FindName("txtProjectMoney") as TextBox;
+                TextBox txtMark = DtGrid.Columns[5].GetCellContent(obj).FindName("txtProjectMoney") as TextBox;
                 if (decimal.Parse(txtMark.Text) == 0)
                 {
                     flag = true;
@@ -937,7 +936,7 @@ namespace SMT.HRM.UI.Form.Salary
 
             foreach (var obj in DtGrid.ItemsSource)
             {
-                TextBox txtMoney = DtGrid.Columns[6].GetCellContent(obj).FindName("txtProjectMoney") as TextBox;
+                TextBox txtMoney = DtGrid.Columns[5].GetCellContent(obj).FindName("txtProjectMoney") as TextBox;
                 if (string.IsNullOrEmpty(txtMoney.Text) || txtMoney.Text == "")
                 {
                     sumMoney += 0;

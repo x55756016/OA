@@ -278,6 +278,10 @@ namespace SMT.HRM.UI.Views.Salary
                 if (e.Result != null)
                 {
                     list = e.Result.ToList();
+                    foreach (var item in list)
+                    {
+                        item.DEALYEAR = item.DEALYEAR + "年" + item.DEALMONTH + "月";
+                    }
                 }
                 DtGrid.ItemsSource = list;
 

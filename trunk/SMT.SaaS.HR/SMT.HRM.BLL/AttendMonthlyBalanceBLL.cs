@@ -3352,11 +3352,11 @@ namespace SMT.HRM.BLL
             s.Append("<table ID=\"Table0\" BORDER=1 CELLSPACING=1 CELLPADDING=3 width=100% align=center>\n\r");
             s.Append("<tr>");
 
-            s.Append("<td  align=center class=\"title\" colspan=\"22\">" + CompanyName + "产业单位" + Strdate + "考勤统计备案表</td>");
+            s.Append("<td  align=center class=\"title\" colspan=\"26\">" + CompanyName + "产业单位" + Strdate + "考勤统计备案表</td>");
             s.Append("</tr>\n\r");
             s.Append("<tr>");
             s.Append("<td align=center class=\"title\">截止时间：</td>");
-            s.Append("<td  align=left class=\"title\" colspan=\"21\">" + Strdate + "</td>");
+            s.Append("<td  align=left class=\"title\" colspan=\"25\">" + Strdate + "</td>");
             s.Append("</tr>\n\r");
             s.Append("</table>\n\r");
 
@@ -3373,9 +3373,10 @@ namespace SMT.HRM.BLL
             s.Append("<td align=center class=\"title\" >实际出勤天数</td>");
             s.Append("<td align=center class=\"title\" >漏打卡次数</td>");
             s.Append("<td align=center class=\"title\" >迟到次数</td>");
+            s.Append("<td align=center class=\"title\" >迟到时长(分钟)</td>");
             s.Append("<td align=center class=\"title\" >早退次数</td>");
             s.Append("<td align=center class=\"title\" >旷工天数</td>");
-
+            s.Append("<td align=center class=\"title\" >旷工时长(分钟)</td>");
             s.Append("<td align=center class=\"title\" >年休假天数</td>");
             s.Append("<td align=center class=\"title\" >调休假天数</td>");
             s.Append("<td align=center class=\"title\" >事假天数</td>");
@@ -3386,10 +3387,10 @@ namespace SMT.HRM.BLL
             s.Append("<td align=center class=\"title\" >看护假天数</td>");
             s.Append("<td align=center class=\"title\" >路程假天数</td>");
             s.Append("<td align=center class=\"title\" >工伤假天数</td>");
-            s.Append("<td align=center class=\"title\" >产前检查假天数</td>");            
+            s.Append("<td align=center class=\"title\" >产前检查假天数</td>");
             s.Append("<td align=center class=\"title\" >丧假天数</td>");
             s.Append("<td align=center class=\"title\" >出差天数</td>");
-
+            s.Append("<td align=center class=\"title\" >外出时长</td>");
             s.Append("</tr>");
 
 
@@ -3414,12 +3415,14 @@ namespace SMT.HRM.BLL
                     }
 
                     //s.Append("<td class=\"x1282\">" + Collects[i].NEEDATTENDDAYS + "</td>");
-                    s.Append("<td class=\"x1282\">" + Collects[i].REALNEEDATTENDDAYS + "</td>");//应出勤天数，注释的为原来的                    
+                    s.Append("<td class=\"x1282\">" + Collects[i].REALNEEDATTENDDAYS + "</td>");//应出勤天数，注释的为原来的
                     s.Append("<td class=\"x1282\">" + Collects[i].REALATTENDDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].FORGETCARDTIMES + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].LATETIMES + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].LATEMINUTES + "</td>"); //迟到时长（分钟）
                     s.Append("<td class=\"x1282\">" + Collects[i].LEAVEEARLYTIMES + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].ABSENTDAYS + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].ABSENTMINUTES + "</td>"); //矿工时长(分钟)
                     s.Append("<td class=\"x1282\">" + Collects[i].ANNUALLEVELDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].LEAVEUSEDDAYS + "</td>");
                     s.Append("<td class=\"x1282\">" + Collects[i].AFFAIRLEAVEDAYS + "</td>");
@@ -3432,9 +3435,7 @@ namespace SMT.HRM.BLL
                     s.Append("<td class=\"x1282\">" + Collects[i].PRENATALCARELEAVEDAYS + "</td>");//产前检查假
                     s.Append("<td class=\"x1282\">" + Collects[i].FUNERALLEAVEDAYS + "</td>");//丧假
                     s.Append("<td class=\"x1282\">" + Collects[i].EVECTIONTIME + "</td>");//出差天数
-
-
-
+                    s.Append("<td class=\"x1282\">" + Collects[i].OUTAPPLYTIME + "</td>");//外出时长
 
                     s.Append("</tr>");
                 }

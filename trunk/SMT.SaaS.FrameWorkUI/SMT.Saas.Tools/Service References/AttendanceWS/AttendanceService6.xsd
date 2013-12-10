@@ -1378,6 +1378,8 @@
         <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leaveTypeSetID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1402,6 +1404,8 @@
         <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leaveTypeSetID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -14539,7 +14539,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.UploadFileModel))]
-        System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo> EndEmployeeLeaveRecordPaged(ref int pageCount, System.IAsyncResult result);
         
@@ -14647,7 +14647,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.UploadFileModel))]
-        System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState);
         
         byte[] EndExportEmployeeLeaveRecordReports(ref int pageCount, System.IAsyncResult result);
         
@@ -25938,8 +25938,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -25958,7 +25958,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
             string strOwnerID = ((string)(inValues[7]));
             string startDate = ((string)(inValues[8]));
             string recorderDate = ((string)(inValues[9]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+            string employeeID = ((string)(inValues[10]));
+            string leaveTypeSetID = ((string)(inValues[11]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginEmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, callback, asyncState);
         }
         
         private object[] OnEndEmployeeLeaveRecordPaged(System.IAsyncResult result) {
@@ -25976,11 +25978,11 @@ namespace SMT.Saas.Tools.AttendanceWS {
             }
         }
         
-        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate) {
-            this.EmployeeLeaveRecordPagedAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, null);
+        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID) {
+            this.EmployeeLeaveRecordPagedAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, null);
         }
         
-        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, object userState) {
+        public void EmployeeLeaveRecordPagedAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, object userState) {
             if ((this.onBeginEmployeeLeaveRecordPagedDelegate == null)) {
                 this.onBeginEmployeeLeaveRecordPagedDelegate = new BeginOperationDelegate(this.OnBeginEmployeeLeaveRecordPaged);
             }
@@ -26000,12 +26002,14 @@ namespace SMT.Saas.Tools.AttendanceWS {
                         strCheckState,
                         strOwnerID,
                         startDate,
-                        recorderDate}, this.onEndEmployeeLeaveRecordPagedDelegate, this.onEmployeeLeaveRecordPagedCompletedDelegate, userState);
+                        recorderDate,
+                        employeeID,
+                        leaveTypeSetID}, this.onEndEmployeeLeaveRecordPagedDelegate, this.onEmployeeLeaveRecordPagedCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -26024,7 +26028,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
             string strOwnerID = ((string)(inValues[7]));
             string startDate = ((string)(inValues[8]));
             string recorderDate = ((string)(inValues[9]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, callback, asyncState);
+            string employeeID = ((string)(inValues[10]));
+            string leaveTypeSetID = ((string)(inValues[11]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, callback, asyncState);
         }
         
         private object[] OnEndExportEmployeeLeaveRecordReports(System.IAsyncResult result) {
@@ -26042,11 +26048,11 @@ namespace SMT.Saas.Tools.AttendanceWS {
             }
         }
         
-        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate) {
-            this.ExportEmployeeLeaveRecordReportsAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, null);
+        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID) {
+            this.ExportEmployeeLeaveRecordReportsAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID, null);
         }
         
-        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, object userState) {
+        public void ExportEmployeeLeaveRecordReportsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, object userState) {
             if ((this.onBeginExportEmployeeLeaveRecordReportsDelegate == null)) {
                 this.onBeginExportEmployeeLeaveRecordReportsDelegate = new BeginOperationDelegate(this.OnBeginExportEmployeeLeaveRecordReports);
             }
@@ -26066,7 +26072,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
                         strCheckState,
                         strOwnerID,
                         startDate,
-                        recorderDate}, this.onEndExportEmployeeLeaveRecordReportsDelegate, this.onExportEmployeeLeaveRecordReportsCompletedDelegate, userState);
+                        recorderDate,
+                        employeeID,
+                        leaveTypeSetID}, this.onEndExportEmployeeLeaveRecordReportsDelegate, this.onExportEmployeeLeaveRecordReportsCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -33705,8 +33713,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[10];
+            public System.IAsyncResult BeginEmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[12];
                 _args[0] = pageIndex;
                 _args[1] = pageSize;
                 _args[2] = sort;
@@ -33717,6 +33725,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 _args[7] = strOwnerID;
                 _args[8] = startDate;
                 _args[9] = recorderDate;
+                _args[10] = employeeID;
+                _args[11] = leaveTypeSetID;
                 System.IAsyncResult _result = base.BeginInvoke("EmployeeLeaveRecordPaged", _args, callback, asyncState);
                 pageCount = ((int)(_args[5]));
                 return _result;
@@ -33730,8 +33740,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[10];
+            public System.IAsyncResult BeginExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[12];
                 _args[0] = pageIndex;
                 _args[1] = pageSize;
                 _args[2] = sort;
@@ -33742,6 +33752,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 _args[7] = strOwnerID;
                 _args[8] = startDate;
                 _args[9] = recorderDate;
+                _args[10] = employeeID;
+                _args[11] = leaveTypeSetID;
                 System.IAsyncResult _result = base.BeginInvoke("ExportEmployeeLeaveRecordReports", _args, callback, asyncState);
                 pageCount = ((int)(_args[5]));
                 return _result;

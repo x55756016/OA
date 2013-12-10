@@ -132,7 +132,7 @@ namespace SMT.HRM.BLL
         /// <param name="startDate">开始日期</param>
         /// <param name="recorderDate">截止日期</param>
         /// <returns>查询结果集</returns>
-        public IQueryable<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        public IQueryable<V_EmpLeaveRdInfo> EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate,string employeeID,string leaveTypeSetID)
         {
             try
             {
@@ -141,6 +141,82 @@ namespace SMT.HRM.BLL
                 List<object> paraTemp2 = new List<object>();
                 List<object> paraTemp3 = new List<object>();
                 List<object> paraTemp4 = new List<object>();
+                //开始月份在请假开始时间
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    if (!string.IsNullOrEmpty(filter1))
+                    {
+                        filter1 += " and ";
+                    }
+                    filter1 += "EMPLOYEEID==@" + paraTemp1.Count().ToString();
+                    paraTemp1.Add(employeeID);
+                }
+                if (!string.IsNullOrEmpty(leaveTypeSetID))
+                {
+                    if (!string.IsNullOrEmpty(filter1))
+                    {
+                        filter1 += " and ";
+                    }
+                    filter1 += "T_HR_LEAVETYPESET.LEAVETYPESETID==@" + paraTemp1.Count().ToString();
+                    paraTemp1.Add(leaveTypeSetID);
+                }
+                //开始月份在请假开始时间
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    if (!string.IsNullOrEmpty(filter2))
+                    {
+                        filter2 += " and ";
+                    }
+                    filter2 += "EMPLOYEEID==@" + paraTemp2.Count().ToString();
+                    paraTemp2.Add(employeeID);
+                }
+                if (!string.IsNullOrEmpty(leaveTypeSetID))
+                {
+                    if (!string.IsNullOrEmpty(filter2))
+                    {
+                        filter2 += " and ";
+                    }
+                    filter2 += "T_HR_LEAVETYPESET.LEAVETYPESETID==@" + paraTemp2.Count().ToString();
+                    paraTemp2.Add(leaveTypeSetID);
+                }
+                //截止月份在请假开始时间
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    if (!string.IsNullOrEmpty(filter3))
+                    {
+                        filter3 += " and ";
+                    }
+                    filter3 += "EMPLOYEEID==@" + paraTemp3.Count().ToString();
+                    paraTemp3.Add(employeeID);
+                }
+                if (!string.IsNullOrEmpty(leaveTypeSetID))
+                {
+                    if (!string.IsNullOrEmpty(filter3))
+                    {
+                        filter3 += " and ";
+                    }
+                    filter3 += "T_HR_LEAVETYPESET.LEAVETYPESETID==@" + paraTemp3.Count().ToString();
+                    paraTemp3.Add(leaveTypeSetID);
+                }
+                //开始月份在请假截止时间
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    if (!string.IsNullOrEmpty(filter4))
+                    {
+                        filter4 += " and ";
+                    }
+                    filter4 += "EMPLOYEEID==@" + paraTemp4.Count().ToString();
+                    paraTemp4.Add(employeeID);
+                }
+                if (!string.IsNullOrEmpty(leaveTypeSetID))
+                {
+                    if (!string.IsNullOrEmpty(filter4))
+                    {
+                        filter4 += " and ";
+                    }
+                    filter4+= "T_HR_LEAVETYPESET.LEAVETYPESETID==@" + paraTemp4.Count().ToString();
+                    paraTemp4.Add(leaveTypeSetID);
+                }
                 //处理跨月
                 if (!string.IsNullOrEmpty(startDate) && !string.IsNullOrEmpty(recorderDate))
                 {
@@ -387,14 +463,14 @@ namespace SMT.HRM.BLL
         /// <param name="startDate">开始日期</param>
         /// <param name="recorderDate">截止日期</param>
         /// <returns>查询结果集</returns>
-        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate)
+        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID)
         {
 
             byte[] result = null;
             try
             {
                 List<V_EmpLeaveRdInfo> entlist = new List<V_EmpLeaveRdInfo>();
-                IQueryable<V_EmpLeaveRdInfo> leaveRecordInfos = EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate);
+                IQueryable<V_EmpLeaveRdInfo> leaveRecordInfos = EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, startDate, recorderDate,employeeID,leaveTypeSetID);
                 if (leaveRecordInfos.Count() > 0)
                 {
                     entlist = leaveRecordInfos.ToList();

@@ -149,13 +149,14 @@ namespace SMT.HRM.UI.Views.Attendance
 
                 //string filter2 = "";
                 System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
-                string startDate = string.Empty, recorderDate = string.Empty;//起始时间和结束时间
+                string startDate = string.Empty, recorderDate = string.Empty,employeeID = string.Empty, leaveTypeSetID = string.Empty;//起始时间和结束时间
                 if (lkEmpName.DataContext != null)
                 {
                     SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE ent = lkEmpName.DataContext as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
 
                     if (!string.IsNullOrEmpty(ent.EMPLOYEEID))
                     {
+                        employeeID = ent.EMPLOYEEID;
                         if (!string.IsNullOrEmpty(filter))
                         {
                             filter += " and ";
@@ -169,6 +170,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 {
                     T_HR_LEAVETYPESET entLeaveType = this.lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
 
+                    leaveTypeSetID = entLeaveType.LEAVETYPESETID;
                     if (!string.IsNullOrEmpty(entLeaveType.LEAVETYPESETID))
                     {
                         if (!string.IsNullOrEmpty(filter))
@@ -220,7 +222,7 @@ namespace SMT.HRM.UI.Views.Attendance
                     T_SYS_DICTIONARY entDic = toolbar1.cbxCheckState.SelectedItem as T_SYS_DICTIONARY;
                     Checkstate = entDic.DICTIONARYVALUE.ToString();
                 }
-                client.ExportEmployeeLeaveRecordReportsAsync(1,int.MaxValue, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate);
+                client.ExportEmployeeLeaveRecordReportsAsync(1, int.MaxValue, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate, employeeID, leaveTypeSetID);
 
                 loadbar.Start();
             }
@@ -247,13 +249,14 @@ namespace SMT.HRM.UI.Views.Attendance
 
             //string filter2 = "";
             System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
-            string startDate = string.Empty, recorderDate = string.Empty;//起始时间和结束时间
+            string startDate = string.Empty, recorderDate = string.Empty, employeeID = string.Empty, leaveTypeSetID = string.Empty;//起始时间和结束时间
             if (lkEmpName.DataContext != null)
             {
                 SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE ent = lkEmpName.DataContext as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
 
                 if (!string.IsNullOrEmpty(ent.EMPLOYEEID))
                 {
+                    employeeID = ent.EMPLOYEEID;
                     if (!string.IsNullOrEmpty(filter))
                     {
                         filter += " and ";
@@ -267,6 +270,7 @@ namespace SMT.HRM.UI.Views.Attendance
             {
                 T_HR_LEAVETYPESET entLeaveType = this.lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
 
+                leaveTypeSetID = entLeaveType.LEAVETYPESETID;
                 if (!string.IsNullOrEmpty(entLeaveType.LEAVETYPESETID))
                 {
                     if (!string.IsNullOrEmpty(filter))
@@ -319,7 +323,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 Checkstate = entDic.DICTIONARYVALUE.ToString();
             }
 
-            client.EmployeeLeaveRecordPagedAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID,startDate,recorderDate);
+            client.EmployeeLeaveRecordPagedAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATETIME", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, startDate, recorderDate, employeeID,leaveTypeSetID);
             loadbar.Start();
         }
         /// </summary>

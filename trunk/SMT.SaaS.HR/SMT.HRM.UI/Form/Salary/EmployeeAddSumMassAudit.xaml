@@ -76,7 +76,7 @@
                         </DataTemplate>
                     </data:DataGridTemplateColumn.CellTemplate>
                 </data:DataGridTemplateColumn>
-                <data:DataGridTextColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}"/>
+                <!--<data:DataGridTextColumn Header="PROJECTNAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding PROJECTNAME}"/>-->
                 <data:DataGridTextColumn Header="EMPLOYEENAME" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding EMPLOYEENAME}"/>
 
                 <data:DataGridTextColumn Header="HANDLETYPE" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" Binding="{Binding SYSTEMTYPE,Converter={StaticResource DictionaryConverter},ConverterParameter=PROTECTTYPE }"/>
