@@ -120,7 +120,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     if (Newdatys != null)//住宿天数
                     {
-                        TrDetail.THENUMBEROFNIGHTS = Newdatys.Text;
+                        if (!string.IsNullOrEmpty(TrDetail.BUSINESSDAYS))
+                        {
+                            TrDetail.THENUMBEROFNIGHTS =(Convert.ToDouble(TrDetail.BUSINESSDAYS)-1).ToString();
+                        }
                     }
                     if (TravelDetailList_Golbal.Count() > 0)
                     {

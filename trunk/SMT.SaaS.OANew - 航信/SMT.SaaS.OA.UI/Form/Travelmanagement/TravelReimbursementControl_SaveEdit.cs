@@ -247,6 +247,21 @@ namespace SMT.SaaS.OA.UI.UserControls
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "支付信息不能为空，请重新填写", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return false;
             }
+            else
+            {
+               //txtPAYMENTINFO.Text.Split("\r\n");
+                string TempText = string.Empty;
+                string text = this.txtPAYMENTINFO.Text;
+                string[] arrary = text.Split('\r');
+                var tempArray = arrary.Reverse();
+                int count = tempArray.Count();
+                if (count > 3)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("TIPS"), "由于打印限制，支付信息不能超过3行,请重新填写支付信息");
+                    return false;
+                }
+
+            }
             //add by luojie
             //当没有报销金额时弹出提醒
             decimal totalFee = Convert.ToDecimal(txtChargeApplyTotal.Text);
@@ -360,31 +375,31 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     #region "判断回程住宿费"
                     
-                    for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
-                    {
-                        if (TravelDetailList_Golbal.Count > 1 && i == TravelDetailList_Golbal.Count - 1)
-                        {
-                            if (TravelDetailList_Golbal[i].ACCOMMODATION != null)
-                            {
-                                if (TravelDetailList_Golbal[i].ACCOMMODATION.Value > 0)
-                                {
-                                    //回程无住宿费
-                                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "回程无住宿费，请重新填写！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                                    //TravelDetailList_Golbal[i].ACCOMMODATION = 0;
-                                    //只有这样能获取到Textbox
-                                    ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
-                                    TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(TripDetails[i]).FindName("txtACCOMMODATION") as TextBox;
+                    //for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
+                    //{
+                    //    if (TravelDetailList_Golbal.Count > 1 && i == TravelDetailList_Golbal.Count - 1)
+                    //    {
+                    //        if (TravelDetailList_Golbal[i].ACCOMMODATION != null)
+                    //        {
+                    //            if (TravelDetailList_Golbal[i].ACCOMMODATION.Value > 0)
+                    //            {
+                    //                //回程无住宿费
+                    //                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "回程无住宿费，请重新填写！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    //                //TravelDetailList_Golbal[i].ACCOMMODATION = 0;
+                    //                //只有这样能获取到Textbox
+                    //                ObservableCollection<T_OA_REIMBURSEMENTDETAIL> TripDetails = DaGrEdit.ItemsSource as ObservableCollection<T_OA_REIMBURSEMENTDETAIL>;
+                    //                TextBox textAccommodation = DaGrEdit.Columns[9].GetCellContent(TripDetails[i]).FindName("txtACCOMMODATION") as TextBox;
                                    
-                                    textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
-                                    textAccommodation.IsReadOnly = false;
-                                    textAccommodation.IsEnabled = true;
-                                    textAccommodation.Focus();
-                                    RefreshUI(RefreshedTypes.HideProgressBar);
-                                    return;
-                                }
-                            }
-                        }
-                    }
+                    //                textAccommodation.BorderBrush = new SolidColorBrush(Colors.Red);
+                    //                textAccommodation.IsReadOnly = false;
+                    //                textAccommodation.IsEnabled = true;
+                    //                textAccommodation.Focus();
+                    //                RefreshUI(RefreshedTypes.HideProgressBar);
+                    //                return;
+                    //            }
+                    //        }
+                    //    }
+                    //}
                     #endregion  
 
 

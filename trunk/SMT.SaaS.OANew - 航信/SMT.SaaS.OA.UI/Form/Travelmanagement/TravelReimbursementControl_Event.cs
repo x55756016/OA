@@ -439,7 +439,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             }
                         }
                         //如果选择的是中间的记录，赋值并修改下一行记录的出发城市
-                        if (SelectIndex > 0 && SelectIndex < TravelDetailList_Golbal.Count-1)//selectIndex从1开始
+                        if (SelectIndex >= 0 && SelectIndex < TravelDetailList_Golbal.Count-1)//selectIndex从1开始
                         {
                             //修改本行到达城市
                             TravelDetailList_Golbal[SelectIndex].DESTCITY = SelectCity.Result.Values.FirstOrDefault().ToString();
@@ -471,7 +471,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
         
-        #region 交通工具控件事件
+        #region 输入控件事件
         private void txtTRANSPORTCOSTS_LostFocus(object sender, RoutedEventArgs e)
         {
             CountMoney();

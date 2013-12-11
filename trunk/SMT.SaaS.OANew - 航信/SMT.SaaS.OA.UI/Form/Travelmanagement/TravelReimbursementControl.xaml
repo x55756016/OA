@@ -887,7 +887,7 @@
                 Height="22"
                 VerticalAlignment="Top" Margin="5,1,0,4" />
 				<TextBox Grid.Row="7" Grid.Column="1" x:Name="txtPAYMENTINFO" Grid.ColumnSpan="3" 
-		        AcceptsReturn="True" Text="" VerticalScrollBarVisibility="Disabled" 
+		        AcceptsReturn="True" Text="" VerticalScrollBarVisibility="Disabled" MaxLength="100"
 		        TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" />
                 <!--支付信息结束-->
                   

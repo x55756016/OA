@@ -406,6 +406,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 if (txtASubsidies != null)//住宿费
                                 {
                                     txtASubsidies.Text = obje.ACCOMMODATION.ToString();
+                                    if (i == objs.Count - 1)
+                                    {
+                                        txtASubsidies.IsReadOnly = true;
+                                    }
                                 }
                                 //其他费用
                                 if (txtOtherCosts != null)
@@ -424,9 +428,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             ComfirmWindow com = new ComfirmWindow();
                                             com.OnSelectionBoxClosed += (obj, result) =>
                                             {
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                //txtTranSportcosts.IsReadOnly = true;//交通费
+                                                //txtASubsidies.IsReadOnly = true;//住宿标准
+                                                //txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
                                                   || obje.GOOUTTOMEET == "1" || obje.COMPANYCAR == "1") return;
@@ -453,9 +457,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                                             ComfirmWindow com = new ComfirmWindow();
                                             com.OnSelectionBoxClosed += (obj, result) =>
                                             {
-                                                txtTranSportcosts.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOtherCosts.IsReadOnly = true;//其他费用
+                                                //txtTranSportcosts.IsReadOnly = true;//交通费
+                                                //txtASubsidies.IsReadOnly = true;//住宿标准
+                                                //txtOtherCosts.IsReadOnly = true;//其他费用
                                             };
                                             if (formType == FormTypes.Audit || formType == FormTypes.Browse
                                               || obje.GOOUTTOMEET == "1") return;

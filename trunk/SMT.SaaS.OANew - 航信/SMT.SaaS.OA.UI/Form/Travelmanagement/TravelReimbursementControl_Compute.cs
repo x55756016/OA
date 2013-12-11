@@ -1159,8 +1159,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                             totall = totall + txtOthercosts.Text.ToDouble(); //其他费用        
                         }
                     }
-                    //出差天数
-                    double totaldays = 0;
+                   
                     //获取出差补贴
                     T_OA_AREAALLOWANCE entareaallowance = new T_OA_AREAALLOWANCE();
                     string cityValue = obj.DESTCITY;//目标城市值
@@ -1169,7 +1168,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (!string.IsNullOrEmpty(obj.BUSINESSDAYS) && obj.BUSINESSDAYS != "0")
                     {
                         //住宿天数
-                        totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);
+                        double totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS) - 1;
+                        obj.THENUMBEROFNIGHTS = totaldays.ToString();
                         if (entareaallowance != null)
                         {
                             if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
