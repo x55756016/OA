@@ -1,0 +1,1517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="T_FB_REPAYAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BORROWMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGETYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REPAYTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:T_FB_BORROWAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAILReference" nillable="true" type="q1:EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYMASTER" nillable="true" type="tns:T_FB_REPAYAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYMASTERReference" nillable="true" type="q1:EntityReferenceOfT_FB_REPAYAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q1:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:T_FB_REPAYAPPLYDETAIL" />
+  <xs:complexType name="T_FB_BORROWAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BORROWAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BORROWMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGETYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTERReference" nillable="true" type="q2:EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q2:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="UNREPAYMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:T_FB_BORROWAPPLYDETAIL" />
+  <xs:complexType name="T_FB_BORROWAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BANK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BANKACCOUT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BORROWAPPLYMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BORROWAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISREPAIED" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYMENTINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYTARGET" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PLANREPAYDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="RECEIVER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYTYPE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_BORROWAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDERReference" nillable="true" type="q3:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYMASTER" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_BORROWAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:T_FB_BORROWAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_BORROWAPPLYDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_CHARGEAPPLYMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:T_FB_CHARGEAPPLYMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYMASTER" />
+  <xs:complexType name="T_FB_CHARGEAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BANK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BANKACCOUT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CHARGEAPPLYMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISPAYED" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYMENTINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYTARGET" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PAYTYPE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RECEIVER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMENT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REPAYTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTERReference" nillable="true" type="q4:EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYREPAYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYREPAYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDERReference" nillable="true" type="q4:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:T_FB_CHARGEAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_CHARGEAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:T_FB_CHARGEAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYDETAIL" />
+  <xs:complexType name="T_FB_CHARGEAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHARGEAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGETYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SERIALNUMBER" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:T_FB_BORROWAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAILReference" nillable="true" type="q5:EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:T_FB_CHARGEAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTERReference" nillable="true" type="q5:EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q5:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:T_FB_CHARGEAPPLYDETAIL" />
+  <xs:complexType name="T_FB_SUBJECT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVED" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_BORROWAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_BUDGETACCOUNT" nillable="true" type="tns:ArrayOfT_FB_BUDGETACCOUNT" />
+          <xs:element minOccurs="0" name="T_FB_BUDGETCHECK" nillable="true" type="tns:ArrayOfT_FB_BUDGETCHECK" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETMODDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETMODDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYTRANSFERDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETADDDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTTRANSFERDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONORDERDETAIL" nillable="true" type="tns:ArrayOfT_FB_EXTENSIONORDERDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_PERSONBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETADDDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_PERSONBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_PERSONMONEYASSIGNDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONMONEYASSIGNDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT1" nillable="true" type="tns:ArrayOfT_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT2" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT2Reference" nillable="true" type="q6:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTCOMPANY" nillable="true" type="tns:ArrayOfT_FB_SUBJECTCOMPANY" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTDEPTMENT" nillable="true" type="tns:ArrayOfT_FB_SUBJECTDEPTMENT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTPOST" nillable="true" type="tns:ArrayOfT_FB_SUBJECTPOST" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTTYPE" nillable="true" type="tns:T_FB_SUBJECTTYPE" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTTYPEReference" nillable="true" type="q6:EntityReferenceOfT_FB_SUBJECTTYPEZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+  <xs:complexType name="ArrayOfT_FB_BUDGETACCOUNT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_BUDGETACCOUNT" nillable="true" type="tns:T_FB_BUDGETACCOUNT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_BUDGETACCOUNT" nillable="true" type="tns:ArrayOfT_FB_BUDGETACCOUNT" />
+  <xs:complexType name="T_FB_BUDGETACCOUNT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACCOUNTOBJECTTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ACTUALMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETACCOUNTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAIEDMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q7:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_BUDGETACCOUNT" nillable="true" type="tns:T_FB_BUDGETACCOUNT" />
+  <xs:complexType name="ArrayOfT_FB_BUDGETCHECK">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_BUDGETCHECK" nillable="true" type="tns:T_FB_BUDGETCHECK" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_BUDGETCHECK" nillable="true" type="tns:ArrayOfT_FB_BUDGETCHECK" />
+  <xs:complexType name="T_FB_BUDGETCHECK">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACCOUNTOBJECTTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ACTUALMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETCHECKDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BUDGETCHECKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q8:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YEARBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YEARTOTALBUDGETMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_BUDGETCHECK" nillable="true" type="tns:T_FB_BUDGETCHECK" />
+  <xs:complexType name="ArrayOfT_FB_COMPANYBUDGETAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_COMPANYBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_COMPANYBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETAPPLYDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTEDMONDEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LASTBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYMASTERReference" nillable="true" type="q9:EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q9:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETAPPLYDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETAPPLYMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTEDMONDEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISVALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETSUMDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_COMPANYBUDGETSUMDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_COMPANYBUDGETSUMDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETSUMDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_COMPANYBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETSUMDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETSUMDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMPANYBUDGETSUMDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETAPPLYMASTERReference" nillable="true" type="q11:EntityReferenceOfT_FB_COMPANYBUDGETAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETSUMMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETSUMMASTER" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETSUMMASTERReference" nillable="true" type="q11:EntityReferenceOfT_FB_COMPANYBUDGETSUMMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETSUMDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETSUMDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETSUMMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETSUMMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETSUMMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTEDMONDEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMSETTINGSMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETSUMDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETSUMMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETSUMMASTER" />
+  <xs:complexType name="ArrayOfT_FB_COMPANYBUDGETMODDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_COMPANYBUDGETMODDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETMODDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_COMPANYBUDGETMODDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETMODDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETMODDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETMODDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETMODMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETMODMASTER" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETMODMASTERReference" nillable="true" type="q13:EntityReferenceOfT_FB_COMPANYBUDGETMODMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q13:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETMODDETAIL" nillable="true" type="tns:T_FB_COMPANYBUDGETMODDETAIL" />
+  <xs:complexType name="T_FB_COMPANYBUDGETMODMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETMODMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYBUDGETMODMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYBUDGETMODDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYBUDGETMODDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYBUDGETMODMASTER" nillable="true" type="tns:T_FB_COMPANYBUDGETMODMASTER" />
+  <xs:complexType name="ArrayOfT_FB_COMPANYTRANSFERDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_COMPANYTRANSFERDETAIL" nillable="true" type="tns:T_FB_COMPANYTRANSFERDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_COMPANYTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYTRANSFERDETAIL" />
+  <xs:complexType name="T_FB_COMPANYTRANSFERDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMPANYTRANSFERDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYTRANSFERMASTER" nillable="true" type="tns:T_FB_COMPANYTRANSFERMASTER" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYTRANSFERMASTERReference" nillable="true" type="q15:EntityReferenceOfT_FB_COMPANYTRANSFERMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q15:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYTRANSFERDETAIL" nillable="true" type="tns:T_FB_COMPANYTRANSFERDETAIL" />
+  <xs:complexType name="T_FB_COMPANYTRANSFERMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITTRANSFERMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="COMPANYTRANSFERMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYTRANSFERMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSFERMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSFERTO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_COMPANYTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_COMPANYTRANSFERDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_COMPANYTRANSFERMASTER" nillable="true" type="tns:T_FB_COMPANYTRANSFERMASTER" />
+  <xs:complexType name="ArrayOfT_FB_DEPTBUDGETADDDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETADDDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETADDDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETADDDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETADDDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TOTALBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETADDMASTER" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDMASTERReference" nillable="true" type="q17:EntityReferenceOfT_FB_DEPTBUDGETADDMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_PERSONBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETADDDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q17:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETADDDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETADDMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BUDGETCHARGE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETADDMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETADDMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETADDDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETADDMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETADDMASTER" />
+  <xs:complexType name="ArrayOfT_FB_PERSONBUDGETADDDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_PERSONBUDGETADDDETAIL" nillable="true" type="tns:T_FB_PERSONBUDGETADDDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_PERSONBUDGETADDDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETADDDETAIL" />
+  <xs:complexType name="T_FB_PERSONBUDGETADDDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LIMITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONBUDGETADDDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETADDDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETADDDETAILReference" nillable="true" type="q19:EntityReferenceOfT_FB_DEPTBUDGETADDDETAILZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q19:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_PERSONBUDGETADDDETAIL" nillable="true" type="tns:T_FB_PERSONBUDGETADDDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_DEPTBUDGETAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETAPPLYDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BEGINNINGBUDGETBALANCE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LASTACTUALBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LASTBUDGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PERSONBUDGETAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SERIALNUMBER" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYMASTERReference" nillable="true" type="q20:EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_PERSONBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q20:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YEARBUDGETBALANCE" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLIEDTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETAPPLYMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISVALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETSUMDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_DEPTBUDGETSUMDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_DEPTBUDGETSUMDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETSUMDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_DEPTBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETSUMDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETSUMDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETSUMDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYMASTERReference" nillable="true" type="q22:EntityReferenceOfT_FB_DEPTBUDGETAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETSUMMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETSUMMASTER" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETSUMMASTERReference" nillable="true" type="q22:EntityReferenceOfT_FB_DEPTBUDGETSUMMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETSUMDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETSUMDETAIL" />
+  <xs:complexType name="T_FB_DEPTBUDGETSUMMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLIEDTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETSUMMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTBUDGETSUMMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUMSETTINGSMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETSUMDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTBUDGETSUMDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTBUDGETSUMMASTER" nillable="true" type="tns:T_FB_DEPTBUDGETSUMMASTER" />
+  <xs:complexType name="ArrayOfT_FB_PERSONBUDGETAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_PERSONBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_PERSONBUDGETAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_PERSONBUDGETAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONBUDGETAPPLYDETAIL" />
+  <xs:complexType name="T_FB_PERSONBUDGETAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LIMITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONBUDGETAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_DEPTBUDGETAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_DEPTBUDGETAPPLYDETAILReference" nillable="true" type="q24:EntityReferenceOfT_FB_DEPTBUDGETAPPLYDETAILZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q24:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_PERSONBUDGETAPPLYDETAIL" nillable="true" type="tns:T_FB_PERSONBUDGETAPPLYDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_DEPTTRANSFERDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_DEPTTRANSFERDETAIL" nillable="true" type="tns:T_FB_DEPTTRANSFERDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_DEPTTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTTRANSFERDETAIL" />
+  <xs:complexType name="T_FB_DEPTTRANSFERDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITTRANSFERMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTTRANSFERDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_DEPTTRANSFERMASTER" nillable="true" type="tns:T_FB_DEPTTRANSFERMASTER" />
+          <xs:element minOccurs="0" name="T_FB_DEPTTRANSFERMASTERReference" nillable="true" type="q25:EntityReferenceOfT_FB_DEPTTRANSFERMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q25:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTTRANSFERDETAIL" nillable="true" type="tns:T_FB_DEPTTRANSFERDETAIL" />
+  <xs:complexType name="T_FB_DEPTTRANSFERMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITTRANSFERMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTTRANSFERMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPTTRANSFERMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROM" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERFROMTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSFERMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSFERTO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTODEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTODEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTONAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSFERTOTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_DEPTTRANSFERDETAIL" nillable="true" type="tns:ArrayOfT_FB_DEPTTRANSFERDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_DEPTTRANSFERMASTER" nillable="true" type="tns:T_FB_DEPTTRANSFERMASTER" />
+  <xs:complexType name="ArrayOfT_FB_EXTENSIONORDERDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_EXTENSIONORDERDETAIL" nillable="true" type="tns:T_FB_EXTENSIONORDERDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_EXTENSIONORDERDETAIL" nillable="true" type="tns:ArrayOfT_FB_EXTENSIONORDERDETAIL" />
+  <xs:complexType name="T_FB_EXTENSIONORDERDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLIEDMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGETYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXTENSIONORDERDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDERReference" nillable="true" type="q27:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q27:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_EXTENSIONORDERDETAIL" nillable="true" type="tns:T_FB_EXTENSIONORDERDETAIL" />
+  <xs:complexType name="T_FB_EXTENSIONALORDER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLYTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BANK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BANKACCOUT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXTENSIONALORDERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INNERORDERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INNERORDERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INNERORDERTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYMENTINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYTARGET" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RECEIVER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TOTALMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_BORROWAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALTYPE" nillable="true" type="tns:T_FB_EXTENSIONALTYPE" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALTYPEReference" nillable="true" type="q28:EntityReferenceOfT_FB_EXTENSIONALTYPEZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONORDERDETAIL" nillable="true" type="tns:ArrayOfT_FB_EXTENSIONORDERDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYMASTER" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+  <xs:complexType name="ArrayOfT_FB_BORROWAPPLYMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_BORROWAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_BORROWAPPLYMASTER" />
+  <xs:complexType name="T_FB_EXTENSIONALTYPE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EXTENSIONALTYPECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXTENSIONALTYPEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EXTENSIONALTYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:ArrayOfT_FB_EXTENSIONALORDER" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_EXTENSIONALTYPE" nillable="true" type="tns:T_FB_EXTENSIONALTYPE" />
+  <xs:complexType name="ArrayOfT_FB_EXTENSIONALORDER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_EXTENSIONALORDER" nillable="true" type="tns:ArrayOfT_FB_EXTENSIONALORDER" />
+  <xs:complexType name="ArrayOfT_FB_REPAYAPPLYMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_REPAYAPPLYMASTER" nillable="true" type="tns:T_FB_REPAYAPPLYMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_REPAYAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYMASTER" />
+  <xs:complexType name="T_FB_REPAYAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q30="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q30:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BRORROWEDMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYMENTINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROJECTEDREPAYDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYAPPLYCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTERReference" nillable="true" type="q30:EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDERReference" nillable="true" type="q30:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_REPAYAPPLYMASTER" nillable="true" type="tns:T_FB_REPAYAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_REPAYAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:T_FB_REPAYAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_REPAYAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_REPAYAPPLYDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_TRAVELEXPAPPLYMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:T_FB_TRAVELEXPAPPLYMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYMASTER" />
+  <xs:complexType name="T_FB_TRAVELEXPAPPLYMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q31:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AUDITCHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYTYPE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMENT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRAVELEXPAPPLYMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRAVELEXPAPPLYMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTER" nillable="true" type="tns:T_FB_BORROWAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYMASTERReference" nillable="true" type="q31:EntityReferenceOfT_FB_BORROWAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDER" nillable="true" type="tns:T_FB_EXTENSIONALORDER" />
+          <xs:element minOccurs="0" name="T_FB_EXTENSIONALORDERReference" nillable="true" type="q31:EntityReferenceOfT_FB_EXTENSIONALORDERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:T_FB_TRAVELEXPAPPLYMASTER" />
+  <xs:complexType name="ArrayOfT_FB_TRAVELEXPAPPLYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:T_FB_TRAVELEXPAPPLYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:ArrayOfT_FB_TRAVELEXPAPPLYDETAIL" />
+  <xs:complexType name="T_FB_TRAVELEXPAPPLYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q32="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q32:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AIRFARE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AUDITCHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CARFARE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGETYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DAY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DeptUsableMoney" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LODGESAVINGEXPENSES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LODGINGEXPENSES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MONTH" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OTHERCHARGE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PersonUsableMoney" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SERIALNUMBER" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALCHARGE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALDAY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRAVELEXPAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRAVELLINGALLOWANCE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAIL" nillable="true" type="tns:T_FB_BORROWAPPLYDETAIL" />
+          <xs:element minOccurs="0" name="T_FB_BORROWAPPLYDETAILReference" nillable="true" type="q32:EntityReferenceOfT_FB_BORROWAPPLYDETAILZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q32:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYMASTER" nillable="true" type="tns:T_FB_TRAVELEXPAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_TRAVELEXPAPPLYMASTERReference" nillable="true" type="q32:EntityReferenceOfT_FB_TRAVELEXPAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USABLEMONEY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_TRAVELEXPAPPLYDETAIL" nillable="true" type="tns:T_FB_TRAVELEXPAPPLYDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_PERSONMONEYASSIGNDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_PERSONMONEYASSIGNDETAIL" nillable="true" type="tns:T_FB_PERSONMONEYASSIGNDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_PERSONMONEYASSIGNDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONMONEYASSIGNDETAIL" />
+  <xs:complexType name="T_FB_PERSONMONEYASSIGNDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q33:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONBUDGETAPPLYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTINFO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUGGESTBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_PERSONMONEYASSIGNMASTER" nillable="true" type="tns:T_FB_PERSONMONEYASSIGNMASTER" />
+          <xs:element minOccurs="0" name="T_FB_PERSONMONEYASSIGNMASTERReference" nillable="true" type="q33:EntityReferenceOfT_FB_PERSONMONEYASSIGNMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q33:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_PERSONMONEYASSIGNDETAIL" nillable="true" type="tns:T_FB_PERSONMONEYASSIGNDETAIL" />
+  <xs:complexType name="T_FB_PERSONMONEYASSIGNMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q34="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q34:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPLIEDTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ASSIGNCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ASSIGNCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AUDITBUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUDGETARYMONTH" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BUDGETMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONMONEYASSIGNMASTERCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONMONEYASSIGNMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_PERSONMONEYASSIGNDETAIL" nillable="true" type="tns:ArrayOfT_FB_PERSONMONEYASSIGNDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_PERSONMONEYASSIGNMASTER" nillable="true" type="tns:T_FB_PERSONMONEYASSIGNMASTER" />
+  <xs:complexType name="ArrayOfT_FB_SUBJECT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_SUBJECT" nillable="true" type="tns:ArrayOfT_FB_SUBJECT" />
+  <xs:complexType name="ArrayOfT_FB_SUBJECTCOMPANY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_SUBJECTCOMPANY" nillable="true" type="tns:T_FB_SUBJECTCOMPANY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_SUBJECTCOMPANY" nillable="true" type="tns:ArrayOfT_FB_SUBJECTCOMPANY" />
+  <xs:complexType name="T_FB_SUBJECTCOMPANY">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q35:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVED" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CONTROLTYPE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISMONTHADJUST" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISMONTHLIMIT" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISPERSON" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ISYEARBUDGET" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTDEPTMENT" nillable="true" type="tns:ArrayOfT_FB_SUBJECTDEPTMENT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q35:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_SUBJECTCOMPANY" nillable="true" type="tns:T_FB_SUBJECTCOMPANY" />
+  <xs:complexType name="ArrayOfT_FB_SUBJECTDEPTMENT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_SUBJECTDEPTMENT" nillable="true" type="tns:T_FB_SUBJECTDEPTMENT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_SUBJECTDEPTMENT" nillable="true" type="tns:ArrayOfT_FB_SUBJECTDEPTMENT" />
+  <xs:complexType name="T_FB_SUBJECTDEPTMENT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q36:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVED" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LIMITBUDGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTDEPTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTCOMPANY" nillable="true" type="tns:T_FB_SUBJECTCOMPANY" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTCOMPANYReference" nillable="true" type="q36:EntityReferenceOfT_FB_SUBJECTCOMPANYZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTPOST" nillable="true" type="tns:ArrayOfT_FB_SUBJECTPOST" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q36:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_SUBJECTDEPTMENT" nillable="true" type="tns:T_FB_SUBJECTDEPTMENT" />
+  <xs:complexType name="ArrayOfT_FB_SUBJECTPOST">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_SUBJECTPOST" nillable="true" type="tns:T_FB_SUBJECTPOST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_SUBJECTPOST" nillable="true" type="tns:ArrayOfT_FB_SUBJECTPOST" />
+  <xs:complexType name="T_FB_SUBJECTPOST">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q37:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACTIVED" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LIMITBUDGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:T_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTDEPTMENT" nillable="true" type="tns:T_FB_SUBJECTDEPTMENT" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTDEPTMENTReference" nillable="true" type="q37:EntityReferenceOfT_FB_SUBJECTDEPTMENTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECTReference" nillable="true" type="q37:EntityReferenceOfT_FB_SUBJECTZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_SUBJECTPOST" nillable="true" type="tns:T_FB_SUBJECTPOST" />
+  <xs:complexType name="T_FB_SUBJECTTYPE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q38="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q38:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATES" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SUBJECTTYPECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTTYPEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTTYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_FB_SUBJECT" nillable="true" type="tns:ArrayOfT_FB_SUBJECT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_SUBJECTTYPE" nillable="true" type="tns:T_FB_SUBJECTTYPE" />
+  <xs:complexType name="ArrayOfT_FB_CHARGEAPPLYREPAYDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_CHARGEAPPLYREPAYDETAIL" nillable="true" type="tns:T_FB_CHARGEAPPLYREPAYDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_CHARGEAPPLYREPAYDETAIL" nillable="true" type="tns:ArrayOfT_FB_CHARGEAPPLYREPAYDETAIL" />
+  <xs:complexType name="T_FB_CHARGEAPPLYREPAYDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q39:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BORROWMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHARGEAPPLYREPAYDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPAYMONEY" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REPAYTYPE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTER" nillable="true" type="tns:T_FB_CHARGEAPPLYMASTER" />
+          <xs:element minOccurs="0" name="T_FB_CHARGEAPPLYMASTERReference" nillable="true" type="q39:EntityReferenceOfT_FB_CHARGEAPPLYMASTERZ5CrhPbu" />
+          <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_CHARGEAPPLYREPAYDETAIL" nillable="true" type="tns:T_FB_CHARGEAPPLYREPAYDETAIL" />
+  <xs:complexType name="ArrayOfT_FB_PERSONACCOUNT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FB_PERSONACCOUNT" nillable="true" type="tns:T_FB_PERSONACCOUNT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_FB_PERSONACCOUNT" nillable="true" type="tns:ArrayOfT_FB_PERSONACCOUNT" />
+  <xs:complexType name="T_FB_PERSONACCOUNT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q40:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BACKUPBORROWMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BORROWMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEXTREPAYDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERSONACCOUNTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIMPLEBORROWMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SPECIALBORROWMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_FB_PERSONACCOUNT" nillable="true" type="tns:T_FB_PERSONACCOUNT" />
+</xs:schema>

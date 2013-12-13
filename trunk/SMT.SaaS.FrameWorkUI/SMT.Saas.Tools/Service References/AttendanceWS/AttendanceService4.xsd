@@ -677,6 +677,10 @@
           <xs:element minOccurs="0" name="FOURTHENDTIME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FOURTHSTARTSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FOURTHSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFOURTHATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFRISTATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDSECONDATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDTHIRDATTEND" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />

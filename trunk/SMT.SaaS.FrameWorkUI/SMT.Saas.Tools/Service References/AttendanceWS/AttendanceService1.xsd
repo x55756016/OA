@@ -145,4 +145,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_LandDetail" nillable="true" type="tns:V_LandDetail" />
+  <xs:complexType name="ArrayOfV_ATTENDANCESOLUTIONASIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:V_ATTENDANCESOLUTIONASIGN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:ArrayOfV_ATTENDANCESOLUTIONASIGN" />
+  <xs:complexType name="V_ATTENDANCESOLUTIONASIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ASSIGNEDOBJECTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ASSIGNEDOBJECTTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATTENDANCESOLUTIONASIGNID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATTENDANCESOLUTIONNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENDDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STARTDATE" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:V_ATTENDANCESOLUTIONASIGN" />
 </xs:schema>

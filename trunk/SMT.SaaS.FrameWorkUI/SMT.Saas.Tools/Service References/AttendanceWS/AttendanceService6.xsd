@@ -5,6 +5,20 @@
   <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
   <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
   <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+  <xs:element name="CalculateEmployeeAttendanceMonthly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strIsCurrentMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAssignedObjectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAssignedObjectID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
     <xs:complexType>
       <xs:sequence>
@@ -679,6 +693,20 @@
   <xs:element name="GetAttendanceSolutionAsignByEmployeeIDAndDateResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionDeduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionDeductId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionDeductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFreeLeaveDaySetByID">
@@ -2056,20 +2084,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CalculateEmployeeAttendanceMonthly">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="strIsCurrentMonth" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="strAssignedObjectType" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="strAssignedObjectID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CalculateEmployeeAttendanceMonthlyResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DoWork">
     <xs:complexType>
       <xs:sequence />
@@ -3033,6 +3047,8 @@
         <xs:element minOccurs="0" name="AttendanceSolutionName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="strAssignedObjectType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
         <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
@@ -3042,15 +3058,29 @@
   <xs:element name="GetAttendanceSolutionAsignRdListByMultSearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionAsignRdListByMultSearchResult" nillable="true" type="q162:ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" />
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAttendanceSolutionAsignRdListByMultSearchResult" nillable="true" type="q162:ArrayOfV_ATTENDANCESOLUTIONASIGN" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByCreateCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createCompanyId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByCreateCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionAsignRdListByCreateCompanyIdResult" nillable="true" type="q163:ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddAttendanceSolutionAsign">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q163:T_HR_ATTENDANCESOLUTIONASIGN" />
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q164:T_HR_ATTENDANCESOLUTIONASIGN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3064,7 +3094,7 @@
   <xs:element name="ModifyAttendanceSolutionAsign">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q164:T_HR_ATTENDANCESOLUTIONASIGN" />
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q165:T_HR_ATTENDANCESOLUTIONASIGN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3169,7 +3199,7 @@
   <xs:element name="GetAllCompanyIDByAttendSolAsignResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q165="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllCompanyIDByAttendSolAsignResult" nillable="true" type="q165:ArrayOfstring" />
+        <xs:element xmlns:q166="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllCompanyIDByAttendSolAsignResult" nillable="true" type="q166:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3183,7 +3213,7 @@
   <xs:element name="GetAttendanceDeductMasterByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterByIDResult" nillable="true" type="q166:T_HR_ATTENDANCEDEDUCTMASTER" />
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterByIDResult" nillable="true" type="q167:T_HR_ATTENDANCEDEDUCTMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3202,7 +3232,7 @@
   <xs:element name="GetAttendanceDeductMasterRdListByMultSearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterRdListByMultSearchResult" nillable="true" type="q167:ArrayOfT_HR_ATTENDANCEDEDUCTMASTER" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterRdListByMultSearchResult" nillable="true" type="q168:ArrayOfT_HR_ATTENDANCEDEDUCTMASTER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -3210,7 +3240,7 @@
   <xs:element name="AddAttendanceDeductMaster">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q168:T_HR_ATTENDANCEDEDUCTMASTER" />
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q169:T_HR_ATTENDANCEDEDUCTMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3224,7 +3254,7 @@
   <xs:element name="ModifyAttendanceDeductMaster">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q169:T_HR_ATTENDANCEDEDUCTMASTER" />
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q170:T_HR_ATTENDANCEDEDUCTMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3259,7 +3289,7 @@
   <xs:element name="GetAttendanceDeductDetailByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailByIDResult" nillable="true" type="q170:T_HR_ATTENDANCEDEDUCTDETAIL" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailByIDResult" nillable="true" type="q171:T_HR_ATTENDANCEDEDUCTDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3278,7 +3308,7 @@
   <xs:element name="GetAttendanceDeductDetailRdListByMultSearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailRdListByMultSearchResult" nillable="true" type="q171:ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" />
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailRdListByMultSearchResult" nillable="true" type="q172:ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -3286,7 +3316,7 @@
   <xs:element name="AddAttendanceDeductDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q172:T_HR_ATTENDANCEDEDUCTDETAIL" />
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q173:T_HR_ATTENDANCEDEDUCTDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3300,7 +3330,7 @@
   <xs:element name="ModifyAttendanceDeductDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q173:T_HR_ATTENDANCEDEDUCTDETAIL" />
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q174:T_HR_ATTENDANCEDEDUCTDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3335,7 +3365,7 @@
   <xs:element name="GetAttendanceSolutionDeductByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductByIDResult" nillable="true" type="q174:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductByIDResult" nillable="true" type="q175:T_HR_ATTENDANCESOLUTIONDEDUCT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3350,14 +3380,14 @@
   <xs:element name="GetAttendanceSolutionDeductRdListByAttSolIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductRdListByAttSolIDResult" nillable="true" type="q175:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductRdListByAttSolIDResult" nillable="true" type="q176:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddAttendanceSolutionDeduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q176:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q177:T_HR_ATTENDANCESOLUTIONDEDUCT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3371,7 +3401,7 @@
   <xs:element name="ModifyAttendanceSolutionDeduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q177:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q178:T_HR_ATTENDANCESOLUTIONDEDUCT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3379,20 +3409,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ModifyAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveAttendanceSolutionDeduct">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="strAttendanceSolutionDeductId" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveAttendanceSolutionDeductResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RemoveAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

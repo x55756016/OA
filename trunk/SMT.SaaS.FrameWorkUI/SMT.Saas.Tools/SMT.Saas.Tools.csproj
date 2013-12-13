@@ -319,6 +319,9 @@
     <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -334,24 +337,30 @@
     <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_LandStatistic.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices2.wsdl" />
-    <None Include="Service References\DailyManagementWS\DailyManagementServices21.wsdl" />
+    <None Include="Service References\DailyManagementWS\DailyManagementServices.wsdl" />
+    <None Include="Service References\DailyManagementWS\DailyManagementServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DailyManagementWS\DailyManagementServices1.wsdl" />
+    <None Include="Service References\DailyManagementWS\DailyManagementServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DailyManagementWS\DailyManagementServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DailyManagementWS\DailyManagementServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DailyManagementWS\DailyManagementServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DailyManagementWS\DailyManagementServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\DailyManagementWS\DailyManagementServices6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices61.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices62.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices63.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices64.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DailyManagementWS\DailyManagementServices65.xsd">
+    <None Include="Service References\DailyManagementWS\DailyManagementServices7.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\DailyManagementWS\SMT.Saas.Tools.DailyManagementWS.T_FB_BORROWAPPLYDETAIL.datasource">
@@ -382,6 +391,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\DailyManagementWS\SMT.Saas.Tools.DailyManagementWS.T_FB_REPAYAPPLYMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DailyManagementWS\SMT.Saas.Tools.DailyManagementWS.V_ChargeApplyReport.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.wsdl" />
@@ -1582,11 +1594,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\NewFileUploadWS\FileUpLoad1.disco" />
-    <None Include="Service References\DailyManagementWS\DailyManagementServices1.disco" />
     <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
     <None Include="Service References\FlowWFService\SMT2.disco" />
     <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.disco" />
+    <None Include="Service References\DailyManagementWS\DailyManagementServices.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>

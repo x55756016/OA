@@ -136,9 +136,6 @@
       <endpoint address="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
-      <endpoint address="http://172.16.1.57/New/Services/SMTFBAService/DailyManagementServices.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
-        contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/SalaryService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SalaryService"
         contract="SalaryWS.SalaryService" name="BasicHttpBinding_SalaryService" />
@@ -160,6 +157,9 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
+        contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
     </client>
 
   </system.serviceModel>
