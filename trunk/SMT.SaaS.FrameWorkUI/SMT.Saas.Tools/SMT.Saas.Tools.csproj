@@ -384,26 +384,26 @@
     <None Include="Service References\DailyManagementWS\SMT.Saas.Tools.DailyManagementWS.T_FB_REPAYAPPLYMASTER.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.wsdl" />
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.wsdl" />
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction71.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction2.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction72.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction3.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction73.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction4.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction74.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction5.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction75.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction6.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction76.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_WF_DOTASK.datasource">
@@ -1585,8 +1585,8 @@
     <None Include="Service References\DailyManagementWS\DailyManagementServices1.disco" />
     <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.disco" />
     <None Include="Service References\FlowWFService\SMT2.disco" />
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>

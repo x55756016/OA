@@ -265,8 +265,10 @@ namespace SMT.SaaS.Permission.BLL
                     ent.CHECKSTATE = sourceEntity.CHECKSTATE;
                     //ent.CREATEDATE = sourceEntity.CREATEDATE;
                     ent.OWNERDEPARTMENTID = sourceEntity.OWNERDEPARTMENTID;
-                    ent.UPDATEDATE = sourceEntity.UPDATEDATE;
+                    ent.UPDATEDATE = DateTime.Now;
                     ent.UPDATEUSER = sourceEntity.UPDATEUSER;
+                    ent.UPDATEUSERNAME = sourceEntity.UPDATEUSERNAME;
+                    
                     //ent.T_SYS_ROLE2Reference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_ROLE", "ROLEID", sourceEntity.T_SYS_ROLE2.ROLEID);
 
                     int i=dal.Update(ent);
@@ -592,6 +594,8 @@ namespace SMT.SaaS.Permission.BLL
                     role.OWNERDEPARTMENTNAME=GetDepartMentNameByid(item.OWNERDEPARTMENTID);
                     role.OWNERCOMPANYNAME=GetCompanNameByid(item.OWNERCOMPANYID);
                     role.SYSTTMTYPENAME = item.SYSTEMTYPE;
+                    role.UPDATEUSERNAME = item.UPDATEUSERNAME;
+                    role.UPDATEDATE = item.UPDATEDATE.Value;
                     roles.Add(role);
                 }
                 return roles.AsQueryable();
@@ -606,7 +610,11 @@ namespace SMT.SaaS.Permission.BLL
 
         }
 
-        //批量删除角色信息
+        /// <summary>
+        /// 批量删除角色信息
+        /// </summary>
+        /// <param name="ArrSysRoleIDs"></param>
+        /// <returns></returns>
         public string BatchDeleteSysRoleInfos(string[] ArrSysRoleIDs)
         {
             string StrReturn = "";
@@ -674,7 +682,7 @@ namespace SMT.SaaS.Permission.BLL
                                 }
                             }
                         }
-                        //如果已经没有在职的用户，
+                        //在职的用户，
                         if (noUser)
                         {
                             StrReturn = string.Empty;
@@ -692,7 +700,11 @@ namespace SMT.SaaS.Permission.BLL
                     {
                         //TODO:多语言与自定义异常
                         //throw new Exception("此角色已关联角色，请先删除角色角色关联！");
-                        StrReturn = "有角色和自定义权限有关联，不能删除";
+                        // StrReturn = "有角色和自定义权限有关联，不能删除";
+                        foreach (var item in tmpCustomerEnts)
+                        {
+                            dal.DeleteFromContext(item);
+                        }
                     }
                 }
 

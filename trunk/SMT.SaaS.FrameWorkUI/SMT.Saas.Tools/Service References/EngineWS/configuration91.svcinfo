@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="NFP8YYriGDQOw2Y3LqPKwN9R2mQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="y8cg+/G1nnfltl/XUyUd5UysrY4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="customBinding" name="WSHttpBinding_IEngineWcfGlobalFunction">
       <properties>
@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
+    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

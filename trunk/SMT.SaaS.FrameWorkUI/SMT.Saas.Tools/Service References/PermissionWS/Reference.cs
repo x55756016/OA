@@ -3894,6 +3894,10 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         private string SYSTTMTYPENAMEField;
         
+        private System.DateTime UPDATEDATEField;
+        
+        private string UPDATEUSERNAMEField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string OWNERCOMPANYNAME {
             get {
@@ -3955,6 +3959,32 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.SYSTTMTYPENAMEField, value) != true)) {
                     this.SYSTTMTYPENAMEField = value;
                     this.RaisePropertyChanged("SYSTTMTYPENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERNAME {
+            get {
+                return this.UPDATEUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERNAMEField, value) != true)) {
+                    this.UPDATEUSERNAMEField = value;
+                    this.RaisePropertyChanged("UPDATEUSERNAME");
                 }
             }
         }

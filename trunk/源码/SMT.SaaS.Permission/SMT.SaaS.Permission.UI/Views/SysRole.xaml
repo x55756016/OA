@@ -88,9 +88,13 @@
                         </data:DataGridTemplateColumn>
                         <data:DataGridTextColumn Header="BELONGCOMPANY" Binding="{Binding OWNERCOMPANYNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Company}"></data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="OWNERDEPARTMENT" Binding="{Binding OWNERDEPARTMENTNAME,Converter={StaticResource CompanyConvert},ConverterParameter=Department}"></data:DataGridTextColumn>
-                        <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding SYSTEMTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
+                        <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding SYSTTMTYPENAME, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
                         </data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding ROLENAME}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="修改人" Binding="{Binding UPDATEUSERNAME}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="修改时间" Binding="{Binding UPDATEDATE}">
                         </data:DataGridTextColumn>
                         <data:DataGridTemplateColumn Header="ACCREDIT">
                             <data:DataGridTemplateColumn.CellTemplate>

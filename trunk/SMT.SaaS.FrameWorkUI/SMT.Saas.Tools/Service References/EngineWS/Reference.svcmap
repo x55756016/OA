@@ -20,18 +20,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.10.0.95/New/Services/smtengine/EngineWcfGlobalFunction.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EngineWcfGlobalFunction.wsdl" MetadataType="Wsdl" ID="977fa1d1-56b2-4fc0-8abe-f94ebc21a20b" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?wsdl" />
-    <MetadataFile FileName="EngineWcfGlobalFunction.disco" MetadataType="Disco" ID="2aa16c04-7ffe-48ad-94e5-7eaedea58fa2" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?disco" />
-    <MetadataFile FileName="EngineWcfGlobalFunction.xsd" MetadataType="Schema" ID="652782d1-2464-48c5-b43b-c4832cbb0e24" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" />
-    <MetadataFile FileName="EngineWcfGlobalFunction1.xsd" MetadataType="Schema" ID="c93497bb-5c06-424a-9223-37286bdf91ea" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" />
-    <MetadataFile FileName="EngineWcfGlobalFunction2.xsd" MetadataType="Schema" ID="3b4e0792-b612-436d-b066-0347ce3d58d4" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" />
-    <MetadataFile FileName="EngineWcfGlobalFunction3.xsd" MetadataType="Schema" ID="da474775-56f4-4ac4-a742-db942192a333" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" />
-    <MetadataFile FileName="EngineWcfGlobalFunction4.xsd" MetadataType="Schema" ID="bed7baca-d926-4f25-88a6-c34513571d34" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" />
-    <MetadataFile FileName="EngineWcfGlobalFunction5.xsd" MetadataType="Schema" ID="e4ef8323-0968-41d1-a324-2e9480d36e7f" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" />
-    <MetadataFile FileName="EngineWcfGlobalFunction6.xsd" MetadataType="Schema" ID="34f88a26-f365-47e8-918c-9e5eafafda96" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" />
+    <MetadataFile FileName="EngineWcfGlobalFunction7.xsd" MetadataType="Schema" ID="a2b4af6d-9889-4e80-9006-bdcb305797d6" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" />
+    <MetadataFile FileName="EngineWcfGlobalFunction71.xsd" MetadataType="Schema" ID="a15f6109-9152-4126-82b3-2c066667e6c0" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" />
+    <MetadataFile FileName="EngineWcfGlobalFunction72.xsd" MetadataType="Schema" ID="fc733c8e-29f2-429a-abee-81772c2a5d2f" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" />
+    <MetadataFile FileName="EngineWcfGlobalFunction73.xsd" MetadataType="Schema" ID="ea3d8903-0eda-4583-9968-f00ece8cf4bd" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" />
+    <MetadataFile FileName="EngineWcfGlobalFunction74.xsd" MetadataType="Schema" ID="2fc59d2f-6659-40a4-b693-5a2d0a2f84cf" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" />
+    <MetadataFile FileName="EngineWcfGlobalFunction75.xsd" MetadataType="Schema" ID="5c289b26-05ca-401e-b26e-bfcd8865b53c" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" />
+    <MetadataFile FileName="EngineWcfGlobalFunction1.wsdl" MetadataType="Wsdl" ID="69937ba3-78ce-43b8-96fe-3992c9e66b29" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?wsdl" />
+    <MetadataFile FileName="EngineWcfGlobalFunction76.xsd" MetadataType="Schema" ID="ffa4b024-7e39-43ec-b09e-bffeb0eecf14" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" />
+    <MetadataFile FileName="EngineWcfGlobalFunction1.disco" MetadataType="Disco" ID="8af5f61c-380a-4407-8e34-a6bb54a28afe" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

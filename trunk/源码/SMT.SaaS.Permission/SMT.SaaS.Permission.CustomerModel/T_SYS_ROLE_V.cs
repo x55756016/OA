@@ -12,6 +12,8 @@ namespace SMT.SaaS.Permission.CustomerModel
         public string OWNERCOMPANYNAME;
         public string OWNERDEPARTMENTNAME;
         public string SYSTTMTYPENAME;
+        public string UPDATEUSERNAME;
+        public DateTime UPDATEDATE;
 
     }
 }

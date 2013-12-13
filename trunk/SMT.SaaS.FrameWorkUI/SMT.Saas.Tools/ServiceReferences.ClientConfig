@@ -154,12 +154,12 @@
       <endpoint address="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://10.10.0.95/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
-        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
       <endpoint address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
     </client>
 
   </system.serviceModel>
