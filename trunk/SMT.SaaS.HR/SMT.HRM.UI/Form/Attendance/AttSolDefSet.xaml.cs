@@ -91,7 +91,13 @@ namespace SMT.HRM.UI.Form.Attendance
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "SCHEDULINGTEMPLATEDETAILSET"));
                 return false;
             }
-
+            if (entAttSol.WORKDAYTYPE == "1" && entAttSol.WORKDAYS == null || entAttSol.WORKDAYS == 0)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error,
+                    "工作天数",
+                     "工作天数计算方式设定为“固定方式”时，工作天数（天/月）必须大于0");
+                return false;
+            }
             entAttSol.T_HR_SCHEDULINGTEMPLATEMASTER = entTemplateMaster;
 
             flag = true;

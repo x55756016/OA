@@ -73,7 +73,7 @@
                 <data:DataGridTextColumn Header="迟到时长(分钟)" Binding="{Binding LATEMINUTES}" />
                 <data:DataGridTextColumn Header="早退次数" Binding="{Binding LEAVEEARLYDAYS}" />
                 <data:DataGridTextColumn Header="旷工天数" Binding="{Binding ABSENTDAYS}" />
-                <data:DataGridTextColumn Header="矿工时长" Binding="{Binding ABSENTMINUTES}" />
+                <data:DataGridTextColumn Header="旷工时长" Binding="{Binding ABSENTMINUTES}" />
                 <data:DataGridTextColumn Header="年休假天数" Binding="{Binding ANNUALLEVELDAYS}"/>
                 <data:DataGridTextColumn Header="调休假天数" Binding="{Binding LEAVEUSEDDAYS}" />
                 <data:DataGridTextColumn Header="事假天数"  Binding="{Binding AFFAIRLEAVEDAYS}" />

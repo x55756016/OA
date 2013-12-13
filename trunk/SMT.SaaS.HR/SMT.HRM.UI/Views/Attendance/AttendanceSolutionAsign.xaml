@@ -28,17 +28,34 @@
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="80"/>
-                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="tbAttendanceSolutionIDTitle" Grid.Row="0" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTENDANCESOLUTIONNAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="Auto"/>
                 <smtx:LookUp Grid.Row="0" Grid.Column="1" Width="110" DataContext="{Binding Path=T_HR_ATTENDANCESOLUTION, Mode=TwoWay}" HorizontalAlignment="Left" FindClick="lkAttSol_FindClick" Name="lkAttSol" Margin="5,0,0,0" DisplayMemberPath="ATTENDANCESOLUTIONNAME" Height="24" />
                 <TextBlock x:Name="tbAssignedObjectTypeTitle" Grid.Row="0" Grid.Column="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ASSIGNEDOBJECTTYPE}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="Auto"/>
                 <appCtr:DictionaryComboBox x:Name="cbxkAssignedObjectType" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Category="ASSIGNEDOBJECTTYPE" SelectedValue="{Binding ASSIGNEDOBJECTTYPE, Mode=TwoWay}" Width="110" Style="{StaticResource SysComboBoxStyle}" Height="24" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="4" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Height="24" Click="btnSearch_Click" Width="70" />
+
+                <TextBlock Text="生效时间" Grid.Row="0" Grid.Column="4" Style="{StaticResource FrameGridTextBlock1}"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="Auto"/>
+                <controls:DatePicker x:Name="dpStartDate" Grid.Row="0" Grid.Column="5" Width='110'
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}">
+
+                </controls:DatePicker>
+
+                <TextBlock Text="至" Grid.Row="0" Grid.Column="6" Style="{StaticResource FrameGridTextBlock1}"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="Auto"/>
+                <controls:DatePicker x:Name="dpEndDate" Grid.Row="0" Grid.Column="7" 
+                                 HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Width="120" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}">
+
+                </controls:DatePicker>
+
+                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" Grid.Row="0" Grid.Column="8" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" VerticalAlignment="Center" Height="24" Click="btnSearch_Click" Width="70" />
             </Grid>
             <smtx:FormToolBar x:Name="toolbar1" Grid.Row="2" Width="auto"></smtx:FormToolBar>
             <data:DataGrid x:Name="dgAttSolAsignList" Grid.Row="3" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" LoadingRow="dgAttSolAsignList_LoadingRow" 
@@ -51,9 +68,10 @@
                                 <Image Name="entityLogo" Width="16" Height="16" Tag="{Binding ATTENDANCESOLUTIONASIGNID}"></Image>
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>
-                    </data:DataGridTemplateColumn>
-                    <data:DataGridTextColumn Header="ATTENDANCESOLUTIONNAME" Binding="{Binding T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME}"/>                    
+                    </data:DataGridTemplateColumn> 
+                    <data:DataGridTextColumn Header="ATTENDANCESOLUTIONNAME" Binding="{Binding ATTENDANCESOLUTIONNAME}"/>                    
                     <data:DataGridTextColumn Header="ASSIGNEDOBJECTTYPE" Binding="{Binding ASSIGNEDOBJECTTYPE, Converter={StaticResource DictionaryConverter},ConverterParameter=ASSIGNEDOBJECTTYPE}" />
+                    <data:DataGridTextColumn Header="分配对象" Binding="{Binding ASSIGNEDOBJECTID}" />
                     <data:DataGridTextColumn Header="AVAILABLEDATE" Binding="{Binding STARTDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
                     <data:DataGridTextColumn Header="UNAVAILABLEDATE" Binding="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" />
                     <data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}" />

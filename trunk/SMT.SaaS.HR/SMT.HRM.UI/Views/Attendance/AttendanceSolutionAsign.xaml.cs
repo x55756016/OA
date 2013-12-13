@@ -108,13 +108,15 @@ namespace SMT.HRM.UI.Views.Attendance
             int pageIndex = 0, pageSize = 0, pageCount = 0;
 
             strOwnerID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-            strSortKey = " ATTENDANCESOLUTIONASIGNID ";
+            strSortKey = " CREATEDATE ";
             CheckInputFilter(ref strAttendanceSolutionID, ref strAssignedObjectType, ref strCheckState);
             pageIndex = dataPager.PageIndex;
             pageSize = dataPager.PageSize;
             if (strCheckState == Convert.ToInt32(CheckStates.All).ToString()) strCheckState = "";
 
-            clientAtt.GetAttendanceSolutionAsignRdListByMultSearchAsync(strOwnerID, strCheckState, strAttendanceSolutionID, strAssignedObjectType, strSortKey, pageIndex, pageSize, pageCount);
+            DateTime dtStart = dpStartDate.SelectedDate.HasValue ? dpStartDate.SelectedDate.Value : DateTime.MinValue;
+            DateTime dtEnd = dpEndDate.SelectedDate.HasValue ? dpEndDate.SelectedDate.Value : DateTime.MinValue;
+            clientAtt.GetAttendanceSolutionAsignRdListByMultSearchAsync(strOwnerID, strCheckState, strAttendanceSolutionID, strAssignedObjectType, strSortKey, dtStart, dtEnd, pageIndex, pageSize, pageCount);
             loadbar.Start();
         }
 
@@ -183,7 +185,7 @@ namespace SMT.HRM.UI.Views.Attendance
         {
             if (e.Error == null)
             {
-                IEnumerable<T_HR_ATTENDANCESOLUTIONASIGN> entlist = e.Result;
+                IEnumerable<V_ATTENDANCESOLUTIONASIGN> entlist = e.Result;
                 dgAttSolAsignList.ItemsSource = entlist;
                 dataPager.PageCount = e.pageCount;
             }
@@ -270,6 +272,7 @@ namespace SMT.HRM.UI.Views.Attendance
             SetRowLogo(dgAttSolAsignList, e.Row, "T_HR_ATTENDANCESOLUTIONASIGN");
         }
 
+        
         /// <summary>
         /// 分页
         /// </summary>
@@ -328,7 +331,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as T_HR_ATTENDANCESOLUTIONASIGN;
+            V_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as V_ATTENDANCESOLUTIONASIGN;
 
             strAttendanceSolutionAsignID = ent.ATTENDANCESOLUTIONASIGNID.ToString();
             AttendanceSolutionAsignForm formAttendanceSolutionAsign = new AttendanceSolutionAsignForm(FormTypes.Resubmit, strAttendanceSolutionAsignID);
@@ -361,7 +364,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as T_HR_ATTENDANCESOLUTIONASIGN;
+            V_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as V_ATTENDANCESOLUTIONASIGN;
 
             strAttendanceSolutionAsignID = ent.ATTENDANCESOLUTIONASIGNID.ToString();
             AttendanceSolutionAsignForm formAttendanceSolutionAsign = new AttendanceSolutionAsignForm(FormTypes.Browse, strAttendanceSolutionAsignID);
@@ -395,7 +398,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as T_HR_ATTENDANCESOLUTIONASIGN;
+            V_ATTENDANCESOLUTIONASIGN ent = dgAttSolAsignList.SelectedItems[0] as V_ATTENDANCESOLUTIONASIGN;
 
             strAttendanceSolutionAsignID = ent.ATTENDANCESOLUTIONASIGNID.ToString();
             AttendanceSolutionAsignForm formAttendanceSolutionAsign = new AttendanceSolutionAsignForm(FormTypes.Edit, strAttendanceSolutionAsignID);
@@ -430,7 +433,7 @@ namespace SMT.HRM.UI.Views.Attendance
 
             foreach (object ovj in dgAttSolAsignList.SelectedItems)
             {
-                T_HR_ATTENDANCESOLUTIONASIGN ent = ovj as T_HR_ATTENDANCESOLUTIONASIGN;
+                V_ATTENDANCESOLUTIONASIGN ent = ovj as V_ATTENDANCESOLUTIONASIGN;
 
                 string Result = "";
                 if (ent != null)
@@ -472,7 +475,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return;
             }
 
-            T_HR_ATTENDANCESOLUTIONASIGN entAttSolAsign = dgAttSolAsignList.SelectedItems[0] as T_HR_ATTENDANCESOLUTIONASIGN;
+            V_ATTENDANCESOLUTIONASIGN entAttSolAsign = dgAttSolAsignList.SelectedItems[0] as V_ATTENDANCESOLUTIONASIGN;
             strID = entAttSolAsign.ATTENDANCESOLUTIONASIGNID;
             AttendanceSolutionAsignForm formAttSolAsign = new AttendanceSolutionAsignForm(FormTypes.Audit, strID);
             EntityBrowser entBrowser = new EntityBrowser(formAttSolAsign);

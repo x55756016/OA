@@ -35,7 +35,7 @@
         <!--Row 0-->
         <!--EMPLOYEECNAME-->
         <TextBlock  Grid.Column="0" Grid.Row="0"  Margin="5,0,0,0"
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" />
+            					Text="员工姓名" />
         <smt:LookUp DataContext="{Binding Path=T_HR_EMPLOYEE,Mode=TwoWay}" Grid.Row="0" Grid.Column="1"    
                     FindClick="LookUp_FindClick" Name="lkEmployeeName"  DisplayMemberPath="EMPLOYEECNAME">
             <interaction:Interaction.Behaviors>
@@ -84,13 +84,6 @@
             </interaction:Interaction.Behaviors>
         </controls:DatePicker>
 
-        <!--CONFIRMDATE-->
-        <!--<TextBlock  Grid.Column="3" Grid.Row="2" 
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=CONFIRMDATE}" />
-
-        <controls:DatePicker Grid.Row="2" Grid.Column="4" Text="{Binding CONFIRMDATE, Mode=TwoWay, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}"
-                             Margin="5,0,0,0" Height="22" Style="{StaticResource DatePickerStyle}"></controls:DatePicker>-->
-
         <!--Row 3-->
         <!--LEFTOFFICEREASON-->
         <TextBlock  Grid.Row="2" Grid.Column="0"  Margin="5,0,0,0"
@@ -109,6 +102,8 @@
                 <data:DataGridTextColumn Header="CNAME" Binding="{Binding T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}"/>
                 <data:DataGridTextColumn Header="DEPARTMENTNAME" Binding="{Binding T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}" />
                 <data:DataGridTextColumn Header="POSTNAME" Binding="{Binding T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME}"/>
+                <!--岗位类型：主岗位，兼职岗位-->
+                <data:DataGridTextColumn Header="岗位类型" Binding="{Binding ISAGENCY}"/>
                 <!--<data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>-->
             </data:DataGrid.Columns>
         </data:DataGrid>

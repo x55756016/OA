@@ -18,6 +18,7 @@ using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.MobileXml;
 using SMT.Saas.Tools.DailyManagementWS;
 using System.Collections.ObjectModel;
+using SMT.SAAS.Main.CurrentContext;
 
 namespace SMT.HRM.UI.Form.Personnel
 {
@@ -221,7 +222,6 @@ namespace SMT.HRM.UI.Form.Personnel
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
-
             #region 原来的
             if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
             {
@@ -242,14 +242,14 @@ namespace SMT.HRM.UI.Form.Personnel
                 LeftOffice.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
 
                 T_HR_EMPLOYEE employeeTmp = new T_HR_EMPLOYEE();
-                employeeTmp.EMPLOYEEID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                //employeeTmp.EMPLOYEECNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+                employeeTmp.EMPLOYEEID = Common.CurrentLoginUserInfo.EmployeeID;
+                employeeTmp.EMPLOYEECNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 LeftOffice.T_HR_EMPLOYEE = employeeTmp;
 
                 dpApplyDate.Text = System.DateTime.Now.ToShortDateString();
-                // lkEmployeeName.DataContext = employeeTmp;
+                lkEmployeeName.DataContext = employeeTmp;
                 createUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
-                //client.GetPostsActivedByEmployeeIDAsync(employeeTmp.EMPLOYEEID);
+                client.GetPostsActivedByEmployeeIDAsync(employeeTmp.EMPLOYEEID);
                 SetToolBar();
             }
             else
@@ -259,6 +259,9 @@ namespace SMT.HRM.UI.Form.Personnel
                 GetEmployeeViewsPaging();
                 client.GetLeftOfficeByIDAsync(leftofficeID);
             }
+            //设置默认值：新建时，离职类型只有辞职，其他的都不要
+            cbxEmployeeType.SelectedValue = "1";
+            cbxEmployeeType.IsEnabled = false;
         }
 
         //by luojie 
@@ -617,44 +620,44 @@ namespace SMT.HRM.UI.Form.Personnel
             {
 
 
-                //判断有没有借款
-                if (DtBorrowMoney.ItemsSource != null)
-                {
-                    List<T_FB_PERSONACCOUNT> bors = DtBorrowMoney.ItemsSource as List<T_FB_PERSONACCOUNT>;
-                    if (bors != null)
-                    {
-                        //xiedx
-                        //2012-8-27
-                        //foreach (var temp in bors)
-                        //{
-                        //    if (temp.BORROWMONEY > 0)
-                        //    {
-                        //        RefreshUI(RefreshedTypes.HideProgressBar);
-                        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
-                        //            Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        //        //return;2013/3/29 按集团要求暂时屏蔽
-                        //    }
-                        //}
-                        //if (bors.Count() > 0)
-                        //{
-                        //    RefreshUI(RefreshedTypes.HideProgressBar);
-                        //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
-                        //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        //    return;
-                        //}
+                ////判断有没有借款(需求：有借款也能提交)
+                //if (DtBorrowMoney.ItemsSource != null)
+                //{
+                //    List<T_FB_PERSONACCOUNT> bors = DtBorrowMoney.ItemsSource as List<T_FB_PERSONACCOUNT>;
+                //    if (bors != null)
+                //    {
+                //        //xiedx
+                //        //2012-8-27
+                //        //foreach (var temp in bors)
+                //        //{
+                //        //    if (temp.BORROWMONEY > 0)
+                //        //    {
+                //        //        RefreshUI(RefreshedTypes.HideProgressBar);
+                //        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
+                //        //            Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //        //        //return;2013/3/29 按集团要求暂时屏蔽
+                //        //    }
+                //        //}
+                //        //if (bors.Count() > 0)
+                //        //{
+                //        //    RefreshUI(RefreshedTypes.HideProgressBar);
+                //        //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
+                //        //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //        //    return;
+                //        //}
 
-                    }
-                }
+                //    }
+                //}
 
 
                 //是否选择离职类型
-                if (cbxEmployeeType.SelectedItem == null)
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICECATEGORY"),
-                      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                    return;
-                }
+                //if (cbxEmployeeType.SelectedItem == null)
+                //{
+                //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICECATEGORY"),
+                //      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //    RefreshUI(RefreshedTypes.HideProgressBar);
+                //    return;
+                //}
                 //是否选择离职时间
                 if (string.IsNullOrEmpty(dpLeftDate.Text))
                 {
@@ -685,6 +688,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 // 是否选择岗位
                 if (employeePostSelcected != null)
                 {
+                    //判断主岗位离职
                     if (LeftOffice.ISAGENCY == "0" && postCount > 1)
                     {
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("请先做兼职离职"),
@@ -700,8 +704,6 @@ namespace SMT.HRM.UI.Form.Personnel
 
                     LeftOffice.T_HR_EMPLOYEEPOST = new T_HR_EMPLOYEEPOST();
                     LeftOffice.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID = employeePostSelcected.EMPLOYEEPOSTID;
-                    LeftOffice.ISAGENCY = employeePostSelcected.ISAGENCY;
-
                 }
                 else
                 {
@@ -823,13 +825,30 @@ namespace SMT.HRM.UI.Form.Personnel
                     return;
                 }
                 postCount = e.Result.Count();
+                foreach (var p in e.Result)
+                {
+                    if (p.ISAGENCY == "0")  //0:主岗位； 1：兼职岗位
+                    {
+                        if (FormType == FormTypes.New)
+                        {
+                            employeePostSelcected = p;
+                            LeftOffice.ISAGENCY = employeePostSelcected.ISAGENCY;
+                        }
+                        p.ISAGENCY = "主岗位";
+                    }
+                    else
+                    {
+                        p.ISAGENCY = "兼职岗位";
+                    }
+                }
+
                 DtGrid.ItemsSource = e.Result;
                 GetPersonAccountData();
 
             }
         }
         /// <summary>
-        /// 获取员工岗位
+        /// 获取员工岗位(GetPostsActivedByEmployeeIDAsync服务调用完成)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1156,7 +1175,7 @@ namespace SMT.HRM.UI.Form.Personnel
                         client.GetPostsActivedByEmployeeIDAsync(ent.EMPLOYEEID);
                         //fbClient.GetLeavingUserAsync(LeftOffice.T_HR_EMPLOYEE.EMPLOYEEID);
                         GetEmployeeViewsPaging();
-                        RefreshUI(RefreshedTypes.HideProgressBar); 
+                        RefreshUI(RefreshedTypes.HideProgressBar);
                     }
 
                 };
@@ -1196,12 +1215,25 @@ namespace SMT.HRM.UI.Form.Personnel
                         LeftOffice.OWNERPOSTID = employeePostSelcected.T_HR_POST.POSTID;
                         LeftOffice.OWNERDEPARTMENTID = employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
                         LeftOffice.OWNERCOMPANYID = employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
-                        LeftOffice.ISAGENCY = employeePostSelcected.ISAGENCY;
+
+                        if (employeePostSelcected.ISAGENCY == "主岗位" || employeePostSelcected.ISAGENCY == "0")
+                        {
+                            LeftOffice.ISAGENCY = "0";
+                        }
+                        else
+                        {
+                            LeftOffice.ISAGENCY = "1";
+                        }
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// 加载Grid行，设置默认主岗位选中
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DtGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
 
@@ -1216,8 +1248,6 @@ namespace SMT.HRM.UI.Form.Personnel
                 }
             }
             mychkBox.Tag = ep;
-
-
         }
 
         //private void GridPagerMoney_Click(object sender, RoutedEventArgs e)
@@ -1246,7 +1276,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 client.GetEmployeeViewsPagingAsync(pageIndex, pageSize, "EMPLOYEECNAME",
                 filter, paras, pageCount, sType, sValue, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
-             //catch捕捉但没做什么，为了不阻断程序执行
+            //catch捕捉但没做什么，为了不阻断程序执行
             catch { }
         }
     }

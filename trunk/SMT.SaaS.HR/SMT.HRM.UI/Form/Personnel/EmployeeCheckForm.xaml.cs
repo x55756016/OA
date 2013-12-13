@@ -452,7 +452,7 @@ namespace SMT.HRM.UI.Form.Personnel
             AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "EMPLOYEEID", Info.T_HR_EMPLOYEE.EMPLOYEEID, Info.T_HR_EMPLOYEE.EMPLOYEECNAME));
             AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "POSTLEVEL", employeepost.POSTLEVEL.ToString(), postLevelName));
-            AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "EMPLOYEECNAME", Info.T_HR_EMPLOYEE.EMPLOYEECNAME, Info.T_HR_EMPLOYEE.EMPLOYEECNAME));
+            AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "EMPLOYEECNAME", lkEmployeeName.TxtLookUp.Text, lkEmployeeName.TxtLookUp.Text));
             AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "OWNER", Info.T_HR_EMPLOYEE.EMPLOYEECNAME, Info.T_HR_EMPLOYEE.EMPLOYEECNAME));
             AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "CREATEUSERNAME", createUserName, createUserName));
 

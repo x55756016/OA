@@ -52,7 +52,8 @@ namespace SMT.HRM.UI.Form.Attendance
         private SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient clientPer = new SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient();
         private List<ToolbarItem> ToolbarItems = new List<ToolbarItem>();
         private List<UserPost> entUserPosts = new List<UserPost>();
-
+        private string strDeptIds;
+        private string strDeptNames;
         private string strResMsg = string.Empty;
         /// <summary>
         /// 是否关闭窗体 false 表示不关闭
@@ -84,13 +85,26 @@ namespace SMT.HRM.UI.Form.Attendance
             clientAtt.AddAttendanceSolutionAsignCompleted += new EventHandler<AddAttendanceSolutionAsignCompletedEventArgs>(clientAtt_AddAttendanceSolutionAsignCompleted);
             clientAtt.ModifyAttendanceSolutionAsignCompleted += new EventHandler<ModifyAttendanceSolutionAsignCompletedEventArgs>(clientAtt_ModifyAttendanceSolutionAsignCompleted);
             clientAtt.AuditAttSolAsignCompleted += new EventHandler<AuditAttSolAsignCompletedEventArgs>(clientAtt_AuditAttSolAsignCompleted);
+            clientAtt.GetAttendanceSolutionAsignRdListByCreateCompanyIdCompleted += new EventHandler<GetAttendanceSolutionAsignRdListByCreateCompanyIdCompletedEventArgs>(clientAtt_GetAttendanceSolutionAsignRdListByCreateCompanyIdCompleted);
 
             clientOrg.GetPostByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostByIdCompletedEventArgs>(clientOrg_GetPostByIdCompleted);
             clientOrg.GetDepartmentByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentByIdCompletedEventArgs>(clientOrg_GetDepartmentByIdCompleted);
             clientOrg.GetCompanyByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetCompanyByIdCompletedEventArgs>(clientOrg_GetCompanyByIdCompleted);            
             clientPer.GetEmployeeByIDsCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeByIDsCompletedEventArgs>(clientPer_GetEmployeeByIDsCompleted);
-
+            
             this.Loaded += new RoutedEventHandler(AttendanceSolutionAsignForm_Loaded);
+        }
+
+        void clientAtt_GetAttendanceSolutionAsignRdListByCreateCompanyIdCompleted(object sender, GetAttendanceSolutionAsignRdListByCreateCompanyIdCompletedEventArgs e)
+        {
+            if (e != null)
+            {
+                var list = e.Result.ToList();
+                foreach (var item in list)
+                {
+                    clientOrg.GetDepartmentByIdAsync(item.ASSIGNEDOBJECTID);
+                }
+            }
         }
 
         /// <summary>
@@ -398,6 +412,45 @@ namespace SMT.HRM.UI.Form.Attendance
             RefreshUI(RefreshedTypes.All);
         }
 
+        private void CheckSelectedIsSameCompany(List<ExtOrgObj> ents)
+        {
+            string strIds = string.Empty, strSelEmpNames = string.Empty, strMsg = string.Empty;
+
+            List<string> entCompanyIds = new List<string>();
+            List<string> entPostIds = new List<string>();
+            List<string> entDepartmentIds = new List<string>();
+
+            foreach (ExtOrgObj item in ents)
+            {
+                SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT ent = item.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT;
+                
+                if (entCompanyIds.Contains(ent.T_HR_COMPANY.COMPANYID) == false)
+                {
+
+                    entCompanyIds.Add(ent.T_HR_COMPANY.COMPANYID);
+                }
+
+                SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENT entEmp = item.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENT;
+                strIds += item.ObjectID + ",";
+                strSelEmpNames += item.ObjectName + ";";
+
+            }
+
+            if (entCompanyIds.Count() > 1)
+            {
+                txtErrorMsg.Text = "只能选取同一个公司进行分配";
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ASSIGNEDOBJECT"), "只能选取同一个公司进行分配");
+                return;
+            }
+
+            lkAssignObject.TxtLookUp.Text = strSelEmpNames;
+
+            entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE = (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString();
+            entAttendanceSolutionAsign.ASSIGNEDOBJECTID = strIds;
+
+            SetRecordOwner(entCompanyIds[0]);
+        }
+
         /// <summary>
         /// 分配对象为员工时，检查选择的多个员工是否为同一公司
         /// </summary>
@@ -598,18 +651,26 @@ namespace SMT.HRM.UI.Form.Attendance
                 }
                 else if (entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString())
                 {
-                    OrganizationWS.T_HR_DEPARTMENT entDepartment = lkAssignObject.DataContext as OrganizationWS.T_HR_DEPARTMENT;
+                    //OrganizationWS.T_HR_DEPARTMENT entDepartment = lkAssignObject.DataContext as OrganizationWS.T_HR_DEPARTMENT;
 
-                    if (entDepartment == null)
+                    //if (entDepartment == null)
+                    //{
+                    //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ASSIGNEDOBJECT"), Utility.GetResourceStr("UNAVAILABLEASSIGNEDOBJECT"));
+                    //    flag = false;
+                    //    return;
+                    //}
+
+                    //if (string.IsNullOrEmpty(entDepartment.DEPARTMENTID))
+                    //{
+                    //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ASSIGNEDOBJECTID"), Utility.GetResourceStr("UNAVAILABLEASSIGNEDOBJECT"));
+                    //    flag = false;
+                    //    return;
+                    //}
+                    string strIds = tbAssignedObjectID.Text;
+
+                    if (string.IsNullOrWhiteSpace(strIds))
                     {
                         Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ASSIGNEDOBJECT"), Utility.GetResourceStr("UNAVAILABLEASSIGNEDOBJECT"));
-                        flag = false;
-                        return;
-                    }
-
-                    if (string.IsNullOrEmpty(entDepartment.DEPARTMENTID))
-                    {
-                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ASSIGNEDOBJECTID"), Utility.GetResourceStr("UNAVAILABLEASSIGNEDOBJECT"));
                         flag = false;
                         return;
                     }
@@ -778,7 +839,16 @@ namespace SMT.HRM.UI.Form.Attendance
                 }
                 else if (entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString())
                 {
-                    clientOrg.GetDepartmentByIdAsync(entAttendanceSolutionAsign.ASSIGNEDOBJECTID);
+                    string pkId = entAttendanceSolutionAsign.CREATECOMPANYID;
+                    if (string.IsNullOrEmpty(pkId))
+                    {
+                        clientOrg.GetDepartmentByIdAsync(entAttendanceSolutionAsign.ASSIGNEDOBJECTID);
+                    }
+                    else
+                    {
+                        clientAtt.GetAttendanceSolutionAsignRdListByCreateCompanyIdAsync(pkId);
+                    }
+                    
                 }
                 else if (entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE == (Convert.ToInt32(AssignedObjectType.Post) + 1).ToString())
                 {
@@ -957,12 +1027,37 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientOrg_GetDepartmentByIdCompleted(object sender, SMT.Saas.Tools.OrganizationWS.GetDepartmentByIdCompletedEventArgs e)
         {
-            RefreshUI(RefreshedTypes.HideProgressBar);
+            //RefreshUI(RefreshedTypes.HideProgressBar);
+            //if (e.Error == null)
+            //{
+                
+            //    lkAssignObject.DataContext = entDepartment;
+            //    lkAssignObject.DisplayMemberPath = "T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME";
+            //}
+            //else
+            //{
+            //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            //}
+
             if (e.Error == null)
             {
+                if (e.Result == null)
+                {
+                    return;
+                }
+
                 OrganizationWS.T_HR_DEPARTMENT entDepartment = e.Result as OrganizationWS.T_HR_DEPARTMENT;
-                lkAssignObject.DataContext = entDepartment;
-                lkAssignObject.DisplayMemberPath = "T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME";
+
+                string strIds = string.Empty, strNames = string.Empty;
+
+                strDeptIds += entDepartment.DEPARTMENTID+",";
+                strDeptNames += entDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME+",";
+
+                tbAssignedObjectID.Text = strDeptIds.TrimEnd(',');
+                lkAssignObject.TxtLookUp.Text = strDeptNames.Trim(',');
+                lkAssignObject.IsEnabled = true;
+                lkAssignObject.SearchButton.IsEnabled = false;
+                lkAssignObject.TipTextValue = strNames;//设置Tip
             }
             else
             {
@@ -1086,6 +1181,7 @@ namespace SMT.HRM.UI.Form.Attendance
             else if (entDic.DICTIONARYVALUE.ToString() == (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString())
             {
                 lookup.SelectedObjType = OrgTreeItemTypes.Department;
+                lookup.MultiSelected = true;
             }
             else if (entDic.DICTIONARYVALUE.ToString() == (Convert.ToInt32(AssignedObjectType.Post) + 1).ToString())
             {
@@ -1133,14 +1229,15 @@ namespace SMT.HRM.UI.Form.Attendance
                     SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT ent = lookup.SelectedObj[0].ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT;
                     if (ent != null)
                     {
-                        lkAssignObject.DataContext = ent;
-                        lkAssignObject.DisplayMemberPath = "T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME";
-                        tbAssignedObjectID.Text = ent.DEPARTMENTID;
+                        //lkAssignObject.DataContext = ent;
+                        //lkAssignObject.DisplayMemberPath = "T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME";
+                        //tbAssignedObjectID.Text = ent.DEPARTMENTID;
 
-                        entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE = (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString();
-                        entAttendanceSolutionAsign.ASSIGNEDOBJECTID = ent.DEPARTMENTID;
+                        //entAttendanceSolutionAsign.ASSIGNEDOBJECTTYPE = (Convert.ToInt32(AssignedObjectType.Department) + 1).ToString();
+                        //entAttendanceSolutionAsign.ASSIGNEDOBJECTID = ent.DEPARTMENTID;
 
-                        SetRecordOwner(ent.T_HR_COMPANY.COMPANYID);
+                        //SetRecordOwner(ent.T_HR_COMPANY.COMPANYID);
+                        CheckSelectedIsSameCompany(ents);
                     }
                 }
                 else if (lookup.SelectedObjType == OrgTreeItemTypes.Post)
@@ -1156,6 +1253,7 @@ namespace SMT.HRM.UI.Form.Attendance
                         entAttendanceSolutionAsign.ASSIGNEDOBJECTID = ent.POSTID;
 
                         SetRecordOwner(ent.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID);
+                        
                     }
                 }
                 else if (lookup.SelectedObjType == OrgTreeItemTypes.Personnel)
