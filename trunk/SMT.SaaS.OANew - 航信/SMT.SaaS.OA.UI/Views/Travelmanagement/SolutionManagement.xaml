@@ -220,7 +220,24 @@
                     </StackPanel>
                     <!--<smt:SelectPost Grid.Row="7" Grid.Column="1" Width="120" SelectClick="txtPost_SelectClick"  x:Name="txtPost"></smt:SelectPost>-->
 
+                    <!--岗位级别大于多少等级无出差各项补贴-->
+                        <TextBlock 
+                        Margin="2"
+                        VerticalAlignment="Center"
+                        Grid.Row="5"
+                        Text="岗位级别≥" HorizontalAlignment="Right"></TextBlock>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="1"
+                                Grid.Row="5" Margin="3,4" >
 
+
+                        <appCtr:TravelDictionaryComboBox 
+                            x:Name="cbxNoAllowancePostlevel" 
+                            Category="POSTLEVEL"  
+                            Style="{StaticResource ComboBoxStyle}" Width="auto"     
+                            Height="22" MinWidth="100" HorizontalAlignment="Stretch" Margin="3,2" VerticalAlignment="Stretch" />
+                        <TextBlock Text="级，无出差各项补贴。(字母越靠前，级别越大)" Margin="2,4" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>                       
+                    </StackPanel>
 
                 </Grid>
             </controls:TabItem>

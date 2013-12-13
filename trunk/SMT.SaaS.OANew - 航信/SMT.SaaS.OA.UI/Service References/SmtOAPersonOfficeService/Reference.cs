@@ -8021,6 +8021,8 @@ namespace SMT.SaaS.OA.UI.SmtOAPersonOfficeService {
         
         private string MINIMUMINTERVALDAYSField;
         
+        private string NOALLOWANCEPOSTLEVELField;
+        
         private string OWNERCOMPANYIDField;
         
         private string OWNERDEPARTMENTIDField;
@@ -8192,6 +8194,19 @@ namespace SMT.SaaS.OA.UI.SmtOAPersonOfficeService {
                 if ((object.ReferenceEquals(this.MINIMUMINTERVALDAYSField, value) != true)) {
                     this.MINIMUMINTERVALDAYSField = value;
                     this.RaisePropertyChanged("MINIMUMINTERVALDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NOALLOWANCEPOSTLEVEL {
+            get {
+                return this.NOALLOWANCEPOSTLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NOALLOWANCEPOSTLEVELField, value) != true)) {
+                    this.NOALLOWANCEPOSTLEVELField = value;
+                    this.RaisePropertyChanged("NOALLOWANCEPOSTLEVEL");
                 }
             }
         }

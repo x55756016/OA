@@ -196,6 +196,18 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     }
                 }
             }
+
+            if (!string.IsNullOrEmpty(obj.NOALLOWANCEPOSTLEVEL.ToString()))
+            {
+                foreach (T_SYS_DICTIONARY Region in cbxNoAllowancePostlevel.Items)
+                {
+                    if (Region.DICTIONARYVALUE.ToString() == obj.NOALLOWANCEPOSTLEVEL.ToString())
+                    {
+                        cbxNoAllowancePostlevel.SelectedItem = Region;
+                        break;
+                    }
+                }
+            }
             RefreshUI(RefreshedTypes.HideProgressBar);
 
         }
@@ -325,6 +337,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             action = FormTypes.New;
             this.cbxpostlevel.SelectedIndex = 0;
+            this.cbxNoAllowancePostlevel.SelectedIndex = 0;
             ToolBarSolution += 1;
 
             //IsAddStandard = true;
@@ -471,6 +484,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             ToolBar_Vechile.IsEnabled = true;
             this.nubaoxiaomindays.IsEnabled = true;
             this.cbxpostlevel.IsEnabled = true;
+            this.cbxNoAllowancePostlevel.IsEnabled = true;
 
             this.DelAllBtn.IsEnabled = true;
             this.AddBtn.IsEnabled = true;
@@ -685,6 +699,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     travelObj.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                     travelObj.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
                     this.cbxpostlevel.SelectedIndex = -1;
+                    cbxNoAllowancePostlevel.SelectedIndex = -1;
                     break;
                 case FormTypes.Edit:
 
@@ -1025,6 +1040,17 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     {
                         T_SYS_DICTIONARY Dict = cbxpostlevel.SelectedItem as T_SYS_DICTIONARY;
                         travelObj.RANGEPOSTLEVEL = Dict.DICTIONARYVALUE.ToString();
+                    }
+
+                    if (cbxNoAllowancePostlevel.SelectedIndex == 0)
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "必须指定小于多少岗位级别无出差各项补贴!", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return;
+                    }
+                    else
+                    {
+                        T_SYS_DICTIONARY Dict = cbxNoAllowancePostlevel.SelectedItem as T_SYS_DICTIONARY;
+                        travelObj.NOALLOWANCEPOSTLEVEL = Dict.DICTIONARYVALUE.ToString();
                     }
                     travelObj.PROGRAMMENAME = this.txtSolutionName.Text;
                     //最小天数                    

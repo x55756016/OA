@@ -880,6 +880,7 @@
           <xs:element minOccurs="0" name="INTERVALRATIO" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="MAXIMUMRANGEDAYS" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="MINIMUMINTERVALDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOALLOWANCEPOSTLEVEL" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />

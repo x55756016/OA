@@ -3125,6 +3125,7 @@
     <EmbeddedResource Include="Assets\Resources\OASystem.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OASystem.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
