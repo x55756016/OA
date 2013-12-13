@@ -1139,17 +1139,40 @@ namespace SMT.HRM.Services
         /// <param name="AttendanceSolutionName">考勤方案名</param>
         /// <param name="strAssignedObjectType">分配对象类型</param>    
         /// <param name="strSortKey">排序字段</param>
+        /// <param name="dtStart">生效开始时间</param>
+        /// <param name="dtEnd">生效结束时间</param>
         /// <param name="pageIndex">当前页码</param>
         /// <param name="pageSize">每页显示记录数</param>
         /// <param name="pageCount">总页码</param>
         /// <returns>返回考勤方案应用信息</returns>
         [OperationContract]
-        public List<T_HR_ATTENDANCESOLUTIONASIGN> GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType,
-            string strSortKey, int pageIndex, int pageSize, ref int pageCount)
+        public List<V_ATTENDANCESOLUTIONASIGN> GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType,
+            string strSortKey,DateTime dtStart,DateTime dtEnd, int pageIndex, int pageSize, ref int pageCount)
         {
             using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
             {
-                var ents = bllAttendanceSolutionAsign.GetAttendanceSolutionAsignRdListByMultSearch(strOwnerID, strCheckState, AttendanceSolutionName, strAssignedObjectType, strSortKey, pageIndex, pageSize, ref pageCount);
+                var ents = bllAttendanceSolutionAsign.GetAttendanceSolutionAsignRdListByMultSearch(strOwnerID, strCheckState, AttendanceSolutionName, strAssignedObjectType, strSortKey,dtStart,dtEnd, pageIndex, pageSize, ref pageCount);
+
+                if (ents == null)
+                {
+                    return null;
+                }
+
+                return ents.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 考勤方案选择部门，根据createcompanyid找出1张单保存多个部门ID
+        /// </summary>
+        /// <param name="createCompanyId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_HR_ATTENDANCESOLUTIONASIGN> GetAttendanceSolutionAsignRdListByCreateCompanyId(string createCompanyId)
+        {
+            using (AttendanceSolutionAsignBLL bllAttendanceSolutionAsign = new AttendanceSolutionAsignBLL())
+            {
+                var ents = bllAttendanceSolutionAsign.GetAttendanceSolutionAsignRdListByCreateCompanyId(createCompanyId);
 
                 if (ents == null)
                 {
