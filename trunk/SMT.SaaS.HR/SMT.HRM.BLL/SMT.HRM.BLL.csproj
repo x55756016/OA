@@ -67,9 +67,6 @@
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="SMT.Foundation.Core">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.Foundation.Log">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
@@ -106,7 +103,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbnormRecordBLL.cs" />
+    <Compile Include="AbnormBll\AbnormRecordBLL.cs" />
+    <Compile Include="AbnormBll\CheckAbnormRecordForEmployeeBll.cs" />
+    <Compile Include="AbnormBll\EvectionLeaveOutApply.cs" />
     <Compile Include="AdjustLeaveBLL.cs" />
     <Compile Include="AreaAllowanceBLL.cs" />
     <Compile Include="AreaCategoryBLL.cs" />
@@ -115,12 +114,14 @@
     <Compile Include="AttendanceDeductDetailBLL.cs" />
     <Compile Include="AttendanceDeductMasterBLL.cs" />
     <Compile Include="AttendanceRecordBLL.cs" />
-    <Compile Include="AttendanceSolutionAsignBLL.cs" />
+    <Compile Include="AttendBalance\EmployeeAttendBalance.cs" />
+    <Compile Include="AttendInit\AttendanceSolutionAsignBLL.cs" />
     <Compile Include="AttendanceSolutionBLL.cs" />
     <Compile Include="AttendanceSolutionDeductBLL.cs" />
     <Compile Include="AttendFreeLeaveBLL.cs" />
+    <Compile Include="AttendInit\AttendInitForEmployees.cs" />
     <Compile Include="AttendMachineSetBLL.cs" />
-    <Compile Include="AttendMonthlyBalanceBLL.cs" />
+    <Compile Include="AttendBalance\AttendMonthlyBalanceBLL.cs" />
     <Compile Include="AttendMonthlyBatchBalanceBLL.cs" />
     <Compile Include="AttendYearlyBalanceBLL.cs">
       <SubType>Code</SubType>
@@ -246,6 +247,10 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
       <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
       <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj">
+      <Project>{9d2f51e2-9710-4c91-a66b-823eb72437fd}</Project>
+      <Name>SMT.Foundation.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
       <Project>{0E45B937-670F-49E1-8EF1-A4BD312B94DA}</Project>

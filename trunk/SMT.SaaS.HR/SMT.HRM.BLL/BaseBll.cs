@@ -57,7 +57,7 @@ namespace SMT.HRM.BLL
             if (dal == null)
             {
                 dal = new CommDal<TEntity>();
-                dal.LogNewDal(typeof(TEntity).Name);
+                //dal.LogNewDal(typeof(TEntity).Name);
 
             }
         }

@@ -68,6 +68,10 @@ namespace SMT.HRM.BLL
         /// <returns>当前请假时段内可用冲减天数</returns>
         public decimal GetCurLevelDaysByEmployeeIDAndLeaveFineType(string strEmployeeID, string strLeaveRecordId, string strLeaveSetId, DateTime dtStartDate, DateTime dtEndDate)
         {
+            #region 重新生成员工带薪假期
+            string orgType = (Convert.ToInt32(Common.AssignedObjectType.Personnel) + 1).ToString();
+            CalculateEmployeeLevelDayCountByOrgID(orgType, strEmployeeID);
+            #endregion
             //确认实际可用带薪假天数，必须保证员工ID，请假记录ID，假期标准ID都不能为空
             if (string.IsNullOrWhiteSpace(strEmployeeID) || string.IsNullOrWhiteSpace(strLeaveRecordId) || string.IsNullOrWhiteSpace(strLeaveSetId))
             {

@@ -97,6 +97,7 @@
     <Compile Include="Reports\PieEmployeece.cs" />
     <Compile Include="V_ADJUSTLEAVE.cs" />
     <Compile Include="V_ATTENDANCEDEDUCTMASTER.cs" />
+    <Compile Include="V_ATTENDANCESOLUTIONASIGN.cs" />
     <Compile Include="V_AttendSummaryRecord.cs" />
     <Compile Include="V_COMPANY.cs" />
     <Compile Include="V_COMPLAINRECORD.cs" />

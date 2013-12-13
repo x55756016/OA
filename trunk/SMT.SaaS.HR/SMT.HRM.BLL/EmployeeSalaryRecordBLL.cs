@@ -777,6 +777,7 @@ namespace SMT.HRM.BLL
 
             if (strCheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())// 如果不是待审核 不取流程数据，是待审核就只查流程中待审核数据
             {
+                SMT.Foundation.Log.Tracer.Debug("月薪审核测试进来：不是待审核");                
                 SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_EMPLOYEESALARYRECORD");
 
                 if (!string.IsNullOrEmpty(strCheckState))
@@ -791,6 +792,7 @@ namespace SMT.HRM.BLL
             }
             else
             {
+                SMT.Foundation.Log.Tracer.Debug("月薪审核测试进来：调用流程strCheckState:+" + strCheckState + "filterString:" + filterString + "queryParas个数:" + queryParas.Count + "paras个数:" + paras.Count);                
                 SetFilterWithflow("EMPLOYEESALARYRECORDID", "T_HR_EMPLOYEESALARYRECORD", userID, ref strCheckState, ref filterString, ref queryParas);
                 if (queryParas.Count() == paras.Count)
                 {
@@ -3815,6 +3817,37 @@ namespace SMT.HRM.BLL
         }
 
 
+        /// <summary>
+        /// 根据员工ID获取员工最新薪资结算的创建时间
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <param name="checkSate"></param>
+        /// <returns></returns>
+        public DateTime? GetLastSalaryDateByEemployeeID(string employeeID, string checkSate)
+        {
+            try
+            {
+                string exYear = (DateTime.Now.Year - 1).ToString();
+                string year = DateTime.Now.Year.ToString();
+                var ent = from e in dal.GetObjects()
+                          where e.EMPLOYEEID == employeeID && e.CHECKSTATE == checkSate && (e.SALARYYEAR == exYear || e.SALARYYEAR == year)
+                          select e.CREATEDATE;
+                if (ent != null && ent.Any())
+                {
+                    var list = ent.ToList();
+                    var lastDate = list.OrderByDescending(t => t.Value).FirstOrDefault();
+                    return lastDate;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         /// <summary>
         /// 计算日薪

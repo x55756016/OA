@@ -1321,21 +1321,26 @@ namespace SMT.HRM.BLL
                     var entComp = from ent in dal.GetTable<T_HR_COMPANY>()
                                   where ent.COMPANYID == strCompanyID
                                   select ent;
-                    string strAssignCompanyID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignCompany"];
                     if (entComp.Count() < 1)
                     {
                         strMsg = "下拨公司(公司ID:" + strCompanyID + ")不存在，生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单失败";
                         SMT.Foundation.Log.Tracer.Debug(strMsg);
                         return;
                     }
-
+                    string strAssignCompanyID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignCompany"];
                     if (entComp.FirstOrDefault().FATHERID != strAssignCompanyID)
                     {
                         strMsg = "下拨公司(公司ID:" + strCompanyID + ")不属于一级分公司，不生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单";
                         SMT.Foundation.Log.Tracer.Debug(strMsg);
                         return;
                     }
-
+                    string notAssignCompanyID = System.Configuration.ConfigurationManager.AppSettings["NotAssignCompany"];//不需要下拨的公司
+                    if (!string.IsNullOrWhiteSpace(notAssignCompanyID) && notAssignCompanyID.Contains(strCompanyID))
+                    {
+                        strMsg = "下拨公司(公司ID:" + strCompanyID + ")不需要产生活动经费，不生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单";
+                        SMT.Foundation.Log.Tracer.Debug(strMsg);
+                        return;
+                    }
                     using (SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient clientFB = new SaaS.BLLCommonServices.FBServiceWS.FBServiceClient())
                     {
                         string strAssignOwnerID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignOwner"];

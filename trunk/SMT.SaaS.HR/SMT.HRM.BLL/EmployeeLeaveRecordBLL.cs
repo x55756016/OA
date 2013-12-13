@@ -1953,7 +1953,12 @@ namespace SMT.HRM.BLL
             {
                 ents = ents.Where(filterString, queryParas.ToArray());
             }
-
+            EmployeeSalaryRecordBLL bll = new EmployeeSalaryRecordBLL();
+            DateTime? date = bll.GetLastSalaryDateByEemployeeID(userID, "2");
+            if (date != null)
+            {
+                ents = ents.Where(t => t.ENDDATETIME > date);
+            }
             //var d = from a in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>().Include("T_HR_EMPLOYEELEAVERECORD")
             //        where a.EMPLOYEEID == userID && (a.CHECKSTATE == "0" || a.CHECKSTATE == "1" || a.CHECKSTATE == "2")
             //        select a.T_HR_EMPLOYEELEAVERECORD;
