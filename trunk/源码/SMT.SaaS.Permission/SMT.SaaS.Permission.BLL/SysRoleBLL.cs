@@ -595,7 +595,7 @@ namespace SMT.SaaS.Permission.BLL
                     role.OWNERCOMPANYNAME=GetCompanNameByid(item.OWNERCOMPANYID);
                     role.SYSTTMTYPENAME = item.SYSTEMTYPE;
                     role.UPDATEUSERNAME = item.UPDATEUSERNAME;
-                    role.UPDATEDATE = item.UPDATEDATE.Value;
+                    role.UPDATEDATE = item.UPDATEDATE;
                     roles.Add(role);
                 }
                 return roles.AsQueryable();

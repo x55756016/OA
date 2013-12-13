@@ -3894,7 +3894,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         private string SYSTTMTYPENAMEField;
         
-        private System.DateTime UPDATEDATEField;
+        private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERNAMEField;
         
@@ -3964,7 +3964,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime UPDATEDATE {
+        public System.Nullable<System.DateTime> UPDATEDATE {
             get {
                 return this.UPDATEDATEField;
             }

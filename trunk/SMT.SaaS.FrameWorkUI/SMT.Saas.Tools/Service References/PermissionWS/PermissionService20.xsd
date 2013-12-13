@@ -13,7 +13,7 @@
       <xs:element minOccurs="0" name="ROLEID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ROLENAME" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SYSTTMTYPENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UPDATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
