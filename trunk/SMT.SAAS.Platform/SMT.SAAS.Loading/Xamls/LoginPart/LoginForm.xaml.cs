@@ -429,7 +429,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo = SMT.SAAS.Main.CurrentContext.Common.GetLoginUserInfo(
                             employee.EMPLOYEEID, employee.EMPLOYEENAME,
                             employee.EMPLOYEECODE, employee.EMPLOYEESTATE,
-                            employee.sysuser.SYSUSERID, employee.OFFICEPHONE,
+                            employee.sysuser.SYSUSERID,employee.MOBILE,employee.OFFICEPHONE,
                             employee.SEX, postlist.ToList(),
                             employee.WORKAGE, employee.PHOTO, isAdmin);
                     SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI = new List<V_UserPermissionUI>();
