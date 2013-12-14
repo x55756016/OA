@@ -86,9 +86,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SaaS.LocalData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=33351ad8ec2dd7d7, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
@@ -369,6 +366,10 @@
     <WCFMetadataStorage Include="Service References\PermissionWS\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
+      <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
+      <Name>SMT.SaaS.LocalData %28Client\SMT.SaaS.LocalData%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>
