@@ -1121,7 +1121,7 @@ namespace SMT.SaaS.BLLCommonServices
             strTemp.Append("<System>");
             strTemp.Append("	<AssemblyName>SMT.FBAnalysis.UI</AssemblyName>");
             strTemp.Append("	<PublicClass>SMT.FBAnalysis.UI.Common.Utility</PublicClass>");
-            strTemp.Append("	<ProcessName>>CreateFormFromEngine</ProcessName>");
+            strTemp.Append("	<ProcessName>CreateFormFromEngine</ProcessName>");
             strTemp.Append("	<PageParameter>" + GetResourceValue(strFormName) + "</PageParameter>");
             strTemp.Append("	<ApplicationOrder>" + strModelId + "</ApplicationOrder>");
             strTemp.Append("	<FormTypes>" + GetFormTypeByDBName(strDBName, strFormType) + "</FormTypes>");
