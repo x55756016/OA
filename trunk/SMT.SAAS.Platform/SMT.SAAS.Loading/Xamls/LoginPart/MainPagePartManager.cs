@@ -152,10 +152,30 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     }
                     else
                     {
-                        if (UpdateDllCompleted != null)
+                        //判断是否所有dll都在本地存在，处理那种下载途中断网后的问题
+                        List<string> needDownload = new List<string>();
+                        foreach (var q in dllVersionglistlocal)
                         {
-                            UpdateDllCompleted(this, null);
-                        }                        
+                            string filepath = @"SmtPortal/" + q.Attribute("Source").Value;
+                            if (!IosManager.ExistsFile(filepath))
+                            {
+                                Loginform.NotifyUserMessage(@"silverlight本地存储异常，请右键点击silverlight
+                                ，选择应用程序存储，然后点击全部删除后刷新页面再试");
+                                needDownload.Add(q.Attribute("Source").Value);
+                                break;
+                            }
+                        }
+                        if (needDownload.Count() > 0)
+                        {
+                            //DownLoadDll(needDownload);
+                        }
+                        else
+                        {
+                            if (UpdateDllCompleted != null)
+                            {
+                                UpdateDllCompleted(this, null);
+                            }
+                        }                       
                     }
                 }
                 else
@@ -364,6 +384,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             catch (Exception ex)
             {
+                Loginform.NotifyUserMessage(@"silverlight本地存储异常，请右键点击silverlight
+                                ，选择应用程序存储，然后点击全部删除后刷新页面再试");
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(DllSourceName + " 加载系统出错：" + ex.ToString());
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             }
