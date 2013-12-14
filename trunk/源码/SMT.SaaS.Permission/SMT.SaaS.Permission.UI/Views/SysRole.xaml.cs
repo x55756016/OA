@@ -673,7 +673,7 @@ namespace SMT.SaaS.Permission.UI.Views
             //T_OA_SENDDOC OrderInfoT = (T_OA_SENDDOC)e.Row.DataContext;
             T_SYS_ROLE_V RoleT = (T_SYS_ROLE_V)e.Row.DataContext;
            
-            Button MyAuthorBtn = DtGrid.Columns[7].GetCellContent(e.Row).FindName("AuthorizationBtn") as Button;
+            Button MyAuthorBtn = DtGrid.Columns[5].GetCellContent(e.Row).FindName("AuthorizationBtn") as Button;
 
             MyAuthorBtn.Tag = RoleT;
 

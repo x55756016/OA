@@ -2298,6 +2298,7 @@ namespace SMT.SaaS.Permission.UI.UserControls
                     return false;
                 }
                 RefreshUI(RefreshedTypes.ShowProgressBar);
+                strResMsg = Common.CurrentLoginUserInfo.SysUserID;//用作暂存用户ID到后台，处理过后会清除，不加新参数
                 if (FormType == FormTypes.New)
                 {
                     clientPerm.SetCutomterPermissionObjAsync(RoleID, entsSubmit, strResMsg);                    
