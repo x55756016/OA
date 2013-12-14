@@ -420,7 +420,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 {
                                     txtTFSubsidies.Text = obje.TRANSPORTATIONSUBSIDIES.ToString();
                                     ((DataGridCell)((StackPanel)txtTFSubsidies.Parent).Parent).IsEnabled = false;
-                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长I级以上级别的补贴标准
+                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长I级以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
@@ -449,7 +449,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 {
                                     txtMealSubsidies.Text = obje.MEALSUBSIDIES.ToString();
                                     ((DataGridCell)((StackPanel)txtMealSubsidies.Parent).Parent).IsEnabled = false;
-                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
@@ -803,7 +803,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 if (txtTFSubsidies != null)//交通补贴
                                 {
                                     txtTFSubsidies.Text = obj.TRANSPORTATIONSUBSIDIES.ToString();
-                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
@@ -832,7 +832,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 if (txtMealSubsidies != null)//餐费补贴
                                 {
                                     txtMealSubsidies.Text = obj.MEALSUBSIDIES.ToString();
-                                    if (EmployeePostLevel.ToInt32() > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
                                         if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))

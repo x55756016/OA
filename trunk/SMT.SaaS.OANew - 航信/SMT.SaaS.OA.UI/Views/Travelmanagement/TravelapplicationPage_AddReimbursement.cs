@@ -404,7 +404,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     if (entareaallowance.TRANSPORTATIONSUBSIDIES != null)
                                                     {
@@ -430,7 +430,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     TrListInfo.MEALSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * toodays).ToString());
                                                 }
@@ -444,7 +444,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
@@ -477,7 +477,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
                                                     double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
@@ -503,7 +503,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
                                                     double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
@@ -520,7 +520,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
@@ -553,7 +553,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
                                                     double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
@@ -578,7 +578,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     //最小区间段金额
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
@@ -596,7 +596,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
