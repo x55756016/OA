@@ -17,7 +17,14 @@ namespace SMT.SaaS.PublicInterface
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Tracer.Debug("写日志测试");
+            try
+            {
+                Tracer.Debug("写日志测试");
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)

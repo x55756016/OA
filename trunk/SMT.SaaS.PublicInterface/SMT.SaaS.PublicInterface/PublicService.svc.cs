@@ -88,10 +88,15 @@ namespace SMT.SaaS.PublicInterface
                     {
                         img[n++] = match.Groups["imgobj"].Value; //整个IMG 标签
                         sUrlList[m++] = match.Groups["imgUrl"].Value; //IMG SRC地址
-                        string base64Str = match.Groups["imgUrl"].Value.Split(',')[1];
-                        string imageUrl=Base64ToImage(base64Str, FORMID, m.ToString());
+                        // 判断src的格式是不是内嵌格式。
+                        var temp = match.Groups["imgUrl"].Value;
+                        if ( temp.Split(',').Count() > 1)
+                        {
+                            string base64Str = temp.Split(',')[1];
+                            string imageUrl=Base64ToImage(base64Str, FORMID, m.ToString());
 
-                        strContent = strContent.Replace(match.Groups["imgUrl"].Value, imageUrl);
+                            strContent = strContent.Replace(match.Groups["imgUrl"].Value, imageUrl);
+                        }
                     }
                     string oldString = "<span class=\"s_E6FD2046\"> </span>";
                     
@@ -281,9 +286,10 @@ namespace SMT.SaaS.PublicInterface
 
         public string GetBusinessObject(string SystemCode, string BusinessObjectName)
         {
-
+            Tracer.Debug("获取元数据表单，系统代码：" + SystemCode + " 业务模块代码：" + BusinessObjectName);
             BusinessObject BO = new BusinessObject();
-            return BO.GetBusinessObject(SystemCode, BusinessObjectName);
+            string xml=BO.GetBusinessObject(SystemCode, BusinessObjectName);
+            return xml;
         }
     }
 }
