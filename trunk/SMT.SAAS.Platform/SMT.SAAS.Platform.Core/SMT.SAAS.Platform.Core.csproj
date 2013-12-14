@@ -70,9 +70,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
@@ -155,6 +152,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
+      <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
+      <Name>SMT.SaaS.LocalData %28Client\SMT.SaaS.LocalData%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Application\SMT.SAAS.Platform.Application.csproj">
       <Project>{B81C7425-5713-4CEA-A5B3-0F010C132984}</Project>
       <Name>SMT.SAAS.Platform.Application</Name>
