@@ -462,12 +462,14 @@ namespace SMT.SaaS.Permission.BLL
                 // 如果T_Sys_RoleEntity表中存在某一角色的记录 则为修改
                 if (listRoleEntity == null)
                 {
+                    UpdateRoleInfo(StrRoleID, StrAddUser);
                     return RoleEntityMenuPermissionAdd(tmpString, StrRoleID, StrAddUser);
 
                 }// end 添加
                 else  //修改状态
                 {
                     //return RoleEntityMenuPermissionUpdate(tmpString, StrRoleID, StrAddUser, listRoleEntity);
+                    UpdateRoleInfo(StrRoleID, StrAddUser);
                     return RoleEntityMenuPermissionUpdateNew(tmpString, StrRoleID, StrAddUser, listRoleEntity);
                 }// end edit
             }
@@ -476,7 +478,38 @@ namespace SMT.SaaS.Permission.BLL
                 Tracer.Debug("角色菜单RoleEntityMenuBLL-RoleEntityMenuBatchAddInfosList" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return false;
             }
+        }
 
+        /// <summary>
+        /// 更新角色信息的更新时间和更新人
+        /// </summary>
+        /// <param name="roleID">角色ID</param>
+        /// <param name="userID">用户ID</param>
+        public void UpdateRoleInfo(string roleID, string userID)
+        {
+            try
+            {
+                var ents = (from ent in dal.GetObjects<T_SYS_ROLE>()
+                           where ent.ROLEID == roleID
+                           select ent).FirstOrDefault();
+                if (ents!=null)
+                {
+                    var user = (from ent in dal.GetObjects<T_SYS_USER>()
+                                where ent.SYSUSERID == userID
+                                select ent).FirstOrDefault();
+                    ents.UPDATEDATE = DateTime.Now;
+                    if (user != null)
+                    {
+                        ents.UPDATEUSER = user.EMPLOYEEID;
+                        ents.UPDATEUSERNAME = user.EMPLOYEENAME;
+                    }
+                    dal.Update(ents);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("保存授权更新角色信息是报错UpdateRoleInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            }
         }
         /// <summary>
         /// 用户角色申请 用户建立个角色  对相应的角色进行设置

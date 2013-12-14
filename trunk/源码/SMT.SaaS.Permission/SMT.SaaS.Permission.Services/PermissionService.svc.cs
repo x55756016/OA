@@ -1985,7 +1985,9 @@ namespace SMT.SaaS.Permission.Services
                     }
 
 
-
+                    RoleEntityMenuBLL roleEmBll = new RoleEntityMenuBLL();
+                    roleEmBll.UpdateRoleInfo(RoleID, strResult);//修改信息
+                    strResult = string.Empty;                    
                     IQueryable<T_SYS_ENTITYMENUCUSTOMPERM> cuspers = bll.GetCustomPermByRoleID(RoleID);
                     //if (cuspers != null)
                     //{

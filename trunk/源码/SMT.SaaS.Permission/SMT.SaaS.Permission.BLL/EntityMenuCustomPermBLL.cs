@@ -823,7 +823,9 @@ namespace SMT.SaaS.Permission.BLL
             //dal.BeginTransaction();
             try
             {
-
+                RoleEntityMenuBLL roleEmBll = new RoleEntityMenuBLL();
+                roleEmBll.UpdateRoleInfo(RoleID, strResult);//修改信息
+                strResult = string.Empty;
                 SysEntityMenuBLL menuBll = new SysEntityMenuBLL();
                 SysPermissionBLL permBll = new SysPermissionBLL();
                 SysRoleBLL roleBll = new SysRoleBLL();

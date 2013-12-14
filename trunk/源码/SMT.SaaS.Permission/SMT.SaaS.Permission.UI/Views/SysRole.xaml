@@ -18,6 +18,7 @@
     <smtlocal:BasePage.Resources>
         <smtc:DictionaryConverter x:Key="DictionaryConverter"></smtc:DictionaryConverter>
         <smtc:CompanyInfoConverter x:Key="CompanyConvert"></smtc:CompanyInfoConverter>
+        <smtc:CustomDateConverter x:Key="CustomDateConverter"></smtc:CustomDateConverter>
     </smtlocal:BasePage.Resources>
     <Grid x:Name="PARENT">
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -91,11 +92,7 @@
                         <data:DataGridTextColumn Header="SYSTEMTYPE" Binding="{Binding SYSTTMTYPENAME, Converter={StaticResource DictionaryConverter},ConverterParameter=SYSTEMTYPE}">
                         </data:DataGridTextColumn>
                         <data:DataGridTextColumn Header="ROLENAME" Binding="{Binding ROLENAME}">
-                        </data:DataGridTextColumn>
-                        <data:DataGridTextColumn Header="修改人" Binding="{Binding UPDATEUSERNAME}">
-                        </data:DataGridTextColumn>
-                        <data:DataGridTextColumn Header="修改时间" Binding="{Binding UPDATEDATE}">
-                        </data:DataGridTextColumn>
+                        </data:DataGridTextColumn>                        
                         <data:DataGridTemplateColumn Header="ACCREDIT">
                             <data:DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -126,6 +123,10 @@
                                 </DataTemplate>
                             </data:DataGridTemplateColumn.CellTemplate>
                         </data:DataGridTemplateColumn>
+                        <data:DataGridTextColumn Header="修改人" Binding="{Binding UPDATEUSERNAME}">
+                        </data:DataGridTextColumn>
+                        <data:DataGridTextColumn Header="修改时间" Binding="{Binding UPDATEDATE,Converter={StaticResource CustomDateConverter},ConverterParameter=DATETIMES}">
+                        </data:DataGridTextColumn>
                     </data:DataGrid.Columns>
                 </data:DataGrid>
 
