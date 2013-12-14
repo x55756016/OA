@@ -313,6 +313,10 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                 ViewModel.Context.Managed.LoadModule(moduleName);
             }
+            else
+            {
+
+            }
         }
 
         /// <summary>
