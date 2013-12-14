@@ -21,6 +21,11 @@ namespace SMT.SAAS.Platform.Xamls
         {
             InitializeComponent();
             Navigation("系统");
+            if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
+            {
+                //从mvc平台打开，不需要显示关闭按钮
+                TCloseButton.Visibility = Visibility.Collapsed;
+            }
         }
 
         public UIElement PanelContent
@@ -69,19 +74,19 @@ namespace SMT.SAAS.Platform.Xamls
         private void TCloseButton_Click(object sender, RoutedEventArgs e)
         {
 
-            System.Windows.Application.Current.Host.Content.IsFullScreen = System.Windows.Application.Current.Host.Content.IsFullScreen ? false : true; 
-            //ICleanup content = PanelContent as ICleanup;
+            //System.Windows.Application.Current.Host.Content.IsFullScreen = System.Windows.Application.Current.Host.Content.IsFullScreen ? false : true; 
+            ICleanup content = PanelContent as ICleanup;
 
-            //if (content != null)
-            //{
+            if (content != null)
+            {
 
-            //    content.Cleanup();
-            //    PanelContent = null;
-            //}
-            //if (Back != null)
-            //{
-            //    Back.Invoke(sender, e);
-            //}
+                content.Cleanup();
+                PanelContent = null;
+            }
+            if (Back != null)
+            {
+                Back.Invoke(sender, e);
+            }
         }
         #endregion
 

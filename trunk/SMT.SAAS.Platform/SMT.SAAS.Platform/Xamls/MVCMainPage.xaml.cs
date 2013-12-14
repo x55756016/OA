@@ -139,6 +139,33 @@ namespace SMT.SAAS.Platform.Xamls
             ayTools.BeginRun();
         }
 
+        void ayTools_InitAsyncCompleted(object sender, EventArgs e)
+        {
+            string strModuleid = string.Empty, strOptType = string.Empty, strMessageid = string.Empty, strConfig = string.Empty;
+            List<string> strMvcSource = new List<string>();
+            if (System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
+            {
+                strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
+            }
+
+            if (strMvcSource == null)
+            {
+                return;
+            }
+
+            if (strMvcSource.Count() != 4)
+            {
+                return;
+            }
+
+            strModuleid = strMvcSource[0];
+            strOptType = strMvcSource[1];
+            strMessageid = strMvcSource[2];
+            strConfig = strMvcSource[3];
+            //mvc默认加载不打开任何页面
+            HtmlPage.Window.Invoke("loadCompletedSL", new string[]{"ture","加载成功"});
+            //OpenModuleWithMVC(strModuleid, strOptType, strMessageid, strConfig);
+        }
         /// <summary>
         /// 初始化系统所需参数.用于为窗口系统提供支持
         /// </summary>
@@ -408,32 +435,6 @@ namespace SMT.SAAS.Platform.Xamls
             }
         }
 
-        void ayTools_InitAsyncCompleted(object sender, EventArgs e)
-        {
-            string strModuleid = string.Empty, strOptType = string.Empty, strMessageid = string.Empty, strConfig = string.Empty;
-            List<string> strMvcSource = new List<string>();
-            if (System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
-            {
-                strMvcSource = System.Windows.Application.Current.Resources["MvcOpenRecordSource"] as List<string>;
-            }
-            
-            if (strMvcSource == null)
-            {
-                return;
-            }
-
-            if (strMvcSource.Count() != 4)
-            {
-                return;
-            }
-
-            strModuleid = strMvcSource[0];
-            strOptType = strMvcSource[1];
-            strMessageid = strMvcSource[2];
-            strConfig = strMvcSource[3];
-
-            OpenModuleWithMVC(strModuleid, strOptType, strMessageid, strConfig);
-        }
 
         /// <summary>
         /// 打开我的单据,工作计划中打开出差我的单据
@@ -568,38 +569,49 @@ namespace SMT.SAAS.Platform.Xamls
         /// <param name="strModuleid"></param>
         private void LoadModule(string strModuleid)
         {
-            if (string.IsNullOrWhiteSpace(strModuleid))
+            try
             {
-                return;
-            }
-
-            _fromMenu = false;
-            strCurModuleID = strModuleid;
-
-            if (strModuleid == "NewsManager" || strModuleid == "SystemLog" || strModuleid == "CustomMenusSet")
-            {
-                NavigationWorkPanel(strModuleid);
-            }
-            else
-            {
-                if (ViewModel.Context.Managed != null)
+                if (string.IsNullOrWhiteSpace(strModuleid))
                 {
-                    if (ViewModel.Context.Managed.Catalog != null)
-                    {
-                        if (ViewModel.Context.Managed.Catalog.Count > 0)
-                        {
-                            bIsModuleLoaded = true;
-                        }
-                    }
-                }
-
-                if (!bIsModuleLoaded)
-                {
-                    vm.GetModules();
                     return;
                 }
 
-                ShowModule();
+                _fromMenu = false;
+                strCurModuleID = strModuleid;
+
+                if (strModuleid == "NewsManager" || strModuleid == "SystemLog" || strModuleid == "CustomMenusSet")
+                {
+                    NavigationWorkPanel(strModuleid);
+                }
+                else
+                {
+                    if (ViewModel.Context.Managed != null)
+                    {
+                        if (ViewModel.Context.Managed.Catalog != null)
+                        {
+                            if (ViewModel.Context.Managed.Catalog.Count > 0)
+                            {
+                                bIsModuleLoaded = true;
+                            }
+                        }
+                    }
+
+                    if (!bIsModuleLoaded)
+                    {
+                        vm.GetModules();
+                        return;
+                    }
+
+                    ShowModule();
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", ex.ToString());
+                AppContext.SystemMessage(message);
+                AppContext.ShowSystemMessageText();
+                hideLoadingBar();
+                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
             }
         }
         #endregion
@@ -649,7 +661,10 @@ namespace SMT.SAAS.Platform.Xamls
                     }
                     catch
                     {
+                        string msg = "模块链接异常：" + moduleinfo.ModuleType;
+                        HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
                         MessageBox.Show("模块链接异常：" + moduleinfo.ModuleType);
+                        hideLoadingBar();
                     }
                 }
                 else
@@ -659,10 +674,11 @@ namespace SMT.SAAS.Platform.Xamls
             }
             else
             {
-                AppContext.SystemMessage("moduleinfo 未加载：moduleid："+strCurModuleID);
+                string msg = "moduleinfo 未加载：moduleid：" + strCurModuleID;
+                AppContext.SystemMessage(msg);
                 //AppContext.ShowSystemMessageText();
                 hideLoadingBar();
-                HtmlPage.Window.Invoke("loadCompletedSL", "Invoke");
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
             }
         }
 
@@ -819,7 +835,6 @@ namespace SMT.SAAS.Platform.Xamls
             }
             catch (Exception ex)
             {
-              
                 AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description) + ex.ToString());
                 AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
@@ -836,7 +851,12 @@ namespace SMT.SAAS.Platform.Xamls
                     Logging.Priority.High);
 
                 string message = string.Format("打开模块'{0}'失败,请联系管理员！", description);
-                MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", message });
+                MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);             
+            }
+            finally
+            {
+                hideLoadingBar();
             }
         }
 
