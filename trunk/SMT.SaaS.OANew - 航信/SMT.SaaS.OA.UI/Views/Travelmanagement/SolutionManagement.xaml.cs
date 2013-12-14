@@ -228,6 +228,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             ToolBar_Vechile.IsEnabled = false;
             this.nubaoxiaomindays.IsEnabled = false;
             this.cbxpostlevel.IsEnabled = false;
+            this.cbxNoAllowancePostlevel.IsEnabled = false;
             this.DelAllBtn.IsEnabled = false;
             this.AddBtn.IsEnabled = false;
             this.AddAllBtn.IsEnabled = false;
