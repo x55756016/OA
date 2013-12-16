@@ -260,7 +260,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             TravelDetailList_Golbal = obj;
             if (formType != FormTypes.New && formType != FormTypes.Edit && formType != FormTypes.Resubmit)
             {
-                TravelAllowance(true);
+                //TravelAllowance(true);
                 DaGrReadOnly.ItemsSource = TravelDetailList_Golbal;
             }
             else
@@ -803,61 +803,61 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 if (txtTFSubsidies != null)//交通补贴
                                 {
                                     txtTFSubsidies.Text = obj.TRANSPORTATIONSUBSIDIES.ToString();
-                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                    {
-                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                        if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
-                                        {
-                                            ComfirmWindow com = new ComfirmWindow();
-                                            com.OnSelectionBoxClosed += (comobj, result) =>
-                                            {
-                                                txtToolubsidies.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOthercosts.IsReadOnly = true;//其他费用
-                                            };
-                                            if (formType == FormTypes.Audit || formType == FormTypes.Browse
-                                                 || obj.GOOUTTOMEET == "1" || obj.COMPANYCAR == "1") return;
-                                            if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
-                                            {
-                                                return;//最后一条无补贴
-                                            }
-                                            if (obj.TRANSPORTATIONSUBSIDIES == null || obj.TRANSPORTATIONSUBSIDIES==0)
-                                            {
-                                                if (formType == FormTypes.Audit) return;
-                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                            }
-                                        }
-                                    }
+                                    //if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    //{
+                                    //    //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+                                    //    if (string.IsNullOrWhiteSpace(txtTFSubsidies.Text))
+                                    //    {
+                                    //        ComfirmWindow com = new ComfirmWindow();
+                                    //        com.OnSelectionBoxClosed += (comobj, result) =>
+                                    //        {
+                                    //            txtToolubsidies.IsReadOnly = true;//交通费
+                                    //            txtASubsidies.IsReadOnly = true;//住宿标准
+                                    //            txtOthercosts.IsReadOnly = true;//其他费用
+                                    //        };
+                                    //        if (formType == FormTypes.Audit || formType == FormTypes.Browse
+                                    //             || obj.GOOUTTOMEET == "1" || obj.COMPANYCAR == "1") return;
+                                    //        if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                    //        {
+                                    //            return;//最后一条无补贴
+                                    //        }
+                                    //        if (obj.TRANSPORTATIONSUBSIDIES == null || obj.TRANSPORTATIONSUBSIDIES==0)
+                                    //        {
+                                    //            if (formType == FormTypes.Audit) return;
+                                    //            com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+                                    //        }
+                                    //    }
+                                    //}
                                 }
                                 if (txtMealSubsidies != null)//餐费补贴
                                 {
                                     txtMealSubsidies.Text = obj.MEALSUBSIDIES.ToString();
-                                    if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
-                                    {
-                                        //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
-                                        if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
-                                        {
-                                            ComfirmWindow com = new ComfirmWindow();
-                                            com.OnSelectionBoxClosed += (comobj, result) =>
-                                            {
-                                                txtToolubsidies.IsReadOnly = true;//交通费
-                                                txtASubsidies.IsReadOnly = true;//住宿标准
-                                                txtOthercosts.IsReadOnly = true;//其他费用
-                                            };
-                                            if (formType == FormTypes.Audit || formType == FormTypes.Browse
-                                               || obj.GOOUTTOMEET == "1") return;
-                                            if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
-                                            {
-                                                return;//最后一条无补贴
-                                            }
-                                            if (obj.MEALSUBSIDIES == null
-                                                || obj.MEALSUBSIDIES == 0)
-                                            {
-                                                if (formType == FormTypes.Audit) return;
-                                                com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
-                                            }
-                                        }
-                                    }
+                                    //if (EmployeePostLevel.ToInt32() > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    //{
+                                    //    //在正常状态下如果没有获取到补贴(没有对应的城市补贴或其他导致的问题)提示用户是否继续操作
+                                    //    if (string.IsNullOrWhiteSpace(txtMealSubsidies.Text))
+                                    //    {
+                                    //        ComfirmWindow com = new ComfirmWindow();
+                                    //        com.OnSelectionBoxClosed += (comobj, result) =>
+                                    //        {
+                                    //            txtToolubsidies.IsReadOnly = true;//交通费
+                                    //            txtASubsidies.IsReadOnly = true;//住宿标准
+                                    //            txtOthercosts.IsReadOnly = true;//其他费用
+                                    //        };
+                                    //        if (formType == FormTypes.Audit || formType == FormTypes.Browse
+                                    //           || obj.GOOUTTOMEET == "1") return;
+                                    //        if (obj.REIMBURSEMENTDETAILID == objs.LastOrDefault().REIMBURSEMENTDETAILID)
+                                    //        {
+                                    //            return;//最后一条无补贴
+                                    //        }
+                                    //        if (obj.MEALSUBSIDIES == null
+                                    //            || obj.MEALSUBSIDIES == 0)
+                                    //        {
+                                    //            if (formType == FormTypes.Audit) return;
+                                    //            com.SelectionBox("操作确认", "当前单据没有获取到餐费补贴，是否继续操作？", ComfirmWindow.titlename, "");
+                                    //        }
+                                    //    }
+                                    //}
                                 }
                                 #endregion
 
