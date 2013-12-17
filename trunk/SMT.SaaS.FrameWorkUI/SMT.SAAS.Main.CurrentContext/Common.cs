@@ -82,6 +82,7 @@ namespace SMT.SAAS.Main.CurrentContext
                       WorkingAge = workAge,
                       OfficeTelphone = officePhone,
                       MobileTelphone=mobilePhone,
+                      Telphone =officePhone==null?mobilePhone:mobilePhone + "/" + officePhone,
                       IsManager = isManager,
                       UserPosts = userPosts
                   };
