@@ -893,6 +893,7 @@ namespace SMT.HRM.BLL
         /// </summary>
         /// <param name="entLTRd"></param>
         /// <returns></returns>
+        /// <summary>
         public string AddAttSolAsign(T_HR_ATTENDANCESOLUTIONASIGN entTemp)
         {
             string strMsg = string.Empty;
@@ -942,16 +943,58 @@ namespace SMT.HRM.BLL
                     return "{ALREADYEXISTSRECORD}";
                 }
 
-                T_HR_ATTENDANCESOLUTIONASIGN ent = new T_HR_ATTENDANCESOLUTIONASIGN();
-                Utility.CloneEntity<T_HR_ATTENDANCESOLUTIONASIGN>(entTemp, ent);
-                ent.T_HR_ATTENDANCESOLUTIONReference.EntityKey =
-                    new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDANCESOLUTION", "ATTENDANCESOLUTIONID", entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID);
+                //如果分配对象类型是部门
+                if (entTemp.ASSIGNEDOBJECTTYPE == "2" && entTemp.ASSIGNEDOBJECTID.Split(',').Count() > 1)
+                {
+                    string gPKId = Guid.NewGuid().ToString();
+                    string[] deptIds = entTemp.ASSIGNEDOBJECTID.Split(',');
+                    T_HR_ATTENDANCESOLUTIONASIGN ent = new T_HR_ATTENDANCESOLUTIONASIGN();
+                    entTemp.ASSIGNEDOBJECTID = deptIds[0];
+                    entTemp.CREATECOMPANYID = gPKId;
+                    Utility.CloneEntity<T_HR_ATTENDANCESOLUTIONASIGN>(entTemp, ent);
+                    ent.T_HR_ATTENDANCESOLUTIONReference.EntityKey =
+                        new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDANCESOLUTION", "ATTENDANCESOLUTIONID", entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID);
 
-                Utility.RefreshEntity(ent);
+                    Utility.RefreshEntity(ent);
+                    dalAttendanceSolutionAsign.Add(ent);
+                    SaveMyRecord(ent);
 
-                dalAttendanceSolutionAsign.Add(ent);
-                SaveMyRecord(ent);
-                strMsg = "{SAVESUCCESSED}";
+                    for (int i = 1; i < deptIds.Length; i++)
+                    {
+                        if (!string.IsNullOrEmpty(deptIds[i]))
+                        {
+                            ent = new T_HR_ATTENDANCESOLUTIONASIGN();
+                            Utility.CloneEntity<T_HR_ATTENDANCESOLUTIONASIGN>(entTemp, ent);
+
+                            ent.ATTENDANCESOLUTIONASIGNID = Guid.NewGuid().ToString();
+                            ent.ASSIGNEDOBJECTID = deptIds[i];
+                            ent.CREATEDEPARTMENTID = Guid.Empty.ToString();
+                            ent.CREATECOMPANYID = gPKId;
+
+                            ent.T_HR_ATTENDANCESOLUTIONReference.EntityKey =
+                                new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDANCESOLUTION", "ATTENDANCESOLUTIONID", entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID);
+
+                            Utility.RefreshEntity(ent);
+                            dalAttendanceSolutionAsign.Add(ent);
+                        }
+                    }
+
+                    strMsg = "{SAVESUCCESSED}";
+
+                }
+                else
+                {
+                    T_HR_ATTENDANCESOLUTIONASIGN ent = new T_HR_ATTENDANCESOLUTIONASIGN();
+                    Utility.CloneEntity<T_HR_ATTENDANCESOLUTIONASIGN>(entTemp, ent);
+                    ent.T_HR_ATTENDANCESOLUTIONReference.EntityKey =
+                        new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDANCESOLUTION", "ATTENDANCESOLUTIONID", entTemp.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID);
+                    ent.REMARK = "1";
+                    Utility.RefreshEntity(ent);
+
+                    dalAttendanceSolutionAsign.Add(ent);
+                    SaveMyRecord(ent);
+                    strMsg = "{SAVESUCCESSED}";
+                }
             }
             catch (Exception ex)
             {

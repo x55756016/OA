@@ -371,9 +371,19 @@ namespace SMT.HRM.BLL
                                         where a.ownercompanyid = '" + entVacRd.ASSIGNEDOBJECTID + @"'
                                         and a.attendancedate >= To_Date('" + item.STARTDATE.Value.ToString("yyyy-MM-dd") + @"', 'yyyy-MM-dd')
                                         and a.attendancedate <= To_Date('" + item.ENDDATE.Value.ToString("yyyy-MM-dd") + @"', 'yyyy-MM-dd')";
+                            var attdel = from ent in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+                                    where ent.OWNERCOMPANYID == entVacRd.ASSIGNEDOBJECTID
+                                        && ent.ATTENDANCEDATE >= item.STARTDATE
+                                        && ent.ATTENDANCEDATE <= item.ENDDATE
+                                    select ent;
+                            int i = 0;
+                            foreach (var att in attdel)
+                            {
+                               i=i+ dal.Delete(att);
+                            }
 
-                            int i = dal.ExecuteNonQuery(sql);
-                            Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录,共删除：" + i.ToString() + " 条数据:执行的sql" + sql);
+                            //int i = dal.ExecuteNonQuery(sql);
+                            Tracer.Debug("新增假期设置删除设定日期整个公司考勤初始化记录,共删除：" + i.ToString() + " 条数据:转换出的sql" + sql);
                         }
                         catch (Exception ex)
                         {
@@ -382,20 +392,20 @@ namespace SMT.HRM.BLL
                     }
 
 
-                    if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString())
+                    //if (item.DAYTYPE == (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString())
+                    //{
+                    //如果设置的日期是当月，需要重新初始化公司考勤
+                    if (item.STARTDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
                     {
-                        //如果设置的日期是当月，需要重新初始化公司考勤
-                        if (item.STARTDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
-                        {
-                            needInitCompanyAttanceDayAgain = true;
-                            strCurYearMonth = item.STARTDATE.Value.Year + "-" + item.STARTDATE.Value.Month;
-                        }
-                        if (item.ENDDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
-                        {
-                            needInitCompanyAttanceDayAgain = true;
-                            strCurYearMonth = item.ENDDATE.Value.Year + "-" + item.ENDDATE.Value.Month;
-                        }
+                        needInitCompanyAttanceDayAgain = true;
+                        strCurYearMonth = item.STARTDATE.Value.Year + "-" + item.STARTDATE.Value.Month;
                     }
+                    if (item.ENDDATE.Value <= DateTime.Now.AddMonths(1).AddDays(-1))
+                    {
+                        needInitCompanyAttanceDayAgain = true;
+                        strCurYearMonth = item.ENDDATE.Value.Year + "-" + item.ENDDATE.Value.Month;
+                    }
+                    //}
 
                     #endregion
                 }

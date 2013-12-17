@@ -353,19 +353,23 @@ namespace SMT.HRM.BLL
                                                 {
                                                     if (set.PEROID == "0")//上午
                                                     {
-                                                        Tracer.Debug("考勤初始化（新增）-检测到假期设置了休假（半天）："
+                                                        string msg = "考勤初始化（新增）-检测到假期设置了休假（半天）："
                                                            + " 员工：" + entAttRd.EMPLOYEENAME
                                                            + " 日期：" + entAttRd.ATTENDANCEDATE
-                                                           + " 上班分段（0上午）：" + set.PEROID);
+                                                           + " 上班分段（0上午）：" + set.PEROID;
+                                                        Tracer.Debug(msg);
+                                                        entAttRd.REMARK = msg;
                                                         entAttRd.NEEDFRISTATTEND = "1";//上午上班
                                                         entAttRd.NEEDSECONDATTEND = "0";//下午不上班
                                                     }
                                                     else if (set.PEROID == "1")
                                                     {
-                                                        Tracer.Debug("考勤初始化（新增）-检测到假期设置了休假（半天）："
+                                                        string msg = "考勤初始化（新增）-检测到假期设置了休假（半天）："
                                                             + " 员工：" + entAttRd.EMPLOYEENAME
-                                                            + " 日期：" + entAttRd.ATTENDANCEDATE                                                            
-                                                            + " 上班分段（1下午）：" + set.PEROID);
+                                                            + " 日期：" + entAttRd.ATTENDANCEDATE
+                                                            + " 上班分段（1下午）：" + set.PEROID;
+                                                        Tracer.Debug(msg);
+                                                        entAttRd.REMARK = msg;
                                                         entAttRd.NEEDFRISTATTEND = "0";//上午不上班
                                                         entAttRd.NEEDSECONDATTEND = "1";//下午上班
                                                     }
@@ -382,7 +386,7 @@ namespace SMT.HRM.BLL
 
                                         entAttRd.CREATEUSERID = entTemp.CREATEUSERID;
                                         entAttRd.CREATEDATE = DateTime.Now;
-                                        entAttRd.REMARK = entTemp.REMARK;
+                                        entAttRd.REMARK += entTemp.REMARK;
                                         entAttRd.UPDATEUSERID = entTemp.UPDATEUSERID;
                                         entAttRd.UPDATEDATE = DateTime.Now;
                                         entAttRd.CREATECOMPANYID = entTemp.CREATECOMPANYID;
@@ -447,19 +451,23 @@ namespace SMT.HRM.BLL
                                                 {
                                                     if (set.PEROID == "0")//上午
                                                     {
-                                                        Tracer.Debug("考勤初始化（修改）-检测到假期设置了休假（半天）："
+                                                        string msg = "考勤初始化（修改）-检测到假期设置了休假（半天）："
                                                           + " 员工：" + entUpdate.EMPLOYEENAME
                                                           + " 日期：" + entUpdate.ATTENDANCEDATE
-                                                          + " 上班分段（0上午）：" + set.PEROID);
+                                                          + " 上班分段（0上午）：" + set.PEROID;
+                                                        Tracer.Debug(msg);
+                                                        entUpdate.REMARK = msg;
                                                         entUpdate.NEEDFRISTATTEND = "0";//上午不上班休息
                                                         entUpdate.NEEDSECONDATTEND = "1";//下午上班
                                                     }
                                                     else if (set.PEROID == "1")
                                                     {
-                                                        Tracer.Debug("考勤初始化（修改）-检测到假期设置了休假（半天）："
+                                                        string msg = "考勤初始化（修改）-检测到假期设置了休假（半天）："
                                                             + " 员工：" + entUpdate.EMPLOYEENAME
                                                             + " 日期：" + entUpdate.ATTENDANCEDATE
-                                                            + " 上班分段（1下午）：" + set.PEROID);                                                       
+                                                            + " 上班分段（1下午）：" + set.PEROID;
+                                                        Tracer.Debug(msg);
+                                                        entUpdate.REMARK = msg;
                                                         entUpdate.NEEDFRISTATTEND = "1";//上午上班
                                                         entUpdate.NEEDSECONDATTEND = "0";//下午不上班休息
                                                     }
@@ -474,7 +482,7 @@ namespace SMT.HRM.BLL
                                         entUpdate.OWNERPOSTID = item_emp.OWNERPOSTID;
                                         entUpdate.OWNERID = item_emp.OWNERID;
 
-                                        entUpdate.REMARK = entTemp.REMARK;
+                                        entUpdate.REMARK += entTemp.REMARK;
                                         entUpdate.UPDATEUSERID = entTemp.UPDATEUSERID;
                                         entUpdate.UPDATEDATE = DateTime.Now;
 
@@ -612,19 +620,23 @@ namespace SMT.HRM.BLL
                             {
                                 if (set.PEROID == "0")//上午
                                 {
-                                    Tracer.Debug("考勤初始化（新增）-检测设置了半天工作日："
+                                    string msg = "考勤初始化（新增）CreateOutPlanWorkDay-检测设置了半天工作日："
                                                + " 员工：" + entAttRd.EMPLOYEENAME
                                                + " 日期：" + entAttRd.ATTENDANCEDATE
-                                               + " 上班分段（0上午）：" + set.PEROID);
+                                               + " 上班分段（0上午）：" + set.PEROID;
+                                    Tracer.Debug(msg);
                                     entAttRd.NEEDFRISTATTEND = "1";//上午上班
                                     entAttRd.NEEDSECONDATTEND = "0";//下午不上班
+                                    entAttRd.REMARK = msg;
                                 }
                                 else if (set.PEROID == "1")
                                 {
-                                    Tracer.Debug("考勤初始化（新增）-检测设置了半天工作日："
+                                    string msg = "考勤初始化（新增）-检测设置了半天工作日："
                                              + " 员工：" + entAttRd.EMPLOYEENAME
                                              + " 日期：" + entAttRd.ATTENDANCEDATE
-                                             + " 上班分段（1下午）：" + set.PEROID);
+                                             + " 上班分段（1下午）：" + set.PEROID;
+                                    Tracer.Debug(msg);
+                                    entAttRd.REMARK = msg;
                                     entAttRd.NEEDFRISTATTEND = "0";//上午不上班
                                     entAttRd.NEEDSECONDATTEND = "1";//下午上班
                                 }
@@ -641,7 +653,7 @@ namespace SMT.HRM.BLL
 
                     entAttRd.CREATEUSERID = entTemp.CREATEUSERID;
                     entAttRd.CREATEDATE = DateTime.Now;
-                    entAttRd.REMARK = entTemp.REMARK;
+                    entAttRd.REMARK += entTemp.REMARK;
                     entAttRd.UPDATEUSERID = entTemp.UPDATEUSERID;
                     entAttRd.UPDATEDATE = DateTime.Now;
                     entAttRd.CREATECOMPANYID = entTemp.CREATECOMPANYID;
@@ -698,19 +710,23 @@ namespace SMT.HRM.BLL
                             {
                                 if (set.PEROID == "0")//上午
                                 {
-                                    Tracer.Debug("考勤初始化（修改）-检测设置了半天工作日："
+                                    string msg = "考勤初始化（修改）CreateOutPlanWorkDay-检测设置了半天工作日："
                                                + " 员工：" + entUpdate.EMPLOYEENAME
                                                + " 日期：" + entUpdate.ATTENDANCEDATE
-                                               + " 上班分段（0上午）：" + set.PEROID);
+                                               + " 上班分段（0上午）：" + set.PEROID;
+                                    Tracer.Debug(msg);
+                                    entUpdate.REMARK = msg;
                                     entUpdate.NEEDFRISTATTEND = "1";//上午上班
                                     entUpdate.NEEDSECONDATTEND = "0";//下午不上班
                                 }
                                 else if (set.PEROID == "1")
                                 {
-                                    Tracer.Debug("考勤初始化（修改）-检测设置了半天工作日："
+                                    string msg = "考勤初始化（修改）-检测设置了半天工作日："
                                                   + " 员工：" + entUpdate.EMPLOYEENAME
                                                   + " 日期：" + entUpdate.ATTENDANCEDATE
-                                                  + " 上班分段（1下午）：" + set.PEROID);
+                                                  + " 上班分段（1下午）：" + set.PEROID;
+                                    Tracer.Debug(msg);
+                                    entUpdate.REMARK = msg;
                                     entUpdate.NEEDFRISTATTEND = "0";//上午不上班
                                     entUpdate.NEEDSECONDATTEND = "1";//下午上班
                                 }
@@ -725,7 +741,7 @@ namespace SMT.HRM.BLL
                     entUpdate.OWNERPOSTID = item_emp.OWNERPOSTID;
                     entUpdate.OWNERID = item_emp.OWNERID;
 
-                    entUpdate.REMARK = entTemp.REMARK;
+                    entUpdate.REMARK += entTemp.REMARK;
                     entUpdate.UPDATEUSERID = entTemp.UPDATEUSERID;
                     entUpdate.UPDATEDATE = DateTime.Now;
 

@@ -156,32 +156,67 @@ namespace SMT.HRM.BLL
                         continue;
                     }
 
-                    if (item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") == "2013-06-21")
-                    {
-                    }
+                    //if (item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") == "2013-06-21")
+                    //{
+                    //}
+
+                    //当天出勤状态
                     string strAbnormCategory = string.Empty;
 
-                    //检查第一段工作期，打卡情况
-                    CheckAbnormRecordByFirstWorkTime(item, entClockInRds, ref strAbnormCategory);
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
-                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
-                        + ",检测第一段工作状态为：" + strAbnormCategory);
-                    //检查第二段上班，打卡情况
-                    CheckAbnormRecordBySecondWorkTime(item, entClockInRds, ref strAbnormCategory);
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
-                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
-                        + ",检测第二段工作状态为：" + strAbnormCategory);
+                    //公共假期设置判断是否检查考勤异常
+                    if (!string.IsNullOrEmpty(item.NEEDFRISTATTEND))
+                    {
+                        if (item.NEEDFRISTATTEND == "1")//如果公共假期设置上午上班，则第一段考勤需要考勤
+                        {
+                            Tracer.Debug("上午需要上班,日期：" + item.ATTENDANCEDATE + " 检测考勤公共假期设置,检测上午考勤异常，needfristattend=1 " + item.NEEDFRISTATTEND);
+                            //检查第一段工作期，打卡情况
+                            CheckAbnormRecordByFirstWorkTime(item, entClockInRds, ref strAbnormCategory);
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                                + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                                + ",检测第一段工作状态为：" + strAbnormCategory);
+                        }
+                        if (item.NEEDSECONDATTEND == "1")//如果公共假期设置下午上班，则
+                            //第二段（如果设置为三段打卡则为中午，如果设置为二段打卡则为下午），第三段考勤（如果设置了三段打卡则为下午）需要考勤
+                        {   
+                            //检查第二段上班，打卡情况
+                            Tracer.Debug("下午需要上班，日期：" + item.ATTENDANCEDATE + " 检测考勤公共假期设置,检测中午晚上考勤异常，needsecondattend=1 " + item.NEEDFRISTATTEND);
+                            
+                            CheckAbnormRecordBySecondWorkTime(item, entClockInRds, ref strAbnormCategory);
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                                + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                                + ",检测第二段工作状态为：" + strAbnormCategory);
 
-                    //检查第三段上班，打卡情况
-                    CheckAbnormRecordByThirdWorkTime(item, entClockInRds, ref strAbnormCategory);
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
-                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
-                        + ",检测第三段工作状态为：" + strAbnormCategory);
-                    //检查第四段上班，打卡情况
-                    CheckAbnormRecordByFourthWorkTime(item, entClockInRds, ref strAbnormCategory);
-                    Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
-                        + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
-                        + ",检测第四段工作状态为：" + strAbnormCategory);
+                            //检查第三段上班，打卡情况
+                            CheckAbnormRecordByThirdWorkTime(item, entClockInRds, ref strAbnormCategory);
+                            Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                                + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                                + ",检测第三段工作状态为：" + strAbnormCategory);
+                        }
+                    }
+                    else
+                    { 
+                        //检查第一段工作期，打卡情况
+                        CheckAbnormRecordByFirstWorkTime(item, entClockInRds, ref strAbnormCategory);
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                            + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                            + ",检测第一段工作状态为：" + strAbnormCategory);
+                        //检查第二段上班，打卡情况
+                        CheckAbnormRecordBySecondWorkTime(item, entClockInRds, ref strAbnormCategory);
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                            + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                            + ",检测第二段工作状态为：" + strAbnormCategory);
+
+                        //检查第三段上班，打卡情况
+                        CheckAbnormRecordByThirdWorkTime(item, entClockInRds, ref strAbnormCategory);
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                            + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                            + ",检测第三段工作状态为：" + strAbnormCategory);
+                        //检查第四段上班，打卡情况
+                        CheckAbnormRecordByFourthWorkTime(item, entClockInRds, ref strAbnormCategory);
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                            + " 打卡记录导入 员工姓名：" + item.EMPLOYEENAME
+                            + ",检测第四段工作状态为：" + strAbnormCategory);
+                    }                   
                     if (string.IsNullOrEmpty(strAbnormCategory))
                     {
                         item.ATTENDANCESTATE = (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString();
@@ -888,82 +923,15 @@ namespace SMT.HRM.BLL
                 return;
             }
             StringBuilder strTemp = new StringBuilder();
-            //查询公共假期设置判断是否只上半天班公共假期
-            OutPlanDaysBLL bllOutPlanDays = new OutPlanDaysBLL();
-            IQueryable<T_HR_OUTPLANDAYS> entOutPlanDays = bllOutPlanDays.GetOutPlanDaysRdListByEmployeeID(entAttRd.EMPLOYEEID);
-            //假期设置
-            string strVacDayType = (Convert.ToInt32(Common.OutPlanDaysType.Vacation) + 1).ToString();
-            IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
-            //工作日设置
-            string strWorkDayType = (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString();
-            IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType);
 
-            if (entAttRd.NEEDFRISTATTEND == "0")//第一段考勤不需要考勤
+            if (strNeedCard == strYes)
             {
+                CheckAbnormRecordWithWorkStart(entAttRd, entClockInRds, strStartAttendPeriod, strAttStartTime, strAttCardStartTime, strAttCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
             }
-            else
+            if (strNeedOffCard == strYes)
             {
-                //entAttRd.NEEDFRISTATTEND == "1"或者为空需要检查考勤状态
-                if (strNeedCard == strYes)
-                {
-                    CheckAbnormRecordWithWorkStart(entAttRd, entClockInRds, strStartAttendPeriod, strAttStartTime, strAttCardStartTime, strAttCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-                }
+                CheckAbnormRecordWithWorkOff(entAttRd, entClockInRds, strOffAttendPeriod, strAttEndTime, strAttOffCardStartTime, strAttOffCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
             }
-
-            if (entAttRd.NEEDSECONDATTEND == "0")//第二段考勤不需要考勤
-            {
-            }
-            else
-            { //entAttRd.NEEDSECONDATTEND == "1"或者为空需要检查考勤状态
-                if (strNeedOffCard == strYes)
-                {
-                    CheckAbnormRecordWithWorkOff(entAttRd, entClockInRds, strOffAttendPeriod, strAttEndTime, strAttOffCardStartTime, strAttOffCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-                }
-            }
-
-            //例外工作日考勤初始化记录公共假期
-            //var qVacDay = from ent in entVacDays
-            //              where ent.STARTDATE == entAttRd.ATTENDANCEDATE
-            //              select ent;
-            //if (qVacDay.Count() > 0)
-            //{
-            //    var set = qVacDay.FirstOrDefault();
-            //    if (!string.IsNullOrEmpty(set.ISHALFDAY))
-            //    {
-            //        if (set.ISHALFDAY == "1")
-            //        {
-            //            if (set.PEROID == "0")//上午
-            //            {
-            //                entAttRd.NEEDFRISTATTEND = "1";//上午上班检查上午打卡
-            //                entAttRd.NEEDSECONDATTEND = "0";//下午不上班
-            //                if (strNeedCard == strYes)
-            //                {
-            //                    CheckAbnormRecordWithWorkStart(entAttRd, entClockInRds, strStartAttendPeriod, strAttStartTime, strAttCardStartTime, strAttCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-            //                }
-            //            }
-            //            else if (set.PEROID == "1")
-            //            {
-            //                entAttRd.NEEDFRISTATTEND = "0";//上午不上班
-            //                entAttRd.NEEDSECONDATTEND = "1";//下午上班检查下午打卡时间
-            //                if (strNeedOffCard == strYes)
-            //                {
-            //                    CheckAbnormRecordWithWorkOff(entAttRd, entClockInRds, strOffAttendPeriod, strAttEndTime, strAttOffCardStartTime, strAttOffCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    if (strNeedCard == strYes)
-            //    {
-            //        CheckAbnormRecordWithWorkStart(entAttRd, entClockInRds, strStartAttendPeriod, strAttStartTime, strAttCardStartTime, strAttCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-            //    }
-            //    if (strNeedOffCard == strYes)
-            //    {
-            //        CheckAbnormRecordWithWorkOff(entAttRd, entClockInRds, strOffAttendPeriod, strAttEndTime, strAttOffCardStartTime, strAttOffCardEndTime, ref bCheck, ref strTemp, ref strAbnormCategory);
-            //    }
-            //}
 
             if (bCheck)
             {

@@ -276,7 +276,7 @@ namespace SMT.HRM.BLL
 
                         }
                     }
-                    //Utility.CloneEntity<T_HR_LEFTOFFICE>(entity, ent);
+                    Utility.CloneEntity<T_HR_LEFTOFFICE>(entity, ent);
                     if (entity.T_HR_EMPLOYEE != null)
                     {
                         ent.T_HR_EMPLOYEEReference.EntityKey =

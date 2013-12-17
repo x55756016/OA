@@ -3831,12 +3831,16 @@ namespace SMT.HRM.BLL
                 string year = DateTime.Now.Year.ToString();
                 var ent = from e in dal.GetObjects()
                           where e.EMPLOYEEID == employeeID && e.CHECKSTATE == checkSate && (e.SALARYYEAR == exYear || e.SALARYYEAR == year)
-                          select e.CREATEDATE;
+                          select e;
                 if (ent != null && ent.Any())
                 {
                     var list = ent.ToList();
-                    var lastDate = list.OrderByDescending(t => t.Value).FirstOrDefault();
-                    return lastDate;
+                    var lastDate = list.OrderByDescending(t => t.CREATEDATE).FirstOrDefault();
+                    string salaryYear = lastDate.SALARYYEAR;
+                    decimal salaryMonth = Convert.ToDecimal(lastDate.SALARYMONTH) + 1;
+                    string strDate = salaryYear + "-" + salaryMonth + "-" + "1";
+                    DateTime dt = Convert.ToDateTime(strDate);
+                    return dt;
                 }
                 else
                 {
@@ -3848,6 +3852,7 @@ namespace SMT.HRM.BLL
                 return null;
             }
         }
+
 
         /// <summary>
         /// 计算日薪

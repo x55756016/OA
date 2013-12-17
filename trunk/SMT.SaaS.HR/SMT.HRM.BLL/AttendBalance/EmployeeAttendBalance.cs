@@ -85,7 +85,13 @@ namespace SMT.HRM.BLL
                         //dNeedAttendDays = entAttRds.Count();        //按实际天数,旧计算方式
 
                         dNeedAttendDays = GetNeedAttendDays(dtStart, dtEnd, strCompanyID, entAttSol);            //标称应出勤天数
+                        //根据假期设置修改标称应出勤天数
+                        dRealNeedAttendDays = getRealNeedAttendDaysWithVacSet(dNeedAttendDays, item.EMPLOYEEID, dtStart, dtEnd);
+
                         dRealNeedAttendDays = GetRealNeedAttendDaysForEmployee(ref dtRealStart, ref dtRealEnd, dNeedAttendDays, item.EMPLOYEEID, strCompanyID, entAttSol);//实际应出勤天数（考虑到入离职）
+                        //根据假期设置修改实际出勤天数
+                        dRealNeedAttendDays = getRealNeedAttendDaysWithVacSet(dRealNeedAttendDays, item.EMPLOYEEID, dtStart, dtEnd);
+                    
                     }
 
                     if (dWorkTimePerDay == null)
@@ -120,10 +126,10 @@ namespace SMT.HRM.BLL
                     entAttendMonthlyBalance.BALANCEDATE = DateTime.Now;
                     entAttendMonthlyBalance.REMARK = string.Empty;
                     entAttendMonthlyBalance.WORKSERVICEMONTHS = dWorkServiceMonths;
-                    entAttendMonthlyBalance.WORKTIMEPERDAY = dWorkTimePerDay;
+                    entAttendMonthlyBalance.WORKTIMEPERDAY = dWorkTimePerDay;//每日工作时长
 
                     entAttendMonthlyBalance.NEEDATTENDDAYS = dNeedAttendDays;   //应出勤天数（固定方式）
-                    entAttendMonthlyBalance.REALNEEDATTENDDAYS = dRealNeedAttendDays; //应出勤天数(实际)
+                    entAttendMonthlyBalance.REALNEEDATTENDDAYS = dRealNeedAttendDays; //实际应出勤天数(考虑入职，离职)
 
                     //考勤异常部分
                     decimal dAbsentMinutes = 0, dAbsentDays = 0, dLateMinutes = 0, dLateDays = 0, dLeaveEarlyDays = 0;//旷工，迟到，早退
@@ -148,15 +154,19 @@ namespace SMT.HRM.BLL
                         dAbsentDays = 0;
                         dAbsentMinutes = 0;
                     }
+                    if (dAbsentDays > dRealNeedAttendDays)
+                    {   //如果旷工天数大于实际应出勤天数，那么旷工天数等于实际应出勤天数
+                        dAbsentDays = dRealNeedAttendDays;
+                    }
 
-                    entAttendMonthlyBalance.LATEDAYS = dLateDays;
-                    entAttendMonthlyBalance.LEAVEEARLYDAYS = dLeaveEarlyDays;
-                    entAttendMonthlyBalance.LATETIMES = iLateTimes;
-                    entAttendMonthlyBalance.LATEMINUTES = dLateMinutes;
-                    entAttendMonthlyBalance.LEAVEEARLYTIMES = iLeaveEarlyTimes;
-                    entAttendMonthlyBalance.FORGETCARDTIMES = iForgetCardTimes;
-                    entAttendMonthlyBalance.ABSENTDAYS = dAbsentDays;
-                    entAttendMonthlyBalance.ABSENTMINUTES = dAbsentMinutes;
+                    entAttendMonthlyBalance.LATEDAYS = dLateDays;//迟到天数
+                    entAttendMonthlyBalance.LEAVEEARLYDAYS = dLeaveEarlyDays;//早退天数
+                    entAttendMonthlyBalance.LATETIMES = iLateTimes;//迟到次数
+                    entAttendMonthlyBalance.LATEMINUTES = dLateMinutes;//迟到分钟数
+                    entAttendMonthlyBalance.LEAVEEARLYTIMES = iLeaveEarlyTimes;//早退次数
+                    entAttendMonthlyBalance.FORGETCARDTIMES = iForgetCardTimes;//漏打卡次数
+                    entAttendMonthlyBalance.ABSENTDAYS = dAbsentDays;//旷工天数
+                    entAttendMonthlyBalance.ABSENTMINUTES = dAbsentMinutes;//旷工分钟数
 
                     //请假部分
                     string strCheckState = Convert.ToInt32(Common.CheckStates.Approved).ToString();
@@ -246,18 +256,18 @@ namespace SMT.HRM.BLL
                         }
                     }
 
-                    entAttendMonthlyBalance.AFFAIRLEAVEDAYS = dAffairLeaveDays;
-                    entAttendMonthlyBalance.SICKLEAVEDAYS = dSickLeaveDays;
-                    entAttendMonthlyBalance.OTHERLEAVEDAYS = dOtherLeaveDays;
-                    entAttendMonthlyBalance.ANNUALLEVELDAYS = dAnnualLevelDays;
-                    entAttendMonthlyBalance.LEAVEUSEDDAYS = dLeaveUsedDays;
-                    entAttendMonthlyBalance.MARRYDAYS = dMarryDays;
-                    entAttendMonthlyBalance.MATERNITYLEAVEDAYS = dMaternityLeaveDays;
-                    entAttendMonthlyBalance.NURSESDAYS = dNursesDays;
-                    entAttendMonthlyBalance.FUNERALLEAVEDAYS = dFuneralLeaveDays;
-                    entAttendMonthlyBalance.TRIPDAYS = dTripDays;
-                    entAttendMonthlyBalance.INJURYLEAVEDAYS = dInjuryLeaveDays;
-                    entAttendMonthlyBalance.PRENATALCARELEAVEDAYS = dPrenatalcareLeaveDays;
+                    entAttendMonthlyBalance.AFFAIRLEAVEDAYS = dAffairLeaveDays;//事假天数
+                    entAttendMonthlyBalance.SICKLEAVEDAYS = dSickLeaveDays;//病假天数
+                    entAttendMonthlyBalance.OTHERLEAVEDAYS = dOtherLeaveDays;//其他假期天数
+                    entAttendMonthlyBalance.ANNUALLEVELDAYS = dAnnualLevelDays;//年休假天数
+                    entAttendMonthlyBalance.LEAVEUSEDDAYS = dLeaveUsedDays;//调休假天数
+                    entAttendMonthlyBalance.MARRYDAYS = dMarryDays;//婚假天数
+                    entAttendMonthlyBalance.MATERNITYLEAVEDAYS = dMaternityLeaveDays;//产假天数
+                    entAttendMonthlyBalance.NURSESDAYS = dNursesDays;//看护假天数
+                    entAttendMonthlyBalance.FUNERALLEAVEDAYS = dFuneralLeaveDays;//丧假天数
+                    entAttendMonthlyBalance.TRIPDAYS = dTripDays;//路程假天数
+                    entAttendMonthlyBalance.INJURYLEAVEDAYS = dInjuryLeaveDays;//工伤假天数
+                    entAttendMonthlyBalance.PRENATALCARELEAVEDAYS = dPrenatalcareLeaveDays;//产前检查假天数
 
                     //实际请假天数 = 所有请假天数之和
                     dLeaveTotalDays = dLeaveUsedDays.Value + dAffairLeaveDays.Value + dSickLeaveDays.Value + dAnnualLevelDays.Value + dMarryDays.Value
@@ -286,19 +296,16 @@ namespace SMT.HRM.BLL
                             dRealNeedAttendDays = dRealNeedAttendDays - dLeaveTotalDays;
                         }
                     }
-                    //根据假期设置修改实际出勤天数
-                    dRealNeedAttendDays = getRealNeedAttendDaysWithVacSet(dRealNeedAttendDays, item.EMPLOYEEID, dtStart, dtEnd);
-                    //实际出勤天数
-                    entAttendMonthlyBalance.REALATTENDDAYS = dRealNeedAttendDays;
+                    entAttendMonthlyBalance.REALATTENDDAYS = dRealNeedAttendDays;//实际出勤天数
 
                     //加班部分
                     int iOverTimeTimes = 0;
                     decimal? dOverTimeSumHours = 0, dOvertimeSumDays = 0;
                     CalculateEmployeeOverTimeDays(entAttSol, strEmployeeID, dtRealStart, dtRealEnd, strCheckState, dWorkTimePerDay, ref iOverTimeTimes, ref dOverTimeSumHours, ref dOvertimeSumDays);
 
-                    entAttendMonthlyBalance.OVERTIMETIMES = iOverTimeTimes;
-                    entAttendMonthlyBalance.OVERTIMESUMHOURS = dOverTimeSumHours;
-                    entAttendMonthlyBalance.OVERTIMESUMDAYS = dOvertimeSumDays;
+                    entAttendMonthlyBalance.OVERTIMETIMES = iOverTimeTimes;//加班次数
+                    entAttendMonthlyBalance.OVERTIMESUMHOURS = dOverTimeSumHours;//加班小时数
+                    entAttendMonthlyBalance.OVERTIMESUMDAYS = dOvertimeSumDays;//加班天数
 
                     //出差部分
                     decimal? dEvectionTime = 0;
@@ -308,7 +315,7 @@ namespace SMT.HRM.BLL
                     //外出申请时长计算部分
                     decimal? dOutApplyTime = 0;
                     CalculateEmployeeOutApplyTime(entAttSol, entAttRds, strEmployeeID, dtRealStart, dtRealEnd, dWorkTimePerDay, ref dOutApplyTime);
-                    entAttendMonthlyBalance.OUTAPPLYTIME = dOutApplyTime;
+                    entAttendMonthlyBalance.OUTAPPLYTIME = dOutApplyTime;//外出时长
 
                     //权限
                     entAttendMonthlyBalance.OWNERCOMPANYID = item.OWNERCOMPANYID;
@@ -357,10 +364,10 @@ namespace SMT.HRM.BLL
         {
             OutPlanDaysBLL bllOutPlanDays = new OutPlanDaysBLL();
             IQueryable<T_HR_OUTPLANDAYS> entOutPlanDays = bllOutPlanDays.GetOutPlanDaysRdListByEmployeeID(employeeid);
-            string strVacDayType = (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString();
-            IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
+            //string strVacDayType = (Convert.ToInt32(Common.OutPlanDaysType.WorkDay) + 1).ToString();
+            //IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
             //例外工作日考勤初始化记录公共假期
-            var qVacDay = from ent in entVacDays
+            var qVacDay = from ent in entOutPlanDays
                           where ent.STARTDATE >= dtStart
                           && ent.STARTDATE <= dtEnd
                           select ent;
