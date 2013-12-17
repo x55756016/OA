@@ -52,6 +52,10 @@ namespace SMT.SaaS.LocalData
         /// </summary>
         public string MobileTelphone { set; get; }
         /// <summary>
+        /// 联系号码，包括手机座机
+        /// </summary>
+        public string Telphone { set; get; }
+        /// <summary>
         /// 当前登录记录ID
         /// </summary>
         public string LoginRecordID { get; set; }
