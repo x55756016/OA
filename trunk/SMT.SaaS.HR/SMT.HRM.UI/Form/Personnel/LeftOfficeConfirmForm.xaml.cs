@@ -675,7 +675,7 @@ namespace SMT.HRM.UI.Form.Personnel
             //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY postLevelDict = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "POSTLEVLE" && s.DICTIONARYVALUE == employeepost.POSTLEVEL).FirstOrDefault();
             //postLevelName = postLevelDict == null ? "" : postLevelDict.DICTIONARYNAME;
 
-            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+           // SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
             List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "CHECKSTATE", "1", checkState));
@@ -685,7 +685,8 @@ namespace SMT.HRM.UI.Form.Personnel
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-            AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
+            //AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
+            AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "LEFTOFFICECATEGORY", "1", "辞职"));
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "EMPLOYEEID", Info.EMPLOYEEID, Info.EMPLOYEECNAME));
             // AutoList.Add(basedata("T_HR_EMPLOYEECHECK", "POSTLEVEL", employeepost.POSTLEVEL.ToString(), employeepost.POSTLEVEL.ToString()));
             AutoList.Add(basedata("T_HR_LEFTOFFICECONFIRM", "EMPLOYEECNAME", Info.EMPLOYEECNAME, Info.EMPLOYEECNAME));
@@ -765,7 +766,8 @@ namespace SMT.HRM.UI.Form.Personnel
 
 
             Dictionary<string, string> para2 = new Dictionary<string, string>();
-            para2.Add("LEFTOFFICECATEGORY", (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY) == null ? "" : (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYNAME);
+            //para2.Add("LEFTOFFICECATEGORY", (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY) == null ? "" : (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYNAME);
+            para2.Add("LEFTOFFICECATEGORY","辞职");
 
             entity.SystemCode = "HR";
             string strXmlObjectSource = string.Empty;
@@ -850,13 +852,13 @@ namespace SMT.HRM.UI.Form.Personnel
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 return false;
             }
-            if (cbxEmployeeType.SelectedItem == null)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICECATEGORY"),
-                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                return false;
-            }
+            //if (cbxEmployeeType.SelectedItem == null)
+            //{
+            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICECATEGORY"),
+            //      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            //    RefreshUI(RefreshedTypes.HideProgressBar);
+            //    return false;
+            //}
             if (string.IsNullOrEmpty(dpStopPaymentDate.Text))
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "STOPPAYMENTDATE"),
@@ -970,7 +972,7 @@ namespace SMT.HRM.UI.Form.Personnel
             {
                 LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(leftDate);
             }
-            LeftOfficeConfirm.LEFTOFFICECATEGORY = (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
+            LeftOfficeConfirm.LEFTOFFICECATEGORY = "1";// (cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
             LeftOfficeConfirm.REMARK = txtLeftRemark.Text;
             LeftOfficeConfirm.LEFTOFFICEREASON = txtLeftReason.Text;
             if (!string.IsNullOrEmpty(leftDate))
@@ -1019,7 +1021,7 @@ namespace SMT.HRM.UI.Form.Personnel
         void EnabledControl()
         {
             lkEmployeeName.IsEnabled = false;
-            cbxEmployeeType.IsEnabled = false;
+           // cbxEmployeeType.IsEnabled = false;
             dpLeftDate.IsEnabled = false;
             dpApplyDate.IsEnabled = false;
             txtLeftReason.IsReadOnly = true;

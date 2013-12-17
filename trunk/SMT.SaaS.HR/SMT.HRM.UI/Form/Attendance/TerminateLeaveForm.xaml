@@ -65,7 +65,7 @@
                     FindClick="lkEmployeeLeave_FindClick" Name="lkEmployeeLeave" Margin="0,0,0,0" DisplayMemberPath="T_HR_LEAVETYPESET.LEAVETYPENAME">
                 </smtx:LookUp>
                 <!--row1提示信息-->
-                <TextBlock Text="不显示已核算（即月薪生成）过请假记录" FontSize="11" Foreground="Red" Grid.Row="1" Grid.Column="3" ></TextBlock>
+                <TextBlock Text="不显示已核算（即月薪生成）的请假记录" FontSize="11" Foreground="Red" Grid.Row="1" Grid.Column="3"  Grid.ColumnSpan="2"></TextBlock>
                 <!--Row2-->
                 <TextBlock Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATETIME}" VerticalAlignment="Center" Margin="5,0,0,0"/>
                 <smtx:DateTimePicker x:Name="dpStartDate" IsEnabled="False" Grid.Row="2" Grid.Column="1" Value="{Binding T_HR_EMPLOYEELEAVERECORD.STARTDATETIME, Mode=TwoWay}" Height="22" Margin="5,0,0,0"></smtx:DateTimePicker>

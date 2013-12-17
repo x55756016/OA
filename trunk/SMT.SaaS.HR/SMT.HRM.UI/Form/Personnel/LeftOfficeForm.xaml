@@ -46,12 +46,16 @@
 
         <!--LEFTOFFICECATEGORY-->
         <TextBlock  Grid.Column="3" Grid.Row="0"  Margin="5,0,0,0"
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICECATEGORY}" />
-        <appCtr:DictionaryComboBox x:Name="cbxEmployeeType" Grid.Row="0" Grid.Column="4" IsShowNull="False"  Category="LEFTOFFICECATEGORY" SelectedValue="{Binding LEFTOFFICECATEGORY, Mode=TwoWay}" Height="22" Width="Auto"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
+            					Text="离职类型" />
+        <!--<TextBlock  Grid.Column="4" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="辞职" />-->
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="辞职" Margin="5,0,0,0"  Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" Height="22" Width="Auto" IsReadOnly="True">
+        </TextBox>
+        <!--<appCtr:DictionaryComboBox x:Name="cbxEmployeeType" Grid.Row="0" Grid.Column="4" IsShowNull="False"  Category="LEFTOFFICECATEGORY" SelectedValue="{Binding LEFTOFFICECATEGORY, Mode=TwoWay}" Height="22" Width="Auto"  HorizontalAlignment="Stretch" Margin="5,0,0,0">
             <interaction:Interaction.Behaviors>
                 <behaviors:ShowRequire></behaviors:ShowRequire>
             </interaction:Interaction.Behaviors>
-        </appCtr:DictionaryComboBox>
+        </appCtr:DictionaryComboBox>-->
 
         <!--Row 1-->
         <!--LEFTOFFICEDATE-->
@@ -138,20 +142,20 @@
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>-->
-                        <data:DataGrid x:Name="DtBorrowMoney" Grid.Row="0"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                <data:DataGrid x:Name="DtBorrowMoney" Grid.Row="0"  AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        Style="{StaticResource DataGridStyle}" IsReadOnly="True"  
                         CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}">
-                            <data:DataGrid.Columns>
-                                <data:DataGridTextColumn Header="普通借款" Binding="{Binding SIMPLEBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                                <data:DataGridTextColumn Header="备用金借款" Binding="{Binding BACKUPBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                                <data:DataGridTextColumn Header="专项借款" Binding="{Binding SPECIALBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                            </data:DataGrid.Columns>
-                        </data:DataGrid>
-                        <!--<smt:GridPager Name="dataPagerMoney" PageSize="20" Click="GridPagerMoney_Click" Grid.Row="1"></smt:GridPager>-->
-                    <!--</Grid>
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="普通借款" Binding="{Binding SIMPLEBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="备用金借款" Binding="{Binding BACKUPBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                        <data:DataGridTextColumn Header="专项借款" Binding="{Binding SPECIALBORROWMONEY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    </data:DataGrid.Columns>
+                </data:DataGrid>
+                <!--<smt:GridPager Name="dataPagerMoney" PageSize="20" Click="GridPagerMoney_Click" Grid.Row="1"></smt:GridPager>-->
+                <!--</Grid>
                 </ScrollViewer>-->
             </controls:TabItem>
-           
+
         </controls:TabControl>
     </Grid>
 </smtLocal:BaseForm>

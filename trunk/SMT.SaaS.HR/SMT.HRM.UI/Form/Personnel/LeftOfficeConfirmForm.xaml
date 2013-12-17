@@ -47,7 +47,13 @@
 
 
         <!--LEFTOFFICECATEGORY-->
-        <TextBlock  Grid.Column="3" Grid.Row="0" 
+        <TextBlock  Grid.Column="3" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="离职类型" />
+        <!--<TextBlock  Grid.Column="4" Grid.Row="0"  Margin="5,0,0,0"
+            					Text="辞职" />-->
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="辞职" Margin="5,0,0,0"  Grid.Column="4" Grid.Row="0" HorizontalAlignment="Stretch" Height="22" Width="Auto" IsReadOnly="True">
+        </TextBox>
+        <!--<TextBlock  Grid.Column="3" Grid.Row="0" 
             					Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEFTOFFICECATEGORY}" VerticalAlignment="Center" />
         <appCtr:DictionaryComboBox x:Name="cbxEmployeeType" Grid.Row="0" Grid.Column="4" IsShowNull="False"  Category="LEFTOFFICECATEGORY" 
                                    SelectedValue="{Binding LEFTOFFICECATEGORY, Mode=TwoWay}" Height="22" Width="Auto" 
@@ -55,7 +61,7 @@
             <interaction:Interaction.Behaviors>
                 <behaviors:ShowRequire></behaviors:ShowRequire>
             </interaction:Interaction.Behaviors>
-        </appCtr:DictionaryComboBox>
+        </appCtr:DictionaryComboBox>-->
 
         <!--Row 1-->
         <!--Company-->

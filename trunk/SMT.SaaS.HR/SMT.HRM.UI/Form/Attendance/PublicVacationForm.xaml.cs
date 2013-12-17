@@ -1425,6 +1425,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (ck.IsChecked.Value == true)
                     {
                         item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        item.ENDDATE = item.STARTDATE.Value.AddDays(1).AddMilliseconds(-1);
                         item.DAYS = Convert.ToDecimal(0.5);
                         if (ComboBoxHalfDay.SelectedIndex == 0)//上午
                         {
@@ -1558,6 +1559,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     if (ck.IsChecked.Value == true)
                     {
                         item.ISHALFDAY = Convert.ToInt32(IsChecked.Yes).ToString();
+                        item.ENDDATE = item.STARTDATE.Value.AddDays(1).AddMilliseconds(-1);
                         item.DAYS =Convert.ToDecimal(0.5);
                         if (workComboHatfDay.SelectedIndex == 0)//上午
                         {

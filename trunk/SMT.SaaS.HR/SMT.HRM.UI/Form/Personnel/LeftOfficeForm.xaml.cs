@@ -260,8 +260,8 @@ namespace SMT.HRM.UI.Form.Personnel
                 client.GetLeftOfficeByIDAsync(leftofficeID);
             }
             //设置默认值：新建时，离职类型只有辞职，其他的都不要
-            cbxEmployeeType.SelectedValue = "1";
-            cbxEmployeeType.IsEnabled = false;
+            //cbxEmployeeType.SelectedValue = "1";
+            //cbxEmployeeType.IsEnabled = false;
         }
 
         //by luojie 
@@ -401,7 +401,7 @@ namespace SMT.HRM.UI.Form.Personnel
             SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY postLevelDict = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "POSTLEVEL" && s.DICTIONARYVALUE == employeePostSelcected.POSTLEVEL).FirstOrDefault();
             postLevelName = postLevelDict == null ? "" : postLevelDict.DICTIONARYNAME;
 
-            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+           // SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
             string postname = employeePostSelcected.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME + " - " + employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME
                               + " - " + employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME;
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
@@ -413,7 +413,7 @@ namespace SMT.HRM.UI.Form.Personnel
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
             //AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-            AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYVALUE.ToString() : "0", LEFTOFFICECATEGORY != null ? LEFTOFFICECATEGORY.DICTIONARYNAME : ""));
+            AutoList.Add(basedata("T_HR_LEFTOFFICE", "LEFTOFFICECATEGORY", "1", "辞职"));
             AutoList.Add(basedata("T_HR_LEFTOFFICE", "EMPLOYEEID", Info.T_HR_EMPLOYEE.EMPLOYEEID, Info.T_HR_EMPLOYEE.EMPLOYEECNAME));
             AutoList.Add(basedata("T_HR_LEFTOFFICE", "POSTLEVEL", employeePostSelcected.POSTLEVEL.ToString(), postLevelName));
             AutoList.Add(basedata("T_HR_LEFTOFFICE", "EMPLOYEECNAME", Info.T_HR_EMPLOYEE.EMPLOYEECNAME, Info.T_HR_EMPLOYEE.EMPLOYEECNAME));
@@ -728,6 +728,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     return;
                 }
                 string strMsg = "";
+                LeftOffice.LEFTOFFICECATEGORY = "1";
                 if (FormType == FormTypes.New)
                 {
                     //所属
