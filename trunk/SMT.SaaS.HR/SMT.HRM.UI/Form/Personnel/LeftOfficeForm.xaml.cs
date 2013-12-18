@@ -869,6 +869,22 @@ namespace SMT.HRM.UI.Form.Personnel
                     return;
                 }
                 post.Add(e.Result);
+                foreach (var p in post)
+                {
+                    if (p.ISAGENCY == "0")  //0:主岗位； 1：兼职岗位
+                    {
+                        if (FormType == FormTypes.New)
+                        {
+                            employeePostSelcected = p;
+                            LeftOffice.ISAGENCY = employeePostSelcected.ISAGENCY;
+                        }
+                        p.ISAGENCY = "主岗位";
+                    }
+                    else
+                    {
+                        p.ISAGENCY = "兼职岗位";
+                    }
+                }
                 DtGrid.ItemsSource = post;
             }
         }

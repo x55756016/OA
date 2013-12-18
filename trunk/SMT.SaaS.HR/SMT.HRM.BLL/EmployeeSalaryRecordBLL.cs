@@ -3836,10 +3836,11 @@ namespace SMT.HRM.BLL
                 {
                     var list = ent.ToList();
                     var lastDate = list.OrderByDescending(t => t.CREATEDATE).FirstOrDefault();
-                    string salaryYear = lastDate.SALARYYEAR;
-                    decimal salaryMonth = Convert.ToDecimal(lastDate.SALARYMONTH) + 1;
+                    decimal salaryYear = Convert.ToDecimal(lastDate.SALARYYEAR);
+                    decimal salaryMonth = Convert.ToDecimal(lastDate.SALARYMONTH);
                     string strDate = salaryYear + "-" + salaryMonth + "-" + "1";
                     DateTime dt = Convert.ToDateTime(strDate);
+                    dt = dt.AddMonths(1);
                     return dt;
                 }
                 else

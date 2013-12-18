@@ -109,6 +109,38 @@ namespace SMT.Foundation.Core
             }
         }
 
+        public static IDAL CreateDataContextEveryTime(string DalID)
+        {
+            string typeName = string.Empty;
+            string dataBaseType = DataBaseType;
+            if (dataBaseType != null)
+            {
+                if (!(dataBaseType == "Oracle"))
+                {
+                    if (dataBaseType == "SQLServer")
+                    {
+                        typeName = DALAssemblyPath + ".SqlEntityFrameworkContext";
+                        goto Label_0092;
+                    }
+                    if (dataBaseType == "MySql")
+                    {
+                        typeName = DALAssemblyPath + ".MySqlEntityFrameworkContext";
+                        goto Label_0092;
+                    }
+                }
+                else
+                {
+                    typeName = DALAssemblyPath + "." + DBContextName;
+                    goto Label_0092;
+                }
+            }
+            typeName = DALAssemblyPath + "." + DBContextName;
+        Label_0092:
+            return (IDAL)Assembly.Load(DALAssemblyPath).CreateInstance(typeName);
+        }
+
+ 
+
         public static void ClearCache(string threadName)
         {
             contenxtCache.Remove(threadName);

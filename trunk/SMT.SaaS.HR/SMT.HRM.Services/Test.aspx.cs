@@ -14,11 +14,14 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LeftOfficeBLL bll = new LeftOfficeBLL();
+            bll.UpdateCheckState("T_HR_LEFTOFFICE", "DIMISSIONID", "634c214b-7608-4222-87e8-3ad36a474d6c", "1");
+
             return;
-            using (EmployeeBLL bll = new EmployeeBLL())
-            {
-                bll.GetEmployeeLeaders("ae4c77df-f734-477a-aee7-09ece0269d7b", 0);
-            }
+            //using (EmployeeBLL bll = new EmployeeBLL())
+            //{
+            //    bll.GetEmployeeLeaders("ae4c77df-f734-477a-aee7-09ece0269d7b", 0);
+            //}
             return;
             #region 请假消除异常
             //测试请假消除异常

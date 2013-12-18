@@ -34,7 +34,10 @@ namespace SMT.Foundation.Core
         public BaseDAL()
         {
             //单例模式
-            lbc = DALFacoty.CreateDataContext();
+            //lbc = DALFacoty.CreateDataContext();
+            this.DalID = Guid.NewGuid().ToString();
+            this.lbc = DALFacoty.CreateDataContextEveryTime(this.DalID);
+
         }
 
         /// <summary>
@@ -156,18 +159,21 @@ namespace SMT.Foundation.Core
                 if (ef != null)
                 {
                     object objRefNew = null;
-                    this.lbc.GetDataContext().TryGetObjectByKey(ef.EntityKey, out objRefNew);
-                    if (NewEntity.GetType().Name == newEntityRefrence.TargetRoleName)
+                    if (ef.EntityKey != null)
                     {
-                        (OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName + "2").SetValue(OldEntity, objRefNew, null);
-                    }
-                    else
-                    {
-                        if ((OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName).PropertyType.Name == "EntityCollection`1")
+                        this.lbc.GetDataContext().TryGetObjectByKey(ef.EntityKey, out objRefNew);
+                        if (NewEntity.GetType().Name == newEntityRefrence.TargetRoleName)
                         {
-                            continue;
+                            (OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName + "2").SetValue(OldEntity, objRefNew, null);
                         }
-                        (OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName).SetValue(OldEntity, objRefNew, null);
+                        else
+                        {
+                            if ((OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName).PropertyType.Name == "EntityCollection`1")
+                            {
+                                continue;
+                            }
+                            (OldEntity as EntityObject).GetType().GetProperty(newEntityRefrence.TargetRoleName).SetValue(OldEntity, objRefNew, null);
+                        }
                     }
                 }
             }
