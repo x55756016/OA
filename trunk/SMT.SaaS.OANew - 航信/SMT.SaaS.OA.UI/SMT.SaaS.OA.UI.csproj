@@ -120,17 +120,6 @@
     <Reference Include="SMT.SAAS.Images">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Images.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.LocalData">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.MoblieXml">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
     </Reference>
@@ -145,10 +134,6 @@
     </Reference>
     <Reference Include="SMT.Saas.Tools">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -3057,7 +3042,6 @@
     <None Include="Service References\TravelExpApplyMaster\OaInterface21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SMT-OA 测试文档.doc" />
     <None Include="SMT.SaaS.FrameworkUI.AuditService.Flow_FlowRecord_T.datasource" />
     <None Include="Service References\EngineDataSource\configuration91.svcinfo" />
     <None Include="Service References\EngineDataSource\configuration.svcinfo" />
@@ -3150,6 +3134,22 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Globalization\SMT.SAAS.Globalization.csproj">
       <Project>{7C8EB5BC-8C15-41BC-B4AC-4AEB046D692C}</Project>
       <Name>SMT.SAAS.Globalization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
+      <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
+      <Name>SMT.SaaS.LocalData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContextLoadData\SMT.SAAS.Main.CurrentContextLoadData.csproj">
+      <Project>{1e53de37-0661-4f98-b1ef-8eff67807f31}</Project>
+      <Name>SMT.SAAS.Main.CurrentContextLoadData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
+      <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
+      <Name>SMT.SaaS.Window</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SMT.SAAS.FrameWork\SMT.SAAS.Themes\SMT.SAAS.Themes.csproj" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
       <Project>{2C6FFFA6-6ACD-4C24-ADD5-ACEB431011E0}</Project>

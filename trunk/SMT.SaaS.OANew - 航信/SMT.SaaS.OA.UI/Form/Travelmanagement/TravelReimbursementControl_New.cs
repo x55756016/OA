@@ -122,7 +122,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     {
                         if (!string.IsNullOrEmpty(TrDetail.BUSINESSDAYS))
                         {
-                            TrDetail.THENUMBEROFNIGHTS =(Convert.ToDouble(TrDetail.BUSINESSDAYS)-1).ToString();
+                            TrDetail.THENUMBEROFNIGHTS =TrDetail.BUSINESSDAYS;
                         }
                     }
                     if (TravelDetailList_Golbal.Count() > 0)

@@ -1168,7 +1168,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     if (!string.IsNullOrEmpty(obj.BUSINESSDAYS) && obj.BUSINESSDAYS != "0")
                     {
                         //住宿天数
-                        double totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS) - 1;
+                        double totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);
                         obj.THENUMBEROFNIGHTS = totaldays.ToString();
                         if (entareaallowance != null)
                         {
