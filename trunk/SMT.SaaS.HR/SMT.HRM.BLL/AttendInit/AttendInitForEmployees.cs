@@ -406,8 +406,9 @@ namespace SMT.HRM.BLL
                                         {   //非免打卡员工，跳过
                                             Tracer.Debug("初始化考勤记录已存在，" + " 员工姓名" + item_emp.EMPLOYEECNAME + " 考勤初始化日期：" + entUpdate.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd")
                                                  + usedAttendSolutionName);
-                                            if (string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
+                                            if (!string.IsNullOrEmpty(entUpdate.ATTENDANCESTATE))
                                             {
+                                                Tracer.Debug("已存在的考勤初始化记录状态为： " + entUpdate.ATTENDANCESTATE + " ,跳过不再生成");
                                                 continue;//如果存在直接跳过
                                             }
 

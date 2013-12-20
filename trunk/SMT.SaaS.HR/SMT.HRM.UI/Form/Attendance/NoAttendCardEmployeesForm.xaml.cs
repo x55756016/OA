@@ -231,7 +231,7 @@ namespace SMT.HRM.UI.Form.Attendance
             string state =string.Empty;
             state = Utility.GetCheckState(CheckStates.Approved);
             //Save();
-            clientAtt.AuditOverTimeRdAsync(AttendanceSolutionAsignID, state);
+            clientAtt.AuditOutApplyAsync(AttendanceSolutionAsignID, state);
         }
 
         private void RefreshUI(RefreshedTypes type)

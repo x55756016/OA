@@ -2427,6 +2427,9 @@
     <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\OutApplyWS\SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

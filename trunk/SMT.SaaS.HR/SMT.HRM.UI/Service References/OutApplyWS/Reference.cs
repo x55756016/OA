@@ -1250,7 +1250,7 @@ namespace SMT.HRM.UI.OutApplyWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="OutApplyWS.OutAppliecrecordService")]
     public interface OutAppliecrecordService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/EmployeeOverTimeRecordPaging", ReplyAction="urn:OutAppliecrecordService/EmployeeOverTimeRecordPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/EmployeeOutApplyRecordPaging", ReplyAction="urn:OutAppliecrecordService/EmployeeOutApplyRecordPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKeyMember))]
@@ -1267,34 +1267,34 @@ namespace SMT.HRM.UI.OutApplyWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
-        System.IAsyncResult BeginEmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginEmployeeOutApplyRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState);
         
-        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOutApplyRecordPaging(ref int pageCount, System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetOverTimeRdByID", ReplyAction="urn:OutAppliecrecordService/GetOverTimeRdByIDResponse")]
-        System.IAsyncResult BeginGetOverTimeRdByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetOutApplyByID", ReplyAction="urn:OutAppliecrecordService/GetOutApplyByIDResponse")]
+        System.IAsyncResult BeginGetOutApplyByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
         
-        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOverTimeRdByID(System.IAsyncResult result);
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOutApplyByID(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AddOverTimeRd", ReplyAction="urn:OutAppliecrecordService/AddOverTimeRdResponse")]
-        System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AddOutApply", ReplyAction="urn:OutAppliecrecordService/AddOutApplyResponse")]
+        System.IAsyncResult BeginAddOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
         
-        string EndAddOverTimeRd(System.IAsyncResult result);
+        string EndAddOutApply(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/ModifyOverTimeRd", ReplyAction="urn:OutAppliecrecordService/ModifyOverTimeRdResponse")]
-        System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/UpdateOutApply", ReplyAction="urn:OutAppliecrecordService/UpdateOutApplyResponse")]
+        System.IAsyncResult BeginUpdateOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState);
         
-        string EndModifyOverTimeRd(System.IAsyncResult result);
+        string EndUpdateOutApply(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/RemoveOverTimeRd", ReplyAction="urn:OutAppliecrecordService/RemoveOverTimeRdResponse")]
-        System.IAsyncResult BeginRemoveOverTimeRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/DeleteOutApply", ReplyAction="urn:OutAppliecrecordService/DeleteOutApplyResponse")]
+        System.IAsyncResult BeginDeleteOutApply(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
         
-        bool EndRemoveOverTimeRd(System.IAsyncResult result);
+        bool EndDeleteOutApply(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AuditOverTimeRd", ReplyAction="urn:OutAppliecrecordService/AuditOverTimeRdResponse")]
-        System.IAsyncResult BeginAuditOverTimeRd(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState);
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AuditOutApply", ReplyAction="urn:OutAppliecrecordService/AuditOutApplyResponse")]
+        System.IAsyncResult BeginAuditOutApply(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState);
         
-        string EndAuditOverTimeRd(System.IAsyncResult result);
+        string EndAuditOutApply(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPaging", ReplyAction="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKey))]
@@ -1336,6 +1336,52 @@ namespace SMT.HRM.UI.OutApplyWS {
         System.IAsyncResult BeginDeleteNoAttendCardEmployeesRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
         
         bool EndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/EmployeeOutApplyConfrimPaging", ReplyAction="urn:OutAppliecrecordService/EmployeeOutApplyConfrimPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReferenceOfT_HR_OUTAPPLYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES))]
+        System.IAsyncResult BeginEmployeeOutApplyConfrimPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> EndEmployeeOutApplyConfrimPaging(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/GetOutApplyConfrimByID", ReplyAction="urn:OutAppliecrecordService/GetOutApplyConfrimByIDResponse")]
+        System.IAsyncResult BeginGetOutApplyConfrimByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM EndGetOutApplyConfrimByID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AddOutApplyConfrim", ReplyAction="urn:OutAppliecrecordService/AddOutApplyConfrimResponse")]
+        System.IAsyncResult BeginAddOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState);
+        
+        string EndAddOutApplyConfrim(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/UpdateOutApplyConfrim", ReplyAction="urn:OutAppliecrecordService/UpdateOutApplyConfrimResponse")]
+        System.IAsyncResult BeginUpdateOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState);
+        
+        string EndUpdateOutApplyConfrim(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/DeleteOutApplyConfrim", ReplyAction="urn:OutAppliecrecordService/DeleteOutApplyConfrimResponse")]
+        System.IAsyncResult BeginDeleteOutApplyConfrim(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndDeleteOutApplyConfrim(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OutAppliecrecordService/AuditOutApplyConfrim", ReplyAction="urn:OutAppliecrecordService/AuditOutApplyConfrimResponse")]
+        System.IAsyncResult BeginAuditOutApplyConfrim(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState);
+        
+        string EndAuditOutApplyConfrim(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1344,11 +1390,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class EmployeeOverTimeRecordPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class EmployeeOutApplyRecordPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public EmployeeOverTimeRecordPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public EmployeeOutApplyRecordPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1370,11 +1416,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetOverTimeRdByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetOutApplyByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetOverTimeRdByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public GetOutApplyByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1389,11 +1435,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddOverTimeRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class AddOutApplyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public AddOverTimeRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public AddOutApplyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1408,11 +1454,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ModifyOverTimeRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class UpdateOutApplyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public ModifyOverTimeRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public UpdateOutApplyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1427,11 +1473,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RemoveOverTimeRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class DeleteOutApplyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public RemoveOverTimeRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public DeleteOutApplyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1446,11 +1492,11 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuditOverTimeRdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class AuditOutApplyCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public AuditOverTimeRdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public AuditOutApplyCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1567,43 +1613,164 @@ namespace SMT.HRM.UI.OutApplyWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeOutApplyConfrimPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeOutApplyConfrimPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetOutApplyConfrimByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetOutApplyConfrimByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddOutApplyConfrimCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddOutApplyConfrimCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateOutApplyConfrimCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateOutApplyConfrimCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DeleteOutApplyConfrimCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public DeleteOutApplyConfrimCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AuditOutApplyConfrimCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AuditOutApplyConfrimCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class OutAppliecrecordServiceClient : System.ServiceModel.ClientBase<SMT.HRM.UI.OutApplyWS.OutAppliecrecordService>, SMT.HRM.UI.OutApplyWS.OutAppliecrecordService {
         
-        private BeginOperationDelegate onBeginEmployeeOverTimeRecordPagingDelegate;
+        private BeginOperationDelegate onBeginEmployeeOutApplyRecordPagingDelegate;
         
-        private EndOperationDelegate onEndEmployeeOverTimeRecordPagingDelegate;
+        private EndOperationDelegate onEndEmployeeOutApplyRecordPagingDelegate;
         
-        private System.Threading.SendOrPostCallback onEmployeeOverTimeRecordPagingCompletedDelegate;
+        private System.Threading.SendOrPostCallback onEmployeeOutApplyRecordPagingCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetOverTimeRdByIDDelegate;
+        private BeginOperationDelegate onBeginGetOutApplyByIDDelegate;
         
-        private EndOperationDelegate onEndGetOverTimeRdByIDDelegate;
+        private EndOperationDelegate onEndGetOutApplyByIDDelegate;
         
-        private System.Threading.SendOrPostCallback onGetOverTimeRdByIDCompletedDelegate;
+        private System.Threading.SendOrPostCallback onGetOutApplyByIDCompletedDelegate;
         
-        private BeginOperationDelegate onBeginAddOverTimeRdDelegate;
+        private BeginOperationDelegate onBeginAddOutApplyDelegate;
         
-        private EndOperationDelegate onEndAddOverTimeRdDelegate;
+        private EndOperationDelegate onEndAddOutApplyDelegate;
         
-        private System.Threading.SendOrPostCallback onAddOverTimeRdCompletedDelegate;
+        private System.Threading.SendOrPostCallback onAddOutApplyCompletedDelegate;
         
-        private BeginOperationDelegate onBeginModifyOverTimeRdDelegate;
+        private BeginOperationDelegate onBeginUpdateOutApplyDelegate;
         
-        private EndOperationDelegate onEndModifyOverTimeRdDelegate;
+        private EndOperationDelegate onEndUpdateOutApplyDelegate;
         
-        private System.Threading.SendOrPostCallback onModifyOverTimeRdCompletedDelegate;
+        private System.Threading.SendOrPostCallback onUpdateOutApplyCompletedDelegate;
         
-        private BeginOperationDelegate onBeginRemoveOverTimeRdDelegate;
+        private BeginOperationDelegate onBeginDeleteOutApplyDelegate;
         
-        private EndOperationDelegate onEndRemoveOverTimeRdDelegate;
+        private EndOperationDelegate onEndDeleteOutApplyDelegate;
         
-        private System.Threading.SendOrPostCallback onRemoveOverTimeRdCompletedDelegate;
+        private System.Threading.SendOrPostCallback onDeleteOutApplyCompletedDelegate;
         
-        private BeginOperationDelegate onBeginAuditOverTimeRdDelegate;
+        private BeginOperationDelegate onBeginAuditOutApplyDelegate;
         
-        private EndOperationDelegate onEndAuditOverTimeRdDelegate;
+        private EndOperationDelegate onEndAuditOutApplyDelegate;
         
-        private System.Threading.SendOrPostCallback onAuditOverTimeRdCompletedDelegate;
+        private System.Threading.SendOrPostCallback onAuditOutApplyCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetNoAttendCardEmployeesPagingDelegate;
         
@@ -1634,6 +1801,42 @@ namespace SMT.HRM.UI.OutApplyWS {
         private EndOperationDelegate onEndDeleteNoAttendCardEmployeesRdDelegate;
         
         private System.Threading.SendOrPostCallback onDeleteNoAttendCardEmployeesRdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginEmployeeOutApplyConfrimPagingDelegate;
+        
+        private EndOperationDelegate onEndEmployeeOutApplyConfrimPagingDelegate;
+        
+        private System.Threading.SendOrPostCallback onEmployeeOutApplyConfrimPagingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetOutApplyConfrimByIDDelegate;
+        
+        private EndOperationDelegate onEndGetOutApplyConfrimByIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetOutApplyConfrimByIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddOutApplyConfrimDelegate;
+        
+        private EndOperationDelegate onEndAddOutApplyConfrimDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddOutApplyConfrimCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateOutApplyConfrimDelegate;
+        
+        private EndOperationDelegate onEndUpdateOutApplyConfrimDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateOutApplyConfrimCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteOutApplyConfrimDelegate;
+        
+        private EndOperationDelegate onEndDeleteOutApplyConfrimDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteOutApplyConfrimCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAuditOutApplyConfrimDelegate;
+        
+        private EndOperationDelegate onEndAuditOutApplyConfrimDelegate;
+        
+        private System.Threading.SendOrPostCallback onAuditOutApplyConfrimCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -1687,17 +1890,17 @@ namespace SMT.HRM.UI.OutApplyWS {
             }
         }
         
-        public event System.EventHandler<EmployeeOverTimeRecordPagingCompletedEventArgs> EmployeeOverTimeRecordPagingCompleted;
+        public event System.EventHandler<EmployeeOutApplyRecordPagingCompletedEventArgs> EmployeeOutApplyRecordPagingCompleted;
         
-        public event System.EventHandler<GetOverTimeRdByIDCompletedEventArgs> GetOverTimeRdByIDCompleted;
+        public event System.EventHandler<GetOutApplyByIDCompletedEventArgs> GetOutApplyByIDCompleted;
         
-        public event System.EventHandler<AddOverTimeRdCompletedEventArgs> AddOverTimeRdCompleted;
+        public event System.EventHandler<AddOutApplyCompletedEventArgs> AddOutApplyCompleted;
         
-        public event System.EventHandler<ModifyOverTimeRdCompletedEventArgs> ModifyOverTimeRdCompleted;
+        public event System.EventHandler<UpdateOutApplyCompletedEventArgs> UpdateOutApplyCompleted;
         
-        public event System.EventHandler<RemoveOverTimeRdCompletedEventArgs> RemoveOverTimeRdCompleted;
+        public event System.EventHandler<DeleteOutApplyCompletedEventArgs> DeleteOutApplyCompleted;
         
-        public event System.EventHandler<AuditOverTimeRdCompletedEventArgs> AuditOverTimeRdCompleted;
+        public event System.EventHandler<AuditOutApplyCompletedEventArgs> AuditOutApplyCompleted;
         
         public event System.EventHandler<GetNoAttendCardEmployeesPagingCompletedEventArgs> GetNoAttendCardEmployeesPagingCompleted;
         
@@ -1709,21 +1912,33 @@ namespace SMT.HRM.UI.OutApplyWS {
         
         public event System.EventHandler<DeleteNoAttendCardEmployeesRdCompletedEventArgs> DeleteNoAttendCardEmployeesRdCompleted;
         
+        public event System.EventHandler<EmployeeOutApplyConfrimPagingCompletedEventArgs> EmployeeOutApplyConfrimPagingCompleted;
+        
+        public event System.EventHandler<GetOutApplyConfrimByIDCompletedEventArgs> GetOutApplyConfrimByIDCompleted;
+        
+        public event System.EventHandler<AddOutApplyConfrimCompletedEventArgs> AddOutApplyConfrimCompleted;
+        
+        public event System.EventHandler<UpdateOutApplyConfrimCompletedEventArgs> UpdateOutApplyConfrimCompleted;
+        
+        public event System.EventHandler<DeleteOutApplyConfrimCompletedEventArgs> DeleteOutApplyConfrimCompleted;
+        
+        public event System.EventHandler<AuditOutApplyConfrimCompletedEventArgs> AuditOutApplyConfrimCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginEmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginEmployeeOverTimeRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginEmployeeOutApplyRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeOutApplyRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndEmployeeOverTimeRecordPaging(ref pageCount, result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndEmployeeOutApplyRecordPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndEmployeeOutApplyRecordPaging(ref pageCount, result);
         }
         
-        private System.IAsyncResult OnBeginEmployeeOverTimeRecordPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginEmployeeOutApplyRecordPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
             int pageIndex = ((int)(inValues[0]));
             int pageSize = ((int)(inValues[1]));
             string sort = ((string)(inValues[2]));
@@ -1732,39 +1947,39 @@ namespace SMT.HRM.UI.OutApplyWS {
             int pageCount = ((int)(inValues[5]));
             string strCheckState = ((string)(inValues[6]));
             string strOwnerID = ((string)(inValues[7]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginEmployeeOverTimeRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginEmployeeOutApplyRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
         }
         
-        private object[] OnEndEmployeeOverTimeRecordPaging(System.IAsyncResult result) {
+        private object[] OnEndEmployeeOutApplyRecordPaging(System.IAsyncResult result) {
             int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndEmployeeOverTimeRecordPaging(ref pageCount, result);
+            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndEmployeeOutApplyRecordPaging(ref pageCount, result);
             return new object[] {
                     pageCount,
                     retVal};
         }
         
-        private void OnEmployeeOverTimeRecordPagingCompleted(object state) {
-            if ((this.EmployeeOverTimeRecordPagingCompleted != null)) {
+        private void OnEmployeeOutApplyRecordPagingCompleted(object state) {
+            if ((this.EmployeeOutApplyRecordPagingCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.EmployeeOverTimeRecordPagingCompleted(this, new EmployeeOverTimeRecordPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.EmployeeOutApplyRecordPagingCompleted(this, new EmployeeOutApplyRecordPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void EmployeeOverTimeRecordPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID) {
-            this.EmployeeOverTimeRecordPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, null);
+        public void EmployeeOutApplyRecordPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID) {
+            this.EmployeeOutApplyRecordPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, null);
         }
         
-        public void EmployeeOverTimeRecordPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, object userState) {
-            if ((this.onBeginEmployeeOverTimeRecordPagingDelegate == null)) {
-                this.onBeginEmployeeOverTimeRecordPagingDelegate = new BeginOperationDelegate(this.OnBeginEmployeeOverTimeRecordPaging);
+        public void EmployeeOutApplyRecordPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, object userState) {
+            if ((this.onBeginEmployeeOutApplyRecordPagingDelegate == null)) {
+                this.onBeginEmployeeOutApplyRecordPagingDelegate = new BeginOperationDelegate(this.OnBeginEmployeeOutApplyRecordPaging);
             }
-            if ((this.onEndEmployeeOverTimeRecordPagingDelegate == null)) {
-                this.onEndEmployeeOverTimeRecordPagingDelegate = new EndOperationDelegate(this.OnEndEmployeeOverTimeRecordPaging);
+            if ((this.onEndEmployeeOutApplyRecordPagingDelegate == null)) {
+                this.onEndEmployeeOutApplyRecordPagingDelegate = new EndOperationDelegate(this.OnEndEmployeeOutApplyRecordPaging);
             }
-            if ((this.onEmployeeOverTimeRecordPagingCompletedDelegate == null)) {
-                this.onEmployeeOverTimeRecordPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeOverTimeRecordPagingCompleted);
+            if ((this.onEmployeeOutApplyRecordPagingCompletedDelegate == null)) {
+                this.onEmployeeOutApplyRecordPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeOutApplyRecordPagingCompleted);
             }
-            base.InvokeAsync(this.onBeginEmployeeOverTimeRecordPagingDelegate, new object[] {
+            base.InvokeAsync(this.onBeginEmployeeOutApplyRecordPagingDelegate, new object[] {
                         pageIndex,
                         pageSize,
                         sort,
@@ -1772,239 +1987,239 @@ namespace SMT.HRM.UI.OutApplyWS {
                         paras,
                         pageCount,
                         strCheckState,
-                        strOwnerID}, this.onEndEmployeeOverTimeRecordPagingDelegate, this.onEmployeeOverTimeRecordPagingCompletedDelegate, userState);
+                        strOwnerID}, this.onEndEmployeeOutApplyRecordPagingDelegate, this.onEmployeeOutApplyRecordPagingCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginGetOverTimeRdByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetOverTimeRdByID(strOverTimeRecordId, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginGetOutApplyByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetOutApplyByID(strOverTimeRecordId, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetOverTimeRdByID(System.IAsyncResult result) {
-            return base.Channel.EndGetOverTimeRdByID(result);
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetOutApplyByID(System.IAsyncResult result) {
+            return base.Channel.EndGetOutApplyByID(result);
         }
         
-        private System.IAsyncResult OnBeginGetOverTimeRdByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginGetOutApplyByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string strOverTimeRecordId = ((string)(inValues[0]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginGetOverTimeRdByID(strOverTimeRecordId, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginGetOutApplyByID(strOverTimeRecordId, callback, asyncState);
         }
         
-        private object[] OnEndGetOverTimeRdByID(System.IAsyncResult result) {
-            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetOverTimeRdByID(result);
+        private object[] OnEndGetOutApplyByID(System.IAsyncResult result) {
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetOutApplyByID(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetOverTimeRdByIDCompleted(object state) {
-            if ((this.GetOverTimeRdByIDCompleted != null)) {
+        private void OnGetOutApplyByIDCompleted(object state) {
+            if ((this.GetOutApplyByIDCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetOverTimeRdByIDCompleted(this, new GetOverTimeRdByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.GetOutApplyByIDCompleted(this, new GetOutApplyByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetOverTimeRdByIDAsync(string strOverTimeRecordId) {
-            this.GetOverTimeRdByIDAsync(strOverTimeRecordId, null);
+        public void GetOutApplyByIDAsync(string strOverTimeRecordId) {
+            this.GetOutApplyByIDAsync(strOverTimeRecordId, null);
         }
         
-        public void GetOverTimeRdByIDAsync(string strOverTimeRecordId, object userState) {
-            if ((this.onBeginGetOverTimeRdByIDDelegate == null)) {
-                this.onBeginGetOverTimeRdByIDDelegate = new BeginOperationDelegate(this.OnBeginGetOverTimeRdByID);
+        public void GetOutApplyByIDAsync(string strOverTimeRecordId, object userState) {
+            if ((this.onBeginGetOutApplyByIDDelegate == null)) {
+                this.onBeginGetOutApplyByIDDelegate = new BeginOperationDelegate(this.OnBeginGetOutApplyByID);
             }
-            if ((this.onEndGetOverTimeRdByIDDelegate == null)) {
-                this.onEndGetOverTimeRdByIDDelegate = new EndOperationDelegate(this.OnEndGetOverTimeRdByID);
+            if ((this.onEndGetOutApplyByIDDelegate == null)) {
+                this.onEndGetOutApplyByIDDelegate = new EndOperationDelegate(this.OnEndGetOutApplyByID);
             }
-            if ((this.onGetOverTimeRdByIDCompletedDelegate == null)) {
-                this.onGetOverTimeRdByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOverTimeRdByIDCompleted);
+            if ((this.onGetOutApplyByIDCompletedDelegate == null)) {
+                this.onGetOutApplyByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOutApplyByIDCompleted);
             }
-            base.InvokeAsync(this.onBeginGetOverTimeRdByIDDelegate, new object[] {
-                        strOverTimeRecordId}, this.onEndGetOverTimeRdByIDDelegate, this.onGetOverTimeRdByIDCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginGetOutApplyByIDDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndGetOutApplyByIDDelegate, this.onGetOutApplyByIDCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginAddOverTimeRd(entOTRd, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddOutApply(entOTRd, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAddOverTimeRd(System.IAsyncResult result) {
-            return base.Channel.EndAddOverTimeRd(result);
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAddOutApply(System.IAsyncResult result) {
+            return base.Channel.EndAddOutApply(result);
         }
         
-        private System.IAsyncResult OnBeginAddOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginAddOutApply(object[] inValues, System.AsyncCallback callback, object asyncState) {
             SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(inValues[0]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAddOverTimeRd(entOTRd, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAddOutApply(entOTRd, callback, asyncState);
         }
         
-        private object[] OnEndAddOverTimeRd(System.IAsyncResult result) {
-            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAddOverTimeRd(result);
+        private object[] OnEndAddOutApply(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAddOutApply(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnAddOverTimeRdCompleted(object state) {
-            if ((this.AddOverTimeRdCompleted != null)) {
+        private void OnAddOutApplyCompleted(object state) {
+            if ((this.AddOutApplyCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AddOverTimeRdCompleted(this, new AddOverTimeRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.AddOutApplyCompleted(this, new AddOutApplyCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
-            this.AddOverTimeRdAsync(entOTRd, null);
+        public void AddOutApplyAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
+            this.AddOutApplyAsync(entOTRd, null);
         }
         
-        public void AddOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
-            if ((this.onBeginAddOverTimeRdDelegate == null)) {
-                this.onBeginAddOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginAddOverTimeRd);
+        public void AddOutApplyAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
+            if ((this.onBeginAddOutApplyDelegate == null)) {
+                this.onBeginAddOutApplyDelegate = new BeginOperationDelegate(this.OnBeginAddOutApply);
             }
-            if ((this.onEndAddOverTimeRdDelegate == null)) {
-                this.onEndAddOverTimeRdDelegate = new EndOperationDelegate(this.OnEndAddOverTimeRd);
+            if ((this.onEndAddOutApplyDelegate == null)) {
+                this.onEndAddOutApplyDelegate = new EndOperationDelegate(this.OnEndAddOutApply);
             }
-            if ((this.onAddOverTimeRdCompletedDelegate == null)) {
-                this.onAddOverTimeRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddOverTimeRdCompleted);
+            if ((this.onAddOutApplyCompletedDelegate == null)) {
+                this.onAddOutApplyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddOutApplyCompleted);
             }
-            base.InvokeAsync(this.onBeginAddOverTimeRdDelegate, new object[] {
-                        entOTRd}, this.onEndAddOverTimeRdDelegate, this.onAddOverTimeRdCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginAddOutApplyDelegate, new object[] {
+                        entOTRd}, this.onEndAddOutApplyDelegate, this.onAddOutApplyCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginModifyOverTimeRd(entOTRd, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginUpdateOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateOutApply(entOTRd, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndModifyOverTimeRd(System.IAsyncResult result) {
-            return base.Channel.EndModifyOverTimeRd(result);
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndUpdateOutApply(System.IAsyncResult result) {
+            return base.Channel.EndUpdateOutApply(result);
         }
         
-        private System.IAsyncResult OnBeginModifyOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginUpdateOutApply(object[] inValues, System.AsyncCallback callback, object asyncState) {
             SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(inValues[0]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginModifyOverTimeRd(entOTRd, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginUpdateOutApply(entOTRd, callback, asyncState);
         }
         
-        private object[] OnEndModifyOverTimeRd(System.IAsyncResult result) {
-            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndModifyOverTimeRd(result);
+        private object[] OnEndUpdateOutApply(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndUpdateOutApply(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnModifyOverTimeRdCompleted(object state) {
-            if ((this.ModifyOverTimeRdCompleted != null)) {
+        private void OnUpdateOutApplyCompleted(object state) {
+            if ((this.UpdateOutApplyCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ModifyOverTimeRdCompleted(this, new ModifyOverTimeRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.UpdateOutApplyCompleted(this, new UpdateOutApplyCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
-            this.ModifyOverTimeRdAsync(entOTRd, null);
+        public void UpdateOutApplyAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd) {
+            this.UpdateOutApplyAsync(entOTRd, null);
         }
         
-        public void ModifyOverTimeRdAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
-            if ((this.onBeginModifyOverTimeRdDelegate == null)) {
-                this.onBeginModifyOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginModifyOverTimeRd);
+        public void UpdateOutApplyAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, object userState) {
+            if ((this.onBeginUpdateOutApplyDelegate == null)) {
+                this.onBeginUpdateOutApplyDelegate = new BeginOperationDelegate(this.OnBeginUpdateOutApply);
             }
-            if ((this.onEndModifyOverTimeRdDelegate == null)) {
-                this.onEndModifyOverTimeRdDelegate = new EndOperationDelegate(this.OnEndModifyOverTimeRd);
+            if ((this.onEndUpdateOutApplyDelegate == null)) {
+                this.onEndUpdateOutApplyDelegate = new EndOperationDelegate(this.OnEndUpdateOutApply);
             }
-            if ((this.onModifyOverTimeRdCompletedDelegate == null)) {
-                this.onModifyOverTimeRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnModifyOverTimeRdCompleted);
+            if ((this.onUpdateOutApplyCompletedDelegate == null)) {
+                this.onUpdateOutApplyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateOutApplyCompleted);
             }
-            base.InvokeAsync(this.onBeginModifyOverTimeRdDelegate, new object[] {
-                        entOTRd}, this.onEndModifyOverTimeRdDelegate, this.onModifyOverTimeRdCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginUpdateOutApplyDelegate, new object[] {
+                        entOTRd}, this.onEndUpdateOutApplyDelegate, this.onUpdateOutApplyCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginRemoveOverTimeRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRemoveOverTimeRd(strOverTimeRecordId, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginDeleteOutApply(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteOutApply(strOverTimeRecordId, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndRemoveOverTimeRd(System.IAsyncResult result) {
-            return base.Channel.EndRemoveOverTimeRd(result);
+        bool SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndDeleteOutApply(System.IAsyncResult result) {
+            return base.Channel.EndDeleteOutApply(result);
         }
         
-        private System.IAsyncResult OnBeginRemoveOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginDeleteOutApply(object[] inValues, System.AsyncCallback callback, object asyncState) {
             System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginRemoveOverTimeRd(strOverTimeRecordId, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginDeleteOutApply(strOverTimeRecordId, callback, asyncState);
         }
         
-        private object[] OnEndRemoveOverTimeRd(System.IAsyncResult result) {
-            bool retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndRemoveOverTimeRd(result);
+        private object[] OnEndDeleteOutApply(System.IAsyncResult result) {
+            bool retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndDeleteOutApply(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnRemoveOverTimeRdCompleted(object state) {
-            if ((this.RemoveOverTimeRdCompleted != null)) {
+        private void OnDeleteOutApplyCompleted(object state) {
+            if ((this.DeleteOutApplyCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RemoveOverTimeRdCompleted(this, new RemoveOverTimeRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.DeleteOutApplyCompleted(this, new DeleteOutApplyCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void RemoveOverTimeRdAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId) {
-            this.RemoveOverTimeRdAsync(strOverTimeRecordId, null);
+        public void DeleteOutApplyAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId) {
+            this.DeleteOutApplyAsync(strOverTimeRecordId, null);
         }
         
-        public void RemoveOverTimeRdAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, object userState) {
-            if ((this.onBeginRemoveOverTimeRdDelegate == null)) {
-                this.onBeginRemoveOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginRemoveOverTimeRd);
+        public void DeleteOutApplyAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, object userState) {
+            if ((this.onBeginDeleteOutApplyDelegate == null)) {
+                this.onBeginDeleteOutApplyDelegate = new BeginOperationDelegate(this.OnBeginDeleteOutApply);
             }
-            if ((this.onEndRemoveOverTimeRdDelegate == null)) {
-                this.onEndRemoveOverTimeRdDelegate = new EndOperationDelegate(this.OnEndRemoveOverTimeRd);
+            if ((this.onEndDeleteOutApplyDelegate == null)) {
+                this.onEndDeleteOutApplyDelegate = new EndOperationDelegate(this.OnEndDeleteOutApply);
             }
-            if ((this.onRemoveOverTimeRdCompletedDelegate == null)) {
-                this.onRemoveOverTimeRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRemoveOverTimeRdCompleted);
+            if ((this.onDeleteOutApplyCompletedDelegate == null)) {
+                this.onDeleteOutApplyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOutApplyCompleted);
             }
-            base.InvokeAsync(this.onBeginRemoveOverTimeRdDelegate, new object[] {
-                        strOverTimeRecordId}, this.onEndRemoveOverTimeRdDelegate, this.onRemoveOverTimeRdCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginDeleteOutApplyDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndDeleteOutApplyDelegate, this.onDeleteOutApplyCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAuditOverTimeRd(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginAuditOverTimeRd(strOverTimeRecordID, strCheckState, callback, asyncState);
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAuditOutApply(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAuditOutApply(strOverTimeRecordID, strCheckState, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAuditOverTimeRd(System.IAsyncResult result) {
-            return base.Channel.EndAuditOverTimeRd(result);
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAuditOutApply(System.IAsyncResult result) {
+            return base.Channel.EndAuditOutApply(result);
         }
         
-        private System.IAsyncResult OnBeginAuditOverTimeRd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+        private System.IAsyncResult OnBeginAuditOutApply(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string strOverTimeRecordID = ((string)(inValues[0]));
             string strCheckState = ((string)(inValues[1]));
-            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAuditOverTimeRd(strOverTimeRecordID, strCheckState, callback, asyncState);
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAuditOutApply(strOverTimeRecordID, strCheckState, callback, asyncState);
         }
         
-        private object[] OnEndAuditOverTimeRd(System.IAsyncResult result) {
-            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAuditOverTimeRd(result);
+        private object[] OnEndAuditOutApply(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAuditOutApply(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnAuditOverTimeRdCompleted(object state) {
-            if ((this.AuditOverTimeRdCompleted != null)) {
+        private void OnAuditOutApplyCompleted(object state) {
+            if ((this.AuditOutApplyCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AuditOverTimeRdCompleted(this, new AuditOverTimeRdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.AuditOutApplyCompleted(this, new AuditOutApplyCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void AuditOverTimeRdAsync(string strOverTimeRecordID, string strCheckState) {
-            this.AuditOverTimeRdAsync(strOverTimeRecordID, strCheckState, null);
+        public void AuditOutApplyAsync(string strOverTimeRecordID, string strCheckState) {
+            this.AuditOutApplyAsync(strOverTimeRecordID, strCheckState, null);
         }
         
-        public void AuditOverTimeRdAsync(string strOverTimeRecordID, string strCheckState, object userState) {
-            if ((this.onBeginAuditOverTimeRdDelegate == null)) {
-                this.onBeginAuditOverTimeRdDelegate = new BeginOperationDelegate(this.OnBeginAuditOverTimeRd);
+        public void AuditOutApplyAsync(string strOverTimeRecordID, string strCheckState, object userState) {
+            if ((this.onBeginAuditOutApplyDelegate == null)) {
+                this.onBeginAuditOutApplyDelegate = new BeginOperationDelegate(this.OnBeginAuditOutApply);
             }
-            if ((this.onEndAuditOverTimeRdDelegate == null)) {
-                this.onEndAuditOverTimeRdDelegate = new EndOperationDelegate(this.OnEndAuditOverTimeRd);
+            if ((this.onEndAuditOutApplyDelegate == null)) {
+                this.onEndAuditOutApplyDelegate = new EndOperationDelegate(this.OnEndAuditOutApply);
             }
-            if ((this.onAuditOverTimeRdCompletedDelegate == null)) {
-                this.onAuditOverTimeRdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAuditOverTimeRdCompleted);
+            if ((this.onAuditOutApplyCompletedDelegate == null)) {
+                this.onAuditOutApplyCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAuditOutApplyCompleted);
             }
-            base.InvokeAsync(this.onBeginAuditOverTimeRdDelegate, new object[] {
+            base.InvokeAsync(this.onBeginAuditOutApplyDelegate, new object[] {
                         strOverTimeRecordID,
-                        strCheckState}, this.onEndAuditOverTimeRdDelegate, this.onAuditOverTimeRdCompletedDelegate, userState);
+                        strCheckState}, this.onEndAuditOutApplyDelegate, this.onAuditOutApplyCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -2253,6 +2468,300 @@ namespace SMT.HRM.UI.OutApplyWS {
                         strOverTimeRecordId}, this.onEndDeleteNoAttendCardEmployeesRdDelegate, this.onDeleteNoAttendCardEmployeesRdCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginEmployeeOutApplyConfrimPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeOutApplyConfrimPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndEmployeeOutApplyConfrimPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndEmployeeOutApplyConfrimPaging(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginEmployeeOutApplyConfrimPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string strCheckState = ((string)(inValues[6]));
+            string strOwnerID = ((string)(inValues[7]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginEmployeeOutApplyConfrimPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, callback, asyncState);
+        }
+        
+        private object[] OnEndEmployeeOutApplyConfrimPaging(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndEmployeeOutApplyConfrimPaging(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnEmployeeOutApplyConfrimPagingCompleted(object state) {
+            if ((this.EmployeeOutApplyConfrimPagingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.EmployeeOutApplyConfrimPagingCompleted(this, new EmployeeOutApplyConfrimPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void EmployeeOutApplyConfrimPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID) {
+            this.EmployeeOutApplyConfrimPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, null);
+        }
+        
+        public void EmployeeOutApplyConfrimPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, object userState) {
+            if ((this.onBeginEmployeeOutApplyConfrimPagingDelegate == null)) {
+                this.onBeginEmployeeOutApplyConfrimPagingDelegate = new BeginOperationDelegate(this.OnBeginEmployeeOutApplyConfrimPaging);
+            }
+            if ((this.onEndEmployeeOutApplyConfrimPagingDelegate == null)) {
+                this.onEndEmployeeOutApplyConfrimPagingDelegate = new EndOperationDelegate(this.OnEndEmployeeOutApplyConfrimPaging);
+            }
+            if ((this.onEmployeeOutApplyConfrimPagingCompletedDelegate == null)) {
+                this.onEmployeeOutApplyConfrimPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeOutApplyConfrimPagingCompleted);
+            }
+            base.InvokeAsync(this.onBeginEmployeeOutApplyConfrimPagingDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        strCheckState,
+                        strOwnerID}, this.onEndEmployeeOutApplyConfrimPagingDelegate, this.onEmployeeOutApplyConfrimPagingCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginGetOutApplyConfrimByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetOutApplyConfrimByID(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndGetOutApplyConfrimByID(System.IAsyncResult result) {
+            return base.Channel.EndGetOutApplyConfrimByID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetOutApplyConfrimByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strOverTimeRecordId = ((string)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginGetOutApplyConfrimByID(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetOutApplyConfrimByID(System.IAsyncResult result) {
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndGetOutApplyConfrimByID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetOutApplyConfrimByIDCompleted(object state) {
+            if ((this.GetOutApplyConfrimByIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetOutApplyConfrimByIDCompleted(this, new GetOutApplyConfrimByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetOutApplyConfrimByIDAsync(string strOverTimeRecordId) {
+            this.GetOutApplyConfrimByIDAsync(strOverTimeRecordId, null);
+        }
+        
+        public void GetOutApplyConfrimByIDAsync(string strOverTimeRecordId, object userState) {
+            if ((this.onBeginGetOutApplyConfrimByIDDelegate == null)) {
+                this.onBeginGetOutApplyConfrimByIDDelegate = new BeginOperationDelegate(this.OnBeginGetOutApplyConfrimByID);
+            }
+            if ((this.onEndGetOutApplyConfrimByIDDelegate == null)) {
+                this.onEndGetOutApplyConfrimByIDDelegate = new EndOperationDelegate(this.OnEndGetOutApplyConfrimByID);
+            }
+            if ((this.onGetOutApplyConfrimByIDCompletedDelegate == null)) {
+                this.onGetOutApplyConfrimByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOutApplyConfrimByIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetOutApplyConfrimByIDDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndGetOutApplyConfrimByIDDelegate, this.onGetOutApplyConfrimByIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAddOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddOutApplyConfrim(entOTRd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAddOutApplyConfrim(System.IAsyncResult result) {
+            return base.Channel.EndAddOutApplyConfrim(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddOutApplyConfrim(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAddOutApplyConfrim(entOTRd, callback, asyncState);
+        }
+        
+        private object[] OnEndAddOutApplyConfrim(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAddOutApplyConfrim(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddOutApplyConfrimCompleted(object state) {
+            if ((this.AddOutApplyConfrimCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddOutApplyConfrimCompleted(this, new AddOutApplyConfrimCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddOutApplyConfrimAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd) {
+            this.AddOutApplyConfrimAsync(entOTRd, null);
+        }
+        
+        public void AddOutApplyConfrimAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, object userState) {
+            if ((this.onBeginAddOutApplyConfrimDelegate == null)) {
+                this.onBeginAddOutApplyConfrimDelegate = new BeginOperationDelegate(this.OnBeginAddOutApplyConfrim);
+            }
+            if ((this.onEndAddOutApplyConfrimDelegate == null)) {
+                this.onEndAddOutApplyConfrimDelegate = new EndOperationDelegate(this.OnEndAddOutApplyConfrim);
+            }
+            if ((this.onAddOutApplyConfrimCompletedDelegate == null)) {
+                this.onAddOutApplyConfrimCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddOutApplyConfrimCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddOutApplyConfrimDelegate, new object[] {
+                        entOTRd}, this.onEndAddOutApplyConfrimDelegate, this.onAddOutApplyConfrimCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginUpdateOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateOutApplyConfrim(entOTRd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndUpdateOutApplyConfrim(System.IAsyncResult result) {
+            return base.Channel.EndUpdateOutApplyConfrim(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateOutApplyConfrim(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginUpdateOutApplyConfrim(entOTRd, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateOutApplyConfrim(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndUpdateOutApplyConfrim(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateOutApplyConfrimCompleted(object state) {
+            if ((this.UpdateOutApplyConfrimCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateOutApplyConfrimCompleted(this, new UpdateOutApplyConfrimCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateOutApplyConfrimAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd) {
+            this.UpdateOutApplyConfrimAsync(entOTRd, null);
+        }
+        
+        public void UpdateOutApplyConfrimAsync(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, object userState) {
+            if ((this.onBeginUpdateOutApplyConfrimDelegate == null)) {
+                this.onBeginUpdateOutApplyConfrimDelegate = new BeginOperationDelegate(this.OnBeginUpdateOutApplyConfrim);
+            }
+            if ((this.onEndUpdateOutApplyConfrimDelegate == null)) {
+                this.onEndUpdateOutApplyConfrimDelegate = new EndOperationDelegate(this.OnEndUpdateOutApplyConfrim);
+            }
+            if ((this.onUpdateOutApplyConfrimCompletedDelegate == null)) {
+                this.onUpdateOutApplyConfrimCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateOutApplyConfrimCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateOutApplyConfrimDelegate, new object[] {
+                        entOTRd}, this.onEndUpdateOutApplyConfrimDelegate, this.onUpdateOutApplyConfrimCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginDeleteOutApplyConfrim(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteOutApplyConfrim(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndDeleteOutApplyConfrim(System.IAsyncResult result) {
+            return base.Channel.EndDeleteOutApplyConfrim(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteOutApplyConfrim(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginDeleteOutApplyConfrim(strOverTimeRecordId, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteOutApplyConfrim(System.IAsyncResult result) {
+            bool retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndDeleteOutApplyConfrim(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnDeleteOutApplyConfrimCompleted(object state) {
+            if ((this.DeleteOutApplyConfrimCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteOutApplyConfrimCompleted(this, new DeleteOutApplyConfrimCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteOutApplyConfrimAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId) {
+            this.DeleteOutApplyConfrimAsync(strOverTimeRecordId, null);
+        }
+        
+        public void DeleteOutApplyConfrimAsync(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, object userState) {
+            if ((this.onBeginDeleteOutApplyConfrimDelegate == null)) {
+                this.onBeginDeleteOutApplyConfrimDelegate = new BeginOperationDelegate(this.OnBeginDeleteOutApplyConfrim);
+            }
+            if ((this.onEndDeleteOutApplyConfrimDelegate == null)) {
+                this.onEndDeleteOutApplyConfrimDelegate = new EndOperationDelegate(this.OnEndDeleteOutApplyConfrim);
+            }
+            if ((this.onDeleteOutApplyConfrimCompletedDelegate == null)) {
+                this.onDeleteOutApplyConfrimCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteOutApplyConfrimCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteOutApplyConfrimDelegate, new object[] {
+                        strOverTimeRecordId}, this.onEndDeleteOutApplyConfrimDelegate, this.onDeleteOutApplyConfrimCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.BeginAuditOutApplyConfrim(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAuditOutApplyConfrim(strOverTimeRecordID, strCheckState, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.HRM.UI.OutApplyWS.OutAppliecrecordService.EndAuditOutApplyConfrim(System.IAsyncResult result) {
+            return base.Channel.EndAuditOutApplyConfrim(result);
+        }
+        
+        private System.IAsyncResult OnBeginAuditOutApplyConfrim(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strOverTimeRecordID = ((string)(inValues[0]));
+            string strCheckState = ((string)(inValues[1]));
+            return ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).BeginAuditOutApplyConfrim(strOverTimeRecordID, strCheckState, callback, asyncState);
+        }
+        
+        private object[] OnEndAuditOutApplyConfrim(System.IAsyncResult result) {
+            string retVal = ((SMT.HRM.UI.OutApplyWS.OutAppliecrecordService)(this)).EndAuditOutApplyConfrim(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAuditOutApplyConfrimCompleted(object state) {
+            if ((this.AuditOutApplyConfrimCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AuditOutApplyConfrimCompleted(this, new AuditOutApplyConfrimCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AuditOutApplyConfrimAsync(string strOverTimeRecordID, string strCheckState) {
+            this.AuditOutApplyConfrimAsync(strOverTimeRecordID, strCheckState, null);
+        }
+        
+        public void AuditOutApplyConfrimAsync(string strOverTimeRecordID, string strCheckState, object userState) {
+            if ((this.onBeginAuditOutApplyConfrimDelegate == null)) {
+                this.onBeginAuditOutApplyConfrimDelegate = new BeginOperationDelegate(this.OnBeginAuditOutApplyConfrim);
+            }
+            if ((this.onEndAuditOutApplyConfrimDelegate == null)) {
+                this.onEndAuditOutApplyConfrimDelegate = new EndOperationDelegate(this.OnEndAuditOutApplyConfrim);
+            }
+            if ((this.onAuditOutApplyConfrimCompletedDelegate == null)) {
+                this.onAuditOutApplyConfrimCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAuditOutApplyConfrimCompleted);
+            }
+            base.InvokeAsync(this.onBeginAuditOutApplyConfrimDelegate, new object[] {
+                        strOverTimeRecordID,
+                        strCheckState}, this.onEndAuditOutApplyConfrimDelegate, this.onAuditOutApplyConfrimCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -2329,7 +2838,7 @@ namespace SMT.HRM.UI.OutApplyWS {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginEmployeeOverTimeRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginEmployeeOutApplyRecordPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[8];
                 _args[0] = pageIndex;
                 _args[1] = pageSize;
@@ -2339,82 +2848,82 @@ namespace SMT.HRM.UI.OutApplyWS {
                 _args[5] = pageCount;
                 _args[6] = strCheckState;
                 _args[7] = strOwnerID;
-                System.IAsyncResult _result = base.BeginInvoke("EmployeeOverTimeRecordPaging", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("EmployeeOutApplyRecordPaging", _args, callback, asyncState);
                 pageCount = ((int)(_args[5]));
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOverTimeRecordPaging(ref int pageCount, System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> EndEmployeeOutApplyRecordPaging(ref int pageCount, System.IAsyncResult result) {
                 object[] _args = new object[1];
                 _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>)(base.EndInvoke("EmployeeOverTimeRecordPaging", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD>)(base.EndInvoke("EmployeeOutApplyRecordPaging", _args, result)));
                 pageCount = ((int)(_args[0]));
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetOverTimeRdByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetOutApplyByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = strOverTimeRecordId;
-                System.IAsyncResult _result = base.BeginInvoke("GetOverTimeRdByID", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("GetOutApplyByID", _args, callback, asyncState);
                 return _result;
             }
             
-            public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOverTimeRdByID(System.IAsyncResult result) {
+            public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD EndGetOutApplyByID(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD _result = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(base.EndInvoke("GetOverTimeRdByID", _args, result)));
+                SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD _result = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD)(base.EndInvoke("GetOutApplyByID", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginAddOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginAddOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entOTRd;
-                System.IAsyncResult _result = base.BeginInvoke("AddOverTimeRd", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("AddOutApply", _args, callback, asyncState);
                 return _result;
             }
             
-            public string EndAddOverTimeRd(System.IAsyncResult result) {
+            public string EndAddOutApply(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("AddOverTimeRd", _args, result)));
+                string _result = ((string)(base.EndInvoke("AddOutApply", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginModifyOverTimeRd(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginUpdateOutApply(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD entOTRd, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entOTRd;
-                System.IAsyncResult _result = base.BeginInvoke("ModifyOverTimeRd", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("UpdateOutApply", _args, callback, asyncState);
                 return _result;
             }
             
-            public string EndModifyOverTimeRd(System.IAsyncResult result) {
+            public string EndUpdateOutApply(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("ModifyOverTimeRd", _args, result)));
+                string _result = ((string)(base.EndInvoke("UpdateOutApply", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginRemoveOverTimeRd(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginDeleteOutApply(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = strOverTimeRecordId;
-                System.IAsyncResult _result = base.BeginInvoke("RemoveOverTimeRd", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("DeleteOutApply", _args, callback, asyncState);
                 return _result;
             }
             
-            public bool EndRemoveOverTimeRd(System.IAsyncResult result) {
+            public bool EndDeleteOutApply(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("RemoveOverTimeRd", _args, result)));
+                bool _result = ((bool)(base.EndInvoke("DeleteOutApply", _args, result)));
                 return _result;
             }
             
-            public System.IAsyncResult BeginAuditOverTimeRd(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginAuditOutApply(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[2];
                 _args[0] = strOverTimeRecordID;
                 _args[1] = strCheckState;
-                System.IAsyncResult _result = base.BeginInvoke("AuditOverTimeRd", _args, callback, asyncState);
+                System.IAsyncResult _result = base.BeginInvoke("AuditOutApply", _args, callback, asyncState);
                 return _result;
             }
             
-            public string EndAuditOverTimeRd(System.IAsyncResult result) {
+            public string EndAuditOutApply(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("AuditOverTimeRd", _args, result)));
+                string _result = ((string)(base.EndInvoke("AuditOutApply", _args, result)));
                 return _result;
             }
             
@@ -2490,6 +2999,95 @@ namespace SMT.HRM.UI.OutApplyWS {
             public bool EndDeleteNoAttendCardEmployeesRd(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("DeleteNoAttendCardEmployeesRd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginEmployeeOutApplyConfrimPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = strCheckState;
+                _args[7] = strOwnerID;
+                System.IAsyncResult _result = base.BeginInvoke("EmployeeOutApplyConfrimPaging", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> EndEmployeeOutApplyConfrimPaging(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM>)(base.EndInvoke("EmployeeOutApplyConfrimPaging", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetOutApplyConfrimByID(string strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strOverTimeRecordId;
+                System.IAsyncResult _result = base.BeginInvoke("GetOutApplyConfrimByID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM EndGetOutApplyConfrimByID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM _result = ((SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM)(base.EndInvoke("GetOutApplyConfrimByID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginAddOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entOTRd;
+                System.IAsyncResult _result = base.BeginInvoke("AddOutApplyConfrim", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndAddOutApplyConfrim(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("AddOutApplyConfrim", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateOutApplyConfrim(SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM entOTRd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entOTRd;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateOutApplyConfrim", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndUpdateOutApplyConfrim(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("UpdateOutApplyConfrim", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginDeleteOutApplyConfrim(System.Collections.ObjectModel.ObservableCollection<string> strOverTimeRecordId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strOverTimeRecordId;
+                System.IAsyncResult _result = base.BeginInvoke("DeleteOutApplyConfrim", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndDeleteOutApplyConfrim(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("DeleteOutApplyConfrim", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginAuditOutApplyConfrim(string strOverTimeRecordID, string strCheckState, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = strOverTimeRecordID;
+                _args[1] = strCheckState;
+                System.IAsyncResult _result = base.BeginInvoke("AuditOutApplyConfrim", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndAuditOutApplyConfrim(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("AuditOutApplyConfrim", _args, result)));
                 return _result;
             }
         }

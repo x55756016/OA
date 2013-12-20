@@ -4,8 +4,8 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_OutAppliecrecordService" type="OutAppliecrecordService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="EmployeeOverTimeRecordPaging">
-      <soap:operation soapAction="urn:OutAppliecrecordService/EmployeeOverTimeRecordPaging" style="document" />
+    <wsdl:operation name="EmployeeOutApplyRecordPaging">
+      <soap:operation soapAction="urn:OutAppliecrecordService/EmployeeOutApplyRecordPaging" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -13,8 +13,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOverTimeRdByID">
-      <soap:operation soapAction="urn:OutAppliecrecordService/GetOverTimeRdByID" style="document" />
+    <wsdl:operation name="GetOutApplyByID">
+      <soap:operation soapAction="urn:OutAppliecrecordService/GetOutApplyByID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -22,8 +22,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddOverTimeRd">
-      <soap:operation soapAction="urn:OutAppliecrecordService/AddOverTimeRd" style="document" />
+    <wsdl:operation name="AddOutApply">
+      <soap:operation soapAction="urn:OutAppliecrecordService/AddOutApply" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -31,8 +31,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ModifyOverTimeRd">
-      <soap:operation soapAction="urn:OutAppliecrecordService/ModifyOverTimeRd" style="document" />
+    <wsdl:operation name="UpdateOutApply">
+      <soap:operation soapAction="urn:OutAppliecrecordService/UpdateOutApply" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +40,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RemoveOverTimeRd">
-      <soap:operation soapAction="urn:OutAppliecrecordService/RemoveOverTimeRd" style="document" />
+    <wsdl:operation name="DeleteOutApply">
+      <soap:operation soapAction="urn:OutAppliecrecordService/DeleteOutApply" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -49,8 +49,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AuditOverTimeRd">
-      <soap:operation soapAction="urn:OutAppliecrecordService/AuditOverTimeRd" style="document" />
+    <wsdl:operation name="AuditOutApply">
+      <soap:operation soapAction="urn:OutAppliecrecordService/AuditOutApply" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -96,6 +96,60 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteNoAttendCardEmployeesRd">
       <soap:operation soapAction="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeOutApplyConfrimPaging">
+      <soap:operation soapAction="urn:OutAppliecrecordService/EmployeeOutApplyConfrimPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutApplyConfrimByID">
+      <soap:operation soapAction="urn:OutAppliecrecordService/GetOutApplyConfrimByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOutApplyConfrim">
+      <soap:operation soapAction="urn:OutAppliecrecordService/AddOutApplyConfrim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutApplyConfrim">
+      <soap:operation soapAction="urn:OutAppliecrecordService/UpdateOutApplyConfrim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutApplyConfrim">
+      <soap:operation soapAction="urn:OutAppliecrecordService/DeleteOutApplyConfrim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditOutApplyConfrim">
+      <soap:operation soapAction="urn:OutAppliecrecordService/AuditOutApplyConfrim" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

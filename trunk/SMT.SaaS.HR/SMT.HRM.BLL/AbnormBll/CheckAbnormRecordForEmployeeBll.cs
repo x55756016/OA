@@ -41,6 +41,7 @@ namespace SMT.HRM.BLL
                 string strEmployeeID = entEmployee.EMPLOYEEID;
                 //获取导入打卡记录对应时间段的考勤记录，以便进行比对
                 AttendanceRecordBLL bllAttendanceRecord = new AttendanceRecordBLL();
+                dtStart=new DateTime(dtStart.Year, dtStart.Month, 1);//修改为从当月1日开始检查考勤异常
                 IQueryable<T_HR_ATTENDANCERECORD> entAttRds
                     = bllAttendanceRecord.GetAttendanceRecordByEmployeeIDAndDate(entEmployee.OWNERCOMPANYID
                     , strEmployeeID, dtStart, dtEnd);
@@ -93,13 +94,18 @@ namespace SMT.HRM.BLL
                     = bllClockInRecord.GetAllClockInRdListByMultSearch(string.Empty
                     , string.Empty, string.Empty, strEmployeeID, dtStart.ToString()
                     , dtEnd.ToString(), strSortKey);
-
+                
                 //检查考勤异常
                 CheckAbnormRecord(entAttRds, entClockInRecords, ref strMsg, ref isAbnorm);
 
                 //生成签卡记录
                 AbnormRecordCheckAlarm(entEmployee.EMPLOYEEID, dtStart.ToString("yyyy-MM") + "-1", dtEnd.ToString("yyyy-MM-dd"));
-
+                //检查当月处理错误的考勤异常
+                DateTime thisMonthStarDay=new DateTime(dtStart.Year,dtStart.Month,1);
+                DateTime thisMonthEndDay = dtEnd;//检查从1号到本次考勤结束时间的异常
+                Tracer.Debug("检查从本月1号到本次考勤结束时间的异常");
+                Tracer.Debug("开始处理当月错误的异常考勤");
+                ClearWornSigleAndAbnormRecord(entEmployee.EMPLOYEEID, thisMonthStarDay, thisMonthEndDay);
             }
         }
 
@@ -155,7 +161,14 @@ namespace SMT.HRM.BLL
                         bllAttendanceRecord.ModifyAttRd(item);
                         continue;
                     }
-
+                    if (item.ATTENDANCESTATE == (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString())
+                    {
+                        Tracer.Debug(item.ATTENDANCEDATE.Value.ToString("yyy-MM-dd")
+                        + " 打卡记录导入 检查异常，员工姓名：" + item.EMPLOYEENAME
+                        + "已检查过考勤且考勤状态为正常，跳过");
+                    
+                        continue;
+                    }
                     //if (item.ATTENDANCEDATE.Value.ToString("yyyy-MM-dd") == "2013-06-21")
                     //{
                     //}
@@ -564,7 +577,7 @@ namespace SMT.HRM.BLL
 
             //先检查该段下班
             var clo = from c in entTemps
-                      where c.PUNCHDATE >= dtAttCardStart && c.PUNCHDATE <= dtAttCardStart
+                      where c.PUNCHDATE >= dtAttCardStart && c.PUNCHDATE <= dtAttCardEnd
                       orderby c.PUNCHDATE descending
                       select c;
 
@@ -882,6 +895,42 @@ namespace SMT.HRM.BLL
             Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESIGNINRECORD", Utility.ObjListToXml(entSignInRd, "HR", submitName), EngineWS.MsgType.Task);
         }
 
+        private void ClearWornSigleAndAbnormRecord(string strEmployeeId, DateTime dtStart, DateTime dtEnd)
+        {
+            EmployeeBLL bllEmployee = new EmployeeBLL();
+            V_EMPLOYEEDETAIL entEmployeeDetail = bllEmployee.GetEmployeeDetailView(strEmployeeId);
+
+             string strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.Absent) + 1).ToString();
+            string strSignState = (Convert.ToInt32(Common.IsChecked.No) + 1).ToString();
+            List<T_HR_EMPLOYEEABNORMRECORD> entAbnormRecords = (from ent in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>().Include("T_HR_ATTENDANCERECORD")
+                                                                where ent.OWNERID == strEmployeeId
+                                                                && ent.ABNORMCATEGORY == strAbnormCategory//异常考勤
+                                                                && ent.SINGINSTATE == strSignState//未签卡
+                                                                && ent.ABNORMALDATE >= dtStart
+                                                                && ent.ABNORMALDATE <= dtEnd
+                                                                select ent).ToList();
+
+            //string strOrderKey = "ABNORMALDATE";
+            //GetAbnormRecordRdListByEmpIdAndDate(strEmployeeId, strAbnormCategory, strSignState, dtStart, dtEnd, strOrderKey);
+            if (entAbnormRecords.Count() <= 0)
+            {
+                Tracer.Debug(entEmployeeDetail.EMPLOYEENAME + " 未找到未签卡的漏打卡考勤异常记录,不需要处理。");
+                return;
+            }
+            else
+            {
+                Tracer.Debug("处理错误的考勤异常，检查到考勤记录共：" + entAbnormRecords.Count()+"条");
+                foreach (var item in entAbnormRecords)
+                {   //如果当天正常，删除相关的异常考勤，签卡记录，待办任务
+                    Tracer.Debug("处理错误的考勤异常，异常日期：" + item.ABNORMALDATE + "考勤状态：" + item.T_HR_ATTENDANCERECORD.ATTENDANCESTATE);
+                    if (item.T_HR_ATTENDANCERECORD.ATTENDANCESTATE == (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString())
+                    {
+                        DeleteSigFromAbnormal(item);
+                    }
+                }
+            }
+
+        }
 
         #endregion
         /// <summary>

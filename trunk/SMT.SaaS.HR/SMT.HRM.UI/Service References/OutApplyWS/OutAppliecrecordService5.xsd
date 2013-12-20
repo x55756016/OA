@@ -2,7 +2,7 @@
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
-  <xs:element name="EmployeeOverTimeRecordPaging">
+  <xs:element name="EmployeeOutApplyRecordPaging">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
@@ -16,71 +16,71 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EmployeeOverTimeRecordPagingResponse">
+  <xs:element name="EmployeeOutApplyRecordPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeOverTimeRecordPagingResult" nillable="true" type="q2:ArrayOfT_HR_OUTAPPLYRECORD" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeOutApplyRecordPagingResult" nillable="true" type="q2:ArrayOfT_HR_OUTAPPLYRECORD" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetOverTimeRdByID">
+  <xs:element name="GetOutApplyByID">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="strOverTimeRecordId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetOverTimeRdByIDResponse">
+  <xs:element name="GetOutApplyByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOverTimeRdByIDResult" nillable="true" type="q3:T_HR_OUTAPPLYRECORD" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOutApplyByIDResult" nillable="true" type="q3:T_HR_OUTAPPLYRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddOverTimeRd">
+  <xs:element name="AddOutApply">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q4:T_HR_OUTAPPLYRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddOverTimeRdResponse">
+  <xs:element name="AddOutApplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddOverTimeRdResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AddOutApplyResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ModifyOverTimeRd">
+  <xs:element name="UpdateOutApply">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q5:T_HR_OUTAPPLYRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ModifyOverTimeRdResponse">
+  <xs:element name="UpdateOutApplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ModifyOverTimeRdResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UpdateOutApplyResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RemoveOverTimeRd">
+  <xs:element name="DeleteOutApply">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strOverTimeRecordId" nillable="true" type="q6:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RemoveOverTimeRdResponse">
+  <xs:element name="DeleteOutApplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RemoveOverTimeRdResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DeleteOutApplyResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AuditOverTimeRd">
+  <xs:element name="AuditOutApply">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="strOverTimeRecordID" nillable="true" type="xs:string" />
@@ -88,10 +88,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AuditOverTimeRdResponse">
+  <xs:element name="AuditOutApplyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AuditOverTimeRdResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AuditOutApplyResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -170,6 +170,99 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteNoAttendCardEmployeesRdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeOutApplyConfrimPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q13:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeOutApplyConfrimPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeOutApplyConfrimPagingResult" nillable="true" type="q14:ArrayOfT_HR_OUTAPPLYCONFIRM" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutApplyConfrimByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOverTimeRecordId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutApplyConfrimByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOutApplyConfrimByIDResult" nillable="true" type="q15:T_HR_OUTAPPLYCONFIRM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutApplyConfrim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q16:T_HR_OUTAPPLYCONFIRM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutApplyConfrimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOutApplyConfrimResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOutApplyConfrim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q17:T_HR_OUTAPPLYCONFIRM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOutApplyConfrimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateOutApplyConfrimResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOutApplyConfrim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strOverTimeRecordId" nillable="true" type="q18:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOutApplyConfrimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteOutApplyConfrimResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditOutApplyConfrim">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOverTimeRecordID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditOutApplyConfrimResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditOutApplyConfrimResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

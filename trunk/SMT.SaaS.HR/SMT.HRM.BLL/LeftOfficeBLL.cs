@@ -121,7 +121,7 @@ namespace SMT.HRM.BLL
                                                     CREATEUSERID = c.CREATEUSERID,
                                                     OWNERCOMPANYID = c.OWNERCOMPANYID,
                                                     OWNERDEPARTMENTID = c.OWNERDEPARTMENTID,
-                                                    OWNERPOSTID = c.OWNERPOSTID,
+                                                    OWNERPOSTID = c.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID,
                                                     OWNERID = c.OWNERID,
                                                     ISCONFIRMED = d == null ? "-1" : d.CHECKSTATE,
                                                     REMARK = c.REMARK,
@@ -288,7 +288,7 @@ namespace SMT.HRM.BLL
                             new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEEPOST", "EMPLOYEEPOSTID", entity.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID);
                     }
                     //dal.Update(ent);
-                    Update(ent, ent.CREATEPOSTID);
+                    Update(ent, ent.CREATEUSERID);
                 }
             }
             catch (Exception ex)

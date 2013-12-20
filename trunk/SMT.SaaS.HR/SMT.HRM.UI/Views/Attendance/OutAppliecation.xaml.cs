@@ -52,8 +52,43 @@ namespace SMT.HRM.UI.Views.Attendance
             toolbar1.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             toolbar1.btnReSubmit.Visibility = System.Windows.Visibility.Collapsed;
             toolbar1.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
-            clientAtt.EmployeeOverTimeRecordPagingCompleted += clientAtt_EmployeeOverTimeRecordPagingCompleted;
-            clientAtt.RemoveOverTimeRdCompleted += clientAtt_RemoveOverTimeRdCompleted;
+            clientAtt.EmployeeOutApplyRecordPagingCompleted += clientAtt_EmployeeOutApplyRecordPagingCompleted;
+            clientAtt.DeleteOutApplyCompleted += clientAtt_DeleteOutApplyCompleted;
+        }
+
+        void clientAtt_DeleteOutApplyCompleted(object sender, DeleteOutApplyCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "删除员工外出申请成功");
+            }
+
+            LoadData();
+        }
+
+        void clientAtt_EmployeeOutApplyRecordPagingCompleted(object sender, EmployeeOutApplyRecordPagingCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                List<T_HR_OUTAPPLYRECORD> list = new List<T_HR_OUTAPPLYRECORD>();
+                if (e.Result != null)
+                {
+                    list = e.Result.ToList();
+                }
+                dgOTList.ItemsSource = list;
+
+                dataPager.PageCount = e.pageCount;
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message.ToString());
+            }
+
+            loadbar.Stop();
         }
 
         void OverTime_Loaded(object sender, RoutedEventArgs e)
@@ -128,29 +163,8 @@ namespace SMT.HRM.UI.Views.Attendance
                 paras.Add(endDate);
             }
 
-            clientAtt.EmployeeOverTimeRecordPagingAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATE", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+            clientAtt.EmployeeOutApplyRecordPagingAsync(dataPager.PageIndex, dataPager.PageSize, "STARTDATE", filter, paras, pageCount, Checkstate, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             loadbar.Start();
-        }
-
-        void clientAtt_EmployeeOverTimeRecordPagingCompleted(object sender, OutApplyWS.EmployeeOverTimeRecordPagingCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                List<T_HR_OUTAPPLYRECORD> list = new List<T_HR_OUTAPPLYRECORD>();
-                if (e.Result != null)
-                {
-                    list = e.Result.ToList();
-                }
-                dgOTList.ItemsSource = list;
-
-                dataPager.PageCount = e.pageCount;
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message.ToString());
-            }
-
-            loadbar.Stop();
         }
 
         /// <summary>
@@ -235,30 +249,12 @@ namespace SMT.HRM.UI.Views.Attendance
             ComfirmWindow delComfirm = new ComfirmWindow();
             delComfirm.OnSelectionBoxClosed += (obj, result) =>
             {
-                clientAtt.RemoveOverTimeRdAsync(ids);
+                clientAtt.DeleteOutApplyAsync(ids);
             };
             delComfirm.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);
 
 
 
-        }
-        /// <summary>
-        /// 删除完成事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void clientAtt_RemoveOverTimeRdCompleted(object sender, OutApplyWS.RemoveOverTimeRdCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "删除员工外出申请成功");
-            }
-
-            LoadData();
         }
         #endregion
 

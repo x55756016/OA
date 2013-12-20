@@ -10,41 +10,41 @@
       <xsd:import schemaLocation="http://localhost:12168/OutAppliecrecordService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="OutAppliecrecordService_EmployeeOverTimeRecordPaging_InputMessage">
-    <wsdl:part name="parameters" element="EmployeeOverTimeRecordPaging" />
+  <wsdl:message name="OutAppliecrecordService_EmployeeOutApplyRecordPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeOutApplyRecordPaging" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_EmployeeOverTimeRecordPaging_OutputMessage">
-    <wsdl:part name="parameters" element="EmployeeOverTimeRecordPagingResponse" />
+  <wsdl:message name="OutAppliecrecordService_EmployeeOutApplyRecordPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeOutApplyRecordPagingResponse" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_GetOverTimeRdByID_InputMessage">
-    <wsdl:part name="parameters" element="GetOverTimeRdByID" />
+  <wsdl:message name="OutAppliecrecordService_GetOutApplyByID_InputMessage">
+    <wsdl:part name="parameters" element="GetOutApplyByID" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_GetOverTimeRdByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetOverTimeRdByIDResponse" />
+  <wsdl:message name="OutAppliecrecordService_GetOutApplyByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetOutApplyByIDResponse" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_AddOverTimeRd_InputMessage">
-    <wsdl:part name="parameters" element="AddOverTimeRd" />
+  <wsdl:message name="OutAppliecrecordService_AddOutApply_InputMessage">
+    <wsdl:part name="parameters" element="AddOutApply" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_AddOverTimeRd_OutputMessage">
-    <wsdl:part name="parameters" element="AddOverTimeRdResponse" />
+  <wsdl:message name="OutAppliecrecordService_AddOutApply_OutputMessage">
+    <wsdl:part name="parameters" element="AddOutApplyResponse" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_ModifyOverTimeRd_InputMessage">
-    <wsdl:part name="parameters" element="ModifyOverTimeRd" />
+  <wsdl:message name="OutAppliecrecordService_UpdateOutApply_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOutApply" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_ModifyOverTimeRd_OutputMessage">
-    <wsdl:part name="parameters" element="ModifyOverTimeRdResponse" />
+  <wsdl:message name="OutAppliecrecordService_UpdateOutApply_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOutApplyResponse" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_RemoveOverTimeRd_InputMessage">
-    <wsdl:part name="parameters" element="RemoveOverTimeRd" />
+  <wsdl:message name="OutAppliecrecordService_DeleteOutApply_InputMessage">
+    <wsdl:part name="parameters" element="DeleteOutApply" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_RemoveOverTimeRd_OutputMessage">
-    <wsdl:part name="parameters" element="RemoveOverTimeRdResponse" />
+  <wsdl:message name="OutAppliecrecordService_DeleteOutApply_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteOutApplyResponse" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_AuditOverTimeRd_InputMessage">
-    <wsdl:part name="parameters" element="AuditOverTimeRd" />
+  <wsdl:message name="OutAppliecrecordService_AuditOutApply_InputMessage">
+    <wsdl:part name="parameters" element="AuditOutApply" />
   </wsdl:message>
-  <wsdl:message name="OutAppliecrecordService_AuditOverTimeRd_OutputMessage">
-    <wsdl:part name="parameters" element="AuditOverTimeRdResponse" />
+  <wsdl:message name="OutAppliecrecordService_AuditOutApply_OutputMessage">
+    <wsdl:part name="parameters" element="AuditOutApplyResponse" />
   </wsdl:message>
   <wsdl:message name="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_InputMessage">
     <wsdl:part name="parameters" element="GetNoAttendCardEmployeesPaging" />
@@ -76,30 +76,66 @@
   <wsdl:message name="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_OutputMessage">
     <wsdl:part name="parameters" element="DeleteNoAttendCardEmployeesRdResponse" />
   </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_EmployeeOutApplyConfrimPaging_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeOutApplyConfrimPaging" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_EmployeeOutApplyConfrimPaging_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeOutApplyConfrimPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetOutApplyConfrimByID_InputMessage">
+    <wsdl:part name="parameters" element="GetOutApplyConfrimByID" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_GetOutApplyConfrimByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetOutApplyConfrimByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AddOutApplyConfrim_InputMessage">
+    <wsdl:part name="parameters" element="AddOutApplyConfrim" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AddOutApplyConfrim_OutputMessage">
+    <wsdl:part name="parameters" element="AddOutApplyConfrimResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_UpdateOutApplyConfrim_InputMessage">
+    <wsdl:part name="parameters" element="UpdateOutApplyConfrim" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_UpdateOutApplyConfrim_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateOutApplyConfrimResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_DeleteOutApplyConfrim_InputMessage">
+    <wsdl:part name="parameters" element="DeleteOutApplyConfrim" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_DeleteOutApplyConfrim_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteOutApplyConfrimResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AuditOutApplyConfrim_InputMessage">
+    <wsdl:part name="parameters" element="AuditOutApplyConfrim" />
+  </wsdl:message>
+  <wsdl:message name="OutAppliecrecordService_AuditOutApplyConfrim_OutputMessage">
+    <wsdl:part name="parameters" element="AuditOutApplyConfrimResponse" />
+  </wsdl:message>
   <wsdl:portType name="OutAppliecrecordService">
-    <wsdl:operation name="EmployeeOverTimeRecordPaging">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/EmployeeOverTimeRecordPaging" message="OutAppliecrecordService_EmployeeOverTimeRecordPaging_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/EmployeeOverTimeRecordPagingResponse" message="OutAppliecrecordService_EmployeeOverTimeRecordPaging_OutputMessage" />
+    <wsdl:operation name="EmployeeOutApplyRecordPaging">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/EmployeeOutApplyRecordPaging" message="OutAppliecrecordService_EmployeeOutApplyRecordPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/EmployeeOutApplyRecordPagingResponse" message="OutAppliecrecordService_EmployeeOutApplyRecordPaging_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetOverTimeRdByID">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetOverTimeRdByID" message="OutAppliecrecordService_GetOverTimeRdByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/GetOverTimeRdByIDResponse" message="OutAppliecrecordService_GetOverTimeRdByID_OutputMessage" />
+    <wsdl:operation name="GetOutApplyByID">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetOutApplyByID" message="OutAppliecrecordService_GetOutApplyByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/GetOutApplyByIDResponse" message="OutAppliecrecordService_GetOutApplyByID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddOverTimeRd">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AddOverTimeRd" message="OutAppliecrecordService_AddOverTimeRd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AddOverTimeRdResponse" message="OutAppliecrecordService_AddOverTimeRd_OutputMessage" />
+    <wsdl:operation name="AddOutApply">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AddOutApply" message="OutAppliecrecordService_AddOutApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AddOutApplyResponse" message="OutAppliecrecordService_AddOutApply_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ModifyOverTimeRd">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/ModifyOverTimeRd" message="OutAppliecrecordService_ModifyOverTimeRd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/ModifyOverTimeRdResponse" message="OutAppliecrecordService_ModifyOverTimeRd_OutputMessage" />
+    <wsdl:operation name="UpdateOutApply">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/UpdateOutApply" message="OutAppliecrecordService_UpdateOutApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/UpdateOutApplyResponse" message="OutAppliecrecordService_UpdateOutApply_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RemoveOverTimeRd">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/RemoveOverTimeRd" message="OutAppliecrecordService_RemoveOverTimeRd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/RemoveOverTimeRdResponse" message="OutAppliecrecordService_RemoveOverTimeRd_OutputMessage" />
+    <wsdl:operation name="DeleteOutApply">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/DeleteOutApply" message="OutAppliecrecordService_DeleteOutApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/DeleteOutApplyResponse" message="OutAppliecrecordService_DeleteOutApply_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AuditOverTimeRd">
-      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AuditOverTimeRd" message="OutAppliecrecordService_AuditOverTimeRd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AuditOverTimeRdResponse" message="OutAppliecrecordService_AuditOverTimeRd_OutputMessage" />
+    <wsdl:operation name="AuditOutApply">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AuditOutApply" message="OutAppliecrecordService_AuditOutApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AuditOutApplyResponse" message="OutAppliecrecordService_AuditOutApply_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetNoAttendCardEmployeesPaging">
       <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetNoAttendCardEmployeesPaging" message="OutAppliecrecordService_GetNoAttendCardEmployeesPaging_InputMessage" />
@@ -120,6 +156,30 @@
     <wsdl:operation name="DeleteNoAttendCardEmployeesRd">
       <wsdl:input wsaw:Action="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRd" message="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_InputMessage" />
       <wsdl:output wsaw:Action="urn:OutAppliecrecordService/DeleteNoAttendCardEmployeesRdResponse" message="OutAppliecrecordService_DeleteNoAttendCardEmployeesRd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeOutApplyConfrimPaging">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/EmployeeOutApplyConfrimPaging" message="OutAppliecrecordService_EmployeeOutApplyConfrimPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/EmployeeOutApplyConfrimPagingResponse" message="OutAppliecrecordService_EmployeeOutApplyConfrimPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutApplyConfrimByID">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/GetOutApplyConfrimByID" message="OutAppliecrecordService_GetOutApplyConfrimByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/GetOutApplyConfrimByIDResponse" message="OutAppliecrecordService_GetOutApplyConfrimByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOutApplyConfrim">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AddOutApplyConfrim" message="OutAppliecrecordService_AddOutApplyConfrim_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AddOutApplyConfrimResponse" message="OutAppliecrecordService_AddOutApplyConfrim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOutApplyConfrim">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/UpdateOutApplyConfrim" message="OutAppliecrecordService_UpdateOutApplyConfrim_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/UpdateOutApplyConfrimResponse" message="OutAppliecrecordService_UpdateOutApplyConfrim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutApplyConfrim">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/DeleteOutApplyConfrim" message="OutAppliecrecordService_DeleteOutApplyConfrim_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/DeleteOutApplyConfrimResponse" message="OutAppliecrecordService_DeleteOutApplyConfrim_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditOutApplyConfrim">
+      <wsdl:input wsaw:Action="urn:OutAppliecrecordService/AuditOutApplyConfrim" message="OutAppliecrecordService_AuditOutApplyConfrim_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OutAppliecrecordService/AuditOutApplyConfrimResponse" message="OutAppliecrecordService_AuditOutApplyConfrim_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

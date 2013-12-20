@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="T_HR_OUTAPPLYRECORD" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD, Service References.OutApplyWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYRECORD, SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

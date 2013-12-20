@@ -65,13 +65,20 @@ namespace SMT.HRM.UI.Form.Attendance
         private void RegisterEvents()
         {
             client = new OutAppliecrecordServiceClient();
-            client.AddOverTimeRdCompleted += client_AddOverTimeRdCompleted;
-            client.ModifyOverTimeRdCompleted += client_ModifyOverTimeRdCompleted;
-            client.AuditOverTimeRdCompleted += client_AuditOverTimeRdCompleted;
-            client.GetOverTimeRdByIDCompleted += client_GetOverTimeRdByIDCompleted;
+            client.AddOutApplyCompleted += client_AddOutApplyCompleted;
+            client.UpdateOutApplyCompleted += client_UpdateOutApplyCompleted;
+            client.AuditOutApplyCompleted += client_AuditOutApplyCompleted;
+            client.GetOutApplyByIDCompleted += client_GetOutApplyByIDCompleted;
             perClient = new SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient();
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
         }
+
+       
+
+      
+       
+
+       
        
         #endregion
 
@@ -234,7 +241,7 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_AuditOverTimeRdCompleted(object sender, OutApplyWS.AuditOverTimeRdCompletedEventArgs e)
+        void client_AuditOutApplyCompleted(object sender, AuditOutApplyCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Error != null)
@@ -249,6 +256,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             RefreshUI(RefreshedTypes.All);
         }
+
         #endregion
 
         #region 私有方法
@@ -325,7 +333,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                client.GetOverTimeRdByIDAsync(OverTimeRecordID);
+                client.GetOutApplyByIDAsync(OverTimeRecordID);
             }
         }
 
@@ -484,7 +492,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 OvertimeRecord.UPDATEDATE = System.DateTime.Now;
                 OvertimeRecord.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
 
-                client.ModifyOverTimeRdAsync(OvertimeRecord);
+                client.UpdateOutApplyAsync(OvertimeRecord);
             }
             else if (FormType == FormTypes.New)
             {
@@ -492,7 +500,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 //OvertimeRecord.PAYCATEGORY = "1";
                 OvertimeRecord.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 OvertimeRecord.CREATEDATE = DateTime.Now;
-                client.AddOverTimeRdAsync(OvertimeRecord);
+                client.AddOutApplyAsync(OvertimeRecord);
             }
 
             return true;
@@ -503,7 +511,7 @@ namespace SMT.HRM.UI.Form.Attendance
         ///// </summary>
         ///// <param name="sender"></param>
         ///// <param name="e"></param>
-        void client_GetOverTimeRdByIDCompleted(object sender, OutApplyWS.GetOverTimeRdByIDCompletedEventArgs e)
+        void client_GetOutApplyByIDCompleted(object sender, GetOutApplyByIDCompletedEventArgs e)
         {
             if (e.Error != null && e.Error.Message != "")
             {
@@ -528,13 +536,12 @@ namespace SMT.HRM.UI.Form.Attendance
             }
         }
 
-
         /// <summary>
         /// 更新外出申请记录
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_ModifyOverTimeRdCompleted(object sender, OutApplyWS.ModifyOverTimeRdCompletedEventArgs e)
+        void client_UpdateOutApplyCompleted(object sender, UpdateOutApplyCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Error != null)
@@ -559,7 +566,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     }
                     else
                     {
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("MODIFYSUCCESSED")));
                     }
                     if (closeFormFlag)
                     {
@@ -575,7 +582,7 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_AddOverTimeRdCompleted(object sender, OutApplyWS.AddOverTimeRdCompletedEventArgs e)
+        void client_AddOutApplyCompleted(object sender, AddOutApplyCompletedEventArgs e)
         {
             RefreshUI(RefreshedTypes.HideProgressBar);
             if (e.Error != null)
@@ -590,7 +597,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 }
                 else
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", Utility.GetResourceStr("ADDDATASUCCESSED")));
                     FormType = FormTypes.Edit;
                     EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                     entBrowser.FormType = FormTypes.Edit;

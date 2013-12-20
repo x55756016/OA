@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="T_HR_NOATTENDCARDEMPLOYEES" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>SMT.HRM.UI.OutApplyWS.T_HR_NOATTENDCARDEMPLOYEES, SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="T_HR_OUTAPPLYCONFIRM" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>SMT.HRM.UI.OutApplyWS.T_HR_OUTAPPLYCONFIRM, SMT.HRM.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>
