@@ -84,6 +84,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             StandardsMethod(lastIndex);//显示选中的城市的出差标准
             //计算并给实体赋值
             SetTraveValueAndFBChargeValue();
+            DisAbleLastTxtASubsidies();
         }
 
         #region 检查是否选择了目标城市否则不给添加
@@ -180,6 +181,31 @@ namespace SMT.SaaS.OA.UI.UserControls
             StandardsMethod(0);//显示选中的城市的出差标准
             //计算并给实体赋值
             SetTraveValueAndFBChargeValue();
+            DisAbleLastTxtASubsidies();
+        }
+
+        /// <summary>
+        /// 禁用最后一条记录住宿费控件
+        /// </summary>
+        private void DisAbleLastTxtASubsidies()
+        {
+            int lastIndex = TravelDetailList_Golbal.Count() - 1;
+            for (int i = 0; i < TravelDetailList_Golbal.Count(); i++)
+            {
+                var ent = TravelDetailList_Golbal[i];
+                //住宿费
+                TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(ent).FindName("txtACCOMMODATION") as TextBox;
+                if (i == lastIndex)
+                {
+                    //txtASubsidies.IsEnabled = false;
+                    txtASubsidies.IsReadOnly = true;
+                }
+                else
+                {
+                    txtASubsidies.IsReadOnly = false;
+                }
+            }
+            
         }
         #endregion
     }

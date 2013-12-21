@@ -810,6 +810,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <param name="CityValue"></param>
         private T_OA_AREAALLOWANCE GetAllowanceByCityValue(string CityValue)
         {
+            CityValue = CityValue.Replace(",", "");
             var q = from ent in areaallowance
                     join ac in areacitys on ent.T_OA_AREADIFFERENCE.AREADIFFERENCEID equals ac.T_OA_AREADIFFERENCE.AREADIFFERENCEID
                     where ac.CITY == CityValue && ent.T_OA_TRAVELSOLUTIONS.TRAVELSOLUTIONSID == travelsolutions.TRAVELSOLUTIONSID
