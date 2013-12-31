@@ -1095,6 +1095,44 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
+        /// 根据员工姓名获取员工信息
+        /// </summary>
+        /// <param name="employeeCNames"></param>
+        /// <returns></returns>
+        public List<V_EMPLOYEEVIEW> GetEmployeeByNames(List<string> employeeCNames)
+        {
+            try
+            {
+                SMT.Foundation.Log.Tracer.Debug("GetEmployeeByNames-根据员工姓名获取员工信息开始");
+                var ent = from e in dal.GetObjects()
+                          join c in dal.GetObjects<T_HR_COMPANY>() on e.OWNERCOMPANYID equals c.COMPANYID
+                          join d in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals d.DEPARTMENTID
+                          join dic in dal.GetObjects<T_HR_DEPARTMENTDICTIONARY>() on d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID equals dic.DEPARTMENTDICTIONARYID
+                          join p in dal.GetObjects<T_HR_POST>() on e.OWNERPOSTID equals p.POSTID
+                          join pic in dal.GetObjects<T_HR_POSTDICTIONARY>() on p.T_HR_POSTDICTIONARY.POSTDICTIONARYID equals pic.POSTDICTIONARYID
+                          join ec in employeeCNames on e.EMPLOYEECNAME equals ec
+                          where e.EMPLOYEESTATE != "4" && e.EMPLOYEESTATE != "0"
+                          select new V_EMPLOYEEVIEW
+                          {
+                              EMPLOYEEID = e.EMPLOYEEID,
+                              EMPLOYEECNAME = e.EMPLOYEECNAME,
+                              COMPANYNAME = c.CNAME,
+                              DEPARTMENTNAME = dic.DEPARTMENTNAME,
+                              POSTNAME = pic.POSTNAME,
+                              OWNERCOMPANYID = e.OWNERCOMPANYID,
+                              OWNERDEPARTMENTID = e.OWNERDEPARTMENTID,
+                              OWNERPOSTID = e.OWNERPOSTID,
+                              OWNERID = e.OWNERID
+                          };
+                return ent == null ? null : ent.ToList();
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("GetEmployeeByNames-根据员工姓名获取员工信息错误" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
         /// 根据员工ID集合查询所有员工
         /// </summary>
         /// <param name="employeeIDs">员工ID</param>
@@ -2386,11 +2424,12 @@ namespace SMT.HRM.BLL
             }
         }
 
-       /// <summary>
-        /// 导出员工档案（公司的非离职员工）
-       /// </summary>
-       /// <param name="companyID"></param>
-       /// <returns></returns>
+
+        /// <summary>
+        /// 导出员工档案
+        /// </summary>
+        /// <param name="companyID"></param>
+        /// <returns></returns>
         public byte[] ExportEmployee(string companyID)
         {
             try
@@ -2400,16 +2439,92 @@ namespace SMT.HRM.BLL
                                select e).FirstOrDefault();
                 string companyName = company.CNAME;
                 #region 获取公司所有员工
-                IQueryable<T_HR_EMPLOYEE> entEmployee = from e in dal.GetObjects()
-                                               where e.OWNERCOMPANYID == companyID && e.EMPLOYEESTATE!="4"//4为未提交
-                                               select e;
+                var entEmployee = from e in dal.GetObjects()
+                                  join c in dal.GetObjects<T_HR_COMPANY>() on e.OWNERCOMPANYID equals c.COMPANYID
+                                  join d in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals d.DEPARTMENTID
+                                  join dic in dal.GetObjects<T_HR_DEPARTMENTDICTIONARY>() on d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTDICTIONARYID equals dic.DEPARTMENTDICTIONARYID
+                                  join p in dal.GetObjects<T_HR_POST>() on e.OWNERPOSTID equals p.POSTID
+                                  join pic in dal.GetObjects<T_HR_POSTDICTIONARY>() on p.T_HR_POSTDICTIONARY.POSTDICTIONARYID equals pic.POSTDICTIONARYID
+
+                                  join resume in dal.GetObjects<T_HR_RESUME>() on e.IDNUMBER equals resume.IDCARDNUMBER into Retemp
+                                  from t0 in Retemp.DefaultIfEmpty()//左连接
+
+                                  join edu in dal.GetObjects<T_HR_EDUCATEHISTORY>() on t0.RESUMEID equals edu.T_HR_RESUME.RESUMEID into Resumetemp
+                                  from t1 in Resumetemp.DefaultIfEmpty()//左连接
+
+                                  join k in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on e.EMPLOYEEID equals k.T_HR_EMPLOYEE.EMPLOYEEID into Entertemp
+                                  from t2 in Entertemp.DefaultIfEmpty()//左连接
+
+                                  join m in dal.GetObjects<T_HR_EMPLOYEECHECK>() on e.EMPLOYEEID equals m.T_HR_EMPLOYEE.EMPLOYEEID into Checktemp
+                                  from t3 in Checktemp.DefaultIfEmpty()//左连接
+
+                                  join p in dal.GetObjects<T_HR_PENSIONMASTER>() on e.EMPLOYEEID equals p.T_HR_EMPLOYEE.EMPLOYEEID into Pensiontemp
+                                  from t4 in Pensiontemp.DefaultIfEmpty()//左连接
+                                  where e.OWNERCOMPANYID == companyID && e.EMPLOYEESTATE != "4"//4为未提交
+                                  select new V_EmployeeEntryInfo
+                                  {
+                                      EmployeeID = e.EMPLOYEEID,
+                                      EmployeeName = e.EMPLOYEECNAME,
+                                      CompanyName = c.CNAME,
+                                      DepartmentName = dic.DEPARTMENTNAME,
+                                      PostName = pic.POSTNAME,
+                                      EmployeeState = e.EMPLOYEESTATE,
+                                      Sex = e.SEX,
+                                      IdNumber = e.IDNUMBER,
+                                      FingerPrintID = e.FINGERPRINTID,
+                                      SocialServiceYear = e.SOCIALSERVICEYEAR,
+                                      Nation = e.NATION,
+                                      BirthdayDate = e.BIRTHDAY,
+                                      Marriage = e.MARRIAGE,
+                                      Mobile = e.MOBILE,
+                                      OfficePhone = e.OFFICEPHONE,
+                                      Bank = e.BANKID,
+                                      BankCardNumber = e.BANKCARDNUMBER,
+                                      PensionComputerNo = t4.COMPUTERNO,
+                                      PensionCardID = t4.CARDID,
+                                      PensionCheckState = t4.CHECKSTATE,
+                                      Email = e.EMAIL,
+                                      RegResidence = e.REGRESIDENCE,
+                                      FamilyAddress = e.FAMILYADDRESS,
+                                      CurrentAddress = e.CURRENTADDRESS,
+                                      UrgencyPerson = e.URGENCYPERSON,
+                                      UrgencyContact = e.URGENCYCONTACT,
+                                      EntryDates = t2.ENTRYDATE,
+                                      CheckDate = t3.BEREGULARDATE,
+                                      Education = e.TOPEDUCATION,
+                                      GraduateSchool = t1.SCHOONAME,
+                                      Specialty = t1.SPECIALTY,
+                                      Remark = e.REMARK
+                                  };
+                var temp = entEmployee.GroupBy(t => t.EmployeeID);
+                List<V_EmployeeEntryInfo> list = new List<V_EmployeeEntryInfo>();
+                foreach (var item in temp)
+                {
+                    var info = item.Where(t => t.PensionCheckState == "2").FirstOrDefault();//审核通过的社保信息
+                    if (info != null)
+                    {
+                        list.Add(info);
+                    }
+                    else
+                    {
+                        info = item.Where(t => !string.IsNullOrWhiteSpace(t.PensionCardID)).FirstOrDefault();//没有审核通过的则加载有卡号的
+                        if (info != null)
+                        {
+                            list.Add(info);
+                        }
+                        else
+                        {
+                            list.Add(item.FirstOrDefault());//连卡号都没有的情况也存在
+                        }
+                    }
+                }
                 #endregion
                 byte[] result;
-                DataTable dt = TableToExportInit();
-                if (entEmployee != null && entEmployee.Count() > 0)
+                DataTable dt = TableToExportInit();//定义表头
+                if (list != null && list.Any())
                 {
-                    DataTable dttoExport = GetDataConversion(dt, entEmployee);
-                    result = Utility.OutFileStream(companyName+Utility.GetResourceStr(" 员工档案信息"), dttoExport);
+                    DataTable dttoExport = GetDataConversion(dt, list);//组装数据
+                    result = Utility.OutFileStream(companyName + Utility.GetResourceStr(" 员工档案信息"), dttoExport);
                     return result;
                 }
                 else
@@ -2494,73 +2609,80 @@ namespace SMT.HRM.BLL
         /// 数据组装
         /// </summary>
         /// <param name="dt"></param>
-        /// <param name="entEmployee"></param>
+        /// <param name="V_EmployeeEntryInfo"></param>
         /// <returns></returns>
-        private DataTable GetDataConversion(DataTable dt, IQueryable<T_HR_EMPLOYEE> entEmployee)
+        private DataTable GetDataConversion(DataTable dt, List<V_EmployeeEntryInfo> entEmployee)
         {
             dt.Rows.Clear();
             foreach (var item in entEmployee)
             {
                 try
                 {
+                    var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "EMPLOYEESTATE", "TOPEDUCATION", "NATION", "SEX", "MARRIAGE" });
                     DataRow row = dt.NewRow();
+                    decimal dicValue = -1;
+                    SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY tempDic = null;
                     #region 每行数据
                     for (int i = 0; i < dt.Columns.Count; i++)
                     {
                         switch (i)
                         {
-                            case 0: row[i] = item.EMPLOYEECNAME; break;
-                            case 1: row[i] = item.EMPLOYEECODE; break;
-                            case 2: row[i] = item.SEX=="0"?"女":"男"; break;
-                            case 3: row[i] = item.IDNUMBER; break;
-                            case 4: row[i] = item.FINGERPRINTID; break;
+                            case 0: row[i] = item.EmployeeName; break;
+                            case 1: row[i] = item.CompanyName; break;
+                            case 2: row[i] = item.DepartmentName; break;
+                            case 3: row[i] = item.PostName; break;
+                            case 4:
+                                dicValue = this.ConverTo(item.EmployeeState);
+                                tempDic = tmp.Where(s => s.DICTIONCATEGORY == "EMPLOYEESTATE" && s.DICTIONARYVALUE == dicValue).FirstOrDefault();
+                                row[i] = tempDic == null ? "" : tempDic.DICTIONARYNAME;
+                                break;
                             case 5:
-                                {
-                                    string strSoc = string.Empty;
-                                    string strYear = item.SOCIALSERVICEYEAR;
-                                    try
-                                    {
-                                        if (!string.IsNullOrWhiteSpace(strYear))
-                                        {
-                                            strSoc = Convert.ToDateTime(strYear).ToString("yyyy-MM-dd");
-                                        }
-                                    }
-                                    catch (Exception)
-                                    {
-                                        strSoc=item.SOCIALSERVICEYEAR; 
-                                    }
-                                    row[i] = strSoc;
-                                }  break;
-                            case 6: row[i] = item.HEIGHT; break;
-                            case 7: row[i] = Convert.ToDateTime(item.BIRTHDAY).ToString("yyyy-MM-dd"); break;
-                            case 8: row[i] = item.MOBILE; break;
-                            case 9: row[i] = item.OFFICEPHONE; break;
-                            case 10: row[i] = item.BANKID; break;
-                            case 11: row[i] = item.BANKCARDNUMBER; break;
-                            case 12: row[i] = item.EMAIL; break;
-                            case 13: row[i] = item.REGRESIDENCE; break;
-                            case 14: row[i] = item.FAMILYADDRESS; break;
-                            case 15: row[i] = item.CURRENTADDRESS; break;
-                            case 16: 
-                                {
-                                    string state=string.Empty;
-                                    if (item.EMPLOYEESTATE == "1")
-                                        state = "在职";
-                                    else if (item.EMPLOYEESTATE == "2")
-                                    {
-                                         state = "已离职";
-                                    }
-                                    else if (item.EMPLOYEESTATE == "3")
-                                    {
-                                        state = "离职中";
-                                    }
-                                    else if (item.EMPLOYEESTATE == "0")
-                                    {
-                                        state = "试用";
-                                    }
-                                    row[i] = state; 
-                                }break;
-                            case 17: row[i] = item.REMARK; break;
+                                dicValue = this.ConverTo(item.Sex);
+                                tempDic = tmp.Where(s => s.DICTIONCATEGORY == "SEX" && s.DICTIONARYVALUE == dicValue).FirstOrDefault();
+                                row[i] = tempDic == null ? "" : tempDic.DICTIONARYNAME;
+                                break;
+                            case 6: row[i] = item.IdNumber; break;
+                            case 7: row[i] = item.FingerPrintID; break;
+                            case 8: row[i] = item.SocialServiceYear; break;
+                            case 9:
+                                dicValue = this.ConverTo(item.Nation);
+                                tempDic = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == dicValue).FirstOrDefault();
+                                row[i] = tempDic == null ? "" : tempDic.DICTIONARYNAME;
+                                break;
+                            case 10: row[i] = item.BirthdayDate == null ? "" : item.BirthdayDate.Value.ToString("yyyy-MM-dd"); break;
+                            case 11:
+                                dicValue = this.ConverTo(item.Marriage);
+                                tempDic = tmp.Where(s => s.DICTIONCATEGORY == "MARRIAGE" && s.DICTIONARYVALUE == dicValue).FirstOrDefault();
+                                row[i] = tempDic == null ? "" : tempDic.DICTIONARYNAME; break;
+                            case 12: row[i] = item.Mobile; break;
+                            case 13: row[i] = item.OfficePhone; break;
+                            case 14: row[i] = item.Bank; break;
+                            case 15: row[i] = item.BankCardNumber; break;
+                            case 16: row[i] = item.PensionComputerNo; break;
+                            case 17: row[i] = item.PensionCardID; break;
+                            case 18: row[i] = item.Email; break;
+                            case 19: row[i] = item.RegResidence; break;
+                            case 20: row[i] = item.FamilyAddress; break;
+                            case 21: row[i] = item.CurrentAddress; break;
+                            case 22: row[i] = item.UrgencyPerson; break;
+                            case 23: row[i] = item.UrgencyContact; break;
+                            case 24: row[i] = item.EntryDates == null ? "" : item.EntryDates.Value.ToString("yyyy-MM-dd"); break;
+                            case 25: row[i] = item.CheckDate == null ? "" : item.CheckDate.Value.ToString("yyyy-MM-dd"); ; break;
+                            case 26:
+                                dicValue = this.ConverTo(item.Education);
+                                tempDic = tmp.Where(s => s.DICTIONCATEGORY == "TOPEDUCATION" && s.DICTIONARYVALUE == dicValue).FirstOrDefault();
+                                row[i] = tempDic == null ? "" : tempDic.DICTIONARYNAME; break;
+                            case 27: row[i] = item.GraduateSchool; break;
+                            case 28: row[i] = item.Specialty; break;
+                            case 29: row[i] = item.Remark; break;
+
+
+
+
+
+
+
+
                         }
                     }
                     dt.Rows.Add(row);
@@ -2571,9 +2693,25 @@ namespace SMT.HRM.BLL
                     SMT.Foundation.Log.Tracer.Debug("ExportEmployee导出员工档案组装DataTable时出错:" + ex.Message);
                     return null;
                 }
-            
+
             }
             return dt;
+        }
+        /// <summary>
+        ///把string型简单的转成 decimal
+        /// </summary>
+        /// <param name="strValue"></param>
+        /// <returns></returns>
+        private decimal ConverTo(string strValue)
+        {
+            try
+            {
+                return Convert.ToDecimal(strValue);
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -2589,10 +2727,25 @@ namespace SMT.HRM.BLL
             colCordSD.DataType = typeof(string);
             dt.Columns.Add(colCordSD);
 
-            DataColumn colCordED = new DataColumn();
-            colCordED.ColumnName = "员工编号";
-            colCordED.DataType = typeof(string);
-            dt.Columns.Add(colCordED);
+            DataColumn colComp = new DataColumn();
+            colComp.ColumnName = "公司";
+            colComp.DataType = typeof(string);
+            dt.Columns.Add(colComp);
+
+            DataColumn colDept = new DataColumn();
+            colDept.ColumnName = "部门";
+            colDept.DataType = typeof(string);
+            dt.Columns.Add(colDept);
+
+            DataColumn colPost = new DataColumn();
+            colPost.ColumnName = "岗位";
+            colPost.DataType = typeof(string);
+            dt.Columns.Add(colPost);
+
+            DataColumn col11 = new DataColumn();
+            col11.ColumnName = Utility.GetResourceStr("员工状态");
+            col11.DataType = typeof(string);
+            dt.Columns.Add(col11);
 
             DataColumn colCordFD = new DataColumn();
             colCordFD.ColumnName = "性别";
@@ -2609,30 +2762,30 @@ namespace SMT.HRM.BLL
             colCordMD.DataType = typeof(string);
             dt.Columns.Add(colCordMD);
 
-            DataColumn colCordBank = new DataColumn();
-            colCordBank.ColumnName = Utility.GetResourceStr("社保缴交起始时间");
-            colCordBank.DataType = typeof(string);
-            dt.Columns.Add(colCordBank);
+            DataColumn colsoc = new DataColumn();
+            colsoc.ColumnName = Utility.GetResourceStr("社保缴交起始时间");
+            colsoc.DataType = typeof(string);
+            dt.Columns.Add(colsoc);
 
-            //DataColumn colCordAddress = new DataColumn();
-            //colCordAddress.ColumnName = Utility.GetResourceStr("民族");
-            //colCordAddress.DataType = typeof(string);
-            //dt.Columns.Add(colCordAddress);
+            DataColumn colNation = new DataColumn();
+            colNation.ColumnName = Utility.GetResourceStr("民族");
+            colNation.DataType = typeof(string);
+            dt.Columns.Add(colNation);
 
-            DataColumn colCordComments = new DataColumn();
-            colCordComments.ColumnName = Utility.GetResourceStr("身高");
-            colCordComments.DataType = typeof(string);
-            dt.Columns.Add(colCordComments);
+            //DataColumn colHight = new DataColumn();
+            //colHight.ColumnName = Utility.GetResourceStr("身高");
+            //colHight.DataType = typeof(string);
+            //dt.Columns.Add(colHight);
 
             DataColumn col1 = new DataColumn();
             col1.ColumnName = Utility.GetResourceStr("出生日期");
             col1.DataType = typeof(string);
             dt.Columns.Add(col1);
 
-            //DataColumn col2 = new DataColumn();
-            //col2.ColumnName = Utility.GetResourceStr("血型");
-            //col2.DataType = typeof(string);
-            //dt.Columns.Add(col2);
+            DataColumn colMarry = new DataColumn();
+            colMarry.ColumnName = Utility.GetResourceStr("婚姻状况");
+            colMarry.DataType = typeof(string);
+            dt.Columns.Add(colMarry);
 
             DataColumn col3 = new DataColumn();
             col3.ColumnName = Utility.GetResourceStr("手机号码");
@@ -2654,10 +2807,15 @@ namespace SMT.HRM.BLL
             col5.DataType = typeof(string);
             dt.Columns.Add(col5);
 
-            //DataColumn col6 = new DataColumn();
-            //col6.ColumnName = Utility.GetResourceStr("籍贯");
-            //col6.DataType = typeof(string);
-            //dt.Columns.Add(col6);
+            DataColumn colPenCardComputerID = new DataColumn();
+            colPenCardComputerID.ColumnName = Utility.GetResourceStr("社保电脑号");
+            colPenCardComputerID.DataType = typeof(string);
+            dt.Columns.Add(colPenCardComputerID);
+
+            DataColumn colPenCardID = new DataColumn();
+            colPenCardID.ColumnName = Utility.GetResourceStr("社保卡号");
+            colPenCardID.DataType = typeof(string);
+            dt.Columns.Add(colPenCardID);
 
             DataColumn col7 = new DataColumn();
             col7.ColumnName = Utility.GetResourceStr("电子邮件");
@@ -2679,15 +2837,45 @@ namespace SMT.HRM.BLL
             col10.DataType = typeof(string);
             dt.Columns.Add(col10);
 
-            DataColumn col11 = new DataColumn();
-            col11.ColumnName = Utility.GetResourceStr("员工状态");
-            col11.DataType = typeof(string);
-            dt.Columns.Add(col11);
+            DataColumn colUrgency = new DataColumn();
+            colUrgency.ColumnName = Utility.GetResourceStr("紧急联系人");
+            colUrgency.DataType = typeof(string);
+            dt.Columns.Add(colUrgency);
 
-            DataColumn col12 = new DataColumn();
-            col12.ColumnName = Utility.GetResourceStr("备注");
-            col12.DataType = typeof(string);
-            dt.Columns.Add(col12);
+            DataColumn colUrgencyContact = new DataColumn();
+            colUrgencyContact.ColumnName = Utility.GetResourceStr("紧急联系方式");
+            colUrgencyContact.DataType = typeof(string);
+            dt.Columns.Add(colUrgencyContact);
+
+            DataColumn colEntryDate = new DataColumn();
+            colEntryDate.ColumnName = Utility.GetResourceStr("入职时间");
+            colEntryDate.DataType = typeof(string);
+            dt.Columns.Add(colEntryDate);
+
+            DataColumn colCheckDate = new DataColumn();
+            colCheckDate.ColumnName = Utility.GetResourceStr("转正时间");
+            colCheckDate.DataType = typeof(string);
+            dt.Columns.Add(colCheckDate);
+
+            DataColumn colEdu = new DataColumn();
+            colEdu.ColumnName = Utility.GetResourceStr("学历");
+            colEdu.DataType = typeof(string);
+            dt.Columns.Add(colEdu);
+
+            DataColumn colSch = new DataColumn();
+            colSch.ColumnName = Utility.GetResourceStr("毕业院校");
+            colSch.DataType = typeof(string);
+            dt.Columns.Add(colSch);
+
+            DataColumn colSpc = new DataColumn();
+            colSpc.ColumnName = Utility.GetResourceStr("专业");
+            colSpc.DataType = typeof(string);
+            dt.Columns.Add(colSpc);
+
+            DataColumn colRemark = new DataColumn();
+            colRemark.ColumnName = Utility.GetResourceStr("备注");
+            colRemark.DataType = typeof(string);
+            dt.Columns.Add(colRemark);
             #endregion
             return dt;
         }

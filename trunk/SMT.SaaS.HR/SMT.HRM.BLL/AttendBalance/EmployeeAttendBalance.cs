@@ -66,7 +66,6 @@ namespace SMT.HRM.BLL
                     Tracer.Debug(" 结算月度考勤结果，结算时间范围：" + dtStart.ToString("yyyy-MM-dd") + "--" + dtEnd.ToString("yyyy-MM-dd")
                         + "员工姓名：+" + item.EMPLOYEECNAME + " 使用的考勤方案名：" + entAttSol.ATTENDANCESOLUTIONNAME
                         );
-
                     decimal dNeedAttendDays = 0, dRealNeedAttendDays = 0;    //标称应出勤天数, 实际应出勤天数
                     decimal? dWorkTimePerDay = entAttSol.WORKTIMEPERDAY;    //每日工作时长
                     decimal dWorkServiceMonths = 0; //在职总月份数
@@ -111,6 +110,13 @@ namespace SMT.HRM.BLL
 
                     if (entAttendMonthlyBalance != null)
                     {
+                        if (entAttendMonthlyBalance.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                        {
+                            Tracer.Debug(" 已存在结算月度考勤结果，跳过，结算时间范围：" + dtStart.ToString("yyyy-MM-dd") + "--" + dtEnd.ToString("yyyy-MM-dd")
+                               + "员工姓名：+" + item.EMPLOYEECNAME + " 使用的考勤方案名：" + entAttSol.ATTENDANCESOLUTIONNAME
+                               + " 考勤结算结果状态:" + entAttendMonthlyBalance.CHECKSTATE);
+                            continue;
+                        }
                         DeleteMonthlyBalance(entAttendMonthlyBalance.MONTHLYBALANCEID);
                     }
 

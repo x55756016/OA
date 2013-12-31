@@ -356,22 +356,22 @@ namespace SMT.HRM.BLL
                                                         string msg = "考勤初始化（新增）-检测到假期设置了休假（半天）："
                                                            + " 员工：" + entAttRd.EMPLOYEENAME
                                                            + " 日期：" + entAttRd.ATTENDANCEDATE
-                                                           + " 上班分段（0上午）：" + set.PEROID;
+                                                           + " 休假分段（0上午）：" + set.PEROID;
                                                         Tracer.Debug(msg);
                                                         entAttRd.REMARK = msg;
-                                                        entAttRd.NEEDFRISTATTEND = "1";//上午上班
-                                                        entAttRd.NEEDSECONDATTEND = "0";//下午不上班
+                                                        entAttRd.NEEDFRISTATTEND = "0";//上午不上班
+                                                        entAttRd.NEEDSECONDATTEND = "1";//下午上班
                                                     }
                                                     else if (set.PEROID == "1")
                                                     {
                                                         string msg = "考勤初始化（新增）-检测到假期设置了休假（半天）："
                                                             + " 员工：" + entAttRd.EMPLOYEENAME
                                                             + " 日期：" + entAttRd.ATTENDANCEDATE
-                                                            + " 上班分段（1下午）：" + set.PEROID;
+                                                            + " 休假分段（1下午）：" + set.PEROID;
                                                         Tracer.Debug(msg);
                                                         entAttRd.REMARK = msg;
-                                                        entAttRd.NEEDFRISTATTEND = "0";//上午不上班
-                                                        entAttRd.NEEDSECONDATTEND = "1";//下午上班
+                                                        entAttRd.NEEDFRISTATTEND = "1";//上午上班
+                                                        entAttRd.NEEDSECONDATTEND = "0";//下午不上班
                                                     }
                                                 }
                                             }
