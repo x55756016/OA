@@ -470,7 +470,7 @@ namespace SMT.HRM.UI.Form.Personnel
             paraIDs.Add("CreatePostID", EmployeeContract.T_HR_EMPLOYEE.OWNERPOSTID);
             paraIDs.Add("CreateDepartmentID", EmployeeContract.T_HR_EMPLOYEE.OWNERDEPARTMENTID);
             paraIDs.Add("CreateCompanyID", EmployeeContract.T_HR_EMPLOYEE.OWNERCOMPANYID);
-
+            paraIDs.Add("CONTACTPERIOD", EmployeeContract.ENDDATE.Value.Subtract(employeeContract.FROMDATE.Value).Days.ToString());
             if (EmployeeContract.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
             {
                 //Utility.SetAuditEntity(entity, "T_HR_EMPLOYEECONTRACT", EmployeeContract.EMPLOYEECONTACTID, strXmlObjectSource, EmployeeContract.T_HR_EMPLOYEE.EMPLOYEEID);

@@ -129,6 +129,7 @@ FROM "dbo"."TEMP_SIGNINDETAIL" "TEMP_SIGNINDETAIL"</DefiningQuery>
     <EntitySet Name="T_HR_SALARYARCHIVEITEM" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYARCHIVEITEM" store:Type="Tables" />
     <EntitySet Name="T_HR_SALARYITEM" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYITEM" store:Type="Tables" />
     <EntitySet Name="T_HR_SALARYLEVEL" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYLEVEL" store:Type="Tables" />
+    <EntitySet Name="T_HR_SALARYPAYPOST" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYPAYPOST" store:Type="Tables" />
     <EntitySet Name="T_HR_SALARYRECORDBATCH" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYRECORDBATCH" store:Type="Tables" />
     <EntitySet Name="T_HR_SALARYSOLUTION" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYSOLUTION" store:Type="Tables" />
     <EntitySet Name="T_HR_SALARYSOLUTIONASSIGN" EntityType="SMT_HRM_EFModel.Store.T_HR_SALARYSOLUTIONASSIGN" store:Type="Tables" />
@@ -3460,6 +3461,30 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEDATE" Type="date" />
   </EntityType>
+  <EntityType Name="T_HR_SALARYPAYPOST">
+    <Key>
+      <PropertyRef Name="SALARYPAYPOSTID" />
+    </Key>
+    <Property Name="SALARYPAYPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="RECEIVECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="RECEIVEDEPTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="RECEIVEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="RECEIVERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="RECEIVECOMPANYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="RECEIVEDEPTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="RECEIVEPOSTNAME" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
   <EntityType Name="T_HR_SALARYRECORDBATCH">
     <Key>
       <PropertyRef Name="MONTHLYBATCHID" />
@@ -5502,6 +5527,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <EntitySet Name="T_HR_SALARYARCHIVEITEM" EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVEITEM" />
     <EntitySet Name="T_HR_SALARYITEM" EntityType="SMT_HRM_EFModel.T_HR_SALARYITEM" />
     <EntitySet Name="T_HR_SALARYLEVEL" EntityType="SMT_HRM_EFModel.T_HR_SALARYLEVEL" />
+    <EntitySet Name="T_HR_SALARYPAYPOST" EntityType="SMT_HRM_EFModel.T_HR_SALARYPAYPOST" />
     <EntitySet Name="T_HR_SALARYRECORDBATCH" EntityType="SMT_HRM_EFModel.T_HR_SALARYRECORDBATCH" />
     <EntitySet Name="T_HR_SALARYSOLUTION" EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTION" />
     <EntitySet Name="T_HR_SALARYSOLUTIONASSIGN" EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTIONASSIGN" />
@@ -8737,6 +8763,30 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="UPDATEDATE" Type="DateTime" />
     <NavigationProperty Name="T_HR_POSTLEVELDISTINCTION" Relationship="SMT_HRM_EFModel.FK_T_HR_SAL_REFERENCE_T_HR_POS" FromRole="T_HR_SALARYLEVEL" ToRole="T_HR_POSTLEVELDISTINCTION" />
     <NavigationProperty Name="T_HR_SALARYSTANDARD" Relationship="SMT_HRM_EFModel.FK_SALARYSTANDARD_SALARYLEVEL" FromRole="T_HR_SALARYLEVEL" ToRole="T_HR_SALARYSTANDARD" />
+  </EntityType>
+  <EntityType Name="T_HR_SALARYPAYPOST">
+    <Key>
+      <PropertyRef Name="SALARYPAYPOSTID" />
+    </Key>
+    <Property Name="SALARYPAYPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVEDEPTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="RECEIVECOMPANYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVEDEPTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="RECEIVEPOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="T_HR_SALARYRECORDBATCH">
     <Key>
@@ -12618,6 +12668,31 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T_HR_SALARYPAYPOST">
+      <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_SALARYPAYPOST">
+        <MappingFragment StoreEntitySet="T_HR_SALARYPAYPOST">
+          <ScalarProperty Name="SALARYPAYPOSTID" ColumnName="SALARYPAYPOSTID" />
+          <ScalarProperty Name="RECEIVECOMPANYID" ColumnName="RECEIVECOMPANYID" />
+          <ScalarProperty Name="RECEIVEDEPTID" ColumnName="RECEIVEDEPTID" />
+          <ScalarProperty Name="RECEIVEPOSTID" ColumnName="RECEIVEPOSTID" />
+          <ScalarProperty Name="RECEIVERID" ColumnName="RECEIVERID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="RECEIVECOMPANYNAME" ColumnName="RECEIVECOMPANYNAME" />
+          <ScalarProperty Name="RECEIVEDEPTNAME" ColumnName="RECEIVEDEPTNAME" />
+          <ScalarProperty Name="RECEIVEPOSTNAME" ColumnName="RECEIVEPOSTNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="T_HR_SALARYRECORDBATCH">
       <EntityTypeMapping TypeName="SMT_HRM_EFModel.T_HR_SALARYRECORDBATCH">
         <MappingFragment StoreEntitySet="T_HR_SALARYRECORDBATCH">
@@ -14183,7 +14258,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
 <Connection><DesignerInfoPropertySet><DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" /></DesignerInfoPropertySet></Connection>
 <edmx:Options />
 <edmx:Diagrams >
-      <Diagram DiagramId="f5e58482d75e40698947ead130bbe38f" Name="关系图1">
+      <Diagram DiagramId="9ca5268a97154890ac5554437fe43901" Name="关系图1">
         <EntityTypeShape EntityType="SMT_HRM_EFModel.TEMP_SIGNINDETAIL" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_ADJUSTLEAVE" Width="1.5" PointX="14.5" PointY="47.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_AREAALLOWANCE" Width="1.5" PointX="20" PointY="29.625" IsExpanded="true" />
@@ -14286,6 +14361,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYARCHIVEITEM" Width="1.5" PointX="29" PointY="29.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYITEM" Width="1.5" PointX="20" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYLEVEL" Width="1.5" PointX="22.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYPAYPOST" Width="1.5" PointX="38.75" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYRECORDBATCH" Width="1.5" PointX="31.75" PointY="38.25" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTION" Width="1.5" PointX="20" PointY="17" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSOLUTIONASSIGN" Width="1.5" PointX="22.25" PointY="15.625" IsExpanded="true" />
@@ -14296,7 +14372,7 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYSYSTEM" Width="1.5" PointX="17.75" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SALARYTAXES" Width="1.5" PointX="22.25" PointY="29.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SAMPLETABLE" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SAMPLETABLE2" Width="1.5" PointX="38.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SAMPLETABLE2" Width="1.5" PointX="38.75" PointY="38.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCHEDULINGTEMPLATEDETAIL" Width="1.5" PointX="13" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCHEDULINGTEMPLATEMASTER" Width="1.5" PointX="7.75" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SCORETYPE" Width="1.5" PointX="34" PointY="11.375" IsExpanded="true" />
@@ -14305,13 +14381,13 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_STANDREWARDARCHIVE" Width="1.5" PointX="29" PointY="33.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_STANDREWARDARCHIVEHIS" Width="1.5" PointX="20" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SUMPERFORMANCERECORD" Width="1.5" PointX="39.25" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SYSTEMSETTING" Width="1.5" PointX="38.75" PointY="38.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_SYSTEMSETTING" Width="1.5" PointX="22.75" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.T_HR_VACATIONSET" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.V_DEPARTMENT" Width="1.5" PointX="7.75" PointY="28.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEE" Width="1.5" PointX="22.75" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEENTRYHIS" Width="1.5" PointX="24.75" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEELEFTHIS" Width="1.5" PointX="26.75" PointY="43.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEPOSTCHANGEHIS" Width="1.5" PointX="40.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEE" Width="1.5" PointX="24.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEENTRYHIS" Width="1.5" PointX="26.75" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEELEFTHIS" Width="1.5" PointX="40.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEEPOSTCHANGEHIS" Width="1.5" PointX="40.75" PointY="39.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.V_EMPLOYEESALARYCHANGEHIS" Width="1.5" PointX="36.75" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.V_ORAGNIZATION" Width="1.5" PointX="36.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMT_HRM_EFModel.V_POST" Width="1.5" PointX="38.75" PointY="3.75" IsExpanded="true" />

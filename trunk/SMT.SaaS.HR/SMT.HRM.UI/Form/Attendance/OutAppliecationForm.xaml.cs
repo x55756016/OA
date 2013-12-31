@@ -552,7 +552,11 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (!string.IsNullOrWhiteSpace(e.Result))
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
+                    if (e.Result.ToLower() == "ok")
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "保存成功");
+
+                    }
                     if (closeFormFlag)
                     {
                         RefreshUI(RefreshedTypes.Close);
@@ -593,7 +597,18 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (!string.IsNullOrWhiteSpace(e.Result))
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
+                    if (e.Result.ToLower() == "ok")
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "保存成功");
+                        FormType = FormTypes.Edit;
+                        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                        entBrowser.FormType = FormTypes.Edit;
+                        FormType = FormTypes.Edit;
+                        if (closeFormFlag)
+                        {
+                            RefreshUI(RefreshedTypes.Close);
+                        }
+                    }
                 }
                 else
                 {
@@ -601,6 +616,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     FormType = FormTypes.Edit;
                     EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                     entBrowser.FormType = FormTypes.Edit;
+                    FormType = FormTypes.Edit;
                     if (closeFormFlag)
                     {
                         RefreshUI(RefreshedTypes.Close);

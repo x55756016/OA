@@ -4531,20 +4531,21 @@ namespace SMT.HRM.BLL
             {
 
 
-                if (Employeeids.Count() > 0)
+                if (Employeeids.Any())
                 {
-                    StringBuilder idnumber = new StringBuilder();
-                    for (int i = 0; i < Employeeids.Length; i++)
-                    {
-                        if (i == 0 || i == Employeeids.Length - 1)
-                        {
-                            idnumber.Append(Employeeids[0]);
-                        }
-                        else idnumber.Append(Employeeids[i] + ",");
-                    }
-                    string IDs = idnumber.ToString();
+                    //StringBuilder idnumber = new StringBuilder();
+                    //for (int i = 0; i < Employeeids.Length; i++)
+                    //{
+                    //    if (i == 0 || i == Employeeids.Length - 1)
+                    //    {
+                    //        idnumber.Append(Employeeids[0]);
+                    //    }
+                    //    else idnumber.Append(Employeeids[i] + ",");
+                    //}
+                    //string IDs = idnumber.ToString();
                     var employees = from c in dal.GetObjects<T_HR_EMPLOYEE>()
-                                    where c.EMPLOYEEID.Contains(IDs)
+                                    join e in Employeeids on c.EMPLOYEEID equals e
+                                    // where c.EMPLOYEEID.Contains(IDs)
                                     select new V_EMPLOYEEVIEW
                                     {
                                         EMPLOYEEID = c.EMPLOYEEID,
@@ -4576,6 +4577,7 @@ namespace SMT.HRM.BLL
             }
             return LstViews;
         }
+
 
         /// <summary>
         /// 通讯录

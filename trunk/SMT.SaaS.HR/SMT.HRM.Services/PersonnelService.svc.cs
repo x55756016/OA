@@ -3443,7 +3443,18 @@ namespace SMT.HRM.Services
             }
         }
         #endregion
-
+        /// <summary>
+        /// 根据员工姓名获取员工信息
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EMPLOYEEVIEW> GetEmployeeByNames(List<string> employeeCNames)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                return bll.GetEmployeeByNames(employeeCNames);
+            }
+        }
         #region 员工离职报表
         /// <summary>
         /// 员工离职报表
