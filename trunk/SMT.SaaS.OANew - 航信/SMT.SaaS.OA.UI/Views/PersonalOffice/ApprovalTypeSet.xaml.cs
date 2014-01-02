@@ -223,22 +223,18 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             if (Application.Current.Resources.Contains("SYS_DICTIONARY"))
             {
 
-                BindApproval();
+                BindApproval(string.Empty);
             }
         }
 
-        private void BindApproval()
+        private void BindApproval(string typeName)
         {
             treeApproval.Items.Clear();
             List<T_SYS_DICTIONARY> Dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
-
-            
-
             if (ListDicts == null)
             {
                 return;
             }
-
             List<T_SYS_DICTIONARY> TopApproval = new List<T_SYS_DICTIONARY>();
             
             var ents = from p in Dicts
@@ -246,9 +242,12 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                        orderby p.ORDERNUMBER
                        select p;
             ListDicts = ents.Count() > 0 ? ents.ToList() : null;
+            if (!string.IsNullOrWhiteSpace(typeName))
+            {
+                ListDicts = this.GetSearchDic(typeName, ListDicts);
+            }
             if (ListDicts != null)
             {
-
                 foreach (T_SYS_DICTIONARY dict in ListDicts)
                 {
                     if (dict.T_SYS_DICTIONARY2 ==null)
@@ -281,16 +280,56 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                             TreeViewItem parentItem = GetApprovalParentItem(topApp.DICTIONARYID);
                             AddApprovalNode(lstDict, parentItem);
                         }
-                            
-                            
                     }
-                    
                 }
-                    
-               
             }
-            
-            
+        }
+
+       /// <summary>
+        /// 获取经过过滤后的字典信息
+       /// </summary>
+       /// <param name="typeName"></param>
+        /// <param name="listDict"></param>
+       /// <returns></returns>
+        private List<T_SYS_DICTIONARY> GetSearchDic(string typeName, List<T_SYS_DICTIONARY> listDict)
+        {
+            try
+            {
+                List<T_SYS_DICTIONARY> list = new List<T_SYS_DICTIONARY>();
+                listDict = listDict.Where(it => it.DICTIONARYNAME.Contains(typeName)).ToList();
+                listDict.ForEach(it =>
+                {
+                    GetParentDics(it.DICTIONARYID, list);//分别加上改字典值的所有父级字典和子级字典
+                });
+                return list;
+            }
+            catch
+            {
+               // return null;
+                return listDict = listDict.Where(it => it.DICTIONARYNAME.Contains(typeName)).ToList();//出错就返回一个值
+            }
+        }
+
+        /// <summary>
+        /// 获取该字典值的父级所有字典
+        /// </summary>
+        /// <param name="dicID"></param>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        private List<T_SYS_DICTIONARY> GetParentDics(string dicID,List<T_SYS_DICTIONARY> list)
+        {
+            var dic = (from e in ListDicts
+                      where e.DICTIONARYID == dicID
+                      select e).FirstOrDefault();
+            if (dic!=null)
+            {
+                list.Add(dic);
+                if (dic.T_SYS_DICTIONARY2!=null)
+                {
+                    this.GetParentDics(dic.T_SYS_DICTIONARY2.DICTIONARYID, list);
+                }
+            }
+            return list;
         }
 
         /// <summary>
@@ -1270,6 +1309,12 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             SelectedList.DisplayMemberPath = "DICTIONARYNAME";
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string typeName = this.tbTypeName.Text;
+            BindApproval(typeName);
+        }
 
     }
 }
