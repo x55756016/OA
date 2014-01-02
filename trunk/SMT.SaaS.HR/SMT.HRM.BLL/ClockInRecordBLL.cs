@@ -180,11 +180,11 @@ namespace SMT.HRM.BLL
                 {
                     return "{REQUIREDFIELDS}";
                 }
-                if (entTemp.PUNCHDATE.Value.Year < DateTime.Now.Year)
-                {
-                    Tracer.Debug("导入的打卡记录非今年记录，跳过。");
-                    return "{REQUIREDFIELDS}";
-                }
+                //if (entTemp.PUNCHDATE.Value.Year < DateTime.Now.Year)
+                //{
+                //    Tracer.Debug("导入的打卡记录非今年记录，跳过。");
+                //    return "{REQUIREDFIELDS}";
+                //}
 
                 #region 判断是否已经初始化考勤记录，没有就初始化整月数据
                 DateTime dt = new DateTime(entTemp.PUNCHDATE.Value.Year, entTemp.PUNCHDATE.Value.Month, entTemp.PUNCHDATE.Value.Day);
