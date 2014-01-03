@@ -615,8 +615,8 @@ namespace SMT.HRM.BLL
                 string month = starttime.Month.ToString();
                 ents = ents.Where(m => m.SALARYYEAR == year && m.SALARYMONTH == month);
                 ents = ents.OrderBy(sort).ToList().AsQueryable();
-                //按部门排序
-                //ents = ents.OrderBy("DEPARTMENT");
+                //按公司、部门、岗位级别、薪资级别排序
+                ents = ents.OrderBy(e => e.COMPANY).ThenBy(e => e.DEPARTMENT).ThenBy(e => e.POSTLEVEL).ThenBy(e => e.SALARYLEVEL).ToList().AsQueryable();
                 int counts = ents.Count();
                 decimal? tempTotalMoney = 0;
                 string tempAvgMoney = string.Empty;

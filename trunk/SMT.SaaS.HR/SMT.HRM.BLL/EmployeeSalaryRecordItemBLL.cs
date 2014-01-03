@@ -527,6 +527,9 @@ namespace SMT.HRM.BLL
                 V_SalarySummary tmp = new V_SalarySummary();
                 tmp.PayCompany = ent.orgName;
                 tmp.Organization = ent.CNAME + " - " + ent.DepartmentName + " - " + ent.PostName;
+                tmp.CompanyName = ent.CNAME;
+                tmp.DeptName = ent.DepartmentName;
+                tmp.PostName = ent.PostName;
                 tmp.BankID = ent.BanKID;
                 tmp.BankName = ent.BankName;
                 tmp.EmployeeName = ent.EmployeeName;
@@ -810,6 +813,7 @@ namespace SMT.HRM.BLL
 
                 V_SalarySum.Add(tmp);
             }
+            V_SalarySum = V_SalarySum.OrderBy(t => t.CompanyName).ThenBy(t => t.DeptName).ThenBy(t => t.PostName).ToList();
             return V_SalarySum;
         }
 
@@ -819,13 +823,16 @@ namespace SMT.HRM.BLL
             {
                 List<V_SalarySummary> V_SalarySum = GetSalarySummary(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, userID, year, month, IsPageing);
 
-                if (V_SalarySum.Count > 0)
+                if (V_SalarySum.Any())
                 {
                     List<string> colName = new List<string>();
                     colName.Add("银行帐号");
                     colName.Add("开户行");
                     colName.Add("发薪机构");
-                    colName.Add("行政单位");
+                   // colName.Add("行政单位");
+                    colName.Add("公司");
+                    colName.Add("部门");
+                    colName.Add("岗位");
                     colName.Add("员工姓名");
                     colName.Add("身份证号");
                     colName.Add("职级代码");
@@ -905,7 +912,14 @@ namespace SMT.HRM.BLL
                         sb.Append(ent.BankID + ",");
                         sb.Append(ent.BankName + ",");
                         sb.Append(ent.PayCompany + ",");
-                        sb.Append(ent.Organization + ",");
+                        //string[] org = ent.Organization.Split('-');
+                        //sb.Append(org[0] + ",");
+                        //sb.Append(org[1] + ",");
+                        //sb.Append(org[2] + ",");
+                        sb.Append(ent.CompanyName + ",");
+                        sb.Append(ent.DeptName + ",");
+                        sb.Append(ent.PostName + ",");
+                        //sb.Append(ent.Organization + ",");
                         sb.Append(ent.EmployeeName + ",");
                         //sb.Append(ent.IDNumber + ",");
                         sb.Append(SpaceStringSeperator(ent.IDNumber) + ",");
@@ -1103,6 +1117,8 @@ namespace SMT.HRM.BLL
                     }
                     //合计
                     sb.Append("合计" + ",");
+                    sb.Append("" + ",");
+                    sb.Append("" + ",");
                     sb.Append("" + ",");
                     sb.Append("" + ",");
                     sb.Append("" + ",");
