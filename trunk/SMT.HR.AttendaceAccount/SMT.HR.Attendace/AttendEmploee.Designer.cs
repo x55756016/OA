@@ -119,15 +119,16 @@
             this.dtcolumDotaskCheckBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dtcolumDotaskDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSelectDotask = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.txtSql = new System.Windows.Forms.TextBox();
-            this.btnExcute = new System.Windows.Forms.Button();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.txtMenuName = new System.Windows.Forms.TextBox();
             this.dtGridCustomPermission = new System.Windows.Forms.DataGridView();
             this.dtGridPermission = new System.Windows.Forms.DataGridView();
             this.btnSelectPermission = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.txtSql = new System.Windows.Forms.TextBox();
+            this.btnExcute = new System.Windows.Forms.Button();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.btnGernerateInsertSql = new System.Windows.Forms.Button();
@@ -135,7 +136,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -157,10 +157,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).BeginInit();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).BeginInit();
-            this.tabPage6.SuspendLayout();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCustomPermission)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridPermission)).BeginInit();
+            this.tabPage6.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,11 +196,11 @@
             // txtMessagebox
             // 
             this.txtMessagebox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMessagebox.Location = new System.Drawing.Point(0, 609);
+            this.txtMessagebox.Location = new System.Drawing.Point(0, 593);
             this.txtMessagebox.Multiline = true;
             this.txtMessagebox.Name = "txtMessagebox";
             this.txtMessagebox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMessagebox.Size = new System.Drawing.Size(1159, 62);
+            this.txtMessagebox.Size = new System.Drawing.Size(1130, 62);
             this.txtMessagebox.TabIndex = 7;
             this.txtMessagebox.DoubleClick += new System.EventHandler(this.txtMessagebox_DoubleClick);
             // 
@@ -953,35 +953,6 @@
             this.btnSelectDotask.UseVisualStyleBackColor = true;
             this.btnSelectDotask.Click += new System.EventHandler(this.btnSelectDotask_Click);
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.txtSql);
-            this.tabPage6.Controls.Add(this.btnExcute);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(938, 407);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "工具";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // txtSql
-            // 
-            this.txtSql.Location = new System.Drawing.Point(17, 13);
-            this.txtSql.Multiline = true;
-            this.txtSql.Name = "txtSql";
-            this.txtSql.Size = new System.Drawing.Size(896, 182);
-            this.txtSql.TabIndex = 1;
-            // 
-            // btnExcute
-            // 
-            this.btnExcute.Location = new System.Drawing.Point(838, 212);
-            this.btnExcute.Name = "btnExcute";
-            this.btnExcute.Size = new System.Drawing.Size(75, 23);
-            this.btnExcute.TabIndex = 0;
-            this.btnExcute.Text = "执行";
-            this.btnExcute.UseVisualStyleBackColor = true;
-            this.btnExcute.Click += new System.EventHandler(this.btnExcute_Click);
-            // 
             // tabPage11
             // 
             this.tabPage11.Controls.Add(this.label18);
@@ -997,6 +968,15 @@
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "查询员工权限";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(499, 20);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(89, 12);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "自定义权限范围";
             // 
             // label17
             // 
@@ -1041,6 +1021,35 @@
             this.btnSelectPermission.Text = "查询";
             this.btnSelectPermission.UseVisualStyleBackColor = true;
             this.btnSelectPermission.Click += new System.EventHandler(this.btnSelectPermission_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.txtSql);
+            this.tabPage6.Controls.Add(this.btnExcute);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(938, 407);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "工具";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // txtSql
+            // 
+            this.txtSql.Location = new System.Drawing.Point(17, 13);
+            this.txtSql.Multiline = true;
+            this.txtSql.Name = "txtSql";
+            this.txtSql.Size = new System.Drawing.Size(896, 182);
+            this.txtSql.TabIndex = 1;
+            // 
+            // btnExcute
+            // 
+            this.btnExcute.Location = new System.Drawing.Point(838, 212);
+            this.btnExcute.Name = "btnExcute";
+            this.btnExcute.Size = new System.Drawing.Size(75, 23);
+            this.btnExcute.TabIndex = 0;
+            this.btnExcute.Text = "执行";
+            this.btnExcute.UseVisualStyleBackColor = true;
+            this.btnExcute.Click += new System.EventHandler(this.btnExcute_Click);
             // 
             // tabPage10
             // 
@@ -1110,22 +1119,13 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(499, 20);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(89, 12);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "自定义权限范围";
-            // 
             // AttendEmploee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1159, 671);
+            this.ClientSize = new System.Drawing.Size(1026, 671);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnPreviousMonth);
             this.Controls.Add(this.label8);
@@ -1182,12 +1182,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtVacation)).EndInit();
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtDotask)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridCustomPermission)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridPermission)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             this.ResumeLayout(false);

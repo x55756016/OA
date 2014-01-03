@@ -269,6 +269,22 @@ namespace SmtPortalSetUp
                                     when b.attendancestate='10' then '外出申请混合考勤异常10' 
                                     when b.attendancestate='11' then '外出确认11' 
                                     end 考勤状态,
+                                     case
+                                     when b.needfristattend is null then
+                                      '上班'
+                                     when b.needfristattend = '0' then
+                                      '休息needfristattend0'
+                                     when b.needfristattend = '1' then
+                                      '上班needfristattend1'
+                                   end 上午是否上班,
+                                   case
+                                     when b.needsecondattend is null then
+                                      '上班'
+                                     when b.needsecondattend = '1' then
+                                      '上班needsecondattend1'
+                                     when b.needsecondattend = '0' then
+                                      '休息needsecondattend0'
+                                   end 下午是否上班,
                                     s.attendancesolutionname,
                                     t.shiftname,
                                     t.needfirstcard,
@@ -749,6 +765,7 @@ namespace SmtPortalSetUp
         {
             if (e.RowIndex >= 0)
             {
+                if (e.ColumnIndex == -1) return;
                 DataGridViewColumn column = dtgAbnormrecord.Columns[e.ColumnIndex];
                 if (column is DataGridViewButtonColumn)
                 {
@@ -961,9 +978,7 @@ namespace SmtPortalSetUp
             OracleHelp.Connect();
 
             string msg = string.Empty;
-            object obj= sqlclient.CustomerQuery(sql, ref msg);
-
-            int i = (int)obj;
+            int i = OracleHelp.Excute(sql);
             txtMessagebox.Text = "处理完成，处理了：" + i + "条数据！" + System.Environment.NewLine + txtMessagebox.Text;
             OracleHelp.close();
         }
@@ -1470,65 +1485,116 @@ namespace SmtPortalSetUp
         #region 生成礼品派送员角色插入SQL
         private void btnGernerateInsertSql_Click(object sender, EventArgs e)
         {
-            string cnames = "'深圳市爱施德股份有限公司','爱施德分销','哈尔滨','石家庄','南京','天津','沈阳','武汉','成都分公司','福州','西安分支机构','贵阳分支机构','长春分支机构','郑州分支机构','长沙','山西','济南分支机构','上海分公司','广西爱施德','广州','杭州','昆明分支机构','合肥','江西','重庆','海南','深圳','北京','内蒙','南昌','酷人通讯','深圳市酷动数码有限公司','杭州分公司','济南分公司','武汉分公司','北京（分公司）','西安（分公司）','南京（分公司）','深圳（分公司）','福州（分公司）','成都（分公司）'";
-            txtUserName.Text = cnames;
-            string roleid = "deccc5dc-e157-41d0-8cc7-fe2210485c84";
-            string sql = @"select u.sysuserid,u.ownercompanyid,u.ownerdepartmentid,u.ownerpostid  from smtsystem.t_sys_user u
-                            where u.ownercompanyid
-                            in
-                            (
-                              select c.companyid from smthrm.t_hr_company c
-                              where c.cname in
-                              (" + txtUserName.Text + @")
-                            )
-";
-
+            string sqlQuery = @"select * from smtsystem.t_sys_user u
+                    where u.ownercompanyid='4eb26a32-c460-47c5-8ade-f1b398c27e35'
+                    ";
             OracleHelp.Connect();
-            DataTable dt = OracleHelp.getTable(sql);
+            DataTable dt = OracleHelp.getTable(sqlQuery);
             OracleHelp.close();
             string strInsert = string.Empty;
+             OracleHelp.Connect();
+             try
+             {
+                 string roleid = "5e98fa71-ffd7-4dfa-8b07-d200bd35c572";
+                 for (int i = 0; i < dt.Rows.Count; i++)
+                 {
+                     if (dt.Rows[i]["username"].ToString().Contains("航信重新上线")) continue;
+                     string userid = dt.Rows[i]["sysuserid"].ToString();
+                     string ownercompanyid = dt.Rows[i]["ownercompanyid"].ToString();
+                     string ownerdepartmentid = dt.Rows[i]["ownerdepartmentid"].ToString();
+                     string ownerpostid = dt.Rows[i]["ownerpostid"].ToString();
 
-            OracleHelp.Connect();
-            try
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    string userid = dt.Rows[i]["sysuserid"].ToString();
-                    string ownercompanyid = dt.Rows[i]["ownercompanyid"].ToString();
-                    string ownerdepartmentid = dt.Rows[i]["ownerdepartmentid"].ToString();
-                    string ownerpostid = dt.Rows[i]["ownerpostid"].ToString();
 
-                    string checkSql = @"select ur.userroleid from  smtsystem.t_sys_userrole ur
-                                    where ur.sysuserid='" + userid + @"'
-                                    and ur.roleid='" + roleid + "'";
-
-                    DataTable dtChechk = OracleHelp.getTable(checkSql);
-
-                    if (dtChechk.Rows != null && dtChechk.Rows.Count > 0) continue;
-
-                    strInsert += @"
+                     strInsert += @"
                 insert into smtsystem.t_sys_userrole
                   (userroleid, roleid, sysuserid, createuser, createdate, updateuser, updatedate, ownercompanyid, postid, employeepostid)
                 values
                   ('" + Guid.NewGuid().ToString() + @"', '"
-                          + roleid + @"', '"
-                          + userid + @"', "
-                          + "'系统插入'"
-                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
-                          + ", " + "'系统插入'"
-                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
-                           + ", '" + ownercompanyid + @"', '"
-                          + ownerpostid + @"', '手动插入');";
-                }
-            }
-            catch (Exception ex)
-            {
-                txtMessagebox.Text += ex.ToString();
-            }
-            finally
-            {
-                OracleHelp.close();
-            }
+                        + roleid + @"', '"
+                        + userid + @"', "
+                        + "'系统插入'"
+                        + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+                        + ", " + "'系统插入'"
+                        + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+                         + ", '" + ownercompanyid + @"', '"
+                        + ownerpostid + @"', '手动插入');";
+
+
+
+                 }
+                 txtUserName.Text = strInsert;
+
+             }
+             catch (Exception ex)
+             {
+             }
+             finally
+             {
+                 OracleHelp.close();
+             }
+
+
+
+            return;
+//            string cnames = "'深圳市爱施德股份有限公司','爱施德分销','哈尔滨','石家庄','南京','天津','沈阳','武汉','成都分公司','福州','西安分支机构','贵阳分支机构','长春分支机构','郑州分支机构','长沙','山西','济南分支机构','上海分公司','广西爱施德','广州','杭州','昆明分支机构','合肥','江西','重庆','海南','深圳','北京','内蒙','南昌','酷人通讯','深圳市酷动数码有限公司','杭州分公司','济南分公司','武汉分公司','北京（分公司）','西安（分公司）','南京（分公司）','深圳（分公司）','福州（分公司）','成都（分公司）'";
+//            txtUserName.Text = cnames;
+//            roleid = "deccc5dc-e157-41d0-8cc7-fe2210485c84";
+//            string sql = @"select u.sysuserid,u.ownercompanyid,u.ownerdepartmentid,u.ownerpostid  from smtsystem.t_sys_user u
+//                            where u.ownercompanyid
+//                            in
+//                            (
+//                              select c.companyid from smthrm.t_hr_company c
+//                              where c.cname in
+//                              (" + txtUserName.Text + @")
+//                            )
+//";
+
+//            OracleHelp.Connect();
+//            DataTable dt = OracleHelp.getTable(sql);
+//            OracleHelp.close();
+//            string strInsert = string.Empty;
+
+//            OracleHelp.Connect();
+//            try
+//            {
+//                for (int i = 0; i < dt.Rows.Count; i++)
+//                {
+//                    string userid = dt.Rows[i]["sysuserid"].ToString();
+//                    string ownercompanyid = dt.Rows[i]["ownercompanyid"].ToString();
+//                    string ownerdepartmentid = dt.Rows[i]["ownerdepartmentid"].ToString();
+//                    string ownerpostid = dt.Rows[i]["ownerpostid"].ToString();
+
+//                    string checkSql = @"select ur.userroleid from  smtsystem.t_sys_userrole ur
+//                                    where ur.sysuserid='" + userid + @"'
+//                                    and ur.roleid='" + roleid + "'";
+
+//                    DataTable dtChechk = OracleHelp.getTable(checkSql);
+
+//                    if (dtChechk.Rows != null && dtChechk.Rows.Count > 0) continue;
+
+//                    strInsert += @"
+//                insert into smtsystem.t_sys_userrole
+//                  (userroleid, roleid, sysuserid, createuser, createdate, updateuser, updatedate, ownercompanyid, postid, employeepostid)
+//                values
+//                  ('" + Guid.NewGuid().ToString() + @"', '"
+//                          + roleid + @"', '"
+//                          + userid + @"', "
+//                          + "'系统插入'"
+//                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+//                          + ", " + "'系统插入'"
+//                          + ", " + "to_date('" + DateTime.Now.ToString("yyyy-MM-dd") + @"','yyyy-MM-dd')"
+//                           + ", '" + ownercompanyid + @"', '"
+//                          + ownerpostid + @"', '手动插入');";
+//                }
+//            }
+//            catch (Exception ex)
+//            {
+//                txtMessagebox.Text += ex.ToString();
+//            }
+//            finally
+//            {
+//                OracleHelp.close();
+//            }
             txtUserName.Text = strInsert;
         }
         private void txtUserName_MouseDoubleClick(object sender, MouseEventArgs e)

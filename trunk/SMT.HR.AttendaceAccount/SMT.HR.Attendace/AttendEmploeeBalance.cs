@@ -149,6 +149,7 @@ namespace SmtPortalSetUp
                 dataGridEmployees.DataSource = dt;
                 OracleHelp.close();
                 txtMessagebox.Text += System.Environment.NewLine + "查询完成，共：" + dt.Rows.Count.ToString() + "条数据";
+                txtMessagebox.Text += System.Environment.NewLine + sql;
             }
             else
             {

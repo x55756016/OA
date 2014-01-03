@@ -6,6 +6,7 @@ using System.Data.OracleClient;
 using System.Data;
 using System.Configuration;
 using System.Windows.Forms;
+using AttendaceAccount.HRCommonSV;
 
 namespace SmtPortalSetUp
 {
@@ -65,6 +66,10 @@ namespace SmtPortalSetUp
 
         public static int Excute(string strSql)
         {
+            
+
+
+
             if (MsgBox != null) MsgBox.Text = strSql + System.Environment.NewLine + MsgBox.Text;
             try
             {
@@ -72,6 +77,11 @@ namespace SmtPortalSetUp
                 OracleCommand orcCmd = myConnection.CreateCommand();//触发条件表
                 orcCmd.CommandText = strSql;//根据公司ID查询触发条件表
                 return orcCmd.ExecuteNonQuery();
+
+                //HrCommonServiceClient sqlclient = new HrCommonServiceClient();
+                //string msg = string.Empty;
+                //object obj = sqlclient.CustomerQuery(strSql, ref msg);
+                //return (int)obj;
             }
             catch (Exception ex)
             {
