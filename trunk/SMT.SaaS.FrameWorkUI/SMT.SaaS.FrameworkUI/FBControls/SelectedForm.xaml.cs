@@ -178,6 +178,7 @@ public partial class SelectedForm : System.Windows.Controls.Window
 
         void SelectedForm_Loaded(object sender, RoutedEventArgs e)
         {
+            //MessageBox.Show("SelectedForm_Loaded");
             InitProcess();
             ShowProcess();
             if (this.FBBasePageLoaded != null)

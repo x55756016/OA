@@ -2386,17 +2386,18 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
         void engineService_GetForwardHistoryCompleted(object sender, Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs e)
         {
-            if (e.Result != null)
+            if (e.Error==null)
             {
-                this.AllForwardHistoryList = e.Result.ToList();
-                if (this.AllForwardHistoryList.Count > 0)
+                if (e.Result != null)
                 {
-                    this.ForwardHistoryListIC.ItemsSource = AllForwardHistoryList;
-                    this.ForwardHistoryListPnl.Visibility = System.Windows.Visibility.Visible;
+                    this.AllForwardHistoryList = e.Result.ToList();
+                    if (this.AllForwardHistoryList.Count > 0)
+                    {
+                        this.ForwardHistoryListIC.ItemsSource = AllForwardHistoryList;
+                        this.ForwardHistoryListPnl.Visibility = System.Windows.Visibility.Visible;
+                    }
                 }
             }
-
-           
         }
         #endregion
 

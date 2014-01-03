@@ -2581,6 +2581,14 @@ namespace SMT.SaaS.FrameworkUI.Common
             //throw new NotImplementedException();
         }
         #endregion
+
+         public static string DebugStrMessage = string.Empty;
+         public static void log(string msg)
+         {
+             DebugStrMessage = DebugStrMessage + System.Environment.NewLine + msg;
+             //SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
+             //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+         }
     }
 
 }

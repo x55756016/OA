@@ -78,7 +78,10 @@
                     <data:DataGridTextColumn Header="银行帐号" Binding="{Binding BankID}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="开户行" Binding="{Binding BankName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="发薪机构" Binding="{Binding PayCompany}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
-                    <data:DataGridTextColumn Header="行政单位" Binding="{Binding Organization}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <!--<data:DataGridTextColumn Header="行政单位" Binding="{Binding Organization}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
+                    <data:DataGridTextColumn Header="公司" Binding="{Binding CompanyName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="部门" Binding="{Binding DeptName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                    <data:DataGridTextColumn Header="岗位" Binding="{Binding PostName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="员工姓名" Binding="{Binding EmployeeName}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="职级代码" Binding="{Binding PostCode}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                     <data:DataGridTextColumn Header="发放月份" Binding="{Binding SalaryDate}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>

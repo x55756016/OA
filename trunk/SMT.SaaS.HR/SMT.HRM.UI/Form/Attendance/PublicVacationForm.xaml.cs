@@ -645,9 +645,9 @@ namespace SMT.HRM.UI.Form.Attendance
                     DateTime dtNow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
                     if (dt < dtNow)
                     {
-                        flag = false;
-                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATE"), "开始日期不能小于当前日期");
-                        break;
+                        //flag = false;
+                        //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATE"), "设置的开始日期包含历史日期，系统将不会处理历史日期的考勤异常，如需处理，请联系系统管理员");
+                        //break;
                     }
                     if (string.IsNullOrEmpty(itemVac.ISHALFDAY))
                     {

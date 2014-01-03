@@ -11,6 +11,9 @@ namespace SMT.HRM.CustomModel
         public string BankName { get; set; }//开户行
         public string PayCompany { get; set; } //发薪机构
         public string Organization { get; set; } //行政单位
+        public string CompanyName { get; set; }//公司
+        public string DeptName { get; set; }//部门
+        public string PostName { get; set; }//岗位
         public string EmployeeName { get; set; }//姓名
         public string IDNumber { get; set; }//身份证号
         public string PostCode { get; set; }//职级代码

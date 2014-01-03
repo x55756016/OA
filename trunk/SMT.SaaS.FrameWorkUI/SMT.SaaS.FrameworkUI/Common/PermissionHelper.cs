@@ -341,8 +341,11 @@ namespace SMT.SaaS.FrameworkUI.Common
         /// <summary>
         /// 重新提交
         /// </summary>
-        ReSubmit
-
+        ReSubmit,
+         /// <summary>
+        /// 导入
+        /// </summary>
+        ImportNew
 
         /*
         #region CompanyDictionary

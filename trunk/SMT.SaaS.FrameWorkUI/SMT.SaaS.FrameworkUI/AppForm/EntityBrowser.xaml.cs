@@ -39,6 +39,11 @@ namespace SMT.SaaS.FrameworkUI
         /// </summary>
         public ImageButton BtnSaveSubmit=new ImageButton();
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        public ImageButton BtnDelete = new ImageButton();
+
         public FormTypes FormType { get; set; }
         // 1s 冉龙军
         /// <summary>
@@ -474,6 +479,17 @@ namespace SMT.SaaS.FrameworkUI
                 {
                     //state = "";
                 }
+                if (FormType == FormTypes.Edit)
+                {
+                    string img;
+                    BtnDelete.TextBlock.Text = UIHelper.GetResourceStr("SUBMITAUDIT");
+                    img = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_audit.png";
+
+                    BtnDelete.Image.Source = new BitmapImage(new Uri(img, UriKind.Relative));
+                    BtnDelete.Style = (Style)Application.Current.Resources["ButtonToolBarStyle"];
+                    BtnDelete.Click += BtnDelete_Click;
+                    toolBar1.ButtonContainer.Children.Add(BtnDelete);
+                }
 
                 if (state != "-1" && Convert.ToInt32(CheckStates.Approved).ToString() != state
                     && Convert.ToInt32(CheckStates.UnApproved).ToString() != state)
@@ -581,6 +597,14 @@ namespace SMT.SaaS.FrameworkUI
                     }
                 }
             }
+        }
+
+        void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            string strKeyName = GetValueFromXMLObjectSource("Attribute", "DataValue", AuditCtrl.AuditEntity.FormID, "Name", AuditCtrl.AuditEntity.XmlObject);
+                
+            Orgws.UpdateCheckStateAsync(AuditCtrl.AuditEntity.ModelCode, strKeyName, AuditCtrl.AuditEntity.FormID, "4");
+            
         }
         void btnManualAudit_Click(object sender, RoutedEventArgs e)
         {
@@ -700,6 +724,15 @@ namespace SMT.SaaS.FrameworkUI
                                     SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE entEmployee = item.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
                                     if (entEmployee != null)
                                     {
+                                        // 转发
+                                        if (strOwnerID == entEmployee.EMPLOYEEID)
+                                        {
+                                            HideProgressBars();
+                                            strExceptionMsg = "不能选择单据所属人";
+
+                                            ComfirmWindow.ConfirmationBox("转发异常：" + Utility.GetResourceStr("ERROR"), strExceptionMsg, Utility.GetResourceStr("CONFIRMBUTTON"));
+                                            return;
+                                        }
                                         SMT.Saas.Tools.PersonalRecordWS.T_PF_PERSONALRECORD entPersonalRecord = new Saas.Tools.PersonalRecordWS.T_PF_PERSONALRECORD();
                                         entPersonalRecord.PERSONALRECORDID = System.Guid.NewGuid().ToString().ToUpper();
                                         entPersonalRecord.SYSTYPE = strDBName;

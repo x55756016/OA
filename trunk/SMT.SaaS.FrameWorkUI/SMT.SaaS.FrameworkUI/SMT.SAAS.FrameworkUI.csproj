@@ -91,7 +91,7 @@
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
@@ -106,7 +106,7 @@
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.Window">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
+      <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -343,6 +343,7 @@
     <Compile Include="Validator\ValidatorBase.cs" />
     <Compile Include="Validator\ValidatorManager.cs" />
     <Compile Include="Validator\ValidatorService.cs" />
+    <Compile Include="WaterMarkTextBox\WaterMarkTextBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="AppForm\AppForm.xaml">

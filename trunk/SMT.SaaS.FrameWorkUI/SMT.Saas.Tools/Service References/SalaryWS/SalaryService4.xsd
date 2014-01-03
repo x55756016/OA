@@ -114,8 +114,10 @@
       <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BasicSalary" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CalculateDeduct" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DeductRemark" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DeductTotal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeptName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DutyAllowance" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FixIncomeSum" nillable="true" type="xs:string" />
@@ -133,6 +135,7 @@
       <xs:element minOccurs="0" name="Personalincometax" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PersonalsiCost" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostSalary" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PretaxSubTotal" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SalaryDate" nillable="true" type="xs:string" />

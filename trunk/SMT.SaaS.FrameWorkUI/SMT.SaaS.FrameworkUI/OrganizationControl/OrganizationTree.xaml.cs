@@ -17,6 +17,7 @@ using PersonnelWS = SMT.Saas.Tools.PersonnelWS;
 using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SAAS.Main.CurrentContext;
 using System.Collections.ObjectModel;
+using SMT.SaaS.FrameworkUI.Common;
 
 namespace SMT.SaaS.FrameworkUI.OrganizationControl
 {
@@ -135,6 +136,8 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
 
         public string ValidSelection()
         {
+            try
+            {
             var selectedItems = this.SelectedObj;
             if (selectedItems == null || selectedItems.Count == 0)
             {
@@ -160,6 +163,12 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 return rslt;
             }
             return string.Empty;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void OrganizationTree_Loaded(object sender, RoutedEventArgs e)
@@ -354,7 +363,12 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         /// </summary>
         private void BindCompany()
         {
+            try
+            {
+
+           
             treeOrganization.Items.Clear();
+           
             
             allCompanys = Application.Current.Resources["ORGTREESYSCompanyInfo" + Perm + Entity] as List<T_HR_COMPANY>;
 
@@ -481,6 +495,11 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
 
                 AddOrgNode(lsCompany, lsDepartment, parentItem);
             }
+            }
+            catch (Exception ex)
+            {
+                string ss = ex.ToString();
+            }
         }
 
         /// <summary>
@@ -508,7 +527,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                     item.Foreground = brush;
                 }
                 item.Header = childCompany.CNAME;
-                //item.Header = childCompany.BRIEFNAME;
+                //item.Header = childCompany.BRIEFNAME;               
                 item.HeaderTemplate = treeViewItemTemplate;
                 item.Style = Application.Current.Resources["TreeViewItemStyle"] as Style;
                 ToolTipService.SetToolTip(item, "公司");
@@ -516,10 +535,11 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 obj.ObjectInstance = childCompany;
 
                 item.DataContext = obj;
-
+                
                 //标记为公司
                 item.Tag = OrgTreeItemTypes.Company;
                 FatherNode.Items.Add(item);
+                Utility.log(FatherNode.Header+" 绑定公司："+item.Header+" 类型"+ item.DataContext.GetType().Name );
 
                 if (lsCompany.Count() > 0)
                 {
@@ -532,6 +552,7 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
 
                     AddOrgNode(lsTempCom, lsTempDep, item);
                 }
+                
             }
             //绑定公司下的部门
             foreach (var childDepartment in lsDepartment)
@@ -556,11 +577,11 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 obj.ObjectInstance = childDepartment;
 
                 item.DataContext = obj;
-
+                
                 //标记为部门
                 item.Tag = OrgTreeItemTypes.Department;
                 FatherNode.Items.Add(item);
-
+                Utility.log(FatherNode.Header+" 绑定部门："+item.Header+" 类型"+ item.DataContext.GetType().Name );
                 if (lsDepartment.Count() > 0)
                 {
                     List<T_HR_COMPANY> lsTempCom = (from ent in allCompanys
@@ -573,10 +594,25 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                     AddOrgNode(lsTempCom, lsTempDep, item);
                 }
             }
+
+            if ((int)FatherNode.Tag== (int)OrgTreeItemTypes.Company)
+            {
+                    Utility.log(FatherNode.Header + " 绑定公司完成******************************：");
+                    treeOrganization.ExpandAll();  
+            }
+            if ((int)FatherNode.Tag == (int)OrgTreeItemTypes.Department)
+            {
+                    Utility.log(FatherNode.Header+" 绑定部门完成----------------------------------------：");
+                    treeOrganization.ExpandAll();
+            }
         }
 
         private void AddChildOrgItems(TreeViewItem item, string companyID)
         {
+            try
+            {
+
+      
             List<T_HR_COMPANY> childs = GetChildORG(companyID);
             if (childs == null || childs.Count <= 0)
                 return;
@@ -602,6 +638,12 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 item.Items.Add(childItem);
                 ToolTipService.SetToolTip(item, "公司");
                 AddChildOrgItems(childItem, childOrg.COMPANYID);
+            }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -807,6 +849,10 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
 
         private TreeViewItem GetParentItemFromChild(TreeViewItem item, OrgTreeItemTypes parentType, string parentID)
         {
+            try
+            {
+
+           
             TreeViewItem tmpItem = null;
 
             ExtOrgObj obj = item.DataContext as ExtOrgObj;
@@ -846,11 +892,20 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 }
             }
             return tmpItem;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void GetChildSelectedCompany(TreeViewItem item, List<ExtOrgObj> selObj)
         {
+            try
+            {
 
+    
             foreach (TreeViewItem childItem in item.Items)
             {
                 TreeViewItem myItem =
@@ -881,12 +936,20 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
 
                 GetChildSelectedCompany(childItem, selObj);
             }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
 
         protected void lookUpTree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            try
+            {
 
             //return;
             if (treeOrganization.SelectedItem == null)
@@ -931,7 +994,15 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 if (depIDsCach.ContainsKey(obj.ObjectID)) return;
                 BindPosition(obj.ObjectID, item);
             }
-
+            else
+            {
+                string sss = string.Empty;
+            }
+            }
+            catch (Exception ex)
+            {
+                string ss = ex.ToString();
+            }
         }
 
         private void BindEmployee(TreeViewItem item, string postID)
@@ -1300,6 +1371,10 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
         #endregion
         private void InitCompany()
         {
+            try
+            {
+
+       
             if (Application.Current.Resources["ORGTREESYSDepartmentInfo" + Perm + Entity] != null)
             {
                 BindCompany();
@@ -1315,6 +1390,12 @@ namespace SMT.SaaS.FrameworkUI.OrganizationControl
                 return;
             }
             client.GetDepartmentViewAsync(CurrentUserID, Perm, Entity);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
