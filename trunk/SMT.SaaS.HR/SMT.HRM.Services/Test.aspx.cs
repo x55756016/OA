@@ -14,18 +14,24 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            return;
+            using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
+            {
+                bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
+              
+            }
             //LeftOfficeBLL bll = new LeftOfficeBLL();
             //bll.UpdateCheckState("T_HR_LEFTOFFICE", "DIMISSIONID", "634c214b-7608-4222-87e8-3ad36a474d6c", "1");
-            using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
-            {
+            //using (EmployeeEntryBLL bll = new EmployeeEntryBLL())
+            //{
 
-                EmployeePostBLL ebll = new EmployeePostBLL();
-                var entity = bll.GetEmployeeEntryByID("ae0b7a2d-ce96-45a8-8203-7f2996f16f68");
+            //    EmployeePostBLL ebll = new EmployeePostBLL();
+            //    var entity = bll.GetEmployeeEntryByID("ae0b7a2d-ce96-45a8-8203-7f2996f16f68");
 
 
-                var ent = ebll.GetEmployeePostByEmployeeID("095bf1f5-7f8a-4c6d-b9ac-1bb55e9d6331");
-                bll.EmployeeEntryUpdate(entity, ent);
-            }
+            //    var ent = ebll.GetEmployeePostByEmployeeID("095bf1f5-7f8a-4c6d-b9ac-1bb55e9d6331");
+            //    bll.EmployeeEntryUpdate(entity, ent);
+            //}
             return;
             //using (EmployeeBLL bll = new EmployeeBLL())
             //{

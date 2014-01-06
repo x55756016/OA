@@ -297,7 +297,7 @@ namespace SMT.HRM.BLL
 
                 T_HR_ATTENDMONTHLYBATCHBALANCE entDel = dalAttendMonthlyBatchBalance.GetAttendMonthlyBatchBalanceRdByMultSearch(strFilter.ToString(), objArgs.ToArray());
                 dalAttendMonthlyBatchBalance.Delete(entDel);
-
+                DeleteMyRecord(entDel);
                 strMsg = "{DELETESUCCESSED}";
             }
             catch (Exception ex)

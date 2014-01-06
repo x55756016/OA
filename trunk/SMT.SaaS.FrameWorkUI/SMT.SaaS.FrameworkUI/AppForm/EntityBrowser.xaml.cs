@@ -489,6 +489,7 @@ namespace SMT.SaaS.FrameworkUI
                     BtnDelete.Style = (Style)Application.Current.Resources["ButtonToolBarStyle"];
                     BtnDelete.Click += BtnDelete_Click;
                     toolBar1.ButtonContainer.Children.Add(BtnDelete);
+                    BtnDelete.Visibility = Visibility.Collapsed;//默认不显示
                 }
 
                 if (state != "-1" && Convert.ToInt32(CheckStates.Approved).ToString() != state
@@ -602,8 +603,8 @@ namespace SMT.SaaS.FrameworkUI
         void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             string strKeyName = GetValueFromXMLObjectSource("Attribute", "DataValue", AuditCtrl.AuditEntity.FormID, "Name", AuditCtrl.AuditEntity.XmlObject);
-                
-            Orgws.UpdateCheckStateAsync(AuditCtrl.AuditEntity.ModelCode, strKeyName, AuditCtrl.AuditEntity.FormID, "4");
+            
+            Orgws.UpdateCheckStateAsync(AuditCtrl.AuditEntity.ModelCode, strKeyName, AuditCtrl.AuditEntity.FormID, "delete");
             
         }
         void btnManualAudit_Click(object sender, RoutedEventArgs e)

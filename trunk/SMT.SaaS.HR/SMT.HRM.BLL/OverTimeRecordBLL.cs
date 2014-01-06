@@ -148,7 +148,7 @@ namespace SMT.HRM.BLL
                 }
 
                 decimal dTotalHours = 0;
-                strMsg = CalculateOverTimeHours(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, ref dTotalHours);
+                strMsg = CalculateOverTimeHours(entity.EMPLOYEEID, entity.STARTDATE.Value, entity.ENDDATE.Value, ref dTotalHours, entity.OVERTIMERECORDID);
 
                 if (!string.IsNullOrWhiteSpace(strMsg))
                 {
@@ -192,7 +192,7 @@ namespace SMT.HRM.BLL
                         || (strOldCheckState == Convert.ToInt32(Common.CheckStates.UnSubmit).ToString() && strNewCheckState == Convert.ToInt32(Common.CheckStates.Approving).ToString()))
                     {
                         decimal dTotalHours = 0;
-                        strMsg = CalculateOverTimeHours(entOTRd.EMPLOYEEID, entOTRd.STARTDATE.Value, entOTRd.ENDDATE.Value, ref dTotalHours);
+                        strMsg = CalculateOverTimeHours(entOTRd.EMPLOYEEID, entOTRd.STARTDATE.Value, entOTRd.ENDDATE.Value, ref dTotalHours, entOTRd.OVERTIMERECORDID);
                         if (!string.IsNullOrWhiteSpace(strMsg))
                         {
                             return strMsg;
@@ -322,7 +322,7 @@ namespace SMT.HRM.BLL
                     decimal dOneDayOvertimeHours = entAttSol.ONEDAYOVERTIMEHOURS.Value;
                     decimal dLeaveDay = 0; //员工可休假天数
 
-                    dLeaveDay = decimal.Round(dOverTimeHours / dOneDayOvertimeHours, 1);
+                    dLeaveDay = decimal.Round(dOverTimeHours / dOneDayOvertimeHours, 2);
 
 
                     EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
@@ -426,15 +426,57 @@ namespace SMT.HRM.BLL
         /// <param name="dtOTEnd"></param>
         /// <param name="dOverTimeHours"></param>
         /// <returns></returns>
-        public string CalculateOverTimeHours(string strEmployeeId, DateTime dtOTStart, DateTime dtOTEnd, ref decimal dOverTimeHours)
+        public string CalculateOverTimeHours(string strEmployeeId, DateTime dtOTStart, DateTime dtOTEnd, ref decimal dOverTimeHours, string overTimeId)
         {
             string strRes = string.Empty;
             decimal dTotalOverTimeHours = 0;
-
             DateTime dtStart, dtEnd = new DateTime();
-
             DateTime.TryParse(dtOTStart.ToString("yyyy-MM-dd"), out dtStart);        //获取请假起始日期
             DateTime.TryParse(dtOTEnd.ToString("yyyy-MM-dd"), out dtEnd);            //获取请假截止日期
+            dtEnd = dtEnd.AddDays(1);
+            IQueryable<T_HR_EMPLOYEEOVERTIMERECORD> ents = null;
+            #region 判断加班单时间是否重叠
+            if (string.IsNullOrEmpty(overTimeId))
+            {
+                ents = from o in dal.GetObjects()
+                       where o.EMPLOYEEID == strEmployeeId && o.STARTDATE >= dtStart && o.ENDDATE <= dtEnd
+                       select o;
+            }
+            else
+            {
+                ents = from o in dal.GetObjects()
+                       where o.EMPLOYEEID == strEmployeeId && o.STARTDATE >= dtStart && o.ENDDATE <= dtEnd && o.OVERTIMERECORDID != overTimeId
+                       select o;
+            }
+            if (ents.Any())
+            {
+                string dateStartStr = string.Empty, dateEndStr = string.Empty;
+                DateTime dateStart = new DateTime(), dateEnd = new DateTime();
+                DateTime dateStartTime = new DateTime(), dateEndTiem = new DateTime();
+                foreach (var item in ents)
+                {
+                    dateStartStr = item.STARTDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
+                    dateEndStr = item.ENDDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
+                    DateTime.TryParse((item.STARTDATETIME), out dateStartTime);
+                    DateTime.TryParse((item.ENDDATETIME), out dateEndTiem);
+
+                    DateTime.TryParse((dateStartStr + " "+ dateStartTime.ToString("HH:mm:ss")), out dateStart);
+                    DateTime.TryParse((dateEndStr + " " + dateEndTiem.ToString("HH:mm:ss")), out dateEnd);
+                    if (dtOTStart >= dateStart && dtOTStart < dateEnd  //开始  <=开始时间 <结束
+                         || dtOTEnd > dateStart && dtOTEnd <= dateEnd    //   开始  <结束时间 <结束
+                         || dtOTStart <= dateStart && dtOTEnd >= dateEnd    //小于开始，大于结束
+                        )
+                    {
+                        strRes = "{加班时间段与另一加班单的加班时间段（从" + dateStart.ToString("yyyy-MM-dd HH:mm") + "至" + dateEnd.ToString("yyyy-MM-dd HH:mm") + "）出现重叠，请检查！}";
+                        break;
+                    }
+                }
+                if (!string.IsNullOrWhiteSpace(strRes))
+                {
+                    return strRes;
+                }
+            }
+            #endregion
             AttendanceSolutionAsignBLL bllAttendSolAsign = new AttendanceSolutionAsignBLL();
             T_HR_ATTENDANCESOLUTIONASIGN entAttendSolAsign = bllAttendSolAsign.GetAttendanceSolutionAsignByEmployeeIDAndDate(strEmployeeId, dtStart);
             if (entAttendSolAsign == null)

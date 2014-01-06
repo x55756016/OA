@@ -1439,9 +1439,22 @@ namespace SMT.HRM.Services
         [OperationContract]
         public void UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {
-            using (CompanyHistoryBLL bll = new CompanyHistoryBLL())
+            if (CheckState == "delete")
             {
-                bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
+                if (strEntityName == "T_HR_ATTENDMONTHLYBATCHBALANCE")
+                {
+                    using (AttendMonthlyBatchBalanceBLL bll = new AttendMonthlyBatchBalanceBLL())
+                    {
+                        bll.DeleteMonthlyBatchBalance(EntityKeyValue);
+                    }
+                }
+            }
+            else
+            {
+                using (CompanyHistoryBLL bll = new CompanyHistoryBLL())
+                {
+                    bll.UpdateCheckState(strEntityName, EntityKeyName, EntityKeyValue, CheckState);
+                }
             }
         }
         #endregion

@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.MobileXml;
+using SMT.SaaS.FrameworkUI.OrganizationControl;
 
 namespace SMT.HRM.UI.Form.Attendance
 {
@@ -37,7 +38,6 @@ namespace SMT.HRM.UI.Form.Attendance
         private bool recordsign = true;
         AttendanceServiceClient clientAtt;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient perClient;
-        SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient psClient;
         private bool closeFormFlag = false;//是否关闭窗体 false 表示不关闭
 
         #endregion
@@ -70,7 +70,6 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             clientAtt = new AttendanceServiceClient();
             perClient = new SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient();
-            psClient = new Saas.Tools.PersonnelWS.PersonnelServiceClient();
             RegisterEvents();
             InitParas();
             tempSignInDetailList = new ObservableCollection<T_HR_EMPLOYEESIGNINDETAIL>();
@@ -187,7 +186,9 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
-            AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "EMPLOYEEFULLNAME", Info.EMPLOYEENAME, tbEmpName.Text));
+
+
+            AutoList.Add(basedata("T_HR_EMPLOYEESIGNINRECORD", "EMPLOYEEFULLNAME", Info.EMPLOYEENAME, lkEmployeeName.TxtLookUp.Text));
             if (SignInDetailList.Count > 0)
             {
                 //签卡类型
@@ -378,14 +379,17 @@ namespace SMT.HRM.UI.Form.Attendance
 
 
                 //赋初始值
-                tbEmpName.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+                //SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE ent = lkEmpName.SelectedObj[0].ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
+                //lkEmpName.
+                //tbEmpName.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                 tbOrgName.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName + " - " + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName + " - " + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
                 tbPostLevel.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString(); ;
                 if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
                 {
-                    tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
+                    //tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
+                    lkEmployeeName.TxtLookUp.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName + "-" + tbOrgName.Text; ;
                 }
-
+                RefreshUI(RefreshedTypes.ShowProgressBar);
                 clientAtt.GetAbnormRecordByEmployeeIDAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
                 //psClient.GetEmployeePostBriefByEmployeeIDAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
 
@@ -394,7 +398,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-
+                RefreshUI(RefreshedTypes.ShowProgressBar);
                 clientAtt.GetEmployeeSigninRecordByIDAsync(SignInID);
 
                 if (FormType == FormTypes.Browse)
@@ -577,31 +581,40 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetEmployeeSigninRecordByIDCompleted(object sender, GetEmployeeSigninRecordByIDCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                SignInRecord = e.Result;
-
-                if (FormType == FormTypes.Resubmit)
+                if (e.Error == null)
                 {
-                    SignInRecord.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
+                    SignInRecord = e.Result;
+
+                    if (FormType == FormTypes.Resubmit)
+                    {
+                        SignInRecord.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
+                    }
+
+                    this.DataContext = SignInRecord;
+
+                    string strEmployeeId = string.Empty;
+
+                    if (SignInRecord != null)
+                    {
+                        strEmployeeId = SignInRecord.EMPLOYEEID;
+                    }
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
+                    perClient.GetEmpOrgInfoByIDAsync(SignInRecord.EMPLOYEEID, SignInRecord.OWNERPOSTID, SignInRecord.OWNERDEPARTMENTID, SignInRecord.OWNERCOMPANYID);
                 }
-
-                this.DataContext = SignInRecord;
-
-                string strEmployeeId = string.Empty;
-
-                if (SignInRecord != null)
+                else
                 {
-                    strEmployeeId = SignInRecord.EMPLOYEEID;
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 }
-
-                //  perClient.GetEmployeeDetailByIDAsync(strEmployeeId);
-                //perClient.GetEmployeePostBriefByEmployeeIDAsync(strEmployeeId);
-                perClient.GetEmpOrgInfoByIDAsync(SignInRecord.EMPLOYEEID, SignInRecord.OWNERPOSTID, SignInRecord.OWNERDEPARTMENTID, SignInRecord.OWNERCOMPANYID);
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
         /// <summary>
@@ -622,21 +635,20 @@ namespace SMT.HRM.UI.Form.Attendance
                     }
 
                     tbOrgName.Text = ent.POSTNAME + " - " + ent.DEPARTMENTNAME + " - " + ent.COMPANYNAME;
-                    tbEmpName.Text = ent.EMPLOYEECNAME;
-                    if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
+                    SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW employeeView = e.Result;
+                    string strOrgName = employeeView.POSTNAME + " - " + employeeView.DEPARTMENTNAME + " - " + employeeView.COMPANYNAME;
+                    if (!string.IsNullOrWhiteSpace(strOrgName))
                     {
-                        tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
+                        strOrgName = ent.EMPLOYEECNAME + " - " + strOrgName;
                     }
-
+                    lkEmployeeName.TxtLookUp.Text = strOrgName;
                     tbPostLevel.Text = ent.POSTLEVEL.ToString();
-
                     string strSignInId = string.Empty;
-
                     if (SignInRecord != null)
                     {
                         strSignInId = SignInRecord.SIGNINID;
                     }
-
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
                     clientAtt.GetEmployeeSignInDetailBySigninIDAsync(strSignInId);
                 }
                 else
@@ -648,87 +660,13 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message + ex.Message));
             }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+            }
 
         }
-        //void psClient_GetEmployeePostBriefByEmployeeIDCompleted(object sender, Saas.Tools.PersonnelWS.GetEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        if (e.Result != null)
-        //        {
-        //            SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL ent = e.Result;
-        //            tbPostLevel.Text = ent.EMPLOYEEPOSTS[0].POSTLEVEL.ToString();
-        //        }
-        //    }
-        //}
-
-        //void perClient_GetEmployeePostBriefByEmployeeIDCompleted(object sender, Saas.Tools.PersonnelWS.GetEmployeePostBriefByEmployeeIDCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL ent = e.Result;
-        //        if (ent == null)
-        //        {
-        //            return;
-        //        }
-
-        //        tbOrgName.Text = ent.EMPLOYEEPOSTS[0].PostName + " - " + ent.EMPLOYEEPOSTS[0].DepartmentName + " - " + ent.EMPLOYEEPOSTS[0].CompanyName;
-        //        tbEmpName.Text = ent.EMPLOYEENAME;
-        //        if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
-        //        {
-        //            tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
-        //        }
-
-        //        tbPostLevel.Text = ent.EMPLOYEEPOSTS[0].POSTLEVEL.ToString();
-
-        //        string strSignInId = string.Empty;
-
-        //        if (SignInRecord != null)
-        //        {
-        //            strSignInId = SignInRecord.SIGNINID;
-        //        }
-
-        //        clientAtt.GetEmployeeSignInDetailBySigninIDAsync(strSignInId);
-        //    }
-        //    else
-        //    {
-        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-        //    }
-        //}
-        //void perClient_GetEmployeeDetailByIDCompleted(object sender, SMT.Saas.Tools.PersonnelWS.GetEmployeeDetailByIDCompletedEventArgs e)
-        //{
-        //    if (e.Error == null)
-        //    {
-        //        SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST ent = e.Result;
-        //        if (ent == null)
-        //        {
-        //            return;
-        //        }
-
-        //        tbOrgName.Text = ent.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME + " - " + ent.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME + " - " + ent.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME;
-        //        tbEmpName.Text = ent.T_HR_EMPLOYEE.EMPLOYEECNAME;
-        //        if (!string.IsNullOrWhiteSpace(tbOrgName.Text))
-        //        {
-        //            tbEmpName.Text = tbEmpName.Text + "-" + tbOrgName.Text;
-        //        }
-
-        //        tbPostLevel.Text = ent.EMPLOYEEPOSTS[0].POSTLEVEL.ToString();
-
-        //        string strSignInId = string.Empty;
-
-        //        if (SignInRecord != null)
-        //        {
-        //            strSignInId = SignInRecord.SIGNINID;
-        //        }
-
-        //        clientAtt.GetEmployeeSignInDetailBySigninIDAsync(strSignInId);
-        //    }
-        //    else
-        //    {
-        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-        //    }
-        //}
-
+       
         /// <summary>
         /// 根据员工ID，获取考勤异常记录
         /// </summary>
@@ -736,40 +674,52 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetAbnormRecordByEmployeeIDCompleted(object sender, GetAbnormRecordByEmployeeIDCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                AbnormRecordList = e.Result;
-
-                //AbnormRecordList = AbnormRecordList.Where(m => m.SINGINSTATE != "1").ToList();
-
-                if (AbnormRecordList == null)
+                if (e.Error == null)
                 {
-                    return;
+                    AbnormRecordList = e.Result;
+
+                    //AbnormRecordList = AbnormRecordList.Where(m => m.SINGINSTATE != "1").ToList();
+
+                    if (AbnormRecordList == null)
+                    {
+                        MessageBox.Show("未查询到异常考勤");
+                        return;
+                    }
+
+                    if (AbnormRecordList.Count() == 0)
+                    {
+                        //return;
+                    }
+
+                    SignInDetailList = MakeSignInDetailByAbnormRecord(AbnormRecordList);
+                    dgSignInDetailList.ItemsSource = SignInDetailList;
+
+                    //string strLoginUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    //if (SignInRecord.EMPLOYEEID != strLoginUserId || SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                    //{
+                    //    dgSignInDetailList.IsEnabled = false;
+                    //    txtRemark.IsEnabled = false;
+                    //}
+                    //if (SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                    //{
+                    //    dgSignInDetailList.IsEnabled = false;
+                    //    txtRemark.IsEnabled = false;
+                    //}
                 }
-
-                if (AbnormRecordList.Count() == 0)
+                else
                 {
-                    return;
-                }
-
-                SignInDetailList = MakeSignInDetailByAbnormRecord(AbnormRecordList);
-                dgSignInDetailList.ItemsSource = SignInDetailList;
-
-                string strLoginUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                if (SignInRecord.EMPLOYEEID != strLoginUserId || SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
-                {
-                    dgSignInDetailList.IsEnabled = false;
-                    txtRemark.IsEnabled = false;
-                }
-                if (SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
-                {
-                    dgSignInDetailList.IsEnabled = false;
-                    txtRemark.IsEnabled = false;
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
 
@@ -798,10 +748,10 @@ namespace SMT.HRM.UI.Form.Attendance
                 entTemp.REMARK = string.Empty;
 
                 //权限控制
-                entTemp.OWNERCOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-                entTemp.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-                entTemp.OWNERPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                entTemp.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                entTemp.OWNERCOMPANYID = item.OWNERCOMPANYID;
+                entTemp.OWNERDEPARTMENTID = item.OWNERDEPARTMENTID;
+                entTemp.OWNERPOSTID = item.OWNERPOSTID;
+                entTemp.OWNERID = item.OWNERID;
 
                 //2010年2月11日, 11:37:35,目前暂未实现登录部分，人员相关数据为假定值
                 entTemp.CREATEDATE = DateTime.Now;
@@ -825,25 +775,36 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         void clientAtt_GetEmployeeSignInDetailBySigninIDCompleted(object sender, GetEmployeeSignInDetailBySigninIDCompletedEventArgs e)
         {
-            if (e.Error == null)
+            try
             {
-                SignInDetailList = e.Result;
-                dgSignInDetailList.ItemsSource = SignInDetailList;
-
-                string strLoginUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                if (SignInRecord.EMPLOYEEID != strLoginUserId || SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                if (e.Error == null)
                 {
-                    dgSignInDetailList.IsEnabled = false;
-                    txtRemark.IsEnabled = false;
-                }
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
+                    SignInDetailList = e.Result;
+                    dgSignInDetailList.ItemsSource = SignInDetailList;
 
-            RefreshUI(RefreshedTypes.AuditInfo);
-            SetToolBar();
+                    string strLoginUserId = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    if (SignInRecord.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())//SignInRecord.EMPLOYEEID != strLoginUserId || 
+                    {
+                        dgSignInDetailList.IsEnabled = false;
+                        txtRemark.IsEnabled = false;
+                    }
+                }
+                else
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
+
+                RefreshUI(RefreshedTypes.AuditInfo);
+                SetToolBar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+            }
         }
 
         /// <summary>
@@ -936,6 +897,60 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             deleteRecord();
         }
+
+
+        /// <summary>
+        /// 选择员工
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LookUp_FindClick(object sender, EventArgs e)
+        {
+            //lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) =>{});
+            OrganizationLookup lookup = new OrganizationLookup();
+
+            lookup.SelectedObjType = OrgTreeItemTypes.Personnel;
+            lookup.SelectedClick += (obj, ev) =>
+            {
+                List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj> ent = lookup.SelectedObj as List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj>;
+                if (ent != null && ent.Count > 0)
+                {
+                    SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj userInfo = ent.FirstOrDefault();
+
+                    SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
+                    string postid = post.ObjectID;
+                    string postName = post.ObjectName;//岗位
+
+                    SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj dept = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)post.ParentObject;
+                    string deptid = dept.ObjectID;
+                    string deptName = dept.ObjectName;//部门
+
+
+                    SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
+                    string corpid = corp.COMPANYID;
+                    string corpName = corp.CNAME;//公司
+
+                    SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE emp = userInfo.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
+
+
+                    string StrEmployee = userInfo.ObjectName + "-" + post.ObjectName + "-" + dept.ObjectName + "-" + corp.CNAME;
+                    lkEmployeeName.TxtLookUp.Text = StrEmployee;
+                    lkEmployeeName.DataContext = emp;
+                    ToolTipService.SetToolTip(lkEmployeeName.TxtLookUp, StrEmployee);
+
+                    if (ent != null)
+                    {
+                        RefreshUI(RefreshedTypes.ShowProgressBar);
+                        clientAtt.GetAbnormRecordByEmployeeIDAsync(emp.EMPLOYEEID);
+                    }
+                }
+            };
+
+            lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+        }
+
+
+
         #endregion
     }
 }

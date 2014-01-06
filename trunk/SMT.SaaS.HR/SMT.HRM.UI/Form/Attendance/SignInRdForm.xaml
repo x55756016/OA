@@ -5,6 +5,7 @@
     xmlns:appCtr="clr-namespace:SMT.HRM.UI.AppControl" 
     xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
     xmlns:smt="clr-namespace:SMT.SaaS.FrameworkUI;assembly=SMT.SaaS.FrameworkUI"
+    xmlns:smt2="clr-namespace:SMT.SaaS.FrameworkUI.OrganizationControl;assembly=SMT.SaaS.FrameworkUI"
     xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
     xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
     xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
@@ -27,7 +28,11 @@
 
                 <!--Row 0:EmployeeName & CompanyName & DepartmentName & PostName-->
 				<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Center" Margin="5,0,0,0" Height="22"/>
-                <TextBlock x:Name="tbEmpName" Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="22" Width="Auto" Margin="5,0,0,0"/>
+                <!--<TextBlock x:Name="tbEmpName" Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="22" Width="Auto" Margin="5,0,0,0"/>-->
+                <!--<TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto"/>-->
+                <smt:LookUp  Height="24" Margin="0,0,0,0" Width="200" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" 
+                    FindClick="LookUp_FindClick" Name="lkEmployeeName">
+                </smt:LookUp>
                 <TextBlock x:Name="tbOrgName" Grid.Row="0" Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="22" Margin="5,0,0,0" Visibility="Collapsed"/>
                 <TextBlock x:Name="tbPostLevel" Grid.Row="0" Grid.Column="1" Style="{StaticResource SysTextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Stretch" Width="Auto" Visibility="Collapsed"/>
 

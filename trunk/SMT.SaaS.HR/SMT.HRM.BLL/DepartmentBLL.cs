@@ -1255,8 +1255,8 @@ namespace SMT.HRM.BLL
                     dept.CREATECOMPANYID = orgInfo.OwnerCompanyID;
                     dept.OWNERID = orgInfo.OwnerID;
                     dept.OWNERPOSTID = orgInfo.OwnerPostID;
-                    dept.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
-                    dept.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                    dept.OWNERDEPARTMENTID = dept.DEPARTMENTID;
+                    dept.OWNERCOMPANYID = companyID;
                     dept.FATHERID = orgInfo.FatherID;
                     dept.FATHERTYPE = Convert.ToString(orgInfo.FatherIntType);
                     this.DepartmentAdd(dept, ref strTemp);
@@ -1337,9 +1337,9 @@ namespace SMT.HRM.BLL
                     post.CREATEDEPARTMENTID = orgInfo.OwnerDepartmentID;
                     post.CREATECOMPANYID = orgInfo.OwnerCompanyID;
                     post.OWNERID = orgInfo.OwnerID;
-                    post.OWNERPOSTID = orgInfo.OwnerPostID;
-                    post.OWNERDEPARTMENTID = orgInfo.OwnerDepartmentID;
-                    post.OWNERCOMPANYID = orgInfo.OwnerCompanyID;
+                    post.OWNERPOSTID = post.POSTID;
+                    post.OWNERDEPARTMENTID = orgInfo.DepartmentID;
+                    post.OWNERCOMPANYID = companyID;
                     PostBLL postBll = new PostBLL();
                     postBll.PostAdd(post, ref strTemp);
                     if (string.IsNullOrWhiteSpace(strTemp))

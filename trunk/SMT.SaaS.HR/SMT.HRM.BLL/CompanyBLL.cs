@@ -1584,6 +1584,16 @@ namespace SMT.HRM.BLL
                         {
                             company.EDITSTATE = Convert.ToInt32(EditStates.Actived).ToString();
                         }
+                        try
+                        {
+                            SMT.Foundation.Log.Tracer.Debug("公司终审通过调用上传控件开始，公司ID:" + company.COMPANYID);
+                            SMT.SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient uploadClient = new SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient();
+                            uploadClient.CreateCompanyDirectory(company.COMPANYID,company.CNAME,company.COMPANRYCODE);
+                        }
+                        catch (Exception ex)
+                        {
+                            SMT.Foundation.Log.Tracer.Debug("公司终审通过调用上传服务失败："+ex.ToString() +"公司ID:"+ company.COMPANYID);
+                        }
                     }
                     if (CheckState == Convert.ToInt32(CheckStates.UnApproved).ToString())
                     {

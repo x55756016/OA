@@ -131,14 +131,28 @@ namespace SMT.HRM.UI.AppControl
             }
         }
         private void BindItems(string cate)
-        {            
-            ThreadPool.QueueUserWorkItem(delegate(object o)
-            {      
-               // Configclient.GetAppConfigByNameAsync("GetDicitionnaryFromCache");
-                DictionNaryclinet.GetSysDictionaryByCategoryAsync(category);
-                //WaitHandle.WaitAll(EventArray);
-                EventAttention.WaitOne();
-            });
+        {
+            List<T_SYS_DICTIONARY> dictss = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+            var q = from ent in dictss
+                    where ent.DICTIONCATEGORY == cate
+                    select ent;
+            if (q.Count() > 0)
+            {
+                List<T_SYS_DICTIONARY> dicts = q.ToList();
+                BindComboBox(dicts, category, SelectedValue);
+            }
+            else
+            {
+                ThreadPool.QueueUserWorkItem(delegate(object o)
+                {
+                    // Configclient.GetAppConfigByNameAsync("GetDicitionnaryFromCache");
+
+                    DictionNaryclinet.GetSysDictionaryByCategoryAsync(category);
+                    //WaitHandle.WaitAll(EventArray);
+                    EventAttention.WaitOne();
+
+                });
+            }
         }
 
         //void Configclient_GetAppConfigByNameCompleted(object sender, GetAppConfigByNameCompletedEventArgs e)

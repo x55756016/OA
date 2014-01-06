@@ -80,6 +80,7 @@ namespace SMT.HRM.BLL
                 }
                 AttendanceSolutionAsignBLL asbll = new AttendanceSolutionAsignBLL();
                 T_HR_ATTENDANCESOLUTIONASIGN entAttendanceSolution = asbll.GetAttendanceSolutionAsignByEmployeeIDAndDate(entEmployee.EMPLOYEEID, dtStart);
+                
                 if (entAttendanceSolution.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE == (Convert.ToInt32(Common.AttendanceType.NoCheck) + 1).ToString())//考勤方案设置为不考勤
                 {
                     Tracer.Debug(dealType + ",被跳过，该员工使用的考勤方案为免打卡方案，考勤方案名："

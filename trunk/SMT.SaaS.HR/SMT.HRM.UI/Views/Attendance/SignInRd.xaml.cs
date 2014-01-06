@@ -443,11 +443,11 @@ namespace SMT.HRM.UI.Views.Attendance
 
             T_HR_EMPLOYEESIGNINRECORD entSignInRd = dgSignInList.SelectedItems[0] as T_HR_EMPLOYEESIGNINRECORD;
 
-            if (entSignInRd.OWNERID != SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), "只能修改自己的单据.");
-                return;
-            }
+            //if (entSignInRd.OWNERID != SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
+            //{
+            //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), "只能修改自己的单据.");
+            //    return;
+            //}
 
             strSignInID = entSignInRd.SIGNINID;
             SignInRdForm formSignInRd = new SignInRdForm(FormTypes.Edit, strSignInID);

@@ -24,12 +24,11 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="90"/>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="159*"/>
-                    <ColumnDefinition Width="92*"/>
+                    <ColumnDefinition Width="0.39*"/>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="251*"/>
+                    <ColumnDefinition Width="0.39*"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
                 <validator:ValidatorManager x:Name="Group1"/>
