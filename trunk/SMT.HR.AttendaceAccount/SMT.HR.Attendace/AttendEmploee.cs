@@ -835,8 +835,8 @@ namespace SmtPortalSetUp
 
         private void btnPreviousMonth_Click(object sender, EventArgs e)
         {
-
-            DateTime dtstart = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
+            int month=DateTime.Now.Month - 1>0?DateTime.Now.Month - 1:1;
+            DateTime dtstart = new DateTime(DateTime.Now.Year, month, 1);
             DateTime dtPrivious = DateTime.Now;
             DateTime dtEnd = new DateTime(dtPrivious.Year, dtPrivious.Month, 1).AddDays(-1);
             txtStartDate.Text = dtstart.ToString("yyyy-MM-dd");

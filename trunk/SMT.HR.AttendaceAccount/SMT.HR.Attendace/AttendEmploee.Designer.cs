@@ -196,7 +196,7 @@
             // txtMessagebox
             // 
             this.txtMessagebox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMessagebox.Location = new System.Drawing.Point(0, 593);
+            this.txtMessagebox.Location = new System.Drawing.Point(0, 609);
             this.txtMessagebox.Multiline = true;
             this.txtMessagebox.Name = "txtMessagebox";
             this.txtMessagebox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -1125,7 +1125,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1026, 671);
+            this.ClientSize = new System.Drawing.Size(1026, 687);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnPreviousMonth);
             this.Controls.Add(this.label8);

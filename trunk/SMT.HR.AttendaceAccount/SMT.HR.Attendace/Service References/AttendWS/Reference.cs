@@ -2908,6 +2908,18 @@ namespace AttendaceAccount.AttendWS {
         private string FOURTHSTARTTIMEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NEEDFOURTHATTENDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NEEDFRISTATTENDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NEEDSECONDATTENDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NEEDTHIRDATTENDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OWNERCOMPANYIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3168,6 +3180,46 @@ namespace AttendaceAccount.AttendWS {
             }
             set {
                 this.FOURTHSTARTTIMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NEEDFOURTHATTEND {
+            get {
+                return this.NEEDFOURTHATTENDField;
+            }
+            set {
+                this.NEEDFOURTHATTENDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NEEDFRISTATTEND {
+            get {
+                return this.NEEDFRISTATTENDField;
+            }
+            set {
+                this.NEEDFRISTATTENDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NEEDSECONDATTEND {
+            get {
+                return this.NEEDSECONDATTENDField;
+            }
+            set {
+                this.NEEDSECONDATTENDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NEEDTHIRDATTEND {
+            get {
+                return this.NEEDTHIRDATTENDField;
+            }
+            set {
+                this.NEEDTHIRDATTENDField = value;
             }
         }
         
@@ -8253,6 +8305,9 @@ namespace AttendaceAccount.AttendWS {
         private System.Nullable<decimal> OTHERLEAVEDAYSField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> OUTAPPLYTIMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> OVERTIMESUMDAYSField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -8646,6 +8701,16 @@ namespace AttendaceAccount.AttendWS {
             }
             set {
                 this.OTHERLEAVEDAYSField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OUTAPPLYTIME {
+            get {
+                return this.OUTAPPLYTIMEField;
+            }
+            set {
+                this.OUTAPPLYTIMEField = value;
             }
         }
         
@@ -10047,10 +10112,16 @@ namespace AttendaceAccount.AttendWS {
         private string ISADJUSTLEAVEField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ISHALFDAYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OUTPLANDAYIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OUTPLANNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PEROIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> STARTDATEField;
@@ -10112,6 +10183,16 @@ namespace AttendaceAccount.AttendWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISHALFDAY {
+            get {
+                return this.ISHALFDAYField;
+            }
+            set {
+                this.ISHALFDAYField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string OUTPLANDAYID {
             get {
                 return this.OUTPLANDAYIDField;
@@ -10128,6 +10209,16 @@ namespace AttendaceAccount.AttendWS {
             }
             set {
                 this.OUTPLANNAMEField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PEROID {
+            get {
+                return this.PEROIDField;
+            }
+            set {
+                this.PEROIDField = value;
             }
         }
         
@@ -10619,6 +10710,736 @@ namespace AttendaceAccount.AttendWS {
                 if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
                     this.FileNameField = value;
                     this.RaisePropertyChanged("FileName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AbnormalAttendanceeEntity", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports")]
+    [System.SerializableAttribute()]
+    public partial class AbnormalAttendanceeEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> ABNORMALTIMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ABNORMCATEGORYField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AdjustableDayField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AdjustableVacationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AnnualLeaveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DrainTimeNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEEIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ExcessHoursTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> LeaveHourField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LeaverecordStypleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> LeaverecordTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> OffHourField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> PunchdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> SickLeaveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> outMinutesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int outTimesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ABNORMALTIME {
+            get {
+                return this.ABNORMALTIMEField;
+            }
+            set {
+                if ((this.ABNORMALTIMEField.Equals(value) != true)) {
+                    this.ABNORMALTIMEField = value;
+                    this.RaisePropertyChanged("ABNORMALTIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ABNORMCATEGORY {
+            get {
+                return this.ABNORMCATEGORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ABNORMCATEGORYField, value) != true)) {
+                    this.ABNORMCATEGORYField = value;
+                    this.RaisePropertyChanged("ABNORMCATEGORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AdjustableDay {
+            get {
+                return this.AdjustableDayField;
+            }
+            set {
+                if ((this.AdjustableDayField.Equals(value) != true)) {
+                    this.AdjustableDayField = value;
+                    this.RaisePropertyChanged("AdjustableDay");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AdjustableVacation {
+            get {
+                return this.AdjustableVacationField;
+            }
+            set {
+                if ((this.AdjustableVacationField.Equals(value) != true)) {
+                    this.AdjustableVacationField = value;
+                    this.RaisePropertyChanged("AdjustableVacation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AnnualLeave {
+            get {
+                return this.AnnualLeaveField;
+            }
+            set {
+                if ((this.AnnualLeaveField.Equals(value) != true)) {
+                    this.AnnualLeaveField = value;
+                    this.RaisePropertyChanged("AnnualLeave");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DrainTimeNumber {
+            get {
+                return this.DrainTimeNumberField;
+            }
+            set {
+                if ((this.DrainTimeNumberField.Equals(value) != true)) {
+                    this.DrainTimeNumberField = value;
+                    this.RaisePropertyChanged("DrainTimeNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ExcessHoursTotal {
+            get {
+                return this.ExcessHoursTotalField;
+            }
+            set {
+                if ((this.ExcessHoursTotalField.Equals(value) != true)) {
+                    this.ExcessHoursTotalField = value;
+                    this.RaisePropertyChanged("ExcessHoursTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LeaveHour {
+            get {
+                return this.LeaveHourField;
+            }
+            set {
+                if ((this.LeaveHourField.Equals(value) != true)) {
+                    this.LeaveHourField = value;
+                    this.RaisePropertyChanged("LeaveHour");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LeaverecordStyple {
+            get {
+                return this.LeaverecordStypleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LeaverecordStypleField, value) != true)) {
+                    this.LeaverecordStypleField = value;
+                    this.RaisePropertyChanged("LeaverecordStyple");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LeaverecordTime {
+            get {
+                return this.LeaverecordTimeField;
+            }
+            set {
+                if ((this.LeaverecordTimeField.Equals(value) != true)) {
+                    this.LeaverecordTimeField = value;
+                    this.RaisePropertyChanged("LeaverecordTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OffHour {
+            get {
+                return this.OffHourField;
+            }
+            set {
+                if ((this.OffHourField.Equals(value) != true)) {
+                    this.OffHourField = value;
+                    this.RaisePropertyChanged("OffHour");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> Punchdate {
+            get {
+                return this.PunchdateField;
+            }
+            set {
+                if ((this.PunchdateField.Equals(value) != true)) {
+                    this.PunchdateField = value;
+                    this.RaisePropertyChanged("Punchdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> SickLeave {
+            get {
+                return this.SickLeaveField;
+            }
+            set {
+                if ((this.SickLeaveField.Equals(value) != true)) {
+                    this.SickLeaveField = value;
+                    this.RaisePropertyChanged("SickLeave");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cname {
+            get {
+                return this.cnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cnameField, value) != true)) {
+                    this.cnameField = value;
+                    this.RaisePropertyChanged("cname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> outMinutes {
+            get {
+                return this.outMinutesField;
+            }
+            set {
+                if ((this.outMinutesField.Equals(value) != true)) {
+                    this.outMinutesField = value;
+                    this.RaisePropertyChanged("outMinutes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int outTimes {
+            get {
+                return this.outTimesField;
+            }
+            set {
+                if ((this.outTimesField.Equals(value) != true)) {
+                    this.outTimesField = value;
+                    this.RaisePropertyChanged("outTimes");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EmpLeaveRdInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    [System.SerializableAttribute()]
+    public partial class V_EmpLeaveRdInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CANCELTOTALHOURSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKSTATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATECOMPANYIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEDEPARTMENTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEPOSTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CREATEUSERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DEPARTMENTNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEECODEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEEIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EMPLOYEENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ENDDATETIMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> LEAVEDAYSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> LEAVEHOURSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LEAVERECORDIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LEAVETYPENAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERCOMPANYIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERDEPARTMENTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OWNERPOSTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REASONField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string REMARKField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> STARTDATETIMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> TOTALHOURSField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> CANCELTOTALHOURS {
+            get {
+                return this.CANCELTOTALHOURSField;
+            }
+            set {
+                if ((this.CANCELTOTALHOURSField.Equals(value) != true)) {
+                    this.CANCELTOTALHOURSField = value;
+                    this.RaisePropertyChanged("CANCELTOTALHOURS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ENDDATETIME {
+            get {
+                return this.ENDDATETIMEField;
+            }
+            set {
+                if ((this.ENDDATETIMEField.Equals(value) != true)) {
+                    this.ENDDATETIMEField = value;
+                    this.RaisePropertyChanged("ENDDATETIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LEAVEDAYS {
+            get {
+                return this.LEAVEDAYSField;
+            }
+            set {
+                if ((this.LEAVEDAYSField.Equals(value) != true)) {
+                    this.LEAVEDAYSField = value;
+                    this.RaisePropertyChanged("LEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LEAVEHOURS {
+            get {
+                return this.LEAVEHOURSField;
+            }
+            set {
+                if ((this.LEAVEHOURSField.Equals(value) != true)) {
+                    this.LEAVEHOURSField = value;
+                    this.RaisePropertyChanged("LEAVEHOURS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEAVERECORDID {
+            get {
+                return this.LEAVERECORDIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEAVERECORDIDField, value) != true)) {
+                    this.LEAVERECORDIDField = value;
+                    this.RaisePropertyChanged("LEAVERECORDID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEAVETYPENAME {
+            get {
+                return this.LEAVETYPENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEAVETYPENAMEField, value) != true)) {
+                    this.LEAVETYPENAMEField = value;
+                    this.RaisePropertyChanged("LEAVETYPENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REASON {
+            get {
+                return this.REASONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REASONField, value) != true)) {
+                    this.REASONField = value;
+                    this.RaisePropertyChanged("REASON");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> STARTDATETIME {
+            get {
+                return this.STARTDATETIMEField;
+            }
+            set {
+                if ((this.STARTDATETIMEField.Equals(value) != true)) {
+                    this.STARTDATETIMEField = value;
+                    this.RaisePropertyChanged("STARTDATETIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> TOTALHOURS {
+            get {
+                return this.TOTALHOURSField;
+            }
+            set {
+                if ((this.TOTALHOURSField.Equals(value) != true)) {
+                    this.TOTALHOURSField = value;
+                    this.RaisePropertyChanged("TOTALHOURS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
                 }
             }
         }
@@ -11484,6 +12305,147 @@ namespace AttendaceAccount.AttendWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_ATTENDANCESOLUTIONASIGN", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    [System.SerializableAttribute()]
+    public partial class V_ATTENDANCESOLUTIONASIGN : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ASSIGNEDOBJECTIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ASSIGNEDOBJECTTYPEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ATTENDANCESOLUTIONASIGNIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ATTENDANCESOLUTIONNAMEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CHECKSTATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ENDDATEField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime STARTDATEField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ASSIGNEDOBJECTID {
+            get {
+                return this.ASSIGNEDOBJECTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ASSIGNEDOBJECTIDField, value) != true)) {
+                    this.ASSIGNEDOBJECTIDField = value;
+                    this.RaisePropertyChanged("ASSIGNEDOBJECTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ASSIGNEDOBJECTTYPE {
+            get {
+                return this.ASSIGNEDOBJECTTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ASSIGNEDOBJECTTYPEField, value) != true)) {
+                    this.ASSIGNEDOBJECTTYPEField = value;
+                    this.RaisePropertyChanged("ASSIGNEDOBJECTTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ATTENDANCESOLUTIONASIGNID {
+            get {
+                return this.ATTENDANCESOLUTIONASIGNIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ATTENDANCESOLUTIONASIGNIDField, value) != true)) {
+                    this.ATTENDANCESOLUTIONASIGNIDField = value;
+                    this.RaisePropertyChanged("ATTENDANCESOLUTIONASIGNID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ATTENDANCESOLUTIONNAME {
+            get {
+                return this.ATTENDANCESOLUTIONNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ATTENDANCESOLUTIONNAMEField, value) != true)) {
+                    this.ATTENDANCESOLUTIONNAMEField = value;
+                    this.RaisePropertyChanged("ATTENDANCESOLUTIONNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ENDDATE {
+            get {
+                return this.ENDDATEField;
+            }
+            set {
+                if ((this.ENDDATEField.Equals(value) != true)) {
+                    this.ENDDATEField = value;
+                    this.RaisePropertyChanged("ENDDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime STARTDATE {
+            get {
+                return this.STARTDATEField;
+            }
+            set {
+                if ((this.STARTDATEField.Equals(value) != true)) {
+                    this.STARTDATEField = value;
+                    this.RaisePropertyChanged("STARTDATE");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="V_ATTENDANCERECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     [System.SerializableAttribute()]
     public partial class V_ATTENDANCERECORD : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -11575,744 +12537,17 @@ namespace AttendaceAccount.AttendWS {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_EmpLeaveRdInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
-    [System.SerializableAttribute()]
-    public partial class V_EmpLeaveRdInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CHECKSTATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATECOMPANYIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEDEPARTMENTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEPOSTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CREATEUSERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEECODEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEEIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEENAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> ENDDATETIMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> LEAVEDAYSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> LEAVEHOURSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LEAVERECORDIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LEAVETYPENAMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERCOMPANYIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERDEPARTMENTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OWNERPOSTIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REASONField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string REMARKField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> STARTDATETIMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> TOTALHOURSField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
-            get {
-                return this.EMPLOYEECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
-            get {
-                return this.EMPLOYEENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
-                    this.EMPLOYEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ENDDATETIME {
-            get {
-                return this.ENDDATETIMEField;
-            }
-            set {
-                if ((this.ENDDATETIMEField.Equals(value) != true)) {
-                    this.ENDDATETIMEField = value;
-                    this.RaisePropertyChanged("ENDDATETIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LEAVEDAYS {
-            get {
-                return this.LEAVEDAYSField;
-            }
-            set {
-                if ((this.LEAVEDAYSField.Equals(value) != true)) {
-                    this.LEAVEDAYSField = value;
-                    this.RaisePropertyChanged("LEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LEAVEHOURS {
-            get {
-                return this.LEAVEHOURSField;
-            }
-            set {
-                if ((this.LEAVEHOURSField.Equals(value) != true)) {
-                    this.LEAVEHOURSField = value;
-                    this.RaisePropertyChanged("LEAVEHOURS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEAVERECORDID {
-            get {
-                return this.LEAVERECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEAVERECORDIDField, value) != true)) {
-                    this.LEAVERECORDIDField = value;
-                    this.RaisePropertyChanged("LEAVERECORDID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEAVETYPENAME {
-            get {
-                return this.LEAVETYPENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEAVETYPENAMEField, value) != true)) {
-                    this.LEAVETYPENAMEField = value;
-                    this.RaisePropertyChanged("LEAVETYPENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REASON {
-            get {
-                return this.REASONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REASONField, value) != true)) {
-                    this.REASONField = value;
-                    this.RaisePropertyChanged("REASON");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> STARTDATETIME {
-            get {
-                return this.STARTDATETIMEField;
-            }
-            set {
-                if ((this.STARTDATETIMEField.Equals(value) != true)) {
-                    this.STARTDATETIMEField = value;
-                    this.RaisePropertyChanged("STARTDATETIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> TOTALHOURS {
-            get {
-                return this.TOTALHOURSField;
-            }
-            set {
-                if ((this.TOTALHOURSField.Equals(value) != true)) {
-                    this.TOTALHOURSField = value;
-                    this.RaisePropertyChanged("TOTALHOURS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AbnormalAttendanceeEntity", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports")]
-    [System.SerializableAttribute()]
-    public partial class AbnormalAttendanceeEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> ABNORMALTIMEField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ABNORMCATEGORYField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> AdjustableDayField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> AdjustableVacationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> AnnualLeaveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DrainTimeNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EMPLOYEEIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ExcessHoursTotalField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> LeaveHourField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LeaverecordStypleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> LeaverecordTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> OffHourField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> PunchdateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> SickLeaveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string cnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> outMinutesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int outTimesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ABNORMALTIME {
-            get {
-                return this.ABNORMALTIMEField;
-            }
-            set {
-                if ((this.ABNORMALTIMEField.Equals(value) != true)) {
-                    this.ABNORMALTIMEField = value;
-                    this.RaisePropertyChanged("ABNORMALTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ABNORMCATEGORY {
-            get {
-                return this.ABNORMCATEGORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ABNORMCATEGORYField, value) != true)) {
-                    this.ABNORMCATEGORYField = value;
-                    this.RaisePropertyChanged("ABNORMCATEGORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AdjustableDay {
-            get {
-                return this.AdjustableDayField;
-            }
-            set {
-                if ((this.AdjustableDayField.Equals(value) != true)) {
-                    this.AdjustableDayField = value;
-                    this.RaisePropertyChanged("AdjustableDay");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AdjustableVacation {
-            get {
-                return this.AdjustableVacationField;
-            }
-            set {
-                if ((this.AdjustableVacationField.Equals(value) != true)) {
-                    this.AdjustableVacationField = value;
-                    this.RaisePropertyChanged("AdjustableVacation");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AnnualLeave {
-            get {
-                return this.AnnualLeaveField;
-            }
-            set {
-                if ((this.AnnualLeaveField.Equals(value) != true)) {
-                    this.AnnualLeaveField = value;
-                    this.RaisePropertyChanged("AnnualLeave");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DrainTimeNumber {
-            get {
-                return this.DrainTimeNumberField;
-            }
-            set {
-                if ((this.DrainTimeNumberField.Equals(value) != true)) {
-                    this.DrainTimeNumberField = value;
-                    this.RaisePropertyChanged("DrainTimeNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ExcessHoursTotal {
-            get {
-                return this.ExcessHoursTotalField;
-            }
-            set {
-                if ((this.ExcessHoursTotalField.Equals(value) != true)) {
-                    this.ExcessHoursTotalField = value;
-                    this.RaisePropertyChanged("ExcessHoursTotal");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LeaveHour {
-            get {
-                return this.LeaveHourField;
-            }
-            set {
-                if ((this.LeaveHourField.Equals(value) != true)) {
-                    this.LeaveHourField = value;
-                    this.RaisePropertyChanged("LeaveHour");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LeaverecordStyple {
-            get {
-                return this.LeaverecordStypleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LeaverecordStypleField, value) != true)) {
-                    this.LeaverecordStypleField = value;
-                    this.RaisePropertyChanged("LeaverecordStyple");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LeaverecordTime {
-            get {
-                return this.LeaverecordTimeField;
-            }
-            set {
-                if ((this.LeaverecordTimeField.Equals(value) != true)) {
-                    this.LeaverecordTimeField = value;
-                    this.RaisePropertyChanged("LeaverecordTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OffHour {
-            get {
-                return this.OffHourField;
-            }
-            set {
-                if ((this.OffHourField.Equals(value) != true)) {
-                    this.OffHourField = value;
-                    this.RaisePropertyChanged("OffHour");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Punchdate {
-            get {
-                return this.PunchdateField;
-            }
-            set {
-                if ((this.PunchdateField.Equals(value) != true)) {
-                    this.PunchdateField = value;
-                    this.RaisePropertyChanged("Punchdate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SickLeave {
-            get {
-                return this.SickLeaveField;
-            }
-            set {
-                if ((this.SickLeaveField.Equals(value) != true)) {
-                    this.SickLeaveField = value;
-                    this.RaisePropertyChanged("SickLeave");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string cname {
-            get {
-                return this.cnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cnameField, value) != true)) {
-                    this.cnameField = value;
-                    this.RaisePropertyChanged("cname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> outMinutes {
-            get {
-                return this.outMinutesField;
-            }
-            set {
-                if ((this.outMinutesField.Equals(value) != true)) {
-                    this.outMinutesField = value;
-                    this.RaisePropertyChanged("outMinutes");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int outTimes {
-            get {
-                return this.outTimesField;
-            }
-            set {
-                if ((this.outTimesField.Equals(value) != true)) {
-                    this.outTimesField = value;
-                    this.RaisePropertyChanged("outTimes");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="AttendWS.AttendanceService")]
     public interface AttendanceService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate", ReplyAction="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDateResponse")]
-        string GetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime);
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetLeaveRecordByID", ReplyAction="urn:AttendanceService/GetLeaveRecordByIDResponse")]
+        AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD GetLeaveRecordByID(string strID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordAdd", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordAddResponse")]
-        void EmployeeLeaveRecordAdd(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordUpdate", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordUpdateResponse")]
-        void EmployeeLeaveRecordUpdate(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordDelete", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordDeleteResponse")]
-        bool EmployeeLeaveRecordDelete(string[] leaveRecordIDs);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetEmployeeLeaveRecordByID", ReplyAction="urn:AttendanceService/GetEmployeeLeaveRecordByIDResponse")]
-        AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD GetEmployeeLeaveRecordByID(string strID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/AuditLeaveRecord", ReplyAction="urn:AttendanceService/AuditLeaveRecordResponse")]
-        string AuditLeaveRecord(string strLeaveRecordID, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves, string strCheckState);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetLeaveDaysHistory", ReplyAction="urn:AttendanceService/GetLeaveDaysHistoryResponse")]
-        void GetLeaveDaysHistory(string strLeaveTypeSetId, string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveYearTimes, ref decimal dLeaveYearDays, ref decimal dLeaveMonthTimes, ref decimal dLeaveMonthDays, ref System.DateTime dLeaveFistDate, ref decimal dLeaveSYearTimes);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeSignInRecordPaging", ReplyAction="urn:AttendanceService/EmployeeSignInRecordPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordPaging", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -12337,8 +12572,366 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD[]))]
+        AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordPaged", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordPagedResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD[]))]
+        AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/ExportEmployeeLeaveRecordReports", ReplyAction="urn:AttendanceService/ExportEmployeeLeaveRecordReportsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD[]))]
+        byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate", ReplyAction="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDateResponse")]
+        string GetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordAdd", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordAddResponse")]
+        void EmployeeLeaveRecordAdd(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordUpdate", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordUpdateResponse")]
+        void EmployeeLeaveRecordUpdate(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordDelete", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordDeleteResponse")]
+        bool EmployeeLeaveRecordDelete(string[] leaveRecordIDs);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetEmployeeLeaveRecordByID", ReplyAction="urn:AttendanceService/GetEmployeeLeaveRecordByIDResponse")]
+        AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD GetEmployeeLeaveRecordByID(string strID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/AuditLeaveRecord", ReplyAction="urn:AttendanceService/AuditLeaveRecordResponse")]
+        string AuditLeaveRecord(string strLeaveRecordID, AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] AdjustLeaves, string strCheckState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetLeaveDaysHistory", ReplyAction="urn:AttendanceService/GetLeaveDaysHistoryResponse")]
+        void GetLeaveDaysHistory(string strLeaveTypeSetId, string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveYearTimes, ref decimal dLeaveYearDays, ref decimal dLeaveMonthTimes, ref decimal dLeaveMonthDays, ref System.DateTime dLeaveFistDate, ref decimal dLeaveSYearTimes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeSignInRecordPaging", ReplyAction="urn:AttendanceService/EmployeeSignInRecordPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -12428,6 +13021,9 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/AbnormRecordCheckAlarm", ReplyAction="urn:AttendanceService/AbnormRecordCheckAlarmResponse")]
         void AbnormRecordCheckAlarm(string strEmployeeId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/ExportEmployeeSignIn", ReplyAction="urn:AttendanceService/ExportEmployeeSignInResponse")]
+        byte[] ExportEmployeeSignIn(string signinID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninID", ReplyAction="urn:AttendanceService/GetEmployeeSignInDetailBySigninIDResponse")]
         AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[] GetEmployeeSignInDetailBySigninID(string signinID);
         
@@ -12478,6 +13074,9 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV", ReplyAction="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSVResponse")]
         void ImportAttendMonthlyBalanceFromCSV(AttendaceAccount.AttendWS.UploadFileModel UploadFile, string strCreateUserID, string strUnitType, string strUnitObjectId, decimal dBalanceYear, decimal dBalanceMonth, ref string strMsg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShow", ReplyAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShowResponse")]
+        AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[] ImportAttendMonthlyBalanceForShow(AttendaceAccount.AttendWS.UploadFileModel UploadFile);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/AddAttendMonthlyBalance", ReplyAction="urn:AttendanceService/AddAttendMonthlyBalanceResponse")]
         string AddAttendMonthlyBalance(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE entTemp);
@@ -12556,19 +13155,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeCancelLeavePaging", ReplyAction="urn:AttendanceService/EmployeeCancelLeavePagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -12593,8 +13181,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -12672,6 +13273,9 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetEmployeeCancelLeaveByID", ReplyAction="urn:AttendanceService/GetEmployeeCancelLeaveByIDResponse")]
         AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE GetEmployeeCancelLeaveByID(string id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetEmployeeLeaveRdListsByLeaveRecordID", ReplyAction="urn:AttendanceService/GetEmployeeLeaveRdListsByLeaveRecordIDResponse")]
+        AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[] GetEmployeeLeaveRdListsByLeaveRecordID(string strLeaveRecordID, string strCheckState);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendMachineSetPaging", ReplyAction="urn:AttendanceService/GetAttendMachineSetPagingResponse")]
         AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[] GetAttendMachineSetPaging(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string strCheckState, string userid);
         
@@ -12723,6 +13327,9 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendSolAsignForOutEngineXml", ReplyAction="urn:AttendanceService/GetAttendSolAsignForOutEngineXmlResponse")]
         void GetAttendSolAsignForOutEngineXml(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN entTemp);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDate", ReplyAction="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDateResponse")]
+        void GetAttendanceSolutionAsignByEmployeeIDAndDate(string strEmployeeID, System.DateTime dtStart);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/DoWork", ReplyAction="urn:AttendanceService/DoWorkResponse")]
         void DoWork();
         
@@ -12732,19 +13339,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetPersonalLandStatisticListByMultSearch", ReplyAction="urn:AttendanceService/GetPersonalLandStatisticListByMultSearchResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -12769,8 +13365,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -12838,19 +13447,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetPersonalLandDetailListByMultSearch", ReplyAction="urn:AttendanceService/GetPersonalLandDetailListByMultSearchResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -12875,8 +13473,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -12944,19 +13555,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/OutFileLandStatisticList", ReplyAction="urn:AttendanceService/OutFileLandStatisticListResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -12981,8 +13581,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -13050,19 +13663,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/OutFilePersonalLandDetailList", ReplyAction="urn:AttendanceService/OutFilePersonalLandDetailListResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -13087,8 +13689,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -13177,6 +13792,9 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/OutClockInRdListByMultSearch", ReplyAction="urn:AttendanceService/OutClockInRdListByMultSearchResponse")]
         byte[] OutClockInRdListByMultSearch(out string strMsg, string sType, string sValue, string strOwnerID, string strEmployeeID, string strPunchDateFrom, string strPunchDateTo, string strSortKey);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/CompulsoryInitialization", ReplyAction="urn:AttendanceService/CompulsoryInitializationResponse")]
+        string CompulsoryInitialization(string objType, string objId, System.DateTime dtStar, System.DateTime dtEnd);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendanceSolutionByID", ReplyAction="urn:AttendanceService/GetAttendanceSolutionByIDResponse")]
         AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION GetAttendanceSolutionByID(string strAttendanceSolutionId);
@@ -13291,19 +13909,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeOverTimeRecordPaging", ReplyAction="urn:AttendanceService/EmployeeOverTimeRecordPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -13328,8 +13935,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -13417,7 +14037,10 @@ namespace AttendaceAccount.AttendWS {
         int CheckAttSolIsExistsAsignRd(string strAttendanceSolutionId, string strCheckStates);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendanceSolutionAsignRdListByMultSearch", ReplyAction="urn:AttendanceService/GetAttendanceSolutionAsignRdListByMultSearchResponse")]
-        AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType, string strSortKey, int pageIndex, int pageSize, ref int pageCount);
+        AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType, string strSortKey, System.DateTime dtStart, System.DateTime dtEnd, int pageIndex, int pageSize, ref int pageCount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAttendanceSolutionAsignRdListByCreateCompanyId", ReplyAction="urn:AttendanceService/GetAttendanceSolutionAsignRdListByCreateCompanyIdResponse")]
+        AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByCreateCompanyId(string createCompanyId);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/AddAttendanceSolutionAsign", ReplyAction="urn:AttendanceService/AddAttendanceSolutionAsignResponse")]
         string AddAttendanceSolutionAsign(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN entTemp);
@@ -13583,19 +14206,8 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeEvectionReportPaging", ReplyAction="urn:AttendanceService/EmployeeEvectionReportPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
@@ -13620,8 +14232,21 @@ namespace AttendaceAccount.AttendWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
@@ -13719,115 +14344,6 @@ namespace AttendaceAccount.AttendWS {
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetAdjustLeaveDetailListByLeaveRecordID", ReplyAction="urn:AttendanceService/GetAdjustLeaveDetailListByLeaveRecordIDResponse")]
         AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] GetAdjustLeaveDetailListByLeaveRecordID(string strLeaveRecordID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/GetLeaveRecordByID", ReplyAction="urn:AttendanceService/GetLeaveRecordByIDResponse")]
-        AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD GetLeaveRecordByID(string strID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:AttendanceService/EmployeeLeaveRecordPaging", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EMPLOYEELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandStatistic))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_LandDetail))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.V_EmpLeaveRdInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_LEAVETYPESET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_VACATIONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.Objects.DataClasses.EntityReference<AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.AbnormalAttendanceeEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Data.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(object[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDFREELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEABNORMRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_FREELEAVEDAYSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINRECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDYEARLYBALANCE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEECLOCKINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SCHEDULINGTEMPLATEMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_SHIFTDEFINE[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_ATTENDANCEDEDUCTMASTER[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_LEAVETYPESET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OVERTIMEREWARD[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_OUTPLANDAYS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_VACATIONSET[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT[]))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONREPORT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(AttendaceAccount.AttendWS.T_HR_EMPLOYEEEVECTIONRECORD[]))]
-        AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -13855,6 +14371,22 @@ namespace AttendaceAccount.AttendWS {
         
         public AttendanceServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD GetLeaveRecordByID(string strID) {
+            return base.Channel.GetLeaveRecordByID(strID);
+        }
+        
+        public AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate) {
+            return base.Channel.EmployeeLeaveRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
+        }
+        
+        public AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaged(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID) {
+            return base.Channel.EmployeeLeaveRecordPaged(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID);
+        }
+        
+        public byte[] ExportEmployeeLeaveRecordReports(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string startDate, string recorderDate, string employeeID, string leaveTypeSetID) {
+            return base.Channel.ExportEmployeeLeaveRecordReports(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, startDate, recorderDate, employeeID, leaveTypeSetID);
         }
         
         public string GetRealLeaveDayByEmployeeIdAndDate(string strLeaveRecordId, string strEmployeeID, System.DateTime dtLeaveStartTime, System.DateTime dtLeaveEndTime, ref decimal dLeaveDay, ref decimal dLeaveTime, ref decimal dLeaveTotalTime) {
@@ -13919,6 +14451,10 @@ namespace AttendaceAccount.AttendWS {
         
         public void AbnormRecordCheckAlarm(string strEmployeeId) {
             base.Channel.AbnormRecordCheckAlarm(strEmployeeId);
+        }
+        
+        public byte[] ExportEmployeeSignIn(string signinID) {
+            return base.Channel.ExportEmployeeSignIn(signinID);
         }
         
         public AttendaceAccount.AttendWS.T_HR_EMPLOYEESIGNINDETAIL[] GetEmployeeSignInDetailBySigninID(string signinID) {
@@ -13987,6 +14523,10 @@ namespace AttendaceAccount.AttendWS {
         
         public void ImportAttendMonthlyBalanceFromCSV(AttendaceAccount.AttendWS.UploadFileModel UploadFile, string strCreateUserID, string strUnitType, string strUnitObjectId, decimal dBalanceYear, decimal dBalanceMonth, ref string strMsg) {
             base.Channel.ImportAttendMonthlyBalanceFromCSV(UploadFile, strCreateUserID, strUnitType, strUnitObjectId, dBalanceYear, dBalanceMonth, ref strMsg);
+        }
+        
+        public AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE[] ImportAttendMonthlyBalanceForShow(AttendaceAccount.AttendWS.UploadFileModel UploadFile) {
+            return base.Channel.ImportAttendMonthlyBalanceForShow(UploadFile);
         }
         
         public string AddAttendMonthlyBalance(AttendaceAccount.AttendWS.T_HR_ATTENDMONTHLYBALANCE entTemp) {
@@ -14109,6 +14649,10 @@ namespace AttendaceAccount.AttendWS {
             return base.Channel.GetEmployeeCancelLeaveByID(id);
         }
         
+        public AttendaceAccount.AttendWS.T_HR_EMPLOYEECANCELLEAVE[] GetEmployeeLeaveRdListsByLeaveRecordID(string strLeaveRecordID, string strCheckState) {
+            return base.Channel.GetEmployeeLeaveRdListsByLeaveRecordID(strLeaveRecordID, strCheckState);
+        }
+        
         public AttendaceAccount.AttendWS.T_HR_ATTENDMACHINESET[] GetAttendMachineSetPaging(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string strCheckState, string userid) {
             return base.Channel.GetAttendMachineSetPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, userid);
         }
@@ -14177,6 +14721,10 @@ namespace AttendaceAccount.AttendWS {
             base.Channel.GetAttendSolAsignForOutEngineXml(entTemp);
         }
         
+        public void GetAttendanceSolutionAsignByEmployeeIDAndDate(string strEmployeeID, System.DateTime dtStart) {
+            base.Channel.GetAttendanceSolutionAsignByEmployeeIDAndDate(strEmployeeID, dtStart);
+        }
+        
         public void DoWork() {
             base.Channel.DoWork();
         }
@@ -14231,6 +14779,10 @@ namespace AttendaceAccount.AttendWS {
         
         public byte[] OutClockInRdListByMultSearch(out string strMsg, string sType, string sValue, string strOwnerID, string strEmployeeID, string strPunchDateFrom, string strPunchDateTo, string strSortKey) {
             return base.Channel.OutClockInRdListByMultSearch(out strMsg, sType, sValue, strOwnerID, strEmployeeID, strPunchDateFrom, strPunchDateTo, strSortKey);
+        }
+        
+        public string CompulsoryInitialization(string objType, string objId, System.DateTime dtStar, System.DateTime dtEnd) {
+            return base.Channel.CompulsoryInitialization(objType, objId, dtStar, dtEnd);
         }
         
         public AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTION GetAttendanceSolutionByID(string strAttendanceSolutionId) {
@@ -14413,8 +14965,12 @@ namespace AttendaceAccount.AttendWS {
             return base.Channel.CheckAttSolIsExistsAsignRd(strAttendanceSolutionId, strCheckStates);
         }
         
-        public AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType, string strSortKey, int pageIndex, int pageSize, ref int pageCount) {
-            return base.Channel.GetAttendanceSolutionAsignRdListByMultSearch(strOwnerID, strCheckState, AttendanceSolutionName, strAssignedObjectType, strSortKey, pageIndex, pageSize, ref pageCount);
+        public AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByMultSearch(string strOwnerID, string strCheckState, string AttendanceSolutionName, string strAssignedObjectType, string strSortKey, System.DateTime dtStart, System.DateTime dtEnd, int pageIndex, int pageSize, ref int pageCount) {
+            return base.Channel.GetAttendanceSolutionAsignRdListByMultSearch(strOwnerID, strCheckState, AttendanceSolutionName, strAssignedObjectType, strSortKey, dtStart, dtEnd, pageIndex, pageSize, ref pageCount);
+        }
+        
+        public AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN[] GetAttendanceSolutionAsignRdListByCreateCompanyId(string createCompanyId) {
+            return base.Channel.GetAttendanceSolutionAsignRdListByCreateCompanyId(createCompanyId);
         }
         
         public string AddAttendanceSolutionAsign(AttendaceAccount.AttendWS.T_HR_ATTENDANCESOLUTIONASIGN entTemp) {
@@ -14679,14 +15235,6 @@ namespace AttendaceAccount.AttendWS {
         
         public AttendaceAccount.AttendWS.V_ADJUSTLEAVE[] GetAdjustLeaveDetailListByLeaveRecordID(string strLeaveRecordID) {
             return base.Channel.GetAdjustLeaveDetailListByLeaveRecordID(strLeaveRecordID);
-        }
-        
-        public AttendaceAccount.AttendWS.T_HR_EMPLOYEELEAVERECORD GetLeaveRecordByID(string strID) {
-            return base.Channel.GetLeaveRecordByID(strID);
-        }
-        
-        public AttendaceAccount.AttendWS.V_EmpLeaveRdInfo[] EmployeeLeaveRecordPaging(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate) {
-            return base.Channel.EmployeeLeaveRecordPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
         }
     }
 }

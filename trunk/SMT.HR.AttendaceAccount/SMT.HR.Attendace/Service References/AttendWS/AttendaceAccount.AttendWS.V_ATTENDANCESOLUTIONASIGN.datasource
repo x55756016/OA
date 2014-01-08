@@ -5,6 +5,6 @@
     Renaming the file extension or editing the content of this file may   
     cause the file to be unrecognizable by the program.
 -->
-<GenericObjectDataSource DisplayName="T_HR_EMPLOYEELEVELDAYCOUNT" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>AttendaceAccount.AttendWS.T_HR_EMPLOYEELEVELDAYCOUNT, Service References.AttendWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+<GenericObjectDataSource DisplayName="V_ATTENDANCESOLUTIONASIGN" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+   <TypeInfo>AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN, Service References.AttendWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

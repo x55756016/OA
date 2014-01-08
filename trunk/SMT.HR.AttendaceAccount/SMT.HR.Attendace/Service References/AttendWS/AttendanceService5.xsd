@@ -1,15 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfstring">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/HR/AttendanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:complexType name="ArrayOfV_EmpLeaveRdInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmpLeaveRdInfo" nillable="true" type="tns:V_EmpLeaveRdInfo" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
-  <xs:complexType name="ArrayOfanyType">
+  <xs:element name="ArrayOfV_EmpLeaveRdInfo" nillable="true" type="tns:ArrayOfV_EmpLeaveRdInfo" />
+  <xs:complexType name="V_EmpLeaveRdInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="CANCELTOTALHOURS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENDDATETIME" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LEAVEDAYS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LEAVEHOURS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LEAVERECORDID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LEAVETYPENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REASON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STARTDATETIME" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TOTALHOURS" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+  <xs:element name="V_EmpLeaveRdInfo" nillable="true" type="tns:V_EmpLeaveRdInfo" />
+  <xs:complexType name="ArrayOfV_ADJUSTLEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ADJUSTLEAVE" nillable="true" type="tns:V_ADJUSTLEAVE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ADJUSTLEAVE" nillable="true" type="tns:ArrayOfV_ADJUSTLEAVE" />
+  <xs:complexType name="V_ADJUSTLEAVE">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="T_HR_ADJUSTLEAVE" nillable="true" type="q1:T_HR_ADJUSTLEAVE" />
+      <xs:element minOccurs="0" name="VacationDays" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VacationType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ADJUSTLEAVE" nillable="true" type="tns:V_ADJUSTLEAVE" />
+  <xs:complexType name="V_EMPLOYEELEAVERECORD">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="AdjustLeave" nillable="true" type="q2:ArrayOfT_HR_ADJUSTLEAVE" />
+      <xs:element minOccurs="0" name="EmployeeLeave" nillable="true" type="tns:ArrayOfV_EMPLOYEELEAVE" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeLeaveRecord" nillable="true" type="q3:T_HR_EMPLOYEELEAVERECORD" />
+      <xs:element minOccurs="0" name="WorkTimePerDay" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEELEAVERECORD" nillable="true" type="tns:V_EMPLOYEELEAVERECORD" />
+  <xs:complexType name="ArrayOfV_EMPLOYEELEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEELEAVE" nillable="true" type="tns:V_EMPLOYEELEAVE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_EMPLOYEELEAVE" nillable="true" type="tns:ArrayOfV_EMPLOYEELEAVE" />
+  <xs:complexType name="V_EMPLOYEELEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FineType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPerfectAttendanceFactor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeaveDays" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LeaveTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeaveTypeSetID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxDays" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UseableLeaveDays" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UsedLeaveDays" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEELEAVE" nillable="true" type="tns:V_EMPLOYEELEAVE" />
+  <xs:complexType name="ArrayOfV_LandStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_LandStatistic" nillable="true" type="tns:V_LandStatistic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_LandStatistic" nillable="true" type="tns:ArrayOfV_LandStatistic" />
+  <xs:complexType name="V_LandStatistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AprTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="AugTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="DecTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="FebTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="JanTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="JulTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="JunTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginYear" type="xs:int" />
+      <xs:element minOccurs="0" name="MarTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="MayTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="NovTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="OctTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="OrganizationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OrganizationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SepTimes" type="xs:int" />
+      <xs:element minOccurs="0" name="Subtotal" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_LandStatistic" nillable="true" type="tns:V_LandStatistic" />
+  <xs:complexType name="ArrayOfV_LandDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_LandDetail" nillable="true" type="tns:V_LandDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_LandDetail" nillable="true" type="tns:ArrayOfV_LandDetail" />
+  <xs:complexType name="V_LandDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LOGINIP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OwnerCompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerCompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerDepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerDepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerPostName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_LandDetail" nillable="true" type="tns:V_LandDetail" />
+  <xs:complexType name="ArrayOfV_ATTENDANCESOLUTIONASIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:V_ATTENDANCESOLUTIONASIGN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:ArrayOfV_ATTENDANCESOLUTIONASIGN" />
+  <xs:complexType name="V_ATTENDANCESOLUTIONASIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ASSIGNEDOBJECTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ASSIGNEDOBJECTTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATTENDANCESOLUTIONASIGNID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ATTENDANCESOLUTIONNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENDDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="STARTDATE" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:V_ATTENDANCESOLUTIONASIGN" />
+  <xs:complexType name="ArrayOfV_ATTENDANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_ATTENDANCERECORD" nillable="true" type="tns:V_ATTENDANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_ATTENDANCERECORD" nillable="true" type="tns:ArrayOfV_ATTENDANCERECORD" />
+  <xs:complexType name="V_ATTENDANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ENDTIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ENDVALUE" type="xs:double" />
+      <xs:element minOccurs="0" name="STARTTIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STARTVALUE" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_ATTENDANCERECORD" nillable="true" type="tns:V_ATTENDANCERECORD" />
 </xs:schema>

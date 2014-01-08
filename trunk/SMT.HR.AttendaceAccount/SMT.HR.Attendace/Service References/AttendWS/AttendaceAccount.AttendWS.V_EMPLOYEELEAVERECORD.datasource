@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="V_EMPLOYEELEAVERECORD" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD</TypeInfo>
+   <TypeInfo>AttendaceAccount.AttendWS.V_EMPLOYEELEAVERECORD, Service References.AttendWS.Reference.cs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

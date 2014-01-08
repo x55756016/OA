@@ -525,6 +525,10 @@
           <xs:element minOccurs="0" name="FOURTHENDTIME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FOURTHSTARTSTATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FOURTHSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFOURTHATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFRISTATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDSECONDATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDTHIRDATTEND" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
@@ -808,6 +812,7 @@
           <xs:element minOccurs="0" name="NEEDATTENDDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="NURSESDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OTHERLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OUTAPPLYTIME" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMESUMDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMESUMHOURS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="OVERTIMETIMES" nillable="true" type="xs:decimal" />
@@ -1133,8 +1138,10 @@
           <xs:element minOccurs="0" name="DAYTYPE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="ISADJUSTLEAVE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISHALFDAY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OUTPLANDAYID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="OUTPLANNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PEROID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_HR_VACATIONSET" nillable="true" type="tns:T_HR_VACATIONSET" />
           <xs:element minOccurs="0" name="T_HR_VACATIONSETReference" nillable="true" type="q30:EntityReferenceOfT_HR_VACATIONSETLmi1kWPo" />

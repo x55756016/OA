@@ -307,6 +307,9 @@
     <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_ATTENDANCERECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AttendWS\AttendaceAccount.AttendWS.V_EmpLeaveRdInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
