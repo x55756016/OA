@@ -1498,7 +1498,7 @@ namespace SMT.HRM.BLL
                 //只有当月离职或上月离职可结算出结果
                 int imonth = DateTime.Now.Month - 1;
                 if (imonth < 1) imonth = 1;
-                if (leftConfim.STOPPAYMENTDATE.Value <= new DateTime(DateTime.Now.Year,DateTime.Now.Month-1,1))
+                if (leftConfim.STOPPAYMENTDATE.Value <= new DateTime(DateTime.Now.Year, imonth, 1))
                 {
                     Tracer.Debug("结算离职薪资，非当月或上月离职员工，跳过结算薪资" + "，员工姓名：" 
                         + emp.EMPLOYEECNAME

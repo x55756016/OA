@@ -421,7 +421,7 @@ namespace SMT.HRM.BLL
                     new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_VACATIONSET", "VACATIONID", entTemp.T_HR_VACATIONSET.VACATIONID);
 
                 Utility.RefreshEntity(ent);
-
+                
                 dalOutPlanDays.Add(ent);
                         
                 strMsg = "{SAVESUCCESSED}";

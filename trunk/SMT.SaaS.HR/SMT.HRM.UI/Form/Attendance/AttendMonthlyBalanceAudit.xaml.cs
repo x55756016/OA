@@ -36,11 +36,11 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="strMonthlyBatchId"></param>
         public AttendMonthlyBalanceAudit(FormTypes formtype, string strMonthlyBalanceBatchId)
         {
-            if (formtype == FormTypes.Edit)
-            {
-                EntityBrowser ent = this.FindParentByType<EntityBrowser>();
-                ent.BtnDelete.Visibility = Visibility.Visible;
-            }
+            //if (formtype == FormTypes.Edit)
+            //{
+            //    EntityBrowser ent = this.FindParentByType<EntityBrowser>();
+            //    ent.BtnDelete.Visibility = Visibility.Visible;
+            //}
             InitializeComponent();
             FormType = formtype;
             MonthlyBalanceBatchId = strMonthlyBalanceBatchId;

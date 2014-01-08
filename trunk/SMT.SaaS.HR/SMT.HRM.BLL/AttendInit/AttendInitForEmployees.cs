@@ -151,16 +151,18 @@ namespace SMT.HRM.BLL
                                 Tracer.Debug("初始化员工考勤记录被跳过,该员工入职为空" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
                             }
-
-                            if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate && entEntry.ONPOSTDATE.Value < dtInitAttandRecordEndDate)
+                            TimeSpan tsStart = entEntry.ONPOSTDATE.Value - dtInitAttandRecordStartDate;
+                            TimeSpan tsEnd = dtInitAttandRecordEndDate-entEntry.ONPOSTDATE.Value;
+                            if (tsStart.Days >= 0 && tsEnd.Days >=0 )
                             {
                                 Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                   + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
                                   + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
-                                dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
+                                dtInitAttandRecordStartDate = new DateTime(entEntry.ONPOSTDATE.Value.Year, entEntry.ONPOSTDATE.Value.Month, entEntry.ONPOSTDATE.Value.Day);
+                            
                             }
 
-                            if (entEntry.ONPOSTDATE.Value > dtInitAttandRecordEndDate)
+                            if (tsEnd.Days < 0)
                             {
                                 Tracer.Debug("初始化员工考勤记录被跳过：员工到岗日期大于考勤初始化结束日期entEntry.ONPOSTDATE.Value > dtEnd" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                     + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
@@ -183,10 +185,11 @@ namespace SMT.HRM.BLL
                                 Tracer.Debug("初始化员工考勤记录开始日期被修改：entEntry.ONPOSTDATE.Value > dtInitAttandRecordStartDate" + "，员工姓名" + item_emp.EMPLOYEECNAME
                                     + " 入职日期：" + entEntry.ENTRYDATE.Value.ToString("yyyy-MM-dd")
                                     + " 到岗日期：" + entEntry.ONPOSTDATE.Value.ToString("yyyy-MM-dd"));
-                                dtInitAttandRecordStartDate = entEntry.ONPOSTDATE.Value;
+                                dtInitAttandRecordStartDate = new DateTime(entEntry.ONPOSTDATE.Value.Year,entEntry.ONPOSTDATE.Value.Month,entEntry.ONPOSTDATE.Value.Day);
                             }
 
-                            if (entEntry.ENTRYDATE.Value > dtInitAttandRecordEndDate)
+                            TimeSpan ts3 = entEntry.ONPOSTDATE.Value - dtInitAttandRecordEndDate;
+                            if (ts3.Days > 0)
                             {
                                 Tracer.Debug("初始化员工考勤记录被跳过,员工入职日期大于本月最后一天" + "，员工姓名" + item_emp.EMPLOYEECNAME);
                                 continue;
@@ -203,7 +206,8 @@ namespace SMT.HRM.BLL
 
                             if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value > dtStart && entConfirm.STOPPAYMENTDATE.Value < dtInitAttandRecordEndDate)
                             {
-                                dtInitAttandRecordEndDate = entConfirm.STOPPAYMENTDATE.Value;
+                                dtInitAttandRecordEndDate = new DateTime(entConfirm.STOPPAYMENTDATE.Value.Year, entConfirm.STOPPAYMENTDATE.Value.Month, entConfirm.STOPPAYMENTDATE.Value.Day);
+                                
                             }
 
                             if (entConfirm.STOPPAYMENTDATE != null && entConfirm.STOPPAYMENTDATE.Value < dtStart)
@@ -229,7 +233,7 @@ namespace SMT.HRM.BLL
                         }
 
                         int iPeriod = iTotalDay / iCircleDay;
-                        if (iTotalDay % iCircleDay > 0)
+                        if (iTotalDay % iCircleDay >= 0)
                         {
                             iPeriod += 1;
                         }
