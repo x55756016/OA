@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="Scripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="Scripts/Lucky.js"></script>
+    <script type="text/javascript" src="Scripts/DBProxy.js"></script>
+    <script type="text/javascript">
+        // window.onload = showBrowserType;
+
+        function myfunction() {
+
+            if (lucky.Ticket.length == 0) {
+                var awardExisted = dbProxy.GetAwardObj();
+                loadData(lucky, awardExisted);
+            }
+
+                        lucky.PublishBatch = "Batch1";
+                        var obj = lucky.GenerateAward(3, 5);
+                        var msg = "";
+                        for (i = 0; i < obj.length; i++) {
+                            msg += obj[i].TicketNO + "\n";
+                        }
+                        alert(msg);
+                        dbProxy.AddAwardMany(obj);
+
+
+            //            var obj = lucky.GenerateAward0SZ();
+            //            var msg = obj.TicketNO;
+            //            alert(msg);
+            //            dbProxy.AddAward(obj.TicketNO, obj.Level, "");
+
+            //            lucky.DiscardAward(obj.TicketNO);
+            //            dbProxy.DiscardAward(obj.TicketNO);
+            //            var anotherAward = lucky.GenerateAward0SZ();
+            //            dbProxy.AddAward(anotherAward.TicketNO, anotherAward.Level, "");
+
+
+                        //var award3 = lucky.GetAwardBy("BJ", 3);
+                        //alert(award3);
+//                        var award3batch1 = lucky.GetAwardByBatch("BJ", "Batch1");
+//                        alert(award3batch1.length);
+            //            var award3batch2 = lucky.GetAwardByBatch("BJ", 2);
+            //            var award3batch3 = lucky.GetAwardByBatch("BJ", 3);
+                        
+                        
+        }
+        
+    </script>
+</head>
+<body>
+    <input id="ButtonLucky" type="button" value="开奖" onclick="myfunction()" />
+    <input id="Button1" type="button" value="Test AddWard" onclick="myfunction()" />
+    <div id="DivAward">
+    </div>
+</body>
+</html>

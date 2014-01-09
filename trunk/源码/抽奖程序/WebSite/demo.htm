@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>抽奖演示</title>
+    <script type="text/javascript" src="Scripts/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="Scripts/json2.js"></script>
+    <script type="text/javascript" src="Scripts/Lucky.js"></script>
+    <script type="text/javascript" src="Scripts/DBProxy.js"></script>
+    <script type="text/javascript" src="default.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            get_all();
+            start()
+
+            //用于测试，显示获奖号码
+            setInterval(function () {
+                get_award();
+                show_num(award_ticket, 'award_show');
+            }, 500);
+
+
+        })
+
+        var playing = true;
+
+        document.onkeydown = function (e) {
+            var theEvent = window.event || e;
+            var code = theEvent.keyCode || theEvent.which;
+            //alert(code);
+            //37，38:左按键，上按键/39，40：右按键，下按键/35：end按键，36：home按键/32：空格键/33：pageUp/34：pageDown   回车：13
+            if (code == 32) {//按空格停止
+                if (playing) {
+                    stop_m();
+                } else {
+                    start();
+                }
+                return false
+            }
+        }
+        
+    </script>
+    <style>
+        body
+        {
+            font-size: 12px;
+            font-family: Tahoma, Geneva, sans-serif;
+            background-color: #fff;
+            font-size: 12px;
+            color: #000;
+            letter-spacing: 1px;
+        }
+        #num_show
+        {
+            font-size: 80px;
+            list-style-type: none;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            margin: 0; /*font-family:Solari;*/
+        }
+        .num
+        {
+            display: inline-block;
+            text-align: center;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+    <ul id="num_show">
+    </ul>
+    <hr />
+    *测试:获奖票(<span id="award_n"></span>)：
+    <div style="overflow: auto; font-size: 10px;" id="award_show">
+    </div>
+    <div id="test">
+    </div>
+</body>
+</html>
