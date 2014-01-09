@@ -22,11 +22,18 @@ using SMT.Saas.Tools.OrganizationWS;
 using SMT.SAAS.Main.CurrentContext;
 using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SaaS.FrameworkUI.Common;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace SMT.HRM.UI.Views.Salary
 {
     public partial class SalaryArchive : BasePage, IClient
     {
+        //用于导出员工薪资档案变更记录
+        private SaveFileDialog dialog = new SaveFileDialog();
+        private bool? result;
+
+
         SMTLoading loadbar = new SMTLoading();
         private SalaryServiceClient client = new SalaryServiceClient();
         private string userID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
@@ -75,6 +82,7 @@ namespace SMT.HRM.UI.Views.Salary
             PARENT.Children.Add(loadbar);
             client.SalaryArchiveDeleteCompleted += new EventHandler<SalaryArchiveDeleteCompletedEventArgs>(client_SalaryArchiveDeleteCompleted);
             client.GetSalaryArchivePagingCompleted += new EventHandler<GetSalaryArchivePagingCompletedEventArgs>(client_GetSalaryArchivePagingCompleted);
+            client.ExportSalaryArchiveCompleted += new EventHandler<ExportSalaryArchiveCompletedEventArgs>(client_ExportSalaryArchiveCompleted);
             client.GetSalaryStandardPagingCompleted += new EventHandler<GetSalaryStandardPagingCompletedEventArgs>(client_GetSalaryStandardPagingCompleted);
             client.GetSalaryArchiveItemsByArchiveIDsCompleted += new EventHandler<GetSalaryArchiveItemsByArchiveIDsCompletedEventArgs>(client_GetSalaryArchiveItemsByArchiveIDsCompleted);
             //   client.GetCustomGuerdonArchiveWithPagingCompleted += new EventHandler<GetCustomGuerdonArchiveWithPagingCompletedEventArgs>(client_GetCustomGuerdonArchiveWithPagingCompleted);
@@ -95,6 +103,15 @@ namespace SMT.HRM.UI.Views.Salary
             //orgClient.GetDepartmentActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentActivedCompletedEventArgs>(orgClient_GetDepartmentActivedCompleted);
             //orgClient.GetPostActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostActivedCompletedEventArgs>(orgClient_GetPostActivedCompleted);
             //BindTree();
+            ImageButton ChangeMeetingBtn = new ImageButton();
+            ChangeMeetingBtn.Image.Source = new BitmapImage(new Uri("/SMT.SaaS.FrameworkUI;Component/Images/Tool/18_service.png", UriKind.Relative));
+            ChangeMeetingBtn.TextBlock.Text = Utility.GetResourceStr("导出");// 导出员工薪资档案变更记录
+            ChangeMeetingBtn.Image.Width = 16.0;
+            ChangeMeetingBtn.Image.Height = 22.0;
+            ChangeMeetingBtn.TextBlock.Margin = new Thickness(1, 0, 0, 0);
+            ChangeMeetingBtn.Style = (Style)Application.Current.Resources["ButtonStyle"];
+            ChangeMeetingBtn.Click += new RoutedEventHandler(btnExportArchive_Click);
+            ToolBar.stpOtherAction.Children.Add(ChangeMeetingBtn);
             SetToolBarBtn();
             SetOrgTree();
             loadbar.Stop();
@@ -208,6 +225,83 @@ namespace SMT.HRM.UI.Views.Salary
                 ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
             }
         }
+
+        /// <summary>
+        /// 导出员工薪资档案变更新记录
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        void btnExportArchive_Click(object sender, RoutedEventArgs e)
+        {
+
+            dialog.DefaultExt = ".xls";
+            dialog.Filter = "MS Excel Files|*.xls";
+            dialog.FilterIndex = 1;
+            result = dialog.ShowDialog();
+            if (result.Value == true)
+            {
+                string strEmployeeName = string.Empty, strSortKey = string.Empty, strOwnerID = string.Empty, strCheckState = string.Empty;
+                //当前登录人ID
+                strOwnerID = Common.CurrentLoginUserInfo.EmployeeID;
+               //排序字段
+                strSortKey = "EMPLOYEENAME,OTHERSUBJOIN,OTHERADDDEDUCT";
+                loadbar.Start();
+                string filter = string.Empty;
+                int sType = 0;
+                string sValue = string.Empty;
+
+                System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
+                string selectedType = treeOrganization.sType;
+                if (!string.IsNullOrEmpty(selectedType))
+                {
+                    switch (selectedType)
+                    {
+                        case "Company":
+                            sType = 0;
+                            break;
+                        case "Department":
+                            sType = 1;
+                            break;
+                        case "Post":
+                            sType = 2;
+                            break;
+                    }
+                    sValue = treeOrganization.sValue;
+                }
+                else
+                {
+                    loadbar.Stop();
+                    return;
+                }
+                TextBox txtName = Utility.FindChildControl<TextBox>(expander, "txtName");
+                if (txtName != null && !string.IsNullOrWhiteSpace(txtName.Text))
+                {
+                    filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEENAME)";
+                    paras.Add(txtName.Text);
+                }
+                ComboBox cmbUsable = Utility.FindChildControl<ComboBox>(expander, "cmbUsable");
+                //查询码0:有效 1：历史
+                int queryCode = 0;
+                string companyID = null;
+                if (cmbUsable != null && (string)cmbUsable.SelectionBoxItem == "有效")
+                {
+                    queryCode = 0;
+                    if (treeOrganization != null)
+                    {
+                        companyID = treeOrganization.sValue;
+                    }
+                }
+                else
+                {
+                    queryCode = 1;
+                    companyID = null;
+                }
+                client.ExportSalaryArchiveAsync(strSortKey, filter, paras, userID, Checkstate, sType, sValue, queryCode, companyID);
+            }
+        }
+
+
+
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
             LoadData();
@@ -434,6 +528,39 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             //审核状态绑定
             Utility.CbxItemBinder(ToolBar.cbxCheckState, "CHECKSTATE", Convert.ToInt32(CheckStates.All).ToString());
         }
+
+        /// <summary>
+        /// 导出员工薪资档案变更记录完成事件
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        void client_ExportSalaryArchiveCompleted(object sender, ExportSalaryArchiveCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (result == true)
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                        using (Stream stream = dialog.OpenFile())
+                        {
+                            stream.Write(e.Result, 0, e.Result.Length);
+                        }
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                }
+            }
+        }
+
 
         void client_GetSalaryArchivePagingCompleted(object sender, GetSalaryArchivePagingCompletedEventArgs e)
         {

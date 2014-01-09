@@ -1496,13 +1496,14 @@ namespace SMT.HRM.BLL
                     return;
                 }
                 //只有当月离职或上月离职可结算出结果
-                int imonth = DateTime.Now.Month - 1;
-                if (imonth < 1) imonth = 1;
-                if (leftConfim.STOPPAYMENTDATE.Value <= new DateTime(DateTime.Now.Year, imonth, 1))
+                DateTime dtEnd = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddDays(-1);
+                DateTime dtC=new DateTime(dtEnd.Year, dtEnd.Month, 1);
+                if (leftConfim.STOPPAYMENTDATE.Value < dtC)
                 {
                     Tracer.Debug("结算离职薪资，非当月或上月离职员工，跳过结算薪资" + "，员工姓名：" 
                         + emp.EMPLOYEECNAME
-                        + " 离职日期：" + leftConfim.STOPPAYMENTDATE.Value.ToString("yyyy-MM-dd"));
+                        + " 离职日期：" + leftConfim.STOPPAYMENTDATE.Value.ToString("yyyy-MM-dd")
+                        + @"< " + dtC.ToString("yyyy-MM-dd"));
                     return;
                 }
                 var lastCompanyid = (from ent in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_POST")

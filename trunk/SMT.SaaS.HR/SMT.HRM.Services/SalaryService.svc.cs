@@ -486,6 +486,22 @@ namespace SMT.HRM.Services
 
         #region T_HR_SALARYARCHIVE 薪资档案
         /// <summary>
+        /// 导出员工薪资档案变更记录
+        /// </summary>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <returns>查询结果集</returns>
+        [OperationContract]
+        public byte[] ExportSalaryArchive(string sort, string filterString, string[] paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID)
+        {
+            using (SalaryArchiveBLL bll = new SalaryArchiveBLL())
+            {
+                return bll.ExportSalaryArchive(sort, filterString, paras, userID, checkstate, orgtype, orgid, queryCode, companyID);
+            }
+        }
+
+        /// <summary>
         /// 新增薪资档案
         /// </summary>
         /// <param name="ent">薪资档案</param>
@@ -3582,5 +3598,7 @@ namespace SMT.HRM.Services
                 bll.AssignPersonMoney(strCheckState, Companyid,ref strMsg);
             }
         }
+
+
     }
 }

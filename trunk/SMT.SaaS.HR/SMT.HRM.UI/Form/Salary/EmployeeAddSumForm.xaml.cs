@@ -547,7 +547,7 @@ namespace SMT.HRM.UI.Form.Salary
                     EmployeeAddSumNew.ADDSUMID = admSum.ADDSUMID;
                     EmployeeAddSumNew.EMPLOYEEID = admSum.EMPLOYEEID;
                     EmployeeAddSumNew.EMPLOYEECODE = admSum.EMPLOYEECODE;
-                    EmployeeAddSumNew.EMPLOYEENAME = admSum.EMPLOYEENAME;
+                    EmployeeAddSumNew.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                     EmployeeAddSumNew.CREATEDATE = System.DateTime.Now;
                     EmployeeAddSumNew.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                     EmployeeAddSumNew.CREATECOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
@@ -560,7 +560,7 @@ namespace SMT.HRM.UI.Form.Salary
                     EmployeeAddSumNew.OWNERPOSTID = admSum.OWNERPOSTID;
                     EmployeeAddSumNew.PROJECTCODE = admSum.PROJECTCODE;
                     EmployeeAddSumNew.REMARK = admSum.REMARK;
-
+ 
                     eaddsum.Add(EmployeeAddSumNew);
                 }
                 //只提交第一个
@@ -579,6 +579,7 @@ namespace SMT.HRM.UI.Form.Salary
                     RefreshUI(RefreshedTypes.ProgressBar);
                     return false;
                 }
+                EmployeeAddSum.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                 EmployeeAddSum.UPDATEDATE = System.DateTime.Now;
                 EmployeeAddSum.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 client.EmployeeAddSumUpdateAsync(EmployeeAddSum, "Edit");

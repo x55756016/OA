@@ -12,6 +12,7 @@ using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using SMT.HRM.BLL.Report;
+using System.Collections.ObjectModel;
 
 namespace SMT.HRM.BLL
 {
@@ -228,13 +229,13 @@ namespace SMT.HRM.BLL
                             return IntResult;
                         }
                         dal.DeleteFromContext(ent);
-                        
+
                     }
 
                     //TODO:删除项目所包含的明细
                 }
 
-                IntResult= dal.SaveContextChanges();
+                IntResult = dal.SaveContextChanges();
                 if (IntResult > 0)
                 {
                     dal.CommitTransaction();
@@ -247,7 +248,7 @@ namespace SMT.HRM.BLL
             catch (Exception ex)
             {
                 dal.RollbackTransaction();
-                SMT.Foundation.Log.Tracer.Debug("SalaryArichiveBll-SalaryArchiveDelete  "+DateTime.Now.ToString() +ex.Message);
+                SMT.Foundation.Log.Tracer.Debug("SalaryArichiveBll-SalaryArchiveDelete  " + DateTime.Now.ToString() + ex.Message);
             }
             return IntResult;
         }
@@ -453,6 +454,8 @@ namespace SMT.HRM.BLL
 
             return ents;
         }
+
+
         #region 薪资档案带有权限的分页查询
         /// <summary>
         /// 带有权限的分页查询
@@ -466,12 +469,13 @@ namespace SMT.HRM.BLL
         /// <param name="userID">用户ID</param>
         /// <param name="queryCode">查询码 0-可用 1-所有</param>
         /// <returns>查询结果集</returns>
-        public IQueryable<T_HR_SALARYARCHIVE> QueryWithPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, 
-                                                              string userID, string CheckState, int orgtype, string orgid, int queryCode,string companyID)
+        public IQueryable<T_HR_SALARYARCHIVE> QueryWithPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount,
+                                                              string userID, string CheckState, int orgtype, string orgid, int queryCode, string companyID)
         {
             List<object> queryParas = new List<object>();
 
             queryParas.AddRange(paras);
+            //orgtype:0 公司 1部门 2岗位
             IQueryable<T_HR_SALARYARCHIVE> ents = GetArchiveFilter(orgtype, orgid);
 
             //var en = ents.GroupBy(y => y.SALARYARCHIVEID).Select(g => new { group = g.Key, groupcontent = g });
@@ -515,7 +519,7 @@ namespace SMT.HRM.BLL
 
             if (ents.Count() > 0)
             {
-                ents = QueryByUsableCode(ents, queryCode,companyID);
+                ents = QueryByUsableCode(ents, queryCode, companyID);
             }
             if (ents.Count() > 0)
             {
@@ -538,26 +542,26 @@ namespace SMT.HRM.BLL
             {
                 case 0:
                     ents = (from a in dal.GetObjects<T_HR_SALARYARCHIVE>()
-                           join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
-                           join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
-                           join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                           where d.T_HR_COMPANY.COMPANYID == orgid && b.EDITSTATE == "1" && b.ISAGENCY == "0"
-                           select a).Distinct();
+                            join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
+                            join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
+                            join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                            where d.T_HR_COMPANY.COMPANYID == orgid && b.ISAGENCY == "0" //&& b.EDITSTATE == "1"
+                            select a).Distinct();
                     break;
                 case 1:
                     ents = (from a in dal.GetObjects<T_HR_SALARYARCHIVE>()
-                           join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
-                           join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
-                           join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                           where d.DEPARTMENTID == orgid && b.EDITSTATE == "1" && b.ISAGENCY == "0"
-                           select a).Distinct();
+                            join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
+                            join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
+                            join d in dal.GetObjects<T_HR_DEPARTMENT>() on c.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                            where d.DEPARTMENTID == orgid && b.ISAGENCY == "0" // && b.EDITSTATE == "1" 
+                            select a).Distinct();
                     break;
                 case 2:
                     ents = (from a in dal.GetObjects<T_HR_SALARYARCHIVE>()
-                           join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
-                           join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
-                           where c.POSTID == orgid && b.EDITSTATE == "1" && b.ISAGENCY == "0"
-                           select a).Distinct();
+                            join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on a.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
+                            join c in dal.GetObjects<T_HR_POST>() on b.T_HR_POST.POSTID equals c.POSTID
+                            where c.POSTID == orgid && b.ISAGENCY == "0" //&& b.EDITSTATE == "1"
+                            select a).Distinct();
                     break;
             }
             return ents;
@@ -569,22 +573,22 @@ namespace SMT.HRM.BLL
         /// <param name="entity"></param>
         /// <param name="queryCode"></param>
         /// <returns></returns>
-        private IQueryable<T_HR_SALARYARCHIVE> QueryByUsableCode(IQueryable<T_HR_SALARYARCHIVE> entity, int queryCode,string companyID)
+        private IQueryable<T_HR_SALARYARCHIVE> QueryByUsableCode(IQueryable<T_HR_SALARYARCHIVE> entity, int queryCode, string companyID)
         {
             try
             {
                 IQueryable<T_HR_SALARYARCHIVE> result = entity; //返回的结果
                 if (entity != null)
-                {   
+                {
                     List<string> UsersList = new List<string>(); //用户名单
-                    
+
                     switch (queryCode)
                     {
                         case 0:
                             UsersList = GetUsers(entity);
                             if (UsersList != null)
                             {
-                                result = QueryByUserID(entity, UsersList,companyID);
+                                result = QueryByUserID(entity, UsersList, companyID);
                             }
                             break;
                         default:
@@ -607,7 +611,7 @@ namespace SMT.HRM.BLL
         /// <param name="entity"></param>
         /// <param name="usersID"></param>
         /// <returns></returns>
-        private IQueryable<T_HR_SALARYARCHIVE> QueryByUserID(IQueryable<T_HR_SALARYARCHIVE> entity,List<string> usersID,string companyID)
+        private IQueryable<T_HR_SALARYARCHIVE> QueryByUserID(IQueryable<T_HR_SALARYARCHIVE> entity, List<string> usersID, string companyID)
         {
             try
             {
@@ -629,7 +633,7 @@ namespace SMT.HRM.BLL
                             //              where e.OWNERID == userID && e.CREATEDATE < dateNow && e.OWNERCOMPANYID==em.OWNERCOMPANYID
                             //              orderby e.CREATEDATE descending                                        
                             //              select e).FirstOrDefault();
-                            var TheEnt = this.GetSalaryArchiveApprovedByEmployeeID(userID,Year,Month);//,companyID);
+                            var TheEnt = this.GetSalaryArchiveApprovedByEmployeeID(userID, Year, Month);//,companyID);
                             if (TheEnt != null) saID.Add(TheEnt.SALARYARCHIVEID);
                         }
                     }
@@ -639,9 +643,9 @@ namespace SMT.HRM.BLL
                     if (saID.Count() > 0)
                     {
                         var rsl = from e in entity
-                                     where saID.Contains(e.SALARYARCHIVEID)
-                                     orderby e.SALARYARCHIVEID
-                                     select e;
+                                  where saID.Contains(e.SALARYARCHIVEID)
+                                  orderby e.SALARYARCHIVEID
+                                  select e;
                         result = rsl;
                     }
                     else
@@ -685,9 +689,9 @@ namespace SMT.HRM.BLL
                         return UsersList;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    Foundation.Log.Tracer.Debug("SalaryArchiveBll-GetUsers:"+ex.ToString());
+                    Foundation.Log.Tracer.Debug("SalaryArchiveBll-GetUsers:" + ex.ToString());
                     return null;
                 }
             }
@@ -715,12 +719,12 @@ namespace SMT.HRM.BLL
             foreach (var employeeID in employeeIDList)
             {
                 var ents = from o in dal.GetObjects<T_HR_SALARYARCHIVE>()
-                       where o.EMPLOYEEID == employeeID
-                       select o;
+                           where o.EMPLOYEEID == employeeID
+                           select o;
             }
             return salaryList;
         }
-        
+
 
         /// <summary>
         /// 根据员工ID获取审核通过的薪资档案(非离职)
@@ -800,7 +804,7 @@ namespace SMT.HRM.BLL
                     //    return item;
                     //}
                     //去掉公司限制，暂时解决跨机构的情况
-                    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month )
+                    if (item.OTHERSUBJOIN == year && item.OTHERADDDEDUCT <= month)
                     {
                         return item;
                     }
@@ -1022,7 +1026,7 @@ namespace SMT.HRM.BLL
             dal.BeginTransaction();
             try
             {
-                
+
                 employeeID = employee.EMPLOYEEID;
                 //根据员工ID 和方案ID获取员工的薪资标准
                 // T_HR_SALARYSTANDARD stand = GetStandardByEmployeeIDAndSolutionID(employeeID, archive.SALARYSOLUTIONID);
@@ -1136,7 +1140,7 @@ namespace SMT.HRM.BLL
                     //考勤机构ID
                     if (!string.IsNullOrWhiteSpace(archive.ATTENDANCEORGID))
                     {
-                        salaryArchive.ATTENDANCEORGID = archive.ATTENDANCEORGID; 
+                        salaryArchive.ATTENDANCEORGID = archive.ATTENDANCEORGID;
                     }
 
                     //考勤机构名称
@@ -1396,7 +1400,7 @@ namespace SMT.HRM.BLL
                 //DataContext.DeleteObject(q);
             }
             return dal.SaveContextChanges();
-            
+
         }
         /// <summary>
         /// 最初的薪资  员工工资的结算基本数据
@@ -1710,8 +1714,8 @@ namespace SMT.HRM.BLL
             {
                 return 1;//不存在薪资项默认为1
             }
-            
-            
+
+
             //SalaryArchiveItemBLL bll = new SalaryArchiveItemBLL();
             //bll.SalaryArchiveItemDeleteByArchiveID(archiveID);
         }
@@ -1779,7 +1783,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                
+
                 int i = 0;
                 //根据薪资档案ID查询薪资档案表
                 var archive = (from c in dal.GetObjects<T_HR_SALARYARCHIVE>()
@@ -1872,5 +1876,245 @@ namespace SMT.HRM.BLL
                 return 0;
             }
         }
+
+
+        #region 导出员工薪资档案变更记录
+        /// <summary>
+        /// 导出员工薪资档案变更记录
+        /// </summary>
+        /// <param name="pageIndex">当前页 </param>
+        /// <param name="pageSize">页面大小</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件的参数 </param>
+        /// <param name="userID">用户ID</param>
+        /// <param name="queryCode">查询码 0-有效 1-历史</param>
+        /// <returns>查询结果集</returns>
+        public byte[] ExportSalaryArchive(string sort, string filterString, IList<object> paras,
+                                                              string userID, string CheckState, int orgtype, string orgid, int queryCode, string companyID)
+        {
+            byte[] result = null;
+            List<V_SALARYARCHIVEITEM> salaryItemList = new List<V_SALARYARCHIVEITEM>();
+            List<V_SALARYARCHIVEITEM> itemList = new List<V_SALARYARCHIVEITEM>();
+            List<T_HR_SALARYARCHIVE> entlist = new List<T_HR_SALARYARCHIVE>();
+            List<T_HR_SALARYARCHIVE> entlistSort = new List<T_HR_SALARYARCHIVE>();
+            
+            List<string> archiveids = new List<string>();
+            try
+            {
+                List<object> queryParas = new List<object>();
+                queryParas.AddRange(paras);
+                //orgtype:0 公司 1部门 2岗位
+                IQueryable<T_HR_SALARYARCHIVE> ents = GetArchiveFilter(orgtype, orgid);
+                //如果是查询可用的薪资档案 则审核状态一定是通过的
+                if (queryCode == 0)
+                    CheckState = ((int)CheckStates.Approved).ToString();
+                if (CheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())// 如果不是待审核 不取流程数据，是待审核就只查流程中待审核数据
+                {
+                    SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_SALARYARCHIVE");
+                    if (CheckState != Convert.ToInt32(CheckStates.All).ToString())
+                    {
+                        if (queryParas.Count() > 0)
+                        {
+                            filterString += " AND ";
+                        }
+                        filterString += "CHECKSTATE==@" + queryParas.Count().ToString();
+                        queryParas.Add(CheckState);
+                    }
+                }
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    ents = ents.Where(filterString, queryParas.ToArray());
+                }
+                if (ents.Any())
+                {
+                    ents = QueryByUsableCode(ents, queryCode, companyID);
+                    foreach (var item in ents)
+                    {
+                        archiveids.Add(item.SALARYARCHIVEID);
+                    }
+                    using (SalaryArchiveItemBLL salaryArchiveItemBLL = new SalaryArchiveItemBLL())
+                    {
+                        salaryItemList = salaryArchiveItemBLL.GetSalaryArchiveItemsByArchiveIDs(archiveids);
+                    }
+                    foreach (var item in ents)
+                    {
+                        itemList = (from c in salaryItemList
+                                    where c.SALARYARCHIVEID == item.SALARYARCHIVEID
+                                    select c).ToList();
+                        if (itemList.Any())
+                        {
+                            #region 设置薪资项
+                            var baseSalary = itemList.Where(m => m.SALARYITEMNAME == "基本工资");
+                            var postSalary = itemList.Where(m => m.SALARYITEMNAME == "岗位工资");
+                            var securityAllowance = itemList.Where(m => m.SALARYITEMNAME == "保密津贴");
+                            var housingAllowance = itemList.Where(m => m.SALARYITEMNAME == "住房补贴");
+                            var areadifAllowance = itemList.Where(m => m.SALARYITEMNAME == "地区差异补贴");
+                            var foodAllowance = itemList.Where(m => m.SALARYITEMNAME == "餐费补贴");
+                            if (baseSalary.Any())
+                            {
+                                item.BASESALARY = Convert.ToDecimal(AES.AESDecrypt(baseSalary.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.BASESALARY = 0;
+                            }
+                            if (postSalary.Any())
+                            {
+                                item.POSTSALARY = Convert.ToDecimal(AES.AESDecrypt(postSalary.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.POSTSALARY = 0;
+                            }
+                            if (securityAllowance.Any())
+                            {
+                                item.SECURITYALLOWANCE = Convert.ToDecimal(AES.AESDecrypt(securityAllowance.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.SECURITYALLOWANCE = 0;
+                            }
+                            if (housingAllowance.Any())
+                            {
+                                item.HOUSINGALLOWANCE = Convert.ToDecimal(AES.AESDecrypt(housingAllowance.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.HOUSINGALLOWANCE = 0;
+                            }
+                            if (areadifAllowance.Any())
+                            {
+                                item.AREADIFALLOWANCE = Convert.ToDecimal(AES.AESDecrypt(areadifAllowance.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.AREADIFALLOWANCE = 0;
+                            }
+                            if (foodAllowance.Any())
+                            {
+                                item.FOODALLOWANCE = Convert.ToDecimal(AES.AESDecrypt(foodAllowance.FirstOrDefault().SUM));
+                            }
+                            else
+                            {
+                                item.FOODALLOWANCE = 0;
+                            }
+                            #endregion
+                        }
+                        else
+                        {
+                            item.BASESALARY = 0;
+                            item.POSTSALARY = 0;
+                            item.SECURITYALLOWANCE = 0;
+                            item.HOUSINGALLOWANCE = 0;
+                            item.AREADIFALLOWANCE = 0;
+                            item.FOODALLOWANCE = 0;
+                            SMT.Foundation.Log.Tracer.Debug("位置:SMT.HRM.BLL.SalaryArchiveBLL.ExportSalaryArchive();\r\n"
+                            + "错误内容：根据薪资档案ID无法找到薪资档案薪资项，薪资档案ID:" + item.SALARYARCHIVEID
+                           +"\r\n员工姓名:" + item.EMPLOYEENAME +";\r\n薪资年月:"+item.OTHERSUBJOIN+"年"+item.OTHERADDDEDUCT+"月" );
+                        }
+                        entlist.Add(item);
+                    }
+                    entlistSort = entlist.OrderByDescending(c => c.OTHERSUBJOIN).ThenByDescending(c => c.OTHERADDDEDUCT).OrderBy(c => c.EMPLOYEENAME).ToList();
+                    result = ExportSalaryArchiveToExcel(entlistSort);
+                }
+                else {
+                    SMT.Foundation.Log.Tracer.Debug("薪资档案导出出错：\r\n位置:SMT.HRM.BLL.SalaryArchiveBLL.ExportSalaryArchive();行1927\r\n根据filterString过滤薪资档案为空");
+                }
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("薪资档案导出异常：\r\n位置:SMT.HRM.BLL.SalaryArchiveBLL.ExportSalaryArchive();\r\n异常信息:" + ex.Message);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 导出员工薪资档案变更记录
+        /// </summary>
+        public static byte[] ExportSalaryArchiveToExcel(List<T_HR_SALARYARCHIVE> salaryArchiveList)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Utility.GetHeader().ToString());
+            sb.Append(GetSalaryArchiveBody(salaryArchiveList).ToString());
+            byte[] by = Encoding.UTF8.GetBytes(sb.ToString());
+            return by;
+        }
+
+        public static StringBuilder GetSalaryArchiveBody(List<T_HR_SALARYARCHIVE> salaryArchiveList)
+        {
+            StringBuilder s = new StringBuilder();
+            s.Append("<body>\n\r");
+            s.Append("<table ID=\"Table0\" BORDER=1 CELLSPACING=1 CELLPADDING=3 width=100% align=center>\n\r");
+            s.Append("<tr>");
+
+            s.Append("<td  align=center class=\"title\" colspan=\"13\">员工薪资档案变更记录表</td>");
+            s.Append("</tr>\n\r");
+            s.Append("</table>\n\r");
+            s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
+            s.Append("<tr>");
+            s.Append("<td align=center class=\"title\" >序号</td>");
+            s.Append("<td align=center class=\"title\" >员工编号</td>");
+            s.Append("<td align=center class=\"title\" >员工姓名</td>");
+            s.Append("<td align=center class=\"title\" >生效日期</td>");
+            s.Append("<td align=center class=\"title\" >基本工资</td>");
+            s.Append("<td align=center class=\"title\" >岗位工资</td>");
+            s.Append("<td align=center class=\"title\" >保密津贴</td>");
+            s.Append("<td align=center class=\"title\" >住房补贴</td>");
+            s.Append("<td align=center class=\"title\" >地区差异补贴</td>");
+            s.Append("<td align=center class=\"title\" >餐费补贴</td>");
+            s.Append("<td align=center class=\"title\" >固定收入合计</td>");
+            s.Append("<td align=center class=\"title\" >终审通过时间</td>");
+            s.Append("<td align=center class=\"title\" >备注</td>");
+            s.Append("</tr>");
+
+            if (salaryArchiveList.Any())
+            {
+                foreach (var item in salaryArchiveList)
+                {
+                    decimal sum = 0;
+                    s.Append("<tr>");
+                    s.Append("<td class=\"x1282\">" + (salaryArchiveList.IndexOf(item)+1).ToString() + "</td>");
+                    s.Append("<td class=\"x1282\">" + item.EMPLOYEECODE + "</td>");
+                    s.Append("<td class=\"x1282\">" + item.EMPLOYEENAME + "</td>");
+                    s.Append("<td class=\"x1282\">" + item.OTHERSUBJOIN + "年" + item.OTHERADDDEDUCT + "月" + "</td>");
+                    s.Append("<td class=\"x1282\">" +  item.BASESALARY.Value + "</td>"); //基本工资
+                    sum += item.BASESALARY.Value;
+                    s.Append("<td class=\"x1282\">" + item.POSTSALARY.Value + "</td>"); //岗位工资
+                    sum += item.POSTSALARY.Value;
+                    s.Append("<td class=\"x1282\">" + item.SECURITYALLOWANCE.Value + "</td>");//保密津贴
+                    sum += item.SECURITYALLOWANCE.Value;
+                    s.Append("<td class=\"x1282\">" + item.HOUSINGALLOWANCE.Value + "</td>"); //住房津贴
+                    sum += item.HOUSINGALLOWANCE.Value;
+                    s.Append("<td class=\"x1282\">" + item.AREADIFALLOWANCE.Value + "</td>"); //地区差异补贴
+                    sum += item.AREADIFALLOWANCE.Value;
+                    s.Append("<td class=\"x1282\">" + item.FOODALLOWANCE.Value + "</td>"); //餐费补贴
+                    sum += item.FOODALLOWANCE.Value;
+                    s.Append("<td class=\"x1282\">" + sum + "</td>"); //固定收入合计
+                    if (item.CHECKSTATE == "2")
+                    {
+                        if (item.UPDATEDATE.HasValue)
+                        {
+                            s.Append("<td class=\"x1282\">" + item.UPDATEDATE.Value.ToString("yyyy年MM月dd日") + "</td>"); //审核通过时间
+                        }
+                    }
+                    else {
+                        if (item.UPDATEDATE.HasValue)
+                        {
+                            s.Append("<td class=\"x1282\">未终审通过</td>"); //审核通过时间
+                        }
+                    }
+                    //else {
+                    //    s.Append("<td class=\"x1282\">" + item.CHECKSTATE + "</td>"); 
+                    //}
+                    s.Append("<td class=\"x1282\">" + item.REMARK + "</td>"); //备注
+                    s.Append("</tr>");
+                }
+            }
+            s.Append("</table>");
+            s.Append("</body></html>");
+            return s;
+        }
+        #endregion
     }
 }

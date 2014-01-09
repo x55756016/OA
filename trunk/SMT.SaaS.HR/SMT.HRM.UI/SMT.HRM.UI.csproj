@@ -2467,7 +2467,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="EntitysXML\SalaryItemXML.xml" />
-    <Content Include="EntitysXML\SMT_HRM_EFModel.xml" />
+    <EmbeddedResource Include="EntitysXML\SMT_HRM_EFModel.xml" />
     <None Include="Service References\OutApplyWS\OutAppliecrecordService.disco" />
     <None Include="Service References\OutApplyWS\configuration91.svcinfo" />
     <None Include="Service References\OutApplyWS\configuration.svcinfo" />

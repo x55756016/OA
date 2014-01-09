@@ -21,7 +21,7 @@
     using SMT.SAAS.Main.CurrentContext;
     
     /// <summary>
-    /// Form for employee information.
+    ///员工个人档案
     /// </summary>
     public partial class EmployeeForm : BaseForm, IEntityEditor, IClient
     {
@@ -60,9 +60,9 @@
         /// </summary>
         private List<T_HR_EMPLOYEEPOST> ListPost { get; set; }
 
-        /// <summary>
-        /// Information of post change.
-        /// </summary>
+        ///// <summary>
+        ///// Information of post change.
+        ///// </summary>
         private List<V_EMPLOYEEPOSTCHANGE> ListPostchange { get; set; }
 
         /// <summary>
@@ -132,11 +132,14 @@
         /// Should close this form. false means not close.
         /// </summary>
         private bool closeFormFlag = false;
+        private SMTLoading loadbar = new SMTLoading();
+
         /// <summary>
         /// The default initialization of this form.
         /// </summary>
         public EmployeeForm()
         {
+            
             //Employee.SOCIALSERVICEYEAR=
         }
         /// <summary>
@@ -296,6 +299,7 @@
         /// <param name="employeeID">用户ID</param>
         private void InitPara(string employeeID)
         {
+            LayoutRoot.Children.Add(loadbar);
             client.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(this.Client_GetEmployeeByIDCompleted);
             client.EmployeeUpdateCompleted += new EventHandler<EmployeeUpdateCompletedEventArgs>(this.Client_EmployeeUpdateCompleted);
             //考勤方案
@@ -328,8 +332,12 @@
             //修改用户名
             permClient.SysUserInfoAddORUpdateCompleted += new EventHandler<SysUserInfoAddORUpdateCompletedEventArgs>(this.PermClient_SysUserInfoAddORUpdateCompleted);
             permClient.GetUserByEmployeeIDCompleted += new EventHandler<GetUserByEmployeeIDCompletedEventArgs>(this.PermClient_GetUserByEmployeeIDCompleted);
+            //permClient.GetSysDictionaryByCategoryCompleted += new EventHandler<SMT.Saas.Tools.PermissionWS.GetSysDictionaryByCategoryCompletedEventArgs>(permissionClient_GetSysDictionaryByCategoryCompleted);
+            //获取字典中的岗位级别,一次性加载系统字典
+          //permClient.GetSysDictionaryByCategoryAsync("POSTLEVEL");
             permClient.GetUserByEmployeeIDAsync(employeeID);
             client.GetEmployeeByIDAsync(employeeID);
+            loadbar.Start();
             if (FormType == FormTypes.Browse)
             {
                 DisableControls();
@@ -337,6 +345,20 @@
         }
 
         #region 完成事件
+        //获取岗位级别字典
+        //void permissionClient_GetSysDictionaryByCategoryCompleted(object sender, SMT.Saas.Tools.PermissionWS.GetSysDictionaryByCategoryCompletedEventArgs e)
+        //{
+        //    if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+        //    }
+        //    else
+        //    {
+        //        List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
+        //        dicts = e.Result == null ? null : e.Result.ToList();
+        //        Application.Current.Resources.Add("POSTLEVEL_DICTIONARY", dicts);
+        //    }
+        //}
 
         /// <summary>
         /// 判断员工指纹编号是否重复
@@ -552,7 +574,7 @@
         void Client_GetPostsActivedByEmployeeIDCompleted(object sender, GetPostsActivedByEmployeeIDCompletedEventArgs e)
         {
             ListPost = null;
-            if (e.Error != null && e.Error.Message != string.Empty)
+              if (e.Error != null && e.Error.Message != string.Empty)
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
@@ -610,6 +632,8 @@
                 dataPager.PageCount = e.pageCount;
             }
         }
+
+
         /// <summary>
         /// 社保
         /// </summary>
@@ -843,6 +867,7 @@
                 //}
                 client.GetPensionMasterByEmployeeIDAsync(Employee.EMPLOYEEID); //员工社保档案              
             }
+            loadbar.Stop();
         }
         /// <summary>
         /// 查询考勤方案
@@ -925,7 +950,7 @@
         }
 
         /// <summary>
-        /// 保存
+        /// 员工个人档案保存
         /// </summary>
         /// <returns>always true</returns>
         private bool Save()
@@ -1311,10 +1336,12 @@
                         break;
                     case 1:
                         break;
-                    case 2: LoadPost();
+                    case 2: 
+                        LoadPost();
                         LoadPostChange(Employeeid);
                         break;
-                    case 3: LoadAttenanceSolution();//加载考勤方案
+                    case 3: 
+                        LoadAttenanceSolution();//加载考勤方案
                         break;
                     case 4: LoadPensionMaster();
                         break;

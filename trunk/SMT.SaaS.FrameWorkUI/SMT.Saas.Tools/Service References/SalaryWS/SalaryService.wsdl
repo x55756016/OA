@@ -4,14 +4,20 @@
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd0" />
       <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
-      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
       <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
       <xsd:import schemaLocation="http://localhost:12168/SalaryService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="SalaryService_GetAreaWithPaging_InputMessage">
+    <wsdl:part name="parameters" element="GetAreaWithPaging" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_GetAreaWithPaging_OutputMessage">
+    <wsdl:part name="parameters" element="GetAreaWithPagingResponse" />
+  </wsdl:message>
   <wsdl:message name="SalaryService_PerformanceRewardRecordAdd_InputMessage">
     <wsdl:part name="parameters" element="PerformanceRewardRecordAdd" />
   </wsdl:message>
@@ -395,6 +401,12 @@
   </wsdl:message>
   <wsdl:message name="SalaryService_AssignPersonMoney_OutputMessage">
     <wsdl:part name="parameters" element="AssignPersonMoneyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryAuditState_InputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryAuditState" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_CheckSalaryAuditState_OutputMessage">
+    <wsdl:part name="parameters" element="CheckSalaryAuditStateResponse" />
   </wsdl:message>
   <wsdl:message name="SalaryService_SalaryRecordBatchAdd_InputMessage">
     <wsdl:part name="parameters" element="SalaryRecordBatchAdd" />
@@ -876,12 +888,6 @@
   <wsdl:message name="SalaryService_GetAreaCityWithPaging_OutputMessage">
     <wsdl:part name="parameters" element="GetAreaCityWithPagingResponse" />
   </wsdl:message>
-  <wsdl:message name="SalaryService_GetAreaWithPaging_InputMessage">
-    <wsdl:part name="parameters" element="GetAreaWithPaging" />
-  </wsdl:message>
-  <wsdl:message name="SalaryService_GetAreaWithPaging_OutputMessage">
-    <wsdl:part name="parameters" element="GetAreaWithPagingResponse" />
-  </wsdl:message>
   <wsdl:message name="SalaryService_SalarySolutionAdd_InputMessage">
     <wsdl:part name="parameters" element="SalarySolutionAdd" />
   </wsdl:message>
@@ -1091,6 +1097,12 @@
   </wsdl:message>
   <wsdl:message name="SalaryService_SalarySolutionAssignDelete_OutputMessage">
     <wsdl:part name="parameters" element="SalarySolutionAssignDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalaryArchive_InputMessage">
+    <wsdl:part name="parameters" element="ExportSalaryArchive" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ExportSalaryArchive_OutputMessage">
+    <wsdl:part name="parameters" element="ExportSalaryArchiveResponse" />
   </wsdl:message>
   <wsdl:message name="SalaryService_SalaryArchiveAdd_InputMessage">
     <wsdl:part name="parameters" element="SalaryArchiveAdd" />
@@ -1386,13 +1398,11 @@
   <wsdl:message name="SalaryService_GetSalaryRecordBatchByID_OutputMessage">
     <wsdl:part name="parameters" element="GetSalaryRecordBatchByIDResponse" />
   </wsdl:message>
-  <wsdl:message name="SalaryService_CheckSalaryAuditState_InputMessage">
-    <wsdl:part name="parameters" element="CheckSalaryAuditState" />
-  </wsdl:message>
-  <wsdl:message name="SalaryService_CheckSalaryAuditState_OutputMessage">
-    <wsdl:part name="parameters" element="CheckSalaryAuditStateResponse" />
-  </wsdl:message>
   <wsdl:portType name="SalaryService">
+    <wsdl:operation name="GetAreaWithPaging">
+      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaWithPaging" message="SalaryService_GetAreaWithPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaWithPagingResponse" message="SalaryService_GetAreaWithPaging_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PerformanceRewardRecordAdd">
       <wsdl:input wsaw:Action="urn:SalaryService/PerformanceRewardRecordAdd" message="SalaryService_PerformanceRewardRecordAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/PerformanceRewardRecordAddResponse" message="SalaryService_PerformanceRewardRecordAdd_OutputMessage" />
@@ -1648,6 +1658,10 @@
     <wsdl:operation name="AssignPersonMoney">
       <wsdl:input wsaw:Action="urn:SalaryService/AssignPersonMoney" message="SalaryService_AssignPersonMoney_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/AssignPersonMoneyResponse" message="SalaryService_AssignPersonMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckSalaryAuditState">
+      <wsdl:input wsaw:Action="urn:SalaryService/CheckSalaryAuditState" message="SalaryService_CheckSalaryAuditState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/CheckSalaryAuditStateResponse" message="SalaryService_CheckSalaryAuditState_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SalaryRecordBatchAdd">
       <wsdl:input wsaw:Action="urn:SalaryService/SalaryRecordBatchAdd" message="SalaryService_SalaryRecordBatchAdd_InputMessage" />
@@ -1969,10 +1983,6 @@
       <wsdl:input wsaw:Action="urn:SalaryService/GetAreaCityWithPaging" message="SalaryService_GetAreaCityWithPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/GetAreaCityWithPagingResponse" message="SalaryService_GetAreaCityWithPaging_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAreaWithPaging">
-      <wsdl:input wsaw:Action="urn:SalaryService/GetAreaWithPaging" message="SalaryService_GetAreaWithPaging_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SalaryService/GetAreaWithPagingResponse" message="SalaryService_GetAreaWithPaging_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="SalarySolutionAdd">
       <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAdd" message="SalaryService_SalarySolutionAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAddResponse" message="SalaryService_SalarySolutionAdd_OutputMessage" />
@@ -2112,6 +2122,10 @@
     <wsdl:operation name="SalarySolutionAssignDelete">
       <wsdl:input wsaw:Action="urn:SalaryService/SalarySolutionAssignDelete" message="SalaryService_SalarySolutionAssignDelete_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/SalarySolutionAssignDeleteResponse" message="SalaryService_SalarySolutionAssignDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSalaryArchive">
+      <wsdl:input wsaw:Action="urn:SalaryService/ExportSalaryArchive" message="SalaryService_ExportSalaryArchive_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ExportSalaryArchiveResponse" message="SalaryService_ExportSalaryArchive_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SalaryArchiveAdd">
       <wsdl:input wsaw:Action="urn:SalaryService/SalaryArchiveAdd" message="SalaryService_SalaryArchiveAdd_InputMessage" />
@@ -2308,10 +2322,6 @@
     <wsdl:operation name="GetSalaryRecordBatchByID">
       <wsdl:input wsaw:Action="urn:SalaryService/GetSalaryRecordBatchByID" message="SalaryService_GetSalaryRecordBatchByID_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/GetSalaryRecordBatchByIDResponse" message="SalaryService_GetSalaryRecordBatchByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckSalaryAuditState">
-      <wsdl:input wsaw:Action="urn:SalaryService/CheckSalaryAuditState" message="SalaryService_CheckSalaryAuditState_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SalaryService/CheckSalaryAuditStateResponse" message="SalaryService_CheckSalaryAuditState_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

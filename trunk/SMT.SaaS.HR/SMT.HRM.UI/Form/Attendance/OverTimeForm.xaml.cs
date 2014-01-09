@@ -522,7 +522,7 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (!string.IsNullOrWhiteSpace(e.Result))
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
+                    Utility.ShowCustomMessage(MessageTypes.Error, "错误", Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
                     if (closeFormFlag)
                     {
                         RefreshUI(RefreshedTypes.Close);
@@ -563,7 +563,7 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 if (!string.IsNullOrWhiteSpace(e.Result))
                 {
-                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
+                    Utility.ShowCustomMessage(MessageTypes.Error, "错误", Utility.GetResourceStr(e.Result.Replace("{", "").Replace("}", "")));
                 }
                 else
                 {

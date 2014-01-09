@@ -110,7 +110,8 @@ namespace SMT.HRM.BLL
 
                     if (entAttendMonthlyBalance != null)
                     {
-                        if (entAttendMonthlyBalance.CHECKSTATE != ((int)CheckStates.UnSubmit).ToString())
+                        if (entAttendMonthlyBalance.CHECKSTATE == ((int)CheckStates.Approved).ToString() ||
+                            entAttendMonthlyBalance.CHECKSTATE == ((int)CheckStates.Approving ).ToString())
                         {
                             Tracer.Debug(" 已存在结算月度考勤结果，跳过，结算时间范围：" + dtStart.ToString("yyyy-MM-dd") + "--" + dtEnd.ToString("yyyy-MM-dd")
                                + "员工姓名：+" + item.EMPLOYEECNAME + " 使用的考勤方案名：" + entAttSol.ATTENDANCESOLUTIONNAME

@@ -24,8 +24,8 @@ namespace SMT.HRM.UI.AppControl
         public  DependencyProperty SelectedValueProperty;
         public  DependencyProperty CategoryProperty;
         public DependencyProperty IsShowNullProperty;
-        public HrCommonServiceClient Configclient;
-        private PermissionServiceClient DictionNaryclinet;
+        public static HrCommonServiceClient Configclient;
+        private static PermissionServiceClient DictionNaryclinet;
 
         private AutoResetEvent EventAttention = null;
         private AutoResetEvent EventFunction = null;
@@ -86,10 +86,16 @@ namespace SMT.HRM.UI.AppControl
             EventAttention = new AutoResetEvent(false);
             EventFunction = new AutoResetEvent(false);
             EventArray[0] = EventAttention;
-            EventArray[1] = EventFunction;  
-            Configclient = new HrCommonServiceClient();
+            EventArray[1] = EventFunction;
+            if (Configclient == null)
+            {
+                Configclient = new HrCommonServiceClient();
+            }
             //Configclient.GetAppConfigByNameCompleted += new EventHandler<GetAppConfigByNameCompletedEventArgs>(Configclient_GetAppConfigByNameCompleted);
-            DictionNaryclinet = new PermissionServiceClient();
+            if (DictionNaryclinet == null)
+            {
+                DictionNaryclinet = new PermissionServiceClient();
+            }
             DictionNaryclinet.GetSysDictionaryByCategoryCompleted += new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(DictionNaryclinet_GetSysDictionaryByCategoryCompleted);
         }
 

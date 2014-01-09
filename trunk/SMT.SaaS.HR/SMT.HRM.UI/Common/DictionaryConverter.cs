@@ -37,6 +37,31 @@ namespace SMT.HRM.UI
                        where a.DICTIONARYVALUE.ToString() == value.ToString() && a.DICTIONCATEGORY == parameter.ToString()
                        select a;
 
+            T_SYS_DICTIONARY dict = objs.Any() ? objs.FirstOrDefault() : null;
+            return dict == null ? value : dict.DICTIONARYNAME;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value;
+        }
+    }
+
+    public class PostDictionaryConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null)
+                return null;
+
+            List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["POSTLEVEL_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+            if (dicts == null)
+                return value;
+
+            var objs = from a in dicts
+                       where a.DICTIONARYVALUE.ToString() == value.ToString() && a.DICTIONCATEGORY == parameter.ToString()
+                       select a;
+
             T_SYS_DICTIONARY dict = objs.Count() > 0 ? objs.FirstOrDefault() : null;
             return dict == null ? value : dict.DICTIONARYNAME;
         }

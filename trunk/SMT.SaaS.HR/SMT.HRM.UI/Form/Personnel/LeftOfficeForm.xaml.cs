@@ -620,34 +620,35 @@ namespace SMT.HRM.UI.Form.Personnel
             {
 
 
-                ////判断有没有借款(需求：有借款也能提交)
-                //if (DtBorrowMoney.ItemsSource != null)
-                //{
-                //    List<T_FB_PERSONACCOUNT> bors = DtBorrowMoney.ItemsSource as List<T_FB_PERSONACCOUNT>;
-                //    if (bors != null)
-                //    {
-                //        //xiedx
-                //        //2012-8-27
-                //        //foreach (var temp in bors)
-                //        //{
-                //        //    if (temp.BORROWMONEY > 0)
-                //        //    {
-                //        //        RefreshUI(RefreshedTypes.HideProgressBar);
-                //        //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
-                //        //            Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //        //        //return;2013/3/29 按集团要求暂时屏蔽
-                //        //    }
-                //        //}
-                //        //if (bors.Count() > 0)
-                //        //{
-                //        //    RefreshUI(RefreshedTypes.HideProgressBar);
-                //        //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
-                //        //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //        //    return;
-                //        //}
+                //判断有没有借款(需求：有借款也能提交)
+                //需求改动：兼职岗位离职要有借款判断
+                if (DtBorrowMoney.ItemsSource != null)
+                {
+                    List<T_FB_PERSONACCOUNT> bors = DtBorrowMoney.ItemsSource as List<T_FB_PERSONACCOUNT>;
+                    if (bors != null && LeftOffice.ISAGENCY == "1")
+                    {
+                        //xiedx
+                        //2012-8-27
+                        foreach (var temp in bors)
+                        {
+                            if (temp.BORROWMONEY.Value > 0)
+                            {
+                                RefreshUI(RefreshedTypes.HideProgressBar);
+                                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
+                                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                                return; //2013/3/29 按集团要求暂时屏蔽
+                            }
+                        }
+                        //if (bors.Count() > 0)
+                        //{
+                        //    RefreshUI(RefreshedTypes.HideProgressBar);
+                        //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("有未处理借款"),
+                        //        Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        //    return;
+                        //}
 
-                //    }
-                //}
+                    }
+                }
 
 
                 //是否选择离职类型

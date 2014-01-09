@@ -54,24 +54,13 @@
 
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmployeeCode"   HorizontalAlignment="Stretch" Width="Auto" MaxLength="50" IsEnabled="False"
             					Text="{Binding EMPLOYEECODE, Mode=TwoWay}" Grid.Row="0" Grid.Column="1" >
-                                <!--<validator:ValidatorService.Validator>
-                                    <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="EMPLOYEECODE" ></validator:RequiredValidator>
-                                </validator:ValidatorService.Validator>-->
                             </TextBox>
-                            <!--<dataInput:DescriptionViewer  Target="{Binding ElementName=txtEmployeeCode}"  
-            					Style="{StaticResource DescriptionViewerTooltipStyle}"  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left"/>-->
-
-                            <!--Row 1-->
                             <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Row="1" Grid.Column="0" 
             					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEECNAME}" />
 
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmployeeName"   Text="{Binding EMPLOYEECNAME, Mode=TwoWay}"   MaxLength="50"  
                                      Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" Width="Auto" IsReadOnly="True">
                             </TextBox>
-                            <!--<dataInput:DescriptionViewer  Target="{Binding ElementName=txtEmployeeName}" 
-            					Style="{StaticResource DescriptionViewerTooltipStyle}"  HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>-->
-
-                            <!--Row 2-->
                             <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Grid.Column="0" 
             					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEEENAME}" />
 
@@ -82,17 +71,11 @@
                                 </validator:ValidatorService.Validator>
                             </TextBox>
 
-                            <!--Row 3-->
-                            <!--EMPLOYEESEX-->
                             <TextBlock  Style="{StaticResource SysTextBlockStyle}" Grid.Row="3" Grid.Column="0" 
             					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESEX}" />
-                            <!--<StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="Auto" Margin="5,5,0,0">   
-            				    <RadioButton GroupName="rdbSex" Content="?  />
-            				    <RadioButton GroupName="rdbSex" Content="? />
-                             </StackPanel>-->
+
                             <appCtr:DictionaryComboBox  x:Name="cbxEmployeeSex" IsShowNull="False"  Category="SEX" SelectedValue="{Binding SEX, Mode=TwoWay}"
                              Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Width="auto"/>
-
 
                             <!--PHOTO-->
                             <TextBlock Style="{StaticResource SysTextBlockStyle}" 
@@ -226,17 +209,6 @@
                                 SelectedValue="{Binding SECONDLANGUAGEDEGREE, Mode=TwoWay}" Grid.Row="1" Grid.Column="4"  Width="Auto" HorizontalAlignment="Stretch"/>
 
 
-
-
-                            <!--POSTNAME-->
-                            <!--<TextBlock   Grid.Row="2" Grid.Column="0"
-            					Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTNAME}"/>
-
-                            <smt:LookUp DataContext="{Binding POSTNAME}" Grid.Row="2" Grid.Column="1"
-            					FindClick="LkPost_FindClick"  x:Name="lkPost"  DisplayMemberPath="T_HR_POSTDICTIONARY.POSTNAME" Margin="1,0,0,0" />-->
-
-                            <!--Row 4-->
-                            <!--EMPLOYEESTATE-->
                             <TextBlock Style="{StaticResource SysTextBlockStyle}"  Grid.Row="2" Grid.Column="0"
             					Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEESTATE}" />
 
@@ -495,6 +467,7 @@ SelectedValue="{Binding REGRESIDENCETYPE, Mode=TwoWay}"
                             <data:DataGridTextColumn Header="CNAME" Binding="{Binding T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME}"/>
                             <data:DataGridTextColumn Header="DEPARTMENTNAME" Binding="{Binding T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME}" />
                             <data:DataGridTextColumn Header="POSTNAME" Binding="{Binding T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME}"/>
+                            <data:DataGridTextColumn Header="POSTLEVEL" Binding="{Binding POSTLEVEL, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
                             <data:DataGridTextColumn Header="" Binding="{Binding ISAGENCY}"/>
                             <!--<data:DataGridTextColumn Header="CHECKSTATE" Binding="{Binding CHECKSTATE, Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}"/>-->
                         </data:DataGrid.Columns>
@@ -510,9 +483,11 @@ SelectedValue="{Binding REGRESIDENCETYPE, Mode=TwoWay}"
                             <data:DataGridTextColumn Header="FROMCOMPANYID" Binding="{Binding FROMCOMPANY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                             <data:DataGridTextColumn Header="FROMDEPARTMENTID" Binding="{Binding FROMDEPARTMENT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                             <data:DataGridTextColumn Header="FROMPOSTID" Binding="{Binding FROMPOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            <data:DataGridTextColumn Header="异动前岗位级别" Binding="{Binding EMPLOYEEPOSTCHANGE.FROMPOSTLEVEL, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
                             <data:DataGridTextColumn Header="TOCOMPANYID" Binding="{Binding TOCOMPANY}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                             <data:DataGridTextColumn Header="TODEPARTMENTID" Binding="{Binding TODEPARTMENT}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                             <data:DataGridTextColumn Header="TOPOSTID" Binding="{Binding TOPOST}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
+                            <data:DataGridTextColumn Header="异动后岗位级别" Binding="{Binding EMPLOYEEPOSTCHANGE.TOPOSTLEVEL, Converter={StaticResource DictionaryConverter},ConverterParameter=POSTLEVEL}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
                             <data:DataGridTextColumn Header="CHANGEDATE" Binding="{Binding EMPLOYEEPOSTCHANGE.CHANGEDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>
                             <!--<data:DataGridTextColumn Header="ENDDATE1" Binding="{Binding ENDDATE, Converter={StaticResource CustomDateConverter},ConverterParameter=DATE}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>-->
                             <data:DataGridTextColumn Header="POSTCHANGREASON" Binding="{Binding EMPLOYEEPOSTCHANGE.POSTCHANGREASON}" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"/>

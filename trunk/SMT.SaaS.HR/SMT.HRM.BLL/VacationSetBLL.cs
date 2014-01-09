@@ -197,6 +197,7 @@ namespace SMT.HRM.BLL
                 T_HR_VACATIONSET entAdd = new T_HR_VACATIONSET();
                 Utility.CloneEntity(entVacRd, entAdd);
                 entAdd.CREATEDATE = DateTime.Now;
+                entAdd.UPDATEDATE = DateTime.Now;
                 dalVacationSet.Add(entAdd);
 
                 OutPlanDaysBLL bllOutPlanDays = new OutPlanDaysBLL();

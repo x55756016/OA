@@ -122,9 +122,9 @@ namespace SMT.HRM.UI.Form.Attendance
             entVacationSet.ASSIGNEDOBJECTID = string.Empty;
 
             //权限
-            entVacationSet.CREATEDATE = DateTime.Now;
+            //entVacationSet.UPDATEDATE = DateTime.Now;
             entVacationSet.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-            entVacationSet.UPDATEDATE = System.DateTime.Now;
+            //entVacationSet.UPDATEDATE = System.DateTime.Now;
             entVacationSet.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
             entVacationSet.OWNERCOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
             entVacationSet.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;

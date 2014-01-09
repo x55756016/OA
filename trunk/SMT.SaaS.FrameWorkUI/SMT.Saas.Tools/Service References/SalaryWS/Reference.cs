@@ -17,131 +17,75 @@ namespace SMT.Saas.Tools.SalaryWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREADIFFERENCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_AREADIFFERENCE : SMT.Saas.Tools.SalaryWS.EntityObject {
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        private string AREACATEGORYField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-    public partial class EntityObject : SMT.Saas.Tools.SalaryWS.StructuralObject {
+        private string AREADIFFERENCEIDField;
         
-        private SMT.Saas.Tools.SalaryWS.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SALARYSOLUTIONSTANDARD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_SALARYSOLUTIONSTANDARD : SMT.Saas.Tools.SalaryWS.EntityObject {
+        private System.Nullable<decimal> AREAINDEXField;
         
         private System.Nullable<System.DateTime> CREATEDATEField;
         
         private string CREATEUSERIDField;
         
-        private string SOLUTIONSTANDARDIDField;
+        private string OWNERCOMPANYIDField;
         
-        private SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION T_HR_SALARYSOLUTIONField;
+        private string OWNERDEPARTMENTIDField;
         
-        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo T_HR_SALARYSOLUTIONReferenceField;
+        private string OWNERIDField;
         
-        private SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD T_HR_SALARYSTANDARDField;
+        private string OWNERPOSTIDField;
         
-        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo T_HR_SALARYSTANDARDReferenceField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE> T_HR_AREAALLOWANCEField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY> T_HR_AREACITYField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION> T_HR_SALARYSOLUTIONField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AREACATEGORY {
+            get {
+                return this.AREACATEGORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AREACATEGORYField, value) != true)) {
+                    this.AREACATEGORYField = value;
+                    this.RaisePropertyChanged("AREACATEGORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AREADIFFERENCEID {
+            get {
+                return this.AREADIFFERENCEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AREADIFFERENCEIDField, value) != true)) {
+                    this.AREADIFFERENCEIDField = value;
+                    this.RaisePropertyChanged("AREADIFFERENCEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AREAINDEX {
+            get {
+                return this.AREAINDEXField;
+            }
+            set {
+                if ((this.AREAINDEXField.Equals(value) != true)) {
+                    this.AREAINDEXField = value;
+                    this.RaisePropertyChanged("AREAINDEX");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> CREATEDATE {
@@ -170,20 +114,85 @@ namespace SMT.Saas.Tools.SalaryWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SOLUTIONSTANDARDID {
+        public string OWNERCOMPANYID {
             get {
-                return this.SOLUTIONSTANDARDIDField;
+                return this.OWNERCOMPANYIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.SOLUTIONSTANDARDIDField, value) != true)) {
-                    this.SOLUTIONSTANDARDIDField = value;
-                    this.RaisePropertyChanged("SOLUTIONSTANDARDID");
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION T_HR_SALARYSOLUTION {
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE> T_HR_AREAALLOWANCE {
+            get {
+                return this.T_HR_AREAALLOWANCEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREAALLOWANCEField, value) != true)) {
+                    this.T_HR_AREAALLOWANCEField = value;
+                    this.RaisePropertyChanged("T_HR_AREAALLOWANCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY> T_HR_AREACITY {
+            get {
+                return this.T_HR_AREACITYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREACITYField, value) != true)) {
+                    this.T_HR_AREACITYField = value;
+                    this.RaisePropertyChanged("T_HR_AREACITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION> T_HR_SALARYSOLUTION {
             get {
                 return this.T_HR_SALARYSOLUTIONField;
             }
@@ -196,40 +205,373 @@ namespace SMT.Saas.Tools.SalaryWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo T_HR_SALARYSOLUTIONReference {
+        public System.Nullable<System.DateTime> UPDATEDATE {
             get {
-                return this.T_HR_SALARYSOLUTIONReferenceField;
+                return this.UPDATEDATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_SALARYSOLUTIONReferenceField, value) != true)) {
-                    this.T_HR_SALARYSOLUTIONReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_SALARYSOLUTIONReference");
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD T_HR_SALARYSTANDARD {
+        public string UPDATEUSERID {
             get {
-                return this.T_HR_SALARYSTANDARDField;
+                return this.UPDATEUSERIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_SALARYSTANDARDField, value) != true)) {
-                    this.T_HR_SALARYSTANDARDField = value;
-                    this.RaisePropertyChanged("T_HR_SALARYSTANDARD");
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+    public partial class EntityObject : SMT.Saas.Tools.SalaryWS.StructuralObject {
+        
+        private SMT.Saas.Tools.SalaryWS.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREAALLOWANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_AREAALLOWANCE : SMT.Saas.Tools.SalaryWS.EntityObject {
+        
+        private System.Nullable<decimal> ALLOWANCEField;
+        
+        private string AREAALLOWANCEIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string POSTLEVELField;
+        
+        private SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCEField;
+        
+        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ALLOWANCE {
+            get {
+                return this.ALLOWANCEField;
+            }
+            set {
+                if ((this.ALLOWANCEField.Equals(value) != true)) {
+                    this.ALLOWANCEField = value;
+                    this.RaisePropertyChanged("ALLOWANCE");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo T_HR_SALARYSTANDARDReference {
+        public string AREAALLOWANCEID {
             get {
-                return this.T_HR_SALARYSTANDARDReferenceField;
+                return this.AREAALLOWANCEIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_SALARYSTANDARDReferenceField, value) != true)) {
-                    this.T_HR_SALARYSTANDARDReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_SALARYSTANDARDReference");
+                if ((object.ReferenceEquals(this.AREAALLOWANCEIDField, value) != true)) {
+                    this.AREAALLOWANCEIDField = value;
+                    this.RaisePropertyChanged("AREAALLOWANCEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTLEVEL {
+            get {
+                return this.POSTLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTLEVELField, value) != true)) {
+                    this.POSTLEVELField = value;
+                    this.RaisePropertyChanged("POSTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCE {
+            get {
+                return this.T_HR_AREADIFFERENCEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEField, value) != true)) {
+                    this.T_HR_AREADIFFERENCEField = value;
+                    this.RaisePropertyChanged("T_HR_AREADIFFERENCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReference {
+            get {
+                return this.T_HR_AREADIFFERENCEReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEReferenceField, value) != true)) {
+                    this.T_HR_AREADIFFERENCEReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_AREADIFFERENCEReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREACITY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_AREACITY : SMT.Saas.Tools.SalaryWS.EntityObject {
+        
+        private string AREACITYIDField;
+        
+        private string CITYField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCEField;
+        
+        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AREACITYID {
+            get {
+                return this.AREACITYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AREACITYIDField, value) != true)) {
+                    this.AREACITYIDField = value;
+                    this.RaisePropertyChanged("AREACITYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CITY {
+            get {
+                return this.CITYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
+                    this.CITYField = value;
+                    this.RaisePropertyChanged("CITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCE {
+            get {
+                return this.T_HR_AREADIFFERENCEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEField, value) != true)) {
+                    this.T_HR_AREADIFFERENCEField = value;
+                    this.RaisePropertyChanged("T_HR_AREADIFFERENCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReference {
+            get {
+                return this.T_HR_AREADIFFERENCEReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEReferenceField, value) != true)) {
+                    this.T_HR_AREADIFFERENCEReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_AREADIFFERENCEReference");
                 }
             }
         }
@@ -746,489 +1088,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                 if ((object.ReferenceEquals(this.T_HR_SALARYTAXESField, value) != true)) {
                     this.T_HR_SALARYTAXESField = value;
                     this.RaisePropertyChanged("T_HR_SALARYTAXES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREADIFFERENCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_AREADIFFERENCE : SMT.Saas.Tools.SalaryWS.EntityObject {
-        
-        private string AREACATEGORYField;
-        
-        private string AREADIFFERENCEIDField;
-        
-        private System.Nullable<decimal> AREAINDEXField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE> T_HR_AREAALLOWANCEField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY> T_HR_AREACITYField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION> T_HR_SALARYSOLUTIONField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AREACATEGORY {
-            get {
-                return this.AREACATEGORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREACATEGORYField, value) != true)) {
-                    this.AREACATEGORYField = value;
-                    this.RaisePropertyChanged("AREACATEGORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AREADIFFERENCEID {
-            get {
-                return this.AREADIFFERENCEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREADIFFERENCEIDField, value) != true)) {
-                    this.AREADIFFERENCEIDField = value;
-                    this.RaisePropertyChanged("AREADIFFERENCEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AREAINDEX {
-            get {
-                return this.AREAINDEXField;
-            }
-            set {
-                if ((this.AREAINDEXField.Equals(value) != true)) {
-                    this.AREAINDEXField = value;
-                    this.RaisePropertyChanged("AREAINDEX");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE> T_HR_AREAALLOWANCE {
-            get {
-                return this.T_HR_AREAALLOWANCEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREAALLOWANCEField, value) != true)) {
-                    this.T_HR_AREAALLOWANCEField = value;
-                    this.RaisePropertyChanged("T_HR_AREAALLOWANCE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY> T_HR_AREACITY {
-            get {
-                return this.T_HR_AREACITYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREACITYField, value) != true)) {
-                    this.T_HR_AREACITYField = value;
-                    this.RaisePropertyChanged("T_HR_AREACITY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION> T_HR_SALARYSOLUTION {
-            get {
-                return this.T_HR_SALARYSOLUTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_SALARYSOLUTIONField, value) != true)) {
-                    this.T_HR_SALARYSOLUTIONField = value;
-                    this.RaisePropertyChanged("T_HR_SALARYSOLUTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREAALLOWANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_AREAALLOWANCE : SMT.Saas.Tools.SalaryWS.EntityObject {
-        
-        private System.Nullable<decimal> ALLOWANCEField;
-        
-        private string AREAALLOWANCEIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private string POSTLEVELField;
-        
-        private SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCEField;
-        
-        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReferenceField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ALLOWANCE {
-            get {
-                return this.ALLOWANCEField;
-            }
-            set {
-                if ((this.ALLOWANCEField.Equals(value) != true)) {
-                    this.ALLOWANCEField = value;
-                    this.RaisePropertyChanged("ALLOWANCE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AREAALLOWANCEID {
-            get {
-                return this.AREAALLOWANCEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREAALLOWANCEIDField, value) != true)) {
-                    this.AREAALLOWANCEIDField = value;
-                    this.RaisePropertyChanged("AREAALLOWANCEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTLEVEL {
-            get {
-                return this.POSTLEVELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTLEVELField, value) != true)) {
-                    this.POSTLEVELField = value;
-                    this.RaisePropertyChanged("POSTLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCE {
-            get {
-                return this.T_HR_AREADIFFERENCEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEField, value) != true)) {
-                    this.T_HR_AREADIFFERENCEField = value;
-                    this.RaisePropertyChanged("T_HR_AREADIFFERENCE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReference {
-            get {
-                return this.T_HR_AREADIFFERENCEReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEReferenceField, value) != true)) {
-                    this.T_HR_AREADIFFERENCEReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_AREADIFFERENCEReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_AREACITY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_AREACITY : SMT.Saas.Tools.SalaryWS.EntityObject {
-        
-        private string AREACITYIDField;
-        
-        private string CITYField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCEField;
-        
-        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReferenceField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AREACITYID {
-            get {
-                return this.AREACITYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AREACITYIDField, value) != true)) {
-                    this.AREACITYIDField = value;
-                    this.RaisePropertyChanged("AREACITYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CITY {
-            get {
-                return this.CITYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
-                    this.CITYField = value;
-                    this.RaisePropertyChanged("CITY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE T_HR_AREADIFFERENCE {
-            get {
-                return this.T_HR_AREADIFFERENCEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEField, value) != true)) {
-                    this.T_HR_AREADIFFERENCEField = value;
-                    this.RaisePropertyChanged("T_HR_AREADIFFERENCE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo T_HR_AREADIFFERENCEReference {
-            get {
-                return this.T_HR_AREADIFFERENCEReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_AREADIFFERENCEReferenceField, value) != true)) {
-                    this.T_HR_AREADIFFERENCEReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_AREADIFFERENCEReference");
                 }
             }
         }
@@ -5966,6 +5825,147 @@ namespace SMT.Saas.Tools.SalaryWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SALARYSOLUTIONSTANDARD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_SALARYSOLUTIONSTANDARD : SMT.Saas.Tools.SalaryWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string SOLUTIONSTANDARDIDField;
+        
+        private SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION T_HR_SALARYSOLUTIONField;
+        
+        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo T_HR_SALARYSOLUTIONReferenceField;
+        
+        private SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD T_HR_SALARYSTANDARDField;
+        
+        private SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo T_HR_SALARYSTANDARDReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SOLUTIONSTANDARDID {
+            get {
+                return this.SOLUTIONSTANDARDIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SOLUTIONSTANDARDIDField, value) != true)) {
+                    this.SOLUTIONSTANDARDIDField = value;
+                    this.RaisePropertyChanged("SOLUTIONSTANDARDID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION T_HR_SALARYSOLUTION {
+            get {
+                return this.T_HR_SALARYSOLUTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_SALARYSOLUTIONField, value) != true)) {
+                    this.T_HR_SALARYSOLUTIONField = value;
+                    this.RaisePropertyChanged("T_HR_SALARYSOLUTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo T_HR_SALARYSOLUTIONReference {
+            get {
+                return this.T_HR_SALARYSOLUTIONReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_SALARYSOLUTIONReferenceField, value) != true)) {
+                    this.T_HR_SALARYSOLUTIONReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_SALARYSOLUTIONReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD T_HR_SALARYSTANDARD {
+            get {
+                return this.T_HR_SALARYSTANDARDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_SALARYSTANDARDField, value) != true)) {
+                    this.T_HR_SALARYSTANDARDField = value;
+                    this.RaisePropertyChanged("T_HR_SALARYSTANDARD");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo T_HR_SALARYSTANDARDReference {
+            get {
+                return this.T_HR_SALARYSTANDARDReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_SALARYSTANDARDReferenceField, value) != true)) {
+                    this.T_HR_SALARYSTANDARDReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_SALARYSTANDARDReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_STANDARDPERFORMANCEREWARD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
     public partial class T_HR_STANDARDPERFORMANCEREWARD : SMT.Saas.Tools.SalaryWS.EntityObject {
         
@@ -6791,6 +6791,372 @@ namespace SMT.Saas.Tools.SalaryWS {
                 if ((object.ReferenceEquals(this.T_HR_SALARYSOLUTIONReferenceField, value) != true)) {
                     this.T_HR_SALARYSOLUTIONReferenceField = value;
                     this.RaisePropertyChanged("T_HR_SALARYSOLUTIONReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PERFORMANCEREWARDRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_PERFORMANCEREWARDRECORD : SMT.Saas.Tools.SalaryWS.EntityObject {
+        
+        private string CHECKSTATEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private System.Nullable<System.DateTime> ENDDATEField;
+        
+        private string GENERATETYPEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string PERFORMANCEREWARDRECORDIDField;
+        
+        private System.Nullable<decimal> PERFORMANCESCOREField;
+        
+        private System.Nullable<decimal> PERFORMANCESUMField;
+        
+        private string REMARKField;
+        
+        private string SALARYMONTHField;
+        
+        private string SALARYYEARField;
+        
+        private System.Nullable<System.DateTime> STARTDATEField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> ENDDATE {
+            get {
+                return this.ENDDATEField;
+            }
+            set {
+                if ((this.ENDDATEField.Equals(value) != true)) {
+                    this.ENDDATEField = value;
+                    this.RaisePropertyChanged("ENDDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GENERATETYPE {
+            get {
+                return this.GENERATETYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GENERATETYPEField, value) != true)) {
+                    this.GENERATETYPEField = value;
+                    this.RaisePropertyChanged("GENERATETYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PERFORMANCEREWARDRECORDID {
+            get {
+                return this.PERFORMANCEREWARDRECORDIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PERFORMANCEREWARDRECORDIDField, value) != true)) {
+                    this.PERFORMANCEREWARDRECORDIDField = value;
+                    this.RaisePropertyChanged("PERFORMANCEREWARDRECORDID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> PERFORMANCESCORE {
+            get {
+                return this.PERFORMANCESCOREField;
+            }
+            set {
+                if ((this.PERFORMANCESCOREField.Equals(value) != true)) {
+                    this.PERFORMANCESCOREField = value;
+                    this.RaisePropertyChanged("PERFORMANCESCORE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> PERFORMANCESUM {
+            get {
+                return this.PERFORMANCESUMField;
+            }
+            set {
+                if ((this.PERFORMANCESUMField.Equals(value) != true)) {
+                    this.PERFORMANCESUMField = value;
+                    this.RaisePropertyChanged("PERFORMANCESUM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SALARYMONTH {
+            get {
+                return this.SALARYMONTHField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SALARYMONTHField, value) != true)) {
+                    this.SALARYMONTHField = value;
+                    this.RaisePropertyChanged("SALARYMONTH");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SALARYYEAR {
+            get {
+                return this.SALARYYEARField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SALARYYEARField, value) != true)) {
+                    this.SALARYYEARField = value;
+                    this.RaisePropertyChanged("SALARYYEAR");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> STARTDATE {
+            get {
+                return this.STARTDATEField;
+            }
+            set {
+                if ((this.STARTDATEField.Equals(value) != true)) {
+                    this.STARTDATEField = value;
+                    this.RaisePropertyChanged("STARTDATE");
                 }
             }
         }
@@ -11045,372 +11411,6 @@ namespace SMT.Saas.Tools.SalaryWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PERFORMANCEREWARDRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_PERFORMANCEREWARDRECORD : SMT.Saas.Tools.SalaryWS.EntityObject {
-        
-        private string CHECKSTATEField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string EMPLOYEECODEField;
-        
-        private string EMPLOYEEIDField;
-        
-        private string EMPLOYEENAMEField;
-        
-        private System.Nullable<System.DateTime> ENDDATEField;
-        
-        private string GENERATETYPEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string PERFORMANCEREWARDRECORDIDField;
-        
-        private System.Nullable<decimal> PERFORMANCESCOREField;
-        
-        private System.Nullable<decimal> PERFORMANCESUMField;
-        
-        private string REMARKField;
-        
-        private string SALARYMONTHField;
-        
-        private string SALARYYEARField;
-        
-        private System.Nullable<System.DateTime> STARTDATEField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
-            get {
-                return this.EMPLOYEECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
-            get {
-                return this.EMPLOYEENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
-                    this.EMPLOYEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> ENDDATE {
-            get {
-                return this.ENDDATEField;
-            }
-            set {
-                if ((this.ENDDATEField.Equals(value) != true)) {
-                    this.ENDDATEField = value;
-                    this.RaisePropertyChanged("ENDDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GENERATETYPE {
-            get {
-                return this.GENERATETYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GENERATETYPEField, value) != true)) {
-                    this.GENERATETYPEField = value;
-                    this.RaisePropertyChanged("GENERATETYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PERFORMANCEREWARDRECORDID {
-            get {
-                return this.PERFORMANCEREWARDRECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PERFORMANCEREWARDRECORDIDField, value) != true)) {
-                    this.PERFORMANCEREWARDRECORDIDField = value;
-                    this.RaisePropertyChanged("PERFORMANCEREWARDRECORDID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> PERFORMANCESCORE {
-            get {
-                return this.PERFORMANCESCOREField;
-            }
-            set {
-                if ((this.PERFORMANCESCOREField.Equals(value) != true)) {
-                    this.PERFORMANCESCOREField = value;
-                    this.RaisePropertyChanged("PERFORMANCESCORE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> PERFORMANCESUM {
-            get {
-                return this.PERFORMANCESUMField;
-            }
-            set {
-                if ((this.PERFORMANCESUMField.Equals(value) != true)) {
-                    this.PERFORMANCESUMField = value;
-                    this.RaisePropertyChanged("PERFORMANCESUM");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SALARYMONTH {
-            get {
-                return this.SALARYMONTHField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SALARYMONTHField, value) != true)) {
-                    this.SALARYMONTHField = value;
-                    this.RaisePropertyChanged("SALARYMONTH");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SALARYYEAR {
-            get {
-                return this.SALARYYEARField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SALARYYEARField, value) != true)) {
-                    this.SALARYYEARField = value;
-                    this.RaisePropertyChanged("SALARYYEAR");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> STARTDATE {
-            get {
-                return this.STARTDATEField;
-            }
-            set {
-                if ((this.STARTDATEField.Equals(value) != true)) {
-                    this.STARTDATEField = value;
-                    this.RaisePropertyChanged("STARTDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKey", Namespace="http://schemas.datacontract.org/2004/07/System.Data", IsReference=true)]
     public partial class EntityKey : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -11472,24 +11472,71 @@ namespace SMT.Saas.Tools.SalaryWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -11532,77 +11579,30 @@ namespace SMT.Saas.Tools.SalaryWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;
@@ -11643,155 +11643,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-    public partial class EntityReference : SMT.Saas.Tools.SalaryWS.RelatedEnd {
-        
-        private SMT.Saas.Tools.SalaryWS.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.SalaryWS.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYITEMLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYITEMLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -15844,9 +15695,163 @@ namespace SMT.Saas.Tools.SalaryWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+    public partial class EntityReference : SMT.Saas.Tools.SalaryWS.RelatedEnd {
+        
+        private SMT.Saas.Tools.SalaryWS.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.SalaryWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYITEMLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYITEMLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo : SMT.Saas.Tools.SalaryWS.EntityReference {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="SalaryWS.SalaryService")]
     public interface SalaryService {
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/GetAreaWithPaging", ReplyAction="urn:SalaryService/GetAreaWithPagingResponse")]
+        System.IAsyncResult BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/PerformanceRewardRecordAdd", ReplyAction="urn:SalaryService/PerformanceRewardRecordAddResponse")]
         System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState);
@@ -16039,24 +16044,71 @@ namespace SMT.Saas.Tools.SalaryWS {
         string EndSalarySolutionItemAdd(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/SalarySolutionItemsAdd", ReplyAction="urn:SalaryService/SalarySolutionItemsAddResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -16099,6 +16151,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -16106,71 +16176,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginSalarySolutionItemsAdd(string filter, System.Collections.ObjectModel.ObservableCollection<object> para, string solutionID, string userID, System.AsyncCallback callback, object asyncState);
         
         string EndSalarySolutionItemsAdd(System.IAsyncResult result);
@@ -16266,24 +16271,71 @@ namespace SMT.Saas.Tools.SalaryWS {
         void EndAddSalaryPassword(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/GetMonthDeductionTaxs", ReplyAction="urn:SalaryService/GetMonthDeductionTaxsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -16326,6 +16378,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -16333,94 +16403,76 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginGetMonthDeductionTaxs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_MonthDeductionTax> EndGetMonthDeductionTaxs(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/GetEmployeeDeductionMoney", ReplyAction="urn:SalaryService/GetEmployeeDeductionMoneyResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -16463,6 +16515,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -16470,94 +16540,76 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginGetEmployeeDeductionMoney(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string year, string month, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EmployeeDeductionMoney> EndGetEmployeeDeductionMoney(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/GetSalarySummary", ReplyAction="urn:SalaryService/GetSalarySummaryResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -16600,6 +16652,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -16607,71 +16677,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginGetSalarySummary(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string year, string month, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SalarySummary> EndGetSalarySummary(ref int pageCount, System.IAsyncResult result);
@@ -16682,24 +16687,71 @@ namespace SMT.Saas.Tools.SalaryWS {
         void EndCreateEmployeeSalaryArchiveItems(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ExportEmployeePensionReports", ReplyAction="urn:SalaryService/ExportEmployeePensionReportsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -16742,6 +16794,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -16749,71 +16819,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginExportEmployeePensionReports(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, string userID, string CompanyID, System.DateTime Dt, System.AsyncCallback callback, object asyncState);
         
         byte[] EndExportEmployeePensionReports(System.IAsyncResult result);
@@ -16827,6 +16832,11 @@ namespace SMT.Saas.Tools.SalaryWS {
         System.IAsyncResult BeginAssignPersonMoney(string strCheckState, string Companyid, ref string strMsg, System.AsyncCallback callback, object asyncState);
         
         void EndAssignPersonMoney(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/CheckSalaryAuditState", ReplyAction="urn:SalaryService/CheckSalaryAuditStateResponse")]
+        System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState);
+        
+        bool EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/SalaryRecordBatchAdd", ReplyAction="urn:SalaryService/SalaryRecordBatchAddResponse")]
         System.IAsyncResult BeginSalaryRecordBatchAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH entity, System.Collections.ObjectModel.ObservableCollection<string> salaryrecordids, System.AsyncCallback callback, object asyncState);
@@ -17110,24 +17120,71 @@ namespace SMT.Saas.Tools.SalaryWS {
         byte[] EndExportSalaryExcel(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ExportSalarySummary", ReplyAction="urn:SalaryService/ExportSalarySummaryResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -17170,6 +17227,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -17177,94 +17252,76 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginExportSalarySummary(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string year, string month, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         byte[] EndExportSalarySummary(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ExportEmployeeDeductionMoney", ReplyAction="urn:SalaryService/ExportEmployeeDeductionMoneyResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -17307,6 +17364,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -17314,94 +17389,76 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginExportEmployeeDeductionMoney(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string year, string month, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         byte[] EndExportEmployeeDeductionMoney(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ExportMonthDeductionTaxs", ReplyAction="urn:SalaryService/ExportMonthDeductionTaxsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.V_SALARYSTANDARDITEM))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.V_EMPLOYEESALARYRECORDITEM>))]
@@ -17444,6 +17501,24 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.DataColumnInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.DataColumnInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_AREADIFFERENCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYITEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_CUSTOMGUERDONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSTANDARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYSYSTEMLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_POSTLEVELDISTINCTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYLEVELLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_PERFORMANCEREWARDSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYRECORDBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEESALARYRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_EMPLOYEEADDSUMBATCHLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityReferenceOfT_HR_SALARYARCHIVEHISLmi1kWPo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.EntityKeyMember))]
@@ -17451,71 +17526,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<object, object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREAALLOWANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_AREACITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONASSIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDON))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYLEVEL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_POSTLEVELDISTINCTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTIONSTANDARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDARDPERFORMANCEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYTAXES))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORDITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEESALARYRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYSYSTEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SYSTEMSETTING>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUMBATCH))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_EMPLOYEEADDSUM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_PERFORMANCEREWARDSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVEHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEHISITEM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.SalaryWS.T_HR_STANDREWARDARCHIVEHIS))]
         System.IAsyncResult BeginExportMonthDeductionTaxs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, bool IsPageing, System.AsyncCallback callback, object asyncState);
         
         byte[] EndExportMonthDeductionTaxs(ref int pageCount, System.IAsyncResult result);
@@ -17624,11 +17634,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         System.IAsyncResult BeginGetAreaCityWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREACITY> EndGetAreaCityWithPaging(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/GetAreaWithPaging", ReplyAction="urn:SalaryService/GetAreaWithPagingResponse")]
-        System.IAsyncResult BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/SalarySolutionAdd", ReplyAction="urn:SalaryService/SalarySolutionAddResponse")]
         System.IAsyncResult BeginSalarySolutionAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION entity, System.AsyncCallback callback, object asyncState);
@@ -17804,6 +17809,11 @@ namespace SMT.Saas.Tools.SalaryWS {
         System.IAsyncResult BeginSalarySolutionAssignDelete(System.Collections.ObjectModel.ObservableCollection<string> IDs, System.AsyncCallback callback, object asyncState);
         
         bool EndSalarySolutionAssignDelete(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ExportSalaryArchive", ReplyAction="urn:SalaryService/ExportSalaryArchiveResponse")]
+        System.IAsyncResult BeginExportSalaryArchive(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndExportSalaryArchive(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/SalaryArchiveAdd", ReplyAction="urn:SalaryService/SalaryArchiveAddResponse")]
         System.IAsyncResult BeginSalaryArchiveAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVE entity, System.AsyncCallback callback, object asyncState);
@@ -18049,15 +18059,36 @@ namespace SMT.Saas.Tools.SalaryWS {
         System.IAsyncResult BeginGetSalaryRecordBatchByID(string SalaryRecordBatchID, System.AsyncCallback callback, object asyncState);
         
         SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH EndGetSalaryRecordBatchByID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/CheckSalaryAuditState", ReplyAction="urn:SalaryService/CheckSalaryAuditStateResponse")]
-        System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState);
-        
-        bool EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface SalaryServiceChannel : SMT.Saas.Tools.SalaryWS.SalaryService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAreaWithPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAreaWithPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>)(this.results[1]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19109,6 +19140,32 @@ namespace SMT.Saas.Tools.SalaryWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CheckSalaryAuditStateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CheckSalaryAuditStateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
             }
         }
     }
@@ -20395,32 +20452,6 @@ namespace SMT.Saas.Tools.SalaryWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetAreaWithPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetAreaWithPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SalarySolutionSameSearchCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -20880,6 +20911,25 @@ namespace SMT.Saas.Tools.SalaryWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ExportSalaryArchiveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ExportSalaryArchiveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
             }
         }
     }
@@ -21744,33 +21794,13 @@ namespace SMT.Saas.Tools.SalaryWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CheckSalaryAuditStateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public CheckSalaryAuditStateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SalaryServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.SalaryWS.SalaryService>, SMT.Saas.Tools.SalaryWS.SalaryService {
+        
+        private BeginOperationDelegate onBeginGetAreaWithPagingDelegate;
+        
+        private EndOperationDelegate onEndGetAreaWithPagingDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAreaWithPagingCompletedDelegate;
         
         private BeginOperationDelegate onBeginPerformanceRewardRecordAddDelegate;
         
@@ -22155,6 +22185,12 @@ namespace SMT.Saas.Tools.SalaryWS {
         private EndOperationDelegate onEndAssignPersonMoneyDelegate;
         
         private System.Threading.SendOrPostCallback onAssignPersonMoneyCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCheckSalaryAuditStateDelegate;
+        
+        private EndOperationDelegate onEndCheckSalaryAuditStateDelegate;
+        
+        private System.Threading.SendOrPostCallback onCheckSalaryAuditStateCompletedDelegate;
         
         private BeginOperationDelegate onBeginSalaryRecordBatchAddDelegate;
         
@@ -22636,12 +22672,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         private System.Threading.SendOrPostCallback onGetAreaCityWithPagingCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetAreaWithPagingDelegate;
-        
-        private EndOperationDelegate onEndGetAreaWithPagingDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetAreaWithPagingCompletedDelegate;
-        
         private BeginOperationDelegate onBeginSalarySolutionAddDelegate;
         
         private EndOperationDelegate onEndSalarySolutionAddDelegate;
@@ -22851,6 +22881,12 @@ namespace SMT.Saas.Tools.SalaryWS {
         private EndOperationDelegate onEndSalarySolutionAssignDeleteDelegate;
         
         private System.Threading.SendOrPostCallback onSalarySolutionAssignDeleteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginExportSalaryArchiveDelegate;
+        
+        private EndOperationDelegate onEndExportSalaryArchiveDelegate;
+        
+        private System.Threading.SendOrPostCallback onExportSalaryArchiveCompletedDelegate;
         
         private BeginOperationDelegate onBeginSalaryArchiveAddDelegate;
         
@@ -23146,12 +23182,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         private System.Threading.SendOrPostCallback onGetSalaryRecordBatchByIDCompletedDelegate;
         
-        private BeginOperationDelegate onBeginCheckSalaryAuditStateDelegate;
-        
-        private EndOperationDelegate onEndCheckSalaryAuditStateDelegate;
-        
-        private System.Threading.SendOrPostCallback onCheckSalaryAuditStateCompletedDelegate;
-        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -23203,6 +23233,8 @@ namespace SMT.Saas.Tools.SalaryWS {
                 }
             }
         }
+        
+        public event System.EventHandler<GetAreaWithPagingCompletedEventArgs> GetAreaWithPagingCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> PerformanceRewardRecordAddCompleted;
         
@@ -23331,6 +23363,8 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<PayRemindByOrgIDCompletedEventArgs> PayRemindByOrgIDCompleted;
         
         public event System.EventHandler<AssignPersonMoneyCompletedEventArgs> AssignPersonMoneyCompleted;
+        
+        public event System.EventHandler<CheckSalaryAuditStateCompletedEventArgs> CheckSalaryAuditStateCompleted;
         
         public event System.EventHandler<SalaryRecordBatchAddCompletedEventArgs> SalaryRecordBatchAddCompleted;
         
@@ -23492,8 +23526,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         public event System.EventHandler<GetAreaCityWithPagingCompletedEventArgs> GetAreaCityWithPagingCompleted;
         
-        public event System.EventHandler<GetAreaWithPagingCompletedEventArgs> GetAreaWithPagingCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SalarySolutionAddCompleted;
         
         public event System.EventHandler<SalarySolutionSameSearchCompletedEventArgs> SalarySolutionSameSearchCompleted;
@@ -23563,6 +23595,8 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<GetSalarySolutionAssignViewByIDCompletedEventArgs> GetSalarySolutionAssignViewByIDCompleted;
         
         public event System.EventHandler<SalarySolutionAssignDeleteCompletedEventArgs> SalarySolutionAssignDeleteCompleted;
+        
+        public event System.EventHandler<ExportSalaryArchiveCompletedEventArgs> ExportSalaryArchiveCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SalaryArchiveAddCompleted;
         
@@ -23662,11 +23696,67 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         public event System.EventHandler<GetSalaryRecordBatchByIDCompletedEventArgs> GetSalaryRecordBatchByIDCompleted;
         
-        public event System.EventHandler<CheckSalaryAuditStateCompletedEventArgs> CheckSalaryAuditStateCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAreaWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> SMT.Saas.Tools.SalaryWS.SalaryService.EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetAreaWithPaging(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAreaWithPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<string> paras = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginGetAreaWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAreaWithPaging(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndGetAreaWithPaging(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetAreaWithPagingCompleted(object state) {
+            if ((this.GetAreaWithPagingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAreaWithPagingCompleted(this, new GetAreaWithPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAreaWithPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, int pageCount) {
+            this.GetAreaWithPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, null);
+        }
+        
+        public void GetAreaWithPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, int pageCount, object userState) {
+            if ((this.onBeginGetAreaWithPagingDelegate == null)) {
+                this.onBeginGetAreaWithPagingDelegate = new BeginOperationDelegate(this.OnBeginGetAreaWithPaging);
+            }
+            if ((this.onEndGetAreaWithPagingDelegate == null)) {
+                this.onEndGetAreaWithPagingDelegate = new EndOperationDelegate(this.OnEndGetAreaWithPaging);
+            }
+            if ((this.onGetAreaWithPagingCompletedDelegate == null)) {
+                this.onGetAreaWithPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAreaWithPagingCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAreaWithPagingDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount}, this.onEndGetAreaWithPagingDelegate, this.onGetAreaWithPagingCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
@@ -26833,6 +26923,58 @@ namespace SMT.Saas.Tools.SalaryWS {
                         strCheckState,
                         Companyid,
                         strMsg}, this.onEndAssignPersonMoneyDelegate, this.onAssignPersonMoneyCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCheckSalaryAuditState(ref strMsg, filterString, paras, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.SalaryWS.SalaryService.EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result) {
+            return base.Channel.EndCheckSalaryAuditState(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginCheckSalaryAuditState(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strMsg = ((string)(inValues[0]));
+            string filterString = ((string)(inValues[1]));
+            System.Collections.ObjectModel.ObservableCollection<string> paras = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[2]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginCheckSalaryAuditState(ref strMsg, filterString, paras, callback, asyncState);
+        }
+        
+        private object[] OnEndCheckSalaryAuditState(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            bool retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndCheckSalaryAuditState(ref strMsg, result);
+            return new object[] {
+                    strMsg,
+                    retVal};
+        }
+        
+        private void OnCheckSalaryAuditStateCompleted(object state) {
+            if ((this.CheckSalaryAuditStateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CheckSalaryAuditStateCompleted(this, new CheckSalaryAuditStateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CheckSalaryAuditStateAsync(string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras) {
+            this.CheckSalaryAuditStateAsync(strMsg, filterString, paras, null);
+        }
+        
+        public void CheckSalaryAuditStateAsync(string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, object userState) {
+            if ((this.onBeginCheckSalaryAuditStateDelegate == null)) {
+                this.onBeginCheckSalaryAuditStateDelegate = new BeginOperationDelegate(this.OnBeginCheckSalaryAuditState);
+            }
+            if ((this.onEndCheckSalaryAuditStateDelegate == null)) {
+                this.onEndCheckSalaryAuditStateDelegate = new EndOperationDelegate(this.OnEndCheckSalaryAuditState);
+            }
+            if ((this.onCheckSalaryAuditStateCompletedDelegate == null)) {
+                this.onCheckSalaryAuditStateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckSalaryAuditStateCompleted);
+            }
+            base.InvokeAsync(this.onBeginCheckSalaryAuditStateDelegate, new object[] {
+                        strMsg,
+                        filterString,
+                        paras}, this.onEndCheckSalaryAuditStateDelegate, this.onCheckSalaryAuditStateCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -30850,64 +30992,6 @@ namespace SMT.Saas.Tools.SalaryWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetAreaWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> SMT.Saas.Tools.SalaryWS.SalaryService.EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetAreaWithPaging(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetAreaWithPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int pageIndex = ((int)(inValues[0]));
-            int pageSize = ((int)(inValues[1]));
-            string sort = ((string)(inValues[2]));
-            string filterString = ((string)(inValues[3]));
-            System.Collections.ObjectModel.ObservableCollection<string> paras = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginGetAreaWithPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        private object[] OnEndGetAreaWithPaging(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndGetAreaWithPaging(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetAreaWithPagingCompleted(object state) {
-            if ((this.GetAreaWithPagingCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetAreaWithPagingCompleted(this, new GetAreaWithPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetAreaWithPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, int pageCount) {
-            this.GetAreaWithPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, null);
-        }
-        
-        public void GetAreaWithPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, int pageCount, object userState) {
-            if ((this.onBeginGetAreaWithPagingDelegate == null)) {
-                this.onBeginGetAreaWithPagingDelegate = new BeginOperationDelegate(this.OnBeginGetAreaWithPaging);
-            }
-            if ((this.onEndGetAreaWithPagingDelegate == null)) {
-                this.onEndGetAreaWithPagingDelegate = new EndOperationDelegate(this.OnEndGetAreaWithPaging);
-            }
-            if ((this.onGetAreaWithPagingCompletedDelegate == null)) {
-                this.onGetAreaWithPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAreaWithPagingCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetAreaWithPagingDelegate, new object[] {
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount}, this.onEndGetAreaWithPagingDelegate, this.onGetAreaWithPagingCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginSalarySolutionAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION entity, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginSalarySolutionAdd(entity, callback, asyncState);
         }
@@ -32581,6 +32665,68 @@ namespace SMT.Saas.Tools.SalaryWS {
             }
             base.InvokeAsync(this.onBeginSalarySolutionAssignDeleteDelegate, new object[] {
                         IDs}, this.onEndSalarySolutionAssignDeleteDelegate, this.onSalarySolutionAssignDeleteCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginExportSalaryArchive(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginExportSalaryArchive(sort, filterString, paras, userID, checkstate, orgtype, orgid, queryCode, companyID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        byte[] SMT.Saas.Tools.SalaryWS.SalaryService.EndExportSalaryArchive(System.IAsyncResult result) {
+            return base.Channel.EndExportSalaryArchive(result);
+        }
+        
+        private System.IAsyncResult OnBeginExportSalaryArchive(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string sort = ((string)(inValues[0]));
+            string filterString = ((string)(inValues[1]));
+            System.Collections.ObjectModel.ObservableCollection<string> paras = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[2]));
+            string userID = ((string)(inValues[3]));
+            string checkstate = ((string)(inValues[4]));
+            int orgtype = ((int)(inValues[5]));
+            string orgid = ((string)(inValues[6]));
+            int queryCode = ((int)(inValues[7]));
+            string companyID = ((string)(inValues[8]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginExportSalaryArchive(sort, filterString, paras, userID, checkstate, orgtype, orgid, queryCode, companyID, callback, asyncState);
+        }
+        
+        private object[] OnEndExportSalaryArchive(System.IAsyncResult result) {
+            byte[] retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndExportSalaryArchive(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnExportSalaryArchiveCompleted(object state) {
+            if ((this.ExportSalaryArchiveCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ExportSalaryArchiveCompleted(this, new ExportSalaryArchiveCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ExportSalaryArchiveAsync(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID) {
+            this.ExportSalaryArchiveAsync(sort, filterString, paras, userID, checkstate, orgtype, orgid, queryCode, companyID, null);
+        }
+        
+        public void ExportSalaryArchiveAsync(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID, object userState) {
+            if ((this.onBeginExportSalaryArchiveDelegate == null)) {
+                this.onBeginExportSalaryArchiveDelegate = new BeginOperationDelegate(this.OnBeginExportSalaryArchive);
+            }
+            if ((this.onEndExportSalaryArchiveDelegate == null)) {
+                this.onEndExportSalaryArchiveDelegate = new EndOperationDelegate(this.OnEndExportSalaryArchive);
+            }
+            if ((this.onExportSalaryArchiveCompletedDelegate == null)) {
+                this.onExportSalaryArchiveCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnExportSalaryArchiveCompleted);
+            }
+            base.InvokeAsync(this.onBeginExportSalaryArchiveDelegate, new object[] {
+                        sort,
+                        filterString,
+                        paras,
+                        userID,
+                        checkstate,
+                        orgtype,
+                        orgid,
+                        queryCode,
+                        companyID}, this.onEndExportSalaryArchiveDelegate, this.onExportSalaryArchiveCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -35162,58 +35308,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                         SalaryRecordBatchID}, this.onEndGetSalaryRecordBatchByIDDelegate, this.onGetSalaryRecordBatchByIDCompletedDelegate, userState);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCheckSalaryAuditState(ref strMsg, filterString, paras, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.SalaryWS.SalaryService.EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result) {
-            return base.Channel.EndCheckSalaryAuditState(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginCheckSalaryAuditState(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string strMsg = ((string)(inValues[0]));
-            string filterString = ((string)(inValues[1]));
-            System.Collections.ObjectModel.ObservableCollection<string> paras = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[2]));
-            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginCheckSalaryAuditState(ref strMsg, filterString, paras, callback, asyncState);
-        }
-        
-        private object[] OnEndCheckSalaryAuditState(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            bool retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndCheckSalaryAuditState(ref strMsg, result);
-            return new object[] {
-                    strMsg,
-                    retVal};
-        }
-        
-        private void OnCheckSalaryAuditStateCompleted(object state) {
-            if ((this.CheckSalaryAuditStateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CheckSalaryAuditStateCompleted(this, new CheckSalaryAuditStateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CheckSalaryAuditStateAsync(string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras) {
-            this.CheckSalaryAuditStateAsync(strMsg, filterString, paras, null);
-        }
-        
-        public void CheckSalaryAuditStateAsync(string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, object userState) {
-            if ((this.onBeginCheckSalaryAuditStateDelegate == null)) {
-                this.onBeginCheckSalaryAuditStateDelegate = new BeginOperationDelegate(this.OnBeginCheckSalaryAuditState);
-            }
-            if ((this.onEndCheckSalaryAuditStateDelegate == null)) {
-                this.onEndCheckSalaryAuditStateDelegate = new EndOperationDelegate(this.OnEndCheckSalaryAuditState);
-            }
-            if ((this.onCheckSalaryAuditStateCompletedDelegate == null)) {
-                this.onCheckSalaryAuditStateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCheckSalaryAuditStateCompleted);
-            }
-            base.InvokeAsync(this.onBeginCheckSalaryAuditStateDelegate, new object[] {
-                        strMsg,
-                        filterString,
-                        paras}, this.onEndCheckSalaryAuditStateDelegate, this.onCheckSalaryAuditStateCompletedDelegate, userState);
-        }
-        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -35288,6 +35382,27 @@ namespace SMT.Saas.Tools.SalaryWS {
             
             public SalaryServiceClientChannel(System.ServiceModel.ClientBase<SMT.Saas.Tools.SalaryWS.SalaryService> client) : 
                     base(client) {
+            }
+            
+            public System.IAsyncResult BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[6];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                System.IAsyncResult _result = base.BeginInvoke("GetAreaWithPaging", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>)(base.EndInvoke("GetAreaWithPaging", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
             }
             
             public System.IAsyncResult BeginPerformanceRewardRecordAdd(int orgtype, string orgid, string year, string month, System.DateTime startTime, System.DateTime endTime, string construes, System.AsyncCallback callback, object asyncState) {
@@ -36252,6 +36367,24 @@ namespace SMT.Saas.Tools.SalaryWS {
                 _args[0] = strMsg;
                 base.EndInvoke("AssignPersonMoney", _args, result);
                 strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[3];
+                _args[0] = strMsg;
+                _args[1] = filterString;
+                _args[2] = paras;
+                System.IAsyncResult _result = base.BeginInvoke("CheckSalaryAuditState", _args, callback, asyncState);
+                strMsg = ((string)(_args[0]));
+                return _result;
+            }
+            
+            public bool EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                bool _result = ((bool)(base.EndInvoke("CheckSalaryAuditState", _args, result)));
+                strMsg = ((string)(_args[0]));
+                return _result;
             }
             
             public System.IAsyncResult BeginSalaryRecordBatchAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH entity, System.Collections.ObjectModel.ObservableCollection<string> salaryrecordids, System.AsyncCallback callback, object asyncState) {
@@ -37483,27 +37616,6 @@ namespace SMT.Saas.Tools.SalaryWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetAreaWithPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[6];
-                _args[0] = pageIndex;
-                _args[1] = pageSize;
-                _args[2] = sort;
-                _args[3] = filterString;
-                _args[4] = paras;
-                _args[5] = pageCount;
-                System.IAsyncResult _result = base.BeginInvoke("GetAreaWithPaging", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> EndGetAreaWithPaging(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_AREADIFFERENCE>)(base.EndInvoke("GetAreaWithPaging", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
             public System.IAsyncResult BeginSalarySolutionAdd(SMT.Saas.Tools.SalaryWS.T_HR_SALARYSOLUTION entity, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entity;
@@ -37991,6 +38103,27 @@ namespace SMT.Saas.Tools.SalaryWS {
             public bool EndSalarySolutionAssignDelete(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("SalarySolutionAssignDelete", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginExportSalaryArchive(string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, string userID, string checkstate, int orgtype, string orgid, int queryCode, string companyID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[9];
+                _args[0] = sort;
+                _args[1] = filterString;
+                _args[2] = paras;
+                _args[3] = userID;
+                _args[4] = checkstate;
+                _args[5] = orgtype;
+                _args[6] = orgid;
+                _args[7] = queryCode;
+                _args[8] = companyID;
+                System.IAsyncResult _result = base.BeginInvoke("ExportSalaryArchive", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public byte[] EndExportSalaryArchive(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                byte[] _result = ((byte[])(base.EndInvoke("ExportSalaryArchive", _args, result)));
                 return _result;
             }
             
@@ -38808,24 +38941,6 @@ namespace SMT.Saas.Tools.SalaryWS {
             public SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH EndGetSalaryRecordBatchByID(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH _result = ((SMT.Saas.Tools.SalaryWS.T_HR_SALARYRECORDBATCH)(base.EndInvoke("GetSalaryRecordBatchByID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[3];
-                _args[0] = strMsg;
-                _args[1] = filterString;
-                _args[2] = paras;
-                System.IAsyncResult _result = base.BeginInvoke("CheckSalaryAuditState", _args, callback, asyncState);
-                strMsg = ((string)(_args[0]));
-                return _result;
-            }
-            
-            public bool EndCheckSalaryAuditState(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                bool _result = ((bool)(base.EndInvoke("CheckSalaryAuditState", _args, result)));
-                strMsg = ((string)(_args[0]));
                 return _result;
             }
         }

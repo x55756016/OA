@@ -1165,22 +1165,26 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
 
             DataGridTextColumn col2 = new DataGridTextColumn();
             col2.Header = Utility.GetResourceStr("EMPLOYEENAME");
+            col2.CanUserSort = false;
             col2.Binding = new Binding("EMPLOYEENAME");
             DtGriddy.Columns.Add(col2);
 
             DataGridTextColumn col8 = new DataGridTextColumn();
             col8.Header = Utility.GetResourceStr("ACTUALLYPAY");
             col8.Binding = new Binding("ACTUALLYPAY");
+            col8.CanUserSort = false;
             DtGriddy.Columns.Add(col8);
 
             DataGridTextColumn col7 = new DataGridTextColumn();
             col7.Header = Utility.GetResourceStr("SALARYYEAR");
             col7.Binding = new Binding("SALARYYEAR");
+            col7.CanUserSort = false;
             DtGriddy.Columns.Add(col7);
 
             DataGridTextColumn col4 = new DataGridTextColumn();
             col4.Header = Utility.GetResourceStr("SALARYMONTH");
             col4.Binding = new Binding("SALARYMONTH");
+            col4.CanUserSort = false;
             DtGriddy.Columns.Add(col4);
 
             //DataGridTextColumn col5 = new DataGridTextColumn();
@@ -1198,7 +1202,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             //col5.Binding = new Binding("CHECKSTATE");   //("{Binding CHECKSTATE,Converter={StaticResource DictionaryConverter},ConverterParameter=CHECKSTATE}");         
             //DtGriddy.Columns.Add(col5);
             #endregion
-
+            DtGriddy.CanUserSortColumns = false;
             DtGriddy.LoadingRow += new EventHandler<DataGridRowEventArgs>(DtGriddy_LoadingRow);
             DtGriddy.ItemsSource = list;
             recordPoint = DtGriddy.Columns.Count;

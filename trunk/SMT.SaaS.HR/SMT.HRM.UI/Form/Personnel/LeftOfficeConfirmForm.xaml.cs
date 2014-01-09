@@ -940,13 +940,6 @@ namespace SMT.HRM.UI.Form.Personnel
             //    RefreshUI(RefreshedTypes.HideProgressBar);
             //    return;
             //}
-            //if (string.IsNullOrEmpty(dpStopPaymentDate.Text))
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "STOPPAYMENTDATE"),
-            //    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            //    RefreshUI(RefreshedTypes.HideProgressBar);
-            //    return;
-            //}
             //if (string.IsNullOrEmpty(dpConfirmDate.Text))
             //{
             //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "CONFIRMDATE"),
@@ -979,17 +972,30 @@ namespace SMT.HRM.UI.Form.Personnel
             {
                 LeftOfficeConfirm.LEFTOFFICEDATE = Convert.ToDateTime(leftDate);
             }
-            if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
-            {
-                LeftOfficeConfirm.UPDATEDATE = System.DateTime.Now;
-                LeftOfficeConfirm.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID; ;
 
-                client.LeftOfficeConfirmUpdateAsync(LeftOfficeConfirm, "Edit");
-            }
-            if (FormType == FormTypes.New)
+            string Result = "";
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
             {
-                client.LeftOfficeConfirmAddAsync(LeftOfficeConfirm);
+                if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
+                {
+                    LeftOfficeConfirm.UPDATEDATE = System.DateTime.Now;
+                    LeftOfficeConfirm.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID; ;
+
+                    client.LeftOfficeConfirmUpdateAsync(LeftOfficeConfirm, "Edit");
+                }
+                if (FormType == FormTypes.New)
+                {
+                    client.LeftOfficeConfirmAddAsync(LeftOfficeConfirm);
+                }
+            };
+            if (LeftOfficeConfirm.LEFTOFFICEDATE.HasValue && LeftOfficeConfirm.STOPPAYMENTDATE.HasValue)
+            {
+                com.SelectionBox(Utility.GetResourceStr("确认"), "请确认" + LeftOfficeConfirm.EMPLOYEECNAME + "的离职确认日期是" +
+                        LeftOfficeConfirm.CONFIRMDATE.Value.ToString("yyyy年MM月dd日") +
+                        "，停薪日期是" + LeftOfficeConfirm.STOPPAYMENTDATE.Value.ToString("yyyy年MM月dd日") + "（当天），薪资计算截止至当天", ComfirmWindow.titlename, Result);
             }
+
         }
         /// <summary>
         /// 保存并关闭当前窗口
