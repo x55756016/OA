@@ -131,5 +131,7 @@ GO
 
 
 
-insert into [111].[dbo].[TmpTicket] values ('北京','1000');
-insert into [111].[dbo].[TmpTicket] values ('深圳','1000');
+
+insert into [AsdLync].[dbo].[TmpTicket] values ('北京','1000');
+insert into [AsdLync].[dbo].[TmpTicket] values ('深圳','1000');
+
