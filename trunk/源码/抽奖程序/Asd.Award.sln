@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{EE7A77EC-2000-442D-BF6F-7AF376C61F3C}"
+	ProjectSection(SolutionItems) = preProject
+		Asd.Award DB Scripts.sql = Asd.Award DB Scripts.sql
+		User Guide.txt = User Guide.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSite", "WebSite\WebSite.csproj", "{3C9FAA05-E3EF-420B-A4A6-15C8236F8127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D94FFA28-E6CA-4A94-A78A-DA3F69592993}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C9FAA05-E3EF-420B-A4A6-15C8236F8127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9FAA05-E3EF-420B-A4A6-15C8236F8127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9FAA05-E3EF-420B-A4A6-15C8236F8127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9FAA05-E3EF-420B-A4A6-15C8236F8127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D94FFA28-E6CA-4A94-A78A-DA3F69592993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D94FFA28-E6CA-4A94-A78A-DA3F69592993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D94FFA28-E6CA-4A94-A78A-DA3F69592993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D94FFA28-E6CA-4A94-A78A-DA3F69592993}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
