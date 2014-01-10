@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SMT.Saas.Tools.HrCommonServiceWS;
 using System.Threading;
+using SMT.SAAS.ClientUtility;
 
 namespace SMT.HRM.UI.AppControl
 {
@@ -25,7 +26,7 @@ namespace SMT.HRM.UI.AppControl
         public  DependencyProperty CategoryProperty;
         public DependencyProperty IsShowNullProperty;
         public static HrCommonServiceClient Configclient;
-        private static PermissionServiceClient DictionNaryclinet;
+        private static DictionaryManager DictionNaryclinet;
 
         private AutoResetEvent EventAttention = null;
         private AutoResetEvent EventFunction = null;
@@ -94,9 +95,9 @@ namespace SMT.HRM.UI.AppControl
             //Configclient.GetAppConfigByNameCompleted += new EventHandler<GetAppConfigByNameCompletedEventArgs>(Configclient_GetAppConfigByNameCompleted);
             if (DictionNaryclinet == null)
             {
-                DictionNaryclinet = new PermissionServiceClient();
+                DictionNaryclinet = new DictionaryManager();
             }
-            DictionNaryclinet.GetSysDictionaryByCategoryCompleted += new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(DictionNaryclinet_GetSysDictionaryByCategoryCompleted);
+            //DictionNaryclinet.GetSysDictionaryByCategoryCompleted += new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(DictionNaryclinet_GetSysDictionaryByCategoryCompleted);
         }
 
         public static void OnSelectedValuePropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
@@ -149,15 +150,26 @@ namespace SMT.HRM.UI.AppControl
             }
             else
             {
-                ThreadPool.QueueUserWorkItem(delegate(object o)
-                {
-                    // Configclient.GetAppConfigByNameAsync("GetDicitionnaryFromCache");
+                //ThreadPool.QueueUserWorkItem(delegate(object o)
+                //{
+                    DictionNaryclinet.OnDictionaryLoadCompleted += (obj, args) =>
+                    {
+                        Deployment.Current.Dispatcher.BeginInvoke(delegate
+                        {
+                            var qBind = from ent in dictss
+                                    where ent.DICTIONCATEGORY == cate
+                                    select ent;
+                            if (qBind.Count() > 0)
+                            {
+                                List<T_SYS_DICTIONARY> dicts = qBind.ToList();
+                                BindComboBox(dictss, category, SelectedValue);
+                            }
+                        });
 
-                    DictionNaryclinet.GetSysDictionaryByCategoryAsync(category);
-                    //WaitHandle.WaitAll(EventArray);
-                    EventAttention.WaitOne();
-
-                });
+                    };
+                    DictionNaryclinet.LoadDictionary(cate);
+                    //EventAttention.WaitOne();
+                //});
             }
         }
 
@@ -180,17 +192,17 @@ namespace SMT.HRM.UI.AppControl
         //    }
         //}
 
-        void DictionNaryclinet_GetSysDictionaryByCategoryCompleted(object sender, GetSysDictionaryByCategoryCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                Deployment.Current.Dispatcher.BeginInvoke(delegate
-                {
-                    List<T_SYS_DICTIONARY> dicts = e.Result.ToList();
-                    BindComboBox(dicts, category, SelectedValue);
-                }); 
-            }
-        }
+        //void DictionNaryclinet_GetSysDictionaryByCategoryCompleted(object sender, GetSysDictionaryByCategoryCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        Deployment.Current.Dispatcher.BeginInvoke(delegate
+        //        {
+        //            List<T_SYS_DICTIONARY> dicts = e.Result.ToList();
+        //            BindComboBox(dicts, category, SelectedValue);
+        //        }); 
+        //    }
+        //}
 
         /// <summary>
         /// 可用于动态加载字典

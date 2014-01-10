@@ -994,6 +994,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 com.SelectionBox(Utility.GetResourceStr("确认"), "请确认" + LeftOfficeConfirm.EMPLOYEECNAME + "的离职确认日期是" +
                         LeftOfficeConfirm.CONFIRMDATE.Value.ToString("yyyy年MM月dd日") +
                         "，停薪日期是" + LeftOfficeConfirm.STOPPAYMENTDATE.Value.ToString("yyyy年MM月dd日") + "（当天），薪资计算截止至当天", ComfirmWindow.titlename, Result);
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
 
         }

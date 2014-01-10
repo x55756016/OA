@@ -46,6 +46,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.LocalData", "..\SM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.Foundation.Core", "..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj", "{9D2F51E2-9710-4C91-A66B-823EB72437FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.ClientUtility", "..\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\SMT.SAAS.ClientUtility.csproj", "{D7E796F2-24FC-456E-85E3-A980E1F46F7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,16 @@ Global
 		{9D2F51E2-9710-4C91-A66B-823EB72437FD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9D2F51E2-9710-4C91-A66B-823EB72437FD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9D2F51E2-9710-4C91-A66B-823EB72437FD}.Release|x86.ActiveCfg = Release|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -237,6 +249,7 @@ Global
 		{7C8EB5BC-8C15-41BC-B4AC-4AEB046D692C} = {58530803-6947-4233-A089-2D9068013609}
 		{ABE30DE4-D5DF-49A0-A0FF-E0E518DD7E10} = {58530803-6947-4233-A089-2D9068013609}
 		{9D2F51E2-9710-4C91-A66B-823EB72437FD} = {58530803-6947-4233-A089-2D9068013609}
+		{D7E796F2-24FC-456E-85E3-A980E1F46F7E} = {58530803-6947-4233-A089-2D9068013609}
 		{ACA616AA-D06E-48A1-931B-00A3FC5B42A9} = {61CD179F-9084-4D21-9BAB-0718B8B2F16C}
 	EndGlobalSection
 EndGlobal

@@ -494,7 +494,7 @@ namespace SMT.HRM.BLL
                                                  select c;
                         foreach (var addsum in addSumsForEmployee)
                         {
-                            remark += addsum.PROJECTNAME + "：" + addsum.PROJECTMONEY + "；";
+                            remark += addsum.REMARK;
                         }
 
                         addsumItem.SUM = AES.AESEncrypt(remark);
@@ -794,7 +794,7 @@ namespace SMT.HRM.BLL
                                                  select c;
                         foreach (var addsum in addSumsForEmployee)
                         {
-                            remark += addsum.PROJECTNAME + "：" + addsum.PROJECTMONEY + "；";
+                            remark += addsum.REMARK;
                         }
 
                         remark = AES.AESEncrypt(remark);

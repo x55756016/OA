@@ -453,8 +453,8 @@ namespace SMT.HRM.UI.Form.Salary
             Dictionary<string, string> systype = new Dictionary<string, string>();
             systype.Add("0", "员工加扣款");
             systype.Add("1", "员工代扣款");
-            systype.Add("2", "绩效奖金");
-            systype.Add("3", "其他......");
+            //systype.Add("2", "绩效奖金");
+            //systype.Add("3", "其他......");
 
             SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY ownerCompany = (Application.Current.Resources["SYS_CompanyInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>).Where(s => s.COMPANYID == Info.OWNERCOMPANYID).FirstOrDefault();
             SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT ownerDepartment = (Application.Current.Resources["SYS_DepartmentInfo"] as List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>).Where(s => s.DEPARTMENTID == Info.OWNERDEPARTMENTID).FirstOrDefault();

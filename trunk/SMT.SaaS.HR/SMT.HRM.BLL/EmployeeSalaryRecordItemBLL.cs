@@ -134,7 +134,7 @@ namespace SMT.HRM.BLL
             {
                 foreach (var addsum in entAddsums)
                 {
-                    remark += addsum.PROJECTNAME + "：" + addsum.PROJECTMONEY + "；";
+                    remark += addsum.REMARK;
                 }
 
                 addsumItem.SUM = AES.AESEncrypt(remark);

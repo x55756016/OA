@@ -498,15 +498,15 @@ namespace SMT.HRM.UI.Form.Salary
                 ent.EMPLOYEECNAME = SalaryArchive.EMPLOYEENAME;
                 lkEmployee.DataContext = ent;
                 string fullName = string.Empty;
-                if (string.IsNullOrEmpty(e.Result.PostName))
-                {
-                    fullName = SalaryArchive.EMPLOYEENAME;
-                }
-                else
-                {
-                    fullName = SalaryArchive.EMPLOYEENAME + " - " + e.Result.PostName + " - " + GetFullOrgName(e.Result.DepartmentID);
-                }
-                lkEmployee.TxtLookUp.Text = fullName;
+                //if (string.IsNullOrEmpty(e.Result.PostName))
+                //{
+                //    fullName = SalaryArchive.EMPLOYEENAME;
+                //}
+                //else
+                //{
+                //    fullName = SalaryArchive.EMPLOYEENAME + " - " + e.Result.PostName + " - " + GetFullOrgName(e.Result.DepartmentID);
+                //}
+                lkEmployee.TxtLookUp.Text = SalaryArchive.EMPLOYEENAME;
 
                 //显示薪资方案名
                 T_HR_SALARYSOLUTION tmp = new T_HR_SALARYSOLUTION();
@@ -735,7 +735,7 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "lkBalancePost", lkBalancePost.TxtLookUp.Text, lkBalancePost.TxtLookUp.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
-            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", lkEmployee.TxtLookUp.Text, lkEmployee.TxtLookUp.Text));
+            AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));//lkEmployee.TxtLookUp.Text
             foreach (var v in archiveItemsList)
             {
                 AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));

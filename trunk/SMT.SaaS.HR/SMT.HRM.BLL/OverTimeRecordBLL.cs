@@ -156,8 +156,8 @@ namespace SMT.HRM.BLL
                 }
                 entity.OVERTIMEHOURS = dTotalHours;
 
-                entity.STARTDATETIME = entity.STARTDATE.Value.ToString("hh:mm:ss");
-                entity.ENDDATETIME = entity.ENDDATE.Value.ToString("hh:mm:ss");
+                entity.STARTDATETIME = entity.STARTDATE.Value.ToString("HH:mm:ss");
+                entity.ENDDATETIME = entity.ENDDATE.Value.ToString("HH:mm:ss");
 
                 if (!Add(entity))
                 {
@@ -455,20 +455,23 @@ namespace SMT.HRM.BLL
                 DateTime dateStartTime = new DateTime(), dateEndTiem = new DateTime();
                 foreach (var item in ents)
                 {
-                    dateStartStr = item.STARTDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
-                    dateEndStr = item.ENDDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
-                    DateTime.TryParse((item.STARTDATETIME), out dateStartTime);
-                    DateTime.TryParse((item.ENDDATETIME), out dateEndTiem);
-
-                    DateTime.TryParse((dateStartStr + " "+ dateStartTime.ToString("HH:mm:ss")), out dateStart);
-                    DateTime.TryParse((dateEndStr + " " + dateEndTiem.ToString("HH:mm:ss")), out dateEnd);
-                    if (dtOTStart >= dateStart && dtOTStart < dateEnd  //开始  <=开始时间 <结束
-                         || dtOTEnd > dateStart && dtOTEnd <= dateEnd    //   开始  <结束时间 <结束
-                         || dtOTStart <= dateStart && dtOTEnd >= dateEnd    //小于开始，大于结束
-                        )
+                    if (item.CHECKSTATE != "3")
                     {
-                        strRes = "{加班时间段与另一加班单的加班时间段（从" + dateStart.ToString("yyyy-MM-dd HH:mm") + "至" + dateEnd.ToString("yyyy-MM-dd HH:mm") + "）出现重叠，请检查！}";
-                        break;
+                        dateStartStr = item.STARTDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
+                        dateEndStr = item.ENDDATE.HasValue ? item.STARTDATE.Value.ToString("yyyy-MM-dd") : "";
+                        DateTime.TryParse((item.STARTDATETIME), out dateStartTime);
+                        DateTime.TryParse((item.ENDDATETIME), out dateEndTiem);
+
+                        DateTime.TryParse((dateStartStr + " " + dateStartTime.ToString("HH:mm:ss")), out dateStart);
+                        DateTime.TryParse((dateEndStr + " " + dateEndTiem.ToString("HH:mm:ss")), out dateEnd);
+                        if (dtOTStart >= dateStart && dtOTStart < dateEnd  //开始  <=开始时间 <结束
+                             || dtOTEnd > dateStart && dtOTEnd <= dateEnd    //   开始  <结束时间 <结束
+                             || dtOTStart <= dateStart && dtOTEnd >= dateEnd    //小于开始，大于结束
+                            )
+                        {
+                            strRes = "{加班时间段与另一加班单的加班时间段（从" + dateStart.ToString("yyyy-MM-dd HH:mm") + "至" + dateEnd.ToString("yyyy-MM-dd HH:mm") + "）出现重叠，请检查！}";
+                            break;
+                        }
                     }
                 }
                 if (!string.IsNullOrWhiteSpace(strRes))

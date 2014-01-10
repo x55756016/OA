@@ -401,7 +401,7 @@ namespace SMT.HRM.UI.Form.Personnel
             SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY postLevelDict = (Application.Current.Resources["SYS_DICTIONARY"] as List<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>).Where(s => s.DICTIONCATEGORY == "POSTLEVEL" && s.DICTIONARYVALUE == employeePostSelcected.POSTLEVEL).FirstOrDefault();
             postLevelName = postLevelDict == null ? "" : postLevelDict.DICTIONARYNAME;
 
-           // SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+            // SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
             string postname = employeePostSelcected.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME + " - " + employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME
                               + " - " + employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME;
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
@@ -730,13 +730,13 @@ namespace SMT.HRM.UI.Form.Personnel
                 }
                 string strMsg = "";
                 LeftOffice.LEFTOFFICECATEGORY = "1";
+                SetOwnerPostID();
                 if (FormType == FormTypes.New)
                 {
                     //所属
                     LeftOffice.CREATECOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
                     LeftOffice.CREATEDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                     LeftOffice.CREATEPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                    LeftOffice.OWNERID = LeftOffice.T_HR_EMPLOYEE.EMPLOYEEID;
 
                     client.LeftOfficeAddAsync(LeftOffice, strMsg);
                 }
@@ -757,6 +757,35 @@ namespace SMT.HRM.UI.Form.Personnel
             }
 
         }
+
+        /// <summary>
+        /// 设置离职岗位
+        /// </summary>
+        private void SetOwnerPostID()
+        {
+            foreach (var item in DtGrid.ItemsSource)
+            {
+                CheckBox cbx = DtGrid.Columns[0].GetCellContent(item).FindName("myChkBtn") as CheckBox;
+                if (cbx.IsChecked.Value)
+                {
+                    employeePostSelcected = cbx.Tag as T_HR_EMPLOYEEPOST;
+                    LeftOffice.OWNERPOSTID = employeePostSelcected.T_HR_POST.POSTID;
+                    LeftOffice.OWNERDEPARTMENTID = employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID;
+                    LeftOffice.OWNERCOMPANYID = employeePostSelcected.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID;
+
+                    if (employeePostSelcected.ISAGENCY == "主岗位" || employeePostSelcected.ISAGENCY == "0")
+                    {
+                        LeftOffice.ISAGENCY = "0";
+                    }
+                    else
+                    {
+                        LeftOffice.ISAGENCY = "1";
+                    }
+                    break;
+                }
+            }
+        }
+
         /// <summary>
         /// 保存并关闭当前窗口
         /// </summary>
