@@ -9,7 +9,7 @@ function creat_rd_arry() {
 
 //开始滚动
 function stop(level, number) {
-    clearInterval(m);
+     clearInterval(m);
     //获取得奖号
     var obj = lucky.GenerateAward(level, number);
     $("#roll_num").css("display", "none");
@@ -64,13 +64,13 @@ function show_3Info(obj) {
 
 //两边显示获奖号
 function show_award(cur_lev, batch) {
-    if (cur_lev == 1 || cur_lev == 2) {//一二等级才显示
+    if (cur_lev == 1 || cur_lev == 2 || cur_lev == 4) {//一二等级才显示
         var sz_li = '', bj_li = '', $sz = $(".sz_award"), $bj = $(".bj_award");
         var awards_sz_all = lucky.GetAwardBy("", cur_lev); //获取该等奖的号码
         awards_sz_all.sort(); //排序
         var num = awards_sz_all.length;
         var total = num;
-        if (cur_lev == 2) {//二等奖,因为只有一二等奖走这个方法
+        if (cur_lev == 2 || cur_lev == 4) {//二等奖,因为只有一二等奖走这个方法
             total = 10;//二等奖20人，一边显示10人
             if (num < 10) {
                 total = num;
@@ -202,7 +202,7 @@ function resize(cur_lev) {
             lineHeight: max_width * 0.4766 * 0.05 + "px",
             right: max_height * 0.015
         });
-        if (cur_lev == 2 || cur_lev == 1) {
+        if (cur_lev == 1) {
             $("#roll_num,#num_award").css({
                 top: max_height * 0.32,
                 //                fontSize: max_width * 0.4766 * 0.19 + "px",
@@ -210,9 +210,22 @@ function resize(cur_lev) {
                 letterSpacing: 0,
                 lineHeight: max_width * 0.4766 * 0.26 + "px"
             })
-        } else if (cur_lev == 0) {
+        }
+        else if (cur_lev == 2 || cur_lev == 4) {
             $("#roll_num,#num_award").css({
-                top: max_height * 0.48,
+                top: max_height * 0.30,
+                //width: max_width * 0.2,
+                //height: max_width * 0.439,
+                //marginLeft: 0 - max_width * 0.39 / 2,
+                fontSize: 82 + "px",
+                lineHeight: 60+ "px",
+                letterSpacing: max_width * 0.4766 * 0.01 + "px",
+
+            })
+        }
+        else if (cur_lev == 0) {
+            $("#roll_num,#num_award").css({
+                top: max_height * 0.38,
                 width: max_width * 0.7,
                 marginLeft: 0 - max_width * 0.7 / 2,
                 //            fontSize: max_width * 0.4766 * 0.328 + "px",

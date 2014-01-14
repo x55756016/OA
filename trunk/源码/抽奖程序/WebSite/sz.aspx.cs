@@ -36,6 +36,9 @@ namespace Asd.Award
                 //{
                     switch (item.Level)
                     {
+                        case "4":
+                            BuildTableRow(this.tableYG, item);
+                            break;
                         case "3":
                             BuildTableRow(this.tableSZ31, item);
                             break;

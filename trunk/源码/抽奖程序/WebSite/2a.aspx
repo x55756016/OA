@@ -78,12 +78,12 @@ to { -webkit-transform: skew(40deg) ; }
     </style>
     <script type="text/javascript">
         $(function () {
-            all_sn();
+            all_sn();//Default.js
         })
         var playing = true;
         lucky.PublishBatch = "Batch1";
         var cur_lev = 2;
-        var cur_num = 2;
+        var cur_num = 5;
         var open = false;
         var batch = 20;//用以在两边显示时区分
         $(function () {
@@ -104,7 +104,7 @@ to { -webkit-transform: skew(40deg) ; }
                         stop(cur_lev, cur_num); //停止动画，显示获奖号
                         playing = false;
                     } else {
-                        start(); //开始
+                        start(); //开始 Default.js
                         playing = true;
                     }
                 }
@@ -152,13 +152,13 @@ to { -webkit-transform: skew(40deg) ; }
     </ul>
     <ul class="bj_award">
     </ul>
-    <div id="stage" style="width: 100%; height:100%; position: absolute; z-index: 9999;">  
+    <div id="stage" style="width: 100%; height:100%; position: absolute; z-index: 9999; top: 0px; left: 5px;">  
         <div style="position:absolute;left:0;top:0;width:100%;height:100%;background-color:#000" id="black_mask"></div>      
         <img src="images/stage_left02.jpg" width="50%" id="stage_left02" style=" position:absolute; left:0;top:0;" /> 
         <img src="images/stage_right02.jpg" width="50%" id="stage_right02" style=" position:absolute; right:0;top:0;"/>
         <img src="images/stage_left01.png" width="16.85%" id="stage_left01" style=" position:absolute; left:0; top:0;" /> 
         <img src="images/stage_right01.png" width="16.85%" id="stage_right01" style=" position:absolute; right:0;top:0;"/>
-        <img src="images/stage_top.png" width="100%" id="stage_top" style=" position:absolute; top:0;"/>
+        <img src="images/stage_top.png" width="100%" id="stage_top" style=" position:absolute; top:0; left: 20px;"/>
     </div>
 
 </body>

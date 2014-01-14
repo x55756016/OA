@@ -141,6 +141,7 @@
         <li>二等奖</li>
         <li>一等奖</li>
         <li>特等奖</li>
+        <li>阳光保险奖</li>
     </ul>
     <ul id="tab_content">
         <li class="act">
@@ -237,6 +238,15 @@
                 <tr>
                     <th colspan="2">
                         北京 特等奖
+                    </th>
+                </tr>
+            </table>
+        </li>
+         <li>
+            <table id="tableYG" runat="server">
+                <tr>
+                    <th colspan="2">
+                        阳光保险奖
                     </th>
                 </tr>
             </table>

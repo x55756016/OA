@@ -40,7 +40,7 @@ function Lucky() {
      this.GenerateAward = function (level, qty) {
          var result = new Array();
          this.getArray();
-         if (level == 0 || level == 1 || level == 2) {
+         if (level == 0 || level == 1 || level == 2 || level == 4) {
              var ro = this.GetTheAward(level);
              if (ro != "0000") {
                  result = ro;
@@ -62,6 +62,7 @@ function Lucky() {
          var awardLevel1 = new Array();
          var countSZ1 = 0; //一等奖6名
          var countSZ2 = 0; //一等奖20名
+         var countYG = 0; //阳光奖10名
          for (var i = 0; i < awardExisted.length; i++) {
              if (awardExisted[i].Level == "1") {
                  countSZ1++;
@@ -69,6 +70,10 @@ function Lucky() {
              if (awardExisted[i].Level == "2") {
                  countSZ2++;
              }
+             if (awardExisted[i].Level == "4") {
+                 countYG++;
+             }
+
          }
          if (level == 1 && countSZ1 >= 6) {//如果是一等奖大于6个（一等奖只有6个）则返回，如果添加不限制，去掉判断即可
              return "0000";
@@ -76,8 +81,17 @@ function Lucky() {
          if (level == 2 && countSZ2 >= 20) {//如果是一等奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
              return "0000";
          }
+         if (level == 4 && countYG >= 10) {//如果是一等奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
+             return "0000";
+         }
          if (countSZ1 == 5 || countSZ2 == 19 || level == 0) {
              return result[result.length] = this.generateOneAward(level); //产生一个号码;
+         }
+         if (level == 2 || level == 4) {
+             for (var i = 0; i < 5; i++) {
+                 result[result.length] = this.generateOneAward(level);
+             }
+             return result;
          }
          else {
              for (var i = 0; i < 2; i++) {
@@ -89,13 +103,12 @@ function Lucky() {
 
 
      ///生成中奖号码，从全部没有中奖的号码中进行抽取
-     this.generateOneAward = function (level) {
-         debugger;
+     this.generateOneAward = function (level) {        
          var index = this.getRandom(this.Ticket.length);
          var ticketNO = this.Ticket[index];
          var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-         this.updateCandidate(index);
-         this.updateAward(award);
+         this.deleteFromTicket(index);
+         this.AddToAwardArray(award);
          return award;
      }
 
@@ -129,9 +142,9 @@ function Lucky() {
      //对中奖号码进行处理
      this.updateTicketNO = function (ticketNO, level) {
          var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-         //this.updateCandidate(index);
+         //this.deleteFromTicket(index);
          this.updateCandidateTicketNO(ticketNO);
-         this.updateAward(award);
+         this.AddToAwardArray(award);
          return award;
      }
 
@@ -167,9 +180,9 @@ function Lucky() {
          } 
          var ticketNO = this.szCount[index];
          var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-         //this.updateCandidate(index);
+         //this.deleteFromTicket(index);
          this.updateCandidateTicketNO(ticketNO);
-         this.updateAward(award);
+         this.AddToAwardArray(award);
          return award;
      }
 
@@ -180,9 +193,9 @@ function Lucky() {
          }
          var ticketNO = this.bjCount[index];
          var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-         //this.updateCandidate(index);
+         //this.deleteFromTicket(index);
          this.updateCandidateTicketNO(ticketNO);
-         this.updateAward(award);
+         this.AddToAwardArray(award);
          return award;
      }
 
@@ -229,10 +242,10 @@ function Lucky() {
         var index = this.getRandom(this.szCount.length);
         var ticketNO = this.szCount[index];
         var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-        //this.updateCandidate(index);
+        //this.deleteFromTicket(index);
         this.updateCandidateTicketNO(ticketNO);
 
-        this.updateAward(award);
+        this.AddToAwardArray(award);
         return award;
     }
     ///生成北京号码
@@ -240,9 +253,9 @@ function Lucky() {
         var index = this.getRandom(this.bjCount.length);
         var ticketNO = this.bjCount[index];
         var award = new AwardEntity(ticketNO, level, this.PublishBatch);
-        //this.updateCandidate(index);
+        //this.deleteFromTicket(index);
         this.updateCandidateTicketNO(ticketNO);
-        this.updateAward(award);
+        this.AddToAwardArray(award);
         return award;
     }
 
@@ -257,7 +270,7 @@ function Lucky() {
     }
 
     //根据数组索引剔除
-    this.updateCandidate = function (index) {
+    this.deleteFromTicket = function (index) {
         this.Ticket.splice(index, 1); //从总数中剔除产生的号码
 
     }
@@ -274,7 +287,7 @@ function Lucky() {
     }
 
 
-    this.updateAward = function (award) {
+    this.AddToAwardArray = function (award) {
         this.Award[this.Award.length] = award;
     }
     
@@ -293,8 +306,8 @@ function Lucky() {
         var ticketNO = this.Ticket[index];
         var award = new AwardEntity(ticketNO, 0, "");
 
-        this.updateCandidate(index);
-        this.updateAward(award);
+        this.deleteFromTicket(index);
+        this.AddToAwardArray(award);
         return award;
     }
 
@@ -312,8 +325,8 @@ function Lucky() {
         var ticketNO = this.Ticket[index];
         var award = new AwardEntity(ticketNO, 0, "");
 
-        this.updateCandidate(index); //Lucky.js 把中奖号从全局的所有抽奖号数组中删除掉
-        this.updateAward(award); //Lucky.js 将中奖号保存在全局已中奖数组中？
+        this.deleteFromTicket(index); //Lucky.js 把中奖号从全局的所有抽奖号数组中删除掉
+        this.AddToAwardArray(award); //Lucky.js 将中奖号保存在全局已中奖数组中？
         return award;
     }
 
@@ -324,7 +337,7 @@ function Lucky() {
         for (var i = 0; i < awardExisted.length; i++) {
             //            if (this.Award[i].TicketNO.substr(0, 2) == szOrbj && this.Award[i].Level == level)
             //                result[result.length] = this.Award[i].TicketNO;
-            if (this.Award[i].Level == level)
+            if (awardExisted[i].Level == level)//在操作之前确保中奖号已保存至Award[]
                 result[result.length] = awardExisted[i].TicketNO;
         }
         return result;
