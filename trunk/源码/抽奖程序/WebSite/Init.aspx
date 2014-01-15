@@ -20,7 +20,7 @@
          <asp:Button ID="ButtonClearAward" runat="server"   CssClass="btn"
                 Text="清空中奖记录" OnClick="ButtonClearAward_Click" Font-Size="30px"  />
     </div>
-    <div>
+    <div style="display:none">
     <hr />
         <asp:RadioButtonList ID="RadioButtonList1" runat="server">
             <asp:ListItem Selected="True" Value="BJ">北京</asp:ListItem>
