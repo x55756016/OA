@@ -19,7 +19,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD))]
@@ -50,7 +50,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
     public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -66,7 +66,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD))]
@@ -97,7 +97,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
     public partial class EntityObject : SMT.Saas.Tools.AttendanceWS.StructuralObject {
         
         private SMT.Saas.Tools.AttendanceWS.EntityKey EntityKeyField;
@@ -118,20 +118,18 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDMONTHLYBALANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_ATTENDMONTHLYBALANCE : SMT.Saas.Tools.AttendanceWS.EntityObject {
-        
-        private System.Nullable<decimal> ABSENTDAYSField;
-        
-        private System.Nullable<decimal> ABSENTMINUTESField;
-        
-        private System.Nullable<decimal> AFFAIRLEAVEDAYSField;
-        
-        private System.Nullable<decimal> ANNUALLEVELDAYSField;
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDMONTHLYBATCHBALANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_ATTENDMONTHLYBATCHBALANCE : SMT.Saas.Tools.AttendanceWS.EntityObject {
         
         private System.Nullable<System.DateTime> BALANCEDATEField;
         
         private System.Nullable<decimal> BALANCEMONTHField;
+        
+        private string BALANCEOBJECTIDField;
+        
+        private string BALANCEOBJECTNAMEField;
+        
+        private string BALANCEOBJECTTYPEField;
         
         private System.Nullable<decimal> BALANCEYEARField;
         
@@ -149,51 +147,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string EDITSTATEField;
         
-        private string EMPLOYEECODEField;
-        
-        private string EMPLOYEEIDField;
-        
-        private string EMPLOYEENAMEField;
-        
-        private System.Nullable<decimal> EVECTIONTIMEField;
-        
-        private System.Nullable<decimal> FORGETCARDTIMESField;
-        
-        private System.Nullable<decimal> FUNERALLEAVEDAYSField;
-        
-        private System.Nullable<decimal> INJURYLEAVEDAYSField;
-        
-        private System.Nullable<decimal> LATEDAYSField;
-        
-        private System.Nullable<decimal> LATEMINUTESField;
-        
-        private System.Nullable<decimal> LATETIMESField;
-        
-        private System.Nullable<decimal> LEAVEEARLYDAYSField;
-        
-        private System.Nullable<decimal> LEAVEEARLYTIMESField;
-        
-        private System.Nullable<decimal> LEAVEUSEDDAYSField;
-        
-        private System.Nullable<decimal> MARRYDAYSField;
-        
-        private System.Nullable<decimal> MATERNITYLEAVEDAYSField;
-        
-        private string MONTHLYBALANCEIDField;
-        
-        private System.Nullable<decimal> NEEDATTENDDAYSField;
-        
-        private System.Nullable<decimal> NURSESDAYSField;
-        
-        private System.Nullable<decimal> OTHERLEAVEDAYSField;
-        
-        private System.Nullable<decimal> OUTAPPLYTIMEField;
-        
-        private System.Nullable<decimal> OVERTIMESUMDAYSField;
-        
-        private System.Nullable<decimal> OVERTIMESUMHOURSField;
-        
-        private System.Nullable<decimal> OVERTIMETIMESField;
+        private string MONTHLYBATCHIDField;
         
         private string OWNERCOMPANYIDField;
         
@@ -203,81 +157,13 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string OWNERPOSTIDField;
         
-        private System.Nullable<decimal> PRENATALCARELEAVEDAYSField;
-        
-        private System.Nullable<decimal> REALATTENDDAYSField;
-        
-        private System.Nullable<decimal> REALNEEDATTENDDAYSField;
-        
         private string REMARKField;
         
-        private System.Nullable<decimal> SICKLEAVEDAYSField;
-        
-        private System.Nullable<decimal> TRIPDAYSField;
-        
-        private SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE T_HR_ATTENDMONTHLYBATCHBALANCEField;
-        
-        private SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> T_HR_ATTENDMONTHLYBALANCEField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERIDField;
-        
-        private System.Nullable<decimal> WORKSERVICEMONTHSField;
-        
-        private System.Nullable<decimal> WORKTIMEPERDAYField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ABSENTDAYS {
-            get {
-                return this.ABSENTDAYSField;
-            }
-            set {
-                if ((this.ABSENTDAYSField.Equals(value) != true)) {
-                    this.ABSENTDAYSField = value;
-                    this.RaisePropertyChanged("ABSENTDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ABSENTMINUTES {
-            get {
-                return this.ABSENTMINUTESField;
-            }
-            set {
-                if ((this.ABSENTMINUTESField.Equals(value) != true)) {
-                    this.ABSENTMINUTESField = value;
-                    this.RaisePropertyChanged("ABSENTMINUTES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> AFFAIRLEAVEDAYS {
-            get {
-                return this.AFFAIRLEAVEDAYSField;
-            }
-            set {
-                if ((this.AFFAIRLEAVEDAYSField.Equals(value) != true)) {
-                    this.AFFAIRLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("AFFAIRLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ANNUALLEVELDAYS {
-            get {
-                return this.ANNUALLEVELDAYSField;
-            }
-            set {
-                if ((this.ANNUALLEVELDAYSField.Equals(value) != true)) {
-                    this.ANNUALLEVELDAYSField = value;
-                    this.RaisePropertyChanged("ANNUALLEVELDAYS");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> BALANCEDATE {
@@ -301,6 +187,45 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((this.BALANCEMONTHField.Equals(value) != true)) {
                     this.BALANCEMONTHField = value;
                     this.RaisePropertyChanged("BALANCEMONTH");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BALANCEOBJECTID {
+            get {
+                return this.BALANCEOBJECTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BALANCEOBJECTIDField, value) != true)) {
+                    this.BALANCEOBJECTIDField = value;
+                    this.RaisePropertyChanged("BALANCEOBJECTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BALANCEOBJECTNAME {
+            get {
+                return this.BALANCEOBJECTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BALANCEOBJECTNAMEField, value) != true)) {
+                    this.BALANCEOBJECTNAMEField = value;
+                    this.RaisePropertyChanged("BALANCEOBJECTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BALANCEOBJECTTYPE {
+            get {
+                return this.BALANCEOBJECTTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BALANCEOBJECTTYPEField, value) != true)) {
+                    this.BALANCEOBJECTTYPEField = value;
+                    this.RaisePropertyChanged("BALANCEOBJECTTYPE");
                 }
             }
         }
@@ -410,300 +335,14 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
+        public string MONTHLYBATCHID {
             get {
-                return this.EMPLOYEECODEField;
+                return this.MONTHLYBATCHIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
-            get {
-                return this.EMPLOYEENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
-                    this.EMPLOYEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> EVECTIONTIME {
-            get {
-                return this.EVECTIONTIMEField;
-            }
-            set {
-                if ((this.EVECTIONTIMEField.Equals(value) != true)) {
-                    this.EVECTIONTIMEField = value;
-                    this.RaisePropertyChanged("EVECTIONTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> FORGETCARDTIMES {
-            get {
-                return this.FORGETCARDTIMESField;
-            }
-            set {
-                if ((this.FORGETCARDTIMESField.Equals(value) != true)) {
-                    this.FORGETCARDTIMESField = value;
-                    this.RaisePropertyChanged("FORGETCARDTIMES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> FUNERALLEAVEDAYS {
-            get {
-                return this.FUNERALLEAVEDAYSField;
-            }
-            set {
-                if ((this.FUNERALLEAVEDAYSField.Equals(value) != true)) {
-                    this.FUNERALLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("FUNERALLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> INJURYLEAVEDAYS {
-            get {
-                return this.INJURYLEAVEDAYSField;
-            }
-            set {
-                if ((this.INJURYLEAVEDAYSField.Equals(value) != true)) {
-                    this.INJURYLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("INJURYLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LATEDAYS {
-            get {
-                return this.LATEDAYSField;
-            }
-            set {
-                if ((this.LATEDAYSField.Equals(value) != true)) {
-                    this.LATEDAYSField = value;
-                    this.RaisePropertyChanged("LATEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LATEMINUTES {
-            get {
-                return this.LATEMINUTESField;
-            }
-            set {
-                if ((this.LATEMINUTESField.Equals(value) != true)) {
-                    this.LATEMINUTESField = value;
-                    this.RaisePropertyChanged("LATEMINUTES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LATETIMES {
-            get {
-                return this.LATETIMESField;
-            }
-            set {
-                if ((this.LATETIMESField.Equals(value) != true)) {
-                    this.LATETIMESField = value;
-                    this.RaisePropertyChanged("LATETIMES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LEAVEEARLYDAYS {
-            get {
-                return this.LEAVEEARLYDAYSField;
-            }
-            set {
-                if ((this.LEAVEEARLYDAYSField.Equals(value) != true)) {
-                    this.LEAVEEARLYDAYSField = value;
-                    this.RaisePropertyChanged("LEAVEEARLYDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LEAVEEARLYTIMES {
-            get {
-                return this.LEAVEEARLYTIMESField;
-            }
-            set {
-                if ((this.LEAVEEARLYTIMESField.Equals(value) != true)) {
-                    this.LEAVEEARLYTIMESField = value;
-                    this.RaisePropertyChanged("LEAVEEARLYTIMES");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LEAVEUSEDDAYS {
-            get {
-                return this.LEAVEUSEDDAYSField;
-            }
-            set {
-                if ((this.LEAVEUSEDDAYSField.Equals(value) != true)) {
-                    this.LEAVEUSEDDAYSField = value;
-                    this.RaisePropertyChanged("LEAVEUSEDDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> MARRYDAYS {
-            get {
-                return this.MARRYDAYSField;
-            }
-            set {
-                if ((this.MARRYDAYSField.Equals(value) != true)) {
-                    this.MARRYDAYSField = value;
-                    this.RaisePropertyChanged("MARRYDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> MATERNITYLEAVEDAYS {
-            get {
-                return this.MATERNITYLEAVEDAYSField;
-            }
-            set {
-                if ((this.MATERNITYLEAVEDAYSField.Equals(value) != true)) {
-                    this.MATERNITYLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("MATERNITYLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MONTHLYBALANCEID {
-            get {
-                return this.MONTHLYBALANCEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MONTHLYBALANCEIDField, value) != true)) {
-                    this.MONTHLYBALANCEIDField = value;
-                    this.RaisePropertyChanged("MONTHLYBALANCEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> NEEDATTENDDAYS {
-            get {
-                return this.NEEDATTENDDAYSField;
-            }
-            set {
-                if ((this.NEEDATTENDDAYSField.Equals(value) != true)) {
-                    this.NEEDATTENDDAYSField = value;
-                    this.RaisePropertyChanged("NEEDATTENDDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> NURSESDAYS {
-            get {
-                return this.NURSESDAYSField;
-            }
-            set {
-                if ((this.NURSESDAYSField.Equals(value) != true)) {
-                    this.NURSESDAYSField = value;
-                    this.RaisePropertyChanged("NURSESDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OTHERLEAVEDAYS {
-            get {
-                return this.OTHERLEAVEDAYSField;
-            }
-            set {
-                if ((this.OTHERLEAVEDAYSField.Equals(value) != true)) {
-                    this.OTHERLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("OTHERLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OUTAPPLYTIME {
-            get {
-                return this.OUTAPPLYTIMEField;
-            }
-            set {
-                if ((this.OUTAPPLYTIMEField.Equals(value) != true)) {
-                    this.OUTAPPLYTIMEField = value;
-                    this.RaisePropertyChanged("OUTAPPLYTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OVERTIMESUMDAYS {
-            get {
-                return this.OVERTIMESUMDAYSField;
-            }
-            set {
-                if ((this.OVERTIMESUMDAYSField.Equals(value) != true)) {
-                    this.OVERTIMESUMDAYSField = value;
-                    this.RaisePropertyChanged("OVERTIMESUMDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OVERTIMESUMHOURS {
-            get {
-                return this.OVERTIMESUMHOURSField;
-            }
-            set {
-                if ((this.OVERTIMESUMHOURSField.Equals(value) != true)) {
-                    this.OVERTIMESUMHOURSField = value;
-                    this.RaisePropertyChanged("OVERTIMESUMHOURS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> OVERTIMETIMES {
-            get {
-                return this.OVERTIMETIMESField;
-            }
-            set {
-                if ((this.OVERTIMETIMESField.Equals(value) != true)) {
-                    this.OVERTIMETIMESField = value;
-                    this.RaisePropertyChanged("OVERTIMETIMES");
+                if ((object.ReferenceEquals(this.MONTHLYBATCHIDField, value) != true)) {
+                    this.MONTHLYBATCHIDField = value;
+                    this.RaisePropertyChanged("MONTHLYBATCHID");
                 }
             }
         }
@@ -761,45 +400,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> PRENATALCARELEAVEDAYS {
-            get {
-                return this.PRENATALCARELEAVEDAYSField;
-            }
-            set {
-                if ((this.PRENATALCARELEAVEDAYSField.Equals(value) != true)) {
-                    this.PRENATALCARELEAVEDAYSField = value;
-                    this.RaisePropertyChanged("PRENATALCARELEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> REALATTENDDAYS {
-            get {
-                return this.REALATTENDDAYSField;
-            }
-            set {
-                if ((this.REALATTENDDAYSField.Equals(value) != true)) {
-                    this.REALATTENDDAYSField = value;
-                    this.RaisePropertyChanged("REALATTENDDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> REALNEEDATTENDDAYS {
-            get {
-                return this.REALNEEDATTENDDAYSField;
-            }
-            set {
-                if ((this.REALNEEDATTENDDAYSField.Equals(value) != true)) {
-                    this.REALNEEDATTENDDAYSField = value;
-                    this.RaisePropertyChanged("REALNEEDATTENDDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string REMARK {
             get {
                 return this.REMARKField;
@@ -813,53 +413,14 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SICKLEAVEDAYS {
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> T_HR_ATTENDMONTHLYBALANCE {
             get {
-                return this.SICKLEAVEDAYSField;
+                return this.T_HR_ATTENDMONTHLYBALANCEField;
             }
             set {
-                if ((this.SICKLEAVEDAYSField.Equals(value) != true)) {
-                    this.SICKLEAVEDAYSField = value;
-                    this.RaisePropertyChanged("SICKLEAVEDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> TRIPDAYS {
-            get {
-                return this.TRIPDAYSField;
-            }
-            set {
-                if ((this.TRIPDAYSField.Equals(value) != true)) {
-                    this.TRIPDAYSField = value;
-                    this.RaisePropertyChanged("TRIPDAYS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE T_HR_ATTENDMONTHLYBATCHBALANCE {
-            get {
-                return this.T_HR_ATTENDMONTHLYBATCHBALANCEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBATCHBALANCEField, value) != true)) {
-                    this.T_HR_ATTENDMONTHLYBATCHBALANCEField = value;
-                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBATCHBALANCE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo T_HR_ATTENDMONTHLYBATCHBALANCEReference {
-            get {
-                return this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField, value) != true)) {
-                    this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBATCHBALANCEReference");
+                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBALANCEField, value) != true)) {
+                    this.T_HR_ATTENDMONTHLYBALANCEField = value;
+                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBALANCE");
                 }
             }
         }
@@ -886,32 +447,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
                     this.UPDATEUSERIDField = value;
                     this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> WORKSERVICEMONTHS {
-            get {
-                return this.WORKSERVICEMONTHSField;
-            }
-            set {
-                if ((this.WORKSERVICEMONTHSField.Equals(value) != true)) {
-                    this.WORKSERVICEMONTHSField = value;
-                    this.RaisePropertyChanged("WORKSERVICEMONTHS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> WORKTIMEPERDAY {
-            get {
-                return this.WORKTIMEPERDAYField;
-            }
-            set {
-                if ((this.WORKTIMEPERDAYField.Equals(value) != true)) {
-                    this.WORKTIMEPERDAYField = value;
-                    this.RaisePropertyChanged("WORKTIMEPERDAY");
                 }
             }
         }
@@ -11524,18 +11059,20 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDMONTHLYBATCHBALANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_ATTENDMONTHLYBATCHBALANCE : SMT.Saas.Tools.AttendanceWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDMONTHLYBALANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    public partial class T_HR_ATTENDMONTHLYBALANCE : SMT.Saas.Tools.AttendanceWS.EntityObject {
+        
+        private System.Nullable<decimal> ABSENTDAYSField;
+        
+        private System.Nullable<decimal> ABSENTMINUTESField;
+        
+        private System.Nullable<decimal> AFFAIRLEAVEDAYSField;
+        
+        private System.Nullable<decimal> ANNUALLEVELDAYSField;
         
         private System.Nullable<System.DateTime> BALANCEDATEField;
         
         private System.Nullable<decimal> BALANCEMONTHField;
-        
-        private string BALANCEOBJECTIDField;
-        
-        private string BALANCEOBJECTNAMEField;
-        
-        private string BALANCEOBJECTTYPEField;
         
         private System.Nullable<decimal> BALANCEYEARField;
         
@@ -11553,7 +11090,51 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string EDITSTATEField;
         
-        private string MONTHLYBATCHIDField;
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private System.Nullable<decimal> EVECTIONTIMEField;
+        
+        private System.Nullable<decimal> FORGETCARDTIMESField;
+        
+        private System.Nullable<decimal> FUNERALLEAVEDAYSField;
+        
+        private System.Nullable<decimal> INJURYLEAVEDAYSField;
+        
+        private System.Nullable<decimal> LATEDAYSField;
+        
+        private System.Nullable<decimal> LATEMINUTESField;
+        
+        private System.Nullable<decimal> LATETIMESField;
+        
+        private System.Nullable<decimal> LEAVEEARLYDAYSField;
+        
+        private System.Nullable<decimal> LEAVEEARLYTIMESField;
+        
+        private System.Nullable<decimal> LEAVEUSEDDAYSField;
+        
+        private System.Nullable<decimal> MARRYDAYSField;
+        
+        private System.Nullable<decimal> MATERNITYLEAVEDAYSField;
+        
+        private string MONTHLYBALANCEIDField;
+        
+        private System.Nullable<decimal> NEEDATTENDDAYSField;
+        
+        private System.Nullable<decimal> NURSESDAYSField;
+        
+        private System.Nullable<decimal> OTHERLEAVEDAYSField;
+        
+        private System.Nullable<decimal> OUTAPPLYTIMEField;
+        
+        private System.Nullable<decimal> OVERTIMESUMDAYSField;
+        
+        private System.Nullable<decimal> OVERTIMESUMHOURSField;
+        
+        private System.Nullable<decimal> OVERTIMETIMESField;
         
         private string OWNERCOMPANYIDField;
         
@@ -11563,13 +11144,81 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string OWNERPOSTIDField;
         
+        private System.Nullable<decimal> PRENATALCARELEAVEDAYSField;
+        
+        private System.Nullable<decimal> REALATTENDDAYSField;
+        
+        private System.Nullable<decimal> REALNEEDATTENDDAYSField;
+        
         private string REMARKField;
         
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> T_HR_ATTENDMONTHLYBALANCEField;
+        private System.Nullable<decimal> SICKLEAVEDAYSField;
+        
+        private System.Nullable<decimal> TRIPDAYSField;
+        
+        private SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE T_HR_ATTENDMONTHLYBATCHBALANCEField;
+        
+        private SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERIDField;
+        
+        private System.Nullable<decimal> WORKSERVICEMONTHSField;
+        
+        private System.Nullable<decimal> WORKTIMEPERDAYField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ABSENTDAYS {
+            get {
+                return this.ABSENTDAYSField;
+            }
+            set {
+                if ((this.ABSENTDAYSField.Equals(value) != true)) {
+                    this.ABSENTDAYSField = value;
+                    this.RaisePropertyChanged("ABSENTDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ABSENTMINUTES {
+            get {
+                return this.ABSENTMINUTESField;
+            }
+            set {
+                if ((this.ABSENTMINUTESField.Equals(value) != true)) {
+                    this.ABSENTMINUTESField = value;
+                    this.RaisePropertyChanged("ABSENTMINUTES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AFFAIRLEAVEDAYS {
+            get {
+                return this.AFFAIRLEAVEDAYSField;
+            }
+            set {
+                if ((this.AFFAIRLEAVEDAYSField.Equals(value) != true)) {
+                    this.AFFAIRLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("AFFAIRLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ANNUALLEVELDAYS {
+            get {
+                return this.ANNUALLEVELDAYSField;
+            }
+            set {
+                if ((this.ANNUALLEVELDAYSField.Equals(value) != true)) {
+                    this.ANNUALLEVELDAYSField = value;
+                    this.RaisePropertyChanged("ANNUALLEVELDAYS");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> BALANCEDATE {
@@ -11593,45 +11242,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((this.BALANCEMONTHField.Equals(value) != true)) {
                     this.BALANCEMONTHField = value;
                     this.RaisePropertyChanged("BALANCEMONTH");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BALANCEOBJECTID {
-            get {
-                return this.BALANCEOBJECTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BALANCEOBJECTIDField, value) != true)) {
-                    this.BALANCEOBJECTIDField = value;
-                    this.RaisePropertyChanged("BALANCEOBJECTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BALANCEOBJECTNAME {
-            get {
-                return this.BALANCEOBJECTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BALANCEOBJECTNAMEField, value) != true)) {
-                    this.BALANCEOBJECTNAMEField = value;
-                    this.RaisePropertyChanged("BALANCEOBJECTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BALANCEOBJECTTYPE {
-            get {
-                return this.BALANCEOBJECTTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BALANCEOBJECTTYPEField, value) != true)) {
-                    this.BALANCEOBJECTTYPEField = value;
-                    this.RaisePropertyChanged("BALANCEOBJECTTYPE");
                 }
             }
         }
@@ -11741,14 +11351,300 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MONTHLYBATCHID {
+        public string EMPLOYEECODE {
             get {
-                return this.MONTHLYBATCHIDField;
+                return this.EMPLOYEECODEField;
             }
             set {
-                if ((object.ReferenceEquals(this.MONTHLYBATCHIDField, value) != true)) {
-                    this.MONTHLYBATCHIDField = value;
-                    this.RaisePropertyChanged("MONTHLYBATCHID");
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> EVECTIONTIME {
+            get {
+                return this.EVECTIONTIMEField;
+            }
+            set {
+                if ((this.EVECTIONTIMEField.Equals(value) != true)) {
+                    this.EVECTIONTIMEField = value;
+                    this.RaisePropertyChanged("EVECTIONTIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> FORGETCARDTIMES {
+            get {
+                return this.FORGETCARDTIMESField;
+            }
+            set {
+                if ((this.FORGETCARDTIMESField.Equals(value) != true)) {
+                    this.FORGETCARDTIMESField = value;
+                    this.RaisePropertyChanged("FORGETCARDTIMES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> FUNERALLEAVEDAYS {
+            get {
+                return this.FUNERALLEAVEDAYSField;
+            }
+            set {
+                if ((this.FUNERALLEAVEDAYSField.Equals(value) != true)) {
+                    this.FUNERALLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("FUNERALLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> INJURYLEAVEDAYS {
+            get {
+                return this.INJURYLEAVEDAYSField;
+            }
+            set {
+                if ((this.INJURYLEAVEDAYSField.Equals(value) != true)) {
+                    this.INJURYLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("INJURYLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LATEDAYS {
+            get {
+                return this.LATEDAYSField;
+            }
+            set {
+                if ((this.LATEDAYSField.Equals(value) != true)) {
+                    this.LATEDAYSField = value;
+                    this.RaisePropertyChanged("LATEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LATEMINUTES {
+            get {
+                return this.LATEMINUTESField;
+            }
+            set {
+                if ((this.LATEMINUTESField.Equals(value) != true)) {
+                    this.LATEMINUTESField = value;
+                    this.RaisePropertyChanged("LATEMINUTES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LATETIMES {
+            get {
+                return this.LATETIMESField;
+            }
+            set {
+                if ((this.LATETIMESField.Equals(value) != true)) {
+                    this.LATETIMESField = value;
+                    this.RaisePropertyChanged("LATETIMES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LEAVEEARLYDAYS {
+            get {
+                return this.LEAVEEARLYDAYSField;
+            }
+            set {
+                if ((this.LEAVEEARLYDAYSField.Equals(value) != true)) {
+                    this.LEAVEEARLYDAYSField = value;
+                    this.RaisePropertyChanged("LEAVEEARLYDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LEAVEEARLYTIMES {
+            get {
+                return this.LEAVEEARLYTIMESField;
+            }
+            set {
+                if ((this.LEAVEEARLYTIMESField.Equals(value) != true)) {
+                    this.LEAVEEARLYTIMESField = value;
+                    this.RaisePropertyChanged("LEAVEEARLYTIMES");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LEAVEUSEDDAYS {
+            get {
+                return this.LEAVEUSEDDAYSField;
+            }
+            set {
+                if ((this.LEAVEUSEDDAYSField.Equals(value) != true)) {
+                    this.LEAVEUSEDDAYSField = value;
+                    this.RaisePropertyChanged("LEAVEUSEDDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> MARRYDAYS {
+            get {
+                return this.MARRYDAYSField;
+            }
+            set {
+                if ((this.MARRYDAYSField.Equals(value) != true)) {
+                    this.MARRYDAYSField = value;
+                    this.RaisePropertyChanged("MARRYDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> MATERNITYLEAVEDAYS {
+            get {
+                return this.MATERNITYLEAVEDAYSField;
+            }
+            set {
+                if ((this.MATERNITYLEAVEDAYSField.Equals(value) != true)) {
+                    this.MATERNITYLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("MATERNITYLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MONTHLYBALANCEID {
+            get {
+                return this.MONTHLYBALANCEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MONTHLYBALANCEIDField, value) != true)) {
+                    this.MONTHLYBALANCEIDField = value;
+                    this.RaisePropertyChanged("MONTHLYBALANCEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> NEEDATTENDDAYS {
+            get {
+                return this.NEEDATTENDDAYSField;
+            }
+            set {
+                if ((this.NEEDATTENDDAYSField.Equals(value) != true)) {
+                    this.NEEDATTENDDAYSField = value;
+                    this.RaisePropertyChanged("NEEDATTENDDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> NURSESDAYS {
+            get {
+                return this.NURSESDAYSField;
+            }
+            set {
+                if ((this.NURSESDAYSField.Equals(value) != true)) {
+                    this.NURSESDAYSField = value;
+                    this.RaisePropertyChanged("NURSESDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OTHERLEAVEDAYS {
+            get {
+                return this.OTHERLEAVEDAYSField;
+            }
+            set {
+                if ((this.OTHERLEAVEDAYSField.Equals(value) != true)) {
+                    this.OTHERLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("OTHERLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OUTAPPLYTIME {
+            get {
+                return this.OUTAPPLYTIMEField;
+            }
+            set {
+                if ((this.OUTAPPLYTIMEField.Equals(value) != true)) {
+                    this.OUTAPPLYTIMEField = value;
+                    this.RaisePropertyChanged("OUTAPPLYTIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OVERTIMESUMDAYS {
+            get {
+                return this.OVERTIMESUMDAYSField;
+            }
+            set {
+                if ((this.OVERTIMESUMDAYSField.Equals(value) != true)) {
+                    this.OVERTIMESUMDAYSField = value;
+                    this.RaisePropertyChanged("OVERTIMESUMDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OVERTIMESUMHOURS {
+            get {
+                return this.OVERTIMESUMHOURSField;
+            }
+            set {
+                if ((this.OVERTIMESUMHOURSField.Equals(value) != true)) {
+                    this.OVERTIMESUMHOURSField = value;
+                    this.RaisePropertyChanged("OVERTIMESUMHOURS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> OVERTIMETIMES {
+            get {
+                return this.OVERTIMETIMESField;
+            }
+            set {
+                if ((this.OVERTIMETIMESField.Equals(value) != true)) {
+                    this.OVERTIMETIMESField = value;
+                    this.RaisePropertyChanged("OVERTIMETIMES");
                 }
             }
         }
@@ -11806,6 +11702,45 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> PRENATALCARELEAVEDAYS {
+            get {
+                return this.PRENATALCARELEAVEDAYSField;
+            }
+            set {
+                if ((this.PRENATALCARELEAVEDAYSField.Equals(value) != true)) {
+                    this.PRENATALCARELEAVEDAYSField = value;
+                    this.RaisePropertyChanged("PRENATALCARELEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> REALATTENDDAYS {
+            get {
+                return this.REALATTENDDAYSField;
+            }
+            set {
+                if ((this.REALATTENDDAYSField.Equals(value) != true)) {
+                    this.REALATTENDDAYSField = value;
+                    this.RaisePropertyChanged("REALATTENDDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> REALNEEDATTENDDAYS {
+            get {
+                return this.REALNEEDATTENDDAYSField;
+            }
+            set {
+                if ((this.REALNEEDATTENDDAYSField.Equals(value) != true)) {
+                    this.REALNEEDATTENDDAYSField = value;
+                    this.RaisePropertyChanged("REALNEEDATTENDDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string REMARK {
             get {
                 return this.REMARKField;
@@ -11819,14 +11754,53 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE> T_HR_ATTENDMONTHLYBALANCE {
+        public System.Nullable<decimal> SICKLEAVEDAYS {
             get {
-                return this.T_HR_ATTENDMONTHLYBALANCEField;
+                return this.SICKLEAVEDAYSField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBALANCEField, value) != true)) {
-                    this.T_HR_ATTENDMONTHLYBALANCEField = value;
-                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBALANCE");
+                if ((this.SICKLEAVEDAYSField.Equals(value) != true)) {
+                    this.SICKLEAVEDAYSField = value;
+                    this.RaisePropertyChanged("SICKLEAVEDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> TRIPDAYS {
+            get {
+                return this.TRIPDAYSField;
+            }
+            set {
+                if ((this.TRIPDAYSField.Equals(value) != true)) {
+                    this.TRIPDAYSField = value;
+                    this.RaisePropertyChanged("TRIPDAYS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE T_HR_ATTENDMONTHLYBATCHBALANCE {
+            get {
+                return this.T_HR_ATTENDMONTHLYBATCHBALANCEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBATCHBALANCEField, value) != true)) {
+                    this.T_HR_ATTENDMONTHLYBATCHBALANCEField = value;
+                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBATCHBALANCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo T_HR_ATTENDMONTHLYBATCHBALANCEReference {
+            get {
+                return this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField, value) != true)) {
+                    this.T_HR_ATTENDMONTHLYBATCHBALANCEReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_ATTENDMONTHLYBATCHBALANCEReference");
                 }
             }
         }
@@ -11853,6 +11827,32 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
                     this.UPDATEUSERIDField = value;
                     this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> WORKSERVICEMONTHS {
+            get {
+                return this.WORKSERVICEMONTHSField;
+            }
+            set {
+                if ((this.WORKSERVICEMONTHSField.Equals(value) != true)) {
+                    this.WORKSERVICEMONTHSField = value;
+                    this.RaisePropertyChanged("WORKSERVICEMONTHS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> WORKTIMEPERDAY {
+            get {
+                return this.WORKTIMEPERDAYField;
+            }
+            set {
+                if ((this.WORKTIMEPERDAYField.Equals(value) != true)) {
+                    this.WORKTIMEPERDAYField = value;
+                    this.RaisePropertyChanged("WORKTIMEPERDAY");
                 }
             }
         }
@@ -11920,6 +11920,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo : SMT.Saas.Tools.AttendanceWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity))]
@@ -11932,6 +11938,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -11942,9 +11950,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -13119,6 +13127,291 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEESIGNINRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    public partial class V_EMPLOYEESIGNINRECORD : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CHECKSTATEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPTNAMEField;
+        
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string REMARKField;
+        
+        private string SIGNINCATEGORYField;
+        
+        private string SIGNINIDField;
+        
+        private System.Nullable<System.DateTime> SIGNINTIMEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPTNAME {
+            get {
+                return this.DEPTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPTNAMEField, value) != true)) {
+                    this.DEPTNAMEField = value;
+                    this.RaisePropertyChanged("DEPTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SIGNINCATEGORY {
+            get {
+                return this.SIGNINCATEGORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SIGNINCATEGORYField, value) != true)) {
+                    this.SIGNINCATEGORYField = value;
+                    this.RaisePropertyChanged("SIGNINCATEGORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SIGNINID {
+            get {
+                return this.SIGNINIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SIGNINIDField, value) != true)) {
+                    this.SIGNINIDField = value;
+                    this.RaisePropertyChanged("SIGNINID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> SIGNINTIME {
+            get {
+                return this.SIGNINTIMEField;
+            }
+            set {
+                if ((this.SIGNINTIMEField.Equals(value) != true)) {
+                    this.SIGNINTIMEField = value;
+                    this.RaisePropertyChanged("SIGNINTIME");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="V_LandStatistic", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     public partial class V_LandStatistic : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -13659,14 +13952,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo : SMT.Saas.Tools.AttendanceWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
@@ -13680,7 +13967,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
     public partial class EntityReference : SMT.Saas.Tools.AttendanceWS.RelatedEnd {
         
         private SMT.Saas.Tools.AttendanceWS.EntityKey EntityKeyField;
@@ -13703,7 +13990,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
@@ -13717,7 +14004,7 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
     public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -13863,6 +14150,11 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="AttendanceWS.AttendanceService")]
     public interface AttendanceService {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/ModifyAttendMonthlyBalance", ReplyAction="urn:AttendanceService/ModifyAttendMonthlyBalanceResponse")]
+        System.IAsyncResult BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState);
+        
+        string EndModifyAttendMonthlyBalance(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/RemoveAttendMonthlyBalance", ReplyAction="urn:AttendanceService/RemoveAttendMonthlyBalanceResponse")]
         System.IAsyncResult BeginRemoveAttendMonthlyBalance(string strMonthlyBalanceId, System.AsyncCallback callback, object asyncState);
         
@@ -13990,6 +14282,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14001,9 +14295,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -14370,6 +14664,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14381,9 +14677,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -14540,6 +14836,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14551,9 +14849,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -14650,6 +14948,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14661,9 +14961,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -14760,6 +15060,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14771,9 +15073,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -14905,6 +15207,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -14916,9 +15220,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15013,6 +15317,118 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         void EndEmployeeSigninRecordUpdate(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/EmployeeSignInRecordPagingByView", ReplyAction="urn:AttendanceService/EmployeeSignInRecordPagingByViewResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.AbnormalAttendanceeEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandDetail))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMACHINESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_LEAVETYPESET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OVERTIMEREWARD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_OUTPLANDAYS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_VACATIONSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONREPORT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYCOUNT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEVELDAYDETAILS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECLOCKINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SCHEDULINGTEMPLATEMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_SHIFTDEFINE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEEOVERTIMEDETAILRD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_VACATIONSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.UploadFileModel))]
+        System.IAsyncResult BeginEmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> EndEmployeeSignInRecordPagingByView(ref int pageCount, System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/GetEmployeeSigninRecordByID", ReplyAction="urn:AttendanceService/GetEmployeeSigninRecordByIDResponse")]
         System.IAsyncResult BeginGetEmployeeSigninRecordByID(string strid, System.AsyncCallback callback, object asyncState);
         
@@ -15065,6 +15481,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15076,9 +15494,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15253,11 +15671,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         string EndAddAttendMonthlyBalance(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/ModifyAttendMonthlyBalance", ReplyAction="urn:AttendanceService/ModifyAttendMonthlyBalanceResponse")]
-        System.IAsyncResult BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState);
-        
-        string EndModifyAttendMonthlyBalance(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/DoWork", ReplyAction="urn:AttendanceService/DoWorkResponse")]
         System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState);
         
@@ -15281,6 +15694,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15292,9 +15707,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15391,6 +15806,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15402,9 +15819,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15501,6 +15918,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15512,9 +15931,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15611,6 +16030,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15622,9 +16043,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -15951,6 +16372,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EmpLeaveRdInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandStatistic>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.V_LandStatistic))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_LandDetail>))]
@@ -15962,9 +16385,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBATCHBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDYEARLYBALANCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEECANCELLEAVE>))]
@@ -16212,6 +16635,25 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface AttendanceServiceChannel : SMT.Saas.Tools.AttendanceWS.AttendanceService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ModifyAttendMonthlyBalanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ModifyAttendMonthlyBalanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17937,6 +18379,32 @@ namespace SMT.Saas.Tools.AttendanceWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeSignInRecordPagingByViewCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeSignInRecordPagingByViewCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GetEmployeeSigninRecordByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -18435,25 +18903,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         private object[] results;
         
         public AddAttendMonthlyBalanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ModifyAttendMonthlyBalanceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ModifyAttendMonthlyBalanceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -20145,6 +20594,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class AttendanceServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.AttendanceWS.AttendanceService>, SMT.Saas.Tools.AttendanceWS.AttendanceService {
         
+        private BeginOperationDelegate onBeginModifyAttendMonthlyBalanceDelegate;
+        
+        private EndOperationDelegate onEndModifyAttendMonthlyBalanceDelegate;
+        
+        private System.Threading.SendOrPostCallback onModifyAttendMonthlyBalanceCompletedDelegate;
+        
         private BeginOperationDelegate onBeginRemoveAttendMonthlyBalanceDelegate;
         
         private EndOperationDelegate onEndRemoveAttendMonthlyBalanceDelegate;
@@ -20769,6 +21224,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private System.Threading.SendOrPostCallback onEmployeeSigninRecordUpdateCompletedDelegate;
         
+        private BeginOperationDelegate onBeginEmployeeSignInRecordPagingByViewDelegate;
+        
+        private EndOperationDelegate onEndEmployeeSignInRecordPagingByViewDelegate;
+        
+        private System.Threading.SendOrPostCallback onEmployeeSignInRecordPagingByViewCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetEmployeeSigninRecordByIDDelegate;
         
         private EndOperationDelegate onEndGetEmployeeSigninRecordByIDDelegate;
@@ -20930,12 +21391,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         private EndOperationDelegate onEndAddAttendMonthlyBalanceDelegate;
         
         private System.Threading.SendOrPostCallback onAddAttendMonthlyBalanceCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginModifyAttendMonthlyBalanceDelegate;
-        
-        private EndOperationDelegate onEndModifyAttendMonthlyBalanceDelegate;
-        
-        private System.Threading.SendOrPostCallback onModifyAttendMonthlyBalanceCompletedDelegate;
         
         private BeginOperationDelegate onBeginDoWorkDelegate;
         
@@ -21499,6 +21954,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
             }
         }
         
+        public event System.EventHandler<ModifyAttendMonthlyBalanceCompletedEventArgs> ModifyAttendMonthlyBalanceCompleted;
+        
         public event System.EventHandler<RemoveAttendMonthlyBalanceCompletedEventArgs> RemoveAttendMonthlyBalanceCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CalculateEmployeeAttendanceMonthlyCompleted;
@@ -21707,6 +22164,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeSigninRecordUpdateCompleted;
         
+        public event System.EventHandler<EmployeeSignInRecordPagingByViewCompletedEventArgs> EmployeeSignInRecordPagingByViewCompleted;
+        
         public event System.EventHandler<GetEmployeeSigninRecordByIDCompletedEventArgs> GetEmployeeSigninRecordByIDCompleted;
         
         public event System.EventHandler<EmployeeSigninRecordDeleteCompletedEventArgs> EmployeeSigninRecordDeleteCompleted;
@@ -21760,8 +22219,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
         public event System.EventHandler<ImportAttendMonthlyBalanceForShowCompletedEventArgs> ImportAttendMonthlyBalanceForShowCompleted;
         
         public event System.EventHandler<AddAttendMonthlyBalanceCompletedEventArgs> AddAttendMonthlyBalanceCompleted;
-        
-        public event System.EventHandler<ModifyAttendMonthlyBalanceCompletedEventArgs> ModifyAttendMonthlyBalanceCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DoWorkCompleted;
         
@@ -21936,6 +22393,52 @@ namespace SMT.Saas.Tools.AttendanceWS {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginModifyAttendMonthlyBalance(entTemp, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.AttendanceWS.AttendanceService.EndModifyAttendMonthlyBalance(System.IAsyncResult result) {
+            return base.Channel.EndModifyAttendMonthlyBalance(result);
+        }
+        
+        private System.IAsyncResult OnBeginModifyAttendMonthlyBalance(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp = ((SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE)(inValues[0]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginModifyAttendMonthlyBalance(entTemp, callback, asyncState);
+        }
+        
+        private object[] OnEndModifyAttendMonthlyBalance(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndModifyAttendMonthlyBalance(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnModifyAttendMonthlyBalanceCompleted(object state) {
+            if ((this.ModifyAttendMonthlyBalanceCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ModifyAttendMonthlyBalanceCompleted(this, new ModifyAttendMonthlyBalanceCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ModifyAttendMonthlyBalanceAsync(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp) {
+            this.ModifyAttendMonthlyBalanceAsync(entTemp, null);
+        }
+        
+        public void ModifyAttendMonthlyBalanceAsync(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, object userState) {
+            if ((this.onBeginModifyAttendMonthlyBalanceDelegate == null)) {
+                this.onBeginModifyAttendMonthlyBalanceDelegate = new BeginOperationDelegate(this.OnBeginModifyAttendMonthlyBalance);
+            }
+            if ((this.onEndModifyAttendMonthlyBalanceDelegate == null)) {
+                this.onEndModifyAttendMonthlyBalanceDelegate = new EndOperationDelegate(this.OnEndModifyAttendMonthlyBalance);
+            }
+            if ((this.onModifyAttendMonthlyBalanceCompletedDelegate == null)) {
+                this.onModifyAttendMonthlyBalanceCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnModifyAttendMonthlyBalanceCompleted);
+            }
+            base.InvokeAsync(this.onBeginModifyAttendMonthlyBalanceDelegate, new object[] {
+                        entTemp}, this.onEndModifyAttendMonthlyBalanceDelegate, this.onModifyAttendMonthlyBalanceCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginRemoveAttendMonthlyBalance(string strMonthlyBalanceId, System.AsyncCallback callback, object asyncState) {
@@ -27134,6 +27637,70 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginEmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeSignInRecordPagingByView(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeSignInRecordPagingByView(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndEmployeeSignInRecordPagingByView(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginEmployeeSignInRecordPagingByView(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string strCheckState = ((string)(inValues[6]));
+            string strOwnerID = ((string)(inValues[7]));
+            string recorderDate = ((string)(inValues[8]));
+            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginEmployeeSignInRecordPagingByView(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate, callback, asyncState);
+        }
+        
+        private object[] OnEndEmployeeSignInRecordPagingByView(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeSignInRecordPagingByView(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnEmployeeSignInRecordPagingByViewCompleted(object state) {
+            if ((this.EmployeeSignInRecordPagingByViewCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.EmployeeSignInRecordPagingByViewCompleted(this, new EmployeeSignInRecordPagingByViewCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void EmployeeSignInRecordPagingByViewAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string recorderDate) {
+            this.EmployeeSignInRecordPagingByViewAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, strCheckState, strOwnerID, recorderDate, null);
+        }
+        
+        public void EmployeeSignInRecordPagingByViewAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string strCheckState, string strOwnerID, string recorderDate, object userState) {
+            if ((this.onBeginEmployeeSignInRecordPagingByViewDelegate == null)) {
+                this.onBeginEmployeeSignInRecordPagingByViewDelegate = new BeginOperationDelegate(this.OnBeginEmployeeSignInRecordPagingByView);
+            }
+            if ((this.onEndEmployeeSignInRecordPagingByViewDelegate == null)) {
+                this.onEndEmployeeSignInRecordPagingByViewDelegate = new EndOperationDelegate(this.OnEndEmployeeSignInRecordPagingByView);
+            }
+            if ((this.onEmployeeSignInRecordPagingByViewCompletedDelegate == null)) {
+                this.onEmployeeSignInRecordPagingByViewCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeSignInRecordPagingByViewCompleted);
+            }
+            base.InvokeAsync(this.onBeginEmployeeSignInRecordPagingByViewDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        strCheckState,
+                        strOwnerID,
+                        recorderDate}, this.onEndEmployeeSignInRecordPagingByViewDelegate, this.onEmployeeSignInRecordPagingByViewCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginGetEmployeeSigninRecordByID(string strid, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetEmployeeSigninRecordByID(strid, callback, asyncState);
         }
@@ -28552,52 +29119,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
             }
             base.InvokeAsync(this.onBeginAddAttendMonthlyBalanceDelegate, new object[] {
                         entTemp}, this.onEndAddAttendMonthlyBalanceDelegate, this.onAddAttendMonthlyBalanceCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.AttendanceWS.AttendanceService.BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginModifyAttendMonthlyBalance(entTemp, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.AttendanceWS.AttendanceService.EndModifyAttendMonthlyBalance(System.IAsyncResult result) {
-            return base.Channel.EndModifyAttendMonthlyBalance(result);
-        }
-        
-        private System.IAsyncResult OnBeginModifyAttendMonthlyBalance(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp = ((SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE)(inValues[0]));
-            return ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).BeginModifyAttendMonthlyBalance(entTemp, callback, asyncState);
-        }
-        
-        private object[] OnEndModifyAttendMonthlyBalance(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndModifyAttendMonthlyBalance(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnModifyAttendMonthlyBalanceCompleted(object state) {
-            if ((this.ModifyAttendMonthlyBalanceCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ModifyAttendMonthlyBalanceCompleted(this, new ModifyAttendMonthlyBalanceCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ModifyAttendMonthlyBalanceAsync(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp) {
-            this.ModifyAttendMonthlyBalanceAsync(entTemp, null);
-        }
-        
-        public void ModifyAttendMonthlyBalanceAsync(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, object userState) {
-            if ((this.onBeginModifyAttendMonthlyBalanceDelegate == null)) {
-                this.onBeginModifyAttendMonthlyBalanceDelegate = new BeginOperationDelegate(this.OnBeginModifyAttendMonthlyBalance);
-            }
-            if ((this.onEndModifyAttendMonthlyBalanceDelegate == null)) {
-                this.onEndModifyAttendMonthlyBalanceDelegate = new EndOperationDelegate(this.OnEndModifyAttendMonthlyBalance);
-            }
-            if ((this.onModifyAttendMonthlyBalanceCompletedDelegate == null)) {
-                this.onModifyAttendMonthlyBalanceCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnModifyAttendMonthlyBalanceCompleted);
-            }
-            base.InvokeAsync(this.onBeginModifyAttendMonthlyBalanceDelegate, new object[] {
-                        entTemp}, this.onEndModifyAttendMonthlyBalanceDelegate, this.onModifyAttendMonthlyBalanceCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -32876,6 +33397,19 @@ namespace SMT.Saas.Tools.AttendanceWS {
                     base(client) {
             }
             
+            public System.IAsyncResult BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entTemp;
+                System.IAsyncResult _result = base.BeginInvoke("ModifyAttendMonthlyBalance", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndModifyAttendMonthlyBalance(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("ModifyAttendMonthlyBalance", _args, result)));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginRemoveAttendMonthlyBalance(string strMonthlyBalanceId, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = strMonthlyBalanceId;
@@ -34482,6 +35016,30 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 base.EndInvoke("EmployeeSigninRecordUpdate", _args, result);
             }
             
+            public System.IAsyncResult BeginEmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[9];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = strCheckState;
+                _args[7] = strOwnerID;
+                _args[8] = recorderDate;
+                System.IAsyncResult _result = base.BeginInvoke("EmployeeSignInRecordPagingByView", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> EndEmployeeSignInRecordPagingByView(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD>)(base.EndInvoke("EmployeeSignInRecordPagingByView", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginGetEmployeeSigninRecordByID(string strid, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = strid;
@@ -34937,19 +35495,6 @@ namespace SMT.Saas.Tools.AttendanceWS {
             public string EndAddAttendMonthlyBalance(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 string _result = ((string)(base.EndInvoke("AddAttendMonthlyBalance", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginModifyAttendMonthlyBalance(SMT.Saas.Tools.AttendanceWS.T_HR_ATTENDMONTHLYBALANCE entTemp, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = entTemp;
-                System.IAsyncResult _result = base.BeginInvoke("ModifyAttendMonthlyBalance", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndModifyAttendMonthlyBalance(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("ModifyAttendMonthlyBalance", _args, result)));
                 return _result;
             }
             

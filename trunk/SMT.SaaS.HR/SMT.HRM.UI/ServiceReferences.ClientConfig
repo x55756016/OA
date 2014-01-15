@@ -92,9 +92,16 @@
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
+      <binding name="CustomBinding_IUploadService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
       </customBinding>
     </bindings>
     <client>
+      <endpoint address="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
       <!--<endpoint address="http://localhost:12168/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />-->

@@ -331,6 +331,9 @@
     <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_EMPLOYEELEAVERECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_EMPLOYEESIGNINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\AttendanceWS\SMT.Saas.Tools.AttendanceWS.V_LandDetail.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

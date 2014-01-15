@@ -2609,6 +2609,32 @@ namespace SMT.HRM.Services
                 bll.EmployeeSigninRecordUpdate(entity, entityList);
             }
         }
+
+        /// <summary>
+        /// 用于实体Grid中显示数据的分页查询
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <returns>查询结果集</returns>
+        [OperationContract]
+        public List<V_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+            using (EmployeeSignInRecordBLL bll = new EmployeeSignInRecordBLL())
+            {
+                var ents = bll.EmployeeSignInRecordPagingByView(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
+
+                if (ents == null)
+                {
+                    return null;
+                }
+
+                return ents.ToList();
+            }
+        }
         /// <summary>
         /// 根据ID获取签卡记录信息
         /// </summary>

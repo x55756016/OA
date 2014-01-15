@@ -1,46 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-  <xs:complexType name="T_HR_ATTENDMONTHLYBATCHBALANCE">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BALANCEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="BALANCEMONTH" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="BALANCEOBJECTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="BALANCEOBJECTNAME" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="BALANCEOBJECTTYPE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="BALANCEYEAR" nillable="true" type="xs:decimal" />
-          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="MONTHLYBATCHID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
-          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="T_HR_ATTENDMONTHLYBATCHBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBATCHBALANCE" />
-  <xs:complexType name="ArrayOfT_HR_ATTENDMONTHLYBALANCE">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBALANCE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfT_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
   <xs:complexType name="T_HR_ATTENDMONTHLYBALANCE">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ABSENTDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="ABSENTMINUTES" nillable="true" type="xs:decimal" />
@@ -90,7 +53,7 @@
           <xs:element minOccurs="0" name="SICKLEAVEDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="TRIPDAYS" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBATCHBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBATCHBALANCE" />
-          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBATCHBALANCEReference" nillable="true" type="q2:EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBATCHBALANCEReference" nillable="true" type="q1:EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="WORKSERVICEMONTHS" nillable="true" type="xs:decimal" />
@@ -100,6 +63,43 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBALANCE" />
+  <xs:complexType name="T_HR_ATTENDMONTHLYBATCHBALANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BALANCEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BALANCEMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MONTHLYBATCHID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDMONTHLYBATCHBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDMONTHLYBALANCE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBALANCE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
   <xs:complexType name="T_HR_ATTENDYEARLYBALANCE">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">

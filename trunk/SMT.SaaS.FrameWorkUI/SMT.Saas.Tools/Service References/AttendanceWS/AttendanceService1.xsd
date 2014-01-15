@@ -97,6 +97,35 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_EMPLOYEELEAVERECORD" nillable="true" type="tns:V_EMPLOYEELEAVERECORD" />
+  <xs:complexType name="ArrayOfV_EMPLOYEESIGNINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEESIGNINRECORD" nillable="true" type="tns:V_EMPLOYEESIGNINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_EMPLOYEESIGNINRECORD" nillable="true" type="tns:ArrayOfV_EMPLOYEESIGNINRECORD" />
+  <xs:complexType name="V_EMPLOYEESIGNINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SIGNINCATEGORY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SIGNINID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SIGNINTIME" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEESIGNINRECORD" nillable="true" type="tns:V_EMPLOYEESIGNINRECORD" />
   <xs:complexType name="ArrayOfV_LandStatistic">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_LandStatistic" nillable="true" type="tns:V_LandStatistic" />
