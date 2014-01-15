@@ -65,7 +65,7 @@ namespace SMT.HRM.BLL
                        select d;
 
             return ents.Where(s => s.T_HR_EMPLOYEESIGNINRECORD.SIGNINID == signinID).OrderBy("ABNORMALDATE");
-        }        
+        }
 
         /// <summary>
         /// 根据条件，获取员工异常记录信息
@@ -395,7 +395,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                EmployeeSignInRecordBLL bll=new EmployeeSignInRecordBLL();
+                EmployeeSignInRecordBLL bll = new EmployeeSignInRecordBLL();
                 T_HR_EMPLOYEESIGNINRECORD record = bll.GetEmployeeSigninRecordByID(signinID);
                 string empName = string.Empty;
                 if (record != null)
@@ -405,7 +405,7 @@ namespace SMT.HRM.BLL
                 var ent = this.GetEmployeeSignInDetailBySigninID(signinID);
                 byte[] result;
                 DataTable dt = TableToExportInit();
-                if (ent!=null && ent.Any())
+                if (ent != null && ent.Any())
                 {
                     DataTable dttoExport = GetDataConversion(dt, ent);
                     result = Utility.OutFileStream(empName + Utility.GetResourceStr(" 异常签卡明细"), dttoExport);
@@ -422,6 +422,215 @@ namespace SMT.HRM.BLL
                 return null;
             }
         }
+        #region 按条件查询 导出员工签卡明细
+        /// <summary>
+        /// 按条件查询 导出员工签卡明细
+        /// </summary>
+        /// <param name="signinID">签卡单ID</param>
+        /// <returns></returns>
+        public byte[] ExportEmployeeAllSignIn(string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+            using (EmployeeSignInRecordBLL bll = new EmployeeSignInRecordBLL())
+            {
+                var ents = bll.EmployeeSignInRecordPagingIncludeDetail(sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
+                if (ents == null)
+                {
+                    return null;
+                }
+                if (ents != null && ents.Count() > 0)
+                {
+                    DataTable dt = TableToExportInit();
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(GetHeader().ToString());
+                    sb.Append("<body>\n\r");
+                    foreach (var ent in ents)
+                    {
+                        DataTable dttoExport = GetDataConversion(dt, ent.T_HR_EMPLOYEESIGNINDETAIL);
+                        sb.Append(GetBody(ent.EMPLOYEENAME, dt).ToString());
+                        sb.Append("<br>");
+                    }
+                    sb.Append("</body></html>");
+                    byte[] by = Encoding.UTF8.GetBytes(sb.ToString());
+                    return by;
+
+                }
+
+
+            }
+            return null;
+        }
+        /// <summary>
+        /// 获取EXCEL头文件
+        /// </summary>
+        /// <returns></returns>
+        public  StringBuilder GetHeader()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<html xmlns:o=\"urn:schemas-microsoft-com:office:office\" xmlns:x=\"urn:schemas-microsoft-com:office:excel\" xmlns=\"http://www.w3.org/TR/REC-html40\">\n\r");
+            sb.Append("<head>\n\r");
+            sb.Append("<meta http-equiv=Content-Type content=\"text/html; charset=utf-8\">\n\r");
+            sb.Append("<meta name=ProgId content=Excel.Sheet>\n\r");
+            sb.Append("<meta name=Generator content=\"Microsoft Excel 11\">\n\r");
+
+            sb.Append(" <xml>\n\r");
+            sb.Append("<x:ExcelWorkbook>\n\r");
+            sb.Append("<x:ExcelWorksheets>\n\r");
+            sb.Append("<x:ExcelWorksheet>\n\r");
+            sb.Append("<<x:Name>Sheet1</x:Name>\n\r");
+            sb.Append("<x:WorksheetOptions>\n\r");
+            sb.Append("<x:Print>\n\r");
+            sb.Append("</x:Print>\n\r");
+            sb.Append("</x:WorksheetOptions>\n\r");
+            sb.Append("</x:ExcelWorksheet>\n\r");
+            sb.Append("</x:ExcelWorksheets>\n\r");
+            sb.Append("</x:ExcelWorkbook>\n\r");
+            sb.Append(" </xml>\n\r");
+            sb.Append("<style>\n\r");
+            sb.Append("td {font-size:12px;}\n\r");
+            sb.Append(".title {font-size:14px; font-weight:bold;height:30px;}\n\r");
+            sb.Append(".thead{font-weight:bold;}\n\r");
+            sb.Append(".style0{mso-number-format:General;text-align:general;vertical-align:middle;white-space:normal;" +
+                              "mso-rotate:0;mso-background-source:auto;mso-pattern:auto;color:windowtext;" +
+                              "font-weight:400;font-style:normal;text-decoration:none;font-family:宋体;" +
+                              "mso-generic-font-family:auto;mso-font-charset:134;border:none;" +
+                              "mso-protection:locked visible;mso-style-name:常规;mso-style-id:0;" +
+                              "font-size:9.0pt;border:.5pt solid black;}\n\r");
+            sb.Append(".x1281{mso-style-parent:style0;mso-number-format:\"\\@\";border:.5pt solid black;font-weight:bold;}\n\r");
+            sb.Append(".x1282{mso-style-parent:style0;mso-number-format:\"\\@\";border:.5pt solid black;}\n\r");
+            sb.Append(".x0{mso-style-parent:style0;mso-number-format:\"0_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append(".x1{mso-style-parent:style0;mso-number-format:\"0\\.0_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append(".x2{mso-style-parent:style0;mso-number-format:\"0\\.00_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append(".x3{mso-style-parent:style0;mso-number-format:\"0\\.000_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append(".x4{mso-style-parent:style0;mso-number-format:\"0\\.0000_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append(".x5{mso-style-parent:style0;mso-number-format:\"0\\.00000_ \";text-align:right;border:.5pt solid black;}\n\r");
+            sb.Append("</style>\n\r");
+            sb.Append("</head>\n\r");
+            return sb;
+        }
+        /// <summary>
+        /// 获取EXCEL内容
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public  StringBuilder GetBody(string title, DataTable dt)
+        {
+            StringBuilder s = new StringBuilder();
+            //s.Append("<body>\n\r");
+            s.Append("<table ID=\"Table_"+Guid.NewGuid().ToString()+"\" border=1 CELLSPACING=1 CELLPADDING=3 width=100% align=center>\n\r");
+            s.Append("<tr>");
+            int cols = dt.Columns.Count;
+            if (cols > 12) cols = 12;
+            s.Append("<td colspan=\"" + cols + "\" align=center class=\"title\">" + title + "</td>");
+            s.Append("</tr>\n\r");
+            s.Append("</table>\n\r");
+            s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
+            s.Append("<tr>");
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                s.Append("<td class='x1281'>" + dt.Columns[i].Caption.ToString().Replace("*" + i, "") + "</td>");
+            }
+            s.Append("</tr>");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                s.Append("<tr>");
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    s.Append("<td class='" + GetCss(dt.Rows[i][j].ToString(), dt.Columns[j].DataType.Name) + "'>" + dt.Rows[i][j].ToString() + "</td>");
+                }
+                s.Append("</tr>");
+            }
+            s.Append("</table>");
+            //s.Append("</body></html>");
+            return s;
+        }
+        /// <summary>
+        /// 获取单元格样式
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="typename"></param>
+        /// <returns></returns>
+        public  string GetCss(string str, string typename)
+        {
+            string tempStr = "x1282";
+            if (!str.Equals("") && ("Int32,Decimal,Double".IndexOf(typename) >= 0))
+            {
+
+                int m = 0;
+                if (str.LastIndexOf(".") >= 0)
+                    m = str.Length - str.LastIndexOf('.') - 1;
+                if (m >= 0) tempStr = "x" + m;
+            }
+            return tempStr;
+        }
+        /// <summary>
+        /// 数据组装
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="entSignIn"></param>
+        /// <returns></returns>
+        private DataTable GetDataConversion(DataTable dt, EntityCollection<T_HR_EMPLOYEESIGNINDETAIL> entSignIn)
+        {
+            List<T_HR_EMPLOYEESIGNINDETAIL> list = new List<T_HR_EMPLOYEESIGNINDETAIL>();
+            if (entSignIn != null && entSignIn.Count() > 0)
+            {
+                list = entSignIn.OrderBy(c => c.ABNORMALDATE).ToList();
+            }
+            dt.Rows.Clear();
+            foreach (var item in list)
+            {
+                try
+                {
+                    var dic = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
+                    // nationDict = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == nationValue).FirstOrDefault();
+                    DataRow row = dt.NewRow();
+                    #region 每行数据
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        switch (i)
+                        {
+                            case 0: row[i] = item.ABNORMALDATE.Value.ToString("yyyy-MM-dd"); break;//异常日期
+                            case 1:
+                                decimal? abCategory = Convert.ToDecimal(item.ABNORMCATEGORY);
+                                var dicAbCategory = dic.Where(s => s.DICTIONCATEGORY == "ABNORMCATEGORY" && s.DICTIONARYVALUE == abCategory).FirstOrDefault();
+                                if (dicAbCategory != null)
+                                {
+                                    row[i] = dicAbCategory.DICTIONARYNAME; ;//异常类型
+                                }
+                                break;
+                            case 2:
+                                decimal? abOd = Convert.ToDecimal(item.ATTENDPERIOD);
+                                var dicAbOd = dic.Where(s => s.DICTIONCATEGORY == "ATTENDPERIOD" && s.DICTIONARYVALUE == abOd).FirstOrDefault();
+                                if (dicAbOd != null)
+                                {
+                                    row[i] = dicAbOd.DICTIONARYNAME;//异常时间段
+                                }
+                                break;
+                            case 3: row[i] = item.ABNORMALTIME; break;//异常时长（分钟）
+                            case 4:
+                                decimal? reCategory = Convert.ToDecimal(item.REASONCATEGORY);
+                                var dicReCategory = dic.Where(s => s.DICTIONCATEGORY == "REASONCATEGORY" && s.DICTIONARYVALUE == reCategory).FirstOrDefault();
+                                if (dicReCategory != null)
+                                {
+                                    row[i] = dicReCategory.DICTIONARYNAME; ;//异常原因类型
+                                }
+                                break;
+                            case 5: row[i] = item.DETAILREASON; break;//异常原因
+                        }
+                    }
+                    dt.Rows.Add(row);
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    SMT.Foundation.Log.Tracer.Debug("ExportEmployeeSignIn导出员工签卡信息组装DataTable时出错:" + ex.Message);
+                    return null;
+                }
+
+            }
+            return dt;
+        }
+
+        #endregion
 
         /// <summary>
         /// 数据组装
@@ -526,8 +735,8 @@ namespace SMT.HRM.BLL
             #endregion
             return dt;
         }
-        #endregion       
-    
-        
+        #endregion
+
+
     }
 }

@@ -128,6 +128,7 @@
     <Compile Include="V_EMPLOYEEPOSTFORFB.cs" />
     <Compile Include="V_EMPLOYEESALARYRECORD.cs" />
     <Compile Include="V_EMPLOYEESALARYRECORDITEM.cs" />
+    <Compile Include="V_EMPLOYEESIGNINRECORD.cs" />
     <Compile Include="V_EMPLOYEESTATICINFO.cs" />
     <Compile Include="V_EmployeeTructReports.cs" />
     <Compile Include="V_EMPLOYEEVIEW.cs" />

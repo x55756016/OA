@@ -4,6 +4,15 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RemoveAttendMonthlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendMonthlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CalculateEmployeeAttendanceMonthly">
       <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthly" style="document" />
       <wsdl:input>
@@ -1003,6 +1012,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeAllSignIn">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeAllSignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddEmployeesignindetail">
       <soap:operation soapAction="urn:AttendanceService/AddEmployeesignindetail" style="document" />
       <wsdl:input>
@@ -1167,15 +1185,6 @@
     </wsdl:operation>
     <wsdl:operation name="ModifyAttendMonthlyBalance">
       <soap:operation soapAction="urn:AttendanceService/ModifyAttendMonthlyBalance" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveAttendMonthlyBalance">
-      <soap:operation soapAction="urn:AttendanceService/RemoveAttendMonthlyBalance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

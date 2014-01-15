@@ -2753,6 +2753,20 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
+        /// 导出查询条件内所有员工签卡明细
+        /// </summary>
+        /// <param name="signinID">签卡单ID</param>
+        /// <returns></returns>
+        [OperationContract]
+        public byte[] ExportEmployeeAllSignIn(string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+            using (EmployeeSignInDetailBLL bll = new EmployeeSignInDetailBLL())
+            {
+                return bll.ExportEmployeeAllSignIn(sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, recorderDate);
+            }
+        }
+
+        /// <summary>
         /// 新增员工异常记录信息
         /// </summary>
         /// <param name="entTemp"></param>

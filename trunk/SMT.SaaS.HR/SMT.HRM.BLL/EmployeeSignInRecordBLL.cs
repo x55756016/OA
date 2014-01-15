@@ -9,6 +9,7 @@ using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Linq.Dynamic;
 using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
+using SMT.HRM.CustomModel;
 
 namespace SMT.HRM.BLL
 {
@@ -38,7 +39,7 @@ namespace SMT.HRM.BLL
         /// <param name="recorderDate">浏览时间</param>
         /// <returns>查询结果集</returns>
         public IQueryable<T_HR_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPaging(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
-        {           
+        {
 
             if (strCheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())
             {
@@ -92,6 +93,173 @@ namespace SMT.HRM.BLL
 
             return ents;
         }
+
+        /// <summary>
+        /// 用于实体Grid中显示数据的分页查询,获取所有的公司信息
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>        
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">登录的员工ID</param>
+        /// <param name="recorderDate">浏览时间</param>
+        /// <returns>查询结果集</returns>
+        public IQueryable<T_HR_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPagingIncludeDetail(string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+
+            if (strCheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())
+            {
+                if (strCheckState == Convert.ToInt32(CheckStates.All).ToString())
+                {
+                    strCheckState = string.Empty;
+                }
+
+                SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_EMPLOYEESIGNINRECORD");
+            }
+            else
+            {
+                string strCheckfilter = string.Copy(filterString);
+                SetFilterWithflow("SIGNINID", "T_HR_EMPLOYEESIGNINRECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
+                if (string.Compare(strCheckfilter, filterString) == 0)
+                {
+                    return null;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(strCheckState))
+            {
+                int iIndex = 0;
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    filterString += " AND";
+                }
+
+                if (paras.Count() > 0)
+                {
+                    iIndex = paras.Count();
+                }
+
+                filterString += " CHECKSTATE == @" + iIndex.ToString();
+                paras.Add(strCheckState);
+            }
+
+            IQueryable<T_HR_EMPLOYEESIGNINRECORD> ents = dal.GetObjects().Include("T_HR_EMPLOYEESIGNINDETAIL") ;
+            if (!string.IsNullOrEmpty(filterString))
+            {
+                ents = ents.Where(filterString, paras.ToArray());
+            }
+            if (!string.IsNullOrEmpty(recorderDate))
+            {
+                DateTime tmpDate = Convert.ToDateTime(recorderDate);
+                ents = ents.Where(p => p.SIGNINTIME.Value.Year == tmpDate.Year && p.SIGNINTIME.Value.Month == tmpDate.Month);
+            }
+            ents = ents.OrderBy(sort);
+
+            //ents = Utility.Pager<T_HR_EMPLOYEESIGNINRECORD>(ents, pageIndex, pageSize, ref pageCount);
+
+            return ents;
+        }
+       
+        
+        
+        /// <summary>
+        /// 用于实体Grid中显示数据的分页查询,获取所有的公司信息
+        /// (视图V_EMPLOYEESIGNINRECORD 带有部门名称)
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>        
+        /// <param name="strCheckState">审核状态</param>
+        /// <param name="strOwnerID">登录的员工ID</param>
+        /// <param name="recorderDate">浏览时间</param>
+        /// <returns>查询结果集</returns>
+        public IQueryable<V_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+
+            if (strCheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())
+            {
+                if (strCheckState == Convert.ToInt32(CheckStates.All).ToString())
+                {
+                    strCheckState = string.Empty;
+                }
+
+                SetOrganizationFilter(ref filterString, ref paras, strOwnerID, "T_HR_EMPLOYEESIGNINRECORD");
+            }
+            else
+            {
+                string strCheckfilter = string.Copy(filterString);
+                SetFilterWithflow("SIGNINID", "T_HR_EMPLOYEESIGNINRECORD", strOwnerID, ref strCheckState, ref filterString, ref paras);
+                if (string.Compare(strCheckfilter, filterString) == 0)
+                {
+                    return null;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(strCheckState))
+            {
+                int iIndex = 0;
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    filterString += " AND";
+                }
+
+                if (paras.Count() > 0)
+                {
+                    iIndex = paras.Count();
+                }
+
+                filterString += " CHECKSTATE == @" + iIndex.ToString();
+                paras.Add(strCheckState);
+            }
+
+            IQueryable<T_HR_EMPLOYEESIGNINRECORD> ents = dal.GetObjects();
+            if (!string.IsNullOrEmpty(filterString))
+            {
+                ents = ents.Where(filterString, paras.ToArray());
+            }
+            if (!string.IsNullOrEmpty(recorderDate))
+            {
+                DateTime tmpDate = Convert.ToDateTime(recorderDate);
+                ents = ents.Where(p => p.SIGNINTIME.Value.Year == tmpDate.Year && p.SIGNINTIME.Value.Month == tmpDate.Month);
+            }
+            ents = ents.OrderBy(sort);
+
+            ents = Utility.Pager<T_HR_EMPLOYEESIGNINRECORD>(ents, pageIndex, pageSize, ref pageCount);
+            var entr = from e in ents
+                       join vDepartment in dal.GetObjects<T_HR_DEPARTMENT>() on e.OWNERDEPARTMENTID equals vDepartment.DEPARTMENTID
+                       select new V_EMPLOYEESIGNINRECORD
+                       {
+                           CHECKSTATE = e.CHECKSTATE,
+                           CREATECOMPANYID = e.CREATECOMPANYID,
+                           CREATEDATE = e.CREATEDATE,
+                           CREATEDEPARTMENTID = e.CREATECOMPANYID,
+                           CREATEPOSTID = e.CREATEPOSTID,
+                           CREATEUSERID = e.CREATEUSERID,
+                           DEPTNAME = vDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                           EMPLOYEECODE = e.EMPLOYEECODE,
+                           EMPLOYEEID = e.EMPLOYEEID,
+                           EMPLOYEENAME = e.EMPLOYEENAME,
+                           OWNERCOMPANYID = e.OWNERCOMPANYID,
+                           OWNERDEPARTMENTID = e.OWNERDEPARTMENTID,
+                           OWNERID = e.OWNERID,
+                           OWNERPOSTID = e.OWNERPOSTID,
+                           REMARK = e.REMARK,
+                           SIGNINCATEGORY = e.SIGNINCATEGORY,
+                           SIGNINID = e.SIGNINID,
+                           SIGNINTIME = e.SIGNINTIME
+
+                       };
+            return entr;
+        }
+
+
+
         /// <summary>
         /// 添加签卡记录信息
         /// </summary>
@@ -300,7 +468,7 @@ namespace SMT.HRM.BLL
                 }
 
                 T_HR_EMPLOYEESIGNINRECORD entSignInRd = entity.FirstOrDefault();
-                                
+
                 dal.Delete(entSignInRd);
                 DeleteMyRecord(entSignInRd);
 
@@ -336,7 +504,7 @@ namespace SMT.HRM.BLL
             {
                 var q = from d in dal.GetObjects<T_HR_EMPLOYEESIGNINDETAIL>().Include("T_HR_EMPLOYEESIGNINRECORD").Include("T_HR_EMPLOYEEABNORMRECORD")
                         where d.T_HR_EMPLOYEEABNORMRECORD.ABNORMRECORDID == entAbnormRecord.ABNORMRECORDID
-                        && d.T_HR_EMPLOYEESIGNINRECORD.CHECKSTATE=="0"
+                        && d.T_HR_EMPLOYEESIGNINRECORD.CHECKSTATE == "0"
                         select d;
 
                 if (q.Count() == 0)

@@ -547,7 +547,8 @@ namespace SMT.HRM.UI.Form.Salary
                     EmployeeAddSumNew.ADDSUMID = admSum.ADDSUMID;
                     EmployeeAddSumNew.EMPLOYEEID = admSum.EMPLOYEEID;
                     EmployeeAddSumNew.EMPLOYEECODE = admSum.EMPLOYEECODE;
-                    EmployeeAddSumNew.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+                    //string employeeName = admSum.EMPLOYEENAME.Split('-')[0];
+                    EmployeeAddSumNew.EMPLOYEENAME = admSum.EMPLOYEENAME;
                     EmployeeAddSumNew.CREATEDATE = System.DateTime.Now;
                     EmployeeAddSumNew.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                     EmployeeAddSumNew.CREATECOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
@@ -579,7 +580,6 @@ namespace SMT.HRM.UI.Form.Salary
                     RefreshUI(RefreshedTypes.ProgressBar);
                     return false;
                 }
-                EmployeeAddSum.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                 EmployeeAddSum.UPDATEDATE = System.DateTime.Now;
                 EmployeeAddSum.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 client.EmployeeAddSumUpdateAsync(EmployeeAddSum, "Edit");
@@ -659,7 +659,7 @@ namespace SMT.HRM.UI.Form.Salary
                     addSumInfo.DepartmentName = depName;
                     addSumInfo.EMPLOYEECODE = temp.EMPLOYEECODE;
                     addSumInfo.EMPLOYEEID = temp.EMPLOYEEID;
-                    addSumInfo.EMPLOYEENAME = temp.EMPLOYEECNAME + "-" + postName + "-" + depName + "-" + companyName;
+                    addSumInfo.EMPLOYEENAME = temp.EMPLOYEECNAME;// +"-" + postName + "-" + depName + "-" + companyName;
                     addSumInfo.OWNERID = temp.EMPLOYEEID;
                     addSumInfo.OWNERCOMPANYID = corpid;
                     addSumInfo.OWNERDEPARTMENTID = deptid;
@@ -726,7 +726,7 @@ namespace SMT.HRM.UI.Form.Salary
                         addSumInfo.OWNERPOSTID = ent.OWNERPOSTID;
                         //去掉PROJECTNAME，先用该字段显示员工姓名（形式：姓名-部门-公司）
                         //addSumInfo.PROJECTNAME = ent.EMPLOYEENAME + "-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
-                        string name = ent.EMPLOYEENAME + "-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
+                        string name = ent.EMPLOYEENAME;// +"-" + ent.PostName + "-" + ent.DepartmentName + "-" + ent.CompanyName;
                         addSumInfo.EMPLOYEENAME = name;
                         EmployeeAddsumInfoList.Add(addSumInfo);
                     }

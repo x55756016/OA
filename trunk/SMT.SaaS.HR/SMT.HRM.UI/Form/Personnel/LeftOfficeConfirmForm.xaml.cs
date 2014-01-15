@@ -257,7 +257,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     }
                     SaveConfirm();
                 }
-
+                RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
         /// <summary>
@@ -374,6 +374,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     RefreshUI(RefreshedTypes.AuditInfo);
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"),
             Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    RefreshUI(RefreshedTypes.ProgressBar);
                 }
                 RefreshUI(RefreshedTypes.All);
             }
@@ -995,6 +996,7 @@ namespace SMT.HRM.UI.Form.Personnel
                         LeftOfficeConfirm.CONFIRMDATE.Value.ToString("yyyy年MM月dd日") +
                         "，停薪日期是" + LeftOfficeConfirm.STOPPAYMENTDATE.Value.ToString("yyyy年MM月dd日") + "（当天），薪资计算截止至当天", ComfirmWindow.titlename, Result);
                 RefreshUI(RefreshedTypes.HideProgressBar);
+                RefreshUI(RefreshedTypes.All);
             }
 
         }

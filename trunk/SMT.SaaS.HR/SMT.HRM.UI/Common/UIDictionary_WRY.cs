@@ -44,7 +44,7 @@ namespace SMT.HRM.UI
             //员工个人档案
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(Resume), new List<string> { "POLITICS" }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(Employee), new List<string> { "CHECKSTATE", "SEX", "EMPLOYEESTATE" }));
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeForm), new List<string> { "POSTLEVEL","CHECKSTATE", "SEX", "NATION", "BLOODTYPE", "IDTYPE", "SECONDLANGUAGE", "SECONDLANGUAGEDEGREE", "EMPLOYEESTATE", "PROFESSIONALTITLE", "TOPEDUCATION", "POLITICS", "MARRIAGE", "PROVINCE", "RESIDENCETYPE", "REGRESIDENCETYPE", "ATTENDANCETYPE", "CARDTYPE", "WORKDAYTYPE","OFFESTTYPE","SVALID"  }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeForm), new List<string> { "POSTCHANGCATEGORY","POSTLEVEL","CHECKSTATE", "SEX", "NATION", "BLOODTYPE", "IDTYPE", "SECONDLANGUAGE", "SECONDLANGUAGEDEGREE", "EMPLOYEESTATE", "PROFESSIONALTITLE", "TOPEDUCATION", "POLITICS", "MARRIAGE", "PROVINCE", "RESIDENCETYPE", "REGRESIDENCETYPE", "ATTENDANCETYPE", "CARDTYPE", "WORKDAYTYPE","OFFESTTYPE","SVALID"  }));
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeInfoRealTime), new List<string> { "CHECKSTATE", "SEX", "NATION", "BLOODTYPE", "IDTYPE", "SECONDLANGUAGE", "SECONDLANGUAGEDEGREE", "EMPLOYEESTATE", "PROFESSIONALTITLE", "TOPEDUCATION", "POLITICS", "MARRIAGE", "PROVINCE", "RESIDENCETYPE", "REGRESIDENCETYPE", "ATTENDANCETYPE", "CARDTYPE", "WORKDAYTYPE" }));
             //员工劳动合同
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeContract), new List<string> { "CHECKSTATE" }));

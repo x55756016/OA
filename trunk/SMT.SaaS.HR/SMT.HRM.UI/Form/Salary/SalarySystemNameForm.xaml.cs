@@ -58,6 +58,7 @@ namespace SMT.HRM.UI.Form.Salary
         public void initEvent()
         {
             InitParas();
+            
             if (string.IsNullOrEmpty(salarySystemID))
             {
                 salarySystem = new T_HR_SALARYSYSTEM();
@@ -67,9 +68,8 @@ namespace SMT.HRM.UI.Form.Salary
                 salarySystem.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                 salarySystem.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 salarySystem.OWNERPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-
-                this.DataContext = salarySystem;
                 SetToolBar();
+                this.DataContext = salarySystem;               
             }
             else
             {
@@ -242,8 +242,9 @@ namespace SMT.HRM.UI.Form.Salary
                 //}
                 salarySystem = e.Result;
                 this.DataContext = salarySystem;
-                RefreshUI(RefreshedTypes.AuditInfo);
                 SetToolBar();
+                RefreshUI(RefreshedTypes.AuditInfo);
+               
             }
         }
 
@@ -339,7 +340,7 @@ namespace SMT.HRM.UI.Form.Salary
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_SALARYSYSTEM", salarySystem.OWNERID,
                     salarySystem.OWNERPOSTID, salarySystem.OWNERDEPARTMENTID, salarySystem.OWNERCOMPANYID);
-
+            
             RefreshUI(RefreshedTypes.All);
         }
 
