@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
   <xs:element name="GetCompanyFileSetInfo">
     <xs:complexType>
       <xs:sequence>
@@ -56,6 +56,27 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SaveUploadFileForMvc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMd5Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q4:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUploadFileForMvcResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveUploadFileForMvcResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveUpLoadFileIsExist">
     <xs:complexType>
       <xs:sequence>
@@ -71,7 +92,7 @@
         <xs:element minOccurs="0" name="firstChunk" type="xs:boolean" />
         <xs:element minOccurs="0" name="lastChunk" type="xs:boolean" />
         <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q4:UserFile" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q5:UserFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -97,7 +118,7 @@
   <xs:element name="CheckFileExists">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q5:UserFile" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q6:UserFile" />
         <xs:element minOccurs="0" name="md5Name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -105,7 +126,7 @@
   <xs:element name="CheckFileExistsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="CheckFileExistsResult" nillable="true" type="q6:UserFile" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="CheckFileExistsResult" nillable="true" type="q7:UserFile" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -119,7 +140,7 @@
   <xs:element name="GetFileListByCompanyCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByCompanyCodeResult" nillable="true" type="q7:CallBackResult" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByCompanyCodeResult" nillable="true" type="q8:CallBackResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +155,7 @@
   <xs:element name="GetFileListBySystemCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListBySystemCodeResult" nillable="true" type="q8:CallBackResult" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListBySystemCodeResult" nillable="true" type="q9:CallBackResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -150,7 +171,7 @@
   <xs:element name="GetFileListByModelCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByModelCodeResult" nillable="true" type="q9:CallBackResult" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByModelCodeResult" nillable="true" type="q10:CallBackResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -168,7 +189,7 @@
   <xs:element name="GetFileListByApplicationIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByApplicationIDResult" nillable="true" type="q10:CallBackResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByApplicationIDResult" nillable="true" type="q11:CallBackResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -182,7 +203,7 @@
   <xs:element name="GetFileListByOnlyApplicationIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByOnlyApplicationIDResult" nillable="true" type="q11:CallBackResult" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByOnlyApplicationIDResult" nillable="true" type="q12:CallBackResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -303,6 +324,22 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteFileByApplicationIDAndFileNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompanyDirectory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompanyDirectoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateCompanyDirectoryResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
   <xs:complexType name="UserFile">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />

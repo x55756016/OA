@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UploadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UploadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="CustomBinding_IUploadService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -10,12 +10,12 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUploadService_GetCompanyFileSetInfo_InputMessage">
@@ -35,6 +35,12 @@
   </wsdl:message>
   <wsdl:message name="IUploadService_SaveUpLoadFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveUpLoadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUploadFileForMvc_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUploadFileForMvc" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUploadFileForMvc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUploadFileForMvcResponse" />
   </wsdl:message>
   <wsdl:message name="IUploadService_SaveUpLoadFileIsExist_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveUpLoadFileIsExist" />
@@ -132,6 +138,12 @@
   <wsdl:message name="IUploadService_DeleteFileByApplicationIDAndFileName_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFileByApplicationIDAndFileNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IUploadService_CreateCompanyDirectory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompanyDirectory" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_CreateCompanyDirectory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompanyDirectoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUploadService">
     <wsdl:operation name="GetCompanyFileSetInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetCompanyFileSetInfo" message="tns:IUploadService_GetCompanyFileSetInfo_InputMessage" />
@@ -144,6 +156,10 @@
     <wsdl:operation name="SaveUpLoadFile">
       <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFile" message="tns:IUploadService_SaveUpLoadFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFileResponse" message="tns:IUploadService_SaveUpLoadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUploadFileForMvc">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveUploadFileForMvc" message="tns:IUploadService_SaveUploadFileForMvc_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SaveUploadFileForMvcResponse" message="tns:IUploadService_SaveUploadFileForMvc_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SaveUpLoadFileIsExist">
       <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFileIsExist" message="tns:IUploadService_SaveUpLoadFileIsExist_InputMessage" />
@@ -209,6 +225,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationIDAndFileName" message="tns:IUploadService_DeleteFileByApplicationIDAndFileName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationIDAndFileNameResponse" message="tns:IUploadService_DeleteFileByApplicationIDAndFileName_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateCompanyDirectory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/CreateCompanyDirectory" message="tns:IUploadService_CreateCompanyDirectory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/CreateCompanyDirectoryResponse" message="tns:IUploadService_CreateCompanyDirectory_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CustomBinding_IUploadService" type="tns:IUploadService">
     <wsp:PolicyReference URI="#CustomBinding_IUploadService_policy" />
@@ -233,6 +253,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveUpLoadFile">
       <soap12:operation soapAction="http://tempuri.org/IUploadService/SaveUpLoadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUploadFileForMvc">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/SaveUploadFileForMvc" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -384,12 +413,21 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateCompanyDirectory">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/CreateCompanyDirectory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="UploadService">
     <wsdl:port name="CustomBinding_IUploadService" binding="tns:CustomBinding_IUploadService">
-      <soap12:address location="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc" />
+      <soap12:address location="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc</wsa10:Address>
+        <wsa10:Address>http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

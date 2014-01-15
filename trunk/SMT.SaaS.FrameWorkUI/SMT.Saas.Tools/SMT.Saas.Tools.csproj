@@ -668,22 +668,22 @@
     <None Include="Service References\HrCommonServiceWS\HrCommonService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad6.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad61.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad62.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad63.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad64.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad65.xsd">
+    <None Include="Service References\NewFileUploadWS\FileUpLoad5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\NewFileUploadWS\SMT.Saas.Tools.NewFileUploadWS.CallBackResult.datasource">
@@ -692,7 +692,7 @@
     <None Include="Service References\NewFileUploadWS\SMT.Saas.Tools.NewFileUploadWS.UserFile.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\NewFileUploadWS\UploadService1.wsdl" />
+    <None Include="Service References\NewFileUploadWS\UploadService.wsdl" />
     <None Include="Service References\OACommonAdminWS\SMT.Saas.Tools.OACommonAdminWS.T_OA_ACCIDENTRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -1593,12 +1593,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\NewFileUploadWS\FileUpLoad1.disco" />
     <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
     <None Include="Service References\FlowWFService\SMT2.disco" />
     <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.disco" />
     <None Include="Service References\DailyManagementWS\DailyManagementServices.disco" />
+    <None Include="Service References\NewFileUploadWS\FileUpLoad.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>

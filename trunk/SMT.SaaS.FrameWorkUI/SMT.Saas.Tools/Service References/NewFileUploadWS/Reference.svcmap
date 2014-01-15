@@ -20,17 +20,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FileUpLoad1.disco" MetadataType="Disco" ID="95944508-9939-425a-b0d8-3f6a6f6015b9" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?disco" />
-    <MetadataFile FileName="FileUpLoad6.xsd" MetadataType="Schema" ID="c0e3819c-9a78-407a-aa63-80f4bae23496" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd5" />
-    <MetadataFile FileName="FileUpLoad61.xsd" MetadataType="Schema" ID="9330a5ca-933d-4b41-8e9b-c5afba939b51" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd4" />
-    <MetadataFile FileName="FileUpLoad62.xsd" MetadataType="Schema" ID="6391c9fe-1317-4933-b564-70e324f7cfff" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" />
-    <MetadataFile FileName="FileUpLoad63.xsd" MetadataType="Schema" ID="0be8dcc6-b930-49f5-8b62-84cf6d3f8712" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" />
-    <MetadataFile FileName="FileUpLoad64.xsd" MetadataType="Schema" ID="8e020342-4628-4db2-849e-e9397ebdbe80" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd1" />
-    <MetadataFile FileName="FileUpLoad65.xsd" MetadataType="Schema" ID="7fdb4a7e-3e54-4e05-bbb0-b2b9250f3e95" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd0" />
-    <MetadataFile FileName="UploadService1.wsdl" MetadataType="Wsdl" ID="747a15db-7412-46b9-b6ad-0af90de6751e" SourceId="1" SourceUrl="http://172.16.1.93:8080/New/Services/FileUploadService/FileUpLoad.svc?wsdl" />
+    <MetadataFile FileName="FileUpLoad.disco" MetadataType="Disco" ID="ed649149-ced8-44e8-9005-17945706c764" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?disco" />
+    <MetadataFile FileName="FileUpLoad.xsd" MetadataType="Schema" ID="7306f870-68fd-445c-87bf-e5be32659df7" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd1" />
+    <MetadataFile FileName="FileUpLoad1.xsd" MetadataType="Schema" ID="d809df5c-119c-463b-8fc2-96be6ea04283" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd0" />
+    <MetadataFile FileName="FileUpLoad2.xsd" MetadataType="Schema" ID="a44d8524-4c5c-471d-800d-aa98e4717d5d" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" />
+    <MetadataFile FileName="FileUpLoad3.xsd" MetadataType="Schema" ID="63989724-1419-4ffa-897c-d035bdb29810" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileUpLoad4.xsd" MetadataType="Schema" ID="5e9b0632-4110-445a-acfb-77030144ddc1" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd5" />
+    <MetadataFile FileName="FileUpLoad5.xsd" MetadataType="Schema" ID="6ef5c735-2891-4455-92af-9eeec12f161b" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd4" />
+    <MetadataFile FileName="UploadService.wsdl" MetadataType="Wsdl" ID="f22cfbae-c712-4307-86e2-d965d64d58d6" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
