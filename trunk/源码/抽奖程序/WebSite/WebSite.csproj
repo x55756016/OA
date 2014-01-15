@@ -88,6 +88,7 @@
     <Content Include="images\page_back_award0.jpg" />
     <Content Include="images\page_back_award1_old.jpg" />
     <Content Include="images\page_back_award2_old.jpg" />
+    <Content Include="images\page_back_award3new.jpg" />
     <Content Include="images\page_back_award3_old.jpg" />
     <Content Include="images\page_back_awardyg.jpg" />
     <Content Include="Scripts\jquery-1.7.1.js" />

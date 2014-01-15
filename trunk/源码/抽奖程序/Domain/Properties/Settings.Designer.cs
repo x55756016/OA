@@ -26,7 +26,7 @@ namespace Asd.Award.Domain.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.0.95;Initial Catalog=AsdLync;User ID=sa;Password=123456")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=127.0.0.1;Initial Catalog=AsdLync;User ID=sa;Password=123456")]
         public string AsdLyncConnectionString {
             get {
                 return ((string)(this["AsdLyncConnectionString"]));
