@@ -24,11 +24,11 @@ function stop(level, number) {
         }
     }
     else {
-        if (level == 0) {
-            $("#num_award")[0].innerHTML = "<li>" + obj.TicketNO + "</li>";
-            //上传保存获奖号
-            dbProxy.AddAward(obj.TicketNO, obj.Level, ""); //DBProxy.js
-        }
+        //if (level == 0) {
+        //    $("#num_award")[0].innerHTML = "<li>" + obj.TicketNO + "</li>";
+        //    //上传保存获奖号
+        //    dbProxy.AddAward(obj[0].TicketNO, obj[0].Level, ""); //DBProxy.js
+        //}
         if (obj.length > 0) { //要有数才行
             //插入获奖号
             var award_li_html = '';

@@ -83,8 +83,11 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Award.aspx" />
     <Content Include="AwardPrint.aspx" />
+    <Content Include="b1.aspx" />
+    <Content Include="b2.aspx" />
+    <Content Include="b4.aspx" />
     <Content Include="bj.aspx" />
-    <Content Include="2b.aspx" />
+    <Content Include="4a.aspx" />
     <Content Include="images\page_back_award0.jpg" />
     <Content Include="images\page_back_award1_old.jpg" />
     <Content Include="images\page_back_award2_old.jpg" />

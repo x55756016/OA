@@ -75,19 +75,32 @@ function Lucky() {
              }
 
          }
+         if (typeof (isSupply) == "undefined") {
+             //正常抽奖模式，非补抽模式
+         }
+         else {
+             if (isSupply) {
+                 result[result.length] = this.generateOneAward(level);
+                 return result;
+             }
+         }
+
          if (level == 1 && countSZ1 >= 6) {//如果是一等奖大于6个（一等奖只有6个）则返回，如果添加不限制，去掉判断即可
              return "0000";
          }
-         if (level == 2 && countSZ2 >= 20) {//如果是一等奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
+         if (level == 2 && countSZ2 >= 20) {//如果是二等奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
              return "0000";
          }
-         if (level == 4 && countYG >= 10) {//如果是一等奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
+         if (level == 4 && countYG >= 10) {//如果是阳光奖大于20个（二等奖只有20个）则返回，如果添加不限制，去掉判断即可
              return "0000";
          }
+
          if (countSZ1 == 5 || countSZ2 == 19 || level == 0) {
-             return result[result.length] = this.generateOneAward(level); //产生一个号码;
+             //result[result.length] = this.generateOneAward(level); //产生一个号码;
+             result[result.length] = this.generateOneAward(level);
+             return result;
          }
-         if (level == 2 || level == 4) {
+         if (level == 2 || level == 4) {//二等奖或阳光奖生成5个
              for (var i = 0; i < 5; i++) {
                  result[result.length] = this.generateOneAward(level);
              }
@@ -385,7 +398,7 @@ function loadData(lucky, awardExisted) {
     var data = new Array();
     this.getTicketCount();
     //生成所有抽奖号码
-    for (var i = 1; i <= szCount; i++) {
+    for (var i = szCount; i >= 1; i--) {
         var paded = "";
         if (i < 10) {
             paded = "000" + i.toString();
