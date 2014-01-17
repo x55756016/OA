@@ -343,6 +343,10 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                     return;
                 }
                 SalarySolution = e.Result;
+                if (FormType == FormTypes.Resubmit)
+                {
+                    SalarySolution.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
+                }
                 this.DataContext = SalarySolution;
                 switch (SalarySolution.PAYTYPE)
                 {
@@ -565,7 +569,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
 
                 SalarySolution.BANKNAME = (txtBankName.SelectedIndex + 1).ToString();
                 SalarySolution.CHECKSTATE = Convert.ToInt16(CheckStates.UnSubmit).ToString();
-                if (FormType == FormTypes.Edit)
+                if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
                 {
                     SalarySolution.UPDATEDATE = System.DateTime.Now;
                     SalarySolution.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
