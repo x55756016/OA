@@ -1597,12 +1597,12 @@ namespace SMT.HRM.UI
             foreach (var entName in q)
             {
                 var entityMenu = from ent in SMT.SAAS.Main.CurrentContext.Common.EntityMenu
-                                 where ent.ENTITYCODE == entName
+                                 where ent.MENUCODE == entName
                                  select ent;
                 if (entityMenu.FirstOrDefault() != null)
                 {
                     listP.Add(entityMenu.FirstOrDefault());
-                    entityNames += "," + entityMenu.FirstOrDefault().ENTITYNAME;
+                    entityNames += "," + entityMenu.FirstOrDefault().MENUNAME;
                 }
             }
             return listP;

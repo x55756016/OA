@@ -94,6 +94,12 @@
 
         <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch"  Width="Auto" Text="{Binding LEFTOFFICEREASON, Mode=TwoWay}"  x:Name="txtLeftReason" AcceptsReturn="True" MaxLength="99"
             	Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4"  Margin="5,3,0,0" TextWrapping="Wrap" Height="auto">
+            <interaction:Interaction.Behaviors>
+                <behaviors:ShowRequire></behaviors:ShowRequire>
+            </interaction:Interaction.Behaviors>
+            <validator:ValidatorService.Validator>
+                <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="LEFTOFFICEREASON" ></validator:RequiredValidator>
+            </validator:ValidatorService.Validator>
         </TextBox>
 
         <!--Row 4-->

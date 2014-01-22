@@ -4,6 +4,15 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_PersonnelService" type="PersonnelService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEmployeeContractByEmployeeID">
+      <soap:operation soapAction="urn:PersonnelService/GetEmployeeContractByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeContractEngineXml">
       <soap:operation soapAction="urn:PersonnelService/GetEmployeeContractEngineXml" style="document" />
       <wsdl:input>
@@ -337,6 +346,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEmployeeByNames">
+      <soap:operation soapAction="urn:PersonnelService/GetEmployeeByNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeLeftOfficeConfirmReports">
       <soap:operation soapAction="urn:PersonnelService/GetEmployeeLeftOfficeConfirmReports" style="document" />
       <wsdl:input>
@@ -375,6 +393,15 @@
     </wsdl:operation>
     <wsdl:operation name="ExportEmployeeTructReports">
       <soap:operation soapAction="urn:PersonnelService/ExportEmployeeTructReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchEmailByName">
+      <soap:operation soapAction="urn:PersonnelService/SearchEmailByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -690,6 +717,15 @@
     </wsdl:operation>
     <wsdl:operation name="LeftOfficePaging">
       <soap:operation soapAction="urn:PersonnelService/LeftOfficePaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportLeftOfficeViews">
+      <soap:operation soapAction="urn:PersonnelService/ExportLeftOfficeViews" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1131,15 +1167,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeContractByID">
       <soap:operation soapAction="urn:PersonnelService/GetEmployeeContractByID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeContractByEmployeeID">
-      <soap:operation soapAction="urn:PersonnelService/GetEmployeeContractByEmployeeID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

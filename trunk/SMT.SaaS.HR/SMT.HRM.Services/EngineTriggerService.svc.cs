@@ -290,13 +290,14 @@ namespace SMT.HRM.Services
                     employeeCheck.T_HR_EMPLOYEE = new T_HR_EMPLOYEE();
                     employeeCheck.T_HR_EMPLOYEE.EMPLOYEEID = entry.T_HR_EMPLOYEE.EMPLOYEEID;
                     employeeCheck.EMPLOYEECODE = entry.T_HR_EMPLOYEE.EMPLOYEECODE;
-                    employeeCheck.EMPLOYEENAME = entry.T_HR_EMPLOYEE.EMPLOYEEENAME;
+                    employeeCheck.EMPLOYEENAME = entry.T_HR_EMPLOYEE.EMPLOYEECNAME;
                     employeeCheck.PROBATIONPERIOD = entry.PROBATIONPERIOD;
                     employeeCheck.REPORTDATE = entry.ENTRYDATE;
                     employeeCheck.ONDUTYDATE = entry.ONPOSTDATE;
                     employeeCheck.OWNERID = entry.OWNERID;
                     employeeCheck.OWNERCOMPANYID = entry.OWNERCOMPANYID;
                     employeeCheck.CREATEUSERID = entry.CREATEUSERID;
+                    employeeCheck.CHECKSTATE = "0";
                     svcPersonnel.EmployeeCheckAdd(employeeCheck,ref strMsg);
                     svcPersonnel.EmployeeCheckAlarm(employeeCheck);
                 }

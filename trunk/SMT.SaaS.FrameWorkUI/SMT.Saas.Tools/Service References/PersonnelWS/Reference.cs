@@ -13831,6 +13831,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -13850,8 +13852,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -16265,6 +16265,351 @@ namespace SMT.Saas.Tools.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEVIEW", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    public partial class V_EMPLOYEEVIEW : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string COMPANYNAMEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPARTMENTNAMEField;
+        
+        private string EMAILField;
+        
+        private string EMPLOYEECNAMEField;
+        
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEENAMEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEEPOSTIDField;
+        
+        private string EMPLOYEESTATEField;
+        
+        private string FINGERPRINTIDField;
+        
+        private string IDNUMBERField;
+        
+        private string ISAGENCYField;
+        
+        private string MOBILEField;
+        
+        private string OFFICEPHONEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private System.Nullable<decimal> POSTLEVELField;
+        
+        private string POSTNAMEField;
+        
+        private string SEXField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYNAME {
+            get {
+                return this.COMPANYNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYNAMEField, value) != true)) {
+                    this.COMPANYNAMEField = value;
+                    this.RaisePropertyChanged("COMPANYNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMAIL {
+            get {
+                return this.EMAILField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
+                    this.EMAILField = value;
+                    this.RaisePropertyChanged("EMAIL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECNAME {
+            get {
+                return this.EMPLOYEECNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECNAMEField, value) != true)) {
+                    this.EMPLOYEECNAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEENAME {
+            get {
+                return this.EMPLOYEEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEENAMEField, value) != true)) {
+                    this.EMPLOYEEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEPOSTID {
+            get {
+                return this.EMPLOYEEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEPOSTIDField, value) != true)) {
+                    this.EMPLOYEEPOSTIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEESTATE {
+            get {
+                return this.EMPLOYEESTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEESTATEField, value) != true)) {
+                    this.EMPLOYEESTATEField = value;
+                    this.RaisePropertyChanged("EMPLOYEESTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FINGERPRINTID {
+            get {
+                return this.FINGERPRINTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FINGERPRINTIDField, value) != true)) {
+                    this.FINGERPRINTIDField = value;
+                    this.RaisePropertyChanged("FINGERPRINTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IDNUMBER {
+            get {
+                return this.IDNUMBERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IDNUMBERField, value) != true)) {
+                    this.IDNUMBERField = value;
+                    this.RaisePropertyChanged("IDNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISAGENCY {
+            get {
+                return this.ISAGENCYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISAGENCYField, value) != true)) {
+                    this.ISAGENCYField = value;
+                    this.RaisePropertyChanged("ISAGENCY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MOBILE {
+            get {
+                return this.MOBILEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MOBILEField, value) != true)) {
+                    this.MOBILEField = value;
+                    this.RaisePropertyChanged("MOBILE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OFFICEPHONE {
+            get {
+                return this.OFFICEPHONEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OFFICEPHONEField, value) != true)) {
+                    this.OFFICEPHONEField = value;
+                    this.RaisePropertyChanged("OFFICEPHONE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> POSTLEVEL {
+            get {
+                return this.POSTLEVELField;
+            }
+            set {
+                if ((this.POSTLEVELField.Equals(value) != true)) {
+                    this.POSTLEVELField = value;
+                    this.RaisePropertyChanged("POSTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTNAME {
+            get {
+                return this.POSTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTNAMEField, value) != true)) {
+                    this.POSTNAMEField = value;
+                    this.RaisePropertyChanged("POSTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SEX {
+            get {
+                return this.SEXField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SEXField, value) != true)) {
+                    this.SEXField = value;
+                    this.RaisePropertyChanged("SEX");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="V_EmployeeLeftOfficeInfos", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     public partial class V_EmployeeLeftOfficeInfos : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -17855,351 +18200,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEVIEW", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
-    public partial class V_EMPLOYEEVIEW : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string COMPANYNAMEField;
-        
-        private string CREATEUSERIDField;
-        
-        private string DEPARTMENTNAMEField;
-        
-        private string EMAILField;
-        
-        private string EMPLOYEECNAMEField;
-        
-        private string EMPLOYEECODEField;
-        
-        private string EMPLOYEEENAMEField;
-        
-        private string EMPLOYEEIDField;
-        
-        private string EMPLOYEEPOSTIDField;
-        
-        private string EMPLOYEESTATEField;
-        
-        private string FINGERPRINTIDField;
-        
-        private string IDNUMBERField;
-        
-        private string ISAGENCYField;
-        
-        private string MOBILEField;
-        
-        private string OFFICEPHONEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private System.Nullable<decimal> POSTLEVELField;
-        
-        private string POSTNAMEField;
-        
-        private string SEXField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYNAME {
-            get {
-                return this.COMPANYNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYNAMEField, value) != true)) {
-                    this.COMPANYNAMEField = value;
-                    this.RaisePropertyChanged("COMPANYNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTNAME {
-            get {
-                return this.DEPARTMENTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
-                    this.DEPARTMENTNAMEField = value;
-                    this.RaisePropertyChanged("DEPARTMENTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMAIL {
-            get {
-                return this.EMAILField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
-                    this.EMAILField = value;
-                    this.RaisePropertyChanged("EMAIL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECNAME {
-            get {
-                return this.EMPLOYEECNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEECNAMEField, value) != true)) {
-                    this.EMPLOYEECNAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
-            get {
-                return this.EMPLOYEECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEENAME {
-            get {
-                return this.EMPLOYEEENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEENAMEField, value) != true)) {
-                    this.EMPLOYEEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEPOSTID {
-            get {
-                return this.EMPLOYEEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEPOSTIDField, value) != true)) {
-                    this.EMPLOYEEPOSTIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEESTATE {
-            get {
-                return this.EMPLOYEESTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEESTATEField, value) != true)) {
-                    this.EMPLOYEESTATEField = value;
-                    this.RaisePropertyChanged("EMPLOYEESTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FINGERPRINTID {
-            get {
-                return this.FINGERPRINTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FINGERPRINTIDField, value) != true)) {
-                    this.FINGERPRINTIDField = value;
-                    this.RaisePropertyChanged("FINGERPRINTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IDNUMBER {
-            get {
-                return this.IDNUMBERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IDNUMBERField, value) != true)) {
-                    this.IDNUMBERField = value;
-                    this.RaisePropertyChanged("IDNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISAGENCY {
-            get {
-                return this.ISAGENCYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ISAGENCYField, value) != true)) {
-                    this.ISAGENCYField = value;
-                    this.RaisePropertyChanged("ISAGENCY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MOBILE {
-            get {
-                return this.MOBILEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MOBILEField, value) != true)) {
-                    this.MOBILEField = value;
-                    this.RaisePropertyChanged("MOBILE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OFFICEPHONE {
-            get {
-                return this.OFFICEPHONEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OFFICEPHONEField, value) != true)) {
-                    this.OFFICEPHONEField = value;
-                    this.RaisePropertyChanged("OFFICEPHONE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POSTLEVEL {
-            get {
-                return this.POSTLEVELField;
-            }
-            set {
-                if ((this.POSTLEVELField.Equals(value) != true)) {
-                    this.POSTLEVELField = value;
-                    this.RaisePropertyChanged("POSTLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTNAME {
-            get {
-                return this.POSTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTNAMEField, value) != true)) {
-                    this.POSTNAMEField = value;
-                    this.RaisePropertyChanged("POSTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SEX {
-            get {
-                return this.SEXField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SEXField, value) != true)) {
-                    this.SEXField = value;
-                    this.RaisePropertyChanged("SEX");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeContactWays", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     public partial class EmployeeContactWays : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -19058,11 +19058,17 @@ namespace SMT.Saas.Tools.PersonnelWS {
     [System.Runtime.Serialization.DataContractAttribute(Name="V_EmployeeEntryInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
     public partial class V_EmployeeEntryInfo : object, System.ComponentModel.INotifyPropertyChanged {
         
+        private string AgeField;
+        
         private string BankField;
         
         private string BankCardNumberField;
         
         private string BirthdayField;
+        
+        private System.Nullable<System.DateTime> BirthdayDateField;
+        
+        private System.Nullable<System.DateTime> CheckDateField;
         
         private string CompamyIDField;
         
@@ -19074,13 +19080,21 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         private string DepartmentNameField;
         
+        private string EducationField;
+        
         private string EmailField;
+        
+        private string EmployeeCodeField;
         
         private string EmployeeIDField;
         
         private string EmployeeNameField;
         
+        private string EmployeeStateField;
+        
         private string EntryDateField;
+        
+        private System.Nullable<System.DateTime> EntryDatesField;
         
         private string ErrorMsgField;
         
@@ -19088,13 +19102,23 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         private string FingerPrintIDField;
         
+        private string GraduateSchoolField;
+        
         private string HeightField;
         
         private string IdNumberField;
         
+        private string MarriageField;
+        
         private string MobileField;
         
+        private string NationField;
+        
+        private string OfficePhoneField;
+        
         private string OnPostDateField;
+        
+        private System.Nullable<System.DateTime> OnPostDatesField;
         
         private string OwnerCompanyIDField;
         
@@ -19106,6 +19130,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         private string PassWordField;
         
+        private string PensionCardIDField;
+        
+        private string PensionCheckStateField;
+        
+        private string PensionComputerNoField;
+        
         private string PostIDField;
         
         private string PostLevelField;
@@ -19114,13 +19144,36 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         private string RegResidenceField;
         
+        private string RemarkField;
+        
         private string SexField;
         
         private int SexDicField;
         
         private string SocialServiceYearField;
         
+        private string SpecialtyField;
+        
+        private string UrgencyContactField;
+        
+        private string UrgencyPersonField;
+        
         private string UserNameField;
+        
+        private string WorkAgeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AgeField, value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Bank {
@@ -19157,6 +19210,32 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 if ((object.ReferenceEquals(this.BirthdayField, value) != true)) {
                     this.BirthdayField = value;
                     this.RaisePropertyChanged("Birthday");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> BirthdayDate {
+            get {
+                return this.BirthdayDateField;
+            }
+            set {
+                if ((this.BirthdayDateField.Equals(value) != true)) {
+                    this.BirthdayDateField = value;
+                    this.RaisePropertyChanged("BirthdayDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CheckDate {
+            get {
+                return this.CheckDateField;
+            }
+            set {
+                if ((this.CheckDateField.Equals(value) != true)) {
+                    this.CheckDateField = value;
+                    this.RaisePropertyChanged("CheckDate");
                 }
             }
         }
@@ -19227,6 +19306,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Education {
+            get {
+                return this.EducationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EducationField, value) != true)) {
+                    this.EducationField = value;
+                    this.RaisePropertyChanged("Education");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Email {
             get {
                 return this.EmailField;
@@ -19235,6 +19327,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 if ((object.ReferenceEquals(this.EmailField, value) != true)) {
                     this.EmailField = value;
                     this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeCode {
+            get {
+                return this.EmployeeCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeCodeField, value) != true)) {
+                    this.EmployeeCodeField = value;
+                    this.RaisePropertyChanged("EmployeeCode");
                 }
             }
         }
@@ -19266,6 +19371,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeeState {
+            get {
+                return this.EmployeeStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeeStateField, value) != true)) {
+                    this.EmployeeStateField = value;
+                    this.RaisePropertyChanged("EmployeeState");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string EntryDate {
             get {
                 return this.EntryDateField;
@@ -19274,6 +19392,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 if ((object.ReferenceEquals(this.EntryDateField, value) != true)) {
                     this.EntryDateField = value;
                     this.RaisePropertyChanged("EntryDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> EntryDates {
+            get {
+                return this.EntryDatesField;
+            }
+            set {
+                if ((this.EntryDatesField.Equals(value) != true)) {
+                    this.EntryDatesField = value;
+                    this.RaisePropertyChanged("EntryDates");
                 }
             }
         }
@@ -19318,6 +19449,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GraduateSchool {
+            get {
+                return this.GraduateSchoolField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GraduateSchoolField, value) != true)) {
+                    this.GraduateSchoolField = value;
+                    this.RaisePropertyChanged("GraduateSchool");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Height {
             get {
                 return this.HeightField;
@@ -19344,6 +19488,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Marriage {
+            get {
+                return this.MarriageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MarriageField, value) != true)) {
+                    this.MarriageField = value;
+                    this.RaisePropertyChanged("Marriage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Mobile {
             get {
                 return this.MobileField;
@@ -19357,6 +19514,32 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nation {
+            get {
+                return this.NationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NationField, value) != true)) {
+                    this.NationField = value;
+                    this.RaisePropertyChanged("Nation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OfficePhone {
+            get {
+                return this.OfficePhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OfficePhoneField, value) != true)) {
+                    this.OfficePhoneField = value;
+                    this.RaisePropertyChanged("OfficePhone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string OnPostDate {
             get {
                 return this.OnPostDateField;
@@ -19365,6 +19548,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 if ((object.ReferenceEquals(this.OnPostDateField, value) != true)) {
                     this.OnPostDateField = value;
                     this.RaisePropertyChanged("OnPostDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> OnPostDates {
+            get {
+                return this.OnPostDatesField;
+            }
+            set {
+                if ((this.OnPostDatesField.Equals(value) != true)) {
+                    this.OnPostDatesField = value;
+                    this.RaisePropertyChanged("OnPostDates");
                 }
             }
         }
@@ -19435,6 +19631,45 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PensionCardID {
+            get {
+                return this.PensionCardIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PensionCardIDField, value) != true)) {
+                    this.PensionCardIDField = value;
+                    this.RaisePropertyChanged("PensionCardID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PensionCheckState {
+            get {
+                return this.PensionCheckStateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PensionCheckStateField, value) != true)) {
+                    this.PensionCheckStateField = value;
+                    this.RaisePropertyChanged("PensionCheckState");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PensionComputerNo {
+            get {
+                return this.PensionComputerNoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PensionComputerNoField, value) != true)) {
+                    this.PensionComputerNoField = value;
+                    this.RaisePropertyChanged("PensionComputerNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string PostID {
             get {
                 return this.PostIDField;
@@ -19487,6 +19722,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Remark {
+            get {
+                return this.RemarkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RemarkField, value) != true)) {
+                    this.RemarkField = value;
+                    this.RaisePropertyChanged("Remark");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Sex {
             get {
                 return this.SexField;
@@ -19526,6 +19774,45 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Specialty {
+            get {
+                return this.SpecialtyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpecialtyField, value) != true)) {
+                    this.SpecialtyField = value;
+                    this.RaisePropertyChanged("Specialty");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UrgencyContact {
+            get {
+                return this.UrgencyContactField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrgencyContactField, value) != true)) {
+                    this.UrgencyContactField = value;
+                    this.RaisePropertyChanged("UrgencyContact");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UrgencyPerson {
+            get {
+                return this.UrgencyPersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UrgencyPersonField, value) != true)) {
+                    this.UrgencyPersonField = value;
+                    this.RaisePropertyChanged("UrgencyPerson");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string UserName {
             get {
                 return this.UserNameField;
@@ -19534,6 +19821,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
                     this.UserNameField = value;
                     this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WorkAge {
+            get {
+                return this.WorkAgeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WorkAgeField, value) != true)) {
+                    this.WorkAgeField = value;
+                    this.RaisePropertyChanged("WorkAge");
                 }
             }
         }
@@ -19672,6 +19972,11 @@ namespace SMT.Saas.Tools.PersonnelWS {
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="PersonnelWS.PersonnelService")]
     public interface PersonnelService {
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/GetEmployeeContractByEmployeeID", ReplyAction="urn:PersonnelService/GetEmployeeContractByEmployeeIDResponse")]
+        System.IAsyncResult BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByEmployeeID(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/GetEmployeeContractEngineXml", ReplyAction="urn:PersonnelService/GetEmployeeContractEngineXmlResponse")]
         System.IAsyncResult BeginGetEmployeeContractEngineXml(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT entity, System.AsyncCallback callback, object asyncState);
         
@@ -19739,6 +20044,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -19758,8 +20065,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -19886,6 +20191,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -19905,8 +20212,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20048,6 +20353,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20067,8 +20374,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20195,6 +20500,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20214,8 +20521,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20357,6 +20662,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20376,8 +20683,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20549,6 +20854,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20568,8 +20875,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20691,6 +20996,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20710,8 +21017,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20838,6 +21143,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20857,8 +21164,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -20980,6 +21285,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -20999,8 +21306,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21090,6 +21395,11 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         byte[] EndExportEmployeePostChangeNoqueryReport(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/GetEmployeeByNames", ReplyAction="urn:PersonnelService/GetEmployeeByNamesResponse")]
+        System.IAsyncResult BeginGetEmployeeByNames(System.Collections.ObjectModel.ObservableCollection<string> employeeCNames, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> EndGetEmployeeByNames(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/GetEmployeeLeftOfficeConfirmReports", ReplyAction="urn:PersonnelService/GetEmployeeLeftOfficeConfirmReportsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.StructuralObject))]
@@ -21127,6 +21437,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21146,8 +21458,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21269,6 +21579,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21288,8 +21600,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21416,6 +21726,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21435,8 +21747,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21558,6 +21868,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21577,8 +21889,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21663,6 +21973,11 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         byte[] EndExportEmployeeTructReports(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/SearchEmailByName", ReplyAction="urn:PersonnelService/SearchEmailByNameResponse")]
+        System.IAsyncResult BeginSearchEmailByName(string strCompanyID, string strFilter, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> EndSearchEmailByName(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/PensionMasterAdd", ReplyAction="urn:PersonnelService/PensionMasterAddResponse")]
         System.IAsyncResult BeginPensionMasterAdd(SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONMASTER entity, ref string strMsg, System.AsyncCallback callback, object asyncState);
         
@@ -21730,6 +22045,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21749,8 +22066,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -21872,6 +22187,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -21891,8 +22208,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22034,6 +22349,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22053,8 +22370,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22196,6 +22511,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22215,8 +22532,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22368,6 +22683,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22387,8 +22704,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22510,6 +22825,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22529,8 +22846,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22692,6 +23007,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22711,8 +23028,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22797,7 +23112,7 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICE> EndLeftOfficePaging(ref int pageCount, System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/LeftOfficeViewsPaging", ReplyAction="urn:PersonnelService/LeftOfficeViewsPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/ExportLeftOfficeViews", ReplyAction="urn:PersonnelService/ExportLeftOfficeViewsResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
@@ -22834,6 +23149,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -22853,8 +23170,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -22935,7 +23250,149 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_BLACKLIST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_BLACKLIST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONALARMSET))]
-        System.IAsyncResult BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginExportLeftOfficeViews(string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, string userID, string CheckState, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndExportLeftOfficeViews(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/LeftOfficeViewsPaging", ReplyAction="urn:PersonnelService/LeftOfficeViewsPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityReferenceOfT_HR_IMPORTSETMASTERLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_MOBILEEMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_MOBILEEMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTFORFB))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEFUNDS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_FlowUserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_LEFTOFFICEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_LEFTOFFICEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_PROJECTPOINT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_PROJECTPOINT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_POINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_POINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPOYEEPOSTLEVEL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPOYEEPOSTLEVEL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEENTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeEntryInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeEntryInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_PENSIONALARMSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_PENSIONALARMSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECHANGEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPOINTLEVELSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEENTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEINSURANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEINSURANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICECONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICECONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_COMPANYHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_COMPANYHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_POSTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_FAMILYMEMBER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_FAMILYMEMBER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_RESUME))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EDUCATEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EDUCATEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_EXPERIENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_EXPERIENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_IMPORTSETMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_IMPORTSETMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_IMPORTSETDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_IMPORTSETDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_CHECKPROJECTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_RESUME>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_BLACKLIST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_BLACKLIST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.T_HR_PENSIONALARMSET))]
+        System.IAsyncResult BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_LEFTOFFICEVIEW> EndLeftOfficeViewsPaging(ref int pageCount, System.IAsyncResult result);
         
@@ -23001,6 +23458,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -23020,8 +23479,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -23323,6 +23780,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -23342,8 +23801,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -23465,6 +23922,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -23484,8 +23943,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -23589,11 +24046,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         System.IAsyncResult BeginGetEmployeeContractByID(string strID, System.AsyncCallback callback, object asyncState);
         
         SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/GetEmployeeContractByEmployeeID", ReplyAction="urn:PersonnelService/GetEmployeeContractByEmployeeIDResponse")]
-        System.IAsyncResult BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByEmployeeID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:PersonnelService/DoWork", ReplyAction="urn:PersonnelService/DoWorkResponse")]
         System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState);
@@ -23803,6 +24255,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -23822,8 +24276,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -23945,6 +24397,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -23964,8 +24418,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24092,6 +24544,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -24111,8 +24565,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24234,6 +24686,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -24253,8 +24707,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24531,6 +24983,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -24550,8 +25004,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24703,6 +25155,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -24722,8 +25176,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24870,6 +25322,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeBasicInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeChangeInfos))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EmployeeLeftOfficeInfos))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTCHANGE>))]
@@ -24889,8 +25343,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEPOSTBRIEF))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_UserLogin))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.EmployeeContactWays>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PersonnelWS.EmployeeContactWays))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEESTATICINFO>))]
@@ -24983,6 +25435,25 @@ namespace SMT.Saas.Tools.PersonnelWS {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PersonnelServiceChannel : SMT.Saas.Tools.PersonnelWS.PersonnelService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetEmployeeContractByEmployeeIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetEmployeeContractByEmployeeIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -25611,6 +26082,25 @@ namespace SMT.Saas.Tools.PersonnelWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetEmployeeByNamesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetEmployeeByNamesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class GetEmployeeLeftOfficeConfirmReportsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -25700,6 +26190,25 @@ namespace SMT.Saas.Tools.PersonnelWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((byte[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SearchEmailByNameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SearchEmailByNameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>)(this.results[0]));
             }
         }
     }
@@ -26307,6 +26816,25 @@ namespace SMT.Saas.Tools.PersonnelWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.T_HR_LEFTOFFICE>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ExportLeftOfficeViewsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ExportLeftOfficeViewsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public byte[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((byte[])(this.results[0]));
             }
         }
     }
@@ -27163,25 +27691,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         private object[] results;
         
         public GetEmployeeContractByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetEmployeeContractByEmployeeIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetEmployeeContractByEmployeeIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -28820,6 +29329,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class PersonnelServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.PersonnelWS.PersonnelService>, SMT.Saas.Tools.PersonnelWS.PersonnelService {
         
+        private BeginOperationDelegate onBeginGetEmployeeContractByEmployeeIDDelegate;
+        
+        private EndOperationDelegate onEndGetEmployeeContractByEmployeeIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetEmployeeContractByEmployeeIDCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetEmployeeContractEngineXmlDelegate;
         
         private EndOperationDelegate onEndGetEmployeeContractEngineXmlDelegate;
@@ -29042,6 +29557,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         private System.Threading.SendOrPostCallback onExportEmployeePostChangeNoqueryReportCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetEmployeeByNamesDelegate;
+        
+        private EndOperationDelegate onEndGetEmployeeByNamesDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetEmployeeByNamesCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetEmployeeLeftOfficeConfirmReportsDelegate;
         
         private EndOperationDelegate onEndGetEmployeeLeftOfficeConfirmReportsDelegate;
@@ -29071,6 +29592,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
         private EndOperationDelegate onEndExportEmployeeTructReportsDelegate;
         
         private System.Threading.SendOrPostCallback onExportEmployeeTructReportsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSearchEmailByNameDelegate;
+        
+        private EndOperationDelegate onEndSearchEmailByNameDelegate;
+        
+        private System.Threading.SendOrPostCallback onSearchEmailByNameCompletedDelegate;
         
         private BeginOperationDelegate onBeginPensionMasterAddDelegate;
         
@@ -29281,6 +29808,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
         private EndOperationDelegate onEndLeftOfficePagingDelegate;
         
         private System.Threading.SendOrPostCallback onLeftOfficePagingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginExportLeftOfficeViewsDelegate;
+        
+        private EndOperationDelegate onEndExportLeftOfficeViewsDelegate;
+        
+        private System.Threading.SendOrPostCallback onExportLeftOfficeViewsCompletedDelegate;
         
         private BeginOperationDelegate onBeginLeftOfficeViewsPagingDelegate;
         
@@ -29575,12 +30108,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         private EndOperationDelegate onEndGetEmployeeContractByIDDelegate;
         
         private System.Threading.SendOrPostCallback onGetEmployeeContractByIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetEmployeeContractByEmployeeIDDelegate;
-        
-        private EndOperationDelegate onEndGetEmployeeContractByEmployeeIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetEmployeeContractByEmployeeIDCompletedDelegate;
         
         private BeginOperationDelegate onBeginDoWorkDelegate;
         
@@ -30144,6 +30671,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
             }
         }
         
+        public event System.EventHandler<GetEmployeeContractByEmployeeIDCompletedEventArgs> GetEmployeeContractByEmployeeIDCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> GetEmployeeContractEngineXmlCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeContractAlarmCompleted;
@@ -30218,6 +30747,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         
         public event System.EventHandler<ExportEmployeePostChangeNoqueryReportCompletedEventArgs> ExportEmployeePostChangeNoqueryReportCompleted;
         
+        public event System.EventHandler<GetEmployeeByNamesCompletedEventArgs> GetEmployeeByNamesCompleted;
+        
         public event System.EventHandler<GetEmployeeLeftOfficeConfirmReportsCompletedEventArgs> GetEmployeeLeftOfficeConfirmReportsCompleted;
         
         public event System.EventHandler<ExportEmployeeLeftOfficeConfirmReportsCompletedEventArgs> ExportEmployeeLeftOfficeConfirmReportsCompleted;
@@ -30227,6 +30758,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         public event System.EventHandler<ExportEmployeeCollectsReportsCompletedEventArgs> ExportEmployeeCollectsReportsCompleted;
         
         public event System.EventHandler<ExportEmployeeTructReportsCompletedEventArgs> ExportEmployeeTructReportsCompleted;
+        
+        public event System.EventHandler<SearchEmailByNameCompletedEventArgs> SearchEmailByNameCompleted;
         
         public event System.EventHandler<PensionMasterAddCompletedEventArgs> PensionMasterAddCompleted;
         
@@ -30297,6 +30830,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
         public event System.EventHandler<CheckBusinesstripCompletedEventArgs> CheckBusinesstripCompleted;
         
         public event System.EventHandler<LeftOfficePagingCompletedEventArgs> LeftOfficePagingCompleted;
+        
+        public event System.EventHandler<ExportLeftOfficeViewsCompletedEventArgs> ExportLeftOfficeViewsCompleted;
         
         public event System.EventHandler<LeftOfficeViewsPagingCompletedEventArgs> LeftOfficeViewsPagingCompleted;
         
@@ -30395,8 +30930,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
         public event System.EventHandler<EmployeeContractDeleteCompletedEventArgs> EmployeeContractDeleteCompleted;
         
         public event System.EventHandler<GetEmployeeContractByIDCompletedEventArgs> GetEmployeeContractByIDCompleted;
-        
-        public event System.EventHandler<GetEmployeeContractByEmployeeIDCompletedEventArgs> GetEmployeeContractByEmployeeIDCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DoWorkCompleted;
         
@@ -30571,6 +31104,52 @@ namespace SMT.Saas.Tools.PersonnelWS {
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetEmployeeContractByEmployeeID(employeeID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT SMT.Saas.Tools.PersonnelWS.PersonnelService.EndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
+            return base.Channel.EndGetEmployeeContractByEmployeeID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetEmployeeContractByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string employeeID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginGetEmployeeContractByEmployeeID(employeeID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
+            SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT retVal = ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).EndGetEmployeeContractByEmployeeID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetEmployeeContractByEmployeeIDCompleted(object state) {
+            if ((this.GetEmployeeContractByEmployeeIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetEmployeeContractByEmployeeIDCompleted(this, new GetEmployeeContractByEmployeeIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetEmployeeContractByEmployeeIDAsync(string employeeID) {
+            this.GetEmployeeContractByEmployeeIDAsync(employeeID, null);
+        }
+        
+        public void GetEmployeeContractByEmployeeIDAsync(string employeeID, object userState) {
+            if ((this.onBeginGetEmployeeContractByEmployeeIDDelegate == null)) {
+                this.onBeginGetEmployeeContractByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginGetEmployeeContractByEmployeeID);
+            }
+            if ((this.onEndGetEmployeeContractByEmployeeIDDelegate == null)) {
+                this.onEndGetEmployeeContractByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndGetEmployeeContractByEmployeeID);
+            }
+            if ((this.onGetEmployeeContractByEmployeeIDCompletedDelegate == null)) {
+                this.onGetEmployeeContractByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEmployeeContractByEmployeeIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetEmployeeContractByEmployeeIDDelegate, new object[] {
+                        employeeID}, this.onEndGetEmployeeContractByEmployeeIDDelegate, this.onGetEmployeeContractByEmployeeIDCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginGetEmployeeContractEngineXml(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT entity, System.AsyncCallback callback, object asyncState) {
@@ -32423,6 +33002,52 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginGetEmployeeByNames(System.Collections.ObjectModel.ObservableCollection<string> employeeCNames, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetEmployeeByNames(employeeCNames, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> SMT.Saas.Tools.PersonnelWS.PersonnelService.EndGetEmployeeByNames(System.IAsyncResult result) {
+            return base.Channel.EndGetEmployeeByNames(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetEmployeeByNames(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> employeeCNames = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginGetEmployeeByNames(employeeCNames, callback, asyncState);
+        }
+        
+        private object[] OnEndGetEmployeeByNames(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> retVal = ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).EndGetEmployeeByNames(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetEmployeeByNamesCompleted(object state) {
+            if ((this.GetEmployeeByNamesCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetEmployeeByNamesCompleted(this, new GetEmployeeByNamesCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetEmployeeByNamesAsync(System.Collections.ObjectModel.ObservableCollection<string> employeeCNames) {
+            this.GetEmployeeByNamesAsync(employeeCNames, null);
+        }
+        
+        public void GetEmployeeByNamesAsync(System.Collections.ObjectModel.ObservableCollection<string> employeeCNames, object userState) {
+            if ((this.onBeginGetEmployeeByNamesDelegate == null)) {
+                this.onBeginGetEmployeeByNamesDelegate = new BeginOperationDelegate(this.OnBeginGetEmployeeByNames);
+            }
+            if ((this.onEndGetEmployeeByNamesDelegate == null)) {
+                this.onEndGetEmployeeByNamesDelegate = new EndOperationDelegate(this.OnEndGetEmployeeByNames);
+            }
+            if ((this.onGetEmployeeByNamesCompletedDelegate == null)) {
+                this.onGetEmployeeByNamesCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEmployeeByNamesCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetEmployeeByNamesDelegate, new object[] {
+                        employeeCNames}, this.onEndGetEmployeeByNamesDelegate, this.onGetEmployeeByNamesCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginGetEmployeeLeftOfficeConfirmReports(System.Collections.ObjectModel.ObservableCollection<string> companyids, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, string userID, string IsType, System.DateTime DtStart, System.DateTime DtEnd, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetEmployeeLeftOfficeConfirmReports(companyids, sort, filterString, paras, userID, IsType, DtStart, DtEnd, callback, asyncState);
         }
@@ -32708,6 +33333,54 @@ namespace SMT.Saas.Tools.PersonnelWS {
                         CompanyID,
                         DtStart,
                         DtEnd}, this.onEndExportEmployeeTructReportsDelegate, this.onExportEmployeeTructReportsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginSearchEmailByName(string strCompanyID, string strFilter, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSearchEmailByName(strCompanyID, strFilter, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> SMT.Saas.Tools.PersonnelWS.PersonnelService.EndSearchEmailByName(System.IAsyncResult result) {
+            return base.Channel.EndSearchEmailByName(result);
+        }
+        
+        private System.IAsyncResult OnBeginSearchEmailByName(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strCompanyID = ((string)(inValues[0]));
+            string strFilter = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginSearchEmailByName(strCompanyID, strFilter, callback, asyncState);
+        }
+        
+        private object[] OnEndSearchEmailByName(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> retVal = ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).EndSearchEmailByName(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSearchEmailByNameCompleted(object state) {
+            if ((this.SearchEmailByNameCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SearchEmailByNameCompleted(this, new SearchEmailByNameCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SearchEmailByNameAsync(string strCompanyID, string strFilter) {
+            this.SearchEmailByNameAsync(strCompanyID, strFilter, null);
+        }
+        
+        public void SearchEmailByNameAsync(string strCompanyID, string strFilter, object userState) {
+            if ((this.onBeginSearchEmailByNameDelegate == null)) {
+                this.onBeginSearchEmailByNameDelegate = new BeginOperationDelegate(this.OnBeginSearchEmailByName);
+            }
+            if ((this.onEndSearchEmailByNameDelegate == null)) {
+                this.onEndSearchEmailByNameDelegate = new EndOperationDelegate(this.OnEndSearchEmailByName);
+            }
+            if ((this.onSearchEmailByNameCompletedDelegate == null)) {
+                this.onSearchEmailByNameCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSearchEmailByNameCompleted);
+            }
+            base.InvokeAsync(this.onBeginSearchEmailByNameDelegate, new object[] {
+                        strCompanyID,
+                        strFilter}, this.onEndSearchEmailByNameDelegate, this.onSearchEmailByNameCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -34456,8 +35129,64 @@ namespace SMT.Saas.Tools.PersonnelWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginLeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CheckState, callback, asyncState);
+        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginExportLeftOfficeViews(string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginExportLeftOfficeViews(filterString, paras, dtStart, dtEnd, userID, CheckState, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        byte[] SMT.Saas.Tools.PersonnelWS.PersonnelService.EndExportLeftOfficeViews(System.IAsyncResult result) {
+            return base.Channel.EndExportLeftOfficeViews(result);
+        }
+        
+        private System.IAsyncResult OnBeginExportLeftOfficeViews(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string filterString = ((string)(inValues[0]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[1]));
+            System.DateTime dtStart = ((System.DateTime)(inValues[2]));
+            System.DateTime dtEnd = ((System.DateTime)(inValues[3]));
+            string userID = ((string)(inValues[4]));
+            string CheckState = ((string)(inValues[5]));
+            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginExportLeftOfficeViews(filterString, paras, dtStart, dtEnd, userID, CheckState, callback, asyncState);
+        }
+        
+        private object[] OnEndExportLeftOfficeViews(System.IAsyncResult result) {
+            byte[] retVal = ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).EndExportLeftOfficeViews(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnExportLeftOfficeViewsCompleted(object state) {
+            if ((this.ExportLeftOfficeViewsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ExportLeftOfficeViewsCompleted(this, new ExportLeftOfficeViewsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ExportLeftOfficeViewsAsync(string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, string userID, string CheckState) {
+            this.ExportLeftOfficeViewsAsync(filterString, paras, dtStart, dtEnd, userID, CheckState, null);
+        }
+        
+        public void ExportLeftOfficeViewsAsync(string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, string userID, string CheckState, object userState) {
+            if ((this.onBeginExportLeftOfficeViewsDelegate == null)) {
+                this.onBeginExportLeftOfficeViewsDelegate = new BeginOperationDelegate(this.OnBeginExportLeftOfficeViews);
+            }
+            if ((this.onEndExportLeftOfficeViewsDelegate == null)) {
+                this.onEndExportLeftOfficeViewsDelegate = new EndOperationDelegate(this.OnEndExportLeftOfficeViews);
+            }
+            if ((this.onExportLeftOfficeViewsCompletedDelegate == null)) {
+                this.onExportLeftOfficeViewsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnExportLeftOfficeViewsCompleted);
+            }
+            base.InvokeAsync(this.onBeginExportLeftOfficeViewsDelegate, new object[] {
+                        filterString,
+                        paras,
+                        dtStart,
+                        dtEnd,
+                        userID,
+                        CheckState}, this.onEndExportLeftOfficeViewsDelegate, this.onExportLeftOfficeViewsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginLeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, dtStart, dtEnd, ref pageCount, userID, CheckState, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -34471,10 +35200,12 @@ namespace SMT.Saas.Tools.PersonnelWS {
             string sort = ((string)(inValues[2]));
             string filterString = ((string)(inValues[3]));
             System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            string userID = ((string)(inValues[6]));
-            string CheckState = ((string)(inValues[7]));
-            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginLeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CheckState, callback, asyncState);
+            System.DateTime dtStart = ((System.DateTime)(inValues[5]));
+            System.DateTime dtEnd = ((System.DateTime)(inValues[6]));
+            int pageCount = ((int)(inValues[7]));
+            string userID = ((string)(inValues[8]));
+            string CheckState = ((string)(inValues[9]));
+            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginLeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, dtStart, dtEnd, ref pageCount, userID, CheckState, callback, asyncState);
         }
         
         private object[] OnEndLeftOfficeViewsPaging(System.IAsyncResult result) {
@@ -34492,11 +35223,11 @@ namespace SMT.Saas.Tools.PersonnelWS {
             }
         }
         
-        public void LeftOfficeViewsPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, string CheckState) {
-            this.LeftOfficeViewsPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, userID, CheckState, null);
+        public void LeftOfficeViewsPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, int pageCount, string userID, string CheckState) {
+            this.LeftOfficeViewsPagingAsync(pageIndex, pageSize, sort, filterString, paras, dtStart, dtEnd, pageCount, userID, CheckState, null);
         }
         
-        public void LeftOfficeViewsPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, string CheckState, object userState) {
+        public void LeftOfficeViewsPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, int pageCount, string userID, string CheckState, object userState) {
             if ((this.onBeginLeftOfficeViewsPagingDelegate == null)) {
                 this.onBeginLeftOfficeViewsPagingDelegate = new BeginOperationDelegate(this.OnBeginLeftOfficeViewsPaging);
             }
@@ -34512,6 +35243,8 @@ namespace SMT.Saas.Tools.PersonnelWS {
                         sort,
                         filterString,
                         paras,
+                        dtStart,
+                        dtEnd,
                         pageCount,
                         userID,
                         CheckState}, this.onEndLeftOfficeViewsPagingDelegate, this.onLeftOfficeViewsPagingCompletedDelegate, userState);
@@ -36801,52 +37534,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
             }
             base.InvokeAsync(this.onBeginGetEmployeeContractByIDDelegate, new object[] {
                         strID}, this.onEndGetEmployeeContractByIDDelegate, this.onGetEmployeeContractByIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PersonnelWS.PersonnelService.BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetEmployeeContractByEmployeeID(employeeID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT SMT.Saas.Tools.PersonnelWS.PersonnelService.EndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
-            return base.Channel.EndGetEmployeeContractByEmployeeID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetEmployeeContractByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string employeeID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).BeginGetEmployeeContractByEmployeeID(employeeID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
-            SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT retVal = ((SMT.Saas.Tools.PersonnelWS.PersonnelService)(this)).EndGetEmployeeContractByEmployeeID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetEmployeeContractByEmployeeIDCompleted(object state) {
-            if ((this.GetEmployeeContractByEmployeeIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetEmployeeContractByEmployeeIDCompleted(this, new GetEmployeeContractByEmployeeIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetEmployeeContractByEmployeeIDAsync(string employeeID) {
-            this.GetEmployeeContractByEmployeeIDAsync(employeeID, null);
-        }
-        
-        public void GetEmployeeContractByEmployeeIDAsync(string employeeID, object userState) {
-            if ((this.onBeginGetEmployeeContractByEmployeeIDDelegate == null)) {
-                this.onBeginGetEmployeeContractByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginGetEmployeeContractByEmployeeID);
-            }
-            if ((this.onEndGetEmployeeContractByEmployeeIDDelegate == null)) {
-                this.onEndGetEmployeeContractByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndGetEmployeeContractByEmployeeID);
-            }
-            if ((this.onGetEmployeeContractByEmployeeIDCompletedDelegate == null)) {
-                this.onGetEmployeeContractByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEmployeeContractByEmployeeIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetEmployeeContractByEmployeeIDDelegate, new object[] {
-                        employeeID}, this.onEndGetEmployeeContractByEmployeeIDDelegate, this.onGetEmployeeContractByEmployeeIDCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -41185,6 +41872,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                     base(client) {
             }
             
+            public System.IAsyncResult BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = employeeID;
+                System.IAsyncResult _result = base.BeginInvoke("GetEmployeeContractByEmployeeID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT _result = ((SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT)(base.EndInvoke("GetEmployeeContractByEmployeeID", _args, result)));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginGetEmployeeContractEngineXml(SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT entity, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = entity;
@@ -41750,6 +42450,19 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 return _result;
             }
             
+            public System.IAsyncResult BeginGetEmployeeByNames(System.Collections.ObjectModel.ObservableCollection<string> employeeCNames, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = employeeCNames;
+                System.IAsyncResult _result = base.BeginInvoke("GetEmployeeByNames", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> EndGetEmployeeByNames(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>)(base.EndInvoke("GetEmployeeByNames", _args, result)));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginGetEmployeeLeftOfficeConfirmReports(System.Collections.ObjectModel.ObservableCollection<string> companyids, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, string userID, string IsType, System.DateTime DtStart, System.DateTime DtEnd, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[8];
                 _args[0] = companyids;
@@ -41841,6 +42554,20 @@ namespace SMT.Saas.Tools.PersonnelWS {
             public byte[] EndExportEmployeeTructReports(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 byte[] _result = ((byte[])(base.EndInvoke("ExportEmployeeTructReports", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSearchEmailByName(string strCompanyID, string strFilter, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = strCompanyID;
+                _args[1] = strFilter;
+                System.IAsyncResult _result = base.BeginInvoke("SearchEmailByName", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> EndSearchEmailByName(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PersonnelWS.V_EMPLOYEEVIEW>)(base.EndInvoke("SearchEmailByName", _args, result)));
                 return _result;
             }
             
@@ -42390,18 +43117,38 @@ namespace SMT.Saas.Tools.PersonnelWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[8];
+            public System.IAsyncResult BeginExportLeftOfficeViews(string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[6];
+                _args[0] = filterString;
+                _args[1] = paras;
+                _args[2] = dtStart;
+                _args[3] = dtEnd;
+                _args[4] = userID;
+                _args[5] = CheckState;
+                System.IAsyncResult _result = base.BeginInvoke("ExportLeftOfficeViews", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public byte[] EndExportLeftOfficeViews(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                byte[] _result = ((byte[])(base.EndInvoke("ExportLeftOfficeViews", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginLeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, System.DateTime dtStart, System.DateTime dtEnd, ref int pageCount, string userID, string CheckState, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[10];
                 _args[0] = pageIndex;
                 _args[1] = pageSize;
                 _args[2] = sort;
                 _args[3] = filterString;
                 _args[4] = paras;
-                _args[5] = pageCount;
-                _args[6] = userID;
-                _args[7] = CheckState;
+                _args[5] = dtStart;
+                _args[6] = dtEnd;
+                _args[7] = pageCount;
+                _args[8] = userID;
+                _args[9] = CheckState;
                 System.IAsyncResult _result = base.BeginInvoke("LeftOfficeViewsPaging", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
+                pageCount = ((int)(_args[7]));
                 return _result;
             }
             
@@ -43081,19 +43828,6 @@ namespace SMT.Saas.Tools.PersonnelWS {
             public SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByID(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT _result = ((SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT)(base.EndInvoke("GetEmployeeContractByID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetEmployeeContractByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = employeeID;
-                System.IAsyncResult _result = base.BeginInvoke("GetEmployeeContractByEmployeeID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT EndGetEmployeeContractByEmployeeID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT _result = ((SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEECONTRACT)(base.EndInvoke("GetEmployeeContractByEmployeeID", _args, result)));
                 return _result;
             }
             

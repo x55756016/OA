@@ -680,7 +680,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     strIds.Add(strId);
                 }
                 clientPer.GetEmployeeByIDsAsync(strIds);
-
+                lkAssignObject.TxtLookUp.Text = entity.EMPLOYEENAME;
                 lkAssignObject.IsEnabled = false;
             }
             else
@@ -800,7 +800,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 }
 
                 tbAssignedObjectID.Text = strIds;
-                lkAssignObject.TxtLookUp.Text = strNames;
+                
                 lkAssignObject.IsEnabled = true;
                 lkAssignObject.SearchButton.IsEnabled = false;
                 lkAssignObject.TipTextValue = strNames;//设置Tip

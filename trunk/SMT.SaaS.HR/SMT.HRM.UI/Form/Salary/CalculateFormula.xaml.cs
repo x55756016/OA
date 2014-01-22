@@ -763,7 +763,7 @@ namespace SMT.HRM.UI.Form.Salary
                 return;
             }
 
-            listEntityProperty.ItemsSource = Utility.GetEntityPropertyByName(((T_SYS_ENTITYMENU)listEntityName.SelectedItem).ENTITYCODE);
+            listEntityProperty.ItemsSource = Utility.GetEntityPropertyByName(((SMT.SaaS.LocalData.T_SYS_ENTITYMENU)listEntityName.SelectedItem).ENTITYCODE);
         }
 
         /// <summary>

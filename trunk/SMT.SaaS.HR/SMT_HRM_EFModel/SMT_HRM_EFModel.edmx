@@ -3332,6 +3332,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ATTENDANCEORGNAME" Type="nvarchar2" MaxLength="200" />
     <Property Name="BALANCEPOSTID" Type="nvarchar2" MaxLength="100" />
     <Property Name="BALANCEPOSTNAME" Type="nvarchar2" MaxLength="600" />
+    <Property Name="SKILLPOSTLEVEL" Type="nvarchar2" MaxLength="100" />
+    <Property Name="SKILLSALARYLEVEL" Type="nvarchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="T_HR_SALARYARCHIVEHIS">
     <Key>
@@ -8626,6 +8628,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="ATTENDANCEORGNAME" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
     <Property Name="BALANCEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="BALANCEPOSTNAME" Type="String" MaxLength="600" Unicode="true" FixedLength="false" />
+    <Property Name="SKILLPOSTLEVEL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SKILLSALARYLEVEL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_HR_CUSTOMGUERDONARCHIVE" Relationship="SMT_HRM_EFModel.FK_T_HR_GUERDONARCHIVE_SAL" FromRole="T_HR_SALARYARCHIVE" ToRole="T_HR_CUSTOMGUERDONARCHIVE" />
     <NavigationProperty Name="T_HR_SALARYARCHIVEITEM" Relationship="SMT_HRM_EFModel.FK_SALARYARCHIVEITEM_HR_SAL" FromRole="T_HR_SALARYARCHIVE" ToRole="T_HR_SALARYARCHIVEITEM" />
     <NavigationProperty Name="T_HR_SALARYSTANDARD" Relationship="SMT_HRM_EFModel.FK_SALARYARCHIVE_T_HR_SAL" FromRole="T_HR_SALARYARCHIVE" ToRole="T_HR_SALARYSTANDARD" />
@@ -12537,6 +12541,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
           <ScalarProperty Name="ATTENDANCEORGNAME" ColumnName="ATTENDANCEORGNAME" />
           <ScalarProperty Name="BALANCEPOSTID" ColumnName="BALANCEPOSTID" />
           <ScalarProperty Name="BALANCEPOSTNAME" ColumnName="BALANCEPOSTNAME" />
+          <ScalarProperty Name="SKILLPOSTLEVEL" ColumnName="SKILLPOSTLEVEL" />
+          <ScalarProperty Name="SKILLSALARYLEVEL" ColumnName="SKILLSALARYLEVEL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

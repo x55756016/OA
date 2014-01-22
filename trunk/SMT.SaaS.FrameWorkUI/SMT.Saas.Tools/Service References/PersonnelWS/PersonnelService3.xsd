@@ -201,6 +201,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_EmployeeChangeInfos" nillable="true" type="tns:V_EmployeeChangeInfos" />
+  <xs:complexType name="ArrayOfV_EMPLOYEEVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfV_EMPLOYEEVIEW" nillable="true" type="tns:ArrayOfV_EMPLOYEEVIEW" />
+  <xs:complexType name="V_EMPLOYEEVIEW">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEEPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EMPLOYEESTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FINGERPRINTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDNUMBER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ISAGENCY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MOBILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OFFICEPHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="POSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
   <xs:complexType name="ArrayOfV_EmployeeLeftOfficeInfos">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeLeftOfficeInfos" nillable="true" type="tns:V_EmployeeLeftOfficeInfos" />
@@ -408,39 +441,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfV_EMPLOYEEDETAIL" nillable="true" type="tns:ArrayOfV_EMPLOYEEDETAIL" />
-  <xs:complexType name="ArrayOfV_EMPLOYEEVIEW">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_EMPLOYEEVIEW" nillable="true" type="tns:ArrayOfV_EMPLOYEEVIEW" />
-  <xs:complexType name="V_EMPLOYEEVIEW">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEECNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEEENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEEPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EMPLOYEESTATE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FINGERPRINTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IDNUMBER" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ISAGENCY" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MOBILE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OFFICEPHONE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="POSTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SEX" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_EMPLOYEEVIEW" nillable="true" type="tns:V_EMPLOYEEVIEW" />
   <xs:complexType name="ArrayOfEmployeeContactWays">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EmployeeContactWays" nillable="true" type="tns:EmployeeContactWays" />
@@ -536,38 +536,58 @@
   <xs:element name="ArrayOfV_EmployeeEntryInfo" nillable="true" type="tns:ArrayOfV_EmployeeEntryInfo" />
   <xs:complexType name="V_EmployeeEntryInfo">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Bank" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BankCardNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Birthday" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BirthdayDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CheckDate" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="CompamyID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CurrentAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Education" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeState" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EntryDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntryDates" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="ErrorMsg" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FamilyAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FingerPrintID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GraduateSchool" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IdNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marriage" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OfficePhone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OnPostDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnPostDates" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="OwnerCompanyID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OwnerDepartmentID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OwnerPostID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PassWord" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PensionCardID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PensionCheckState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PensionComputerNo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostLevel" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RegResidence" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SexDic" type="xs:int" />
       <xs:element minOccurs="0" name="SocialServiceYear" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Specialty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrgencyContact" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UrgencyPerson" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkAge" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_EmployeeEntryInfo" nillable="true" type="tns:V_EmployeeEntryInfo" />

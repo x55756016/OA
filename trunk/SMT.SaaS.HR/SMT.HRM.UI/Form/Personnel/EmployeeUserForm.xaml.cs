@@ -37,7 +37,7 @@ namespace SMT.HRM.UI.Form.Personnel
             client = new PersonnelServiceClient();
             client.EmployeeIsEntryCompleted += new EventHandler<EmployeeIsEntryCompletedEventArgs>(client_EmployeeIsEntryCompleted);
             client.GetEmployeeEntryByIDCompleted += new EventHandler<GetEmployeeEntryByIDCompletedEventArgs>(client_GetEmployeeEntryByIDCompleted);
-        }
+              }
 
 
 
@@ -144,8 +144,14 @@ namespace SMT.HRM.UI.Form.Personnel
                         else if (e.leaveMessage[1] == "LimitEntry")
                         {
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), 
-                                Utility.GetResourceStr("该员工已存在未提交或审核中的入职记录，请处理完后再入职."),
+                                Utility.GetResourceStr("该身份证号已存在未提交或审核中的入职记录，请处理完后再入职."),
                                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        }
+                        else if (e.leaveMessage[1] == "UnApproved")
+                        {
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),
+                               Utility.GetResourceStr("该身份证号已存在审核未通过的入职记录，请直接进行重新提交操作."),
+                               Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                         }
                     }
                     else

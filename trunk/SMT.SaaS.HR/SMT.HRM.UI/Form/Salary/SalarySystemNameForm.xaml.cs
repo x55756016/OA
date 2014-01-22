@@ -239,8 +239,13 @@ namespace SMT.HRM.UI.Form.Salary
                 //{
                 //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("NOTFOUND"));
                 //    return;
-                //}
+                //}               
+
                 salarySystem = e.Result;
+                if (FormType == FormTypes.Resubmit)
+                {
+                    salarySystem.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
+                }
                 this.DataContext = salarySystem;
                 SetToolBar();
                 RefreshUI(RefreshedTypes.AuditInfo);
@@ -297,7 +302,7 @@ namespace SMT.HRM.UI.Form.Salary
                 return false;
             }
 
-            if (FormType == FormTypes.Edit)
+            if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
             {
                 salarySystem.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 salarySystem.UPDATEDATE = System.DateTime.Now;

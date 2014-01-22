@@ -411,6 +411,8 @@
           <xs:element minOccurs="0" name="SALARYSOLUTIONID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SALARYSOLUTIONNAME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SECURITYALLOWANCE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SKILLPOSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SKILLSALARYLEVEL" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_HR_CUSTOMGUERDONARCHIVE" nillable="true" type="tns:ArrayOfT_HR_CUSTOMGUERDONARCHIVE" />
           <xs:element minOccurs="0" name="T_HR_SALARYARCHIVEITEM" nillable="true" type="tns:ArrayOfT_HR_SALARYARCHIVEITEM" />
           <xs:element minOccurs="0" name="T_HR_SALARYSTANDARD" nillable="true" type="tns:T_HR_SALARYSTANDARD" />

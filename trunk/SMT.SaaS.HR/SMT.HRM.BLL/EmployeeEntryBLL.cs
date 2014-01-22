@@ -168,7 +168,10 @@ namespace SMT.HRM.BLL
                 #region 添加员工档案
 
                 employee.EMPLOYEECODE = CreateCode(Convert.ToDateTime(employeeEntry.ENTRYDATE), employee.OWNERCOMPANYID);   //生成员工编码
-                employee.EDITSTATE = Convert.ToInt32(EditStates.UnActived).ToString();
+                if (employee.EDITSTATE != "1")//1为生效,如果传入的值为生效则保持原始值
+                {
+                    employee.EDITSTATE = Convert.ToInt32(EditStates.UnActived).ToString();
+                }
                 dal.BeginTransaction();
                 //var tempEnt = from c in dal.GetObjects<T_HR_EMPLOYEE>()
                 //              join b in dal.GetObjects<T_HR_EMPLOYEEPOST>() on c.EMPLOYEEID equals b.T_HR_EMPLOYEE.EMPLOYEEID
@@ -1199,14 +1202,18 @@ namespace SMT.HRM.BLL
                         if (user != null)
                         {
                             user.STATE = "1";
-                            PermClient.SysUserInfoUpdate(user);
+                            bool flag = PermClient.SysUserInfoUpdate(user);
+                            if (flag)
+                            {
+                                //this.AddDefaultRole(user,employee,employeePost);//添加员工默认角色
+                            }
                         }
 
                         #endregion
                         i = dal.SaveContextChanges();
                         dal.CommitTransaction();
                         #region 转正提醒
-                        SMT.Foundation.Log.Tracer.Debug("开始调用引擎默认消息");
+                        SMT.Foundation.Log.Tracer.Debug("----调用员工转正提醒-----");
                         EmployeeCheckBLL checkBll = new EmployeeCheckBLL();
                         checkBll.GetEmployeeCheckEngineXml(employeeEntry);
                         #endregion
@@ -1243,6 +1250,38 @@ namespace SMT.HRM.BLL
             }
         }
 
+        /// <summary>
+        /// 员工入职添加默认角色
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="employee"></param>
+        /// <param name="employeePost"></param>
+        private void AddDefaultRole(T_SYS_USER user,T_HR_EMPLOYEE employee,T_HR_EMPLOYEEPOST employeePost)
+        {
+            try
+            {
+                SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+                string companyName = (from e in dal.GetObjects<T_HR_COMPANY>()
+                                      where e.COMPANYID == employee.OWNERCOMPANYID
+                                      select e.CNAME).FirstOrDefault();
+                string comID = employee.OWNERCOMPANYID, deptID = employee.OWNERDEPARTMENTID, postID = employee.OWNERPOSTID;
+                string employeeID = employee.EMPLOYEEID;
+                string employeePostID = employeePost.EMPLOYEEPOSTID;
+                bool flag = false;// perclient.EmployeeEntryAddDefaultRole(user, comID, companyName, deptID, postID,employeeID, employeePostID);
+                if (flag)
+                {
+                    SMT.Foundation.Log.Tracer.Debug("员工入职添加默认角色成功，员工ID:" + employeeID);
+                }
+                else
+                {
+                    SMT.Foundation.Log.Tracer.Debug("员工入职添加默认角色失败，员工ID:" + employeeID);
+                }
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("员工入职添加默认角色出现错误" +ex.Message+"，员工ID:"+employee.EMPLOYEEID);
+            }
+        }
 
         #region 实现即时通讯接口
         public void AddImInstantMessageForEntry(T_HR_EMPLOYEE employee,T_HR_EMPLOYEEPOST employeepost)

@@ -22,6 +22,7 @@ using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.MobileXml;
+using SMT.Saas.Tools.HrCommonServiceWS;
 namespace SMT.HRM.UI.Form.Salary
 {
     public partial class SalaryArchiveForm : BaseForm, IEntityEditor, IAudit, IClient
@@ -50,6 +51,7 @@ namespace SMT.HRM.UI.Form.Salary
         private string createDepartmentID { get; set; }//传给流程的部门ID
         private bool isNew;//true 表示从快捷方式新建单据
         public T_HR_CUSTOMGUERDONARCHIVE CustomArchive { get; set; }//个人活动经费
+        private HrCommonServiceClient ComClient;
 
         public SalaryArchiveForm()
         {
@@ -59,6 +61,26 @@ namespace SMT.HRM.UI.Form.Salary
             strArchiveID = string.Empty;
             this.Loaded += new RoutedEventHandler(SalaryArchiveForm_Loaded);
             lkBalancePost.TxtLookUp.Text = "跨机构发薪时使用";
+           
+        }
+
+        void ComClient_GetAppConfigByNameCompleted(object sender, GetAppConfigByNameCompletedEventArgs e)
+        {
+            if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                if (e.Result != null)
+                {
+                    if (e.Result == "false")
+                    {
+                        this.isForHunanHangxing.Visibility = Visibility.Collapsed;
+                    }
+                }
+            }
+            //throw new NotImplementedException();
         }
         public SalaryArchiveForm(FormTypes type, string archiveID)
         {
@@ -71,6 +93,9 @@ namespace SMT.HRM.UI.Form.Salary
         void SalaryArchiveForm_Loaded(object sender, RoutedEventArgs e)
         {
             InitParas();
+            ComClient = new HrCommonServiceClient();
+            ComClient.GetAppConfigByNameCompleted += ComClient_GetAppConfigByNameCompleted;
+            ComClient.GetAppConfigByNameAsync("isForHuNanHangXingSalary");
             if (FormType == FormTypes.Audit || FormType == FormTypes.Browse)
             {
                 EnableControl();
@@ -992,7 +1017,14 @@ namespace SMT.HRM.UI.Form.Salary
                 //    clientperson.EmployeeSamePostSalaryLevelUpdateAsync(SalaryArchive.EMPLOYEEID, Convert.ToDecimal(tmpempost.SALARYLEVEL), "CHANGE");
                 //else
                 //    clientperson.EmployeeSamePostSalaryLevelUpdateAsync(SalaryArchive.EMPLOYEEID, Convert.ToDecimal(tmpempost.SALARYLEVEL), "EDIT");
-
+                if (this.cbxSkillSalaryLevel.SelectedItem != null)
+                {
+                    SalaryArchive.SKILLSALARYLEVEL = (this.cbxSkillSalaryLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
+                }
+                if (this.cbxSkillPostLevel.SelectedItem != null)
+                {
+                    SalaryArchive.SKILLPOSTLEVEL = (this.cbxSkillPostLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
+                }
                 if (FormType == FormTypes.New)
                 {
                     //薪资档案异动，新建薪资档案

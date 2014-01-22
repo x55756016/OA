@@ -230,7 +230,7 @@ namespace SMT.HRM.UI.Form.Salary
                             {
                                 CHILDSYSTEMNAME = ent.CHILDSYSTEMNAME,
                                 ENTITYCODE = ent.CHILDSYSTEMNAME,
-                                SUPERIORID = ent.T_SYS_ENTITYMENU2.ENTITYMENUID,
+                                SUPERIORID = string.Empty,//ent.T_SYS_ENTITYMENU2.ENTITYMENUID,
                                 ENTITYMENUID = ent.ENTITYMENUID,
                                 ENTITYNAME = ent.ENTITYNAME,
                                 HASSYSTEMMENU = ent.HASSYSTEMMENU,

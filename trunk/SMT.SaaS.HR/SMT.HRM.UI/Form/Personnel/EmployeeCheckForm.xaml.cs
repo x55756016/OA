@@ -107,7 +107,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     string strOrgName = employeeView.POSTNAME + " - " + employeeView.DEPARTMENTNAME + " - " + employeeView.COMPANYNAME;
                     if (!string.IsNullOrWhiteSpace(strOrgName))
                     {
-                        strOrgName = EmployeeCheck.EMPLOYEENAME + " - " + strOrgName;
+                        strOrgName = EmployeeCheck.T_HR_EMPLOYEE.EMPLOYEECNAME + " - " + strOrgName;
                     }
 
                     //T_HR_EMPLOYEE ent = new T_HR_EMPLOYEE();
@@ -328,7 +328,7 @@ namespace SMT.HRM.UI.Form.Personnel
 
                 }
                 client.GetEmployeePostByEmployeeIDAsync(EmployeeCheck.T_HR_EMPLOYEE.EMPLOYEEID);
-                client.GetEmpOrgInfoByIDAsync(EmployeeCheck.OWNERID, EmployeeCheck.OWNERPOSTID, EmployeeCheck.OWNERDEPARTMENTID, EmployeeCheck.OWNERCOMPANYID);
+                client.GetEmpOrgInfoByIDAsync(EmployeeCheck.T_HR_EMPLOYEE.EMPLOYEEID, EmployeeCheck.T_HR_EMPLOYEE.OWNERPOSTID, EmployeeCheck.T_HR_EMPLOYEE.OWNERDEPARTMENTID, EmployeeCheck.T_HR_EMPLOYEE.OWNERCOMPANYID);
                 //RefreshUI(RefreshedTypes.AuditInfo);
                 //SetToolBar();
             }

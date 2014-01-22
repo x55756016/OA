@@ -17,6 +17,7 @@ using SMT.SaaS.FrameworkUI;
 using System.Collections.ObjectModel;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.FrameworkUI.ChildWidow;
+using System.IO;
 
 namespace SMT.HRM.UI.Views.Personnel
 {
@@ -24,6 +25,8 @@ namespace SMT.HRM.UI.Views.Personnel
     {
         public string Checkstate { get; set; }
         SMTLoading loadbar = new SMTLoading();
+        private SaveFileDialog dialog = new SaveFileDialog();
+        private bool? result;
         PersonnelServiceClient client;
         public LeftOffice()
         {
@@ -47,7 +50,7 @@ namespace SMT.HRM.UI.Views.Personnel
             // client.LeftOfficePagingCompleted += new EventHandler<LeftOfficePagingCompletedEventArgs>(client_LeftOfficePagingCompleted);
             client.LeftOfficeViewsPagingCompleted += new EventHandler<LeftOfficeViewsPagingCompletedEventArgs>(client_LeftOfficeViewsPagingCompleted);
             client.LeftOfficeDeleteCompleted += new EventHandler<LeftOfficeDeleteCompletedEventArgs>(client_LeftOfficeDeleteCompleted);
-
+            client.ExportLeftOfficeViewsCompleted += new EventHandler<ExportLeftOfficeViewsCompletedEventArgs>(client_ExportLeftOfficeViewsCompleted);
             this.Loaded += new RoutedEventHandler(LeftOffice_Loaded);
 
             ToolBar.btnNew.Click += new RoutedEventHandler(btnNew_Click);
@@ -57,6 +60,8 @@ namespace SMT.HRM.UI.Views.Personnel
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
             ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+            ToolBar.btnOutExcel.Visibility = System.Windows.Visibility.Visible;
+            ToolBar.btnOutExcel.Click += new RoutedEventHandler(btnOutExcel_Click);
             //ImageButton btnCreate = new ImageButton();
             //btnCreate.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/area/18_import.png", Utility.GetResourceStr("离职确认")).Click += new RoutedEventHandler(btnCreate_Click);
             //ToolBar.stpOtherAction.Children.Add(btnCreate);
@@ -71,6 +76,91 @@ namespace SMT.HRM.UI.Views.Personnel
             // {
             //     btnCreate.Visibility = Visibility.Visible;
             // }
+        }
+
+        void client_ExportLeftOfficeViewsCompleted(object sender, ExportLeftOfficeViewsCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (result == true)
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                        using (Stream stream = dialog.OpenFile())
+                        {
+                            stream.Write(e.Result, 0, e.Result.Length);
+                        }
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 导出Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void btnOutExcel_Click(object sender, RoutedEventArgs e)
+        {
+
+            dialog.DefaultExt = ".xls";
+            dialog.Filter = "MS Excel Files|*.xls";
+            dialog.FilterIndex = 1;
+
+            result = dialog.ShowDialog();
+            if (result.Value == true)
+            {
+                
+                string filter = "";
+                string strState = "";
+                System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
+
+
+
+                TextBox txtEmpName = Utility.FindChildControl<TextBox>(expander, "txtEmpName");
+                if (txtEmpName != null)
+                {
+                    if (!string.IsNullOrEmpty(txtEmpName.Text))
+                    {
+
+                        // filter += "T_HR_EMPLOYEE.EMPLOYEECNAME==@" + paras.Count().ToString();
+                        filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEECNAME)";
+                        paras.Add(txtEmpName.Text.Trim());
+                    }
+
+                }
+
+                DatePicker dtStart = Utility.FindChildControl<DatePicker>(expander, "dpStartDate");
+                DateTime dtOutstart = DateTime.MinValue;
+                if (dtStart != null)
+                {
+                    bool flag = DateTime.TryParse(dtStart.Text, out dtOutstart);
+                }
+
+                DatePicker dtEnd = Utility.FindChildControl<DatePicker>(expander, "dpEndDate");
+                DateTime dtOutEnd = DateTime.MinValue;
+                if (dtEnd != null)
+                {
+                    string end = dtEnd.Text.ToString();
+                    bool flag = DateTime.TryParse(dtEnd.Text, out dtOutEnd);
+                }
+                if (Checkstate != Convert.ToInt32(CheckStates.All).ToString())
+                {
+                    strState = Checkstate;
+                }
+                loadbar.Start();
+                client.ExportLeftOfficeViewsAsync(filter, paras, dtOutstart, dtOutEnd, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, strState);
+            }
         }
 
 
@@ -146,6 +236,8 @@ namespace SMT.HRM.UI.Views.Personnel
             string strState = "";
             System.Collections.ObjectModel.ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();
 
+
+
             TextBox txtEmpName = Utility.FindChildControl<TextBox>(expander, "txtEmpName");
             if (txtEmpName != null)
             {
@@ -156,6 +248,22 @@ namespace SMT.HRM.UI.Views.Personnel
                     filter += " @" + paras.Count().ToString() + ".Contains(EMPLOYEECNAME)";
                     paras.Add(txtEmpName.Text.Trim());
                 }
+               
+            }
+
+            DatePicker dtStart = Utility.FindChildControl<DatePicker>(expander, "dpStartDate");
+            DateTime dtOutstart = DateTime.MinValue;
+            if (dtStart != null)
+            {
+                bool flag = DateTime.TryParse(dtStart.Text, out dtOutstart);
+            }
+
+            DatePicker dtEnd = Utility.FindChildControl<DatePicker>(expander, "dpEndDate");
+            DateTime dtOutEnd = DateTime.MinValue;
+            if (dtEnd != null)
+            {
+                string end = dtEnd.Text.ToString();
+                bool flag = DateTime.TryParse(dtEnd.Text, out dtOutEnd);
             }
             if (Checkstate != Convert.ToInt32(CheckStates.All).ToString())
             {
@@ -164,7 +272,7 @@ namespace SMT.HRM.UI.Views.Personnel
 
 
             client.LeftOfficeViewsPagingAsync(dataPager.PageIndex, dataPager.PageSize, "LEFTOFFICEDATE", filter,
-             paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, strState);
+             paras, dtOutstart, dtOutEnd, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, strState);
             //client.LeftOfficePagingAsync(dataPager.PageIndex, dataPager.PageSize, "LEFTOFFICEDATE", filter,
             //    paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, strState);
         }

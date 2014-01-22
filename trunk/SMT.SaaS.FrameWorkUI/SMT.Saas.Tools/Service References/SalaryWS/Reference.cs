@@ -3414,6 +3414,10 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         private System.Nullable<decimal> SECURITYALLOWANCEField;
         
+        private string SKILLPOSTLEVELField;
+        
+        private string SKILLSALARYLEVELField;
+        
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_CUSTOMGUERDONARCHIVE> T_HR_CUSTOMGUERDONARCHIVEField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.SalaryWS.T_HR_SALARYARCHIVEITEM> T_HR_SALARYARCHIVEITEMField;
@@ -3996,6 +4000,32 @@ namespace SMT.Saas.Tools.SalaryWS {
                 if ((this.SECURITYALLOWANCEField.Equals(value) != true)) {
                     this.SECURITYALLOWANCEField = value;
                     this.RaisePropertyChanged("SECURITYALLOWANCE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SKILLPOSTLEVEL {
+            get {
+                return this.SKILLPOSTLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SKILLPOSTLEVELField, value) != true)) {
+                    this.SKILLPOSTLEVELField = value;
+                    this.RaisePropertyChanged("SKILLPOSTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SKILLSALARYLEVEL {
+            get {
+                return this.SKILLSALARYLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SKILLSALARYLEVELField, value) != true)) {
+                    this.SKILLSALARYLEVELField = value;
+                    this.RaisePropertyChanged("SKILLSALARYLEVEL");
                 }
             }
         }

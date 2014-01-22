@@ -56,7 +56,7 @@ namespace SMT.HRM.UI.Views.Personnel
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             ToolBar.btnAudit.Click += new RoutedEventHandler(btnAudit_Click);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);
-            //ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
+            ToolBar.btnReSubmit.Click += new RoutedEventHandler(btnReSubmit_Click);
             ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
             ToolBar.cbxCheckState.SelectionChanged += new SelectionChangedEventHandler(cbxCheckState_SelectionChanged);
 
@@ -98,7 +98,7 @@ namespace SMT.HRM.UI.Views.Personnel
             {
                 Checkstate = dict.DICTIONARYVALUE.ToString();
                 Utility.SetToolBarButtonByCheckState(dict.DICTIONARYVALUE.Value.ToInt32(), ToolBar, "T_HR_EMPLOYEEPOSTCHANGE");
-                ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
+                //ToolBar.btnReSubmit.Visibility = Visibility.Collapsed;
                 LoadData();
             }
         }
@@ -248,7 +248,7 @@ namespace SMT.HRM.UI.Views.Personnel
             if (DtGrid.SelectedItems.Count > 0)
             {
                 T_HR_EMPLOYEEPOSTCHANGE temp = DtGrid.SelectedItems[0] as T_HR_EMPLOYEEPOSTCHANGE;
-                EmployeeEntryForm form = new EmployeeEntryForm(FormTypes.Resubmit, temp.POSTCHANGEID);
+                EmployeePostChangeForm form = new EmployeePostChangeForm(FormTypes.Resubmit, temp.POSTCHANGEID);
                 EntityBrowser browser = new EntityBrowser(form);
                 browser.FormType = FormTypes.Resubmit;
                 browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);

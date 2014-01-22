@@ -201,20 +201,27 @@ namespace SMT.HRM.BLL
         /// <param name="employeeCheck"></param>
         public void EmployeeCheckAlarm(T_HR_EMPLOYEECHECK employeeCheck)
         {
-
-            string submitName = "";
-            var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
-                       where a.EMPLOYEEID == employeeCheck.OWNERID
-                       select a;
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = employeeCheck.BEREGULARID;
-            userMsg.UserID = employeeCheck.CREATEUSERID;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Msg);
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Task);
+            try
+            {
+                SMT.Foundation.Log.Tracer.Debug("调用转正提醒:EmployeeCheckBLL类EmployeeCheckAlarm方法");
+                string submitName = "";
+                var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
+                           where a.EMPLOYEEID == employeeCheck.OWNERID
+                           select a;
+                EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+                EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+                userMsg.FormID = employeeCheck.BEREGULARID;
+                userMsg.UserID = employeeCheck.CREATEUSERID;
+                EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+                List[0] = userMsg;
+                if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
+                Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Msg);
+                Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Task);
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("调用EmployeeCheckBLL类EmployeeCheckAlarm方法错误：" + ex.Message);
+            }
 
         }
         /// <summary>
@@ -229,20 +236,21 @@ namespace SMT.HRM.BLL
                 dtStart = (DateTime)entTemp.ENTRYDATE;
             }
             string strStartTime = "10:00";
-            int AddDays = 0;
+            
+            DateTime dtAlarmDay = entTemp.ENTRYDATE.Value.AddMonths(3).AddDays(-5); //3个月后提前5天提醒
             if (entTemp.PROBATIONPERIOD != null)
             {
-                AddDays = (int)entTemp.PROBATIONPERIOD;
-                AddDays = AddDays - 5;//提前5天提醒
+                int addMonth = int.Parse(entTemp.PROBATIONPERIOD.Value.ToString());
+                dtAlarmDay = entTemp.ENTRYDATE.Value.AddMonths(addMonth).AddDays(-5);
             }
-            dtStart = dtStart.AddDays(AddDays);
+            
             //dtStart = new DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, remindDate);
             List<object> objArds = new List<object>();
             objArds.Add(entTemp.OWNERCOMPANYID);
             objArds.Add("HR");
             objArds.Add("T_HR_EMPLOYEECHECK");
             objArds.Add(entTemp.T_HR_EMPLOYEE.EMPLOYEEID);
-            objArds.Add(dtStart.ToString("yyyy/MM/d"));
+            objArds.Add(dtAlarmDay.ToString("yyyy/MM/d"));
             objArds.Add(strStartTime);
             objArds.Add("");
             objArds.Add("");
@@ -250,7 +258,7 @@ namespace SMT.HRM.BLL
             objArds.Add("");
             objArds.Add(Utility.strEngineFuncWSSite);
             objArds.Add("EventTriggerProcess");
-            objArds.Add("<Para FuncName=\"EmployeeCheckRemind\" Name=\"BEREGULARID\" Value=\"" + entTemp.EMPLOYEEENTRYID + "\"></Para>");
+            objArds.Add("<Para FuncName=\"EmployeeCheckRemind\" Name=\"BEREGULARID\" Value=\"" + entTemp.T_HR_EMPLOYEE.EMPLOYEEID + "\"></Para>");
             objArds.Add("Г");
             objArds.Add("basicHttpBinding");
 

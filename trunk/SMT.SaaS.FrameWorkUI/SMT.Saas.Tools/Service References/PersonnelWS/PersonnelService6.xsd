@@ -4,10 +4,24 @@
   <xs:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
   <xs:import schemaLocation="http://localhost:12168/PersonnelService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+  <xs:element name="GetEmployeeContractByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeContractByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeContractByEmployeeIDResult" nillable="true" type="q1:T_HR_EMPLOYEECONTRACT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetEmployeeContractEngineXml">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q1:T_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q2:T_HR_EMPLOYEECONTRACT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -19,7 +33,7 @@
   <xs:element name="EmployeeContractAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q2:T_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q3:T_HR_EMPLOYEECONTRACT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -31,8 +45,8 @@
   <xs:element name="AssessmentFormMasterAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q3:T_HR_ASSESSMENTFORMMASTER" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="tmpList" nillable="true" type="q4:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q4:T_HR_ASSESSMENTFORMMASTER" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="tmpList" nillable="true" type="q5:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,8 +58,8 @@
   <xs:element name="AssessmentFormMasterUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q5:T_HR_ASSESSMENTFORMMASTER" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="tmpList" nillable="true" type="q6:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q6:T_HR_ASSESSMENTFORMMASTER" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="tmpList" nillable="true" type="q7:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -64,7 +78,7 @@
   <xs:element name="GetAssessMentFormMasterByObjectIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessMentFormMasterByObjectIDResult" nillable="true" type="q7:T_HR_ASSESSMENTFORMMASTER" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessMentFormMasterByObjectIDResult" nillable="true" type="q8:T_HR_ASSESSMENTFORMMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -78,7 +92,7 @@
   <xs:element name="GetAssessMentFormMasterByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessMentFormMasterByIDResult" nillable="true" type="q8:T_HR_ASSESSMENTFORMMASTER" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessMentFormMasterByIDResult" nillable="true" type="q9:T_HR_ASSESSMENTFORMMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -89,7 +103,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q9:ArrayOfanyType" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q10:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -98,7 +112,7 @@
   <xs:element name="AssessmentFormMasterPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="AssessmentFormMasterPagingResult" nillable="true" type="q10:ArrayOfT_HR_ASSESSMENTFORMMASTER" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="AssessmentFormMasterPagingResult" nillable="true" type="q11:ArrayOfT_HR_ASSESSMENTFORMMASTER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -113,7 +127,7 @@
   <xs:element name="GetAssessmentFormDetailByMasterIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessmentFormDetailByMasterIDResult" nillable="true" type="q11:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAssessmentFormDetailByMasterIDResult" nillable="true" type="q12:ArrayOfT_HR_ASSESSMENTFORMDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -124,7 +138,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q12:ArrayOfanyType" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q13:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -133,7 +147,7 @@
   <xs:element name="ImportSetMasterPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportSetMasterPagingResult" nillable="true" type="q13:ArrayOfT_HR_IMPORTSETMASTER" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportSetMasterPagingResult" nillable="true" type="q14:ArrayOfT_HR_IMPORTSETMASTER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -141,8 +155,8 @@
   <xs:element name="ImportSetMasterAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q14:T_HR_IMPORTSETMASTER" />
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q15:ArrayOfT_HR_IMPORTSETDETAIL" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q15:T_HR_IMPORTSETMASTER" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q16:ArrayOfT_HR_IMPORTSETDETAIL" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -157,8 +171,8 @@
   <xs:element name="ImportSetMasterUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q16:T_HR_IMPORTSETMASTER" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q17:ArrayOfT_HR_IMPORTSETDETAIL" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q17:T_HR_IMPORTSETMASTER" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q18:ArrayOfT_HR_IMPORTSETDETAIL" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -173,7 +187,7 @@
   <xs:element name="ImportSetMasterDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ids" nillable="true" type="q19:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -194,7 +208,7 @@
   <xs:element name="GetImportSetMasterByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetImportSetMasterByIDResult" nillable="true" type="q19:T_HR_IMPORTSETMASTER" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetImportSetMasterByIDResult" nillable="true" type="q20:T_HR_IMPORTSETMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -205,7 +219,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q20:ArrayOfanyType" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q21:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -214,7 +228,7 @@
   <xs:element name="ImportSetDetailPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportSetDetailPagingResult" nillable="true" type="q21:ArrayOfT_HR_IMPORTSETDETAIL" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportSetDetailPagingResult" nillable="true" type="q22:ArrayOfT_HR_IMPORTSETDETAIL" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -229,7 +243,7 @@
   <xs:element name="GetImportSetDetailByMasterIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetImportSetDetailByMasterIDResult" nillable="true" type="q22:ArrayOfT_HR_IMPORTSETDETAIL" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetImportSetDetailByMasterIDResult" nillable="true" type="q23:ArrayOfT_HR_IMPORTSETDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -240,7 +254,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q23:ArrayOfanyType" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q24:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
@@ -250,7 +264,7 @@
   <xs:element name="LeftOfficeConfirmPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeftOfficeConfirmPagingResult" nillable="true" type="q24:ArrayOfT_HR_LEFTOFFICECONFIRM" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeftOfficeConfirmPagingResult" nillable="true" type="q25:ArrayOfT_HR_LEFTOFFICECONFIRM" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -258,7 +272,7 @@
   <xs:element name="LeftOfficeConfirmAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q25:T_HR_LEFTOFFICECONFIRM" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q26:T_HR_LEFTOFFICECONFIRM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -270,7 +284,7 @@
   <xs:element name="LeftOfficeConfirmUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q26:T_HR_LEFTOFFICECONFIRM" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q27:T_HR_LEFTOFFICECONFIRM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -282,7 +296,7 @@
   <xs:element name="LeftOfficeConfirmDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q27:ArrayOfstring" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q28:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -303,7 +317,7 @@
   <xs:element name="GetLeftOfficeConfirmByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeConfirmByIDResult" nillable="true" type="q28:T_HR_LEFTOFFICECONFIRM" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeConfirmByIDResult" nillable="true" type="q29:T_HR_LEFTOFFICECONFIRM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -314,7 +328,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q29:ArrayOfanyType" />
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q30:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="isGetPhoto" type="xs:boolean" />
@@ -324,7 +338,7 @@
   <xs:element name="GetEmployeeListMobileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeListMobileResult" nillable="true" type="q30:ArrayOfV_MOBILEEMPLOYEE" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeListMobileResult" nillable="true" type="q31:ArrayOfV_MOBILEEMPLOYEE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -340,21 +354,21 @@
   <xs:element name="GetEmployeeSingleMobileResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeSingleMobileResult" nillable="true" type="q31:V_MOBILEEMPLOYEE" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeSingleMobileResult" nillable="true" type="q32:V_MOBILEEMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeListForFB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="list" nillable="true" type="q32:ArrayOfV_EMPLOYEEPOSTFORFB" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="list" nillable="true" type="q33:ArrayOfV_EMPLOYEEPOSTFORFB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeListForFBResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeListForFBResult" nillable="true" type="q33:ArrayOfV_EMPLOYEEPOSTFORFB" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeListForFBResult" nillable="true" type="q34:ArrayOfV_EMPLOYEEPOSTFORFB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -369,21 +383,21 @@
   <xs:element name="GetEmployeeFundsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeFundsResult" nillable="true" type="q34:ArrayOfV_EMPLOYEEFUNDS" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeFundsResult" nillable="true" type="q35:ArrayOfV_EMPLOYEEFUNDS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeFundsList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="list" nillable="true" type="q35:ArrayOfV_EMPLOYEEFUNDS" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="list" nillable="true" type="q36:ArrayOfV_EMPLOYEEFUNDS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeFundsListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeFundsListResult" nillable="true" type="q36:ArrayOfV_EMPLOYEEFUNDS" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeFundsListResult" nillable="true" type="q37:ArrayOfV_EMPLOYEEFUNDS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -404,14 +418,14 @@
   <xs:element name="GetFlowUserInfoPostBriefByEmployeeID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q37:ArrayOfstring" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q38:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFlowUserInfoPostBriefByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetFlowUserInfoPostBriefByEmployeeIDResult" nillable="true" type="q38:ArrayOfV_FlowUserInfo" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetFlowUserInfoPostBriefByEmployeeIDResult" nillable="true" type="q39:ArrayOfV_FlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -425,7 +439,7 @@
   <xs:element name="GetDepartmentHeadByDepartmentIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetDepartmentHeadByDepartmentIDResult" nillable="true" type="q39:ArrayOfV_FlowUserInfo" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetDepartmentHeadByDepartmentIDResult" nillable="true" type="q40:ArrayOfV_FlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -439,7 +453,7 @@
   <xs:element name="GetSuperiorByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetSuperiorByPostIDResult" nillable="true" type="q40:ArrayOfV_FlowUserInfo" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetSuperiorByPostIDResult" nillable="true" type="q41:ArrayOfV_FlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -453,7 +467,7 @@
   <xs:element name="GetFlowUserByUserIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetFlowUserByUserIDResult" nillable="true" type="q41:ArrayOfV_FlowUserInfo" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetFlowUserByUserIDResult" nillable="true" type="q42:ArrayOfV_FlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -468,17 +482,17 @@
   <xs:element name="GetAgentUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAgentUserResult" nillable="true" type="q42:V_FlowUserInfo" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAgentUserResult" nillable="true" type="q43:V_FlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeBasicInfosByCompany">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q43:ArrayOfstring" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q44:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q44:ArrayOfanyType" />
+        <xs:element xmlns:q45="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q45:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="IsType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
@@ -489,17 +503,17 @@
   <xs:element name="GetEmployeeBasicInfosByCompanyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeBasicInfosByCompanyResult" nillable="true" type="q45:ArrayOfV_EmployeeBasicInfo" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeBasicInfosByCompanyResult" nillable="true" type="q46:ArrayOfV_EmployeeBasicInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExportEmployeeBasicInfosByCompanyReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q46:ArrayOfstring" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q47:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q47:ArrayOfanyType" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q48:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="IsType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="start" type="xs:dateTime" />
@@ -517,9 +531,9 @@
   <xs:element name="ExportEmployeeBasicInfosNoGetReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q48:ArrayOfV_EmployeeBasicInfo" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q49:ArrayOfV_EmployeeBasicInfo" />
         <xs:element minOccurs="0" name="Dt" type="xs:dateTime" />
-        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q49:ArrayOfstring" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q50:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -533,10 +547,10 @@
   <xs:element name="EmployeePostReportInfos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q50:ArrayOfstring" />
+        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q51:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q51:ArrayOfanyType" />
+        <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q52:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
         <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
@@ -546,17 +560,17 @@
   <xs:element name="EmployeePostReportInfosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeePostReportInfosResult" nillable="true" type="q52:ArrayOfV_EmployeeChangeInfos" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeePostReportInfosResult" nillable="true" type="q53:ArrayOfV_EmployeeChangeInfos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExportEmployeePostReportInfos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q53:ArrayOfstring" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q54:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q54:ArrayOfanyType" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q55:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
         <xs:element minOccurs="0" name="DtEnd" type="xs:dateTime" />
@@ -573,8 +587,8 @@
   <xs:element name="ExportEmployeePostChangeNoqueryReport">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q55:ArrayOfstring" />
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q56:ArrayOfV_EmployeeChangeInfos" />
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q56:ArrayOfstring" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q57:ArrayOfV_EmployeeChangeInfos" />
         <xs:element minOccurs="0" name="Dt" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
@@ -586,13 +600,27 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEmployeeByNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeCNames" nillable="true" type="q58:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeByNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeByNamesResult" nillable="true" type="q59:ArrayOfV_EMPLOYEEVIEW" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetEmployeeLeftOfficeConfirmReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q57:ArrayOfstring" />
+        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q60:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q58:ArrayOfanyType" />
+        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q61:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="IsType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
@@ -603,17 +631,17 @@
   <xs:element name="GetEmployeeLeftOfficeConfirmReportsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeLeftOfficeConfirmReportsResult" nillable="true" type="q59:ArrayOfV_EmployeeLeftOfficeInfos" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeLeftOfficeConfirmReportsResult" nillable="true" type="q62:ArrayOfV_EmployeeLeftOfficeInfos" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExportEmployeeLeftOfficeConfirmReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q60:ArrayOfstring" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q63:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q61="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q61:ArrayOfanyType" />
+        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q64:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="IsType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
@@ -631,8 +659,8 @@
   <xs:element name="ExportEmployeeLeftOfficeConfirmNoQueryReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q62:ArrayOfstring" />
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q63:ArrayOfV_EmployeeLeftOfficeInfos" />
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q65:ArrayOfstring" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ListInfos" nillable="true" type="q66:ArrayOfV_EmployeeLeftOfficeInfos" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
       </xs:sequence>
     </xs:complexType>
@@ -649,7 +677,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q64="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q64:ArrayOfanyType" />
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q67:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
@@ -667,10 +695,10 @@
   <xs:element name="ExportEmployeeTructReports">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q65:ArrayOfstring" />
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q68:ArrayOfstring" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q66:ArrayOfanyType" />
+        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q69:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="DtStart" type="xs:dateTime" />
@@ -685,10 +713,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SearchEmailByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFilter" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchEmailByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="SearchEmailByNameResult" nillable="true" type="q70:ArrayOfV_EMPLOYEEVIEW" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PensionMasterAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q67:T_HR_PENSIONMASTER" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q71:T_HR_PENSIONMASTER" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -703,7 +746,7 @@
   <xs:element name="PensionMasterUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q68:T_HR_PENSIONMASTER" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q72:T_HR_PENSIONMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -715,7 +758,7 @@
   <xs:element name="PensionMasterDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionMasterIDs" nillable="true" type="q69:ArrayOfstring" />
+        <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionMasterIDs" nillable="true" type="q73:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -736,7 +779,7 @@
   <xs:element name="GetPensionMasterByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionMasterByIDResult" nillable="true" type="q70:T_HR_PENSIONMASTER" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionMasterByIDResult" nillable="true" type="q74:T_HR_PENSIONMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -750,7 +793,7 @@
   <xs:element name="GetPensionMasterByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionMasterByEmployeeIDResult" nillable="true" type="q71:T_HR_PENSIONMASTER" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionMasterByEmployeeIDResult" nillable="true" type="q75:T_HR_PENSIONMASTER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -773,7 +816,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q72:ArrayOfanyType" />
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q76:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -782,7 +825,7 @@
   <xs:element name="PensionDetailPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="PensionDetailPagingResult" nillable="true" type="q73:ArrayOfT_HR_PENSIONDETAIL" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="PensionDetailPagingResult" nillable="true" type="q77:ArrayOfT_HR_PENSIONDETAIL" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -792,7 +835,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q74:ArrayOfanyType" />
+        <xs:element xmlns:q78="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q78:ArrayOfanyType" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="StrYear" nillable="true" type="xs:string" />
@@ -810,7 +853,7 @@
   <xs:element name="PensionDetailDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionDetailIDs" nillable="true" type="q75:ArrayOfstring" />
+        <xs:element xmlns:q79="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionDetailIDs" nillable="true" type="q79:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -824,8 +867,8 @@
   <xs:element name="ImportClockInRdListFromExcel">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q76:UploadFileModel" />
-        <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q77:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q80:UploadFileModel" />
+        <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q81:ArrayOfKeyValueOfstringstring" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -840,8 +883,8 @@
   <xs:element name="ImportClockInRdListFromExcelForShow">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q78:UploadFileModel" />
-        <xs:element xmlns:q79="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q79:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q82:UploadFileModel" />
+        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q83:ArrayOfKeyValueOfstringstring" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -849,7 +892,7 @@
   <xs:element name="ImportClockInRdListFromExcelForShowResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportClockInRdListFromExcelForShowResult" nillable="true" type="q80:ArrayOfT_HR_PENSIONDETAIL" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportClockInRdListFromExcelForShowResult" nillable="true" type="q84:ArrayOfT_HR_PENSIONDETAIL" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -857,8 +900,8 @@
   <xs:element name="BatchAddPensionDetail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="listPension" nillable="true" type="q81:ArrayOfT_HR_PENSIONDETAIL" />
-        <xs:element xmlns:q82="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q82:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="listPension" nillable="true" type="q85:ArrayOfT_HR_PENSIONDETAIL" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q86:ArrayOfKeyValueOfstringstring" />
         <xs:element minOccurs="0" name="StrMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -878,7 +921,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q83:ArrayOfanyType" />
+        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q87:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
@@ -888,7 +931,7 @@
   <xs:element name="EmployeeInsurancePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeInsurancePagingResult" nillable="true" type="q84:ArrayOfT_HR_EMPLOYEEINSURANCE" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeInsurancePagingResult" nillable="true" type="q88:ArrayOfT_HR_EMPLOYEEINSURANCE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -896,7 +939,7 @@
   <xs:element name="EmployeeInsuranceAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q85:T_HR_EMPLOYEEINSURANCE" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q89:T_HR_EMPLOYEEINSURANCE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -911,7 +954,7 @@
   <xs:element name="EmployeeInsuranceUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q86:T_HR_EMPLOYEEINSURANCE" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q90:T_HR_EMPLOYEEINSURANCE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -926,7 +969,7 @@
   <xs:element name="EmployeeInsuranceDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employInsuranceIDs" nillable="true" type="q87:ArrayOfstring" />
+        <xs:element xmlns:q91="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employInsuranceIDs" nillable="true" type="q91:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -947,7 +990,7 @@
   <xs:element name="GetEmployeeInsuranceByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeInsuranceByIDResult" nillable="true" type="q88:T_HR_EMPLOYEEINSURANCE" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeInsuranceByIDResult" nillable="true" type="q92:T_HR_EMPLOYEEINSURANCE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -958,7 +1001,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q89="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q89:ArrayOfanyType" />
+        <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q93:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="strCheckstate" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
@@ -968,7 +1011,7 @@
   <xs:element name="EmployeeCheckPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeCheckPagingResult" nillable="true" type="q90:ArrayOfT_HR_EMPLOYEECHECK" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeCheckPagingResult" nillable="true" type="q94:ArrayOfT_HR_EMPLOYEECHECK" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -983,14 +1026,14 @@
   <xs:element name="GetEmployeeCheckByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeCheckByIDResult" nillable="true" type="q91:T_HR_EMPLOYEECHECK" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeCheckByIDResult" nillable="true" type="q95:T_HR_EMPLOYEECHECK" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EmployeeCheckAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q92:T_HR_EMPLOYEECHECK" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q96:T_HR_EMPLOYEECHECK" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1005,7 +1048,7 @@
   <xs:element name="EmployeeCheckUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q93:T_HR_EMPLOYEECHECK" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q97:T_HR_EMPLOYEECHECK" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1017,7 +1060,7 @@
   <xs:element name="EmployeeCheckDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q94="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeCheckIDs" nillable="true" type="q94:ArrayOfstring" />
+        <xs:element xmlns:q98="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeCheckIDs" nillable="true" type="q98:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1031,7 +1074,7 @@
   <xs:element name="GetEmployeeCheckEngineXml">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q95:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q99:T_HR_EMPLOYEEENTRY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1043,7 +1086,7 @@
   <xs:element name="EmployeeCheckAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q96:T_HR_EMPLOYEECHECK" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q100:T_HR_EMPLOYEECHECK" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1059,7 +1102,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q97="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q97:ArrayOfanyType" />
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q101:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
@@ -1069,7 +1112,7 @@
   <xs:element name="EmployeePostChangePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeePostChangePagingResult" nillable="true" type="q98:ArrayOfT_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeePostChangePagingResult" nillable="true" type="q102:ArrayOfT_HR_EMPLOYEEPOSTCHANGE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1081,7 +1124,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q99:ArrayOfanyType" />
+        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q103:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
@@ -1091,7 +1134,7 @@
   <xs:element name="EmployeePostChangeViewPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeePostChangeViewPagingResult" nillable="true" type="q100:ArrayOfV_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeePostChangeViewPagingResult" nillable="true" type="q104:ArrayOfV_EMPLOYEEPOSTCHANGE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1099,7 +1142,7 @@
   <xs:element name="EmployeePostChangeAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q101:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q105:T_HR_EMPLOYEEPOSTCHANGE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1114,7 +1157,7 @@
   <xs:element name="EmployeePostChangeUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q102:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q106:T_HR_EMPLOYEEPOSTCHANGE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1129,7 +1172,7 @@
   <xs:element name="EmployeePostChangeDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeePostChangeIDs" nillable="true" type="q103:ArrayOfstring" />
+        <xs:element xmlns:q107="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeePostChangeIDs" nillable="true" type="q107:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1150,7 +1193,7 @@
   <xs:element name="GetEmployeePostChangeByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostChangeByIDResult" nillable="true" type="q104:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostChangeByIDResult" nillable="true" type="q108:T_HR_EMPLOYEEPOSTCHANGE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1164,14 +1207,14 @@
   <xs:element name="GetLastChangeByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLastChangeByEmployeeIDResult" nillable="true" type="q105:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLastChangeByEmployeeIDResult" nillable="true" type="q109:T_HR_EMPLOYEEPOSTCHANGE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EmployeePostChange">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q106:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q110:T_HR_EMPLOYEEPOSTCHANGE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1185,7 +1228,7 @@
   <xs:element name="AddEmployeePostChangeForEntry">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q107:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q111:T_HR_EMPLOYEEPOSTCHANGE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1204,7 +1247,7 @@
   <xs:element name="CheckBusinesstripResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q108="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckBusinesstripResult" nillable="true" type="q108:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q112="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CheckBusinesstripResult" nillable="true" type="q112:ArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1215,7 +1258,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q109="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q109:ArrayOfanyType" />
+        <xs:element xmlns:q113="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q113:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
@@ -1225,8 +1268,27 @@
   <xs:element name="LeftOfficePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeftOfficePagingResult" nillable="true" type="q110:ArrayOfT_HR_LEFTOFFICE" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeftOfficePagingResult" nillable="true" type="q114:ArrayOfT_HR_LEFTOFFICE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportLeftOfficeViews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q115="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q115:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportLeftOfficeViewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportLeftOfficeViewsResult" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1237,7 +1299,9 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q111="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q111:ArrayOfanyType" />
+        <xs:element xmlns:q116="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q116:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
@@ -1247,7 +1311,7 @@
   <xs:element name="LeftOfficeViewsPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="LeftOfficeViewsPagingResult" nillable="true" type="q112:ArrayOfV_LEFTOFFICEVIEW" />
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="LeftOfficeViewsPagingResult" nillable="true" type="q117:ArrayOfV_LEFTOFFICEVIEW" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1255,7 +1319,7 @@
   <xs:element name="LeftOfficeAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q113:T_HR_LEFTOFFICE" />
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q118:T_HR_LEFTOFFICE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1270,7 +1334,7 @@
   <xs:element name="LeftOfficeUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q114:T_HR_LEFTOFFICE" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q119:T_HR_LEFTOFFICE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1285,7 +1349,7 @@
   <xs:element name="LeftOfficeDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q115="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dimissionIDs" nillable="true" type="q115:ArrayOfstring" />
+        <xs:element xmlns:q120="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="dimissionIDs" nillable="true" type="q120:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1306,7 +1370,7 @@
   <xs:element name="GetLeftOfficeByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeByIDResult" nillable="true" type="q116:T_HR_LEFTOFFICE" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeByIDResult" nillable="true" type="q121:T_HR_LEFTOFFICE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1321,7 +1385,7 @@
   <xs:element name="GetLeftOfficeByEmployeeIDAndPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeByEmployeeIDAndPostIDResult" nillable="true" type="q117:T_HR_LEFTOFFICE" />
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeftOfficeByEmployeeIDAndPostIDResult" nillable="true" type="q122:T_HR_LEFTOFFICE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1332,7 +1396,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q118="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q118:ArrayOfanyType" />
+        <xs:element xmlns:q123="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q123:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1340,7 +1404,7 @@
   <xs:element name="CheckProjectSetPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="CheckProjectSetPagingResult" nillable="true" type="q119:ArrayOfT_HR_CHECKPROJECTSET" />
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="CheckProjectSetPagingResult" nillable="true" type="q124:ArrayOfT_HR_CHECKPROJECTSET" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1355,14 +1419,14 @@
   <xs:element name="GetCheckProjectSetByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetCheckProjectSetByTypeResult" nillable="true" type="q120:ArrayOfV_PROJECTPOINT" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetCheckProjectSetByTypeResult" nillable="true" type="q125:ArrayOfV_PROJECTPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CheckProjectSetAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q121:T_HR_CHECKPROJECTSET" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q126:T_HR_CHECKPROJECTSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1374,7 +1438,7 @@
   <xs:element name="CheckProjectSetUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q122:T_HR_CHECKPROJECTSET" />
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q127:T_HR_CHECKPROJECTSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1407,7 +1471,7 @@
   <xs:element name="GetCheckProjectSetByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckProjectSetByIDResult" nillable="true" type="q123:T_HR_CHECKPROJECTSET" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckProjectSetByIDResult" nillable="true" type="q128:T_HR_CHECKPROJECTSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1422,7 +1486,7 @@
   <xs:element name="GetCheckPointSetByPrimaryIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointSetByPrimaryIDResult" nillable="true" type="q124:ArrayOfT_HR_CHECKPOINTSET" />
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointSetByPrimaryIDResult" nillable="true" type="q129:ArrayOfT_HR_CHECKPOINTSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1436,15 +1500,15 @@
   <xs:element name="GetCheckPointSetByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointSetByIDResult" nillable="true" type="q125:T_HR_CHECKPOINTSET" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointSetByIDResult" nillable="true" type="q130:T_HR_CHECKPOINTSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CheckPointSetAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q126:T_HR_CHECKPOINTSET" />
-        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="levelEntitys" nillable="true" type="q127:ArrayOfT_HR_CHECKPOINTLEVELSET" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q131:T_HR_CHECKPOINTSET" />
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="levelEntitys" nillable="true" type="q132:ArrayOfT_HR_CHECKPOINTLEVELSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1456,8 +1520,8 @@
   <xs:element name="CheckPointSetUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q128:T_HR_CHECKPOINTSET" />
-        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="levelEntitys" nillable="true" type="q129:ArrayOfT_HR_CHECKPOINTLEVELSET" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q133:T_HR_CHECKPOINTSET" />
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="levelEntitys" nillable="true" type="q134:ArrayOfT_HR_CHECKPOINTLEVELSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1519,7 +1583,7 @@
   <xs:element name="GetCheckPointLevelSetByPrimaryIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointLevelSetByPrimaryIDResult" nillable="true" type="q130:ArrayOfT_HR_CHECKPOINTLEVELSET" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCheckPointLevelSetByPrimaryIDResult" nillable="true" type="q135:ArrayOfT_HR_CHECKPOINTLEVELSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1533,7 +1597,7 @@
   <xs:element name="GetEmployeePostByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeeIDResult" nillable="true" type="q131:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeeIDResult" nillable="true" type="q136:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1547,7 +1611,7 @@
   <xs:element name="GetEmployeePostActivedByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostActivedByEmployeeIDResult" nillable="true" type="q132:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostActivedByEmployeeIDResult" nillable="true" type="q137:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1562,14 +1626,14 @@
   <xs:element name="GetEmployeePostByEmployeeIDAndPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeeIDAndPostIDResult" nillable="true" type="q133:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeeIDAndPostIDResult" nillable="true" type="q138:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EmployeePostAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q134:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q139:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1590,14 +1654,14 @@
   <xs:element name="GetEmployeePostByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByIDResult" nillable="true" type="q135:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByIDResult" nillable="true" type="q140:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EmployeePostSalaryLevelUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="employeePost" nillable="true" type="q136:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="employeePost" nillable="true" type="q141:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1626,7 +1690,7 @@
   <xs:element name="EmployeePostUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q137:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q142:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1661,7 +1725,7 @@
   <xs:element name="GetAllPostByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAllPostByEmployeeIDResult" nillable="true" type="q138:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAllPostByEmployeeIDResult" nillable="true" type="q143:ArrayOfT_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1675,7 +1739,7 @@
   <xs:element name="GetEmployeePostByEmployeePostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeePostIDResult" nillable="true" type="q139:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByEmployeePostIDResult" nillable="true" type="q144:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1689,7 +1753,7 @@
   <xs:element name="GetEmployeePostByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDResult" nillable="true" type="q140:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDResult" nillable="true" type="q145:ArrayOfT_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1704,21 +1768,21 @@
   <xs:element name="GetEmployeePostByPostIDViewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDViewResult" nillable="true" type="q141:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDViewResult" nillable="true" type="q146:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeePostByPostIDs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q142="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q142:ArrayOfstring" />
+        <xs:element xmlns:q147="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q147:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeePostByPostIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDsResult" nillable="true" type="q143:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostByPostIDsResult" nillable="true" type="q148:ArrayOfT_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1732,39 +1796,39 @@
   <xs:element name="GetEmployeesByPostLevelResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeesByPostLevelResult" nillable="true" type="q144:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeesByPostLevelResult" nillable="true" type="q149:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesByPostLevelInterval">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q145="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="levelA" nillable="true" type="q145:ArrayOfint" />
-        <xs:element xmlns:q146="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="levelB" nillable="true" type="q146:ArrayOfint" />
+        <xs:element xmlns:q150="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="levelA" nillable="true" type="q150:ArrayOfint" />
+        <xs:element xmlns:q151="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="levelB" nillable="true" type="q151:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesByPostLevelIntervalResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesByPostLevelIntervalResult" nillable="true" type="q147:ArrayOfV_EMPOYEEPOSTLEVEL" />
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesByPostLevelIntervalResult" nillable="true" type="q152:ArrayOfV_EMPOYEEPOSTLEVEL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailByParas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q148="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q148:ArrayOfstring" />
-        <xs:element xmlns:q149="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q149:ArrayOfstring" />
-        <xs:element xmlns:q150="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q150:ArrayOfstring" />
-        <xs:element xmlns:q151="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q151:ArrayOfstring" />
+        <xs:element xmlns:q153="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q153:ArrayOfstring" />
+        <xs:element xmlns:q154="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q154:ArrayOfstring" />
+        <xs:element xmlns:q155="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q155:ArrayOfstring" />
+        <xs:element xmlns:q156="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q156:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailByParasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByParasResult" nillable="true" type="q152:ArrayOfV_EMPLOYEEPOST" />
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByParasResult" nillable="true" type="q157:ArrayOfV_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1778,7 +1842,7 @@
   <xs:element name="GetEmployeePostBriefByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeePostBriefByEmployeeIDResult" nillable="true" type="q153:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeePostBriefByEmployeeIDResult" nillable="true" type="q158:V_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1792,7 +1856,7 @@
   <xs:element name="GetAllEmployeePostBriefByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAllEmployeePostBriefByEmployeeIDResult" nillable="true" type="q154:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAllEmployeePostBriefByEmployeeIDResult" nillable="true" type="q159:V_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1806,21 +1870,21 @@
   <xs:element name="GetEmployeePostBriefByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostBriefByPostIDResult" nillable="true" type="q155:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePostBriefByPostIDResult" nillable="true" type="q160:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesPostBriefByEmployeeID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q156="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q156:ArrayOfstring" />
+        <xs:element xmlns:q161="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeids" nillable="true" type="q161:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesPostBriefByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesPostBriefByEmployeeIDResult" nillable="true" type="q157:ArrayOfV_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesPostBriefByEmployeeIDResult" nillable="true" type="q162:ArrayOfV_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1834,7 +1898,7 @@
   <xs:element name="GetPostsActivedByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPostsActivedByEmployeeIDResult" nillable="true" type="q158:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPostsActivedByEmployeeIDResult" nillable="true" type="q163:ArrayOfT_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1860,7 +1924,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q159="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q159:ArrayOfanyType" />
+        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q164:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -1872,7 +1936,7 @@
   <xs:element name="EmployeeContractsPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeContractsPagingResult" nillable="true" type="q160:ArrayOfT_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeContractsPagingResult" nillable="true" type="q165:ArrayOfT_HR_EMPLOYEECONTRACT" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1884,7 +1948,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q161="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q161:ArrayOfanyType" />
+        <xs:element xmlns:q166="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q166:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
@@ -1894,7 +1958,7 @@
   <xs:element name="EmployeeContractPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeContractPagingResult" nillable="true" type="q162:ArrayOfT_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeContractPagingResult" nillable="true" type="q167:ArrayOfT_HR_EMPLOYEECONTRACT" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1902,7 +1966,7 @@
   <xs:element name="EmployeeContractAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q163:T_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q168:T_HR_EMPLOYEECONTRACT" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1917,7 +1981,7 @@
   <xs:element name="EmployeeContractUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q164:T_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q169:T_HR_EMPLOYEECONTRACT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1929,7 +1993,7 @@
   <xs:element name="EmployeeContractDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q165="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeContractIDs" nillable="true" type="q165:ArrayOfstring" />
+        <xs:element xmlns:q170="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeContractIDs" nillable="true" type="q170:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1950,21 +2014,7 @@
   <xs:element name="GetEmployeeContractByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeContractByIDResult" nillable="true" type="q166:T_HR_EMPLOYEECONTRACT" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeContractByEmployeeID">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeContractByEmployeeIDResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeContractByEmployeeIDResult" nillable="true" type="q167:T_HR_EMPLOYEECONTRACT" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeContractByIDResult" nillable="true" type="q171:T_HR_EMPLOYEECONTRACT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1981,7 +2031,7 @@
   <xs:element name="SaveFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q168:UploadFileModel" />
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q172:UploadFileModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1995,7 +2045,7 @@
   <xs:element name="EmployeeAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q169:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q173:T_HR_EMPLOYEE" />
         <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -2011,7 +2061,7 @@
   <xs:element name="EmployeeAddOrUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q170:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q174:T_HR_EMPLOYEE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2026,7 +2076,7 @@
   <xs:element name="EmployeeUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q171:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q175:T_HR_EMPLOYEE" />
         <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -2049,7 +2099,7 @@
   <xs:element name="GetEmployeeByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByIDResult" nillable="true" type="q172:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByIDResult" nillable="true" type="q176:T_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2070,14 +2120,14 @@
   <xs:element name="GetEmployeesByIdnumber">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q173="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idnumbers" nillable="true" type="q173:ArrayOfstring" />
+        <xs:element xmlns:q177="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idnumbers" nillable="true" type="q177:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeesByIdnumberResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesByIdnumberResult" nillable="true" type="q174:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesByIdnumberResult" nillable="true" type="q178:ArrayOfV_EMPLOYEEVIEW" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2091,7 +2141,7 @@
   <xs:element name="GetEmployeeByCompanyIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByCompanyIDResult" nillable="true" type="q175:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByCompanyIDResult" nillable="true" type="q179:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2105,7 +2155,7 @@
   <xs:element name="GetEmployeeByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByPostIDResult" nillable="true" type="q176:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByPostIDResult" nillable="true" type="q180:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2119,7 +2169,7 @@
   <xs:element name="GetEmployeeIDsByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q177="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsByPostIDResult" nillable="true" type="q177:ArrayOfstring" />
+        <xs:element xmlns:q181="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsByPostIDResult" nillable="true" type="q181:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2134,7 +2184,7 @@
   <xs:element name="GetEmployeeLeaderResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeLeaderResult" nillable="true" type="q178:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeLeaderResult" nillable="true" type="q182:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2149,7 +2199,7 @@
   <xs:element name="GetEmployeeLeadersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeLeadersResult" nillable="true" type="q179:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeLeadersResult" nillable="true" type="q183:ArrayOfV_EMPLOYEEVIEW" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2163,7 +2213,7 @@
   <xs:element name="GetDepartmentLeadersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetDepartmentLeadersResult" nillable="true" type="q180:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetDepartmentLeadersResult" nillable="true" type="q184:ArrayOfT_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2174,17 +2224,17 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q181="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q181:ArrayOfstring" />
-        <xs:element xmlns:q182="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q182:ArrayOfstring" />
-        <xs:element xmlns:q183="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q183:ArrayOfstring" />
-        <xs:element xmlns:q184="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q184:ArrayOfstring" />
+        <xs:element xmlns:q185="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q185:ArrayOfstring" />
+        <xs:element xmlns:q186="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q186:ArrayOfstring" />
+        <xs:element xmlns:q187="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q187:ArrayOfstring" />
+        <xs:element xmlns:q188="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q188:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailByParasPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeDetailByParasPagingResult" nillable="true" type="q185:ArrayOfT_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeDetailByParasPagingResult" nillable="true" type="q189:ArrayOfT_HR_EMPLOYEEPOST" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2192,28 +2242,28 @@
   <xs:element name="GetEmployeeByIDs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q186="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q186:ArrayOfstring" />
+        <xs:element xmlns:q190="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q190:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeByIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByIDsResult" nillable="true" type="q187:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByIDsResult" nillable="true" type="q191:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeToEngine">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q188="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q188:ArrayOfstring" />
+        <xs:element xmlns:q192="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q192:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeToEngineResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeToEngineResult" nillable="true" type="q189:ArrayOfEmployeeContactWays" />
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeToEngineResult" nillable="true" type="q193:ArrayOfEmployeeContactWays" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2239,7 +2289,7 @@
   <xs:element name="GetEmployeeInfoByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeInfoByEmployeeIDResult" nillable="true" type="q190:V_EMPLOYEEVIEW" />
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeInfoByEmployeeIDResult" nillable="true" type="q194:V_EMPLOYEEVIEW" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2253,7 +2303,7 @@
   <xs:element name="GetEmployeeDetailByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByIDResult" nillable="true" type="q191:V_EMPLOYEEPOST" />
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByIDResult" nillable="true" type="q195:V_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2267,21 +2317,21 @@
   <xs:element name="GetEmployeeDetailViewByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailViewByIDResult" nillable="true" type="q192:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailViewByIDResult" nillable="true" type="q196:V_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailByIDs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q193="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeID" nillable="true" type="q193:ArrayOfstring" />
+        <xs:element xmlns:q197="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeID" nillable="true" type="q197:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailByIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByIDsResult" nillable="true" type="q194:ArrayOfV_EMPLOYEEPOST" />
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailByIDsResult" nillable="true" type="q198:ArrayOfV_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2316,7 +2366,7 @@
   <xs:element name="EmployeeDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q195="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q195:ArrayOfstring" />
+        <xs:element xmlns:q199="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q199:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2337,57 +2387,11 @@
   <xs:element name="GetEmployeeByDepartmentIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByDepartmentIDResult" nillable="true" type="q196:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByDepartmentIDResult" nillable="true" type="q200:ArrayOfT_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeePaging">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
-        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
-        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q197="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q197:ArrayOfstring" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeePagingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePagingResult" nillable="true" type="q198:ArrayOfT_HR_EMPLOYEE" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeViewsPaging">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
-        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
-        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q199="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q199:ArrayOfstring" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeViewsPagingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsPagingResult" nillable="true" type="q200:ArrayOfV_EMPLOYEEVIEW" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetEmployeeBasicInfoPagingView">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
@@ -2402,10 +2406,56 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEmployeePagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePagingResult" nillable="true" type="q202:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeViewsPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q203="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q203:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeViewsPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsPagingResult" nillable="true" type="q204:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeBasicInfoPagingView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q205="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q205:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetEmployeeBasicInfoPagingViewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeBasicInfoPagingViewResult" nillable="true" type="q202:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeBasicInfoPagingViewResult" nillable="true" type="q206:ArrayOfV_EMPLOYEEVIEW" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2413,48 +2463,48 @@
   <xs:element name="GetEmployeeDetailViewByEmployeeID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q203="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Employeeids" nillable="true" type="q203:ArrayOfstring" />
+        <xs:element xmlns:q207="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Employeeids" nillable="true" type="q207:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeDetailViewByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailViewByEmployeeIDResult" nillable="true" type="q204:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeDetailViewByEmployeeIDResult" nillable="true" type="q208:ArrayOfV_EMPLOYEEVIEW" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeIDsByParas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q205="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q205:ArrayOfstring" />
-        <xs:element xmlns:q206="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q206:ArrayOfstring" />
-        <xs:element xmlns:q207="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q207:ArrayOfstring" />
+        <xs:element xmlns:q209="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q209:ArrayOfstring" />
+        <xs:element xmlns:q210="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q210:ArrayOfstring" />
+        <xs:element xmlns:q211="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q211:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeIDsByParasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q208="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsByParasResult" nillable="true" type="q208:ArrayOfstring" />
+        <xs:element xmlns:q212="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsByParasResult" nillable="true" type="q212:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeIDsWithParas">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q209="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q209:ArrayOfstring" />
+        <xs:element xmlns:q213="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q213:ArrayOfstring" />
         <xs:element minOccurs="0" name="isContainChildCompany" type="xs:boolean" />
-        <xs:element xmlns:q210="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q210:ArrayOfstring" />
+        <xs:element xmlns:q214="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="departmentIDs" nillable="true" type="q214:ArrayOfstring" />
         <xs:element minOccurs="0" name="isContainChildDepartment" type="xs:boolean" />
-        <xs:element xmlns:q211="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q211:ArrayOfstring" />
+        <xs:element xmlns:q215="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="postIDs" nillable="true" type="q215:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetEmployeeIDsWithParasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q212="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsWithParasResult" nillable="true" type="q212:ArrayOfstring" />
+        <xs:element xmlns:q216="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmployeeIDsWithParasResult" nillable="true" type="q216:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2465,7 +2515,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q213="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q213:ArrayOfstring" />
+        <xs:element xmlns:q217="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q217:ArrayOfstring" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2476,7 +2526,7 @@
   <xs:element name="GetLeaveEmployeeViewsPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetLeaveEmployeeViewsPagingResult" nillable="true" type="q214:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetLeaveEmployeeViewsPagingResult" nillable="true" type="q218:ArrayOfV_EMPLOYEEVIEW" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2488,7 +2538,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q215="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q215:ArrayOfstring" />
+        <xs:element xmlns:q219="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q219:ArrayOfstring" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2499,7 +2549,7 @@
   <xs:element name="GetEmployeeViewsActivedPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsActivedPagingResult" nillable="true" type="q216:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsActivedPagingResult" nillable="true" type="q220:ArrayOfV_EMPLOYEEVIEW" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2511,7 +2561,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q217="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q217:ArrayOfanyType" />
+        <xs:element xmlns:q221="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q221:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2521,7 +2571,7 @@
   <xs:element name="GetEmployeesWithOutPermissionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeesWithOutPermissionsResult" nillable="true" type="q218:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeesWithOutPermissionsResult" nillable="true" type="q222:ArrayOfT_HR_EMPLOYEE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2533,7 +2583,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q219="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q219:ArrayOfanyType" />
+        <xs:element xmlns:q223="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q223:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2543,7 +2593,7 @@
   <xs:element name="GetEmployeeViewsWithOutPermissionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsWithOutPermissionsResult" nillable="true" type="q220:ArrayOfV_EMPLOYEEVIEW" />
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeViewsWithOutPermissionsResult" nillable="true" type="q224:ArrayOfV_EMPLOYEEVIEW" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2555,7 +2605,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q221="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q221:ArrayOfstring" />
+        <xs:element xmlns:q225="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q225:ArrayOfstring" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -2564,7 +2614,7 @@
   <xs:element name="GetEmployeePagingByFilterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePagingByFilterResult" nillable="true" type="q222:ArrayOfT_HR_EMPLOYEE" />
+        <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeePagingByFilterResult" nillable="true" type="q226:ArrayOfT_HR_EMPLOYEE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2576,7 +2626,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q223="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q223:ArrayOfanyType" />
+        <xs:element xmlns:q227="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q227:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2587,7 +2637,7 @@
   <xs:element name="GetEmployeesIntimeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesIntimeResult" nillable="true" type="q224:ArrayOfV_EMPLOYEESTATICINFO" />
+        <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeesIntimeResult" nillable="true" type="q228:ArrayOfV_EMPLOYEESTATICINFO" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2599,7 +2649,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q225="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q225:ArrayOfanyType" />
+        <xs:element xmlns:q229="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q229:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -2620,7 +2670,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="sNumberID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="blackMessage" nillable="true" type="xs:string" />
-        <xs:element xmlns:q226="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveMessage" nillable="true" type="q226:ArrayOfstring" />
+        <xs:element xmlns:q230="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveMessage" nillable="true" type="q230:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2629,7 +2679,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="EmployeeIsEntryResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="blackMessage" nillable="true" type="xs:string" />
-        <xs:element xmlns:q227="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveMessage" nillable="true" type="q227:ArrayOfstring" />
+        <xs:element xmlns:q231="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveMessage" nillable="true" type="q231:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2643,7 +2693,7 @@
   <xs:element name="GetEmployeeByNumberIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByNumberIDResult" nillable="true" type="q228:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q232="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeByNumberIDResult" nillable="true" type="q232:T_HR_EMPLOYEE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2657,7 +2707,7 @@
   <xs:element name="GetEmployeeByFingerPrintIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q229="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeByFingerPrintIDResult" nillable="true" type="q229:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeByFingerPrintIDResult" nillable="true" type="q233:V_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2671,7 +2721,7 @@
   <xs:element name="GetEmployeeOrgByEmployeeidResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q230="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeOrgByEmployeeidResult" nillable="true" type="q230:V_EMPLOYEEDETAIL" />
+        <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeOrgByEmployeeidResult" nillable="true" type="q234:V_EMPLOYEEDETAIL" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2722,7 +2772,7 @@
   <xs:element name="GetEmpOrgInfoByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q231="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmpOrgInfoByIDResult" nillable="true" type="q231:V_EMPLOYEEVIEW" />
+        <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmpOrgInfoByIDResult" nillable="true" type="q235:V_EMPLOYEEVIEW" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2733,7 +2783,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q232="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q232:ArrayOfstring" />
+        <xs:element xmlns:q236="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q236:ArrayOfstring" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2741,7 +2791,7 @@
   <xs:element name="GetResumePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q233="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumePagingResult" nillable="true" type="q233:ArrayOfT_HR_RESUME" />
+        <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumePagingResult" nillable="true" type="q237:ArrayOfT_HR_RESUME" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2756,16 +2806,16 @@
   <xs:element name="GetResumeByidResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q234="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumeByidResult" nillable="true" type="q234:T_HR_RESUME" />
+        <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumeByidResult" nillable="true" type="q238:T_HR_RESUME" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ResumeAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q235="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q235:T_HR_RESUME" />
-        <xs:element xmlns:q236="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="experience" nillable="true" type="q236:ArrayOfT_HR_EXPERIENCE" />
-        <xs:element xmlns:q237="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="eduHistory" nillable="true" type="q237:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q239="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q239:T_HR_RESUME" />
+        <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="experience" nillable="true" type="q240:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="eduHistory" nillable="true" type="q241:ArrayOfT_HR_EDUCATEHISTORY" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2780,11 +2830,11 @@
   <xs:element name="ResumeUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q238="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q238:T_HR_RESUME" />
-        <xs:element xmlns:q239="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="experience" nillable="true" type="q239:ArrayOfT_HR_EXPERIENCE" />
-        <xs:element xmlns:q240="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="eduHistory" nillable="true" type="q240:ArrayOfT_HR_EDUCATEHISTORY" />
-        <xs:element xmlns:q241="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delexps" nillable="true" type="q241:ArrayOfT_HR_EXPERIENCE" />
-        <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="deledus" nillable="true" type="q242:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q242="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q242:T_HR_RESUME" />
+        <xs:element xmlns:q243="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="experience" nillable="true" type="q243:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="eduHistory" nillable="true" type="q244:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delexps" nillable="true" type="q245:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="deledus" nillable="true" type="q246:ArrayOfT_HR_EDUCATEHISTORY" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2799,7 +2849,7 @@
   <xs:element name="ResumeDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q243="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="resumeID" nillable="true" type="q243:ArrayOfstring" />
+        <xs:element xmlns:q247="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="resumeID" nillable="true" type="q247:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2820,7 +2870,7 @@
   <xs:element name="GetResumeByNumberResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q244="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumeByNumberResult" nillable="true" type="q244:T_HR_RESUME" />
+        <xs:element xmlns:q248="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetResumeByNumberResult" nillable="true" type="q248:T_HR_RESUME" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2834,14 +2884,14 @@
   <xs:element name="GetExperienceAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q245="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetExperienceAllResult" nillable="true" type="q245:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q249="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetExperienceAllResult" nillable="true" type="q249:ArrayOfT_HR_EXPERIENCE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ExperienceAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q246="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q246:T_HR_EXPERIENCE" />
+        <xs:element xmlns:q250="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q250:T_HR_EXPERIENCE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2853,7 +2903,7 @@
   <xs:element name="ExperienceUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q247="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q247:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q251="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q251:ArrayOfT_HR_EXPERIENCE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2867,7 +2917,7 @@
   <xs:element name="ExperienceDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q248="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delexps" nillable="true" type="q248:ArrayOfT_HR_EXPERIENCE" />
+        <xs:element xmlns:q252="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delexps" nillable="true" type="q252:ArrayOfT_HR_EXPERIENCE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2888,14 +2938,14 @@
   <xs:element name="GetEducateHistoryAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q249="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEducateHistoryAllResult" nillable="true" type="q249:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q253="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEducateHistoryAllResult" nillable="true" type="q253:ArrayOfT_HR_EDUCATEHISTORY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EducateHistoryAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q250="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q250:T_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q254="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q254:T_HR_EDUCATEHISTORY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2907,7 +2957,7 @@
   <xs:element name="EducateHistoryUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q251="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q251:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q255:ArrayOfT_HR_EDUCATEHISTORY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2921,7 +2971,7 @@
   <xs:element name="EducateHistoryDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q252="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="deledus" nillable="true" type="q252:ArrayOfT_HR_EDUCATEHISTORY" />
+        <xs:element xmlns:q256="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="deledus" nillable="true" type="q256:ArrayOfT_HR_EDUCATEHISTORY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2939,7 +2989,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q253="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q253:ArrayOfstring" />
+        <xs:element xmlns:q257="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q257:ArrayOfstring" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -2948,7 +2998,7 @@
   <xs:element name="GetBlackListPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q254="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetBlackListPagingResult" nillable="true" type="q254:ArrayOfT_HR_BLACKLIST" />
+        <xs:element xmlns:q258="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetBlackListPagingResult" nillable="true" type="q258:ArrayOfT_HR_BLACKLIST" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2956,7 +3006,7 @@
   <xs:element name="BlackListAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q255="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q255:T_HR_BLACKLIST" />
+        <xs:element xmlns:q259="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q259:T_HR_BLACKLIST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2984,7 +3034,7 @@
   <xs:element name="BlackListUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q256="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q256:T_HR_BLACKLIST" />
+        <xs:element xmlns:q260="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q260:T_HR_BLACKLIST" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2999,7 +3049,7 @@
   <xs:element name="BlackListDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q257="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="blackLists" nillable="true" type="q257:ArrayOfstring" />
+        <xs:element xmlns:q261="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="blackLists" nillable="true" type="q261:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3020,15 +3070,15 @@
   <xs:element name="GetBlackListByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q258="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetBlackListByIDResult" nillable="true" type="q258:T_HR_BLACKLIST" />
+        <xs:element xmlns:q262="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetBlackListByIDResult" nillable="true" type="q262:T_HR_BLACKLIST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EmployeeEntryAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q259="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q259:T_HR_EMPLOYEEENTRY" />
-        <xs:element xmlns:q260="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q260:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q263="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q263:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q264="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q264:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3040,9 +3090,9 @@
   <xs:element name="AddEmployeeEntry">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q261="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="employee" nillable="true" type="q261:T_HR_EMPLOYEE" />
-        <xs:element xmlns:q262="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q262:T_HR_EMPLOYEEENTRY" />
-        <xs:element xmlns:q263="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q263:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q265="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="employee" nillable="true" type="q265:T_HR_EMPLOYEE" />
+        <xs:element xmlns:q266="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q266:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q267="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q267:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3056,8 +3106,8 @@
   <xs:element name="EmployeeEntryUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q264="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q264:T_HR_EMPLOYEEENTRY" />
-        <xs:element xmlns:q265="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q265:T_HR_EMPLOYEEPOST" />
+        <xs:element xmlns:q268="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q268:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q269="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ent" nillable="true" type="q269:T_HR_EMPLOYEEPOST" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3069,7 +3119,7 @@
   <xs:element name="EmployeeEntryDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q266="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeEntryIDs" nillable="true" type="q266:ArrayOfstring" />
+        <xs:element xmlns:q270="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeEntryIDs" nillable="true" type="q270:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3087,7 +3137,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q267="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q267:ArrayOfanyType" />
+        <xs:element xmlns:q271="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q271:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
@@ -3099,7 +3149,7 @@
   <xs:element name="GetEmployeeEntryPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q268="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeEntryPagingResult" nillable="true" type="q268:ArrayOfV_EMPLOYEEENTRY" />
+        <xs:element xmlns:q272="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeEntryPagingResult" nillable="true" type="q272:ArrayOfV_EMPLOYEEENTRY" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -3114,7 +3164,7 @@
   <xs:element name="GetEmployeeEntryByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q269="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByIDResult" nillable="true" type="q269:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q273="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByIDResult" nillable="true" type="q273:T_HR_EMPLOYEEENTRY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3128,7 +3178,7 @@
   <xs:element name="GetEmployeeEntryByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q270="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByEmployeeIDResult" nillable="true" type="q270:T_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q274="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByEmployeeIDResult" nillable="true" type="q274:T_HR_EMPLOYEEENTRY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3143,44 +3193,44 @@
   <xs:element name="GetEmployeeEntryByEmployeeIDAndCOMPANYIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q271="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByEmployeeIDAndCOMPANYIDResult" nillable="true" type="q271:ArrayOfT_HR_EMPLOYEEENTRY" />
+        <xs:element xmlns:q275="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEntryByEmployeeIDAndCOMPANYIDResult" nillable="true" type="q275:ArrayOfT_HR_EMPLOYEEENTRY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ImportEmployeeEntry">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q272="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="uploadFile" nillable="true" type="q272:UploadFileModel" />
+        <xs:element xmlns:q276="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="uploadFile" nillable="true" type="q276:UploadFileModel" />
         <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q273="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="empInfoDic" nillable="true" type="q273:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q277="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="empInfoDic" nillable="true" type="q277:ArrayOfKeyValueOfstringstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ImportEmployeeEntryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q274="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ImportEmployeeEntryResult" nillable="true" type="q274:ArrayOfV_EmployeeEntryInfo" />
+        <xs:element xmlns:q278="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ImportEmployeeEntryResult" nillable="true" type="q278:ArrayOfV_EmployeeEntryInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ValidUserNameIsExist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q275="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="listEmpInfo" nillable="true" type="q275:ArrayOfV_EmployeeEntryInfo" />
+        <xs:element xmlns:q279="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="listEmpInfo" nillable="true" type="q279:ArrayOfV_EmployeeEntryInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ValidUserNameIsExistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q276="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ValidUserNameIsExistResult" nillable="true" type="q276:ArrayOfV_EmployeeEntryInfo" />
+        <xs:element xmlns:q280="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="ValidUserNameIsExistResult" nillable="true" type="q280:ArrayOfV_EmployeeEntryInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddBatchEmployeeEntry">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q277="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="listEmpEntry" nillable="true" type="q277:ArrayOfV_EmployeeEntryInfo" />
+        <xs:element xmlns:q281="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="listEmpEntry" nillable="true" type="q281:ArrayOfV_EmployeeEntryInfo" />
         <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -3201,7 +3251,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q278="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q278:ArrayOfanyType" />
+        <xs:element xmlns:q282="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q282:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -3210,7 +3260,7 @@
   <xs:element name="GetPensionAlarmSetPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q279="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPensionAlarmSetPagingResult" nillable="true" type="q279:ArrayOfV_PENSIONALARMSET" />
+        <xs:element xmlns:q283="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPensionAlarmSetPagingResult" nillable="true" type="q283:ArrayOfV_PENSIONALARMSET" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -3218,7 +3268,7 @@
   <xs:element name="PensionAlarmSetAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q280="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q280:T_HR_PENSIONALARMSET" />
+        <xs:element xmlns:q284="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q284:T_HR_PENSIONALARMSET" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -3233,7 +3283,7 @@
   <xs:element name="PensionAlarmSetUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q281="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q281:T_HR_PENSIONALARMSET" />
+        <xs:element xmlns:q285="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q285:T_HR_PENSIONALARMSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3245,7 +3295,7 @@
   <xs:element name="PensionAlarmSetDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q282="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionAlarmSetIDs" nillable="true" type="q282:ArrayOfstring" />
+        <xs:element xmlns:q286="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pensionAlarmSetIDs" nillable="true" type="q286:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3266,7 +3316,7 @@
   <xs:element name="GetPensionAlarmSetByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q283="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionAlarmSetByIDResult" nillable="true" type="q283:T_HR_PENSIONALARMSET" />
+        <xs:element xmlns:q287="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPensionAlarmSetByIDResult" nillable="true" type="q287:T_HR_PENSIONALARMSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3280,7 +3330,7 @@
   <xs:element name="GetPensionAlarmSetViewByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q284="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPensionAlarmSetViewByIDResult" nillable="true" type="q284:V_PENSIONALARMSET" />
+        <xs:element xmlns:q288="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPensionAlarmSetViewByIDResult" nillable="true" type="q288:V_PENSIONALARMSET" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -3291,7 +3341,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q285="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q285:ArrayOfanyType" />
+        <xs:element xmlns:q289="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q289:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="strCheckstate" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
@@ -3301,7 +3351,7 @@
   <xs:element name="PensionMasterPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q286="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="PensionMasterPagingResult" nillable="true" type="q286:ArrayOfT_HR_PENSIONMASTER" />
+        <xs:element xmlns:q290="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="PensionMasterPagingResult" nillable="true" type="q290:ArrayOfT_HR_PENSIONMASTER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>

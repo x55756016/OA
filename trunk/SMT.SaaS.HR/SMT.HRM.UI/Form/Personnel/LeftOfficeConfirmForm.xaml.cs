@@ -80,7 +80,7 @@ namespace SMT.HRM.UI.Form.Personnel
             LeftOfficeConfirm.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
             LeftOfficeConfirm.CREATEDATE = DateTime.Now;
             LeftOfficeConfirm.CONFIRMDATE = DateTime.Now;
-            this.dpConfirmDate.Text = DateTime.Now.ToString("yyyy-MM-dd");//奇怪
+           // this.dpConfirmDate.Text = DateTime.Now.ToString("yyyy/MM/dd");//奇怪
             LeftOfficeConfirm.EMPLOYEECNAME = leftOffice.T_HR_EMPLOYEE.EMPLOYEECNAME;
             LeftOfficeConfirm.APPLYDATE = leftOffice.APPLYDATE;
             LeftOfficeConfirm.LEFTOFFICEDATE = leftOffice.LEFTOFFICEDATE;
@@ -880,6 +880,12 @@ namespace SMT.HRM.UI.Form.Personnel
                 return false;
             }
 
+            if (!SMT.SaaS.FrameworkUI.Common.Utility.CheckDataIsValid(Group1))
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                return false;
+            }
+
             //离职日期要大于申请日期
             if (DateTime.Parse(dpLeftDate.Text) <= DateTime.Parse(dpApplyDate.Text))
             {
@@ -896,7 +902,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 return false;
             }
            // if (string.IsNullOrEmpty(dpConfirmDate.Text))
-            if (string.IsNullOrEmpty(Convert.ToString(LeftOfficeConfirm.CONFIRMDATE)))
+            if (string.IsNullOrEmpty(Convert.ToString(dpConfirmDate.Text)))
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),"确认日期不能为空，请重新输入",
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);

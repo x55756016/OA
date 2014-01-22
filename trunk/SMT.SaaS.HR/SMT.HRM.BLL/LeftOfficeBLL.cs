@@ -8,6 +8,7 @@ using SMT_HRM_EFModel;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using SMT.HRM.IMServices.IMServiceWS;
+using SMT.SaaS.BLLCommonServices.PermissionWS;
 namespace SMT.HRM.BLL
 {
     public class LeftOfficeBLL : BaseBll<T_HR_LEFTOFFICE>, IOperate
@@ -65,6 +66,170 @@ namespace SMT.HRM.BLL
 
 
         /// <summary>
+        /// 导出离职申请
+        /// </summary>
+        /// <param name="sort"></param>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="dtStart"></param>
+        /// <param name="dtEnd"></param>
+        /// <param name="pageCount"></param>
+        /// <param name="userID"></param>
+        /// <param name="CheckState"></param>
+        /// <returns></returns>
+        public byte[] ExportLeftOfficeViews(string filterString, IList<object> paras, DateTime dtStart, DateTime dtEnd, string userID, string CheckState)
+        {
+            List<object> queryParas = new List<object>();
+            queryParas.AddRange(paras);
+            // int index = queryParas.Count - 1;
+            if (CheckState != Convert.ToInt32(CheckStates.WaittingApproval).ToString())// 如果不是待审核 不取流程数据，是待审核就只查流程中待审核数据
+            {
+                SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_LEFTOFFICE");
+
+                if (!string.IsNullOrEmpty(CheckState))
+                {
+                    if (!string.IsNullOrEmpty(filterString))
+                    {
+                        filterString += " and ";
+                    }
+                    filterString += "CHECKSTATE == @" + queryParas.Count();
+                    queryParas.Add(CheckState);
+                }
+            }
+            else
+            {
+                SetFilterWithflow("DIMISSIONID", "T_HR_LEFTOFFICE", userID, ref CheckState, ref  filterString, ref queryParas);
+                if (queryParas.Count() == paras.Count)
+                {
+                    return null;
+                }
+
+            }
+
+            IQueryable<V_LEFTOFFICEVIEW> ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEE").Include("T_HR_EMPLOYEEPOST.T_HR_POST")
+                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID
+                                                join b in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on c.DIMISSIONID equals b.T_HR_LEFTOFFICE.DIMISSIONID into temp
+                                                from d in temp.DefaultIfEmpty()
+                                                select new V_LEFTOFFICEVIEW
+                                                {
+                                                    DIMISSIONID = c.DIMISSIONID,
+                                                    EMPLOYEEID = c.T_HR_EMPLOYEE.EMPLOYEEID,
+                                                    EMPLOYEECNAME = c.T_HR_EMPLOYEE.EMPLOYEECNAME,
+                                                    EMPLOYEECODE = c.T_HR_EMPLOYEE.EMPLOYEECODE,
+                                                    LEFTOFFICECATEGORY = c.LEFTOFFICECATEGORY,
+                                                    LEFTOFFICEDATE = c.LEFTOFFICEDATE,
+                                                    APPLYDATE = c.APPLYDATE,
+                                                    CHECKSTATE = c.CHECKSTATE,
+                                                    CREATEUSERID = c.CREATEUSERID,
+                                                    OWNERCOMPANYID = c.OWNERCOMPANYID,
+                                                    OWNERDEPARTMENTID = c.OWNERDEPARTMENTID,
+                                                    OWNERPOSTID = c.OWNERPOSTID,
+                                                    OWNERID = c.OWNERID,
+                                                    ISCONFIRMED = d == null ? "-1" : d.CHECKSTATE,
+                                                    REMARK = c.REMARK,
+                                                    LEFTOFFICEREASON = c.LEFTOFFICEREASON,
+                                                    EMPLOYEEPOSTID = c.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID,
+                                                    POSTID = c.T_HR_EMPLOYEEPOST.T_HR_POST.POSTID,
+                                                    ENTRYDATE = v.ENTRYDATE
+                                                };
+
+            if (!string.IsNullOrEmpty(filterString))
+            {
+                ents = ents.Where(filterString, queryParas.ToArray());
+            }
+            if (dtStart != DateTime.MinValue)
+            {
+                ents = ents.Where(t => t.LEFTOFFICEDATE >= dtStart);
+            }
+            if (dtEnd != DateTime.MinValue)
+            {
+                ents = ents.Where(t => t.LEFTOFFICEDATE <= dtEnd);
+            }
+            ents = ents.OrderByDescending(t => t.LEFTOFFICEDATE);
+            return OutEmployeeAttendStream("", "", ents.ToList());
+        }
+
+        private byte[] OutEmployeeAttendStream(string CompanyName, string Strdate, List<V_LEFTOFFICEVIEW> EmployeeInfos)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(Utility.GetHeader().ToString());
+            stringBuilder.Append(this.GetEmployeeAttendBody(CompanyName, Strdate, EmployeeInfos).ToString());
+            return Encoding.UTF8.GetBytes(stringBuilder.ToString());
+        }
+
+        private StringBuilder GetEmployeeAttendBody(string CompanyName, string Strdate, List<V_LEFTOFFICEVIEW> Collects)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("<body>\n\r");
+            stringBuilder.Append("<table ID=\"Table0\" BORDER=1 CELLSPACING=1 CELLPADDING=3 width=100% align=center>\n\r");
+            stringBuilder.Append("<tr>");
+            stringBuilder.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
+            stringBuilder.Append("<tr>");
+            stringBuilder.Append("<td align=center class=\"title\" >员工编号</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >员工姓名</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >离职类型</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >入职时间</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >离职时间</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >申请时间</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >审批状态</td>");
+            stringBuilder.Append("<td align=center class=\"title\" >是否确认</td>");
+            stringBuilder.Append("</tr>");
+            if (Collects.Count<V_LEFTOFFICEVIEW>() > 0)
+            {
+                T_SYS_DICTIONARY[] sysDictionaryByCategoryList = new PermissionServiceClient().GetSysDictionaryByCategoryList(new string[]
+		        {
+			        "LEFTOFFICECATEGORY", 
+			        "CHECKSTATE"
+		        });
+                int i;
+                for (i = 0; i < Collects.Count; i++)
+                {
+                    stringBuilder.Append("<tr>");
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].EMPLOYEECODE + "</td>");
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].EMPLOYEECNAME + "</td>");
+                    stringBuilder.Append("<td class=\"x1282\">" + sysDictionaryByCategoryList.Where(t => t.DICTIONARYVALUE == Convert.ToInt32(Collects[i].LEFTOFFICECATEGORY) && t.DICTIONCATEGORY == "LEFTOFFICECATEGORY").FirstOrDefault().DICTIONARYNAME + "</td>");
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].ENTRYDATE.Value.ToString("yyyy-MM-dd") + "</td>");
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].LEFTOFFICEDATE.Value.ToString("yyyy-MM-dd") + "</td>");
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].APPLYDATE.Value.ToString("yyyy-MM-dd") + "</td>");                    
+                    stringBuilder.Append("<td class=\"x1282\">" + sysDictionaryByCategoryList.Where(t => t.DICTIONARYVALUE == decimal.Parse(Collects[i].CHECKSTATE) && t.DICTIONCATEGORY == "CHECKSTATE").FirstOrDefault().DICTIONARYNAME + "</td>");
+
+                    int num = Convert.ToInt32(Collects[i].ISCONFIRMED);
+                    string str1 = string.Empty;
+                    if (num < 0)
+                    {
+                        str1 = "未确认";
+                    }
+                    else
+                    {
+                        if (num >= 0 && num < 2)
+                        {
+                            str1 = "确认中";
+                        }
+                        else
+                        {
+                            if (num == 2)
+                            {
+                                str1 = "已确认";
+                            }
+                            else
+                            {
+                                if (num == 3)
+                                {
+                                    str1 = "确认未通过";
+                                }
+                            }
+                        }
+                    }
+                    stringBuilder.Append("<td class=\"x1282\">" + str1 + "</td>");
+                    stringBuilder.Append("</tr>");
+                }
+            }
+            stringBuilder.Append("</table>");
+            stringBuilder.Append("</body></html>");
+            return stringBuilder;
+        }
+
+        /// <summary>
         /// 获取离职申请视图
         /// </summary>
         /// <param name="pageIndex"></param>
@@ -76,7 +241,7 @@ namespace SMT.HRM.BLL
         /// <param name="userID"></param>
         /// <param name="CheckState"></param>
         /// <returns></returns>
-        public IQueryable<V_LEFTOFFICEVIEW> LeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string userID, string CheckState)
+        public IQueryable<V_LEFTOFFICEVIEW> LeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, DateTime dtStart, DateTime dtEnd, ref int pageCount, string userID, string CheckState)
         {
             List<object> queryParas = new List<object>();
             queryParas.AddRange(paras);
@@ -105,7 +270,7 @@ namespace SMT.HRM.BLL
 
             }
             IQueryable<V_LEFTOFFICEVIEW> ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEE").Include("T_HR_EMPLOYEEPOST.T_HR_POST")
-                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID 
+                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID
                                                 join b in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on c.DIMISSIONID equals b.T_HR_LEFTOFFICE.DIMISSIONID into temp
                                                 from d in temp.DefaultIfEmpty()
                                                 select new V_LEFTOFFICEVIEW
@@ -134,6 +299,14 @@ namespace SMT.HRM.BLL
             if (!string.IsNullOrEmpty(filterString))
             {
                 ents = ents.Where(filterString, queryParas.ToArray());
+            }
+            if (dtStart != DateTime.MinValue)
+            {
+                ents = ents.Where(t => t.LEFTOFFICEDATE >= dtStart);
+            }
+            if (dtEnd != DateTime.MinValue)
+            {
+                ents = ents.Where(t => t.LEFTOFFICEDATE <= dtEnd);
             }
             ents = ents.OrderBy(sort);
 

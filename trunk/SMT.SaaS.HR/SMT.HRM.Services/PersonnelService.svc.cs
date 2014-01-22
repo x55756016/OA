@@ -116,7 +116,7 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
-        /// 导出员工档案（公司的非离职员工）
+        /// 导出员工档案
         /// </summary>
         /// <param name="companyID"></param>
         /// <returns></returns>
@@ -237,7 +237,7 @@ namespace SMT.HRM.Services
                 //string xml = File.ReadAllText("D:\\testfile.txt");
                 //es.CallWaitAppService(xml);
                 //return null;
-                
+
                 //bll1.ExportExcel("EMPLOYEESALARYRECORDID", "CHECKSTATE==@0", paras, "2011", "7", 0, "cafdca8a-c630-4475-a65d-490d052dca36");
                 //return null;
                 //EmployeePostBLL bll1 = new EmployeePostBLL();
@@ -246,7 +246,7 @@ namespace SMT.HRM.Services
                 //员工入职测试 weirui 7/18 通过
                 //EmployeeEntryBLL bb = new EmployeeEntryBLL();
                 //bb.UpdateCheckState("T_HR_EMPLOYEEENTRY", "employeeentryid", "6332ef44-948e-46a6-8edd-fefbad82e432", "2");
-                
+
                 //员工异动测试 weirui 7/18 通过
                 //EmployeePostChangeBLL bb = new EmployeePostChangeBLL();
                 //bb.UpdateCheckState("T_HR_EMPLOYEEPOSTCHANGE", "POSTCHANGEID", "97df6341-d3cb-4bcb-b4c7-07f9a2cc4f7a", "2");
@@ -1645,7 +1645,7 @@ namespace SMT.HRM.Services
         {
             using (PensionDetailBLL bll = new PensionDetailBLL())
             {
-                return bll.ExportPensionDetailReport( sort, filterString, paras, userID, CompanyID, StrYear, StrMonth);
+                return bll.ExportPensionDetailReport(sort, filterString, paras, userID, CompanyID, StrYear, StrMonth);
             }
         }
         /// <summary>
@@ -1731,21 +1731,21 @@ namespace SMT.HRM.Services
         /// <param name="StrMsg"></param>
         /// <returns></returns>
         [OperationContract]
-        public bool BatchAddPensionDetail(List<T_HR_PENSIONDETAIL> listPension,Dictionary<string, string> paras, ref string StrMsg)
+        public bool BatchAddPensionDetail(List<T_HR_PENSIONDETAIL> listPension, Dictionary<string, string> paras, ref string StrMsg)
         {
             bool IsResult = false;
             try
             {
-                Tracer.Debug("导入社保的数量："+listPension.Count().ToString());
+                Tracer.Debug("导入社保的数量：" + listPension.Count().ToString());
                 Tracer.Debug("开始导入社保时间：" + System.DateTime.Now.ToString());
-                
+
 
                 using (PensionDetailBLL bll = new PensionDetailBLL())
                 {
                     IsResult = bll.BatchAddPensionDetail(listPension, paras, ref StrMsg);
                 }
                 Tracer.Debug("import end");
-                Tracer.Debug("社保导入结束时间："+System.DateTime.Now.ToString());
+                Tracer.Debug("社保导入结束时间：" + System.DateTime.Now.ToString());
             }
             catch (Exception ex)
             {
@@ -2129,12 +2129,31 @@ namespace SMT.HRM.Services
             // return q.Count() > 0 ? q.ToList() : null;
         }
 
+        /// <summary>
+        /// 导出离职记录
+        /// </summary>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="dtStart"></param>
+        /// <param name="dtEnd"></param>
+        /// <param name="userID"></param>
+        /// <param name="CheckState"></param>
+        /// <returns></returns>
         [OperationContract]
-        public List<V_LEFTOFFICEVIEW> LeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string userID, string CheckState)
+        public byte[] ExportLeftOfficeViews(string filterString, IList<object> paras, DateTime dtStart, DateTime dtEnd, string userID, string CheckState)
         {
             using (LeftOfficeBLL bll = new LeftOfficeBLL())
             {
-                IQueryable<V_LEFTOFFICEVIEW> q = bll.LeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CheckState);
+                return bll.ExportLeftOfficeViews(filterString, paras, dtStart, dtEnd, userID, CheckState);
+            }
+        }
+
+        [OperationContract]
+        public List<V_LEFTOFFICEVIEW> LeftOfficeViewsPaging(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, DateTime dtStart, DateTime dtEnd, ref int pageCount, string userID, string CheckState)
+        {
+            using (LeftOfficeBLL bll = new LeftOfficeBLL())
+            {
+                IQueryable<V_LEFTOFFICEVIEW> q = bll.LeftOfficeViewsPaging(pageIndex, pageSize, sort, filterString, paras, dtStart, dtEnd, ref pageCount, userID, CheckState);
                 if (q != null)
                 {
                     return q.Count() > 0 ? q.ToList() : null;
@@ -2146,6 +2165,7 @@ namespace SMT.HRM.Services
             }
             // return q.Count() > 0 ? q.ToList() : null;
         }
+
         /// <summary>
         /// 添加离职申请记录
         /// </summary>
@@ -2205,11 +2225,11 @@ namespace SMT.HRM.Services
         /// <param name="PostID">岗位ID</param>
         /// <returns></returns>
         [OperationContract]
-        public T_HR_LEFTOFFICE GetLeftOfficeByEmployeeIDAndPostID(string EmployeeID,string Postid)
+        public T_HR_LEFTOFFICE GetLeftOfficeByEmployeeIDAndPostID(string EmployeeID, string Postid)
         {
             using (LeftOfficeBLL bll = new LeftOfficeBLL())
             {
-                return bll.GetLeftOfficeByEmployeeIDAndPostID(EmployeeID,Postid);
+                return bll.GetLeftOfficeByEmployeeIDAndPostID(EmployeeID, Postid);
             }
         }
         #endregion
@@ -3211,7 +3231,7 @@ namespace SMT.HRM.Services
         /// <param name="strCompantID">公司ID</param>
         /// <returns>返回员工个人活动经费</returns>
         [OperationContract]
-        public List<V_EMPLOYEEFUNDS> GetEmployeeFunds(string strCompantID,string OwnerId)
+        public List<V_EMPLOYEEFUNDS> GetEmployeeFunds(string strCompantID, string OwnerId)
         {
             using (EmployeeBLL bll = new EmployeeBLL())
             {
@@ -3245,7 +3265,7 @@ namespace SMT.HRM.Services
             }
         }
         #endregion
-        
+
         #region 流程调用信息
         /// <summary>
         /// 根据员工ID集合获取用户信息
@@ -3257,10 +3277,10 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID："+employeeids.Count().ToString());
+                Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID：" + employeeids.Count().ToString());
                 return bll.GetFlowUserInfoPostBriefByEmployeeID(employeeids);
             }
-            
+
         }
 
         /// <summary>
@@ -3319,7 +3339,7 @@ namespace SMT.HRM.Services
         {
             using (EmployeePostBLL bll = new EmployeePostBLL())
             {
-                Tracer.Debug("进入GetFlowUserByUserID：" + userID +"模块代码：" + modelCode);
+                Tracer.Debug("进入GetFlowUserByUserID：" + userID + "模块代码：" + modelCode);
                 return bll.GetAgentUser(userID, modelCode);
             }
         }
@@ -3343,7 +3363,7 @@ namespace SMT.HRM.Services
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                IQueryable<V_EmployeeBasicInfo> q = bll.GetEmployeeBasicInfosByCompany(CompanyIDs, sort, filterString, paras, userID, IsType,Start,End);
+                IQueryable<V_EmployeeBasicInfo> q = bll.GetEmployeeBasicInfosByCompany(CompanyIDs, sort, filterString, paras, userID, IsType, Start, End);
                 return q != null ? q.ToList() : null;
             }
         }
@@ -3360,11 +3380,11 @@ namespace SMT.HRM.Services
         /// <param name="CheckState"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeeBasicInfosByCompanyReports(List<string> companyids, string sort, string filterString, object[] paras, string userID,string IsType,DateTime start,DateTime end)
+        public byte[] ExportEmployeeBasicInfosByCompanyReports(List<string> companyids, string sort, string filterString, object[] paras, string userID, string IsType, DateTime start, DateTime end)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportGetEmployeeBasicInfosByCompany(companyids, sort, filterString, paras, userID, IsType, start,end);
+                return bll.ExportGetEmployeeBasicInfosByCompany(companyids, sort, filterString, paras, userID, IsType, start, end);
             }
         }
         /// <summary>
@@ -3375,15 +3395,15 @@ namespace SMT.HRM.Services
         /// <param name="companyids"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeeBasicInfosNoGetReports(List<V_EmployeeBasicInfo> ListInfos,DateTime Dt,List<string> companyids)
+        public byte[] ExportEmployeeBasicInfosNoGetReports(List<V_EmployeeBasicInfo> ListInfos, DateTime Dt, List<string> companyids)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportGetEmployeeBasicInfosByCompany(ListInfos,Dt,companyids);
+                return bll.ExportGetEmployeeBasicInfosByCompany(ListInfos, Dt, companyids);
             }
         }
 
-        
+
         #endregion
 
         #region 员工异动报表
@@ -3399,12 +3419,12 @@ namespace SMT.HRM.Services
         /// <param name="DtEnd"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_EmployeeChangeInfos> EmployeePostReportInfos(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, DateTime DtStart,DateTime DtEnd)
+        public List<V_EmployeeChangeInfos> EmployeePostReportInfos(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                IQueryable<V_EmployeeChangeInfos> q = bll.EmployeePostReportInfos(companyids, sort, filterString, paras, userID, DtStart,DtEnd);
-                return q != null  ? q.ToList() : null;
+                IQueryable<V_EmployeeChangeInfos> q = bll.EmployeePostReportInfos(companyids, sort, filterString, paras, userID, DtStart, DtEnd);
+                return q != null ? q.ToList() : null;
             }
         }
         /// <summary>
@@ -3420,11 +3440,11 @@ namespace SMT.HRM.Services
         /// <param name="CheckState"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeePostReportInfos(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, DateTime DtStart,DateTime DtEnd)
+        public byte[] ExportEmployeePostReportInfos(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeePostReportInfos( companyids,  sort,  filterString,  paras, userID,DtStart,DtEnd);
+                return bll.ExportEmployeePostReportInfos(companyids, sort, filterString, paras, userID, DtStart, DtEnd);
             }
         }
         /// <summary>
@@ -3435,14 +3455,25 @@ namespace SMT.HRM.Services
         /// <param name="Dt"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeePostChangeNoqueryReport(List<string> companyids,List<V_EmployeeChangeInfos> ListInfos,DateTime Dt)
+        public byte[] ExportEmployeePostChangeNoqueryReport(List<string> companyids, List<V_EmployeeChangeInfos> ListInfos, DateTime Dt)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeePostChangeNoQueryReport(companyids,ListInfos,Dt);
+                return bll.ExportEmployeePostChangeNoQueryReport(companyids, ListInfos, Dt);
             }
         }
-        #endregion
+        ///// <summary>
+        ///// 获取所有在职员工的公司名称，部门名称，岗位名称和员工ID
+        ///// </summary>
+        ///// <returns></returns>
+        //[OperationContract]
+        //public List<V_EMPLOYEEVIEW> GetAllEmployees()
+        //{
+        //    using (EmployeeBLL bll=new EmployeeBLL())
+        //    {
+        //        return bll.GetAllEmployees();
+        //    }
+        //}
         /// <summary>
         /// 根据员工姓名获取员工信息
         /// </summary>
@@ -3455,6 +3486,21 @@ namespace SMT.HRM.Services
                 return bll.GetEmployeeByNames(employeeCNames);
             }
         }
+
+        ///// <summary>
+        /////测试
+        ///// </summary>
+        ///// <returns></returns>
+        //[OperationContract]
+        //public string GetString()
+        //{
+        //    using (EmployeeBLL bll = new EmployeeBLL())
+        //    {
+        //        return bll.GetString();
+        //    }
+        //}
+        #endregion
+
         #region 员工离职报表
         /// <summary>
         /// 员工离职报表
@@ -3470,11 +3516,11 @@ namespace SMT.HRM.Services
         /// <param name="IsValue"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_EmployeeLeftOfficeInfos> GetEmployeeLeftOfficeConfirmReports(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, string IsType,DateTime DtStart,DateTime DtEnd)
+        public List<V_EmployeeLeftOfficeInfos> GetEmployeeLeftOfficeConfirmReports(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, string IsType, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                IQueryable<V_EmployeeLeftOfficeInfos> q = bll.GetEmployeeLeftOfficeConfirmReports(companyids,sort, filterString, paras, userID, IsType, DtStart,DtEnd);
+                IQueryable<V_EmployeeLeftOfficeInfos> q = bll.GetEmployeeLeftOfficeConfirmReports(companyids, sort, filterString, paras, userID, IsType, DtStart, DtEnd);
 
                 if (q != null)
                 {
@@ -3502,11 +3548,11 @@ namespace SMT.HRM.Services
         /// <param name="IsValue"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeeLeftOfficeConfirmReports(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, string IsType, DateTime DtStart,DateTime DtEnd)
+        public byte[] ExportEmployeeLeftOfficeConfirmReports(List<string> companyids, string sort, string filterString, IList<object> paras, string userID, string IsType, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeeLeftOfficeConfirmReports(companyids, sort, filterString, paras,  userID,IsType,DtStart,DtEnd);
+                return bll.ExportEmployeeLeftOfficeConfirmReports(companyids, sort, filterString, paras, userID, IsType, DtStart, DtEnd);
             }
         }
         /// <summary>
@@ -3521,7 +3567,7 @@ namespace SMT.HRM.Services
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeeLeftOfficeConfirmReports(companyids,ListInfos,DtStart);
+                return bll.ExportEmployeeLeftOfficeConfirmReports(companyids, ListInfos, DtStart);
             }
         }
         /// <summary>
@@ -3534,12 +3580,12 @@ namespace SMT.HRM.Services
         /// <param name="CompanyID"></param>
         /// <param name="EndDate"></param>
         /// <returns></returns>
-        [OperationContract]        
-        public byte[] ExportEmployeeCollectsReports(string sort, string filterString, object[] paras,string userID, string CompanyID,DateTime DtStart,DateTime DtEnd)
+        [OperationContract]
+        public byte[] ExportEmployeeCollectsReports(string sort, string filterString, object[] paras, string userID, string CompanyID, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeesCollectReports( sort, filterString, paras,  userID, CompanyID,DtStart,DtEnd);
+                return bll.ExportEmployeesCollectReports(sort, filterString, paras, userID, CompanyID, DtStart, DtEnd);
             }
         }
 
@@ -3554,18 +3600,42 @@ namespace SMT.HRM.Services
         /// <param name="EndDate"></param>
         /// <returns></returns>
         [OperationContract]
-        public byte[] ExportEmployeeTructReports(List<string> companyids,string sort, string filterString, object[] paras, string userID, string CompanyID, DateTime DtStart,DateTime DtEnd)
+        public byte[] ExportEmployeeTructReports(List<string> companyids, string sort, string filterString, object[] paras, string userID, string CompanyID, DateTime DtStart, DateTime DtEnd)
         {
             using (ReportsBLL bll = new ReportsBLL())
             {
-                return bll.ExportEmployeesTructReports(companyids,sort, filterString, paras, userID, CompanyID, DtStart,DtEnd);
+                return bll.ExportEmployeesTructReports(companyids, sort, filterString, paras, userID, CompanyID, DtStart, DtEnd);
             }
         }
 
 
 
-        
-        #endregion
 
+        #endregion
+        /// <summary>
+        /// 模糊查询员工邮箱（提供模糊查询员工邮箱）
+        /// </summary>
+        /// <param name="strCompanyID"></param>
+        /// <param name="strFilter"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EMPLOYEEVIEW> SearchEmailByName(string strCompanyID,string strFilter)
+        {
+            try
+            {
+                using (EmployeeBLL bll = new EmployeeBLL())
+                {
+                  
+                    int pageCount = 0;
+
+                    return bll.SearchEmployeesByName(1, 20, "EMPLOYEEID", strFilter, null, strCompanyID, ref pageCount);
+
+                }
+            }
+            catch(Exception ex) {
+                SMT.Foundation.Log.Tracer.Debug("SearchEmailByName：" + ex.ToString());
+                return null;
+            }
+        }
     }
 }

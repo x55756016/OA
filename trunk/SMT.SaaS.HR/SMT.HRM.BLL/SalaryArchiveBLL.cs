@@ -1116,6 +1116,9 @@ namespace SMT.HRM.BLL
                     salaryArchive.OLDPOSTLEVEL = archive.OLDPOSTLEVEL;
                     salaryArchive.OLDSALARYLEVEL = archive.OLDSALARYLEVEL;
 
+                    salaryArchive.SKILLPOSTLEVEL = archive.SKILLPOSTLEVEL;
+                    salaryArchive.SKILLSALARYLEVEL = archive.SKILLSALARYLEVEL;
+
                     salaryArchive.BALANCE = archive.BALANCE;
                     salaryArchive.EMPLOYEEPOSTID = archive.EMPLOYEEPOSTID;
                     // 关于权限的字段

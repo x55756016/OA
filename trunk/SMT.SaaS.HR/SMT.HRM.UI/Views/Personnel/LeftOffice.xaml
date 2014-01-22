@@ -5,6 +5,8 @@
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            mc:Ignorable="d"
            xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
+           xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
            xmlns:datactr="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
            xmlns:smtLocal="clr-namespace:SMT.HRM.UI;assembly=SMT.HRM.UI"
            xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
@@ -33,11 +35,30 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
                                 <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtEmpName" Grid.Row="0" Grid.Column="1" Width="120"/>
-                                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="GridPager_Click" Width="50"/>
+                                
+                                <TextBlock Text="离职时间" Grid.Row="0" Grid.Column="2" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                                <controls:DatePicker x:Name="dpStartDate" Grid.Row="0" Grid.Column="3"  Width="auto" HorizontalAlignment="Stretch"
+                                 Margin="5,0,0,0" Height="22" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}">
+                                    
+                                </controls:DatePicker>
+                                
+                                <TextBlock Text="至" Grid.Row="0" Grid.Column="4" Style="{StaticResource FrameGridTextBlock1}"  Margin="10,6,0,0" Width="Auto"/>
+                                <controls:DatePicker x:Name="dpEndDate" Grid.Row="0" Grid.Column="5"  Width="auto" HorizontalAlignment="Stretch"
+                                 Margin="5,0,0,0" Height="22" Text="{Binding Converter={StaticResource CustomDateConverter}, Source=DATE}">
+                                  
+                                </controls:DatePicker>
+
+                                <Button Style="{StaticResource CommonButtonStyle}" x:Name="btnFind" Grid.Row="0" Grid.Column="6" Margin="20,0,0,0" Content="{Binding Converter={StaticResource ResourceConveter}, Source=FIND}" Click="GridPager_Click" Width="50"/>
                             </Grid>
                         </StackPanel>
                     </DataTemplate>
