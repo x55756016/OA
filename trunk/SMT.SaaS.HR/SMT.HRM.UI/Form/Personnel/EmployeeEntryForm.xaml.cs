@@ -68,12 +68,12 @@ namespace SMT.HRM.UI.Form.Personnel
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
-            
+
             // 加载字典
             DictionaryManager dicManager = new DictionaryManager();
             List<string> dicCategorys = new List<string>();
             dicCategorys.Add("POSTLEVEL");
-            
+
             dicManager.OnDictionaryLoadCompleted += (o, aregs) =>
             {
                 if (aregs.Error == null && aregs.Result)
@@ -88,12 +88,14 @@ namespace SMT.HRM.UI.Form.Personnel
                 }
             };
             dicManager.LoadDictionary(dicCategorys);
-           
+
         }
 
         private void InitParas(string strID)
         {
             client = new PersonnelServiceClient();
+            perclient = new PermissionServiceClient();
+            perclient.GetUserNameIsExistNameAddOneCompleted += new EventHandler<Saas.Tools.PermissionWS.GetUserNameIsExistNameAddOneCompletedEventArgs>(perclient_GetUserNameIsExistNameAddOneCompleted);
             client.GetEmployeeEntryByIDCompleted += new EventHandler<GetEmployeeEntryByIDCompletedEventArgs>(client_GetEmployeeEntryByIDCompleted);
             client.EmployeeEntryAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeEntryAddCompleted);
             client.EmployeeEntryUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeEntryUpdateCompleted);
@@ -112,6 +114,19 @@ namespace SMT.HRM.UI.Form.Personnel
             {
                 //  this.IsEnabled=false;
                 EnablControl();
+            }
+            if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
+            {
+
+                txtUser.IsEnabled = true;
+                txtPwd.IsEnabled = true;
+                txtUser.IsReadOnly = false;
+                txtEmployeeCName.IsEnabled = true;
+                txtEmployeeCName.IsReadOnly = false;
+                dpEntryDate.IsEnabled = true;
+                dpOnPostDate.IsEnabled = true;
+                cbxPostLevel.IsEnabled = true;
+                numPorbationperiod.IsEnabled = true;
             }
             if (FormType == FormTypes.New)
             {
@@ -173,26 +188,42 @@ namespace SMT.HRM.UI.Form.Personnel
             }
 
         }
-        //void client_GetEmployeeByIDCompleted(object sender, GetEmployeeByIDCompletedEventArgs e)
-        //{
-        //    if (e.Error != null && e.Error.Message != "")
-        //    {
-        //         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),Utility.GetResourceStr("CONFIRM"), MessageIcon.Error); 
-        //    }
-        //    else
-        //    {
-        //        if (e.Result == null)
-        //        {
-        //            //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("NOTFOUND"));
-        //            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("NOTFOUND"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error); 
-        //            return;
-        //        }
-        //        createUserName = e.Result.EMPLOYEECNAME;
-        //        RefreshUI(RefreshedTypes.AuditInfo);
-        //        SetToolBar();
 
-        //    }
-        //}
+        void perclient_GetUserNameIsExistNameAddOneCompleted(object sender, Saas.Tools.PermissionWS.GetUserNameIsExistNameAddOneCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+                               Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                string strMsg = string.Empty;
+                if (!string.IsNullOrEmpty(e.Result))
+                {
+                    string Result = string.Empty;
+                    EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEENAME = e.Result;
+                    if (!string.IsNullOrEmpty(txtEmployeeCName.Text))
+                    {
+                        EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME = txtEmployeeCName.Text.Trim();
+                    }
+                    if (EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEENAME != e.Result)
+                    {
+                        ComfirmWindow com = new ComfirmWindow();
+                        com.OnSelectionBoxClosed += (obj, result) =>
+                        {
+                            client.EmployeeAddOrUpdateAsync(EmployeeEntry.T_HR_EMPLOYEE, strMsg);
+                        };
+                        com.SelectionBox(Utility.GetResourceStr("CONFIRM"), Utility.GetResourceStr("用户名重复，系统自动更名为" + e.Result), ComfirmWindow.titlename, Result);
+                    }
+                    else
+                    {
+                        client.EmployeeAddOrUpdateAsync(EmployeeEntry.T_HR_EMPLOYEE, strMsg);
+                    }
+                }
+            }
+        }
+
 
         void orclient_GetPostNumberCompleted(object sender, SMT.Saas.Tools.OrganizationWS.GetPostNumberCompletedEventArgs e)
         {
@@ -383,7 +414,7 @@ namespace SMT.HRM.UI.Form.Personnel
                 ToolbarItems = new List<ToolbarItem>();
             }
             else
-            {              
+            {
                 //重新提交只显示审核
                 //ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEENTRY", EmployeeEntry.OWNERID,
                 //    EmployeeEntry.OWNERPOSTID, EmployeeEntry.OWNERDEPARTMENTID, EmployeeEntry.OWNERCOMPANYID);
@@ -756,7 +787,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     return false;
                 }
 
-                if(SysUser==null)
+                if (SysUser == null)
                 {
                     SysUser = new T_SYS_USER();
                 }
@@ -789,30 +820,33 @@ namespace SMT.HRM.UI.Form.Personnel
                 //SendEngineXml();
                 if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
                 {
-                    if (SysUser.SYSUSERID==null)
+                    if (SysUser.SYSUSERID == null)
                     {
                         SysUser.SYSUSERID = Guid.NewGuid().ToString();
                         SysUser.EMPLOYEEID = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEID;
                         SysUser.EMPLOYEECODE = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECODE;
-                        SysUser.EMPLOYEENAME = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME;
+                        //SysUser.EMPLOYEENAME = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME;
+                        SysUser.EMPLOYEENAME = txtEmployeeCName.Text.Trim();
                         SysUser.CREATEDATE = DateTime.Now;
                         SysUser.CREATEUSER = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                    
+
                         perclient.SysUserInfoAddAsync(SysUser);
                     }
                     else
                     {
                         if (FlagSave)
                         {
+                            SysUser.EMPLOYEENAME = txtEmployeeCName.Text.Trim();
+                            SysUser.UPDATEDATE = DateTime.Now;
+                            SysUser.UPDATEUSER = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                             perclient.SysUserInfoUpdateAsync(SysUser, "Edit");
-                            
                         }
                         else
                         {
                             RefreshUI(RefreshedTypes.HideProgressBar);
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -868,7 +902,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     rstMessage = "密码必须是8-15位的英文与数字组合";
                     //Utility.ShowCustomMessage(MessageTypes.Error, "错误", "密码必须是中英文结合的");
                 }
-                if(!string.IsNullOrWhiteSpace(rstMessage)) Utility.ShowCustomMessage(MessageTypes.Error, "错误", rstMessage);
+                if (!string.IsNullOrWhiteSpace(rstMessage)) Utility.ShowCustomMessage(MessageTypes.Error, "错误", rstMessage);
             }
             else
             {
@@ -937,6 +971,9 @@ namespace SMT.HRM.UI.Form.Personnel
                     EmployeeEntry.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                     //EmployeePost.CHECKSTATE = "2";
                     //EmployeePost.EDITSTATE = "1";
+                    //更新员工个人档案中的姓名和英文名
+                    EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME = txtEmployeeCName.Text.Trim();
+                    EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEENAME = txtUser.Text.Trim();
                     EmployeePost.POSTLEVEL = (cbxPostLevel.SelectedItem as T_SYS_DICTIONARY).DICTIONARYVALUE;
                     client.EmployeeEntryUpdateAsync(EmployeeEntry, EmployeePost, "Edit");
                 }
@@ -960,13 +997,17 @@ namespace SMT.HRM.UI.Form.Personnel
                     return;
                 }
                 //所属
-              
-                if (FormType == FormTypes.Edit)
+
+                if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
                 {
                     EmployeeEntry.UPDATEDATE = System.DateTime.Now;
                     EmployeeEntry.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    //更新员工个人档案中的姓名和英文名
+                    EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME = txtEmployeeCName.Text.Trim();
+                    EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEENAME = txtUser.Text.Trim();
                     //EmployeePost.CHECKSTATE = "2";
                     //EmployeePost.EDITSTATE = "1";
+
                     EmployeePost.POSTLEVEL = (cbxPostLevel.SelectedItem as T_SYS_DICTIONARY).DICTIONARYVALUE;
                     client.EmployeeEntryUpdateAsync(EmployeeEntry, EmployeePost, "Edit");
                 }
@@ -981,7 +1022,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     EmployeeEntry.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                     client.EmployeeEntryAddAsync(EmployeeEntry, EmployeePost);
                 }
-               
+
             }
         }
 
@@ -1032,12 +1073,12 @@ namespace SMT.HRM.UI.Form.Personnel
                 {
                     try
                     {
-                        
+
                         EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                         entBrowser.ManualSubmit();
                         BackToSubmit();
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         RefreshUI(RefreshedTypes.HideProgressBar);
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("提交失败"),
@@ -1267,27 +1308,39 @@ namespace SMT.HRM.UI.Form.Personnel
             dpEntryDate.IsEnabled = false;
             dpOnPostDate.IsEnabled = false;
             cbxPostLevel.IsEnabled = false;
-            if (FormType == FormTypes.Resubmit)
+            if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
             {
+
+                txtUser.IsEnabled = true;
+                txtPwd.IsEnabled = true;
+                txtUser.IsReadOnly = false;
+                txtEmployeeCName.IsEnabled = true;
+                txtEmployeeCName.IsReadOnly = false;
                 dpEntryDate.IsEnabled = true;
                 dpOnPostDate.IsEnabled = true;
                 cbxPostLevel.IsEnabled = true;
                 numPorbationperiod.IsEnabled = true;
             }
         }
-        //void SendEngineXml()
-        //{
-        //    //向引擎发提醒
-        //    T_HR_EMPLOYEECHECK EmployeeCheck = new T_HR_EMPLOYEECHECK();
-        //    EmployeeCheck.BEREGULARID = Guid.NewGuid().ToString();
-        //    T_HR_EMPLOYEE emp = new T_HR_EMPLOYEE();
-        //    emp.EMPLOYEEID = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEID;
-        //    emp.EMPLOYEECNAME = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEECNAME;
-        //    emp.EMPLOYEEENAME = EmployeeEntry.T_HR_EMPLOYEE.EMPLOYEEENAME;
-        //    EmployeeCheck.T_HR_EMPLOYEE = emp;
-        //    EmployeeCheck.REPORTDATE = Convert.ToDateTime(EmployeeEntry.ENTRYDATE).AddMonths(Convert.ToInt32(EmployeeEntry.PROBATIONPERIOD));
-        //    EmployeeCheck.OWNERCOMPANYID = EmployeeEntry.OWNERCOMPANYID;
-        //    client.GetEmployeeCheckEngineXmlAsync(EmployeeCheck);
-        //}
+
+        private void txtEmployeeCName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string employeeCName = (sender as TextBox).Text;
+            if (!string.IsNullOrEmpty(employeeCName))
+            {
+                string employeeEName = HanziZhuanPingYin.Convert(employeeCName).ToLower();
+                txtUser.Text = employeeEName;
+                perclient.GetUserNameIsExistNameAddOneAsync(employeeEName, employeeEntry.T_HR_EMPLOYEE.EMPLOYEEID);  //GetUserNameIsExistNameAddOne
+            }
+        }
+
+        private void txtUser_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string user = (sender as TextBox).Text;
+            if (!string.IsNullOrEmpty(user))
+            {
+                perclient.GetUserNameIsExistNameAddOneAsync(user, employeeEntry.T_HR_EMPLOYEE.EMPLOYEEID);  //GetUserNameIsExistNameAddOne
+            }
+        }
     }
 }

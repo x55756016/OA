@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ygWYDR1xrCDiKsXUWdHn6pv25RQ=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="aEUsWuWFYgr0ljNrcm+WeSOUV7A=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IFlowDefine">
       <properties>
@@ -1529,10 +1529,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IFlowDefine" contract="WFPlatformWS.IFlowDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowDefine">
+    <endpoint name="BasicHttpBinding_IFlowDefine" contract="WFPlatformWS.IFlowDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1614,10 +1614,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ICuostomFlowsDefine" contract="WFPlatformWS.ICuostomFlowsDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ICuostomFlowsDefine">
+    <endpoint name="BasicHttpBinding_ICuostomFlowsDefine" contract="WFPlatformWS.ICuostomFlowsDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ICuostomFlowsDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1699,10 +1699,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IFlowEvent" contract="WFPlatformWS.IFlowEvent" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowEvent">
+    <endpoint name="BasicHttpBinding_IFlowEvent" contract="WFPlatformWS.IFlowEvent" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowEvent">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1784,10 +1784,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IFlowCategory" contract="WFPlatformWS.IFlowCategory" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowCategory">
+    <endpoint name="BasicHttpBinding_IFlowCategory" contract="WFPlatformWS.IFlowCategory" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowCategory">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1869,10 +1869,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IEngine" contract="WFPlatformWS.IEngine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IEngine">
+    <endpoint name="BasicHttpBinding_IEngine" contract="WFPlatformWS.IEngine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IEngine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -1954,10 +1954,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IFlowXmlDefine" contract="WFPlatformWS.IFlowXmlDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowXmlDefine">
+    <endpoint name="BasicHttpBinding_IFlowXmlDefine" contract="WFPlatformWS.IFlowXmlDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowXmlDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2039,10 +2039,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IFlowTrigger" contract="WFPlatformWS.IFlowTrigger" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowTrigger">
+    <endpoint name="BasicHttpBinding_IFlowTrigger" contract="WFPlatformWS.IFlowTrigger" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlowTrigger">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2124,10 +2124,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ITriggerDefine" contract="WFPlatformWS.ITriggerDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ITriggerDefine">
+    <endpoint name="BasicHttpBinding_ITriggerDefine" contract="WFPlatformWS.ITriggerDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ITriggerDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2209,10 +2209,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IFlow_ModelDefine" contract="WFPlatformWS.IFlow_ModelDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlow_ModelDefine">
+    <endpoint name="BasicHttpBinding_IFlow_ModelDefine" contract="WFPlatformWS.IFlow_ModelDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IFlow_ModelDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2294,10 +2294,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IMessageBodyDefine" contract="WFPlatformWS.IMessageBodyDefine" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IMessageBodyDefine">
+    <endpoint name="BasicHttpBinding_IMessageBodyDefine" contract="WFPlatformWS.IMessageBodyDefine" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IMessageBodyDefine">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2379,10 +2379,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IDoTaskRule" contract="WFPlatformWS.IDoTaskRule" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IDoTaskRule">
+    <endpoint name="BasicHttpBinding_IDoTaskRule" contract="WFPlatformWS.IDoTaskRule" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IDoTaskRule">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2464,10 +2464,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ITimingTrigger" contract="WFPlatformWS.ITimingTrigger" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ITimingTrigger">
+    <endpoint name="BasicHttpBinding_ITimingTrigger" contract="WFPlatformWS.ITimingTrigger" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_ITimingTrigger">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2549,10 +2549,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IDefaultMessage" contract="WFPlatformWS.IDefaultMessage" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IDefaultMessage">
+    <endpoint name="BasicHttpBinding_IDefaultMessage" contract="WFPlatformWS.IDefaultMessage" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IDefaultMessage">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -2634,10 +2634,10 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_IOutInterface" contract="WFPlatformWS.IOutInterface" bindingType="basicHttpBinding" address="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IOutInterface">
+    <endpoint name="BasicHttpBinding_IOutInterface" contract="WFPlatformWS.IOutInterface" bindingType="basicHttpBinding" address="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" bindingConfiguration="BasicHttpBinding_IOutInterface">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.57/New/Services/WFServices/PlatformServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

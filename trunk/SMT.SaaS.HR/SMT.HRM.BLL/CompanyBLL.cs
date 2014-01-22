@@ -655,7 +655,13 @@ namespace SMT.HRM.BLL
                     chbll.CompanyHistoryAdd(companyHis);
                     EditVersion("公司");
                 #endregion
-
+                    #region 审核通过调用初始化消息规则
+                    SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则：WFPlatformWS.OutInterfaceClient() > InitRule();公司ID:" + entity.COMPANYID);
+                    SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
+                    outClient.InitRule(entity.COMPANYID);
+                    SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则结束;公司ID:" + entity.COMPANYID);
+                 
+                    #endregion
                     #region 添加即时通讯接口
                     if (entity.CHECKSTATE == Convert.ToInt32(CheckStates.Approved).ToString())
                     {

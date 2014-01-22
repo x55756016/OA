@@ -707,6 +707,7 @@ namespace SMT.HRM.BLL
                         //加班结束时间-加班开始时间
                         TimeSpan tsFirst = dtOTEnd.Subtract(dtOTStart);
                         dTempOverTimeHours = tsFirst.Hours * 60 + tsFirst.Minutes;
+                        dtShiftEndDate = dtOTEnd;
                     }
                     else
                     {

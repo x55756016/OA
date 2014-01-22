@@ -9,7 +9,8 @@
     xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
     xmlns:behaviors="clr-namespace:SMT.SAAS.Behaviors;assembly=SMT.SAAS.Behaviors" 
     xmlns:interaction="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" >
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:my="clr-namespace:SMT.FileUpLoad;assembly=SMT.FileUpLoad">
     <Grid x:Name="LayoutRoot" Background="Transparent" Margin="10 5 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -17,6 +18,7 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -60,5 +62,11 @@
         <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Stretch" Width="Auto" Text="{Binding REMARK, Mode=TwoWay}" Margin="5,0,0,0" MaxLength="500" AcceptsReturn="True"
             	Grid.Row="5" Grid.Column="1"   TextWrapping="Wrap" >
         </TextBox>
+        <TextBlock  Grid.Column="0" Grid.Row="6"  Margin="5 0 0 0" x:Name="tbAtt"
+					Text="{Binding Converter={StaticResource ResourceConveter}, Source=ATTACHMENT}" />
+        
+        <ScrollViewer Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" MaxHeight="200" BorderThickness="0" VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" HorizontalAlignment="Stretch" >
+            <my:FileControl x:Name="uploadFile"/>
+        </ScrollViewer>
     </Grid>
 </smtLocal:BaseForm>

@@ -860,9 +860,37 @@ namespace SMT.HRM.UI.Form.Personnel
             //    RefreshUI(RefreshedTypes.HideProgressBar);
             //    return false;
             //}
+  
+
+            //是否选择申请日期
+            if (string.IsNullOrEmpty(dpApplyDate.Text))
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "申请日期不能为空，请重新输入",
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                return false;
+            }
+
+            //是否选择离职日期
+            if (string.IsNullOrEmpty(dpLeftDate.Text))
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "离职日期不能为空，请重新输入",
+                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                return false;
+            }
+
+            //离职日期要大于申请日期
+            if (DateTime.Parse(dpLeftDate.Text) <= DateTime.Parse(dpApplyDate.Text))
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("离职日期要大于申请日期"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                return false;
+            }
             if (string.IsNullOrEmpty(dpStopPaymentDate.Text))
             {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "STOPPAYMENTDATE"),
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "停薪日期不能为空，请重新输入",
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 return false;
@@ -870,7 +898,7 @@ namespace SMT.HRM.UI.Form.Personnel
            // if (string.IsNullOrEmpty(dpConfirmDate.Text))
             if (string.IsNullOrEmpty(Convert.ToString(LeftOfficeConfirm.CONFIRMDATE)))
             {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "CONFIRMDATE"),
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),"确认日期不能为空，请重新输入",
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 return false;
@@ -924,30 +952,7 @@ namespace SMT.HRM.UI.Form.Personnel
 
                 }
             }
-            //2012-09-06
-            //确认时间明明有，但是提示没有，在这里再次赋值
-            //dpConfirmDate.Text = DateTime.Now.ToString();
-            //if (string.IsNullOrEmpty(LeftOfficeConfirm.EMPLOYEEID))
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "EMPLOYEENAME"),
-            //      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            //    RefreshUI(RefreshedTypes.HideProgressBar);
-            //    return;
-            //}
-            //if (cbxEmployeeType.SelectedItem == null)
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICECATEGORY"),
-            //      Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            //    RefreshUI(RefreshedTypes.HideProgressBar);
-            //    return;
-            //}
-            //if (string.IsNullOrEmpty(dpConfirmDate.Text))
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "CONFIRMDATE"),
-            //    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            //    RefreshUI(RefreshedTypes.HideProgressBar);
-            //    return;
-            //}
+            
             string confirDate = Convert.ToString(dpConfirmDate.Text);
             string stopDate = Convert.ToString(dpStopPaymentDate.Text);
             string applyDate = Convert.ToString(dpApplyDate.Text);
@@ -990,7 +995,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     client.LeftOfficeConfirmAddAsync(LeftOfficeConfirm);
                 }
             };
-            if (LeftOfficeConfirm.LEFTOFFICEDATE.HasValue && LeftOfficeConfirm.STOPPAYMENTDATE.HasValue)
+            if (LeftOfficeConfirm.CONFIRMDATE.HasValue && LeftOfficeConfirm.STOPPAYMENTDATE.HasValue)
             {
                 com.SelectionBox(Utility.GetResourceStr("确认"), "请确认" + LeftOfficeConfirm.EMPLOYEECNAME + "的离职确认日期是" +
                         LeftOfficeConfirm.CONFIRMDATE.Value.ToString("yyyy年MM月dd日") +

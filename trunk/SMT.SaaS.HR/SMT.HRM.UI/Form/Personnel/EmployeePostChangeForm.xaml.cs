@@ -412,6 +412,11 @@ namespace SMT.HRM.UI.Form.Personnel
 
                 PostChange = e.Result;
                 lkEmployeeName.DataContext = PostChange.T_HR_EMPLOYEE;
+                if (FormType == FormTypes.Resubmit)
+                {
+                    canSubmit = true;
+                    PostChange.CHECKSTATE = Convert.ToInt32(CheckStates.UnSubmit).ToString();
+                }
                 //异动前
                 if (!string.IsNullOrEmpty(postChange.FROMPOSTID))
                 {

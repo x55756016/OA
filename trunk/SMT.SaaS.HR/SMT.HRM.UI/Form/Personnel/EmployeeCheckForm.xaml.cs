@@ -65,6 +65,7 @@ namespace SMT.HRM.UI.Form.Personnel
             FormType = FormTypes.New;
             checkid = "";
             InitParas(checkid);
+
         }
 
         private void InitParas(string strID)
@@ -175,13 +176,16 @@ namespace SMT.HRM.UI.Form.Personnel
                 EmployeeCheck.BEREGULARDATE = DateTime.Now;
                 createUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                 SetToolBar();
+                Utility.InitFileLoad("EmployeeContract", EmployeeCheck.BEREGULARID, FormType, uploadFile);
             }
             else
             {
                 RefreshUI(RefreshedTypes.ShowProgressBar);
                 lkEmployeeName.IsEnabled = false;
                 client.GetEmployeeCheckByIDAsync(checkid);
+                Utility.InitFileLoad("EmployeeContract", checkid, FormType, uploadFile);
             }
+            
         }
 
         //by luojie 

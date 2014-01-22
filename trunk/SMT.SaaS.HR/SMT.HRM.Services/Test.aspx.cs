@@ -14,6 +14,12 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //return;
+            using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
+            {
+                bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
+
+            }
             return;
             using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
             {

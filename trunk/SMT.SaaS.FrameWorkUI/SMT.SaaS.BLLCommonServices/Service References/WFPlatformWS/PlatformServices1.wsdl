@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PlatformServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
-      <xsd:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.Views" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IFlowDefine_GetFlowDefineList_InputMessage">
@@ -419,11 +419,29 @@
   <wsdl:message name="IOutInterface_GetLstApprovalIds_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLstApprovalIdsResponse" />
   </wsdl:message>
+  <wsdl:message name="IOutInterface_GetApprovalTypeByCompanyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalTypeByCompanyID" />
+  </wsdl:message>
+  <wsdl:message name="IOutInterface_GetApprovalTypeByCompanyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApprovalTypeByCompanyIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IOutInterface_UpdateFlowRole_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateFlowRole" />
   </wsdl:message>
   <wsdl:message name="IOutInterface_UpdateFlowRole_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateFlowRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOutInterface_CheckFlowByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFlowByRole" />
+  </wsdl:message>
+  <wsdl:message name="IOutInterface_CheckFlowByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFlowByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOutInterface_InitRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:InitRule" />
+  </wsdl:message>
+  <wsdl:message name="IOutInterface_InitRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InitRuleResponse" />
   </wsdl:message>
   <wsdl:portType name="IFlowDefine">
     <wsdl:operation name="GetFlowDefineList">
@@ -724,9 +742,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IOutInterface/GetLstApprovalIds" message="tns:IOutInterface_GetLstApprovalIds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOutInterface/GetLstApprovalIdsResponse" message="tns:IOutInterface_GetLstApprovalIds_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutInterface/GetApprovalTypeByCompanyID" message="tns:IOutInterface_GetApprovalTypeByCompanyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutInterface/GetApprovalTypeByCompanyIDResponse" message="tns:IOutInterface_GetApprovalTypeByCompanyID_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateFlowRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IOutInterface/UpdateFlowRole" message="tns:IOutInterface_UpdateFlowRole_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOutInterface/UpdateFlowRoleResponse" message="tns:IOutInterface_UpdateFlowRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFlowByRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutInterface/CheckFlowByRole" message="tns:IOutInterface_CheckFlowByRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutInterface/CheckFlowByRoleResponse" message="tns:IOutInterface_CheckFlowByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InitRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOutInterface/InitRule" message="tns:IOutInterface_InitRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOutInterface/InitRuleResponse" message="tns:IOutInterface_InitRule_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFlowDefine" type="tns:IFlowDefine">
@@ -1382,8 +1412,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyID">
+      <soap:operation soapAction="http://tempuri.org/IOutInterface/GetApprovalTypeByCompanyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateFlowRole">
       <soap:operation soapAction="http://tempuri.org/IOutInterface/UpdateFlowRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFlowByRole">
+      <soap:operation soapAction="http://tempuri.org/IOutInterface/CheckFlowByRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitRule">
+      <soap:operation soapAction="http://tempuri.org/IOutInterface/InitRule" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1394,46 +1451,46 @@
   </wsdl:binding>
   <wsdl:service name="PlatformServices">
     <wsdl:port name="BasicHttpBinding_IFlowDefine" binding="tns:BasicHttpBinding_IFlowDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ICuostomFlowsDefine" binding="tns:BasicHttpBinding_ICuostomFlowsDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IFlowEvent" binding="tns:BasicHttpBinding_IFlowEvent">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IFlowCategory" binding="tns:BasicHttpBinding_IFlowCategory">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IEngine" binding="tns:BasicHttpBinding_IEngine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IFlowXmlDefine" binding="tns:BasicHttpBinding_IFlowXmlDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IFlowTrigger" binding="tns:BasicHttpBinding_IFlowTrigger">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ITriggerDefine" binding="tns:BasicHttpBinding_ITriggerDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IFlow_ModelDefine" binding="tns:BasicHttpBinding_IFlow_ModelDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IMessageBodyDefine" binding="tns:BasicHttpBinding_IMessageBodyDefine">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IDoTaskRule" binding="tns:BasicHttpBinding_IDoTaskRule">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ITimingTrigger" binding="tns:BasicHttpBinding_ITimingTrigger">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IDefaultMessage" binding="tns:BasicHttpBinding_IDefaultMessage">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IOutInterface" binding="tns:BasicHttpBinding_IOutInterface">
-      <soap:address location="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc" />
+      <soap:address location="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowXml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.10.0.57/New/Services/WFServices/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/WFServices/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="ArrayOfAppFunc">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="AppFunc" nillable="true" type="tns:AppFunc" />
@@ -106,6 +106,7 @@
       <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsSelected" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsShow" type="xs:boolean" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
     <xs:attribute ref="ser:Id" />

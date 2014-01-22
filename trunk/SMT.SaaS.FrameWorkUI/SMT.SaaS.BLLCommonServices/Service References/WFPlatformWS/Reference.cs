@@ -4660,6 +4660,9 @@ namespace SMT.SaaS.BLLCommonServices.WFPlatformWS {
         private bool IsSelectedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsShowField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -4707,6 +4710,19 @@ namespace SMT.SaaS.BLLCommonServices.WFPlatformWS {
                 if ((this.IsSelectedField.Equals(value) != true)) {
                     this.IsSelectedField = value;
                     this.RaisePropertyChanged("IsSelected");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsShow {
+            get {
+                return this.IsShowField;
+            }
+            set {
+                if ((this.IsShowField.Equals(value) != true)) {
+                    this.IsShowField = value;
+                    this.RaisePropertyChanged("IsShow");
                 }
             }
         }
@@ -7461,8 +7477,17 @@ namespace SMT.SaaS.BLLCommonServices.WFPlatformWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutInterface/GetLstApprovalIds", ReplyAction="http://tempuri.org/IOutInterface/GetLstApprovalIdsResponse")]
         string[] GetLstApprovalIds(string companyid, string departmentid);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutInterface/GetApprovalTypeByCompanyID", ReplyAction="http://tempuri.org/IOutInterface/GetApprovalTypeByCompanyIDResponse")]
+        string[] GetApprovalTypeByCompanyID(string companyid);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutInterface/UpdateFlowRole", ReplyAction="http://tempuri.org/IOutInterface/UpdateFlowRoleResponse")]
         bool UpdateFlowRole(string roleID, string newRoleName, string oldRoleName, string editUserName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutInterface/CheckFlowByRole", ReplyAction="http://tempuri.org/IOutInterface/CheckFlowByRoleResponse")]
+        void CheckFlowByRole(string xml);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOutInterface/InitRule", ReplyAction="http://tempuri.org/IOutInterface/InitRuleResponse")]
+        void InitRule(string companyid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -7496,8 +7521,20 @@ namespace SMT.SaaS.BLLCommonServices.WFPlatformWS {
             return base.Channel.GetLstApprovalIds(companyid, departmentid);
         }
         
+        public string[] GetApprovalTypeByCompanyID(string companyid) {
+            return base.Channel.GetApprovalTypeByCompanyID(companyid);
+        }
+        
         public bool UpdateFlowRole(string roleID, string newRoleName, string oldRoleName, string editUserName) {
             return base.Channel.UpdateFlowRole(roleID, newRoleName, oldRoleName, editUserName);
+        }
+        
+        public void CheckFlowByRole(string xml) {
+            base.Channel.CheckFlowByRole(xml);
+        }
+        
+        public void InitRule(string companyid) {
+            base.Channel.InitRule(companyid);
         }
     }
 }

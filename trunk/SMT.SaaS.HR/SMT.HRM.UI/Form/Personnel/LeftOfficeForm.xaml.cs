@@ -659,28 +659,30 @@ namespace SMT.HRM.UI.Form.Personnel
                 //    RefreshUI(RefreshedTypes.HideProgressBar);
                 //    return;
                 //}
-                //是否选择离职时间
-                if (string.IsNullOrEmpty(dpLeftDate.Text))
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "LEFTOFFICEDATE"),
-                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                    return;
-                }
+           
 
-                //是否选择申请时间
+                //是否选择申请日期
                 if (string.IsNullOrEmpty(dpApplyDate.Text))
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("STRINGNOTNULL", "APPLYDATE"),
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "申请日期不能为空，请重新输入",
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     RefreshUI(RefreshedTypes.HideProgressBar);
                     return;
                 }
 
-                //离职时间要大于申请时间
+                //是否选择离职日期
+                if (string.IsNullOrEmpty(dpLeftDate.Text))
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), "离职日期不能为空，请重新输入",
+                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    return;
+                }
+
+                //离职日期要大于申请日期
                 if (DateTime.Parse(dpLeftDate.Text) <= DateTime.Parse(dpApplyDate.Text))
                 {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("离职时间要大于申请时间"),
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("离职日期要大于申请日期"),
                   Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     RefreshUI(RefreshedTypes.HideProgressBar);
                     return;

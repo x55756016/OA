@@ -451,7 +451,9 @@ namespace SMT.HRM.UI.Form.Attendance
                 
                 SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE entEmp = item.ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
                 strIds += entEmp.EMPLOYEEID + ",";
-                strSelEmpNames += entEmp.EMPLOYEECNAME + ";";
+                strSelEmpNames += entDepartment.T_HR_COMPANY.CNAME + "-"
+                    + entDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME + "-"
+                    + entPost.T_HR_POSTDICTIONARY.POSTNAME + entEmp.EMPLOYEECNAME + ";";
                
             }
 

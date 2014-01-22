@@ -1396,26 +1396,26 @@
     <None Include="Service References\VMServiceWS\VMServices46.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices.wsdl" />
-    <None Include="Service References\WFPlatformWS\PlatformServices.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices1.wsdl" />
+    <None Include="Service References\WFPlatformWS\PlatformServices7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices1.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices71.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices2.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices72.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices3.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices73.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices4.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices74.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices5.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices75.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WFPlatformWS\PlatformServices6.xsd">
+    <None Include="Service References\WFPlatformWS\PlatformServices76.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\WFPlatformWS\SMT.SaaS.BLLCommonServices.WFPlatformWS.AppFunc.datasource">
@@ -1856,13 +1856,13 @@
     <None Include="Service References\HrUpdateCheckStateWS\HRUpdateCheckStateServices1.disco" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\WFPlatformWS\PlatformServices1.disco" />
     <None Include="Service References\WFPlatformWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\WFPlatformWS\configuration.svcinfo" />
     <None Include="Service References\WFPlatformWS\configuration91.svcinfo" />
-    <None Include="Service References\WFPlatformWS\PlatformServices.disco" />
     <None Include="Service References\PersonalRecordWS\PersonnelService.disco" />
     <None Include="Service References\PublicInterfaceWS\PublicService1.disco" />
     <None Include="Service References\PublicInterfaceWS\Reference.svcmap">
