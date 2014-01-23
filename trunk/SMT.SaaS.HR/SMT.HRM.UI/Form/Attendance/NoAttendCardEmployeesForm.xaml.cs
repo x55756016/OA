@@ -453,7 +453,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 strIds += entEmp.EMPLOYEEID + ",";
                 strSelEmpNames += entDepartment.T_HR_COMPANY.CNAME + "-"
                     + entDepartment.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME + "-"
-                    + entPost.T_HR_POSTDICTIONARY.POSTNAME + entEmp.EMPLOYEECNAME + ";";
+                    + entPost.T_HR_POSTDICTIONARY.POSTNAME +"-"+ entEmp.EMPLOYEECNAME + ";";
                
             }
 

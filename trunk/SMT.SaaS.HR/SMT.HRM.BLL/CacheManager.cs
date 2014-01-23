@@ -26,13 +26,19 @@ namespace SMT.HRM.BLL
 
         public static void AddCache(string CacheKey,object Entity)
         {
-            SmtCache.Add(CacheKey, Entity);
+            if (!SmtCache.ContainsKey(CacheKey))
+            {
+                SmtCache.Add(CacheKey, Entity);
+            }
         }
 
 
         public static void RemoveCache(string CacheKey)
         {
-            SmtCache.Remove(CacheKey);
+            if (SmtCache.ContainsKey(CacheKey))
+            {
+                SmtCache.Remove(CacheKey);
+            }
         }
     }
 }

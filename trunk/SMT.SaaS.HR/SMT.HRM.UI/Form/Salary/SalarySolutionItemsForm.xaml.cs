@@ -117,12 +117,13 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             {
                 if (e.Result != null)
                 {
-                    foreach (var item in e.Result)
+                    foreach (var item in e.Result.OrderBy(c=>c.SALARYITEMCODE))
                     {
                         vsolutionItem = new V_SALARYSOLUTIONITEM();
                         vsolutionItem.SOLUTIONITEMID = Guid.NewGuid().ToString();
                         vsolutionItem.SALARYITEMNAME = item.SALARYITEMNAME;
                         vsolutionItem.SALARYSOLUTIONID = savesid;
+                        vsolutionItem.ORDERNUMBER = string.IsNullOrEmpty(item.SALARYITEMCODE)?0:decimal.Parse(item.SALARYITEMCODE);
                         VsolutionItems.Add(vsolutionItem);
                         salaryItem = new T_HR_SALARYSOLUTIONITEM();
                         salaryItem.SOLUTIONITEMID = vsolutionItem.SOLUTIONITEMID;
@@ -284,7 +285,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
         }
 
         #endregion
-        void LoadNecessary()
+        void LoadNecessary(string companyid)
         {
             int pageCount = 0;
             string filter = "";
@@ -295,6 +296,8 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             {
                 filter += "MUSTSELECTED==@" + paras.Count().ToString();
                 paras.Add("1");
+                filter += " AND OWNERCOMPANYID==@" + paras.Count().ToString();
+                paras.Add(companyid);
                 client.GetSalaryItemSetPagingAsync(dataPager.PageIndex, dataPager.PageSize, "SALARYITEMNAME", filter, paras, pageCount, strState, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
         }
@@ -302,7 +305,8 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
         {
             if (FormType == FormTypes.New)
             {
-                LoadNecessary();
+                string companyid = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                LoadNecessary(companyid);
             }
             else
             {

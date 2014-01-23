@@ -22,20 +22,27 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public T_HR_COMPANY GetCompanyByID(string strCompanyID)
         {
-            IQueryable<T_HR_COMPANY> ents = from c in dal.GetObjects()
-                                            where c.COMPANYID == strCompanyID
-                                            select c;
-
             T_HR_COMPANY ent = new T_HR_COMPANY();
-            if (ents.Count() > 0)
+            object obj=CacheManager.GetCache("company" + strCompanyID);
+            if (obj != null)
             {
-                ent = ents.FirstOrDefault();
+                ent = obj as T_HR_COMPANY;
             }
             else
             {
-                ent = null;
+                IQueryable<T_HR_COMPANY> ents = from c in dal.GetObjects()
+                                                where c.COMPANYID == strCompanyID
+                                                select c;
+                if (ents.Count() > 0)
+                {
+                    ent = ents.FirstOrDefault();
+                    CacheManager.AddCache("company" + ent.COMPANYID, ent);
+                }
+                else
+                {
+                    ent = null;
+                }
             }
-
             return ent;
         }
 
@@ -504,6 +511,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                CacheManager.RemoveCache("company" + entity.COMPANYID);
                 #region
                 //var temp = dal.GetObjects().FirstOrDefault(s => (s.COMPANRYCODE == entity.COMPANRYCODE
                 //   || s.CNAME == entity.CNAME) && s.COMPANYID != entity.COMPANYID);
@@ -700,6 +708,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                CacheManager.RemoveCache("company" + entity.COMPANYID);
                 DepartmentBLL departBll = new DepartmentBLL();
 
                 if (GetChildOrgCount(entity.COMPANYID) > 0)
@@ -762,6 +771,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                CacheManager.RemoveCache("company" + id);
                 string[] ids = id.Split(',');
                 foreach (var idItem in ids)
                 {

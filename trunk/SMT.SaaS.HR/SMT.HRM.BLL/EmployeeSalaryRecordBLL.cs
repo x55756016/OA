@@ -2013,6 +2013,7 @@ namespace SMT.HRM.BLL
                             SalaryItem.SALARYARCHIVEID = sItem.salaryArchive.SALARYARCHIVEID;
                             SalaryItem.SALARYSTANDARDID = sItem.archiveItem.SALARYSTANDARDID;
                             SalaryItem.ORDERNUMBER = sItem.archiveItem.ORDERNUMBER;
+                           
                             if (tempSalaryItem.CALCULATORTYPE != "1")
                             {
                                 //地区差异补贴
@@ -2033,6 +2034,26 @@ namespace SMT.HRM.BLL
                                     dDeduct += dTemp;
 
                                     SalaryItem.SUM = dDeduct.ToString();
+                                    getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
+                                }
+                                //新技能工资
+                                else if (tempSalaryItem.SALARYITEMNAME == "新技能工资")
+                                {
+                                    var q = from ent in dal.GetObjects<T_HR_SALARYARCHIVEITEM>()
+                                            where ent.T_HR_SALARYARCHIVE.SALARYARCHIVEID == SalaryArchive.SALARYARCHIVEID
+                                            && ent.SALARYITEMID == "1E272EBC-F8F0-4A6E-A619-5B94F5C98E70"
+                                            select ent;
+                                    //湖南航信特殊薪资项目
+                                    if (q.Count() > 0)
+                                    {
+                                        var archiveitem = q.FirstOrDefault();
+                                        string strsql = archiveitem.CALCULATEFORMULACODE + " and t_hr_salaryarchive.salaryarchiveid='" + SalaryArchive.SALARYARCHIVEID + "'";
+                                        var value = dal.ExecuteCustomerSql(strsql);
+                                        Tracer.Debug("湖南航信新技能工资额:" + strsql + " 得到的结果：" + value.ToString());
+                                        SalaryItem.SUM = value.ToString();
+                                    }
+                                    //SalaryItem.SUM = dDeduct.ToString();
+                                    Tracer.Debug("新技能工资：" + SalaryItem.SUM.ToString());
                                     getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
                                 }
                                 else
@@ -2096,7 +2117,7 @@ namespace SMT.HRM.BLL
 
                                         SalaryItem.SUM = Alternative(Convert.ToDecimal(string.IsNullOrEmpty(str) ? "0" : str), 2).ToString();
                                         getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
-                                        Tracer.Debug(tempSalaryItem.SALARYITEMNAME+" " + str);
+                                        Tracer.Debug(tempSalaryItem.SALARYITEMNAME + " " + str);
                                         //额外处理的出勤工资,和税前应发合计,若执行国际上通用的'4舍6入'规则,只要在薪资项目公式round定义即可
                                         //屏蔽下方的方法
                                         //if (tempSalaryItem.ENTITYCOLUMNCODE == "WORKINGSALARY" || tempSalaryItem.ENTITYCOLUMNCODE == "PRETAXSUBTOTAL")
@@ -2126,11 +2147,11 @@ namespace SMT.HRM.BLL
                                         //实发
                                         if (tempSalaryItem.ENTITYCOLUMNCODE == "ACTUALLYPAY")
                                         {
-                                           
+
                                             actSign = true;
                                             SalaryItem.SUM = Convert.ToDecimal(SalaryItem.SUM) < 0 ? "0" : SalaryItem.SUM;
                                             actuallypay = SalaryItem.SUM;
-                                           
+
                                             record.ACTUALLYPAY = AES.AESEncrypt(Convert.ToDecimal(Math.Floor(Convert.ToDouble(SalaryItem.SUM))).ToString());
                                         }
                                     }

@@ -13,6 +13,7 @@ using SMT.HRM.CustomModel;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using SMT.HRM.BLL.Report;
 using System.Collections.ObjectModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -1172,6 +1173,21 @@ namespace SMT.HRM.BLL
                     CustomArchiveAdd(salaryArchive);
                 }
                 dal.CommitTransaction();
+
+                var q = from ent in dal.GetObjects<T_HR_SALARYARCHIVEITEM>()
+                        where ent.T_HR_SALARYARCHIVE.SALARYARCHIVEID == archive.SALARYARCHIVEID
+                        && ent.SALARYITEMID == "1E272EBC-F8F0-4A6E-A619-5B94F5C98E70"
+                        select ent;
+                //湖南航信特殊薪资项目
+                if (q.Count() > 0)
+                {
+                    var archiveitem = q.FirstOrDefault();
+                    string strsql = archiveitem.CALCULATEFORMULACODE + " and t_hr_salaryarchive.salaryarchiveid='" + archive.SALARYARCHIVEID+"'";
+                    var value = dal.ExecuteCustomerSql(strsql);
+                    Tracer.Debug("湖南航信新技能工资额:" + strsql + " 得到的结果：" + value.ToString());
+                    archiveitem.SUM = string.IsNullOrEmpty(value.ToString()) ? string.Empty : AES.AESEncrypt(value.ToString());
+                    dal.Update(archiveitem);
+                }
             }
             catch (Exception ex)
             {
@@ -1619,6 +1635,7 @@ namespace SMT.HRM.BLL
                 //bll.SalaryArchiveItemAdd(archiveitem);
             }
             dal.SaveContextChanges();
+           
             //DataContext.SaveChanges();
 
         }

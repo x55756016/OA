@@ -134,7 +134,7 @@ namespace SMT.HRM.BLL
 
             DateTime dtYearStart = DateTime.Parse(dtStartDate.Year.ToString() + "-1-1");
             DateTime dtYearEnd = dtYearStart.AddYears(1).AddSeconds(-1);
-
+            //员工的可调休天数记录
             var ems = from a in dal.GetObjects()
                       where a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID
                       select a;
@@ -312,26 +312,46 @@ namespace SMT.HRM.BLL
             DateTime.TryParse(dtLeaveStartTime.Year.ToString() + "-1-1", out dtYearStart);
             DateTime.TryParse(dtLeaveStartTime.Year.ToString() + "-12-31", out dtYearEnd);
             DateTime.TryParse(dtLeaveStartTime.ToString("yyyy-MM") + "-1", out dtMonthStart);
-
+            //过期时间设置
+            DateTime dtTerminateDate = dtLeaveStartTime;
+            if (entAttendSol.ADJUSTEXPIREDVALUE != null)
+            {
+                dtTerminateDate = dtTerminateDate.AddDays(-(int)entAttendSol.ADJUSTEXPIREDVALUE);
+            }
             //员工请假记录
             var ey = from e in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>().Include("T_HR_LEAVETYPESET")
-                     where e.LEAVERECORDID != strLeaveRecordId && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveSetId && e.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && e.EMPLOYEEID == entEmployeeView.EMPLOYEEID
-                     && (e.CHECKSTATE == strCheckStateAri || e.CHECKSTATE == strCheckStateArd) && e.ENDDATETIME < dtLeaveStartTime
+                     where e.LEAVERECORDID != strLeaveRecordId 
+                     && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveSetId 
+                     && e.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
+                     && e.EMPLOYEEID == entEmployeeView.EMPLOYEEID
+                     //&& (e.CHECKSTATE == strCheckStateAri || e.CHECKSTATE == strCheckStateArd) 
+                     //&& e.ENDDATETIME < dtLeaveStartTime
+                     && (e.CHECKSTATE == strCheckStateAri || e.CHECKSTATE == strCheckStateArd) 
+                     && e.ENDDATETIME < dtYearEnd
                      select e;
 
             //员工可休假记录(只针对非调休假计算使用)
+            //可休假记录在有效的时间内
             var el = from a in dal.GetObjects()
-                     where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId && a.TERMINATEDATE >= dtYearStart
+                     where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
+                     && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
+                     //&& a.TERMINATEDATE >= dtYearStart
+                     && a.TERMINATEDATE >= dtTerminateDate
                      select a;
 
             //已失效的可休假记录，只针对调休假计算使用
             var oel = from a in dal.GetObjects()
-                      where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId && a.TERMINATEDATE < dtLeaveStartTime
+                      where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
+                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
+                      && a.TERMINATEDATE < dtLeaveStartTime
                       select a;
 
             //有效的可休假记录，只针对调休假计算使用
             var cel = from a in dal.GetObjects()
-                      where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId && a.EFFICDATE <= dtLeaveEndTime && a.TERMINATEDATE >= dtLeaveEndTime
+                      where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
+                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
+                      //&& a.EFFICDATE <= dtLeaveEndTime && a.TERMINATEDATE >= dtLeaveEndTime
+                      && a.EFFICDATE <= dtLeaveEndTime && a.TERMINATEDATE >= dtTerminateDate
                       select a;
 
             if (!string.IsNullOrWhiteSpace(strFilterString) && objArgs.Count() != 0)
@@ -1287,6 +1307,8 @@ namespace SMT.HRM.BLL
 
                 var ents = from n in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
                            where n.ASSIGNEDOBJECTTYPE == strAssignObjectType && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur
+                           //&& n.OWNERCOMPANYID == "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716"
+                           //&& n.OWNERCOMPANYID =="bac05c76-0f5b-40ae-b73b-8be541ed35ed"
                            orderby n.ASSIGNEDOBJECTTYPE ascending
                            select n;
 
@@ -1311,6 +1333,47 @@ namespace SMT.HRM.BLL
                 strRes = "{ERROR}";
             }
 
+            return strRes;
+        }
+
+
+        public string CreateLevelDayCountWithAllCompanyForSingle(string companyID)
+        {
+            string strRes = string.Empty;
+            try
+            {
+                DateTime dtCur = DateTime.Parse(DateTime.Now.ToString("yyyy-MM") + "-1");
+                string strCheckStates = Convert.ToInt32(CheckStates.Approved).ToString();
+                string strAssignObjectType = Convert.ToInt32(AssignObjectType.Company).ToString();
+
+                var ents = from n in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
+                           where n.ASSIGNEDOBJECTTYPE == strAssignObjectType && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur
+                               //&& n.OWNERCOMPANYID == "703dfb3c-d3dc-4b1d-9bf0-3507ba01b716"
+                           && n.OWNERCOMPANYID == companyID
+                           orderby n.ASSIGNEDOBJECTTYPE ascending
+                           select n;
+
+                List<string> strIDs = new List<string>();
+
+                foreach (T_HR_ATTENDANCESOLUTIONASIGN item in ents)
+                {
+                    if (strIDs.Contains(item.ASSIGNEDOBJECTID))
+                    {
+                        continue;
+                    }
+
+                    CreateLevelDayCountByAsignAttSol(item.ATTENDANCESOLUTIONASIGNID);
+                    strIDs.Add(item.ASSIGNEDOBJECTID);
+                }
+                SMT.Foundation.Log.Tracer.Debug("执行完成：" + companyID);
+                return companyID +"执行完成";
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("CreateLevelDayCountWithAllCompanyForSingle出现错误："+ ex.ToString());
+                Utility.SaveLog(ex.ToString());
+                strRes = "{ERROR}";
+            }
             return strRes;
         }
 
