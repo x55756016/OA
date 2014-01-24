@@ -301,6 +301,7 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 {
                     GetParentDics(it.DICTIONARYID, list);//分别加上改字典值的所有父级字典和子级字典
                 });
+                list = list.Distinct().ToList();//因为GetParentDics里面会把添加父级，所以会重复
                 return list;
             }
             catch

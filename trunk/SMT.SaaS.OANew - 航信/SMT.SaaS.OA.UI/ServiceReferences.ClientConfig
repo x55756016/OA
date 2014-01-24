@@ -116,7 +116,7 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/fb/FBService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
         contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
+      <endpoint address="http://10.10.0.93:8080/New/Services/SMTFlow2/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
       <endpoint address="http://10.10.0.93:8080/New/Services/HR/SalaryService.svc"
@@ -174,12 +174,12 @@
       <endpoint address="http://localhost:3938/AgentServices.svc" binding="customBinding"
         bindingConfiguration="CustomBinding_AgentServices1" contract="AgentChannel.AgentServices"
         name="CustomBinding_AgentServices" />
-      <!--<endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
-        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />-->
-     <endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOAPersonOffice.svc"
+      <endpoint address="http://localhost:3938/SmtOAPersonOffice.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
         contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />
+     <!--<endpoint address="http://10.10.0.93:8080/New/Services/OA/SmtOAPersonOffice.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_SmtOAPersonOffice"
+        contract="SmtOAPersonOfficeService.SmtOAPersonOffice" name="BasicHttpBinding_SmtOAPersonOffice" />-->
     </client>
   </system.serviceModel>
 </configuration>

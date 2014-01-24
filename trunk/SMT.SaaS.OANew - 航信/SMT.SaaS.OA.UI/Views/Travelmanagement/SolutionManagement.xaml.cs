@@ -293,7 +293,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         }
 
 
-        #region 加载数据
+        #region  复制加载数据
         void LoadSolutionInfos()
         {
             int pageCount = 0;
@@ -368,22 +368,40 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 ToolBar_Solution.stpOtherAction.Children.Add(_ImageBtnCopy);
             }
         }
-
+        /// <summary>
+        /// 复制按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void SolutionManagement_Click(object sender, RoutedEventArgs e)
         {
             ReplicationProgram AddWin = new ReplicationProgram();
+            AddWin.SelectSolutionComplete += AddWin_SelectSolutionComplete;
             EntityBrowser browser = new EntityBrowser(AddWin);
             browser.MinWidth = 500;
             browser.MinHeight = 350;
             browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
             browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { });
-            if (browser.ParentWindow != null)
-            {
-                browser.ParentWindow.Closed += (sender2, args) =>
-                {
-                    LoadSolutionInfos();
-                };
-            }
+            //if (browser.ParentWindow != null)
+            //{
+            //    browser.ParentWindow.Closed += (sender2, args) =>
+            //    {
+
+            //       //LoadSolutionInfos();
+                  
+            //    };
+            //}
+        }
+        //复制选择方案完成事件
+        bool isCopy = false;
+        void AddWin_SelectSolutionComplete(object sender, ReplicationProgram.SelectSolutionEventArgs e)
+        {
+            isCopy = true;
+            travelObj = e.solution;
+            travelObj.PROGRAMMENAME = "";
+            DetailSolutionInfo(travelObj);
+            client.GetVechileStandardAndPlaneLineAsync(travelObj.TRAVELSOLUTIONSID, RefPlaneList, RefvechileList, "DefaultSolution");
+           
         }
 
         private void InitSolutionPara()
@@ -1067,19 +1085,45 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         return;
                     }
                     travelObj.CUSTOMHALFDAY = nuHalfDay.Value.ToString();
-                    AddVechileStandard();
-                    //添加出差方案设置
-                    AddSetSolution();
                     RefreshUI(RefreshedTypes.ShowProgressBar);
                     BtnSave.IsEnabled = false;
                     //return;
+
                     if (action == FormTypes.New)
                     {
+                        travelObj.TRAVELSOLUTIONSID = System.Guid.NewGuid().ToString();
+                        travelObj.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                        travelObj.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+                        travelObj.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                        travelObj.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
+                        travelObj.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                        travelObj.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                        travelObj.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+                        travelObj.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                       
+                        AddVechileStandard();
+                        //添加出差方案设置
+                        AddSetSolution();
+
+                        if (DGVechileStandard.ItemsSource != null)
+                        {
+                            AddStandardList.Clear();
+                            foreach (Object obj in DGVechileStandard.ItemsSource)
+                            {
+                                T_OA_TAKETHESTANDARDTRANSPORT ent = (T_OA_TAKETHESTANDARDTRANSPORT)obj;
+                                ent.TAKETHESTANDARDTRANSPORTID = System.Guid.NewGuid().ToString();
+                                ent.T_OA_TRAVELSOLUTIONS = travelObj;                               
+                                AddStandardList.Add(ent);
+                            }
+                        }
+                       
                         client.AddTravleSolutionAsync(travelObj, AddStandardList, companyids);
                     }
                     else
                     {
-
+                        AddVechileStandard();
+                        //添加出差方案设置
+                        AddSetSolution();
                         if (EditFlag)
                         {
                             client.UpdateTravleSolutionAsync(travelObj, AddStandardList, companyids, EditFlag);
