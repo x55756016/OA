@@ -134,9 +134,10 @@ namespace SMT.HRM.BLL
 
             DateTime dtYearStart = DateTime.Parse(dtStartDate.Year.ToString() + "-1-1");
             DateTime dtYearEnd = dtYearStart.AddYears(1).AddSeconds(-1);
-            //员工的可调休天数记录
+
             var ems = from a in dal.GetObjects()
-                      where a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID
+                      where a.EMPLOYEEID == entEmployeeView.EMPLOYEEID 
+                      && a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID
                       select a;
 
             if (entLeaveTypeSet.LEAVETYPEVALUE != (Convert.ToInt32(Common.LeaveTypeValue.AdjustLeave) + 1).ToString())
@@ -312,46 +313,40 @@ namespace SMT.HRM.BLL
             DateTime.TryParse(dtLeaveStartTime.Year.ToString() + "-1-1", out dtYearStart);
             DateTime.TryParse(dtLeaveStartTime.Year.ToString() + "-12-31", out dtYearEnd);
             DateTime.TryParse(dtLeaveStartTime.ToString("yyyy-MM") + "-1", out dtMonthStart);
-            //过期时间设置
-            DateTime dtTerminateDate = dtLeaveStartTime;
-            if (entAttendSol.ADJUSTEXPIREDVALUE != null)
-            {
-                dtTerminateDate = dtTerminateDate.AddDays(-(int)entAttendSol.ADJUSTEXPIREDVALUE);
-            }
-            //员工请假记录
+
+            //员工请假记录所有的请假记录
             var ey = from e in dal.GetObjects<T_HR_EMPLOYEELEAVERECORD>().Include("T_HR_LEAVETYPESET")
                      where e.LEAVERECORDID != strLeaveRecordId 
                      && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveSetId 
                      && e.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
                      && e.EMPLOYEEID == entEmployeeView.EMPLOYEEID
-                     //&& (e.CHECKSTATE == strCheckStateAri || e.CHECKSTATE == strCheckStateArd) 
-                     //&& e.ENDDATETIME < dtLeaveStartTime
                      && (e.CHECKSTATE == strCheckStateAri || e.CHECKSTATE == strCheckStateArd) 
+                     //&& e.ENDDATETIME < dtLeaveStartTime
                      && e.ENDDATETIME < dtYearEnd
                      select e;
 
             //员工可休假记录(只针对非调休假计算使用)
-            //可休假记录在有效的时间内
             var el = from a in dal.GetObjects()
                      where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
-                     && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
-                     //&& a.TERMINATEDATE >= dtYearStart
-                     && a.TERMINATEDATE >= dtTerminateDate
+                     && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID 
+                     && a.LEAVETYPESETID == strLeaveSetId && a.TERMINATEDATE >= dtYearStart
                      select a;
 
             //已失效的可休假记录，只针对调休假计算使用
             var oel = from a in dal.GetObjects()
                       where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
-                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
-                      && a.TERMINATEDATE < dtLeaveStartTime
+                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID 
+                      && a.LEAVETYPESETID == strLeaveSetId && a.TERMINATEDATE < dtLeaveStartTime
                       select a;
 
             //有效的可休假记录，只针对调休假计算使用
             var cel = from a in dal.GetObjects()
                       where a.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID 
-                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID && a.LEAVETYPESETID == strLeaveSetId 
-                      //&& a.EFFICDATE <= dtLeaveEndTime && a.TERMINATEDATE >= dtLeaveEndTime
-                      && a.EFFICDATE <= dtLeaveEndTime && a.TERMINATEDATE >= dtTerminateDate
+                      && a.EMPLOYEEID == entEmployeeView.EMPLOYEEID 
+                      //&& a.LEAVETYPESETID == strLeaveSetId && a.EFFICDATE <= dtLeaveEndTime 
+                      //&& a.TERMINATEDATE >= dtLeaveEndTime
+                      && a.LEAVETYPESETID == strLeaveSetId && a.EFFICDATE <= dtLeaveStartTime
+                      && a.TERMINATEDATE >= dtLeaveStartTime
                       select a;
 
             if (!string.IsNullOrWhiteSpace(strFilterString) && objArgs.Count() != 0)
@@ -395,7 +390,7 @@ namespace SMT.HRM.BLL
                 dLeaveDays = ey.Sum(t => t.TOTALHOURS);
             }
 
-            //员工可休假时长
+            //员工可休假时长,本年度可休假天数
             decimal? dFreeDays = el.Sum(t => t.DAYS);
             if (entLeaveTypeSet.LEAVETYPEVALUE == (Convert.ToInt32(Common.LeaveTypeValue.AdjustLeave) + 1).ToString())
             {
@@ -1022,6 +1017,84 @@ namespace SMT.HRM.BLL
 
             return Utility.Pager<T_HR_EMPLOYEELEVELDAYCOUNT>(q, pageIndex, pageSize, ref pageCount);
         }
+
+        #region 导出带薪假期
+        /// <summary>
+        /// 导出带薪假期
+        /// </summary>
+        /// <param name="sOrgType"></param>
+        /// <param name="sValue"></param>
+        /// <param name="strLeaveType"></param>
+        /// <param name="strOwnerID"></param>
+        /// <param name="strEmployeeID"></param>
+        /// <param name="strEfficDateFrom"></param>
+        /// <param name="strEfficDateTo"></param>
+        /// <param name="strSortKey"></param>
+        /// <returns></returns>
+        public byte[] ExportEmployeeLeaveDayCount(string sOrgType, string sValue, string strLeaveType, string strOwnerID, string strEmployeeID, string strEfficDateFrom,
+            string strEfficDateTo, string strSortKey)
+        {
+            byte[] result = null;
+            try
+            {
+                List<T_HR_EMPLOYEELEVELDAYCOUNT> list = new List<T_HR_EMPLOYEELEVELDAYCOUNT>();
+                IQueryable<T_HR_EMPLOYEELEVELDAYCOUNT> entList = GetAllEmployeeLevelDayCountRdListByMultSearch(sOrgType, sValue, strLeaveType, strOwnerID, strEmployeeID, strEfficDateFrom, strEfficDateTo, strSortKey);
+                if (entList.Count() > 0)
+                {
+                    list = entList.ToList();
+                }
+                result = EmployeeLeaveDayCountStream(list);
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("ExportEmployeeLeaveDayCount:" + ex.Message);
+            }
+            return result;
+        }
+
+        private byte[] EmployeeLeaveDayCountStream(List<T_HR_EMPLOYEELEVELDAYCOUNT> list)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(Utility.GetHeader().ToString());
+            sb.Append(GetEmployeeLeaveDayCountBody(list));
+            byte[] by = Encoding.UTF8.GetBytes(sb.ToString());
+            return by;
+        }
+
+        private string GetEmployeeLeaveDayCountBody(List<T_HR_EMPLOYEELEVELDAYCOUNT> Collects)
+        {
+            StringBuilder s = new StringBuilder();
+            var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "LEAVETYPEVALUE" });
+            s.Append("<body>\n\r");
+            s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
+            s.Append("<tr>");
+            s.Append("<td align=center class=\"title\" >员工姓名</td>");
+            s.Append("<td align=center class=\"title\" >休假类型</td>");
+            s.Append("<td align=center class=\"title\" >天数</td>");
+            s.Append("<td align=center class=\"title\" >生效日期</td>");
+            s.Append("<td align=center class=\"title\" >终止日期</td>");
+            s.Append("</tr>");
+
+            if (Collects.Count() > 0)
+            {
+                for (int i = 0; i < Collects.Count; i++)
+                {
+                    string vacationtype = tmp.Where(e => e.DICTIONARYVALUE == decimal.Parse(Collects[i].VACATIONTYPE)).FirstOrDefault().DICTIONARYNAME;
+                    s.Append("<tr>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].EMPLOYEENAME + "</td>");
+                    s.Append("<td class=\"x1282\">" + vacationtype + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].DAYS + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].EFFICDATE.Value.ToString("yyyy-MM-dd") + "</td>");
+                    s.Append("<td class=\"x1282\">" + Collects[i].TERMINATEDATE.Value.ToString("yyyy-MM-dd") + "</td>");
+                    s.Append("</tr>");
+                }
+            }
+            s.Append("</table>");
+            s.Append("</body></html>");
+            return s.ToString();
+        }
+        #endregion
+        
 
 
         public IQueryable<T_HR_EMPLOYEELEAVERECORD> GetEmployeeleaverecordByMultSearchId(string employeeid, string leavetypesetid, string OWNERCOMPANYID,

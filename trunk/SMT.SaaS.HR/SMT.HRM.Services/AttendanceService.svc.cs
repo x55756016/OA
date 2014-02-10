@@ -2583,6 +2583,33 @@ namespace SMT.HRM.Services
                 return ents.ToList();
             }
         }
+
+        /// <summary>
+        /// 用于实体Grid中显示数据的分页查询
+        /// </summary>
+        /// <param name="pageIndex">当前页</param>
+        /// <param name="pageSize">每页显示条数</param>
+        /// <param name="sort">排序字段</param>
+        /// <param name="filterString">过滤条件</param>
+        /// <param name="paras">过滤条件中的参数值</param>
+        /// <param name="pageCount">返回总页数</param>
+        /// <returns>查询结果集</returns>
+        [OperationContract]
+        public List<V_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+            using (EmployeeSignInRecordBLL bll = new EmployeeSignInRecordBLL())
+            {
+                var ents = bll.EmployeeSignInRecordPagingByView(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
+
+                if (ents == null)
+                {
+                    return null;
+                }
+
+                return ents.ToList();
+            }
+        }
+
         /// <summary>
         /// 添加签卡记录信息
         /// </summary>
@@ -2610,31 +2637,7 @@ namespace SMT.HRM.Services
             }
         }
 
-        /// <summary>
-        /// 用于实体Grid中显示数据的分页查询
-        /// </summary>
-        /// <param name="pageIndex">当前页</param>
-        /// <param name="pageSize">每页显示条数</param>
-        /// <param name="sort">排序字段</param>
-        /// <param name="filterString">过滤条件</param>
-        /// <param name="paras">过滤条件中的参数值</param>
-        /// <param name="pageCount">返回总页数</param>
-        /// <returns>查询结果集</returns>
-        [OperationContract]
-        public List<V_EMPLOYEESIGNINRECORD> EmployeeSignInRecordPagingByView(int pageIndex, int pageSize, string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
-        {
-            using (EmployeeSignInRecordBLL bll = new EmployeeSignInRecordBLL())
-            {
-                var ents = bll.EmployeeSignInRecordPagingByView(pageIndex, pageSize, sort, filterString, paras, ref pageCount, strCheckState, strOwnerID, recorderDate);
 
-                if (ents == null)
-                {
-                    return null;
-                }
-
-                return ents.ToList();
-            }
-        }
         /// <summary>
         /// 根据ID获取签卡记录信息
         /// </summary>
@@ -2753,6 +2756,19 @@ namespace SMT.HRM.Services
                 return bll.ExportEmployeeSignIn(signinID);
             }
         }
+        /// <summary>
+        /// 导出查询条件内所有员工签卡明细
+        /// </summary>
+        /// <param name="signinID">签卡单ID</param>
+        /// <returns></returns>
+        [OperationContract]
+        public byte[] ExportEmployeeAllSignIn( string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
+        {
+            using (EmployeeSignInDetailBLL bll = new EmployeeSignInDetailBLL())
+            {
+                return bll.ExportEmployeeAllSignIn(sort, filterString,  paras, ref  pageCount,  strCheckState,  strOwnerID,  recorderDate);
+            }
+        }
         #endregion
 
         #region T_HR_EMPLOYEESIGNINDETAIL 员工签卡记录子表
@@ -2775,20 +2791,6 @@ namespace SMT.HRM.Services
                 }
 
                 return ents.ToList();
-            }
-        }
-
-        /// <summary>
-        /// 导出查询条件内所有员工签卡明细
-        /// </summary>
-        /// <param name="signinID">签卡单ID</param>
-        /// <returns></returns>
-        [OperationContract]
-        public byte[] ExportEmployeeAllSignIn(string sort, string filterString, List<object> paras, ref int pageCount, string strCheckState, string strOwnerID, string recorderDate)
-        {
-            using (EmployeeSignInDetailBLL bll = new EmployeeSignInDetailBLL())
-            {
-                return bll.ExportEmployeeAllSignIn(sort, filterString, paras, ref  pageCount, strCheckState, strOwnerID, recorderDate);
             }
         }
 
@@ -2868,6 +2870,28 @@ namespace SMT.HRM.Services
                 }
 
                 return ents.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 导出带薪假期
+        /// </summary>
+        /// <param name="sOrgType"></param>
+        /// <param name="sValue"></param>
+        /// <param name="strLeaveType"></param>
+        /// <param name="strOwnerID"></param>
+        /// <param name="strEmployeeID"></param>
+        /// <param name="strEfficDateFrom"></param>
+        /// <param name="strEfficDateTo"></param>
+        /// <param name="strSortKey"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public byte[] ExportEmployeeLeaveDayCount(string sOrgType, string sValue, string strLeaveType, string strOwnerID, string strEmployeeID, string strEfficDateFrom,
+            string strEfficDateTo, string strSortKey)
+        {
+            using (EmployeeLevelDayCountBLL bll = new EmployeeLevelDayCountBLL())
+            {
+                return bll.ExportEmployeeLeaveDayCount(sOrgType, sValue, strLeaveType, strOwnerID, strEmployeeID, strEfficDateFrom, strEfficDateTo, strSortKey);
             }
         }
 
@@ -2986,6 +3010,19 @@ namespace SMT.HRM.Services
             using (EmployeeLevelDayCountBLL bllEmployeeleveldaycount = new EmployeeLevelDayCountBLL())
             {
                 bllEmployeeleveldaycount.CreateLevelDayCountWithAllCompany();
+            }
+        }
+
+        /// <summary>
+        /// 对某个公司生成带薪假记录
+        /// 2014nian 1月17日添加  ljx
+        /// </summary>
+        [OperationContract]
+        public string CreateLevelDayCountWithAllForSingle(string companyID)
+        {
+            using (EmployeeLevelDayCountBLL bllEmployeeleveldaycount = new EmployeeLevelDayCountBLL())
+            {
+                return bllEmployeeleveldaycount.CreateLevelDayCountWithAllCompanyForSingle(companyID);
             }
         }
         #endregion

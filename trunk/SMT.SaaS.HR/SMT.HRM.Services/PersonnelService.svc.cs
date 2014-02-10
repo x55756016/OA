@@ -577,6 +577,29 @@ namespace SMT.HRM.Services
                 return q;
             }
         }
+        /// <summary>
+        /// 获取员工信息 
+        /// 供MVC使用公司简称
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="sort"></param>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="pageCount"></param>
+        /// <param name="sType"></param>
+        /// <param name="sValue"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EMPLOYEEVIEW> GetEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                List<V_EMPLOYEEVIEW> q = bll.GetEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID);
+                return q;
+            }
+        }
 
 
         /// <summary>
@@ -671,6 +694,29 @@ namespace SMT.HRM.Services
             using (EmployeeBLL bll = new EmployeeBLL())
             {
                 List<V_EMPLOYEEVIEW> q = bll.GetLeaveEmployeeViewsPaging(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID);
+                return q;
+            }
+        }
+        /// <summary>
+        /// 获取离职员工
+        /// 供MVC使用
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="sort"></param>
+        /// <param name="filterString"></param>
+        /// <param name="paras"></param>
+        /// <param name="pageCount"></param>
+        /// <param name="sType"></param>
+        /// <param name="sValue"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<V_EMPLOYEEVIEW> GetLeaveEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                List<V_EMPLOYEEVIEW> q = bll.GetLeaveEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID);
                 return q;
             }
         }

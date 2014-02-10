@@ -183,7 +183,14 @@ namespace SMT.HRM.UI.Form.Personnel
                 RefreshUI(RefreshedTypes.ShowProgressBar);
                 lkEmployeeName.IsEnabled = false;
                 client.GetEmployeeCheckByIDAsync(checkid);
-                Utility.InitFileLoad("EmployeeContract", checkid, FormType, uploadFile);
+                if (FormType == FormTypes.Edit)
+                {
+                    Utility.InitFileLoad("EmployeeContract", checkid, FormType, uploadFile);
+                }
+                else
+                {
+                    Utility.InitFileLoad(FormTypes.Browse, uploadFile, checkid, false);//"EmployeeCheck", checkid, FormType, uploadFile,false);
+                }
             }
             
         }
@@ -545,7 +552,7 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         public void OnSubmitCompleted(AuditEventArgs.AuditResult args)
         {
-            //Utility.UpdateCheckState("T_HR_EMPLOYEECHECK", "BEREGULARID", EmployeeCheck.BEREGULARID, args);
+            Utility.InitFileLoad(FormTypes.Audit, uploadFile, EmployeeCheck.BEREGULARID, false);
             string state = "";
             string UserState = "Audit";
             switch (args)

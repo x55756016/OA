@@ -4,15 +4,27 @@
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd0" />
       <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
-      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
+      <xsd:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShow" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShowResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_InputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBalance" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_OutputMessage">
+    <wsdl:part name="parameters" element="AddAttendMonthlyBalanceResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_ModifyAttendMonthlyBalance_InputMessage">
     <wsdl:part name="parameters" element="ModifyAttendMonthlyBalance" />
   </wsdl:message>
@@ -631,6 +643,12 @@
   <wsdl:message name="AttendanceService_EmployeeSignInRecordPaging_OutputMessage">
     <wsdl:part name="parameters" element="EmployeeSignInRecordPagingResponse" />
   </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordPagingByView_InputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordPagingByView" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_EmployeeSignInRecordPagingByView_OutputMessage">
+    <wsdl:part name="parameters" element="EmployeeSignInRecordPagingByViewResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_EmployeeSignInRecordAdd_InputMessage">
     <wsdl:part name="parameters" element="EmployeeSignInRecordAdd" />
   </wsdl:message>
@@ -642,12 +660,6 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_EmployeeSigninRecordUpdate_OutputMessage">
     <wsdl:part name="parameters" element="EmployeeSigninRecordUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_EmployeeSignInRecordPagingByView_InputMessage">
-    <wsdl:part name="parameters" element="EmployeeSignInRecordPagingByView" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_EmployeeSignInRecordPagingByView_OutputMessage">
-    <wsdl:part name="parameters" element="EmployeeSignInRecordPagingByViewResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetEmployeeSigninRecordByID_InputMessage">
     <wsdl:part name="parameters" element="GetEmployeeSigninRecordByID" />
@@ -691,17 +703,17 @@
   <wsdl:message name="AttendanceService_ExportEmployeeSignIn_OutputMessage">
     <wsdl:part name="parameters" element="ExportEmployeeSignInResponse" />
   </wsdl:message>
-  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninID" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninIDResponse" />
-  </wsdl:message>
   <wsdl:message name="AttendanceService_ExportEmployeeAllSignIn_InputMessage">
     <wsdl:part name="parameters" element="ExportEmployeeAllSignIn" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_ExportEmployeeAllSignIn_OutputMessage">
     <wsdl:part name="parameters" element="ExportEmployeeAllSignInResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninID" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSignInDetailBySigninIDResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_AddEmployeesignindetail_InputMessage">
     <wsdl:part name="parameters" element="AddEmployeesignindetail" />
@@ -726,6 +738,12 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_OutputMessage">
     <wsdl:part name="parameters" element="GetEmployeeLevelDayCountRdListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ExportEmployeeLeaveDayCount_InputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeLeaveDayCount" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_ExportEmployeeLeaveDayCount_OutputMessage">
+    <wsdl:part name="parameters" element="ExportEmployeeLeaveDayCountResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_GetEmployeeleaverecordByMultSearchId_InputMessage">
     <wsdl:part name="parameters" element="GetEmployeeleaverecordByMultSearchId" />
@@ -769,6 +787,12 @@
   <wsdl:message name="AttendanceService_CreateLevelDayCountWithAll_OutputMessage">
     <wsdl:part name="parameters" element="CreateLevelDayCountWithAllResponse" />
   </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountWithAllForSingle_InputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountWithAllForSingle" />
+  </wsdl:message>
+  <wsdl:message name="AttendanceService_CreateLevelDayCountWithAllForSingle_OutputMessage">
+    <wsdl:part name="parameters" element="CreateLevelDayCountWithAllForSingleResponse" />
+  </wsdl:message>
   <wsdl:message name="AttendanceService_GetAttendMonthlyBalanceByID_InputMessage">
     <wsdl:part name="parameters" element="GetAttendMonthlyBalanceByID" />
   </wsdl:message>
@@ -798,18 +822,6 @@
   </wsdl:message>
   <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage">
     <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSVResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage">
-    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShow" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage">
-    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceForShowResponse" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_InputMessage">
-    <wsdl:part name="parameters" element="AddAttendMonthlyBalance" />
-  </wsdl:message>
-  <wsdl:message name="AttendanceService_AddAttendMonthlyBalance_OutputMessage">
-    <wsdl:part name="parameters" element="AddAttendMonthlyBalanceResponse" />
   </wsdl:message>
   <wsdl:message name="AttendanceService_DoWork_InputMessage">
     <wsdl:part name="parameters" element="DoWork" />
@@ -1322,6 +1334,14 @@
     <wsdl:part name="parameters" element="ModifyAttendanceSolutionDeductResponse" />
   </wsdl:message>
   <wsdl:portType name="AttendanceService">
+    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" message="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShowResponse" message="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBalance">
+      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalance" message="AttendanceService_AddAttendMonthlyBalance_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalanceResponse" message="AttendanceService_AddAttendMonthlyBalance_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="ModifyAttendMonthlyBalance">
       <wsdl:input wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBalance" message="AttendanceService_ModifyAttendMonthlyBalance_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/ModifyAttendMonthlyBalanceResponse" message="AttendanceService_ModifyAttendMonthlyBalance_OutputMessage" />
@@ -1734,6 +1754,10 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPaging" message="AttendanceService_EmployeeSignInRecordPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingResponse" message="AttendanceService_EmployeeSignInRecordPaging_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordPagingByView">
+      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingByView" message="AttendanceService_EmployeeSignInRecordPagingByView_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingByViewResponse" message="AttendanceService_EmployeeSignInRecordPagingByView_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="EmployeeSignInRecordAdd">
       <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordAdd" message="AttendanceService_EmployeeSignInRecordAdd_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordAddResponse" message="AttendanceService_EmployeeSignInRecordAdd_OutputMessage" />
@@ -1741,10 +1765,6 @@
     <wsdl:operation name="EmployeeSigninRecordUpdate">
       <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSigninRecordUpdate" message="AttendanceService_EmployeeSigninRecordUpdate_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSigninRecordUpdateResponse" message="AttendanceService_EmployeeSigninRecordUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeSignInRecordPagingByView">
-      <wsdl:input wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingByView" message="AttendanceService_EmployeeSignInRecordPagingByView_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/EmployeeSignInRecordPagingByViewResponse" message="AttendanceService_EmployeeSignInRecordPagingByView_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeSigninRecordByID">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeSigninRecordByID" message="AttendanceService_GetEmployeeSigninRecordByID_InputMessage" />
@@ -1774,13 +1794,13 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/ExportEmployeeSignIn" message="AttendanceService_ExportEmployeeSignIn_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/ExportEmployeeSignInResponse" message="AttendanceService_ExportEmployeeSignIn_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
-      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" message="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninIDResponse" message="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ExportEmployeeAllSignIn">
       <wsdl:input wsaw:Action="urn:AttendanceService/ExportEmployeeAllSignIn" message="AttendanceService_ExportEmployeeAllSignIn_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/ExportEmployeeAllSignInResponse" message="AttendanceService_ExportEmployeeAllSignIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
+      <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" message="AttendanceService_GetEmployeeSignInDetailBySigninID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeSignInDetailBySigninIDResponse" message="AttendanceService_GetEmployeeSignInDetailBySigninID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddEmployeesignindetail">
       <wsdl:input wsaw:Action="urn:AttendanceService/AddEmployeesignindetail" message="AttendanceService_AddEmployeesignindetail_InputMessage" />
@@ -1797,6 +1817,10 @@
     <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearch">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearch" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearchResponse" message="AttendanceService_GetEmployeeLevelDayCountRdListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveDayCount">
+      <wsdl:input wsaw:Action="urn:AttendanceService/ExportEmployeeLeaveDayCount" message="AttendanceService_ExportEmployeeLeaveDayCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/ExportEmployeeLeaveDayCountResponse" message="AttendanceService_ExportEmployeeLeaveDayCount_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeleaverecordByMultSearchId">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetEmployeeleaverecordByMultSearchId" message="AttendanceService_GetEmployeeleaverecordByMultSearchId_InputMessage" />
@@ -1826,6 +1850,10 @@
       <wsdl:input wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAll" message="AttendanceService_CreateLevelDayCountWithAll_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAllResponse" message="AttendanceService_CreateLevelDayCountWithAll_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountWithAllForSingle">
+      <wsdl:input wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAllForSingle" message="AttendanceService_CreateLevelDayCountWithAllForSingle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:AttendanceService/CreateLevelDayCountWithAllForSingleResponse" message="AttendanceService_CreateLevelDayCountWithAllForSingle_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMonthlyBalanceByID">
       <wsdl:input wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceByID" message="AttendanceService_GetAttendMonthlyBalanceByID_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/GetAttendMonthlyBalanceByIDResponse" message="AttendanceService_GetAttendMonthlyBalanceByID_OutputMessage" />
@@ -1845,14 +1873,6 @@
     <wsdl:operation name="ImportAttendMonthlyBalanceFromCSV">
       <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_InputMessage" />
       <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSVResponse" message="AttendanceService_ImportAttendMonthlyBalanceFromCSV_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
-      <wsdl:input wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" message="AttendanceService_ImportAttendMonthlyBalanceForShow_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/ImportAttendMonthlyBalanceForShowResponse" message="AttendanceService_ImportAttendMonthlyBalanceForShow_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddAttendMonthlyBalance">
-      <wsdl:input wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalance" message="AttendanceService_AddAttendMonthlyBalance_InputMessage" />
-      <wsdl:output wsaw:Action="urn:AttendanceService/AddAttendMonthlyBalanceResponse" message="AttendanceService_AddAttendMonthlyBalance_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DoWork">
       <wsdl:input wsaw:Action="urn:AttendanceService/DoWork" message="AttendanceService_DoWork_InputMessage" />

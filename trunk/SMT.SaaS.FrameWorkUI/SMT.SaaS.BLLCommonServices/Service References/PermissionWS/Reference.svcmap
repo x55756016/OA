@@ -25,7 +25,6 @@
     <MetadataFile FileName="PermissionService101.xsd" MetadataType="Schema" ID="0a1ff331-fa18-4381-9330-313355341b6e" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd7" />
     <MetadataFile FileName="PermissionService102.xsd" MetadataType="Schema" ID="f40d84fd-2811-4a18-b6fa-b88754a772b0" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd6" />
     <MetadataFile FileName="PermissionService1.disco" MetadataType="Disco" ID="71bde4d5-1e49-4cf7-b0b6-2395d8b870b6" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?disco" />
-    <MetadataFile FileName="PermissionService103.xsd" MetadataType="Schema" ID="48c6b572-dac4-448f-bb96-26dd07538977" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd11" />
     <MetadataFile FileName="PermissionService104.xsd" MetadataType="Schema" ID="a145e0d1-4c44-4686-ab1b-718bc899ab8e" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd9" />
     <MetadataFile FileName="PermissionService105.xsd" MetadataType="Schema" ID="dafe2589-56f7-4ed8-8c30-1891481c286b" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd8" />
     <MetadataFile FileName="PermissionService106.xsd" MetadataType="Schema" ID="8abe6036-7036-430b-a9f8-b4d923be25d0" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd10" />

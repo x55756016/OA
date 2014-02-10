@@ -19,6 +19,8 @@ using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 using System.Collections.ObjectModel;
 using SMT.SAAS.Main.CurrentContext;
+using System.IO;
+using SMT.SaaS.FrameworkUI.ChildWidow;
 
 namespace SMT.HRM.UI.Views.Attendance
 {
@@ -42,6 +44,8 @@ namespace SMT.HRM.UI.Views.Attendance
         private List<T_HR_COMPANY> allCompanys;
         private List<T_HR_DEPARTMENT> allDepartments;
         private List<T_HR_POST> allPositions;
+        private SaveFileDialog dialog = new SaveFileDialog();
+        private bool? result;
         //请假类型
         public string strleaveType { get; set; }
         #endregion
@@ -73,17 +77,71 @@ namespace SMT.HRM.UI.Views.Attendance
             NuEndmounth.Value = DateTime.Now.Month;
             tbEmpSex.Text = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SexID;
             client.GetEmployeeLevelDayCountRdListByMultSearchCompleted += new EventHandler<GetEmployeeLevelDayCountRdListByMultSearchCompletedEventArgs>(client_GetEmployeeLevelDayCountRdListByMultSearchCompleted);
-
+            client.ExportEmployeeLeaveDayCountCompleted += new EventHandler<ExportEmployeeLeaveDayCountCompletedEventArgs>(client_ExportEmployeeLeaveDayCountCompleted);
             //orgClient.GetCompanyActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetCompanyActivedCompletedEventArgs>(orgClient_GetCompanyActivedCompleted);
             //orgClient.GetDepartmentActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentActivedCompletedEventArgs>(orgClient_GetDepartmentActivedCompleted);
             //orgClient.GetPostActivedCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostActivedCompletedEventArgs>(orgClient_GetPostActivedCompleted);
             treeOrganization.SelectedClick += new EventHandler(treeOrganization_SelectedClick);
+            
             //loadbar.Start();
+        }
+
+        void client_ExportEmployeeLeaveDayCountCompleted(object sender, ExportEmployeeLeaveDayCountCompletedEventArgs e)
+        {
+            loadbar.Stop();
+            if (result == true)
+            {
+                if (e.Error == null)
+                {
+                    if (e.Result != null)
+                    {
+                        using (Stream stream = dialog.OpenFile())
+                        {
+                            stream.Write(e.Result, 0, e.Result.Length);
+                        }
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("导出成功"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("没有数据可导出"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    }
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                }
+            }
         }
 
         void treeOrganization_SelectedClick(object sender, EventArgs e)
         {
             BindGrid();
+        }
+
+        /// <summary>
+        /// 导出Excel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExport_Click(object sender, RoutedEventArgs e)
+        {
+            dialog.DefaultExt = ".xls";
+            dialog.Filter = "MS Excel Files|*.xls";
+            dialog.FilterIndex = 1;
+
+            result = dialog.ShowDialog();
+            if (result.Value == true)
+            {
+                string strEmployeeID = string.Empty, strOrgType = string.Empty, strOrgValue = string.Empty;
+                string strSortKey = string.Empty, strOwnerID = string.Empty;
+                string strEfficDateFrom = string.Empty, strEfficDateTo = string.Empty;
+                strOwnerID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+
+                strSortKey = " EFFICDATE ";
+                CheckInputFilter(ref strEmployeeID, ref strOrgType, ref strOrgValue, ref strEfficDateFrom, ref strEfficDateTo);
+                client.ExportEmployeeLeaveDayCountAsync(strOrgType, strOrgValue, strleaveType, strOwnerID, strEmployeeID, strEfficDateFrom, strEfficDateTo, strSortKey);
+                loadbar.Start();
+            }
         }
 
 
@@ -834,5 +892,7 @@ namespace SMT.HRM.UI.Views.Attendance
                 return null;
             }
         }
+
+
     }
 }

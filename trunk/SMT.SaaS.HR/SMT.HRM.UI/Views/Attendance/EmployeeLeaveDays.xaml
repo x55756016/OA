@@ -44,10 +44,11 @@
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock x:Name="tbEmpNameTitle" Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=EMPLOYEENAME}" Style="{StaticResource FrameGridTextBlock1}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Margin="5,0,0,0" />
                 <smtx:LookUp Name="lkEmpName" DataContext="{Binding T_HR_EMPLOYEE}" Grid.Column="1" DisplayMemberPath="EMPLOYEECNAME" FindClick="lkEmpName_FindClick" Margin="5,0,0,0" Height="24" Width="110" HorizontalAlignment="Left" />
-                <TextBlock Text="生效年月:" Grid.Column="2" VerticalAlignment="Center" Margin="0"></TextBlock>
+                <TextBlock Text="生效年月" Grid.Column="2" VerticalAlignment="Center" Margin="0"></TextBlock>
                 <inputToolkit:NumericUpDown Grid.Column="3" Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1900" Maximum="3000" x:Name="Nuyear"></inputToolkit:NumericUpDown>
                 <TextBlock Text="年" Grid.Column="4" VerticalAlignment="Center" Width="auto" Margin="0"></TextBlock>
                 <inputToolkit:NumericUpDown Grid.Column="5" Style="{StaticResource NumericUpDownStyle}" Width="80" Minimum="1" Maximum="12" x:Name="NuStartmounth"></inputToolkit:NumericUpDown>
@@ -60,10 +61,11 @@
                 <TextBlock Grid.Column="10" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVETYPESET}" Margin="5,0,0,0" VerticalAlignment="Center"/>
                 <smtx:LookUp Grid.Column="11" DataContext="{Binding T_HR_LEAVETYPESET}" HorizontalAlignment="Stretch" FindClick="lkLeaveTypeName_FindClick" x:Name="lkLeaveTypeName" Margin="0,4,0,4" DisplayMemberPath="LEAVETYPENAME">
                     <interaction:Interaction.Behaviors>
-                        <behaviors:ShowRequire></behaviors:ShowRequire>
+                        <!--<behaviors:ShowRequire></behaviors:ShowRequire>-->
                         </interaction:Interaction.Behaviors>
                 </smtx:LookUp>
                 <Button Grid.Column="12" Style="{StaticResource CommonButtonStyle}" x:Name="btnSearch" HorizontalAlignment="Left" VerticalAlignment="Center" Content="{Binding Converter={StaticResource ResourceConveter}, Source=SEARCH}" Click="btnSearch_Click" Height="24" Width="70" />
+                <Button Grid.Column="13" Style="{StaticResource CommonButtonStyle}" x:Name="btnExport" HorizontalAlignment="Left" VerticalAlignment="Center" Content="导出Excel" Click="btnExport_Click" Height="24" Width="70" />
                 <TextBlock x:Name="tbEmpSex" Grid.Column="12" Visibility="Collapsed"/>
             </Grid>
             <Grid Grid.Row="2">

@@ -4,6 +4,24 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
+      <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendMonthlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ModifyAttendMonthlyBalance">
       <soap:operation soapAction="urn:AttendanceService/ModifyAttendMonthlyBalance" style="document" />
       <wsdl:input>
@@ -931,6 +949,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordPagingByView">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordPagingByView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="EmployeeSignInRecordAdd">
       <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordAdd" style="document" />
       <wsdl:input>
@@ -942,15 +969,6 @@
     </wsdl:operation>
     <wsdl:operation name="EmployeeSigninRecordUpdate">
       <soap:operation soapAction="urn:AttendanceService/EmployeeSigninRecordUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="EmployeeSignInRecordPagingByView">
-      <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordPagingByView" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1021,8 +1039,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
-      <soap:operation soapAction="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" style="document" />
+    <wsdl:operation name="ExportEmployeeAllSignIn">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeAllSignIn" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1030,8 +1048,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExportEmployeeAllSignIn">
-      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeAllSignIn" style="document" />
+    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1068,6 +1086,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearch">
       <soap:operation soapAction="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveDayCount">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeLeaveDayCount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1138,6 +1165,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountWithAllForSingle">
+      <soap:operation soapAction="urn:AttendanceService/CreateLevelDayCountWithAllForSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAttendMonthlyBalanceByID">
       <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBalanceByID" style="document" />
       <wsdl:input>
@@ -1176,24 +1212,6 @@
     </wsdl:operation>
     <wsdl:operation name="ImportAttendMonthlyBalanceFromCSV">
       <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
-      <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddAttendMonthlyBalance">
-      <soap:operation soapAction="urn:AttendanceService/AddAttendMonthlyBalance" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

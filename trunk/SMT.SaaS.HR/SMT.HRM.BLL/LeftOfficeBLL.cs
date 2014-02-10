@@ -190,7 +190,7 @@ namespace SMT.HRM.BLL
                     stringBuilder.Append("<td class=\"x1282\">" + sysDictionaryByCategoryList.Where(t => t.DICTIONARYVALUE == Convert.ToInt32(Collects[i].LEFTOFFICECATEGORY) && t.DICTIONCATEGORY == "LEFTOFFICECATEGORY").FirstOrDefault().DICTIONARYNAME + "</td>");
                     stringBuilder.Append("<td class=\"x1282\">" + Collects[i].ENTRYDATE.Value.ToString("yyyy-MM-dd") + "</td>");
                     stringBuilder.Append("<td class=\"x1282\">" + Collects[i].LEFTOFFICEDATE.Value.ToString("yyyy-MM-dd") + "</td>");
-                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].APPLYDATE.Value.ToString("yyyy-MM-dd") + "</td>");                    
+                    stringBuilder.Append("<td class=\"x1282\">" + Collects[i].APPLYDATE.Value.ToString("yyyy-MM-dd") + "</td>");
                     stringBuilder.Append("<td class=\"x1282\">" + sysDictionaryByCategoryList.Where(t => t.DICTIONARYVALUE == decimal.Parse(Collects[i].CHECKSTATE) && t.DICTIONCATEGORY == "CHECKSTATE").FirstOrDefault().DICTIONARYNAME + "</td>");
 
                     int num = Convert.ToInt32(Collects[i].ISCONFIRMED);
@@ -270,7 +270,7 @@ namespace SMT.HRM.BLL
 
             }
             IQueryable<V_LEFTOFFICEVIEW> ents = from c in dal.GetObjects().Include("T_HR_EMPLOYEE").Include("T_HR_EMPLOYEEPOST.T_HR_POST")
-                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID
+                                                join v in dal.GetObjects<T_HR_EMPLOYEEENTRY>() on c.T_HR_EMPLOYEE.EMPLOYEEID equals v.T_HR_EMPLOYEE.EMPLOYEEID 
                                                 join b in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on c.DIMISSIONID equals b.T_HR_LEFTOFFICE.DIMISSIONID into temp
                                                 from d in temp.DefaultIfEmpty()
                                                 select new V_LEFTOFFICEVIEW
@@ -362,6 +362,10 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+                string employeeId = entity.T_HR_EMPLOYEE.EMPLOYEEID;
+                var t_sys_user = perclient.GetUserByEmployeeID(employeeId);
+
                 var tmp = from c in dal.GetObjects()
                           where c.T_HR_EMPLOYEE.EMPLOYEEID == entity.T_HR_EMPLOYEE.EMPLOYEEID && (c.CHECKSTATE == "0" || c.CHECKSTATE == "1")
                           && c.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID == entity.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID && c.DIMISSIONID != entity.DIMISSIONID
@@ -446,8 +450,103 @@ namespace SMT.HRM.BLL
                                 }
                                 bll.EmployeeUpdate(employeetmp, ref tmpstr);
                             }
-
                         }
+
+                        #region 员工离职通知流程管理员进行修改相应的流程
+                        try
+                        {
+                            SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + " 员工离职审核通过通知流程管理员进行修改相应的流程");
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+                            sb.Append("<Root>");
+                            //查出用户的所有角色
+                            var roleUserList = perclient.GetSysUserRoleByUser(t_sys_user.SYSUSERID).ToList();
+                            if (roleUserList != null && roleUserList.Any())
+                            {
+                                bool hasRole = false;
+                                sb.Append("<Roles>");
+                                foreach (var roleUser in roleUserList)
+                                {
+                                    //查出改用户所在的角色，还有没有其它用户，如果没有则调流程
+                                    var roleUserIncludeSource = perclient.GetSysUserByRole(roleUser.T_SYS_ROLE.ROLEID).ToList();
+                                    var roleUserInclude = roleUserIncludeSource.Where(t => t.EMPLOYEEID != employeeId).ToList();
+                                    if (roleUserInclude.Count == 0)
+                                    {
+                                        hasRole = true;
+                                        sb.Append("<Role RoleID=\"" + roleUser.T_SYS_ROLE.ROLEID + "\" RoleName=\"" + roleUser.T_SYS_ROLE.ROLENAME + "\" />");
+                                    }
+                                }
+                                sb.Append("</Roles>");
+                                //如果存在角色
+                                if (hasRole)
+                                {
+                                    var empInfo = from c in dal.GetObjects<T_HR_POST>()
+                                                  join b in dal.GetObjects<T_HR_DEPARTMENT>() on c.T_HR_DEPARTMENT.DEPARTMENTID equals b.DEPARTMENTID
+                                                  join d in dal.GetObjects<T_HR_COMPANY>() on b.T_HR_COMPANY.COMPANYID equals d.COMPANYID
+                                                  where c.POSTID == entity.T_HR_EMPLOYEE.OWNERPOSTID
+                                                  select new
+                                                  {
+                                                      c.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                                                      b.T_HR_COMPANY.BRIEFNAME,
+                                                      c.T_HR_POSTDICTIONARY.POSTNAME
+                                                  };
+                                    string companyName = "";
+                                    string deptName = "";
+                                    string postName = "";
+                                    if (empInfo != null)
+                                    {
+                                        companyName = empInfo.FirstOrDefault().BRIEFNAME;
+                                        deptName = empInfo.FirstOrDefault().DEPARTMENTNAME;
+                                        postName = empInfo.FirstOrDefault().POSTNAME;
+                                    }
+                                    sb.Append(" <User UserID=\"" + entity.T_HR_EMPLOYEE.EMPLOYEEID + "\" UserName=\"" + entity.T_HR_EMPLOYEE.EMPLOYEECNAME + "\" CompanyID=\"" + entity.T_HR_EMPLOYEE.OWNERCOMPANYID + "\" CompanyName=\"" + companyName + "\" DeparmentID=\"" + entity.T_HR_EMPLOYEE.OWNERDEPARTMENTID + "\" DeparmentName=\"" + deptName + "\" PostID=\"" + entity.T_HR_EMPLOYEE.OWNERPOSTID + "\" PostName=\"" + postName + "\" />");
+
+                                    bool hasManagerEmail = false;
+                                    var flowManagers = perclient.GetFlowManagers(new string[] { entity.T_HR_EMPLOYEE.OWNERCOMPANYID });
+                                    if (flowManagers != null)
+                                    {
+                                        sb.Append("<Admins>");
+                                        foreach (var mangers in flowManagers)
+                                        {
+                                            string email = "";
+                                            var employee = from c in dal.GetObjects<T_HR_EMPLOYEE>()
+                                                           where c.EMPLOYEEID == mangers.EMPLOYEEID
+                                                           select c;
+                                            if (employee != null)
+                                            {
+                                                email = employee.FirstOrDefault().EMAIL;
+                                            }
+                                            if (string.IsNullOrEmpty(email))
+                                            {
+                                                hasManagerEmail = true;
+                                                sb.Append("<Admin ID=\"" + mangers.EMPLOYEEID + "\" Name=\"" + mangers.EMPLOYEENAME + "\" Email=\"" + email + "\" />");
+                                            }
+                                        }
+                                        sb.Append("</Admins>");
+                                    }
+                                    sb.Append("</Root>");
+                                    if (hasManagerEmail)
+                                    {
+                                        SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "调用CheckFlowByRole:" + sb.ToString());
+                                        SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
+                                        outClient.CheckFlowByRole(sb.ToString());
+                                    }
+                                    else
+                                    {
+                                        SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "流程管理员没有设置邮箱，不调用CheckFlowByRole");
+                                    }
+                                }
+                                else
+                                {
+                                    SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "当前用户id:（" + employeeId + "）所在角色还有用户，不调用CheckFlowByRole");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "调用员工离职审核通过通知流程管理员进行修改相应的流程异常：" + ex.Message.ToString());
+                        }
+                        #endregion
                     }
                     Utility.CloneEntity<T_HR_LEFTOFFICE>(entity, ent);
                     if (entity.T_HR_EMPLOYEE != null)

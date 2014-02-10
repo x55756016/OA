@@ -892,9 +892,6 @@
     <None Include="Service References\PermissionWS\PermissionService102.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PermissionWS\PermissionService103.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PermissionWS\PermissionService104.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -920,9 +917,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_FBADMIN.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ROLE_V.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_Dictionary.datasource">

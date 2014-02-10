@@ -754,23 +754,19 @@ namespace SMT.HRM.BLL
             DateTime dtYearStart = new DateTime();
             DateTime dtMonthStart = new DateTime();
             string strCheckState = Convert.ToInt32(Common.CheckStates.Approved).ToString();
-            string strChecking = Convert.ToInt32(Common.CheckStates.Approving).ToString();
             DateTime.TryParse(dtLeaveStartTime.Year.ToString() + "-1-1", out dtYearStart);
             DateTime.TryParse(dtLeaveStartTime.ToString("yyyy-MM") + "-1", out dtMonthStart);
-            //员工请假时所在年的请假记录
+
             var ey = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
                      where e.LEAVERECORDID != strLeaveRecordId && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveTypeSetId && e.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && e.EMPLOYEEID == entEmployeeView.EMPLOYEEID
-                     //&& e.STARTDATETIME >= dtYearStart && e.ENDDATETIME <= dtLeaveEndTime && e.CHECKSTATE == strCheckState
-                     && e.STARTDATETIME >= dtYearStart && (e.CHECKSTATE == strCheckState || e.CHECKSTATE == strChecking)
+                     && e.STARTDATETIME >= dtYearStart && e.ENDDATETIME <= dtLeaveEndTime && e.CHECKSTATE == strCheckState
                      select e;
-            //员工请假时当月的请假记录
+
             var em = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
                      where e.LEAVERECORDID != strLeaveRecordId && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveTypeSetId && e.OWNERCOMPANYID == entEmployeeView.OWNERCOMPANYID && e.EMPLOYEEID == entEmployeeView.EMPLOYEEID
-                     //&& e.STARTDATETIME >= dtMonthStart && e.ENDDATETIME <= dtLeaveEndTime 
-                     && e.STARTDATETIME >= dtMonthStart 
-                     && (e.CHECKSTATE == strCheckState || e.CHECKSTATE == strChecking)
+                     && e.STARTDATETIME >= dtMonthStart && e.ENDDATETIME <= dtLeaveEndTime && e.CHECKSTATE == strCheckState
                      select e;
-            //销假记录
+
             var ec = from c in dal.GetObjects<T_HR_EMPLOYEECANCELLEAVE>().Include("T_HR_EMPLOYEELEAVERECORD")
                      join l in em on c.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID equals l.LEAVERECORDID
                      select c;
@@ -785,7 +781,7 @@ namespace SMT.HRM.BLL
             {
                 dCancelLeaveDays += item.TOTALHOURS.Value;
             }
-            //当年请假的总小时数
+
             foreach (T_HR_EMPLOYEELEAVERECORD item in ey)
             {
                 if (item.TOTALHOURS != null)
@@ -793,7 +789,7 @@ namespace SMT.HRM.BLL
                     dLeaveYearDays += item.TOTALHOURS.Value;
                 }
             }
-            //减少了销假的记录
+
             dLeaveYearDays = RoundOff((dLeaveYearDays - dCancelLeaveDays) / entAttendSol.WORKTIMEPERDAY.Value, "0.5", 1);
 
             if (entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.Free) + 1).ToString())
@@ -806,23 +802,18 @@ namespace SMT.HRM.BLL
                 return;
             }
 
-            //注释理由:当前月的请假记录
-            //foreach (T_HR_EMPLOYEELEAVERECORD item in ey)
-            //{
-            //    dLeaveMonthDays += item.TOTALHOURS.Value;
-            //}
-            foreach (T_HR_EMPLOYEELEAVERECORD item in em)
+            foreach (T_HR_EMPLOYEELEAVERECORD item in ey)
             {
                 dLeaveMonthDays += item.TOTALHOURS.Value;
             }
-            //减少了销假的记录
+
             dLeaveMonthDays = RoundOff((dLeaveMonthDays - dCancelLeaveDays) / entAttendSol.WORKTIMEPERDAY.Value, "0.5", 1);
 
             if (entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.Free) + 1).ToString() || entLeaveTypeSet.FINETYPE == (Convert.ToInt32(Common.LeaveFineType.Deduct) + 1).ToString())
             {
                 return;
             }
-            //记录员工请假调休的情况调休可从加班中调休也可从调休福利中扣除
+
             var ep = from ad in dal.GetObjects<T_HR_ADJUSTLEAVE>().Include("T_HR_EMPLOYEELEAVERECORD")
                      join l in em on ad.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID equals l.LEAVERECORDID
                      select ad;
@@ -878,7 +869,8 @@ namespace SMT.HRM.BLL
             DateTime dtSYearStart = new DateTime();
             DateTime.TryParse((dtLeaveStartTime.Year-1).ToString() + "-1-1", out dtSYearStart);
             var eu = from e in dal.GetObjects().Include("T_HR_LEAVETYPESET")
-                     where e.LEAVERECORDID != strLeaveRecordId && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveTypeSetId && e.EMPLOYEEID == strEmployeeID
+                     where e.LEAVERECORDID != strLeaveRecordId 
+                     && e.T_HR_LEAVETYPESET.LEAVETYPESETID == strLeaveTypeSetId && e.EMPLOYEEID == strEmployeeID
                      && e.STARTDATETIME >= dtSYearStart && e.ENDDATETIME <= dtLeaveEndTime && e.CHECKSTATE == strCheckState
                      select e;
             dLeaveSYearTimes = eu.Count();
