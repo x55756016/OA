@@ -592,11 +592,11 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_EMPLOYEEVIEW> GetEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID)
+        public List<V_EMPLOYEEVIEW> GetEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID, ref int recordCount)
         {
             using (EmployeeBLL bll = new EmployeeBLL())
             {
-                List<V_EMPLOYEEVIEW> q = bll.GetEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID);
+                List<V_EMPLOYEEVIEW> q = bll.GetEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID,ref recordCount);
                 return q;
             }
         }
@@ -712,11 +712,11 @@ namespace SMT.HRM.Services
         /// <param name="userID"></param>
         /// <returns></returns>
         [OperationContract]
-        public List<V_EMPLOYEEVIEW> GetLeaveEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID)
+        public List<V_EMPLOYEEVIEW> GetLeaveEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, string[] paras, ref int pageCount, string sType, string sValue, string userID,ref int recordCount)
         {
             using (EmployeeBLL bll = new EmployeeBLL())
             {
-                List<V_EMPLOYEEVIEW> q = bll.GetLeaveEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID);
+                List<V_EMPLOYEEVIEW> q = bll.GetLeaveEmployeeViewsPagingForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, sType, sValue, userID,ref recordCount);
                 return q;
             }
         }

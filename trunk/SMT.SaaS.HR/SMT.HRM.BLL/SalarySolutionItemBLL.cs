@@ -215,6 +215,10 @@ namespace SMT.HRM.BLL
                     tmpEnt.T_HR_SALARYSOLUTION.SALARYSOLUTIONID = solutionID;
                     tmpEnt.T_HR_SALARYITEM = new T_HR_SALARYITEM();
                     tmpEnt.T_HR_SALARYITEM.SALARYITEMID = item.SALARYITEMID;
+                    if (!string.IsNullOrEmpty(item.SALARYITEMCODE))
+                    {
+                        tmpEnt.ORDERNUMBER = decimal.Parse(item.SALARYITEMCODE);
+                    }
                     T_HR_SALARYSOLUTIONITEM itemSolution = new T_HR_SALARYSOLUTIONITEM();
                     Utility.CloneEntity<T_HR_SALARYSOLUTIONITEM>(tmpEnt, itemSolution);
 

@@ -521,7 +521,7 @@ namespace SMT.HRM.BLL
         /// <param name="sValue"></param>
         /// <param name="userID"></param>
         /// <returns></returns>
-        public List<V_EMPLOYEEVIEW> GetEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string sType, string sValue, string userID)
+        public List<V_EMPLOYEEVIEW> GetEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string sType, string sValue, string userID, ref int recordCount)
         {
             List<object> queryParas = new List<object>();
             queryParas.AddRange(paras);
@@ -576,7 +576,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEECNAME = o.EMPLOYEECNAME,
                                EMPLOYEECODE = o.EMPLOYEECODE,
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -608,7 +608,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEECNAME = o.EMPLOYEECNAME,
                                EMPLOYEECODE = o.EMPLOYEECODE,
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -640,7 +640,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEECNAME = o.EMPLOYEECNAME,
                                EMPLOYEECODE = o.EMPLOYEECODE,
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -665,7 +665,7 @@ namespace SMT.HRM.BLL
                 ents = ents.Where(filterString, queryParas.ToArray());
             }
             ents = ents.OrderBy(sort);
-
+            recordCount = ents.Count();
             ents = Utility.Pager<V_EMPLOYEEVIEW>(ents, pageIndex, pageSize, ref pageCount);
             return ents.Count() > 0 ? ents.ToList() : null;
 
@@ -836,7 +836,7 @@ namespace SMT.HRM.BLL
 
 
 
-        public List<V_EMPLOYEEVIEW> GetLeaveEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string sType, string sValue, string userID)
+        public List<V_EMPLOYEEVIEW> GetLeaveEmployeeViewsPagingForMVC(int pageIndex, int pageSize, string sort, string filterString, IList<object> paras, ref int pageCount, string sType, string sValue, string userID, ref int recordCount)
         {
             List<object> queryParas = new List<object>();
             queryParas.AddRange(paras);
@@ -894,7 +894,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
                                EMPLOYEESTATE = o.EMPLOYEESTATE,
                                FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -925,7 +925,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
                                EMPLOYEESTATE = o.EMPLOYEESTATE,
                                FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -956,7 +956,7 @@ namespace SMT.HRM.BLL
                                EMPLOYEEENAME = o.EMPLOYEEENAME,
                                EMPLOYEESTATE = o.EMPLOYEESTATE,
                                FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.CNAME,
+                               COMPANYNAME = c.BRIEFNAME,
                                DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
                                POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
                                SEX = o.SEX,
@@ -975,12 +975,13 @@ namespace SMT.HRM.BLL
                            };
                     break;
             }
+
             if (!string.IsNullOrEmpty(filterString))
             {
                 ents = ents.Where(filterString, queryParas.ToArray());
             }
             ents = ents.OrderBy(sort);
-
+            recordCount = ents.Count();
             ents = Utility.Pager<V_EMPLOYEEVIEW>(ents, pageIndex, pageSize, ref pageCount);
             return ents.Count() > 0 ? ents.ToList() : null;
 
