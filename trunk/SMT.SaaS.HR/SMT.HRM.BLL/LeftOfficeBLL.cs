@@ -468,12 +468,21 @@ namespace SMT.HRM.BLL
                                 foreach (var roleUser in roleUserList)
                                 {
                                     //查出改用户所在的角色，还有没有其它用户，如果没有则调流程
-                                    var roleUserIncludeSource = perclient.GetSysUserByRole(roleUser.T_SYS_ROLE.ROLEID).ToList();
-                                    var roleUserInclude = roleUserIncludeSource.Where(t => t.EMPLOYEEID != employeeId).ToList();
-                                    if (roleUserInclude.Count == 0)
+                                    string roleId = roleUser.T_SYS_ROLE.ROLEID;
+                                    var roleUserIncludeSource = perclient.GetSysUserByRole(roleId);
+                                    if (roleUserIncludeSource == null)
                                     {
                                         hasRole = true;
                                         sb.Append("<Role RoleID=\"" + roleUser.T_SYS_ROLE.ROLEID + "\" RoleName=\"" + roleUser.T_SYS_ROLE.ROLENAME + "\" />");
+                                    }
+                                    else
+                                    {
+                                        var roleUserInclude = roleUserIncludeSource.Where(t => t.EMPLOYEEID != employeeId).ToList();
+                                        if (roleUserInclude.Count == 0)
+                                        {
+                                            hasRole = true;
+                                            sb.Append("<Role RoleID=\"" + roleUser.T_SYS_ROLE.ROLEID + "\" RoleName=\"" + roleUser.T_SYS_ROLE.ROLENAME + "\" />");
+                                        }
                                     }
                                 }
                                 sb.Append("</Roles>");
@@ -516,7 +525,7 @@ namespace SMT.HRM.BLL
                                             {
                                                 email = employee.FirstOrDefault().EMAIL;
                                             }
-                                            if (string.IsNullOrEmpty(email))
+                                            if (!string.IsNullOrEmpty(email))
                                             {
                                                 hasManagerEmail = true;
                                                 sb.Append("<Admin ID=\"" + mangers.EMPLOYEEID + "\" Name=\"" + mangers.EMPLOYEENAME + "\" Email=\"" + email + "\" />");
@@ -540,6 +549,10 @@ namespace SMT.HRM.BLL
                                 {
                                     SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "当前用户id:（" + employeeId + "）所在角色还有用户，不调用CheckFlowByRole");
                                 }
+                            }
+                            else
+                            {
+                                SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "没有找到用户的角色");
                             }
                         }
                         catch (Exception ex)

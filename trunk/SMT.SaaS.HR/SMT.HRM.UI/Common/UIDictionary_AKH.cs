@@ -37,7 +37,7 @@ namespace SMT.HRM.UI
             //员工销假申请Form
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(TerminateLeaveForm), new List<string> { "CHECKSTATE", }));
             //带薪假期View
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeLeaveDays), new List<string> { "CHECKSTATE", "ISPERFECTATTENDANCEFACTOR" ,"LEAVETYPEVALUE" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(EmployeeLeaveDays), new List<string> { "CHECKSTATE", "ISPERFECTATTENDANCEFACTOR", "LEAVETYPEVALUE", "ISCHECKED" }));
 
             #endregion
 
