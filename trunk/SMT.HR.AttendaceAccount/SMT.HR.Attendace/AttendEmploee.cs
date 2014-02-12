@@ -228,7 +228,10 @@ namespace SmtPortalSetUp
 
             string sql = @"select b.vacationname,b.vacationyear,a.outplanname,a.startdate,a.enddate,
                             case when a.daytype=1 then '假期' else '工作日' end 设置类型,a.daytype,a.days
-                            ,b.assignedobjecttype,b.assignedobjectid from smthrm.T_HR_OutPlanDays a
+                            ,b.assignedobjecttype,b.assignedobjectid,
+                            b.createdate,
+                            b.updatedate
+                            from smthrm.T_HR_OutPlanDays a
                             inner join smthrm.T_HR_VacationSet b on a.vacationid=b.vacationid
                             where b.assignedobjectid='" + GlobalParameters.employeeMasterCompanyid + @"'
                             and b.vacationyear>= extract(year from sysdate)
