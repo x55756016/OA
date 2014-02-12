@@ -11,12 +11,15 @@ using SMT.SaaS.FrameworkUI;
 using SMT.SAAS.Main.CurrentContext;
 using System.Collections.ObjectModel;
 using SMT.SaaS.FrameworkUI.ChildWidow;
+using SMT.Saas.Tools.SalaryWS;
 //using Framework=SMT.SaaS.FrameworkUI;
 namespace SMT.SaaS.Permission.UI.Form
 {
     public partial class SysUserForms : UserControl, IEntityEditor
     {
         private T_SYS_USER sysUser = new T_SYS_USER();
+        private T_HR_SYSTEMSETTING systemSetting = new T_HR_SYSTEMSETTING();
+        private SalaryServiceClient salaryClient = new SalaryServiceClient();
         private string saveType = "0";       //保存方式 0:添加 1:关闭
         string StrCompanyID = "";
         //private string tmpDictionaryValue = ""; //字典值
@@ -73,13 +76,43 @@ namespace SMT.SaaS.Permission.UI.Form
             ServiceClent.GetUserByEmployeeIDCompleted += new EventHandler<GetUserByEmployeeIDCompletedEventArgs>(ServiceClent_GetUserByEmployeeIDCompleted);
             ServiceClent.GetUserByIDCompleted += new EventHandler<GetUserByIDCompletedEventArgs>(ServiceClent_GetUserByIDCompleted);
             ServiceClent.SysUserBatchUpdateCompleted += new EventHandler<SysUserBatchUpdateCompletedEventArgs>(SysUserClient_SysUserBatchUpdateCompleted);
+            salaryClient.GetSystemParamSetPagingCompleted += new EventHandler<GetSystemParamSetPagingCompletedEventArgs>(salaryClient_GetSystemParamSetPagingCompleted);
             if (!string.IsNullOrEmpty(sysUserID))
             {
                 this.txtUserName.IsEnabled = false;
                 
                 //ServiceClent.GetUserByIDAsync(sysUserID);               
                 ServiceClent.GetUserByEmployeeIDAsync(sysUserID);
+
+                #region 获取用户薪资密码
+                int pageCount = 0;
+                string filter = "";
+                System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
+
+                filter += "MODELTYPE==@" + paras.Count().ToString();
+                paras.Add("4");
+
+               
+                filter += " and OWNERID==@" + paras.Count().ToString();
+                paras.Add(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+
+
+                salaryClient.GetSystemParamSetPagingAsync(1, 20, "PARAMETERNAME", filter, paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+
+                #endregion
             } 
+        }
+
+        void salaryClient_GetSystemParamSetPagingCompleted(object sender, GetSystemParamSetPagingCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                if (e.Result != null)
+                {
+                    systemSetting = e.Result.FirstOrDefault();
+                    txtSalaryPwd.Password = SMT.SaaS.FrameworkUI.Common.Utility.Decrypt(systemSetting.PARAMETERVALUE);
+                }
+            }
         }
 
         void ServiceClent_GetUserByEmployeeIDCompleted(object sender, GetUserByEmployeeIDCompletedEventArgs e)
@@ -377,7 +410,7 @@ namespace SMT.SaaS.Permission.UI.Form
                 Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("STRINGNOTNULL", "RESPECTIVECOMPANIES"));
                 return;
             }
-            
+
             sysUser.USERNAME = StrUserName;
             sysUser.REMARK = StrRemark;
             sysUser.PASSWORD =SMT.SaaS.FrameworkUI.Common.Utility.Encrypt(StrPwd);
@@ -390,8 +423,10 @@ namespace SMT.SaaS.Permission.UI.Form
             sysUser.ISFLOWMANAGER = IsFlowManager;
             //sysUser.OWNERDEPARTMENTID = "22";
             ServiceClent.SysUserInfoUpdateAsync(sysUser);
-            
-            
+
+            //修改薪资密码
+            systemSetting.PARAMETERVALUE = SMT.SaaS.FrameworkUI.Common.Utility.Encrypt(txtSalaryPwd.Password);
+            salaryClient.SystemParamSetUpdateAsync(systemSetting);
             
             //RefreshUI(RefreshedTypes.All);
         }

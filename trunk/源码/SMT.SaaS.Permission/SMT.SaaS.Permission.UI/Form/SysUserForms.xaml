@@ -19,6 +19,7 @@
 				<RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
@@ -54,13 +55,18 @@
             <TextBlock Margin="6,4" Text="确认密码" TextWrapping="Wrap" Grid.Row="5"/>
             <PasswordBox Style="{StaticResource PasswordBoxStyle}" MaxLength="50"
                      x:Name="txtConfirmpwd" Margin="8,2,10,2" Grid.Column="1" Grid.Row="5"/>
+            <!--薪资密码-->
+            <TextBlock Margin="6,4" Grid.Row="6" Text="薪资密码" TextWrapping="Wrap"/>
+            <PasswordBox Style="{StaticResource PasswordBoxStyle}" MaxLength="50"
+                     x:Name="txtSalaryPwd" Margin="8,2,10,2" Grid.Column="1" Grid.Row="6"/>
+             
             <!--是否管理员-->
-            <TextBlock Margin="6,4" Grid.Row="6" Text="是否管理员" />
-            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtIsAutoyes" HorizontalAlignment="Left" Margin="8,8,2,2" Width="45" Click="rbtIsAutoyes_Click" Content="是" Grid.Column="1" Grid.Row="6"/>
-            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtIsAutono" HorizontalAlignment="Left" Margin="50,8,18,2" Width="43" Click="tbtIsAutono_Click" Content="否" IsChecked="True" Grid.Column="1" Grid.Row="6" />
+            <TextBlock Margin="6,4" Grid.Row="7" Text="是否管理员" />
+            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtIsAutoyes" HorizontalAlignment="Left" Margin="8,8,2,2" Width="45" Click="rbtIsAutoyes_Click" Content="是" Grid.Column="1" Grid.Row="7"/>
+            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtIsAutono" HorizontalAlignment="Left" Margin="50,8,18,2" Width="43" Click="tbtIsAutono_Click" Content="否" IsChecked="True" Grid.Column="1" Grid.Row="7" />
             <!--状态-->
-            <TextBlock Margin="6,4" Grid.Row="9" Text="状态" />
-            <StackPanel Grid.Column="1" Grid.Row="9" Orientation="Horizontal">
+            <TextBlock Margin="6,4" Grid.Row="10" Text="状态" />
+            <StackPanel Grid.Column="1" Grid.Row="10" Orientation="Horizontal">
                 <TextBlock Margin="8,2,1,2" x:Name="tblstate" Width="80" />
                 <Button x:Name="btnSet"  Grid.Column="1" Width="60" Height="22" Click="BtnSet_FindClick" 
                         Margin="2,2,20,2" Style="{StaticResource CommonButtonStyle}">
@@ -68,19 +74,19 @@
                 </Button>
             </StackPanel>
             <!--备注-->
-            <TextBlock Margin="8,4,8,8" Grid.Row="10" Text="备注" TextWrapping="Wrap"/>
+            <TextBlock Margin="8,4,8,8" Grid.Row="11" Text="备注" TextWrapping="Wrap"/>
             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="txtRemark" AcceptsReturn="True" Margin="8,4,10,4"  VerticalScrollBarVisibility="Auto"
-                     Grid.Column="1" Grid.Row="10" TextWrapping="Wrap" MaxLength="2000"  MaxHeight="80" VerticalAlignment="Top" />
+                     Grid.Column="1" Grid.Row="11" TextWrapping="Wrap" MaxLength="2000"  MaxHeight="80" VerticalAlignment="Top" />
         
         
             <!--是否流程管理员-->
-        <TextBlock Text="是否流程管理员" Margin="6,4" Grid.Row="7"></TextBlock>
-            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtflow" GroupName="flow" HorizontalAlignment="Left" Margin="8,8,2,2" Width="45"  Content="是" Grid.Column="1" Grid.Row="7" Click="rbtflow_Checked" />
-        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtflowno" GroupName="flow" HorizontalAlignment="Left" Margin="50,8,18,2" Width="43" Content="否" IsChecked="True" Grid.Column="1" Grid.Row="7" Click="rbtflowno_Checked" />
+        <TextBlock Text="是否流程管理员" Margin="6,4" Grid.Row="8"></TextBlock>
+            <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtflow" GroupName="flow" HorizontalAlignment="Left" Margin="8,8,2,2" Width="45"  Content="是" Grid.Column="1" Grid.Row="8" Click="rbtflow_Checked" />
+        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtflowno" GroupName="flow" HorizontalAlignment="Left" Margin="50,8,18,2" Width="43" Content="否" IsChecked="True" Grid.Column="1" Grid.Row="8" Click="rbtflowno_Checked" />
         <!--是否引擎管理员-->
-        <TextBlock Text="是否引擎管理员" Margin="6,4" Grid.Row="8"></TextBlock>
-        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtengine" HorizontalAlignment="Left" GroupName="engine"  Margin="8,8,2,2" Width="45"  Content="是" Grid.Column="1" Grid.Row="8"  Click="rbtengine_Checked" />
-        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtengineno" HorizontalAlignment="Left" GroupName="engine" Margin="50,8,18,2" Width="43"  Content="否" IsChecked="True" Grid.Column="1" Grid.Row="8" Click="rbtengineno_Checked" />
+        <TextBlock Text="是否引擎管理员" Margin="6,4" Grid.Row="9"></TextBlock>
+        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtengine" HorizontalAlignment="Left" GroupName="engine"  Margin="8,8,2,2" Width="45"  Content="是" Grid.Column="1" Grid.Row="9"  Click="rbtengine_Checked" />
+        <RadioButton Style="{StaticResource RadioButtonStyle}" x:Name="rbtengineno" HorizontalAlignment="Left" GroupName="engine" Margin="50,8,18,2" Width="43"  Content="否" IsChecked="True" Grid.Column="1" Grid.Row="9" Click="rbtengineno_Checked" />
 
 
     </Grid> 
