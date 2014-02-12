@@ -512,9 +512,8 @@ namespace SMT.SaaS.Permission.UI.Form
                 
                 SysRole.CREATEUSER = Common.CurrentLoginUserInfo.EmployeeID;
                 sysRole.UPDATEDATE = null;
-                sysRole.UPDATEUSER = "";
-
-
+                sysRole.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                sysRole.UPDATEUSER = Common.CurrentLoginUserInfo.EmployeeID;
                 ServiceClient.SysRoleInfoAddAsync(this.sysRole);
             }
             else
