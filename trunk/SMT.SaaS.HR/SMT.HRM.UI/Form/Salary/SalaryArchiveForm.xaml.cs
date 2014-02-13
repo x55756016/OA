@@ -832,8 +832,8 @@ namespace SMT.HRM.UI.Form.Salary
                     para.Add("EMPLOYEEID", SalaryArchive.EMPLOYEEID);
                     para.Add("POSTLEVEL", PostLevel);
                     //
-                    para.Add("POSTLEVEL", PostLevel);
-                    para.Add("POSTLEVEL", PostLevel);
+                    //para.Add("POSTLEVEL", PostLevel);
+                    //para.Add("POSTLEVEL", PostLevel);
                     //
 
                     para.Add("EFFECTIVETIME", SalaryArchive.OTHERSUBJOIN == null ? "" : (SalaryArchive.OTHERSUBJOIN.ToString() + "年" + SalaryArchive.OTHERADDDEDUCT.ToString() + "月"));
