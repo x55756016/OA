@@ -84,22 +84,7 @@ namespace SMT.SaaS.Permission.UI.Form
                 //ServiceClent.GetUserByIDAsync(sysUserID);               
                 ServiceClent.GetUserByEmployeeIDAsync(sysUserID);
 
-                #region 获取用户薪资密码
-                int pageCount = 0;
-                string filter = "";
-                System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
-
-                filter += "MODELTYPE==@" + paras.Count().ToString();
-                paras.Add("4");
-
-               
-                filter += " and OWNERID==@" + paras.Count().ToString();
-                paras.Add(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
-
-
-                salaryClient.GetSystemParamSetPagingAsync(1, 20, "PARAMETERNAME", filter, paras, pageCount, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
-
-                #endregion
+                
             } 
         }
 
@@ -168,6 +153,18 @@ namespace SMT.SaaS.Permission.UI.Form
                         btnSet.Content = Utility.GetResourceStr("FORBIDUSE");
                         //FormToolBar1.btnOtherAction("/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_4424.png", Utility.GetResourceStr("FORBIDUSE")).Click += new RoutedEventHandler(SysUserManagement_Click);
                     }
+
+                    #region 获取用户薪资密码
+                    int pageCount = 0;
+                    string filter = "";
+                    System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
+                    filter += "MODELTYPE==@" + paras.Count().ToString();
+                    paras.Add("4");
+                    filter += " and OWNERID==@" + paras.Count().ToString();
+                    paras.Add(sysUser.EMPLOYEEID);
+                    salaryClient.GetSystemParamSetPagingAsync(1, 20, "PARAMETERNAME", filter, paras, pageCount, sysUser.EMPLOYEEID);
+
+                    #endregion
                 }
             }
         }
@@ -425,7 +422,10 @@ namespace SMT.SaaS.Permission.UI.Form
             ServiceClent.SysUserInfoUpdateAsync(sysUser);
 
             //修改薪资密码
+
             systemSetting.PARAMETERVALUE = SMT.SaaS.FrameworkUI.Common.Utility.Encrypt(txtSalaryPwd.Password);
+            systemSetting.OWNERID = sysUser.EMPLOYEEID;
+            systemSetting.PARAMETERNAME = sysUser.EMPLOYEENAME;
             salaryClient.SystemParamSetUpdateAsync(systemSetting);
             
             //RefreshUI(RefreshedTypes.All);
