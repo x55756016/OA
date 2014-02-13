@@ -876,6 +876,9 @@
     <None Include="Service References\PerformanceWS\SMT.SaaS.BLLCommonServices.PerformanceWS.V_PERFORMANCERECORDDETAIL.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\PermissionWS\PermissionService.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\PermissionWS\PermissionService1.wsdl" />
     <None Include="Service References\PermissionWS\PermissionService10.xsd">
       <SubType>Designer</SubType>
@@ -917,6 +920,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_FBADMIN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ROLE_V.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.SaaS.BLLCommonServices.PermissionWS.V_Dictionary.datasource">

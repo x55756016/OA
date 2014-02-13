@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" />
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
   <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/System/PermissionService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" />
+  <xs:element name="UserLoginOperation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LoginRecordId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IsLogin" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UserLoginOperationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UserLoginOperationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSysUserLoginRecordInfosPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q1:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q2:LoginUserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSysUserLoginRecordInfosPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosPagingResult" nillable="true" type="q3:ArrayOfV_UserLoginRecord" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetSysUserLoginRecordInfosBySearch">
     <xs:complexType>
       <xs:sequence>
@@ -19,7 +57,7 @@
   <xs:element name="GetSysUserLoginRecordInfosBySearchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosBySearchResult" nillable="true" type="q1:ArrayOfV_UserLoginRecord" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosBySearchResult" nillable="true" type="q4:ArrayOfV_UserLoginRecord" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -35,14 +73,14 @@
   <xs:element name="GetUserLoginRecordByEmployeeIDAndDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserLoginRecordByEmployeeIDAndDateResult" nillable="true" type="q2:ArrayOfT_SYS_USERLOGINRECORD" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserLoginRecordByEmployeeIDAndDateResult" nillable="true" type="q5:ArrayOfT_SYS_USERLOGINRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SysUserLoginHistoryRecordInfoAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q3:T_SYS_USERLOGINRECORDHIS" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q6:T_SYS_USERLOGINRECORDHIS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -56,7 +94,7 @@
   <xs:element name="SysUserLoginHistoryRecordInfoUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q4:T_SYS_USERLOGINRECORDHIS" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q7:T_SYS_USERLOGINRECORDHIS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -75,7 +113,7 @@
   <xs:element name="GetSysUserLoginHistoryRecordAllInfosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginHistoryRecordAllInfosResult" nillable="true" type="q5:ArrayOfV_UserLoginRecordHistory" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginHistoryRecordAllInfosResult" nillable="true" type="q8:ArrayOfV_UserLoginRecordHistory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -86,16 +124,16 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q6:ArrayOfanyType" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q9:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q7:LoginUserInfo" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q10:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysUserLoginHistoryRecordAllInfosPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginHistoryRecordAllInfosPagingResult" nillable="true" type="q8:ArrayOfV_UserLoginRecordHistory" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginHistoryRecordAllInfosPagingResult" nillable="true" type="q11:ArrayOfV_UserLoginRecordHistory" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -110,21 +148,21 @@
   <xs:element name="GetRoleEntityPermissionByRoleEntityIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityPermissionByRoleEntityIDResult" nillable="true" type="q9:ArrayOfT_SYS_ROLEMENUPERMISSION" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityPermissionByRoleEntityIDResult" nillable="true" type="q12:ArrayOfT_SYS_ROLEMENUPERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRolePerms">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoleEntityID" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RoleEntityID" nillable="true" type="q13:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRolePermsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRolePermsResult" nillable="true" type="q11:ArrayOfT_SYS_ROLEMENUPERMISSION" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRolePermsResult" nillable="true" type="q14:ArrayOfT_SYS_ROLEMENUPERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -177,15 +215,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsDepartmentids" nillable="true" type="q12:ArrayOfstring" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsDepartmentids" nillable="true" type="q15:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCompanyidsAndDepartmentidsByUseridResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCompanyidsAndDepartmentidsByUseridResult" nillable="true" type="q13:ArrayOfstring" />
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsDepartmentids" nillable="true" type="q14:ArrayOfstring" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCompanyidsAndDepartmentidsByUseridResult" nillable="true" type="q16:ArrayOfstring" />
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsDepartmentids" nillable="true" type="q17:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -200,14 +238,14 @@
   <xs:element name="GetSysDictionaryByCategoryByUpdateDateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysDictionaryByCategoryByUpdateDateResult" nillable="true" type="q15:ArrayOfV_Dictionary" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysDictionaryByCategoryByUpdateDateResult" nillable="true" type="q18:ArrayOfV_Dictionary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUserOperationPermission">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="permission" nillable="true" type="q16:EntityPermission" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="permission" nillable="true" type="q19:EntityPermission" />
         <xs:element minOccurs="0" name="employeeid" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -244,21 +282,21 @@
   <xs:element name="GetCustomerPermissionMenusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomerPermissionMenusResult" nillable="true" type="q17:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomerPermissionMenusResult" nillable="true" type="q20:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDictionaryByCategoryArray">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="categorys" nillable="true" type="q18:ArrayOfstring" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="categorys" nillable="true" type="q21:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDictionaryByCategoryArrayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetDictionaryByCategoryArrayResult" nillable="true" type="q19:ArrayOfV_Dictionary" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetDictionaryByCategoryArrayResult" nillable="true" type="q22:ArrayOfV_Dictionary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -269,17 +307,17 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q20:ArrayOfanyType" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q23:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="flagState" nillable="true" type="xs:string" />
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q21:LoginUserInfo" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q24:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRoleInfosByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleInfosByUserResult" nillable="true" type="q22:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleInfosByUserResult" nillable="true" type="q25:ArrayOfT_SYS_ROLE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -292,7 +330,7 @@
   <xs:element name="GetCountryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCountryResult" nillable="true" type="q23:ArrayOfT_SYS_COUNTRY" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCountryResult" nillable="true" type="q26:ArrayOfT_SYS_COUNTRY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -306,14 +344,14 @@
   <xs:element name="GetProvinceCityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetProvinceCityResult" nillable="true" type="q24:ArrayOfV_ProvinceCity" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetProvinceCityResult" nillable="true" type="q27:ArrayOfV_ProvinceCity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="BatchAddFBAdmins">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="lstAdmin" nillable="true" type="q25:ArrayOfT_SYS_FBADMIN" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="lstAdmin" nillable="true" type="q28:ArrayOfT_SYS_FBADMIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -328,14 +366,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q26:ArrayOfstring" />
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyids" nillable="true" type="q29:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getFbAdminsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="getFbAdminsResult" nillable="true" type="q27:ArrayOfV_FBAdmin" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="getFbAdminsResult" nillable="true" type="q30:ArrayOfV_FBAdmin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -349,7 +387,7 @@
   <xs:element name="getFbAdminResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="getFbAdminResult" nillable="true" type="q28:T_SYS_FBADMIN" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="getFbAdminResult" nillable="true" type="q31:T_SYS_FBADMIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -392,7 +430,7 @@
   <xs:element name="GetFlowUserInfoByRoleIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetFlowUserInfoByRoleIDResult" nillable="true" type="q29:ArrayOfFlowUserInfo" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetFlowUserInfoByRoleIDResult" nillable="true" type="q32:ArrayOfFlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -406,7 +444,7 @@
   <xs:element name="GetDepartmentHeadByDepartmentIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetDepartmentHeadByDepartmentIDResult" nillable="true" type="q30:ArrayOfFlowUserInfo" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetDepartmentHeadByDepartmentIDResult" nillable="true" type="q33:ArrayOfFlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -420,7 +458,7 @@
   <xs:element name="GetSuperiorByPostIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSuperiorByPostIDResult" nillable="true" type="q31:ArrayOfFlowUserInfo" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSuperiorByPostIDResult" nillable="true" type="q34:ArrayOfFlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -435,7 +473,7 @@
   <xs:element name="GetUserByRoleIDAndCompanyIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetUserByRoleIDAndCompanyIDResult" nillable="true" type="q32:ArrayOfFlowUserInfo" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetUserByRoleIDAndCompanyIDResult" nillable="true" type="q35:ArrayOfFlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -449,7 +487,7 @@
   <xs:element name="GetFlowUserByUserIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetFlowUserByUserIDResult" nillable="true" type="q33:ArrayOfFlowUserInfo" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetFlowUserByUserIDResult" nillable="true" type="q36:ArrayOfFlowUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -478,7 +516,7 @@
   <xs:element name="GetEntityMenuByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuByNameResult" nillable="true" type="q34:T_SYS_ENTITYMENU" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuByNameResult" nillable="true" type="q37:T_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -492,21 +530,21 @@
   <xs:element name="GetLatestTimeOfPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetLatestTimeOfPermissionResult" nillable="true" type="q35:V_PermissionUpdateState" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetLatestTimeOfPermissionResult" nillable="true" type="q38:V_PermissionUpdateState" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFlowManagers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q36:ArrayOfstring" />
+        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="companyIDs" nillable="true" type="q39:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFlowManagersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetFlowManagersResult" nillable="true" type="q37:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetFlowManagersResult" nillable="true" type="q40:ArrayOfT_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -521,7 +559,7 @@
   <xs:element name="GetSysLeftMenuResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysLeftMenuResult" nillable="true" type="q38:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysLeftMenuResult" nillable="true" type="q41:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -530,15 +568,15 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="sysType" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q39="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="menuids" nillable="true" type="q39:ArrayOfstring" />
+        <xs:element xmlns:q42="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="menuids" nillable="true" type="q42:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysLeftMenuFilterPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysLeftMenuFilterPermissionResult" nillable="true" type="q40:ArrayOfT_SYS_ENTITYMENU" />
-        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="menuids" nillable="true" type="q41:ArrayOfstring" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysLeftMenuFilterPermissionResult" nillable="true" type="q43:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="menuids" nillable="true" type="q44:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -552,7 +590,7 @@
   <xs:element name="GetSysLeftMenuFilterPermissionToNewFrameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysLeftMenuFilterPermissionToNewFrameResult" nillable="true" type="q42:ArrayOfV_UserMenuPermission" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysLeftMenuFilterPermissionToNewFrameResult" nillable="true" type="q45:ArrayOfV_UserMenuPermission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -567,7 +605,7 @@
   <xs:element name="GetSysLeftMenuFilterPermissionToNewFrameAndPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysLeftMenuFilterPermissionToNewFrameAndPermissionResult" nillable="true" type="q43:ArrayOfV_UserMenuPermission" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetSysLeftMenuFilterPermissionToNewFrameAndPermissionResult" nillable="true" type="q46:ArrayOfV_UserMenuPermission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -583,7 +621,7 @@
   <xs:element name="GetEntityMenuByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityMenuByUserResult" nillable="true" type="q44:ArrayOfV_EntityMenu" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityMenuByUserResult" nillable="true" type="q47:ArrayOfV_EntityMenu" />
         <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -596,7 +634,7 @@
   <xs:element name="GetEntityMenuAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityMenuAllResult" nillable="true" type="q45:ArrayOfV_EntityMenu" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityMenuAllResult" nillable="true" type="q48:ArrayOfV_EntityMenu" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -611,7 +649,7 @@
   <xs:element name="GetSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeResult" nillable="true" type="q46:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeResult" nillable="true" type="q49:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -627,7 +665,7 @@
   <xs:element name="GetSysMenuByTypeTOFbAdminResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeTOFbAdminResult" nillable="true" type="q47:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeTOFbAdminResult" nillable="true" type="q50:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -642,7 +680,7 @@
   <xs:element name="GetSysMenuByPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByPermissionResult" nillable="true" type="q48:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByPermissionResult" nillable="true" type="q51:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -657,7 +695,7 @@
   <xs:element name="GetSysMenuByTypeToLookUpResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeToLookUpResult" nillable="true" type="q49:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeToLookUpResult" nillable="true" type="q52:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -673,7 +711,7 @@
   <xs:element name="GetSysMenuByTypeToLookUpForFbAdminResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeToLookUpForFbAdminResult" nillable="true" type="q50:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypeToLookUpForFbAdminResult" nillable="true" type="q53:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -684,16 +722,16 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q51="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q51:ArrayOfanyType" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q54:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q52:LoginUserInfo" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q55:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysMenuByTypePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypePagingResult" nillable="true" type="q53:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByTypePagingResult" nillable="true" type="q56:ArrayOfT_SYS_ENTITYMENU" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -708,7 +746,7 @@
   <xs:element name="GetSysMenuByEntityCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByEntityCodeResult" nillable="true" type="q54:T_SYS_ENTITYMENU" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByEntityCodeResult" nillable="true" type="q57:T_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -722,7 +760,7 @@
   <xs:element name="GetOASysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetOASysMenuByTypeResult" nillable="true" type="q55:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetOASysMenuByTypeResult" nillable="true" type="q58:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -736,7 +774,7 @@
   <xs:element name="GetHRSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetHRSysMenuByTypeResult" nillable="true" type="q56:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetHRSysMenuByTypeResult" nillable="true" type="q59:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -751,7 +789,7 @@
   <xs:element name="GetFBSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetFBSysMenuByTypeResult" nillable="true" type="q57:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetFBSysMenuByTypeResult" nillable="true" type="q60:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -765,7 +803,7 @@
   <xs:element name="GetLMSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetLMSysMenuByTypeResult" nillable="true" type="q58:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetLMSysMenuByTypeResult" nillable="true" type="q61:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -779,7 +817,7 @@
   <xs:element name="GetPMSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPMSysMenuByTypeResult" nillable="true" type="q59:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPMSysMenuByTypeResult" nillable="true" type="q62:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -793,7 +831,7 @@
   <xs:element name="GetEDMSysMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEDMSysMenuByTypeResult" nillable="true" type="q60:ArrayOfV_MenuSetRole" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEDMSysMenuByTypeResult" nillable="true" type="q63:ArrayOfV_MenuSetRole" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -807,7 +845,7 @@
   <xs:element name="GetSysMenuByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByIDResult" nillable="true" type="q61:T_SYS_ENTITYMENU" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuByIDResult" nillable="true" type="q64:T_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -821,14 +859,14 @@
   <xs:element name="GetSysMenuInfosListByParentIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuInfosListByParentIDResult" nillable="true" type="q62:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysMenuInfosListByParentIDResult" nillable="true" type="q65:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SysMenuAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q63:T_SYS_ENTITYMENU" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q66:T_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -842,7 +880,7 @@
   <xs:element name="SysMenuUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q64:T_SYS_ENTITYMENU" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q67:T_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -868,7 +906,7 @@
   <xs:element name="GetEntityMenuByMenuIDs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MenuIDs" nillable="true" type="q65:ArrayOfstring" />
+        <xs:element xmlns:q68="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MenuIDs" nillable="true" type="q68:ArrayOfstring" />
         <xs:element minOccurs="0" name="StrSysType" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -876,7 +914,7 @@
   <xs:element name="GetEntityMenuByMenuIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuByMenuIDsResult" nillable="true" type="q66:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuByMenuIDsResult" nillable="true" type="q69:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -890,7 +928,7 @@
   <xs:element name="GetRoleEntityMenuByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityMenuByTypeResult" nillable="true" type="q67:ArrayOfT_SYS_ROLEENTITYMENU" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityMenuByTypeResult" nillable="true" type="q70:ArrayOfT_SYS_ROLEENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -904,14 +942,14 @@
   <xs:element name="GetRoleEntityMenuByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityMenuByIDResult" nillable="true" type="q68:T_SYS_ROLEENTITYMENU" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityMenuByIDResult" nillable="true" type="q71:T_SYS_ROLEENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RoleEntityMenuAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q69:T_SYS_ROLEENTITYMENU" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q72:T_SYS_ROLEENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -923,7 +961,7 @@
   <xs:element name="RoleEntityMenuUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q70:T_SYS_ROLEENTITYMENU" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q73:T_SYS_ROLEENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -951,7 +989,7 @@
   <xs:element name="UserRoleApplyBatchAddRoleEntityPermissionInfos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="EntRole" nillable="true" type="q71:T_SYS_ROLE" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="EntRole" nillable="true" type="q74:T_SYS_ROLE" />
         <xs:element minOccurs="0" name="StrTmpList" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="StrAdduser" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -986,7 +1024,7 @@
   <xs:element name="GetRoleEntityIDListInfosByRoleIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDResult" nillable="true" type="q72:ArrayOfT_SYS_ROLEENTITYMENU" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDResult" nillable="true" type="q75:ArrayOfT_SYS_ROLEENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1000,7 +1038,7 @@
   <xs:element name="GetRoleEntityIDListInfosByRoleIDNewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDNewResult" nillable="true" type="q73:ArrayOfV_RoleEntity" />
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDNewResult" nillable="true" type="q76:ArrayOfV_RoleEntity" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1008,15 +1046,15 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="listmenu" nillable="true" type="q74:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="listmenu" nillable="true" type="q77:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetRoleEntityIDListInfosByRoleIDNewToUserRoleAppResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDNewToUserRoleAppResult" nillable="true" type="q75:ArrayOfV_RoleEntity" />
-        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="listmenu" nillable="true" type="q76:ArrayOfT_SYS_ENTITYMENU" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetRoleEntityIDListInfosByRoleIDNewToUserRoleAppResult" nillable="true" type="q78:ArrayOfV_RoleEntity" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="listmenu" nillable="true" type="q79:ArrayOfT_SYS_ENTITYMENU" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1028,7 +1066,7 @@
   <xs:element name="GetSysPermissionAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionAllResult" nillable="true" type="q77:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionAllResult" nillable="true" type="q80:ArrayOfT_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1040,7 +1078,7 @@
   <xs:element name="GetSysCommonPermissionAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysCommonPermissionAllResult" nillable="true" type="q78:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysCommonPermissionAllResult" nillable="true" type="q81:ArrayOfT_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1054,7 +1092,7 @@
   <xs:element name="GetSysPermissionByEntityIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionByEntityIDResult" nillable="true" type="q79:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionByEntityIDResult" nillable="true" type="q82:ArrayOfT_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1065,16 +1103,16 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q80="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q80:ArrayOfanyType" />
+        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q83:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q81:LoginUserInfo" />
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q84:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysPermissionAllPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionAllPagingResult" nillable="true" type="q82:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionAllPagingResult" nillable="true" type="q85:ArrayOfT_SYS_PERMISSION" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1089,7 +1127,7 @@
   <xs:element name="FindSysPermissionByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="FindSysPermissionByTypeResult" nillable="true" type="q83:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="FindSysPermissionByTypeResult" nillable="true" type="q86:ArrayOfT_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1103,14 +1141,14 @@
   <xs:element name="GetSysPermissionByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionByIDResult" nillable="true" type="q84:T_SYS_PERMISSION" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysPermissionByIDResult" nillable="true" type="q87:T_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SysPermissionAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q85:T_SYS_PERMISSION" />
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q88:T_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1124,7 +1162,7 @@
   <xs:element name="SysPermissionUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q86:T_SYS_PERMISSION" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q89:T_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1159,7 +1197,7 @@
   <xs:element name="FindSysPermissionByStrResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="FindSysPermissionByStrResult" nillable="true" type="q87:ArrayOfT_SYS_PERMISSION" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="FindSysPermissionByStrResult" nillable="true" type="q90:ArrayOfT_SYS_PERMISSION" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1180,7 +1218,7 @@
   <xs:element name="SysRoleInfoAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q88:T_SYS_ROLE" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q91:T_SYS_ROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1224,7 +1262,7 @@
   <xs:element name="SysRoleInfoUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q89:T_SYS_ROLE" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q92:T_SYS_ROLE" />
         <xs:element minOccurs="0" name="StrResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1246,7 +1284,7 @@
   <xs:element name="GetSysRoleSingleInfoByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleSingleInfoByIdResult" nillable="true" type="q90:T_SYS_ROLE" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleSingleInfoByIdResult" nillable="true" type="q93:T_SYS_ROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1261,7 +1299,7 @@
   <xs:element name="GetSysRoleInfosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosResult" nillable="true" type="q91:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosResult" nillable="true" type="q94:ArrayOfT_SYS_ROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1277,7 +1315,7 @@
   <xs:element name="GetSysRoleInfosByCompanyIdAndDepartmentIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosByCompanyIdAndDepartmentIdResult" nillable="true" type="q92:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosByCompanyIdAndDepartmentIdResult" nillable="true" type="q95:ArrayOfT_SYS_ROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1288,16 +1326,16 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q93:ArrayOfanyType" />
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q96:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q94:LoginUserInfo" />
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q97:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysRoleInfosPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosPagingResult" nillable="true" type="q95:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosPagingResult" nillable="true" type="q98:ArrayOfT_SYS_ROLE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1309,17 +1347,39 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q96:ArrayOfanyType" />
+        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q99:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q97:LoginUserInfo" />
-        <xs:element xmlns:q98="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q98:ArrayOfstring" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q100:LoginUserInfo" />
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q101:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysRoleInfosPagingByCompanyIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosPagingByCompanyIDsResult" nillable="true" type="q99:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysRoleInfosPagingByCompanyIDsResult" nillable="true" type="q102:ArrayOfT_SYS_ROLE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q103:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q104:LoginUserInfo" />
+        <xs:element xmlns:q105="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q105:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleViewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel" minOccurs="0" name="GetRoleViewResult" nillable="true" type="q106:ArrayOfT_SYS_ROLE_V" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1327,7 +1387,7 @@
   <xs:element name="SysRoleBatchDel">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q100="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrRoleIDs" nillable="true" type="q100:ArrayOfstring" />
+        <xs:element xmlns:q107="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrRoleIDs" nillable="true" type="q107:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1348,7 +1408,7 @@
   <xs:element name="GetSysDictionaryByCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByCategoryResult" nillable="true" type="q101:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByCategoryResult" nillable="true" type="q108:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1360,7 +1420,7 @@
   <xs:element name="GetAllSysDictionaryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetAllSysDictionaryResult" nillable="true" type="q102:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetAllSysDictionaryResult" nillable="true" type="q109:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1389,28 +1449,28 @@
   <xs:element name="GetSysDictionaryByFatherIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFatherIDResult" nillable="true" type="q103:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFatherIDResult" nillable="true" type="q110:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysDictionaryByCategoryList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q104="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="category" nillable="true" type="q104:ArrayOfstring" />
+        <xs:element xmlns:q111="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="category" nillable="true" type="q111:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysDictionaryByCategoryListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByCategoryListResult" nillable="true" type="q105:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByCategoryListResult" nillable="true" type="q112:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SysDictionaryAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="dict" nillable="true" type="q106:T_SYS_DICTIONARY" />
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="dict" nillable="true" type="q113:T_SYS_DICTIONARY" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1425,7 +1485,7 @@
   <xs:element name="SysDictionaryUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="dict" nillable="true" type="q107:T_SYS_DICTIONARY" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="dict" nillable="true" type="q114:T_SYS_DICTIONARY" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1440,7 +1500,7 @@
   <xs:element name="SysDictionaryDelete">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q108="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q108:ArrayOfstring" />
+        <xs:element xmlns:q115="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q115:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1452,8 +1512,8 @@
   <xs:element name="ImportCityCSV">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="uploadFile" nillable="true" type="q109:UploadFileModel" />
-        <xs:element xmlns:q110="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="empInfoDic" nillable="true" type="q110:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="uploadFile" nillable="true" type="q116:UploadFileModel" />
+        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="empInfoDic" nillable="true" type="q117:ArrayOfKeyValueOfstringstring" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1469,7 +1529,7 @@
   <xs:element name="SaveFile">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q111:UploadFileModel" />
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q118:UploadFileModel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1488,7 +1548,7 @@
   <xs:element name="GetSysDictionaryCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryCategoryResult" nillable="true" type="q112:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryCategoryResult" nillable="true" type="q119:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1500,7 +1560,7 @@
   <xs:element name="GetSysDictionarySysTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionarySysTypeResult" nillable="true" type="q113:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionarySysTypeResult" nillable="true" type="q120:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1514,7 +1574,7 @@
   <xs:element name="GetSysDictionaryByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByIDResult" nillable="true" type="q114:T_SYS_DICTIONARY" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByIDResult" nillable="true" type="q121:T_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1523,14 +1583,14 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="filter" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
-        <xs:element xmlns:q115="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q115:ArrayOfstring" />
+        <xs:element xmlns:q122="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q122:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysDictionaryByFilterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFilterResult" nillable="true" type="q116:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFilterResult" nillable="true" type="q123:ArrayOfT_SYS_DICTIONARY" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1541,7 +1601,7 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q117:ArrayOfanyType" />
+        <xs:element xmlns:q124="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q124:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -1550,7 +1610,7 @@
   <xs:element name="GetSysDictionaryByFilterPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFilterPagingResult" nillable="true" type="q118:ArrayOfT_SYS_DICTIONARY" />
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysDictionaryByFilterPagingResult" nillable="true" type="q125:ArrayOfT_SYS_DICTIONARY" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1577,7 +1637,7 @@
   <xs:element name="GetCutomterPermissionObjResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetCutomterPermissionObjResult" nillable="true" type="q119:ArrayOfCustomerPermission" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetCutomterPermissionObjResult" nillable="true" type="q126:ArrayOfCustomerPermission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1585,7 +1645,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="objs" nillable="true" type="q120:ArrayOfCustomerPermission" />
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="objs" nillable="true" type="q127:ArrayOfCustomerPermission" />
         <xs:element minOccurs="0" name="strResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1601,7 +1661,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="RoleID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="objs" nillable="true" type="q121:ArrayOfCustomerPermission" />
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="objs" nillable="true" type="q128:ArrayOfCustomerPermission" />
         <xs:element minOccurs="0" name="strResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1624,7 +1684,7 @@
   <xs:element name="GetEntityMenuCustomPermByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuCustomPermByTypeResult" nillable="true" type="q122:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuCustomPermByTypeResult" nillable="true" type="q129:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1638,14 +1698,14 @@
   <xs:element name="GetEntityMenuCustomPermByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuCustomPermByIDResult" nillable="true" type="q123:T_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetEntityMenuCustomPermByIDResult" nillable="true" type="q130:T_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="EntityMenuCustomPermAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q124:T_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q131:T_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1657,7 +1717,7 @@
   <xs:element name="EntityMenuCustomPermUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q125:T_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q132:T_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1689,7 +1749,7 @@
   <xs:element name="GetCustomerPermissionByUserIDAndEntityCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomerPermissionByUserIDAndEntityCodeResult" nillable="true" type="q126:T_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomerPermissionByUserIDAndEntityCodeResult" nillable="true" type="q133:T_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1704,7 +1764,7 @@
   <xs:element name="GetCustomPostMenuPermsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomPostMenuPermsResult" nillable="true" type="q127:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomPostMenuPermsResult" nillable="true" type="q134:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1719,7 +1779,7 @@
   <xs:element name="GetCustomDepartMenuPermsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomDepartMenuPermsResult" nillable="true" type="q128:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomDepartMenuPermsResult" nillable="true" type="q135:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1734,7 +1794,7 @@
   <xs:element name="GetCustomCompanyMenuPermsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomCompanyMenuPermsResult" nillable="true" type="q129:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetCustomCompanyMenuPermsResult" nillable="true" type="q136:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1748,7 +1808,7 @@
   <xs:element name="GetSysUserRoleByTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByTypeResult" nillable="true" type="q130:ArrayOfT_SYS_USERROLE" />
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByTypeResult" nillable="true" type="q137:ArrayOfT_SYS_USERROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1762,7 +1822,7 @@
   <xs:element name="GetSysUserRoleByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByIDResult" nillable="true" type="q131:T_SYS_USERROLE" />
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByIDResult" nillable="true" type="q138:T_SYS_USERROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1776,7 +1836,7 @@
   <xs:element name="GetSysUserRoleByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByUserResult" nillable="true" type="q132:ArrayOfT_SYS_USERROLE" />
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserRoleByUserResult" nillable="true" type="q139:ArrayOfT_SYS_USERROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1790,15 +1850,29 @@
   <xs:element name="GetSysUserByRoleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserByRoleResult" nillable="true" type="q133:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserByRoleResult" nillable="true" type="q140:ArrayOfT_SYS_USER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSysUserByRoleToEmployeeLeave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roleID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSysUserByRoleToEmployeeLeaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserByRoleToEmployeeLeaveResult" nillable="true" type="q141:ArrayOfT_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserRoleBatchAddInfos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="RoleList" nillable="true" type="q134:ArrayOfT_SYS_ROLE" />
-        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="userobj" nillable="true" type="q135:T_SYS_USER" />
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="RoleList" nillable="true" type="q142:ArrayOfT_SYS_ROLE" />
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="userobj" nillable="true" type="q143:T_SYS_USER" />
         <xs:element minOccurs="0" name="StrUserName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="AddDate" type="xs:dateTime" />
       </xs:sequence>
@@ -1814,7 +1888,7 @@
   <xs:element name="BatchAddUserRole">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="RoleObj" nillable="true" type="q136:ArrayOfT_SYS_USERROLE" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="RoleObj" nillable="true" type="q144:ArrayOfT_SYS_USERROLE" />
         <xs:element minOccurs="0" name="IsResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1830,7 +1904,7 @@
   <xs:element name="UserRoleUpdateInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="UserRoleObj" nillable="true" type="q137:T_SYS_USERROLE" />
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="UserRoleObj" nillable="true" type="q145:T_SYS_USERROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1842,7 +1916,7 @@
   <xs:element name="SysUserRoleUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q138:T_SYS_USERROLE" />
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q146:T_SYS_USERROLE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1873,7 +1947,7 @@
   <xs:element name="GetUserInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q139:T_SYS_USER" />
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserInfoResult" nillable="true" type="q147:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1887,7 +1961,7 @@
   <xs:element name="GetUserByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserByIDResult" nillable="true" type="q140:T_SYS_USER" />
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserByIDResult" nillable="true" type="q148:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1901,7 +1975,7 @@
   <xs:element name="GetUserByEmployeeIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserByEmployeeIDResult" nillable="true" type="q141:T_SYS_USER" />
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserByEmployeeIDResult" nillable="true" type="q149:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1915,7 +1989,23 @@
   <xs:element name="GetUserPermissionByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserPermissionByUserResult" nillable="true" type="q142:ArrayOfV_Permission" />
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserPermissionByUserResult" nillable="true" type="q150:ArrayOfV_Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFbAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownercompanyid" nillable="true" type="xs:string" />
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="fbAdmin" nillable="true" type="q151:T_SYS_FBADMIN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFbAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateFbAdminResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1929,7 +2019,7 @@
   <xs:element name="GetUserPermissionByUserToUIResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserPermissionByUserToUIResult" nillable="true" type="q143:ArrayOfV_UserPermissionUI" />
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserPermissionByUserToUIResult" nillable="true" type="q152:ArrayOfV_UserPermissionUI" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1944,23 +2034,7 @@
   <xs:element name="GetEntityPermissionByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityPermissionByUserResult" nillable="true" type="q144:ArrayOfV_UserPermissionUI" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateFbAdmin">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="employeeid" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="ownercompanyid" nillable="true" type="xs:string" />
-        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="fbAdmin" nillable="true" type="q145:T_SYS_FBADMIN" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UpdateFbAdminResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UpdateFbAdminResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetEntityPermissionByUserResult" nillable="true" type="q153:ArrayOfV_UserPermissionUI" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1975,7 +2049,7 @@
   <xs:element name="GetUserMenuPermsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsResult" nillable="true" type="q146:ArrayOfV_Permission" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsResult" nillable="true" type="q154:ArrayOfV_Permission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1990,7 +2064,7 @@
   <xs:element name="GetUserMenuPermsByUserPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsByUserPermissionResult" nillable="true" type="q147:ArrayOfV_UserPermission" />
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetUserMenuPermsByUserPermissionResult" nillable="true" type="q155:ArrayOfV_UserPermission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2004,7 +2078,7 @@
   <xs:element name="GetPermissionByRoleIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPermissionByRoleIDResult" nillable="true" type="q148:ArrayOfV_Permission" />
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPermissionByRoleIDResult" nillable="true" type="q156:ArrayOfV_Permission" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2018,7 +2092,7 @@
   <xs:element name="GetPermissionByRoleIDSecondResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPermissionByRoleIDSecondResult" nillable="true" type="q149:ArrayOfV_UserPermissionRoleID" />
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetPermissionByRoleIDSecondResult" nillable="true" type="q157:ArrayOfV_UserPermissionRoleID" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2030,7 +2104,7 @@
   <xs:element name="GetUserPermissionAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserPermissionAllResult" nillable="true" type="q150:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetUserPermissionAllResult" nillable="true" type="q158:ArrayOfT_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2045,7 +2119,7 @@
   <xs:element name="UserLoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="UserLoginResult" nillable="true" type="q151:T_SYS_USER" />
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="UserLoginResult" nillable="true" type="q159:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2056,17 +2130,17 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q152="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q152:ArrayOfanyType" />
+        <xs:element xmlns:q160="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q160:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
         <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q153="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q153:ArrayOfstring" />
+        <xs:element xmlns:q161="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q161:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetOnLineUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetOnLineUsersResult" nillable="true" type="q154:ArrayOfV_OnlineUser" />
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" minOccurs="0" name="GetOnLineUsersResult" nillable="true" type="q162:ArrayOfV_OnlineUser" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2074,13 +2148,13 @@
   <xs:element name="GetLookupOjbects">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" minOccurs="0" name="entityName" type="q155:EntityNames" />
-        <xs:element xmlns:q156="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="args" nillable="true" type="q156:ArrayOfKeyValueOfstringstring" />
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" minOccurs="0" name="entityName" type="q163:EntityNames" />
+        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="args" nillable="true" type="q164:ArrayOfKeyValueOfstringstring" />
         <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q157="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q157:ArrayOfanyType" />
+        <xs:element xmlns:q165="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q165:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2096,7 +2170,7 @@
   <xs:element name="SysUserInfoAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q158:T_SYS_USER" />
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q166:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2110,7 +2184,7 @@
   <xs:element name="SysUserInfoAddORUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q159:T_SYS_USER" />
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q167:T_SYS_USER" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2125,7 +2199,7 @@
   <xs:element name="EmployeeEntryAddDefaultRole">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="user" nillable="true" type="q160:T_SYS_USER" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="user" nillable="true" type="q168:T_SYS_USER" />
         <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="compayName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="deptID" nillable="true" type="xs:string" />
@@ -2159,7 +2233,7 @@
   <xs:element name="SysUserInfoUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q161:T_SYS_USER" />
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q169:T_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2173,7 +2247,7 @@
   <xs:element name="SysUserInfoUpdateForEmployeeLeft">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q162:T_SYS_USER" />
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q170:T_SYS_USER" />
         <xs:element minOccurs="0" name="StrOwnerCompanyid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="StrPostid" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="IsMain" type="xs:boolean" />
@@ -2229,7 +2303,7 @@
   <xs:element name="GetSysUserAllInfosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosResult" nillable="true" type="q163:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosResult" nillable="true" type="q171:ArrayOfT_SYS_USER" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2240,16 +2314,16 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q164:ArrayOfanyType" />
+        <xs:element xmlns:q172="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q172:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q165:LoginUserInfo" />
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q173:LoginUserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysUserAllInfosPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosPagingResult" nillable="true" type="q166:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosPagingResult" nillable="true" type="q174:ArrayOfT_SYS_USER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2261,17 +2335,17 @@
         <xs:element minOccurs="0" name="pageSize" type="xs:int" />
         <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q167="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q167:ArrayOfanyType" />
+        <xs:element xmlns:q175="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q175:ArrayOfanyType" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q168:LoginUserInfo" />
-        <xs:element xmlns:q169="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q169:ArrayOfstring" />
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q176:LoginUserInfo" />
+        <xs:element xmlns:q177="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CompanyIDs" nillable="true" type="q177:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetSysUserAllInfosPagingByCompanyIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosPagingByCompanyIDsResult" nillable="true" type="q170:ArrayOfT_SYS_USER" />
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="GetSysUserAllInfosPagingByCompanyIDsResult" nillable="true" type="q178:ArrayOfT_SYS_USER" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -2279,7 +2353,7 @@
   <xs:element name="SysUserBatchDel">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q171="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrSysUserIDs" nillable="true" type="q171:ArrayOfstring" />
+        <xs:element xmlns:q179="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrSysUserIDs" nillable="true" type="q179:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2293,7 +2367,7 @@
   <xs:element name="SysUserBatchUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q172="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrSysUserIDs" nillable="true" type="q172:ArrayOfstring" />
+        <xs:element xmlns:q180="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StrSysUserIDs" nillable="true" type="q180:ArrayOfstring" />
         <xs:element minOccurs="0" name="StrUserID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="UserState" nillable="true" type="xs:string" />
@@ -2310,7 +2384,7 @@
   <xs:element name="SysUserLoginRecordInfoAdd">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q173:T_SYS_USERLOGINRECORD" />
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q181:T_SYS_USERLOGINRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2324,7 +2398,7 @@
   <xs:element name="SysUserLoginRecordInfoUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q174:T_SYS_USERLOGINRECORD" />
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" minOccurs="0" name="obj" nillable="true" type="q182:T_SYS_USERLOGINRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2343,7 +2417,7 @@
   <xs:element name="GetSysUserLoginRecordInfosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosResult" nillable="true" type="q175:ArrayOfV_UserLoginRecord" />
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosResult" nillable="true" type="q183:ArrayOfV_UserLoginRecord" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2359,43 +2433,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UserLoginOutResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UserLoginOperation">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="LoginRecordId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="IsLogin" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UserLoginOperationResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="UserLoginOperationResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetSysUserLoginRecordInfosPaging">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
-        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
-        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
-        <xs:element xmlns:q176="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q176:ArrayOfanyType" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
-        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" minOccurs="0" name="loginUserInfo" nillable="true" type="q177:LoginUserInfo" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetSysUserLoginRecordInfosPagingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" minOccurs="0" name="GetSysUserLoginRecordInfosPagingResult" nillable="true" type="q178:ArrayOfV_UserLoginRecord" />
-        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
