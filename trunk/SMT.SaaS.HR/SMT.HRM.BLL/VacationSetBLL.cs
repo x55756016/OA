@@ -234,7 +234,7 @@ namespace SMT.HRM.BLL
 
                 AsyncEventHandler asy = new AsyncEventHandler(reInitAttandeceRecordWithOutWorkDaySet);
                 IAsyncResult ia = asy.BeginInvoke(entVacRd.VACATIONID, null, null);  
-
+                
                 strMsg = "{SAVESUCCESSED}";
 
             }

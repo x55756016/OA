@@ -488,18 +488,19 @@ namespace SMT.HRM.BLL
 
             List<object> queryParas = new List<object>();
             List<T_HR_EMPLOYEESALARYRECORD> ent = new List<T_HR_EMPLOYEESALARYRECORD>();
-            PaymentBLL pb = new PaymentBLL();
-            IQueryable<T_HR_EMPLOYEESALARYRECORD> ents = pb.GetResultset(orgtype, orgid);
-            var en = ents.GroupBy(y => y.EMPLOYEESALARYRECORDID).Select(g => new { group = g.Key, groupcontent = g });
-            foreach (var v in en)
-            {
-                ent.Add(v.groupcontent.FirstOrDefault());
-            }
-            ents = ent.AsQueryable();
+            //PaymentBLL pb = new PaymentBLL();
+            IQueryable<T_HR_EMPLOYEESALARYRECORD> ents =from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
+                                                            select a;
+            //var en = ents.GroupBy(y => y.EMPLOYEESALARYRECORDID).Select(g => new { group = g.Key, groupcontent = g });
+            //foreach (var v in en)
+            //{
+            //    ent.Add(v.groupcontent.FirstOrDefault());
+            //}
+            //ents = ent.AsQueryable();
 
             queryParas.AddRange(paras);
 
-            SetOrganizationFilter(ref filterString, ref queryParas, userID, MenuSign);
+            //SetOrganizationFilter(ref filterString, ref queryParas, userID, MenuSign);
 
             //SetFilterWithflow("EMPLOYEESALARYRECORDID", "T_HR_EMPLOYEESALARYRECORD", userID, ref strCheckState, ref filterString, ref queryParas);
 

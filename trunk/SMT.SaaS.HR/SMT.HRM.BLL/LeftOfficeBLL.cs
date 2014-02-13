@@ -469,7 +469,7 @@ namespace SMT.HRM.BLL
                                 {
                                     //查出改用户所在的角色，还有没有其它用户，如果没有则调流程
                                     string roleId = roleUser.T_SYS_ROLE.ROLEID;
-                                    var roleUserIncludeSource = perclient.GetSysUserByRole(roleId);
+                                    var roleUserIncludeSource = perclient.GetSysUserByRoleToEmployeeLeave(roleId);
                                     if (roleUserIncludeSource == null)
                                     {
                                         hasRole = true;

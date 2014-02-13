@@ -68,8 +68,9 @@ namespace SMT.HRM.BLL
         /// <returns>当前请假时段内可用冲减天数</returns>
         public decimal GetCurLevelDaysByEmployeeIDAndLeaveFineType(string strEmployeeID, string strLeaveRecordId, string strLeaveSetId, DateTime dtStartDate, DateTime dtEndDate)
         {
+            EmployeeLeaveRecordBLL bllLeaveRecord = new EmployeeLeaveRecordBLL();
             #region 重新生成员工带薪假期
-            string orgType = (Convert.ToInt32(Common.AssignedObjectType.Personnel) + 1).ToString();
+            string orgType = (Convert.ToInt32(Common.AssignedObjectType.Personnel) + 1).ToString();  
             CalculateEmployeeLevelDayCountByOrgID(orgType, strEmployeeID);
             #endregion
             //确认实际可用带薪假天数，必须保证员工ID，请假记录ID，假期标准ID都不能为空
@@ -166,7 +167,7 @@ namespace SMT.HRM.BLL
                        select d;
 
             decimal dLeaveYearDays = 0, dLeaveMonthDays = 0, dAdjLevPaidDays = 0;       //同类型假本年已用天数，同类型假本月已用天数，冲减带薪假已用天数
-            EmployeeLeaveRecordBLL bllLeaveRecord = new EmployeeLeaveRecordBLL();
+            
             bllLeaveRecord.GetLeaveDaysHistory(entEmployeeView, strLeaveRecordId, strLeaveSetId, dtStartDate, dtEndDate,
                 ref dLeaveYearDays, ref dLeaveMonthDays, ref dAdjLevPaidDays);
 
@@ -1309,7 +1310,8 @@ namespace SMT.HRM.BLL
             if (strOrgType == (Convert.ToInt32(Common.AssignedObjectType.Company) + 1).ToString())
             {
                 var ents = from n in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
-                           where n.ASSIGNEDOBJECTTYPE == strOrgType && n.OWNERCOMPANYID == strOrgId && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur
+                           where n.ASSIGNEDOBJECTTYPE == strOrgType && n.OWNERCOMPANYID == strOrgId 
+                           && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur
                            orderby n.ASSIGNEDOBJECTTYPE ascending
                            select n;
 
@@ -1517,6 +1519,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
+                
                 DateTime dtStart = DateTime.Parse(DateTime.Now.ToString("yyyy-MM") + "-1");
                 if (dtStart < entAttSolAsign.STARTDATE.Value)
                 {
@@ -1541,7 +1544,8 @@ namespace SMT.HRM.BLL
 
                 //获取员工的详细信息
                 var qp = from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST")
-                         where ep.T_HR_EMPLOYEE.EMPLOYEEID == entEmployee.EMPLOYEEID && ep.T_HR_EMPLOYEE.OWNERCOMPANYID == entAttSolAsign.OWNERCOMPANYID
+                         where ep.T_HR_EMPLOYEE.EMPLOYEEID == entEmployee.EMPLOYEEID 
+                         && ep.T_HR_EMPLOYEE.OWNERCOMPANYID == entAttSolAsign.OWNERCOMPANYID
                          && ep.CHECKSTATE == "2" && ep.EDITSTATE == "1" && ep.ISAGENCY == "0"
                          select ep;
 
@@ -1579,7 +1583,11 @@ namespace SMT.HRM.BLL
                 }
 
                 EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
-
+                //已经存在的带薪假记录
+                var entExists = from ent in dal.GetObjects<T_HR_EMPLOYEELEVELDAYCOUNT>()
+                               where ent.EMPLOYEEID == entEmployee.EMPLOYEEID
+                               && ent.EFFICDATE.Value.Year == dtStart.Year
+                               select ent;
                 foreach (T_HR_ATTENDFREELEAVE entAttendFreeLeave in entAttendFreeLeaves)
                 {
                     T_HR_LEAVETYPESET entLeaveTypeSet = entAttendFreeLeave.T_HR_LEAVETYPESET;
@@ -1794,16 +1802,22 @@ namespace SMT.HRM.BLL
                     entAdd.UPDATEUSERID = entAttSolAsign.UPDATEUSERID;
                     entAdd.UPDATEDATE = DateTime.Now;
 
-                    //if (strOperationType == "0")
-                    //{
-                    //    bllLevelDayCount.AddEmployeeLevelDayCount(entAdd);
+                    //如果是年休假则判断是否已经产生
+                    //按员工进行判断 edit by ljx
+                    var entExit = entExists.Where(s=>s.VACATIONTYPE == entAdd.VACATIONTYPE).ToList();
+                    if (entExit.Count() == 0)
+                    {                        
+                       dal.AddToContext(entAdd);
+                       Tracer.Debug("生成员工：" + entAdd.EMPLOYEENAME + " 带薪假:" + entLeaveTypeSet.LEAVETYPENAME
+                        + " 总天数：" + entAdd.DAYS + " 生效日期：" + entAdd.EFFICDATE.Value.ToString("yyyy-MM-dd") + "- 终止日期：" + entAdd.TERMINATEDATE.Value.ToString("yyyy-MM-dd"));
+                    }
+                    else
+                    {
+                        //dal.AddToContext(entAdd);
+                        Tracer.Debug("没有生成员工：" + entAdd.EMPLOYEENAME + " 带薪假:" + entLeaveTypeSet.LEAVETYPENAME);
+                    }
                     //}
-                    //else if (strOperationType == "1")
-                    //{
-                    dal.AddToContext(entAdd);
-                    //}
-                    Tracer.Debug("生成员工：" + entAdd.EMPLOYEENAME + " 带薪假:" + entLeaveTypeSet.LEAVETYPENAME 
-                        +" 总天数："+entAdd.DAYS+ " 生效日期：" + entAdd.EFFICDATE.Value.ToString("yyyy-MM-dd") + "- 终止日期：" + entAdd.TERMINATEDATE.Value.ToString("yyyy-MM-dd"));
+                    
                 }
                 int intDay = dal.SaveContextChanges();
                 if (intDay > 0)
