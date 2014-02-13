@@ -609,7 +609,18 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             //    filter += " EMPLOYEENAME.Contains(@" + paras.Count().ToString() + ")";
             //    paras.Add(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName);
             //}
+            if (!string.IsNullOrEmpty(userID))
+            {
+                if (!string.IsNullOrEmpty(filter)) filter += " and ";
+                //filter += "EMPLOYEEID==@" + paras.Count().ToString();
+                //paras.Add(userID);
+                //filter += " OR EMPLOYEEID==@" + paras.Count().ToString();
+                //paras.Add(userID);
+                //filter += " AND PAYCONFIRM==@" + paras.Count().ToString();
+                filter += " OWNERID==@" + paras.Count().ToString();
+                paras.Add(userID);
 
+            }
             if (!string.IsNullOrEmpty(userID))
             {
                 if (!string.IsNullOrEmpty(filter)) filter += " and ";
@@ -677,6 +688,18 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 if (!string.IsNullOrEmpty(filter)) filter += " and ";
                 filter += " PAYCONFIRM==@" + paras.Count().ToString();
                 paras.Add("2");
+
+            }
+            if (!string.IsNullOrEmpty(userID))
+            {
+                if (!string.IsNullOrEmpty(filter)) filter += " and ";
+                //filter += "EMPLOYEEID==@" + paras.Count().ToString();
+                //paras.Add(userID);
+                //filter += " OR EMPLOYEEID==@" + paras.Count().ToString();
+                //paras.Add(userID);
+                //filter += " AND PAYCONFIRM==@" + paras.Count().ToString();
+                filter += " OWNERID==@" + paras.Count().ToString();
+                paras.Add(userID);
 
             }
             client.GetMenuSignAutoEmployeeSalaryRecordPagingsAsync(dataPager.PageIndex, dataPager.PageSize, "EMPLOYEESALARYRECORDID", filter, paras, pageCount, Convert.ToDateTime(starttimes), Convert.ToDateTime(endtimes), sType, sValue, strState, userID, "PAYSALARYHISTORY");

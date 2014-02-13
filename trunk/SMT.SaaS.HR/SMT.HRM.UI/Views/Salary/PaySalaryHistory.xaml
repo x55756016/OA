@@ -85,7 +85,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="0"/>
                     <ColumnDefinition Width="1"/>
                     <ColumnDefinition Width="160"/>
                     <ColumnDefinition Width="1"/>
@@ -95,9 +95,9 @@
                            SelectedItemChanged="treeOrganization_SelectedItemChanged" Style="{StaticResource TreeViewStyle}"
                            >
                 </controls:TreeView>-->
-                <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0"></smtv:OrganizationTreeView>
+                <smtv:OrganizationTreeView x:Name="treeOrganization" Grid.RowSpan="2" Grid.Column="0" Visibility="Collapsed"></smtv:OrganizationTreeView>
                 <!--<StackPanel Visibility="Visible" Grid.ColumnSpan="3" Grid.Column="1">-->
-                <controls:GridSplitter Grid.RowSpan="2" Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Width="1"></controls:GridSplitter>
+                <controls:GridSplitter Grid.RowSpan="2" Grid.Column="1"  HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Width="1" ></controls:GridSplitter>
                 <data:DataGrid x:Name="DtGridStand" Grid.RowSpan="2" Grid.Column="2"  AutoGenerateColumns="False" SelectionChanged="DtGridStand_SelectionChanged"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsReadOnly="True" Style="{StaticResource DataGridStyle}"
                      Visibility="Collapsed" CellStyle="{StaticResource DataGridCellStyle}" RowStyle="{StaticResource DataGridRowStyle}" RowHeaderStyle="{StaticResource DataGridRowHeaderStyle}" >
                     <data:DataGrid.Columns>
