@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="N9bMWqf+ENBct+IxUrYyjTIW5ug=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="YGfr0KhkSgO+jqrSoclnHkdXMjU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="customBinding" name="CustomBinding_PermissionService1">
       <properties>
@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CustomBinding_PermissionService" contract="PermissionWS.PermissionService" bindingType="customBinding" address="http://localhost:1604/PermissionService.svc" bindingConfiguration="CustomBinding_PermissionService1">
+    <endpoint name="CustomBinding_PermissionService" contract="PermissionWS.PermissionService" bindingType="customBinding" address="http://10.10.0.93:8080/New/Services/System/PermissionService.svc" bindingConfiguration="CustomBinding_PermissionService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1604/PermissionService.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/System/PermissionService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

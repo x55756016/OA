@@ -142,9 +142,6 @@
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
-      <endpoint address="http://localhost:1604/PermissionService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
-        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <endpoint address="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
@@ -160,6 +157,9 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
+      <endpoint address="http://10.10.0.93:8080/New/Services/System/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
     </client>
 
   </system.serviceModel>

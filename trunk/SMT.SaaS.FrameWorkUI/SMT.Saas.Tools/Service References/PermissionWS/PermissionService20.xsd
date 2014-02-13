@@ -1,21 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfT_SYS_ROLE_V">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfanyType">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_ROLE_V" nillable="true" type="tns:T_SYS_ROLE_V" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfT_SYS_ROLE_V" nillable="true" type="tns:ArrayOfT_SYS_ROLE_V" />
-  <xs:complexType name="T_SYS_ROLE_V">
+  <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+  <xs:complexType name="ArrayOfstring">
     <xs:sequence>
-      <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ROLEID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ROLENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SYSTTMTYPENAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="T_SYS_ROLE_V" nillable="true" type="tns:T_SYS_ROLE_V" />
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:complexType name="ArrayOfKeyValueOfstringint">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringint">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringint" nillable="true" type="tns:ArrayOfKeyValueOfstringint" />
+  <xs:complexType name="ArrayOfKeyValueOfstringNullableOfdateTimeU6ho3Bhd">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringNullableOfdateTimeU6ho3Bhd">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringNullableOfdateTimeU6ho3Bhd" nillable="true" type="tns:ArrayOfKeyValueOfstringNullableOfdateTimeU6ho3Bhd" />
+  <xs:complexType name="ArrayOfKeyValueOfstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringstring">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element name="Value" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringstring" nillable="true" type="tns:ArrayOfKeyValueOfstringstring" />
 </xs:schema>

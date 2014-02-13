@@ -17,6 +17,683 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserLoginRecord", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
+    public partial class V_UserLoginRecord : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_USER sysuserField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD userloginrecordField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER sysuser {
+            get {
+                return this.sysuserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sysuserField, value) != true)) {
+                    this.sysuserField = value;
+                    this.RaisePropertyChanged("sysuser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD userloginrecord {
+            get {
+                return this.userloginrecordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userloginrecordField, value) != true)) {
+                    this.userloginrecordField = value;
+                    this.RaisePropertyChanged("userloginrecord");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USER", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    public partial class T_SYS_USER : SMT.Saas.Tools.PermissionWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERField;
+        
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private string ISENGINEMANAGERField;
+        
+        private string ISFLOWMANAGERField;
+        
+        private System.Nullable<decimal> ISMANGERField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string PASSWORDField;
+        
+        private string REMARKField;
+        
+        private string STATEField;
+        
+        private string SYSUSERIDField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> T_SYS_USERROLEField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERField;
+        
+        private string USERNAMEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSER {
+            get {
+                return this.CREATEUSERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERField, value) != true)) {
+                    this.CREATEUSERField = value;
+                    this.RaisePropertyChanged("CREATEUSER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISENGINEMANAGER {
+            get {
+                return this.ISENGINEMANAGERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISENGINEMANAGERField, value) != true)) {
+                    this.ISENGINEMANAGERField = value;
+                    this.RaisePropertyChanged("ISENGINEMANAGER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ISFLOWMANAGER {
+            get {
+                return this.ISFLOWMANAGERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ISFLOWMANAGERField, value) != true)) {
+                    this.ISFLOWMANAGERField = value;
+                    this.RaisePropertyChanged("ISFLOWMANAGER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ISMANGER {
+            get {
+                return this.ISMANGERField;
+            }
+            set {
+                if ((this.ISMANGERField.Equals(value) != true)) {
+                    this.ISMANGERField = value;
+                    this.RaisePropertyChanged("ISMANGER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PASSWORD {
+            get {
+                return this.PASSWORDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PASSWORDField, value) != true)) {
+                    this.PASSWORDField = value;
+                    this.RaisePropertyChanged("PASSWORD");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string STATE {
+            get {
+                return this.STATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STATEField, value) != true)) {
+                    this.STATEField = value;
+                    this.RaisePropertyChanged("STATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SYSUSERID {
+            get {
+                return this.SYSUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SYSUSERIDField, value) != true)) {
+                    this.SYSUSERIDField = value;
+                    this.RaisePropertyChanged("SYSUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> T_SYS_USERROLE {
+            get {
+                return this.T_SYS_USERROLEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_SYS_USERROLEField, value) != true)) {
+                    this.T_SYS_USERROLEField = value;
+                    this.RaisePropertyChanged("T_SYS_USERROLE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSER {
+            get {
+                return this.UPDATEUSERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERField, value) != true)) {
+                    this.UPDATEUSERField = value;
+                    this.RaisePropertyChanged("UPDATEUSER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string USERNAME {
+            get {
+                return this.USERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
+                    this.USERNAMEField = value;
+                    this.RaisePropertyChanged("USERNAME");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERLOGINRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    public partial class T_SYS_USERLOGINRECORD : SMT.Saas.Tools.PermissionWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> LOGINDATEField;
+        
+        private string LOGINIPField;
+        
+        private System.Nullable<decimal> LOGINMONTHField;
+        
+        private string LOGINRECORDIDField;
+        
+        private string LOGINTIMEField;
+        
+        private System.Nullable<decimal> LOGINYEARField;
+        
+        private string ONLINESTATEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERCOMPANYNAMEField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERDEPARTMENTNAMEField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERNAMEField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string OWNERPOSTNAMEField;
+        
+        private string REMARKField;
+        
+        private string USERNAMEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LOGINDATE {
+            get {
+                return this.LOGINDATEField;
+            }
+            set {
+                if ((this.LOGINDATEField.Equals(value) != true)) {
+                    this.LOGINDATEField = value;
+                    this.RaisePropertyChanged("LOGINDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LOGINIP {
+            get {
+                return this.LOGINIPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
+                    this.LOGINIPField = value;
+                    this.RaisePropertyChanged("LOGINIP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LOGINMONTH {
+            get {
+                return this.LOGINMONTHField;
+            }
+            set {
+                if ((this.LOGINMONTHField.Equals(value) != true)) {
+                    this.LOGINMONTHField = value;
+                    this.RaisePropertyChanged("LOGINMONTH");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LOGINRECORDID {
+            get {
+                return this.LOGINRECORDIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LOGINRECORDIDField, value) != true)) {
+                    this.LOGINRECORDIDField = value;
+                    this.RaisePropertyChanged("LOGINRECORDID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LOGINTIME {
+            get {
+                return this.LOGINTIMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LOGINTIMEField, value) != true)) {
+                    this.LOGINTIMEField = value;
+                    this.RaisePropertyChanged("LOGINTIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> LOGINYEAR {
+            get {
+                return this.LOGINYEARField;
+            }
+            set {
+                if ((this.LOGINYEARField.Equals(value) != true)) {
+                    this.LOGINYEARField = value;
+                    this.RaisePropertyChanged("LOGINYEAR");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ONLINESTATE {
+            get {
+                return this.ONLINESTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
+                    this.ONLINESTATEField = value;
+                    this.RaisePropertyChanged("ONLINESTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYNAME {
+            get {
+                return this.OWNERCOMPANYNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYNAMEField, value) != true)) {
+                    this.OWNERCOMPANYNAMEField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTNAME {
+            get {
+                return this.OWNERDEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTNAMEField, value) != true)) {
+                    this.OWNERDEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERNAME {
+            get {
+                return this.OWNERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERNAMEField, value) != true)) {
+                    this.OWNERNAMEField = value;
+                    this.RaisePropertyChanged("OWNERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTNAME {
+            get {
+                return this.OWNERPOSTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTNAMEField, value) != true)) {
+                    this.OWNERPOSTNAMEField = value;
+                    this.RaisePropertyChanged("OWNERPOSTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string USERNAME {
+            get {
+                return this.USERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
+                    this.USERNAMEField = value;
+                    this.RaisePropertyChanged("USERNAME");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+    public partial class EntityObject : SMT.Saas.Tools.PermissionWS.StructuralObject {
+        
+        private SMT.Saas.Tools.PermissionWS.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERROLE", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
     public partial class T_SYS_USERROLE : SMT.Saas.Tools.PermissionWS.EntityObject {
         
@@ -196,71 +873,6 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.USERROLEIDField, value) != true)) {
                     this.USERROLEIDField = value;
                     this.RaisePropertyChanged("USERROLEID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-    public partial class EntityObject : SMT.Saas.Tools.PermissionWS.StructuralObject {
-        
-        private SMT.Saas.Tools.PermissionWS.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
                 }
             }
         }
@@ -1849,214 +2461,84 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USER", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
-    public partial class T_SYS_USER : SMT.Saas.Tools.PermissionWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERLOGINRECORDHIS", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    public partial class T_SYS_USERLOGINRECORDHIS : SMT.Saas.Tools.PermissionWS.EntityObject {
         
-        private System.Nullable<System.DateTime> CREATEDATEField;
+        private System.Nullable<System.DateTime> LOGINDATEField;
         
-        private string CREATEUSERField;
+        private string LOGINIPField;
         
-        private string EMPLOYEECODEField;
+        private string LOGINRECORDHISIDField;
         
-        private string EMPLOYEEIDField;
+        private string LOGINTIMEField;
         
-        private string EMPLOYEENAMEField;
-        
-        private string ISENGINEMANAGERField;
-        
-        private string ISFLOWMANAGERField;
-        
-        private System.Nullable<decimal> ISMANGERField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string PASSWORDField;
+        private string ONLINESTATEField;
         
         private string REMARKField;
-        
-        private string STATEField;
-        
-        private string SYSUSERIDField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> T_SYS_USERROLEField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERField;
         
         private string USERNAMEField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
+        public System.Nullable<System.DateTime> LOGINDATE {
             get {
-                return this.CREATEDATEField;
+                return this.LOGINDATEField;
             }
             set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
+                if ((this.LOGINDATEField.Equals(value) != true)) {
+                    this.LOGINDATEField = value;
+                    this.RaisePropertyChanged("LOGINDATE");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSER {
+        public string LOGINIP {
             get {
-                return this.CREATEUSERField;
+                return this.LOGINIPField;
             }
             set {
-                if ((object.ReferenceEquals(this.CREATEUSERField, value) != true)) {
-                    this.CREATEUSERField = value;
-                    this.RaisePropertyChanged("CREATEUSER");
+                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
+                    this.LOGINIPField = value;
+                    this.RaisePropertyChanged("LOGINIP");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
+        public string LOGINRECORDHISID {
             get {
-                return this.EMPLOYEECODEField;
+                return this.LOGINRECORDHISIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
+                if ((object.ReferenceEquals(this.LOGINRECORDHISIDField, value) != true)) {
+                    this.LOGINRECORDHISIDField = value;
+                    this.RaisePropertyChanged("LOGINRECORDHISID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
+        public string LOGINTIME {
             get {
-                return this.EMPLOYEEIDField;
+                return this.LOGINTIMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
+                if ((object.ReferenceEquals(this.LOGINTIMEField, value) != true)) {
+                    this.LOGINTIMEField = value;
+                    this.RaisePropertyChanged("LOGINTIME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
+        public string ONLINESTATE {
             get {
-                return this.EMPLOYEENAMEField;
+                return this.ONLINESTATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
-                    this.EMPLOYEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISENGINEMANAGER {
-            get {
-                return this.ISENGINEMANAGERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ISENGINEMANAGERField, value) != true)) {
-                    this.ISENGINEMANAGERField = value;
-                    this.RaisePropertyChanged("ISENGINEMANAGER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISFLOWMANAGER {
-            get {
-                return this.ISFLOWMANAGERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ISFLOWMANAGERField, value) != true)) {
-                    this.ISFLOWMANAGERField = value;
-                    this.RaisePropertyChanged("ISFLOWMANAGER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ISMANGER {
-            get {
-                return this.ISMANGERField;
-            }
-            set {
-                if ((this.ISMANGERField.Equals(value) != true)) {
-                    this.ISMANGERField = value;
-                    this.RaisePropertyChanged("ISMANGER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PASSWORD {
-            get {
-                return this.PASSWORDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PASSWORDField, value) != true)) {
-                    this.PASSWORDField = value;
-                    this.RaisePropertyChanged("PASSWORD");
+                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
+                    this.ONLINESTATEField = value;
+                    this.RaisePropertyChanged("ONLINESTATE");
                 }
             }
         }
@@ -2075,40 +2557,84 @@ namespace SMT.Saas.Tools.PermissionWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string STATE {
+        public string USERNAME {
             get {
-                return this.STATEField;
+                return this.USERNAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.STATEField, value) != true)) {
-                    this.STATEField = value;
-                    this.RaisePropertyChanged("STATE");
+                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
+                    this.USERNAMEField = value;
+                    this.RaisePropertyChanged("USERNAME");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_COUNTRY", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    public partial class T_SYS_COUNTRY : SMT.Saas.Tools.PermissionWS.EntityObject {
+        
+        private string COUNTRYIDField;
+        
+        private string COUNTRYNAMEField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COUNTRYID {
+            get {
+                return this.COUNTRYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COUNTRYIDField, value) != true)) {
+                    this.COUNTRYIDField = value;
+                    this.RaisePropertyChanged("COUNTRYID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SYSUSERID {
+        public string COUNTRYNAME {
             get {
-                return this.SYSUSERIDField;
+                return this.COUNTRYNAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.SYSUSERIDField, value) != true)) {
-                    this.SYSUSERIDField = value;
-                    this.RaisePropertyChanged("SYSUSERID");
+                if ((object.ReferenceEquals(this.COUNTRYNAMEField, value) != true)) {
+                    this.COUNTRYNAMEField = value;
+                    this.RaisePropertyChanged("COUNTRYNAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> T_SYS_USERROLE {
+        public System.Nullable<System.DateTime> CREATEDATE {
             get {
-                return this.T_SYS_USERROLEField;
+                return this.CREATEDATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_SYS_USERROLEField, value) != true)) {
-                    this.T_SYS_USERROLEField = value;
-                    this.RaisePropertyChanged("T_SYS_USERROLE");
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
                 }
             }
         }
@@ -2135,19 +2661,6 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.UPDATEUSERField, value) != true)) {
                     this.UPDATEUSERField = value;
                     this.RaisePropertyChanged("UPDATEUSER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string USERNAME {
-            get {
-                return this.USERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
-                    this.USERNAMEField = value;
-                    this.RaisePropertyChanged("USERNAME");
                 }
             }
         }
@@ -2542,474 +3055,6 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERLOGINRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
-    public partial class T_SYS_USERLOGINRECORD : SMT.Saas.Tools.PermissionWS.EntityObject {
-        
-        private System.Nullable<System.DateTime> LOGINDATEField;
-        
-        private string LOGINIPField;
-        
-        private System.Nullable<decimal> LOGINMONTHField;
-        
-        private string LOGINRECORDIDField;
-        
-        private string LOGINTIMEField;
-        
-        private System.Nullable<decimal> LOGINYEARField;
-        
-        private string ONLINESTATEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERCOMPANYNAMEField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERDEPARTMENTNAMEField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERNAMEField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string OWNERPOSTNAMEField;
-        
-        private string REMARKField;
-        
-        private string USERNAMEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LOGINDATE {
-            get {
-                return this.LOGINDATEField;
-            }
-            set {
-                if ((this.LOGINDATEField.Equals(value) != true)) {
-                    this.LOGINDATEField = value;
-                    this.RaisePropertyChanged("LOGINDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINIP {
-            get {
-                return this.LOGINIPField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
-                    this.LOGINIPField = value;
-                    this.RaisePropertyChanged("LOGINIP");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LOGINMONTH {
-            get {
-                return this.LOGINMONTHField;
-            }
-            set {
-                if ((this.LOGINMONTHField.Equals(value) != true)) {
-                    this.LOGINMONTHField = value;
-                    this.RaisePropertyChanged("LOGINMONTH");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINRECORDID {
-            get {
-                return this.LOGINRECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINRECORDIDField, value) != true)) {
-                    this.LOGINRECORDIDField = value;
-                    this.RaisePropertyChanged("LOGINRECORDID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINTIME {
-            get {
-                return this.LOGINTIMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINTIMEField, value) != true)) {
-                    this.LOGINTIMEField = value;
-                    this.RaisePropertyChanged("LOGINTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> LOGINYEAR {
-            get {
-                return this.LOGINYEARField;
-            }
-            set {
-                if ((this.LOGINYEARField.Equals(value) != true)) {
-                    this.LOGINYEARField = value;
-                    this.RaisePropertyChanged("LOGINYEAR");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ONLINESTATE {
-            get {
-                return this.ONLINESTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
-                    this.ONLINESTATEField = value;
-                    this.RaisePropertyChanged("ONLINESTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYNAME {
-            get {
-                return this.OWNERCOMPANYNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYNAMEField, value) != true)) {
-                    this.OWNERCOMPANYNAMEField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTNAME {
-            get {
-                return this.OWNERDEPARTMENTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTNAMEField, value) != true)) {
-                    this.OWNERDEPARTMENTNAMEField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERNAME {
-            get {
-                return this.OWNERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERNAMEField, value) != true)) {
-                    this.OWNERNAMEField = value;
-                    this.RaisePropertyChanged("OWNERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTNAME {
-            get {
-                return this.OWNERPOSTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTNAMEField, value) != true)) {
-                    this.OWNERPOSTNAMEField = value;
-                    this.RaisePropertyChanged("OWNERPOSTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string USERNAME {
-            get {
-                return this.USERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
-                    this.USERNAMEField = value;
-                    this.RaisePropertyChanged("USERNAME");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERLOGINRECORDHIS", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
-    public partial class T_SYS_USERLOGINRECORDHIS : SMT.Saas.Tools.PermissionWS.EntityObject {
-        
-        private System.Nullable<System.DateTime> LOGINDATEField;
-        
-        private string LOGINIPField;
-        
-        private string LOGINRECORDHISIDField;
-        
-        private string LOGINTIMEField;
-        
-        private string ONLINESTATEField;
-        
-        private string REMARKField;
-        
-        private string USERNAMEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> LOGINDATE {
-            get {
-                return this.LOGINDATEField;
-            }
-            set {
-                if ((this.LOGINDATEField.Equals(value) != true)) {
-                    this.LOGINDATEField = value;
-                    this.RaisePropertyChanged("LOGINDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINIP {
-            get {
-                return this.LOGINIPField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
-                    this.LOGINIPField = value;
-                    this.RaisePropertyChanged("LOGINIP");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINRECORDHISID {
-            get {
-                return this.LOGINRECORDHISIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINRECORDHISIDField, value) != true)) {
-                    this.LOGINRECORDHISIDField = value;
-                    this.RaisePropertyChanged("LOGINRECORDHISID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINTIME {
-            get {
-                return this.LOGINTIMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINTIMEField, value) != true)) {
-                    this.LOGINTIMEField = value;
-                    this.RaisePropertyChanged("LOGINTIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ONLINESTATE {
-            get {
-                return this.ONLINESTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
-                    this.ONLINESTATEField = value;
-                    this.RaisePropertyChanged("ONLINESTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string USERNAME {
-            get {
-                return this.USERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
-                    this.USERNAMEField = value;
-                    this.RaisePropertyChanged("USERNAME");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_COUNTRY", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
-    public partial class T_SYS_COUNTRY : SMT.Saas.Tools.PermissionWS.EntityObject {
-        
-        private string COUNTRYIDField;
-        
-        private string COUNTRYNAMEField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COUNTRYID {
-            get {
-                return this.COUNTRYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COUNTRYIDField, value) != true)) {
-                    this.COUNTRYIDField = value;
-                    this.RaisePropertyChanged("COUNTRYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COUNTRYNAME {
-            get {
-                return this.COUNTRYNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COUNTRYNAMEField, value) != true)) {
-                    this.COUNTRYNAMEField = value;
-                    this.RaisePropertyChanged("COUNTRYNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSER {
-            get {
-                return this.UPDATEUSERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERField, value) != true)) {
-                    this.UPDATEUSERField = value;
-                    this.RaisePropertyChanged("UPDATEUSER");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_DICTIONARY", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
     public partial class T_SYS_DICTIONARY : SMT.Saas.Tools.PermissionWS.EntityObject {
         
@@ -3331,24 +3376,7 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLECIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ROLECIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_USERCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_USERCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -3356,9 +3384,13 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -3370,16 +3402,9 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -3396,13 +3421,24 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -3416,22 +3452,19 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;
@@ -3460,186 +3493,6 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.ValueField, value) != true)) {
                     this.ValueField = value;
                     this.RaisePropertyChanged("Value");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerPermission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
-    public partial class CustomerPermission : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string EntityMenuIdField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValueField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string EntityMenuId {
-            get {
-                return this.EntityMenuIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityMenuIdField, value) != true)) {
-                    this.EntityMenuIdField = value;
-                    this.RaisePropertyChanged("EntityMenuId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValue {
-            get {
-                return this.PermissionValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionValueField, value) != true)) {
-                    this.PermissionValueField = value;
-                    this.RaisePropertyChanged("PermissionValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PermissionValue", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
-    public partial class PermissionValue : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject> OrgObjectsField;
-        
-        private string PermissionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject> OrgObjects {
-            get {
-                return this.OrgObjectsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrgObjectsField, value) != true)) {
-                    this.OrgObjectsField = value;
-                    this.RaisePropertyChanged("OrgObjects");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string Permission {
-            get {
-                return this.PermissionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionField, value) != true)) {
-                    this.PermissionField = value;
-                    this.RaisePropertyChanged("Permission");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrgObject", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
-    public partial class OrgObject : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string OrgIDField;
-        
-        private string OrgTypeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string OrgID {
-            get {
-                return this.OrgIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrgIDField, value) != true)) {
-                    this.OrgIDField = value;
-                    this.RaisePropertyChanged("OrgID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public string OrgType {
-            get {
-                return this.OrgTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrgTypeField, value) != true)) {
-                    this.OrgTypeField = value;
-                    this.RaisePropertyChanged("OrgType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserLoginRecord", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
-    public partial class V_UserLoginRecord : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_USER sysuserField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD userloginrecordField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER sysuser {
-            get {
-                return this.sysuserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.sysuserField, value) != true)) {
-                    this.sysuserField = value;
-                    this.RaisePropertyChanged("sysuser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD userloginrecord {
-            get {
-                return this.userloginrecordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userloginrecordField, value) != true)) {
-                    this.userloginrecordField = value;
-                    this.RaisePropertyChanged("userloginrecord");
                 }
             }
         }
@@ -3881,6 +3734,263 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerPermission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
+    public partial class CustomerPermission : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EntityMenuIdField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string EntityMenuId {
+            get {
+                return this.EntityMenuIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityMenuIdField, value) != true)) {
+                    this.EntityMenuIdField = value;
+                    this.RaisePropertyChanged("EntityMenuId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValue {
+            get {
+                return this.PermissionValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionValueField, value) != true)) {
+                    this.PermissionValueField = value;
+                    this.RaisePropertyChanged("PermissionValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PermissionValue", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
+    public partial class PermissionValue : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject> OrgObjectsField;
+        
+        private string PermissionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject> OrgObjects {
+            get {
+                return this.OrgObjectsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrgObjectsField, value) != true)) {
+                    this.OrgObjectsField = value;
+                    this.RaisePropertyChanged("OrgObjects");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Permission {
+            get {
+                return this.PermissionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionField, value) != true)) {
+                    this.PermissionField = value;
+                    this.RaisePropertyChanged("Permission");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrgObject", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views")]
+    public partial class OrgObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string OrgIDField;
+        
+        private string OrgTypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string OrgID {
+            get {
+                return this.OrgIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrgIDField, value) != true)) {
+                    this.OrgIDField = value;
+                    this.RaisePropertyChanged("OrgID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string OrgType {
+            get {
+                return this.OrgTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrgTypeField, value) != true)) {
+                    this.OrgTypeField = value;
+                    this.RaisePropertyChanged("OrgType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+    public partial class EntityReference : SMT.Saas.Tools.PermissionWS.RelatedEnd {
+        
+        private SMT.Saas.Tools.PermissionWS.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_PERMISSIONCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_PERMISSIONCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLECIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ROLECIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_USERCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_USERCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_FBADMINCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_FBADMINCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_DICTIONARYCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_DICTIONARYCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityNames", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL")]
+    public enum EntityNames : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysDictionary = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysMenu = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysPermission = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysPermMenu = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysRole = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysRolePerm = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysUserRole = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SysUser = 7,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLE_V", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel")]
     public partial class T_SYS_ROLE_V : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -3985,686 +4095,6 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.UPDATEUSERNAMEField, value) != true)) {
                     this.UPDATEUSERNAMEField = value;
                     this.RaisePropertyChanged("UPDATEUSERNAME");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityNames", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL")]
-    public enum EntityNames : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysDictionary = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysMenu = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysPermission = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysPermMenu = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysRole = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysRolePerm = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysUserRole = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SysUser = 7,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-    public partial class EntityReference : SMT.Saas.Tools.PermissionWS.RelatedEnd {
-        
-        private SMT.Saas.Tools.PermissionWS.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_PERMISSIONCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_PERMISSIONCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_FBADMINCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_FBADMINCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_DICTIONARYCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_DICTIONARYCIR1sILv : SMT.Saas.Tools.PermissionWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_Permission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
-    public partial class V_Permission : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU EntityMenuField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU EntityRoleField;
-        
-        private int FlagField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION PermissionField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLE RoleField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION RoleMenuPermissionField;
-        
-        private SMT.Saas.Tools.PermissionWS.T_SYS_USER SysUserField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU EntityMenu {
-            get {
-                return this.EntityMenuField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityMenuField, value) != true)) {
-                    this.EntityMenuField = value;
-                    this.RaisePropertyChanged("EntityMenu");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU EntityRole {
-            get {
-                return this.EntityRoleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityRoleField, value) != true)) {
-                    this.EntityRoleField = value;
-                    this.RaisePropertyChanged("EntityRole");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Flag {
-            get {
-                return this.FlagField;
-            }
-            set {
-                if ((this.FlagField.Equals(value) != true)) {
-                    this.FlagField = value;
-                    this.RaisePropertyChanged("Flag");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION Permission {
-            get {
-                return this.PermissionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionField, value) != true)) {
-                    this.PermissionField = value;
-                    this.RaisePropertyChanged("Permission");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLE Role {
-            get {
-                return this.RoleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
-                    this.RoleField = value;
-                    this.RaisePropertyChanged("Role");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION RoleMenuPermission {
-            get {
-                return this.RoleMenuPermissionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleMenuPermissionField, value) != true)) {
-                    this.RoleMenuPermissionField = value;
-                    this.RaisePropertyChanged("RoleMenuPermission");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER SysUser {
-            get {
-                return this.SysUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SysUserField, value) != true)) {
-                    this.SysUserField = value;
-                    this.RaisePropertyChanged("SysUser");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermissionUI", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
-    public partial class V_UserPermissionUI : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermissionField;
-        
-        private string DataRangeField;
-        
-        private string EntityMenuIDField;
-        
-        private string MenuCodeField;
-        
-        private string PermissionValueField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermission {
-            get {
-                return this.CustomerPermissionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustomerPermissionField, value) != true)) {
-                    this.CustomerPermissionField = value;
-                    this.RaisePropertyChanged("CustomerPermission");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DataRange {
-            get {
-                return this.DataRangeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DataRangeField, value) != true)) {
-                    this.DataRangeField = value;
-                    this.RaisePropertyChanged("DataRange");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntityMenuID {
-            get {
-                return this.EntityMenuIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
-                    this.EntityMenuIDField = value;
-                    this.RaisePropertyChanged("EntityMenuID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MenuCode {
-            get {
-                return this.MenuCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MenuCodeField, value) != true)) {
-                    this.MenuCodeField = value;
-                    this.RaisePropertyChanged("MenuCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PermissionValue {
-            get {
-                return this.PermissionValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionValueField, value) != true)) {
-                    this.PermissionValueField = value;
-                    this.RaisePropertyChanged("PermissionValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
-    public partial class V_UserPermission : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string EntityMenuIDField;
-        
-        private string EntityRoleIDField;
-        
-        private string PermissionDataRangeField;
-        
-        private string RoleIDField;
-        
-        private string RoleMenuPermissionValueField;
-        
-        private string SysUserIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntityMenuID {
-            get {
-                return this.EntityMenuIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
-                    this.EntityMenuIDField = value;
-                    this.RaisePropertyChanged("EntityMenuID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntityRoleID {
-            get {
-                return this.EntityRoleIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityRoleIDField, value) != true)) {
-                    this.EntityRoleIDField = value;
-                    this.RaisePropertyChanged("EntityRoleID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PermissionDataRange {
-            get {
-                return this.PermissionDataRangeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionDataRangeField, value) != true)) {
-                    this.PermissionDataRangeField = value;
-                    this.RaisePropertyChanged("PermissionDataRange");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleID {
-            get {
-                return this.RoleIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleIDField, value) != true)) {
-                    this.RoleIDField = value;
-                    this.RaisePropertyChanged("RoleID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleMenuPermissionValue {
-            get {
-                return this.RoleMenuPermissionValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleMenuPermissionValueField, value) != true)) {
-                    this.RoleMenuPermissionValueField = value;
-                    this.RaisePropertyChanged("RoleMenuPermissionValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SysUserID {
-            get {
-                return this.SysUserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SysUserIDField, value) != true)) {
-                    this.SysUserIDField = value;
-                    this.RaisePropertyChanged("SysUserID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermissionRoleID", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
-    public partial class V_UserPermissionRoleID : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string EntityMenuIDField;
-        
-        private string PermissionDataRangeField;
-        
-        private string PermissionIDField;
-        
-        private string RoleEntityMenuIDField;
-        
-        private string RoleEntityPermissionIDField;
-        
-        private string RoleIDField;
-        
-        private string SysUserIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntityMenuID {
-            get {
-                return this.EntityMenuIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
-                    this.EntityMenuIDField = value;
-                    this.RaisePropertyChanged("EntityMenuID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PermissionDataRange {
-            get {
-                return this.PermissionDataRangeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionDataRangeField, value) != true)) {
-                    this.PermissionDataRangeField = value;
-                    this.RaisePropertyChanged("PermissionDataRange");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PermissionID {
-            get {
-                return this.PermissionIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PermissionIDField, value) != true)) {
-                    this.PermissionIDField = value;
-                    this.RaisePropertyChanged("PermissionID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleEntityMenuID {
-            get {
-                return this.RoleEntityMenuIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleEntityMenuIDField, value) != true)) {
-                    this.RoleEntityMenuIDField = value;
-                    this.RaisePropertyChanged("RoleEntityMenuID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleEntityPermissionID {
-            get {
-                return this.RoleEntityPermissionIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleEntityPermissionIDField, value) != true)) {
-                    this.RoleEntityPermissionIDField = value;
-                    this.RaisePropertyChanged("RoleEntityPermissionID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleID {
-            get {
-                return this.RoleIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleIDField, value) != true)) {
-                    this.RoleIDField = value;
-                    this.RaisePropertyChanged("RoleID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SysUserID {
-            get {
-                return this.SysUserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SysUserIDField, value) != true)) {
-                    this.SysUserIDField = value;
-                    this.RaisePropertyChanged("SysUserID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_OnlineUser", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
-    public partial class V_OnlineUser : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string EMPLOYEECODEField;
-        
-        private string EMPLOYEEIDField;
-        
-        private string EMPLOYEENAMEField;
-        
-        private System.DateTime LOGINDATEField;
-        
-        private string LOGINIPField;
-        
-        private string ONLINESTATEField;
-        
-        private string SYSUSERIDField;
-        
-        private string USERNAMEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEECODE {
-            get {
-                return this.EMPLOYEECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
-                    this.EMPLOYEECODEField = value;
-                    this.RaisePropertyChanged("EMPLOYEECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEEID {
-            get {
-                return this.EMPLOYEEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
-                    this.EMPLOYEEIDField = value;
-                    this.RaisePropertyChanged("EMPLOYEEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMPLOYEENAME {
-            get {
-                return this.EMPLOYEENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
-                    this.EMPLOYEENAMEField = value;
-                    this.RaisePropertyChanged("EMPLOYEENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime LOGINDATE {
-            get {
-                return this.LOGINDATEField;
-            }
-            set {
-                if ((this.LOGINDATEField.Equals(value) != true)) {
-                    this.LOGINDATEField = value;
-                    this.RaisePropertyChanged("LOGINDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LOGINIP {
-            get {
-                return this.LOGINIPField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
-                    this.LOGINIPField = value;
-                    this.RaisePropertyChanged("LOGINIP");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ONLINESTATE {
-            get {
-                return this.ONLINESTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
-                    this.ONLINESTATEField = value;
-                    this.RaisePropertyChanged("ONLINESTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SYSUSERID {
-            get {
-                return this.SYSUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SYSUSERIDField, value) != true)) {
-                    this.SYSUSERIDField = value;
-                    this.RaisePropertyChanged("SYSUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string USERNAME {
-            get {
-                return this.USERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
-                    this.USERNAMEField = value;
-                    this.RaisePropertyChanged("USERNAME");
                 }
             }
         }
@@ -5821,6 +5251,576 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_Permission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
+    public partial class V_Permission : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU EntityMenuField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU EntityRoleField;
+        
+        private int FlagField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION PermissionField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLE RoleField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION RoleMenuPermissionField;
+        
+        private SMT.Saas.Tools.PermissionWS.T_SYS_USER SysUserField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU EntityMenu {
+            get {
+                return this.EntityMenuField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityMenuField, value) != true)) {
+                    this.EntityMenuField = value;
+                    this.RaisePropertyChanged("EntityMenu");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU EntityRole {
+            get {
+                return this.EntityRoleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityRoleField, value) != true)) {
+                    this.EntityRoleField = value;
+                    this.RaisePropertyChanged("EntityRole");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Flag {
+            get {
+                return this.FlagField;
+            }
+            set {
+                if ((this.FlagField.Equals(value) != true)) {
+                    this.FlagField = value;
+                    this.RaisePropertyChanged("Flag");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION Permission {
+            get {
+                return this.PermissionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionField, value) != true)) {
+                    this.PermissionField = value;
+                    this.RaisePropertyChanged("Permission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLE Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION RoleMenuPermission {
+            get {
+                return this.RoleMenuPermissionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleMenuPermissionField, value) != true)) {
+                    this.RoleMenuPermissionField = value;
+                    this.RaisePropertyChanged("RoleMenuPermission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER SysUser {
+            get {
+                return this.SysUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SysUserField, value) != true)) {
+                    this.SysUserField = value;
+                    this.RaisePropertyChanged("SysUser");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermissionUI", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
+    public partial class V_UserPermissionUI : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermissionField;
+        
+        private string DataRangeField;
+        
+        private string EntityMenuIDField;
+        
+        private string MenuCodeField;
+        
+        private string PermissionValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermission {
+            get {
+                return this.CustomerPermissionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerPermissionField, value) != true)) {
+                    this.CustomerPermissionField = value;
+                    this.RaisePropertyChanged("CustomerPermission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DataRange {
+            get {
+                return this.DataRangeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataRangeField, value) != true)) {
+                    this.DataRangeField = value;
+                    this.RaisePropertyChanged("DataRange");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityMenuID {
+            get {
+                return this.EntityMenuIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
+                    this.EntityMenuIDField = value;
+                    this.RaisePropertyChanged("EntityMenuID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MenuCode {
+            get {
+                return this.MenuCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MenuCodeField, value) != true)) {
+                    this.MenuCodeField = value;
+                    this.RaisePropertyChanged("MenuCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PermissionValue {
+            get {
+                return this.PermissionValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionValueField, value) != true)) {
+                    this.PermissionValueField = value;
+                    this.RaisePropertyChanged("PermissionValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermission", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
+    public partial class V_UserPermission : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EntityMenuIDField;
+        
+        private string EntityRoleIDField;
+        
+        private string PermissionDataRangeField;
+        
+        private string RoleIDField;
+        
+        private string RoleMenuPermissionValueField;
+        
+        private string SysUserIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityMenuID {
+            get {
+                return this.EntityMenuIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
+                    this.EntityMenuIDField = value;
+                    this.RaisePropertyChanged("EntityMenuID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityRoleID {
+            get {
+                return this.EntityRoleIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityRoleIDField, value) != true)) {
+                    this.EntityRoleIDField = value;
+                    this.RaisePropertyChanged("EntityRoleID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PermissionDataRange {
+            get {
+                return this.PermissionDataRangeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionDataRangeField, value) != true)) {
+                    this.PermissionDataRangeField = value;
+                    this.RaisePropertyChanged("PermissionDataRange");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleID {
+            get {
+                return this.RoleIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleIDField, value) != true)) {
+                    this.RoleIDField = value;
+                    this.RaisePropertyChanged("RoleID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleMenuPermissionValue {
+            get {
+                return this.RoleMenuPermissionValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleMenuPermissionValueField, value) != true)) {
+                    this.RoleMenuPermissionValueField = value;
+                    this.RaisePropertyChanged("RoleMenuPermissionValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SysUserID {
+            get {
+                return this.SysUserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SysUserIDField, value) != true)) {
+                    this.SysUserIDField = value;
+                    this.RaisePropertyChanged("SysUserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermissionRoleID", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
+    public partial class V_UserPermissionRoleID : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EntityMenuIDField;
+        
+        private string PermissionDataRangeField;
+        
+        private string PermissionIDField;
+        
+        private string RoleEntityMenuIDField;
+        
+        private string RoleEntityPermissionIDField;
+        
+        private string RoleIDField;
+        
+        private string SysUserIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityMenuID {
+            get {
+                return this.EntityMenuIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
+                    this.EntityMenuIDField = value;
+                    this.RaisePropertyChanged("EntityMenuID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PermissionDataRange {
+            get {
+                return this.PermissionDataRangeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionDataRangeField, value) != true)) {
+                    this.PermissionDataRangeField = value;
+                    this.RaisePropertyChanged("PermissionDataRange");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PermissionID {
+            get {
+                return this.PermissionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PermissionIDField, value) != true)) {
+                    this.PermissionIDField = value;
+                    this.RaisePropertyChanged("PermissionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleEntityMenuID {
+            get {
+                return this.RoleEntityMenuIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleEntityMenuIDField, value) != true)) {
+                    this.RoleEntityMenuIDField = value;
+                    this.RaisePropertyChanged("RoleEntityMenuID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleEntityPermissionID {
+            get {
+                return this.RoleEntityPermissionIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleEntityPermissionIDField, value) != true)) {
+                    this.RoleEntityPermissionIDField = value;
+                    this.RaisePropertyChanged("RoleEntityPermissionID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleID {
+            get {
+                return this.RoleIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleIDField, value) != true)) {
+                    this.RoleIDField = value;
+                    this.RaisePropertyChanged("RoleID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SysUserID {
+            get {
+                return this.SysUserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SysUserIDField, value) != true)) {
+                    this.SysUserIDField = value;
+                    this.RaisePropertyChanged("SysUserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_OnlineUser", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL")]
+    public partial class V_OnlineUser : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string EMPLOYEECODEField;
+        
+        private string EMPLOYEEIDField;
+        
+        private string EMPLOYEENAMEField;
+        
+        private System.DateTime LOGINDATEField;
+        
+        private string LOGINIPField;
+        
+        private string ONLINESTATEField;
+        
+        private string SYSUSERIDField;
+        
+        private string USERNAMEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEECODE {
+            get {
+                return this.EMPLOYEECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEECODEField, value) != true)) {
+                    this.EMPLOYEECODEField = value;
+                    this.RaisePropertyChanged("EMPLOYEECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEEID {
+            get {
+                return this.EMPLOYEEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEIDField, value) != true)) {
+                    this.EMPLOYEEIDField = value;
+                    this.RaisePropertyChanged("EMPLOYEEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMPLOYEENAME {
+            get {
+                return this.EMPLOYEENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEENAMEField, value) != true)) {
+                    this.EMPLOYEENAMEField = value;
+                    this.RaisePropertyChanged("EMPLOYEENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LOGINDATE {
+            get {
+                return this.LOGINDATEField;
+            }
+            set {
+                if ((this.LOGINDATEField.Equals(value) != true)) {
+                    this.LOGINDATEField = value;
+                    this.RaisePropertyChanged("LOGINDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LOGINIP {
+            get {
+                return this.LOGINIPField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LOGINIPField, value) != true)) {
+                    this.LOGINIPField = value;
+                    this.RaisePropertyChanged("LOGINIP");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ONLINESTATE {
+            get {
+                return this.ONLINESTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ONLINESTATEField, value) != true)) {
+                    this.ONLINESTATEField = value;
+                    this.RaisePropertyChanged("ONLINESTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SYSUSERID {
+            get {
+                return this.SYSUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SYSUSERIDField, value) != true)) {
+                    this.SYSUSERIDField = value;
+                    this.RaisePropertyChanged("SYSUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string USERNAME {
+            get {
+                return this.USERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.USERNAMEField, value) != true)) {
+                    this.USERNAMEField = value;
+                    this.RaisePropertyChanged("USERNAME");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UploadFileModel", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services")]
     public partial class UploadFileModel : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -6003,575 +6003,12 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PermissionWS.PermissionService")]
     public interface PermissionService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByType", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByTypeResponse")]
-        System.IAsyncResult BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByType(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByID", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByIDResponse")]
-        System.IAsyncResult BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE EndGetSysUserRoleByID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByUser", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByUserResponse")]
-        System.IAsyncResult BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByUser(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserByRole", ReplyAction="http://tempuri.org/PermissionService/GetSysUserByRoleResponse")]
-        System.IAsyncResult BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRole(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserRoleBatchAddInfos", ReplyAction="http://tempuri.org/PermissionService/UserRoleBatchAddInfosResponse")]
-        System.IAsyncResult BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState);
-        
-        bool EndUserRoleBatchAddInfos(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/BatchAddUserRole", ReplyAction="http://tempuri.org/PermissionService/BatchAddUserRoleResponse")]
-        System.IAsyncResult BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState);
-        
-        bool EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserRoleUpdateInfo", ReplyAction="http://tempuri.org/PermissionService/UserRoleUpdateInfoResponse")]
-        System.IAsyncResult BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState);
-        
-        void EndUserRoleUpdateInfo(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserRoleUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserRoleUpdateResponse")]
-        System.IAsyncResult BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState);
-        
-        void EndSysUserRoleUpdate(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserRoleDelete", ReplyAction="http://tempuri.org/PermissionService/SysUserRoleDeleteResponse")]
-        System.IAsyncResult BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState);
-        
-        void EndSysUserRoleDelete(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserInfo", ReplyAction="http://tempuri.org/PermissionService/GetUserInfoResponse")]
-        System.IAsyncResult BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserInfo(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserByID", ReplyAction="http://tempuri.org/PermissionService/GetUserByIDResponse")]
-        System.IAsyncResult BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserByEmployeeID", ReplyAction="http://tempuri.org/PermissionService/GetUserByEmployeeIDResponse")]
-        System.IAsyncResult BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByEmployeeID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionByUser", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionByUserResponse")]
-        System.IAsyncResult BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserPermissionByUser(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UpdateFbAdmin", ReplyAction="http://tempuri.org/PermissionService/UpdateFbAdminResponse")]
-        System.IAsyncResult BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState);
-        
-        string EndUpdateFbAdmin(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionByUserToUI", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionByUserToUIResponse")]
-        System.IAsyncResult BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetUserPermissionByUserToUI(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetEntityPermissionByUser", ReplyAction="http://tempuri.org/PermissionService/GetEntityPermissionByUserResponse")]
-        System.IAsyncResult BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetEntityPermissionByUser(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserMenuPerms", ReplyAction="http://tempuri.org/PermissionService/GetUserMenuPermsResponse")]
-        System.IAsyncResult BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserMenuPerms(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermission", ReplyAction="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermissionResponse")]
-        System.IAsyncResult BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> EndGetUserMenuPermsByUserPermission(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetPermissionByRoleID", ReplyAction="http://tempuri.org/PermissionService/GetPermissionByRoleIDResponse")]
-        System.IAsyncResult BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetPermissionByRoleID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecond", ReplyAction="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecondResponse")]
-        System.IAsyncResult BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> EndGetPermissionByRoleIDSecond(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionAll", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionAllResponse")]
-        System.IAsyncResult BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetUserPermissionAll(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserLogin", ReplyAction="http://tempuri.org/PermissionService/UserLoginResponse")]
-        System.IAsyncResult BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndUserLogin(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetOnLineUsers", ReplyAction="http://tempuri.org/PermissionService/GetOnLineUsersResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
-        System.IAsyncResult BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetLookupOjbects", ReplyAction="http://tempuri.org/PermissionService/GetLookupOjbectsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
-        System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
-        
-        string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoAdd", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoAddResponse")]
-        System.IAsyncResult BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState);
-        
-        string EndSysUserInfoAdd(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoAddORUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoAddORUpdateResponse")]
-        System.IAsyncResult BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState);
-        
-        void EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/IsExistSysUserInfo", ReplyAction="http://tempuri.org/PermissionService/IsExistSysUserInfoResponse")]
-        System.IAsyncResult BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState);
-        
-        bool EndIsExistSysUserInfo(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateResponse")]
-        System.IAsyncResult BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserInfoUpdate(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateForEmployeeLeft", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateForEmployeeLeftResponse")]
-        System.IAsyncResult BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateByUserIdandUsername", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateByUserIdandUsernameResponse" +
-            "")]
-        System.IAsyncResult BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateToRtxAndEmail", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateToRtxAndEmailResponse")]
-        System.IAsyncResult BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfos", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosResponse")]
-        System.IAsyncResult BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfos(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
-        System.IAsyncResult BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDs", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDsResponse" +
-            "")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
-        System.IAsyncResult BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserBatchDel", ReplyAction="http://tempuri.org/PermissionService/SysUserBatchDelResponse")]
-        System.IAsyncResult BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState);
-        
-        string EndSysUserBatchDel(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserBatchUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserBatchUpdateResponse")]
-        System.IAsyncResult BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState);
-        
-        string EndSysUserBatchUpdate(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAdd", ReplyAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAddResponse")]
-        System.IAsyncResult BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserLoginRecordInfoAdd(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdateResponse")]
-        System.IAsyncResult BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState);
-        
-        bool EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfos", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosResponse")]
-        System.IAsyncResult BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfos(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserLoginOut", ReplyAction="http://tempuri.org/PermissionService/UserLoginOutResponse")]
-        System.IAsyncResult BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState);
-        
-        bool EndUserLoginOut(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserLoginOperation", ReplyAction="http://tempuri.org/PermissionService/UserLoginOperationResponse")]
         System.IAsyncResult BeginUserLoginOperation(string UserID, string LoginRecordId, bool IsLogin, System.AsyncCallback callback, object asyncState);
         
         bool EndUserLoginOperation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -6579,9 +6016,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -6593,16 +6035,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -6619,13 +6054,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -6639,23 +6085,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysUserLoginRecordInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfosPaging(ref int pageCount, System.IAsyncResult result);
@@ -6689,11 +6131,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPagingRe" +
             "sponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -6701,9 +6138,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -6715,16 +6157,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -6741,13 +6176,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -6761,23 +6207,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysUserLoginHistoryRecordAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory> EndGetSysUserLoginHistoryRecordAllInfosPaging(ref int pageCount, System.IAsyncResult result);
@@ -6843,11 +6285,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary> EndGetDictionaryByCategoryArray(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetRoleInfosByUser", ReplyAction="http://tempuri.org/PermissionService/GetRoleInfosByUserResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -6855,9 +6292,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -6869,16 +6311,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -6895,13 +6330,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -6915,23 +6361,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetRoleInfosByUser(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string flagState, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetRoleInfosByUser(ref int pageCount, System.IAsyncResult result);
@@ -7011,6 +6453,11 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState EndGetLatestTimeOfPermission(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetFlowManagers", ReplyAction="http://tempuri.org/PermissionService/GetFlowManagersResponse")]
+        System.IAsyncResult BeginGetFlowManagers(System.Collections.ObjectModel.ObservableCollection<string> companyIDs, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetFlowManagers(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysLeftMenu", ReplyAction="http://tempuri.org/PermissionService/GetSysLeftMenuResponse")]
         System.IAsyncResult BeginGetSysLeftMenu(string sysType, string userID, System.AsyncCallback callback, object asyncState);
         
@@ -7070,11 +6517,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU> EndGetSysMenuByTypeToLookUpForFbAdmin(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysMenuByTypePaging", ReplyAction="http://tempuri.org/PermissionService/GetSysMenuByTypePagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7082,9 +6524,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7096,16 +6543,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7122,13 +6562,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7142,23 +6593,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysMenuByTypePaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU> EndGetSysMenuByTypePaging(ref int pageCount, System.IAsyncResult result);
@@ -7298,11 +6745,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION> EndGetSysPermissionByEntityID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysPermissionAllPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysPermissionAllPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7310,9 +6752,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7324,16 +6771,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7350,13 +6790,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7370,23 +6821,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysPermissionAllPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION> EndGetSysPermissionAllPaging(ref int pageCount, System.IAsyncResult result);
@@ -7420,6 +6867,11 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.IAsyncResult BeginFindSysPermissionByStr(string sName, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION> EndFindSysPermissionByStr(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/CopyRoleInfo", ReplyAction="http://tempuri.org/PermissionService/CopyRoleInfoResponse")]
+        System.IAsyncResult BeginCopyRoleInfo(string roleID, System.AsyncCallback callback, object asyncState);
+        
+        bool EndCopyRoleInfo(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysRoleInfoAdd", ReplyAction="http://tempuri.org/PermissionService/SysRoleInfoAddResponse")]
         System.IAsyncResult BeginSysRoleInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE obj, System.AsyncCallback callback, object asyncState);
@@ -7460,11 +6912,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosByCompanyIdAndDepartmentId(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysRoleInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysRoleInfosPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7472,9 +6919,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7486,16 +6938,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7512,13 +6957,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7532,33 +6988,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysRoleInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDs", ReplyAction="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7566,9 +7013,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7580,16 +7032,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7606,13 +7051,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7626,33 +7082,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysRoleInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetRoleView", ReplyAction="http://tempuri.org/PermissionService/GetRoleViewResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7660,9 +7107,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7674,16 +7126,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7700,13 +7145,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7720,23 +7176,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetRoleView(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V> EndGetRoleView(ref int pageCount, System.IAsyncResult result);
@@ -7818,11 +7270,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY> EndGetSysDictionaryByFilter(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
@@ -7830,9 +7277,14 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
@@ -7844,16 +7296,9 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
@@ -7870,13 +7315,24 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
@@ -7890,23 +7346,19 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
         System.IAsyncResult BeginGetSysDictionaryByFilterPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY> EndGetSysDictionaryByFilterPaging(ref int pageCount, System.IAsyncResult result);
@@ -7976,755 +7428,578 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.IAsyncResult BeginGetCustomCompanyMenuPerms(string menuCode, string companyID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM> EndGetCustomCompanyMenuPerms(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByType", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByTypeResponse")]
+        System.IAsyncResult BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByType(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByID", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByIDResponse")]
+        System.IAsyncResult BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE EndGetSysUserRoleByID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserRoleByUser", ReplyAction="http://tempuri.org/PermissionService/GetSysUserRoleByUserResponse")]
+        System.IAsyncResult BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserByRole", ReplyAction="http://tempuri.org/PermissionService/GetSysUserByRoleResponse")]
+        System.IAsyncResult BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRole(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserByRoleToEmployeeLeave", ReplyAction="http://tempuri.org/PermissionService/GetSysUserByRoleToEmployeeLeaveResponse")]
+        System.IAsyncResult BeginGetSysUserByRoleToEmployeeLeave(string roleID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRoleToEmployeeLeave(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserRoleBatchAddInfos", ReplyAction="http://tempuri.org/PermissionService/UserRoleBatchAddInfosResponse")]
+        System.IAsyncResult BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState);
+        
+        bool EndUserRoleBatchAddInfos(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/BatchAddUserRole", ReplyAction="http://tempuri.org/PermissionService/BatchAddUserRoleResponse")]
+        System.IAsyncResult BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState);
+        
+        bool EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserRoleUpdateInfo", ReplyAction="http://tempuri.org/PermissionService/UserRoleUpdateInfoResponse")]
+        System.IAsyncResult BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState);
+        
+        void EndUserRoleUpdateInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserRoleUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserRoleUpdateResponse")]
+        System.IAsyncResult BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState);
+        
+        void EndSysUserRoleUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserRoleDelete", ReplyAction="http://tempuri.org/PermissionService/SysUserRoleDeleteResponse")]
+        System.IAsyncResult BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState);
+        
+        void EndSysUserRoleDelete(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserInfo", ReplyAction="http://tempuri.org/PermissionService/GetUserInfoResponse")]
+        System.IAsyncResult BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserByID", ReplyAction="http://tempuri.org/PermissionService/GetUserByIDResponse")]
+        System.IAsyncResult BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserByEmployeeID", ReplyAction="http://tempuri.org/PermissionService/GetUserByEmployeeIDResponse")]
+        System.IAsyncResult BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByEmployeeID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionByUser", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionByUserResponse")]
+        System.IAsyncResult BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserPermissionByUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UpdateFbAdmin", ReplyAction="http://tempuri.org/PermissionService/UpdateFbAdminResponse")]
+        System.IAsyncResult BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState);
+        
+        string EndUpdateFbAdmin(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionByUserToUI", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionByUserToUIResponse")]
+        System.IAsyncResult BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetUserPermissionByUserToUI(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetEntityPermissionByUser", ReplyAction="http://tempuri.org/PermissionService/GetEntityPermissionByUserResponse")]
+        System.IAsyncResult BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetEntityPermissionByUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserMenuPerms", ReplyAction="http://tempuri.org/PermissionService/GetUserMenuPermsResponse")]
+        System.IAsyncResult BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserMenuPerms(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermission", ReplyAction="http://tempuri.org/PermissionService/GetUserMenuPermsByUserPermissionResponse")]
+        System.IAsyncResult BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> EndGetUserMenuPermsByUserPermission(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetPermissionByRoleID", ReplyAction="http://tempuri.org/PermissionService/GetPermissionByRoleIDResponse")]
+        System.IAsyncResult BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetPermissionByRoleID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecond", ReplyAction="http://tempuri.org/PermissionService/GetPermissionByRoleIDSecondResponse")]
+        System.IAsyncResult BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> EndGetPermissionByRoleIDSecond(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetUserPermissionAll", ReplyAction="http://tempuri.org/PermissionService/GetUserPermissionAllResponse")]
+        System.IAsyncResult BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetUserPermissionAll(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserLogin", ReplyAction="http://tempuri.org/PermissionService/UserLoginResponse")]
+        System.IAsyncResult BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER EndUserLogin(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetOnLineUsers", ReplyAction="http://tempuri.org/PermissionService/GetOnLineUsersResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+        System.IAsyncResult BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetLookupOjbects", ReplyAction="http://tempuri.org/PermissionService/GetLookupOjbectsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+        System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
+        
+        string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoAdd", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoAddResponse")]
+        System.IAsyncResult BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState);
+        
+        string EndSysUserInfoAdd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoAddORUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoAddORUpdateResponse")]
+        System.IAsyncResult BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/EmployeeEntryAddDefaultRole", ReplyAction="http://tempuri.org/PermissionService/EmployeeEntryAddDefaultRoleResponse")]
+        System.IAsyncResult BeginEmployeeEntryAddDefaultRole(SMT.Saas.Tools.PermissionWS.T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID, System.AsyncCallback callback, object asyncState);
+        
+        bool EndEmployeeEntryAddDefaultRole(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/IsExistSysUserInfo", ReplyAction="http://tempuri.org/PermissionService/IsExistSysUserInfoResponse")]
+        System.IAsyncResult BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState);
+        
+        bool EndIsExistSysUserInfo(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateResponse")]
+        System.IAsyncResult BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserInfoUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateForEmployeeLeft", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateForEmployeeLeftResponse")]
+        System.IAsyncResult BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateByUserIdandUsername", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateByUserIdandUsernameResponse" +
+            "")]
+        System.IAsyncResult BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserInfoUpdateToRtxAndEmail", ReplyAction="http://tempuri.org/PermissionService/SysUserInfoUpdateToRtxAndEmailResponse")]
+        System.IAsyncResult BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfos", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosResponse")]
+        System.IAsyncResult BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfos(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+        System.IAsyncResult BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDs", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDsResponse" +
+            "")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecord))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.FlowUserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.FlowUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.CustomerPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.CustomerPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.PermissionValue))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.OrgObject>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.OrgObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLECIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_USERCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYCIR1sILv))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityNames))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Dictionary))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_ProvinceCity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_ProvinceCity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_FBAdmin>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_FBAdmin))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserMenuPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserMenuPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_EntityMenu>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_EntityMenu))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_MenuSetRole>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_MenuSetRole))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_RoleEntity>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_RoleEntity))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_Permission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionUI))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermission))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.V_OnlineUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, int>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, System.Nullable<System.DateTime>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEMENUPERMISSION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLEENTITYMENU>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORDHIS))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_FBADMINROLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY))]
+        System.IAsyncResult BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserBatchDel", ReplyAction="http://tempuri.org/PermissionService/SysUserBatchDelResponse")]
+        System.IAsyncResult BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState);
+        
+        string EndSysUserBatchDel(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserBatchUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserBatchUpdateResponse")]
+        System.IAsyncResult BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState);
+        
+        string EndSysUserBatchUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAdd", ReplyAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoAddResponse")]
+        System.IAsyncResult BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserLoginRecordInfoAdd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdate", ReplyAction="http://tempuri.org/PermissionService/SysUserLoginRecordInfoUpdateResponse")]
+        System.IAsyncResult BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState);
+        
+        bool EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfos", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosResponse")]
+        System.IAsyncResult BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfos(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/UserLoginOut", ReplyAction="http://tempuri.org/PermissionService/UserLoginOutResponse")]
+        System.IAsyncResult BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState);
+        
+        bool EndUserLoginOut(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PermissionServiceChannel : SMT.Saas.Tools.PermissionWS.PermissionService, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserRoleByTypeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserRoleByTypeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserRoleByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserRoleByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserRoleByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserRoleByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserByRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserByRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserRoleBatchAddInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public UserRoleBatchAddInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BatchAddUserRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public BatchAddUserRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string IsResult {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserByEmployeeIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserByEmployeeIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserPermissionByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserPermissionByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UpdateFbAdminCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public UpdateFbAdminCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserPermissionByUserToUICompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserPermissionByUserToUICompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetEntityPermissionByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetEntityPermissionByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserMenuPermsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserMenuPermsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserMenuPermsByUserPermissionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserMenuPermsByUserPermissionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPermissionByRoleIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPermissionByRoleIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPermissionByRoleIDSecondCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPermissionByRoleIDSecondCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetUserPermissionAllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetUserPermissionAllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserLoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public UserLoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetOnLineUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetOnLineUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetLookupOjbectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetLookupOjbectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoAddORUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoAddORUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IsExistSysUserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public IsExistSysUserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoUpdateForEmployeeLeftCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoUpdateForEmployeeLeftCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserInfoUpdateToRtxAndEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserInfoUpdateToRtxAndEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserAllInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserAllInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserAllInfosPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserAllInfosPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserBatchDelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserBatchDelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserBatchUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserBatchUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserLoginRecordInfoAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserLoginRecordInfoAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class SysUserLoginRecordInfoUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public SysUserLoginRecordInfoUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetSysUserLoginRecordInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetSysUserLoginRecordInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserLoginOutCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public UserLoginOutCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9423,6 +8698,25 @@ namespace SMT.Saas.Tools.PermissionWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetFlowManagersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetFlowManagersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
             }
         }
     }
@@ -10243,6 +9537,25 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class CopyRoleInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public CopyRoleInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class SysRoleInfoAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
@@ -10950,247 +10263,790 @@ namespace SMT.Saas.Tools.PermissionWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserRoleByTypeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserRoleByTypeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserRoleByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserRoleByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserRoleByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserRoleByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserByRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserByRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserByRoleToEmployeeLeaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserByRoleToEmployeeLeaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UserRoleBatchAddInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UserRoleBatchAddInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class BatchAddUserRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public BatchAddUserRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string IsResult {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserByEmployeeIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserByEmployeeIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserPermissionByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserPermissionByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UpdateFbAdminCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UpdateFbAdminCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserPermissionByUserToUICompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserPermissionByUserToUICompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetEntityPermissionByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetEntityPermissionByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserMenuPermsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserMenuPermsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserMenuPermsByUserPermissionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserMenuPermsByUserPermissionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPermissionByRoleIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPermissionByRoleIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPermissionByRoleIDSecondCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPermissionByRoleIDSecondCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetUserPermissionAllCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetUserPermissionAllCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UserLoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UserLoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.PermissionWS.T_SYS_USER Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetOnLineUsersCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetOnLineUsersCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetLookupOjbectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetLookupOjbectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoAddORUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoAddORUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeEntryAddDefaultRoleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeEntryAddDefaultRoleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class IsExistSysUserInfoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public IsExistSysUserInfoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoUpdateForEmployeeLeftCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoUpdateForEmployeeLeftCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserInfoUpdateToRtxAndEmailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserInfoUpdateToRtxAndEmailCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserAllInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserAllInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserAllInfosPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserAllInfosPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserBatchDelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserBatchDelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserBatchUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserBatchUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserLoginRecordInfoAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserLoginRecordInfoAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class SysUserLoginRecordInfoUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public SysUserLoginRecordInfoUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetSysUserLoginRecordInfosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetSysUserLoginRecordInfosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class UserLoginOutCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public UserLoginOutCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class PermissionServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.PermissionWS.PermissionService>, SMT.Saas.Tools.PermissionWS.PermissionService {
-        
-        private BeginOperationDelegate onBeginGetSysUserRoleByTypeDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserRoleByTypeDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserRoleByTypeCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserRoleByIDDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserRoleByIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserRoleByIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserRoleByUserDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserRoleByUserDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserRoleByUserCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserByRoleDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserByRoleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserByRoleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginUserRoleBatchAddInfosDelegate;
-        
-        private EndOperationDelegate onEndUserRoleBatchAddInfosDelegate;
-        
-        private System.Threading.SendOrPostCallback onUserRoleBatchAddInfosCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginBatchAddUserRoleDelegate;
-        
-        private EndOperationDelegate onEndBatchAddUserRoleDelegate;
-        
-        private System.Threading.SendOrPostCallback onBatchAddUserRoleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginUserRoleUpdateInfoDelegate;
-        
-        private EndOperationDelegate onEndUserRoleUpdateInfoDelegate;
-        
-        private System.Threading.SendOrPostCallback onUserRoleUpdateInfoCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserRoleUpdateDelegate;
-        
-        private EndOperationDelegate onEndSysUserRoleUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserRoleUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserRoleDeleteDelegate;
-        
-        private EndOperationDelegate onEndSysUserRoleDeleteDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserRoleDeleteCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserInfoDelegate;
-        
-        private EndOperationDelegate onEndGetUserInfoDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserInfoCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserByIDDelegate;
-        
-        private EndOperationDelegate onEndGetUserByIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserByIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserByEmployeeIDDelegate;
-        
-        private EndOperationDelegate onEndGetUserByEmployeeIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserByEmployeeIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserPermissionByUserDelegate;
-        
-        private EndOperationDelegate onEndGetUserPermissionByUserDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserPermissionByUserCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginUpdateFbAdminDelegate;
-        
-        private EndOperationDelegate onEndUpdateFbAdminDelegate;
-        
-        private System.Threading.SendOrPostCallback onUpdateFbAdminCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserPermissionByUserToUIDelegate;
-        
-        private EndOperationDelegate onEndGetUserPermissionByUserToUIDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserPermissionByUserToUICompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetEntityPermissionByUserDelegate;
-        
-        private EndOperationDelegate onEndGetEntityPermissionByUserDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetEntityPermissionByUserCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserMenuPermsDelegate;
-        
-        private EndOperationDelegate onEndGetUserMenuPermsDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserMenuPermsCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserMenuPermsByUserPermissionDelegate;
-        
-        private EndOperationDelegate onEndGetUserMenuPermsByUserPermissionDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserMenuPermsByUserPermissionCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetPermissionByRoleIDDelegate;
-        
-        private EndOperationDelegate onEndGetPermissionByRoleIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPermissionByRoleIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetPermissionByRoleIDSecondDelegate;
-        
-        private EndOperationDelegate onEndGetPermissionByRoleIDSecondDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPermissionByRoleIDSecondCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetUserPermissionAllDelegate;
-        
-        private EndOperationDelegate onEndGetUserPermissionAllDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetUserPermissionAllCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginUserLoginDelegate;
-        
-        private EndOperationDelegate onEndUserLoginDelegate;
-        
-        private System.Threading.SendOrPostCallback onUserLoginCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetOnLineUsersDelegate;
-        
-        private EndOperationDelegate onEndGetOnLineUsersDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetOnLineUsersCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetLookupOjbectsDelegate;
-        
-        private EndOperationDelegate onEndGetLookupOjbectsDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetLookupOjbectsCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoAddDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoAddCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoAddORUpdateDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoAddORUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoAddORUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginIsExistSysUserInfoDelegate;
-        
-        private EndOperationDelegate onEndIsExistSysUserInfoDelegate;
-        
-        private System.Threading.SendOrPostCallback onIsExistSysUserInfoCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoUpdateDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoUpdateForEmployeeLeftDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoUpdateForEmployeeLeftDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoUpdateForEmployeeLeftCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoUpdateByUserIdandUsernameDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoUpdateByUserIdandUsernameDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserInfoUpdateToRtxAndEmailDelegate;
-        
-        private EndOperationDelegate onEndSysUserInfoUpdateToRtxAndEmailDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserInfoUpdateToRtxAndEmailCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserAllInfosDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserAllInfosDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserAllInfosCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserAllInfosPagingDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserAllInfosPagingDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserAllInfosPagingCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserAllInfosPagingByCompanyIDsDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserBatchDelDelegate;
-        
-        private EndOperationDelegate onEndSysUserBatchDelDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserBatchDelCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserBatchUpdateDelegate;
-        
-        private EndOperationDelegate onEndSysUserBatchUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserBatchUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserLoginRecordInfoAddDelegate;
-        
-        private EndOperationDelegate onEndSysUserLoginRecordInfoAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserLoginRecordInfoAddCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginSysUserLoginRecordInfoUpdateDelegate;
-        
-        private EndOperationDelegate onEndSysUserLoginRecordInfoUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onSysUserLoginRecordInfoUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetSysUserLoginRecordInfosDelegate;
-        
-        private EndOperationDelegate onEndGetSysUserLoginRecordInfosDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetSysUserLoginRecordInfosCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginUserLoginOutDelegate;
-        
-        private EndOperationDelegate onEndUserLoginOutDelegate;
-        
-        private System.Threading.SendOrPostCallback onUserLoginOutCompletedDelegate;
         
         private BeginOperationDelegate onBeginUserLoginOperationDelegate;
         
@@ -11401,6 +11257,12 @@ namespace SMT.Saas.Tools.PermissionWS {
         private EndOperationDelegate onEndGetLatestTimeOfPermissionDelegate;
         
         private System.Threading.SendOrPostCallback onGetLatestTimeOfPermissionCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetFlowManagersDelegate;
+        
+        private EndOperationDelegate onEndGetFlowManagersDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetFlowManagersCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetSysLeftMenuDelegate;
         
@@ -11672,6 +11534,12 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         private System.Threading.SendOrPostCallback onFindSysPermissionByStrCompletedDelegate;
         
+        private BeginOperationDelegate onBeginCopyRoleInfoDelegate;
+        
+        private EndOperationDelegate onEndCopyRoleInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onCopyRoleInfoCompletedDelegate;
+        
         private BeginOperationDelegate onBeginSysRoleInfoAddDelegate;
         
         private EndOperationDelegate onEndSysRoleInfoAddDelegate;
@@ -11906,6 +11774,258 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         private System.Threading.SendOrPostCallback onGetCustomCompanyMenuPermsCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetSysUserRoleByTypeDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserRoleByTypeDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserRoleByTypeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserRoleByIDDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserRoleByIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserRoleByIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserRoleByUserDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserRoleByUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserRoleByUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserByRoleDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserByRoleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserByRoleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserByRoleToEmployeeLeaveDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserByRoleToEmployeeLeaveDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserByRoleToEmployeeLeaveCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUserRoleBatchAddInfosDelegate;
+        
+        private EndOperationDelegate onEndUserRoleBatchAddInfosDelegate;
+        
+        private System.Threading.SendOrPostCallback onUserRoleBatchAddInfosCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginBatchAddUserRoleDelegate;
+        
+        private EndOperationDelegate onEndBatchAddUserRoleDelegate;
+        
+        private System.Threading.SendOrPostCallback onBatchAddUserRoleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUserRoleUpdateInfoDelegate;
+        
+        private EndOperationDelegate onEndUserRoleUpdateInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onUserRoleUpdateInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserRoleUpdateDelegate;
+        
+        private EndOperationDelegate onEndSysUserRoleUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserRoleUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserRoleDeleteDelegate;
+        
+        private EndOperationDelegate onEndSysUserRoleDeleteDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserRoleDeleteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserInfoDelegate;
+        
+        private EndOperationDelegate onEndGetUserInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserByIDDelegate;
+        
+        private EndOperationDelegate onEndGetUserByIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserByIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserByEmployeeIDDelegate;
+        
+        private EndOperationDelegate onEndGetUserByEmployeeIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserByEmployeeIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserPermissionByUserDelegate;
+        
+        private EndOperationDelegate onEndGetUserPermissionByUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserPermissionByUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUpdateFbAdminDelegate;
+        
+        private EndOperationDelegate onEndUpdateFbAdminDelegate;
+        
+        private System.Threading.SendOrPostCallback onUpdateFbAdminCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserPermissionByUserToUIDelegate;
+        
+        private EndOperationDelegate onEndGetUserPermissionByUserToUIDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserPermissionByUserToUICompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetEntityPermissionByUserDelegate;
+        
+        private EndOperationDelegate onEndGetEntityPermissionByUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetEntityPermissionByUserCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserMenuPermsDelegate;
+        
+        private EndOperationDelegate onEndGetUserMenuPermsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserMenuPermsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserMenuPermsByUserPermissionDelegate;
+        
+        private EndOperationDelegate onEndGetUserMenuPermsByUserPermissionDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserMenuPermsByUserPermissionCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetPermissionByRoleIDDelegate;
+        
+        private EndOperationDelegate onEndGetPermissionByRoleIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPermissionByRoleIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetPermissionByRoleIDSecondDelegate;
+        
+        private EndOperationDelegate onEndGetPermissionByRoleIDSecondDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPermissionByRoleIDSecondCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetUserPermissionAllDelegate;
+        
+        private EndOperationDelegate onEndGetUserPermissionAllDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetUserPermissionAllCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUserLoginDelegate;
+        
+        private EndOperationDelegate onEndUserLoginDelegate;
+        
+        private System.Threading.SendOrPostCallback onUserLoginCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetOnLineUsersDelegate;
+        
+        private EndOperationDelegate onEndGetOnLineUsersDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetOnLineUsersCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetLookupOjbectsDelegate;
+        
+        private EndOperationDelegate onEndGetLookupOjbectsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetLookupOjbectsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoAddDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoAddCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoAddORUpdateDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoAddORUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoAddORUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginEmployeeEntryAddDefaultRoleDelegate;
+        
+        private EndOperationDelegate onEndEmployeeEntryAddDefaultRoleDelegate;
+        
+        private System.Threading.SendOrPostCallback onEmployeeEntryAddDefaultRoleCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginIsExistSysUserInfoDelegate;
+        
+        private EndOperationDelegate onEndIsExistSysUserInfoDelegate;
+        
+        private System.Threading.SendOrPostCallback onIsExistSysUserInfoCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoUpdateDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoUpdateForEmployeeLeftDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoUpdateForEmployeeLeftDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoUpdateForEmployeeLeftCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoUpdateByUserIdandUsernameDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoUpdateByUserIdandUsernameDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserInfoUpdateToRtxAndEmailDelegate;
+        
+        private EndOperationDelegate onEndSysUserInfoUpdateToRtxAndEmailDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserInfoUpdateToRtxAndEmailCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserAllInfosDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserAllInfosDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserAllInfosCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserAllInfosPagingDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserAllInfosPagingDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserAllInfosPagingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserAllInfosPagingByCompanyIDsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserBatchDelDelegate;
+        
+        private EndOperationDelegate onEndSysUserBatchDelDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserBatchDelCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserBatchUpdateDelegate;
+        
+        private EndOperationDelegate onEndSysUserBatchUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserBatchUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserLoginRecordInfoAddDelegate;
+        
+        private EndOperationDelegate onEndSysUserLoginRecordInfoAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserLoginRecordInfoAddCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginSysUserLoginRecordInfoUpdateDelegate;
+        
+        private EndOperationDelegate onEndSysUserLoginRecordInfoUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onSysUserLoginRecordInfoUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetSysUserLoginRecordInfosDelegate;
+        
+        private EndOperationDelegate onEndGetSysUserLoginRecordInfosDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetSysUserLoginRecordInfosCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginUserLoginOutDelegate;
+        
+        private EndOperationDelegate onEndUserLoginOutDelegate;
+        
+        private System.Threading.SendOrPostCallback onUserLoginOutCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -11957,86 +12077,6 @@ namespace SMT.Saas.Tools.PermissionWS {
                 }
             }
         }
-        
-        public event System.EventHandler<GetSysUserRoleByTypeCompletedEventArgs> GetSysUserRoleByTypeCompleted;
-        
-        public event System.EventHandler<GetSysUserRoleByIDCompletedEventArgs> GetSysUserRoleByIDCompleted;
-        
-        public event System.EventHandler<GetSysUserRoleByUserCompletedEventArgs> GetSysUserRoleByUserCompleted;
-        
-        public event System.EventHandler<GetSysUserByRoleCompletedEventArgs> GetSysUserByRoleCompleted;
-        
-        public event System.EventHandler<UserRoleBatchAddInfosCompletedEventArgs> UserRoleBatchAddInfosCompleted;
-        
-        public event System.EventHandler<BatchAddUserRoleCompletedEventArgs> BatchAddUserRoleCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UserRoleUpdateInfoCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SysUserRoleUpdateCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SysUserRoleDeleteCompleted;
-        
-        public event System.EventHandler<GetUserInfoCompletedEventArgs> GetUserInfoCompleted;
-        
-        public event System.EventHandler<GetUserByIDCompletedEventArgs> GetUserByIDCompleted;
-        
-        public event System.EventHandler<GetUserByEmployeeIDCompletedEventArgs> GetUserByEmployeeIDCompleted;
-        
-        public event System.EventHandler<GetUserPermissionByUserCompletedEventArgs> GetUserPermissionByUserCompleted;
-        
-        public event System.EventHandler<UpdateFbAdminCompletedEventArgs> UpdateFbAdminCompleted;
-        
-        public event System.EventHandler<GetUserPermissionByUserToUICompletedEventArgs> GetUserPermissionByUserToUICompleted;
-        
-        public event System.EventHandler<GetEntityPermissionByUserCompletedEventArgs> GetEntityPermissionByUserCompleted;
-        
-        public event System.EventHandler<GetUserMenuPermsCompletedEventArgs> GetUserMenuPermsCompleted;
-        
-        public event System.EventHandler<GetUserMenuPermsByUserPermissionCompletedEventArgs> GetUserMenuPermsByUserPermissionCompleted;
-        
-        public event System.EventHandler<GetPermissionByRoleIDCompletedEventArgs> GetPermissionByRoleIDCompleted;
-        
-        public event System.EventHandler<GetPermissionByRoleIDSecondCompletedEventArgs> GetPermissionByRoleIDSecondCompleted;
-        
-        public event System.EventHandler<GetUserPermissionAllCompletedEventArgs> GetUserPermissionAllCompleted;
-        
-        public event System.EventHandler<UserLoginCompletedEventArgs> UserLoginCompleted;
-        
-        public event System.EventHandler<GetOnLineUsersCompletedEventArgs> GetOnLineUsersCompleted;
-        
-        public event System.EventHandler<GetLookupOjbectsCompletedEventArgs> GetLookupOjbectsCompleted;
-        
-        public event System.EventHandler<SysUserInfoAddCompletedEventArgs> SysUserInfoAddCompleted;
-        
-        public event System.EventHandler<SysUserInfoAddORUpdateCompletedEventArgs> SysUserInfoAddORUpdateCompleted;
-        
-        public event System.EventHandler<IsExistSysUserInfoCompletedEventArgs> IsExistSysUserInfoCompleted;
-        
-        public event System.EventHandler<SysUserInfoUpdateCompletedEventArgs> SysUserInfoUpdateCompleted;
-        
-        public event System.EventHandler<SysUserInfoUpdateForEmployeeLeftCompletedEventArgs> SysUserInfoUpdateForEmployeeLeftCompleted;
-        
-        public event System.EventHandler<SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs> SysUserInfoUpdateByUserIdandUsernameCompleted;
-        
-        public event System.EventHandler<SysUserInfoUpdateToRtxAndEmailCompletedEventArgs> SysUserInfoUpdateToRtxAndEmailCompleted;
-        
-        public event System.EventHandler<GetSysUserAllInfosCompletedEventArgs> GetSysUserAllInfosCompleted;
-        
-        public event System.EventHandler<GetSysUserAllInfosPagingCompletedEventArgs> GetSysUserAllInfosPagingCompleted;
-        
-        public event System.EventHandler<GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs> GetSysUserAllInfosPagingByCompanyIDsCompleted;
-        
-        public event System.EventHandler<SysUserBatchDelCompletedEventArgs> SysUserBatchDelCompleted;
-        
-        public event System.EventHandler<SysUserBatchUpdateCompletedEventArgs> SysUserBatchUpdateCompleted;
-        
-        public event System.EventHandler<SysUserLoginRecordInfoAddCompletedEventArgs> SysUserLoginRecordInfoAddCompleted;
-        
-        public event System.EventHandler<SysUserLoginRecordInfoUpdateCompletedEventArgs> SysUserLoginRecordInfoUpdateCompleted;
-        
-        public event System.EventHandler<GetSysUserLoginRecordInfosCompletedEventArgs> GetSysUserLoginRecordInfosCompleted;
-        
-        public event System.EventHandler<UserLoginOutCompletedEventArgs> UserLoginOutCompleted;
         
         public event System.EventHandler<UserLoginOperationCompletedEventArgs> UserLoginOperationCompleted;
         
@@ -12107,6 +12147,8 @@ namespace SMT.Saas.Tools.PermissionWS {
         public event System.EventHandler<GetEntityMenuByNameCompletedEventArgs> GetEntityMenuByNameCompleted;
         
         public event System.EventHandler<GetLatestTimeOfPermissionCompletedEventArgs> GetLatestTimeOfPermissionCompleted;
+        
+        public event System.EventHandler<GetFlowManagersCompletedEventArgs> GetFlowManagersCompleted;
         
         public event System.EventHandler<GetSysLeftMenuCompletedEventArgs> GetSysLeftMenuCompleted;
         
@@ -12198,6 +12240,8 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         public event System.EventHandler<FindSysPermissionByStrCompletedEventArgs> FindSysPermissionByStrCompleted;
         
+        public event System.EventHandler<CopyRoleInfoCompletedEventArgs> CopyRoleInfoCompleted;
+        
         public event System.EventHandler<SysRoleInfoAddCompletedEventArgs> SysRoleInfoAddCompleted;
         
         public event System.EventHandler<IsExistSysRoleInfoCompletedEventArgs> IsExistSysRoleInfoCompleted;
@@ -12276,1953 +12320,93 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         public event System.EventHandler<GetCustomCompanyMenuPermsCompletedEventArgs> GetCustomCompanyMenuPermsCompleted;
         
+        public event System.EventHandler<GetSysUserRoleByTypeCompletedEventArgs> GetSysUserRoleByTypeCompleted;
+        
+        public event System.EventHandler<GetSysUserRoleByIDCompletedEventArgs> GetSysUserRoleByIDCompleted;
+        
+        public event System.EventHandler<GetSysUserRoleByUserCompletedEventArgs> GetSysUserRoleByUserCompleted;
+        
+        public event System.EventHandler<GetSysUserByRoleCompletedEventArgs> GetSysUserByRoleCompleted;
+        
+        public event System.EventHandler<GetSysUserByRoleToEmployeeLeaveCompletedEventArgs> GetSysUserByRoleToEmployeeLeaveCompleted;
+        
+        public event System.EventHandler<UserRoleBatchAddInfosCompletedEventArgs> UserRoleBatchAddInfosCompleted;
+        
+        public event System.EventHandler<BatchAddUserRoleCompletedEventArgs> BatchAddUserRoleCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> UserRoleUpdateInfoCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SysUserRoleUpdateCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> SysUserRoleDeleteCompleted;
+        
+        public event System.EventHandler<GetUserInfoCompletedEventArgs> GetUserInfoCompleted;
+        
+        public event System.EventHandler<GetUserByIDCompletedEventArgs> GetUserByIDCompleted;
+        
+        public event System.EventHandler<GetUserByEmployeeIDCompletedEventArgs> GetUserByEmployeeIDCompleted;
+        
+        public event System.EventHandler<GetUserPermissionByUserCompletedEventArgs> GetUserPermissionByUserCompleted;
+        
+        public event System.EventHandler<UpdateFbAdminCompletedEventArgs> UpdateFbAdminCompleted;
+        
+        public event System.EventHandler<GetUserPermissionByUserToUICompletedEventArgs> GetUserPermissionByUserToUICompleted;
+        
+        public event System.EventHandler<GetEntityPermissionByUserCompletedEventArgs> GetEntityPermissionByUserCompleted;
+        
+        public event System.EventHandler<GetUserMenuPermsCompletedEventArgs> GetUserMenuPermsCompleted;
+        
+        public event System.EventHandler<GetUserMenuPermsByUserPermissionCompletedEventArgs> GetUserMenuPermsByUserPermissionCompleted;
+        
+        public event System.EventHandler<GetPermissionByRoleIDCompletedEventArgs> GetPermissionByRoleIDCompleted;
+        
+        public event System.EventHandler<GetPermissionByRoleIDSecondCompletedEventArgs> GetPermissionByRoleIDSecondCompleted;
+        
+        public event System.EventHandler<GetUserPermissionAllCompletedEventArgs> GetUserPermissionAllCompleted;
+        
+        public event System.EventHandler<UserLoginCompletedEventArgs> UserLoginCompleted;
+        
+        public event System.EventHandler<GetOnLineUsersCompletedEventArgs> GetOnLineUsersCompleted;
+        
+        public event System.EventHandler<GetLookupOjbectsCompletedEventArgs> GetLookupOjbectsCompleted;
+        
+        public event System.EventHandler<SysUserInfoAddCompletedEventArgs> SysUserInfoAddCompleted;
+        
+        public event System.EventHandler<SysUserInfoAddORUpdateCompletedEventArgs> SysUserInfoAddORUpdateCompleted;
+        
+        public event System.EventHandler<EmployeeEntryAddDefaultRoleCompletedEventArgs> EmployeeEntryAddDefaultRoleCompleted;
+        
+        public event System.EventHandler<IsExistSysUserInfoCompletedEventArgs> IsExistSysUserInfoCompleted;
+        
+        public event System.EventHandler<SysUserInfoUpdateCompletedEventArgs> SysUserInfoUpdateCompleted;
+        
+        public event System.EventHandler<SysUserInfoUpdateForEmployeeLeftCompletedEventArgs> SysUserInfoUpdateForEmployeeLeftCompleted;
+        
+        public event System.EventHandler<SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs> SysUserInfoUpdateByUserIdandUsernameCompleted;
+        
+        public event System.EventHandler<SysUserInfoUpdateToRtxAndEmailCompletedEventArgs> SysUserInfoUpdateToRtxAndEmailCompleted;
+        
+        public event System.EventHandler<GetSysUserAllInfosCompletedEventArgs> GetSysUserAllInfosCompleted;
+        
+        public event System.EventHandler<GetSysUserAllInfosPagingCompletedEventArgs> GetSysUserAllInfosPagingCompleted;
+        
+        public event System.EventHandler<GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs> GetSysUserAllInfosPagingByCompanyIDsCompleted;
+        
+        public event System.EventHandler<SysUserBatchDelCompletedEventArgs> SysUserBatchDelCompleted;
+        
+        public event System.EventHandler<SysUserBatchUpdateCompletedEventArgs> SysUserBatchUpdateCompleted;
+        
+        public event System.EventHandler<SysUserLoginRecordInfoAddCompletedEventArgs> SysUserLoginRecordInfoAddCompleted;
+        
+        public event System.EventHandler<SysUserLoginRecordInfoUpdateCompletedEventArgs> SysUserLoginRecordInfoUpdateCompleted;
+        
+        public event System.EventHandler<GetSysUserLoginRecordInfosCompletedEventArgs> GetSysUserLoginRecordInfosCompleted;
+        
+        public event System.EventHandler<UserLoginOutCompletedEventArgs> UserLoginOutCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserRoleByType(systemType, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByType(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserRoleByType(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserRoleByType(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string systemType = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByType(systemType, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserRoleByType(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByType(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserRoleByTypeCompleted(object state) {
-            if ((this.GetSysUserRoleByTypeCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserRoleByTypeCompleted(this, new GetSysUserRoleByTypeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserRoleByTypeAsync(string systemType) {
-            this.GetSysUserRoleByTypeAsync(systemType, null);
-        }
-        
-        public void GetSysUserRoleByTypeAsync(string systemType, object userState) {
-            if ((this.onBeginGetSysUserRoleByTypeDelegate == null)) {
-                this.onBeginGetSysUserRoleByTypeDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByType);
-            }
-            if ((this.onEndGetSysUserRoleByTypeDelegate == null)) {
-                this.onEndGetSysUserRoleByTypeDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByType);
-            }
-            if ((this.onGetSysUserRoleByTypeCompletedDelegate == null)) {
-                this.onGetSysUserRoleByTypeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByTypeCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserRoleByTypeDelegate, new object[] {
-                        systemType}, this.onEndGetSysUserRoleByTypeDelegate, this.onGetSysUserRoleByTypeCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserRoleByID(menuID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByID(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserRoleByID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserRoleByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string menuID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByID(menuID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserRoleByID(System.IAsyncResult result) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserRoleByIDCompleted(object state) {
-            if ((this.GetSysUserRoleByIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserRoleByIDCompleted(this, new GetSysUserRoleByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserRoleByIDAsync(string menuID) {
-            this.GetSysUserRoleByIDAsync(menuID, null);
-        }
-        
-        public void GetSysUserRoleByIDAsync(string menuID, object userState) {
-            if ((this.onBeginGetSysUserRoleByIDDelegate == null)) {
-                this.onBeginGetSysUserRoleByIDDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByID);
-            }
-            if ((this.onEndGetSysUserRoleByIDDelegate == null)) {
-                this.onEndGetSysUserRoleByIDDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByID);
-            }
-            if ((this.onGetSysUserRoleByIDCompletedDelegate == null)) {
-                this.onGetSysUserRoleByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserRoleByIDDelegate, new object[] {
-                        menuID}, this.onEndGetSysUserRoleByIDDelegate, this.onGetSysUserRoleByIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserRoleByUser(UserID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByUser(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserRoleByUser(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserRoleByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string UserID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByUser(UserID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserRoleByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByUser(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserRoleByUserCompleted(object state) {
-            if ((this.GetSysUserRoleByUserCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserRoleByUserCompleted(this, new GetSysUserRoleByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserRoleByUserAsync(string UserID) {
-            this.GetSysUserRoleByUserAsync(UserID, null);
-        }
-        
-        public void GetSysUserRoleByUserAsync(string UserID, object userState) {
-            if ((this.onBeginGetSysUserRoleByUserDelegate == null)) {
-                this.onBeginGetSysUserRoleByUserDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByUser);
-            }
-            if ((this.onEndGetSysUserRoleByUserDelegate == null)) {
-                this.onEndGetSysUserRoleByUserDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByUser);
-            }
-            if ((this.onGetSysUserRoleByUserCompletedDelegate == null)) {
-                this.onGetSysUserRoleByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByUserCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserRoleByUserDelegate, new object[] {
-                        UserID}, this.onEndGetSysUserRoleByUserDelegate, this.onGetSysUserRoleByUserCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserByRole(roleID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserByRole(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserByRole(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserByRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string roleID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserByRole(roleID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserByRole(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserByRole(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserByRoleCompleted(object state) {
-            if ((this.GetSysUserByRoleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserByRoleCompleted(this, new GetSysUserByRoleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserByRoleAsync(string roleID) {
-            this.GetSysUserByRoleAsync(roleID, null);
-        }
-        
-        public void GetSysUserByRoleAsync(string roleID, object userState) {
-            if ((this.onBeginGetSysUserByRoleDelegate == null)) {
-                this.onBeginGetSysUserByRoleDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserByRole);
-            }
-            if ((this.onEndGetSysUserByRoleDelegate == null)) {
-                this.onEndGetSysUserByRoleDelegate = new EndOperationDelegate(this.OnEndGetSysUserByRole);
-            }
-            if ((this.onGetSysUserByRoleCompletedDelegate == null)) {
-                this.onGetSysUserByRoleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserByRoleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserByRoleDelegate, new object[] {
-                        roleID}, this.onEndGetSysUserByRoleDelegate, this.onGetSysUserByRoleCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUserRoleBatchAddInfos(RoleList, userobj, StrUserName, AddDate, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndUserRoleBatchAddInfos(System.IAsyncResult result) {
-            return base.Channel.EndUserRoleBatchAddInfos(result);
-        }
-        
-        private System.IAsyncResult OnBeginUserRoleBatchAddInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>)(inValues[0]));
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[1]));
-            string StrUserName = ((string)(inValues[2]));
-            System.DateTime AddDate = ((System.DateTime)(inValues[3]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserRoleBatchAddInfos(RoleList, userobj, StrUserName, AddDate, callback, asyncState);
-        }
-        
-        private object[] OnEndUserRoleBatchAddInfos(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserRoleBatchAddInfos(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnUserRoleBatchAddInfosCompleted(object state) {
-            if ((this.UserRoleBatchAddInfosCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UserRoleBatchAddInfosCompleted(this, new UserRoleBatchAddInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void UserRoleBatchAddInfosAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate) {
-            this.UserRoleBatchAddInfosAsync(RoleList, userobj, StrUserName, AddDate, null);
-        }
-        
-        public void UserRoleBatchAddInfosAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, object userState) {
-            if ((this.onBeginUserRoleBatchAddInfosDelegate == null)) {
-                this.onBeginUserRoleBatchAddInfosDelegate = new BeginOperationDelegate(this.OnBeginUserRoleBatchAddInfos);
-            }
-            if ((this.onEndUserRoleBatchAddInfosDelegate == null)) {
-                this.onEndUserRoleBatchAddInfosDelegate = new EndOperationDelegate(this.OnEndUserRoleBatchAddInfos);
-            }
-            if ((this.onUserRoleBatchAddInfosCompletedDelegate == null)) {
-                this.onUserRoleBatchAddInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserRoleBatchAddInfosCompleted);
-            }
-            base.InvokeAsync(this.onBeginUserRoleBatchAddInfosDelegate, new object[] {
-                        RoleList,
-                        userobj,
-                        StrUserName,
-                        AddDate}, this.onEndUserRoleBatchAddInfosDelegate, this.onUserRoleBatchAddInfosCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginBatchAddUserRole(RoleObj, ref IsResult, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result) {
-            return base.Channel.EndBatchAddUserRole(ref IsResult, result);
-        }
-        
-        private System.IAsyncResult OnBeginBatchAddUserRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(inValues[0]));
-            string IsResult = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginBatchAddUserRole(RoleObj, ref IsResult, callback, asyncState);
-        }
-        
-        private object[] OnEndBatchAddUserRole(System.IAsyncResult result) {
-            string IsResult = this.GetDefaultValueForInitialization<string>();
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndBatchAddUserRole(ref IsResult, result);
-            return new object[] {
-                    IsResult,
-                    retVal};
-        }
-        
-        private void OnBatchAddUserRoleCompleted(object state) {
-            if ((this.BatchAddUserRoleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.BatchAddUserRoleCompleted(this, new BatchAddUserRoleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void BatchAddUserRoleAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, string IsResult) {
-            this.BatchAddUserRoleAsync(RoleObj, IsResult, null);
-        }
-        
-        public void BatchAddUserRoleAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, string IsResult, object userState) {
-            if ((this.onBeginBatchAddUserRoleDelegate == null)) {
-                this.onBeginBatchAddUserRoleDelegate = new BeginOperationDelegate(this.OnBeginBatchAddUserRole);
-            }
-            if ((this.onEndBatchAddUserRoleDelegate == null)) {
-                this.onEndBatchAddUserRoleDelegate = new EndOperationDelegate(this.OnEndBatchAddUserRole);
-            }
-            if ((this.onBatchAddUserRoleCompletedDelegate == null)) {
-                this.onBatchAddUserRoleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnBatchAddUserRoleCompleted);
-            }
-            base.InvokeAsync(this.onBeginBatchAddUserRoleDelegate, new object[] {
-                        RoleObj,
-                        IsResult}, this.onEndBatchAddUserRoleDelegate, this.onBatchAddUserRoleCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUserRoleUpdateInfo(UserRoleObj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.PermissionWS.PermissionService.EndUserRoleUpdateInfo(System.IAsyncResult result) {
-            base.Channel.EndUserRoleUpdateInfo(result);
-        }
-        
-        private System.IAsyncResult OnBeginUserRoleUpdateInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserRoleUpdateInfo(UserRoleObj, callback, asyncState);
-        }
-        
-        private object[] OnEndUserRoleUpdateInfo(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserRoleUpdateInfo(result);
-            return null;
-        }
-        
-        private void OnUserRoleUpdateInfoCompleted(object state) {
-            if ((this.UserRoleUpdateInfoCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UserRoleUpdateInfoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void UserRoleUpdateInfoAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj) {
-            this.UserRoleUpdateInfoAsync(UserRoleObj, null);
-        }
-        
-        public void UserRoleUpdateInfoAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, object userState) {
-            if ((this.onBeginUserRoleUpdateInfoDelegate == null)) {
-                this.onBeginUserRoleUpdateInfoDelegate = new BeginOperationDelegate(this.OnBeginUserRoleUpdateInfo);
-            }
-            if ((this.onEndUserRoleUpdateInfoDelegate == null)) {
-                this.onEndUserRoleUpdateInfoDelegate = new EndOperationDelegate(this.OnEndUserRoleUpdateInfo);
-            }
-            if ((this.onUserRoleUpdateInfoCompletedDelegate == null)) {
-                this.onUserRoleUpdateInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserRoleUpdateInfoCompleted);
-            }
-            base.InvokeAsync(this.onBeginUserRoleUpdateInfoDelegate, new object[] {
-                        UserRoleObj}, this.onEndUserRoleUpdateInfoDelegate, this.onUserRoleUpdateInfoCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserRoleUpdate(obj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserRoleUpdate(System.IAsyncResult result) {
-            base.Channel.EndSysUserRoleUpdate(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserRoleUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserRoleUpdate(obj, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserRoleUpdate(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserRoleUpdate(result);
-            return null;
-        }
-        
-        private void OnSysUserRoleUpdateCompleted(object state) {
-            if ((this.SysUserRoleUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserRoleUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserRoleUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj) {
-            this.SysUserRoleUpdateAsync(obj, null);
-        }
-        
-        public void SysUserRoleUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, object userState) {
-            if ((this.onBeginSysUserRoleUpdateDelegate == null)) {
-                this.onBeginSysUserRoleUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserRoleUpdate);
-            }
-            if ((this.onEndSysUserRoleUpdateDelegate == null)) {
-                this.onEndSysUserRoleUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserRoleUpdate);
-            }
-            if ((this.onSysUserRoleUpdateCompletedDelegate == null)) {
-                this.onSysUserRoleUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserRoleUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserRoleUpdateDelegate, new object[] {
-                        obj}, this.onEndSysUserRoleUpdateDelegate, this.onSysUserRoleUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserRoleDelete(userroleid, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserRoleDelete(System.IAsyncResult result) {
-            base.Channel.EndSysUserRoleDelete(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserRoleDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userroleid = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserRoleDelete(userroleid, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserRoleDelete(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserRoleDelete(result);
-            return null;
-        }
-        
-        private void OnSysUserRoleDeleteCompleted(object state) {
-            if ((this.SysUserRoleDeleteCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserRoleDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserRoleDeleteAsync(string userroleid) {
-            this.SysUserRoleDeleteAsync(userroleid, null);
-        }
-        
-        public void SysUserRoleDeleteAsync(string userroleid, object userState) {
-            if ((this.onBeginSysUserRoleDeleteDelegate == null)) {
-                this.onBeginSysUserRoleDeleteDelegate = new BeginOperationDelegate(this.OnBeginSysUserRoleDelete);
-            }
-            if ((this.onEndSysUserRoleDeleteDelegate == null)) {
-                this.onEndSysUserRoleDeleteDelegate = new EndOperationDelegate(this.OnEndSysUserRoleDelete);
-            }
-            if ((this.onSysUserRoleDeleteCompletedDelegate == null)) {
-                this.onSysUserRoleDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserRoleDeleteCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserRoleDeleteDelegate, new object[] {
-                        userroleid}, this.onEndSysUserRoleDeleteDelegate, this.onSysUserRoleDeleteCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserInfo(userName, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserInfo(System.IAsyncResult result) {
-            return base.Channel.EndGetUserInfo(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userName = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserInfo(userName, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserInfo(System.IAsyncResult result) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserInfo(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserInfoCompleted(object state) {
-            if ((this.GetUserInfoCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserInfoCompleted(this, new GetUserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserInfoAsync(string userName) {
-            this.GetUserInfoAsync(userName, null);
-        }
-        
-        public void GetUserInfoAsync(string userName, object userState) {
-            if ((this.onBeginGetUserInfoDelegate == null)) {
-                this.onBeginGetUserInfoDelegate = new BeginOperationDelegate(this.OnBeginGetUserInfo);
-            }
-            if ((this.onEndGetUserInfoDelegate == null)) {
-                this.onEndGetUserInfoDelegate = new EndOperationDelegate(this.OnEndGetUserInfo);
-            }
-            if ((this.onGetUserInfoCompletedDelegate == null)) {
-                this.onGetUserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserInfoCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserInfoDelegate, new object[] {
-                        userName}, this.onEndGetUserInfoDelegate, this.onGetUserInfoCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserByID(userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserByID(System.IAsyncResult result) {
-            return base.Channel.EndGetUserByID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserByID(userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserByID(System.IAsyncResult result) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserByID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserByIDCompleted(object state) {
-            if ((this.GetUserByIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserByIDCompleted(this, new GetUserByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserByIDAsync(string userID) {
-            this.GetUserByIDAsync(userID, null);
-        }
-        
-        public void GetUserByIDAsync(string userID, object userState) {
-            if ((this.onBeginGetUserByIDDelegate == null)) {
-                this.onBeginGetUserByIDDelegate = new BeginOperationDelegate(this.OnBeginGetUserByID);
-            }
-            if ((this.onEndGetUserByIDDelegate == null)) {
-                this.onEndGetUserByIDDelegate = new EndOperationDelegate(this.OnEndGetUserByID);
-            }
-            if ((this.onGetUserByIDCompletedDelegate == null)) {
-                this.onGetUserByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserByIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserByIDDelegate, new object[] {
-                        userID}, this.onEndGetUserByIDDelegate, this.onGetUserByIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserByEmployeeID(employeeID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserByEmployeeID(System.IAsyncResult result) {
-            return base.Channel.EndGetUserByEmployeeID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string employeeID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserByEmployeeID(employeeID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserByEmployeeID(System.IAsyncResult result) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserByEmployeeID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserByEmployeeIDCompleted(object state) {
-            if ((this.GetUserByEmployeeIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserByEmployeeIDCompleted(this, new GetUserByEmployeeIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserByEmployeeIDAsync(string employeeID) {
-            this.GetUserByEmployeeIDAsync(employeeID, null);
-        }
-        
-        public void GetUserByEmployeeIDAsync(string employeeID, object userState) {
-            if ((this.onBeginGetUserByEmployeeIDDelegate == null)) {
-                this.onBeginGetUserByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginGetUserByEmployeeID);
-            }
-            if ((this.onEndGetUserByEmployeeIDDelegate == null)) {
-                this.onEndGetUserByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndGetUserByEmployeeID);
-            }
-            if ((this.onGetUserByEmployeeIDCompletedDelegate == null)) {
-                this.onGetUserByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserByEmployeeIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserByEmployeeIDDelegate, new object[] {
-                        employeeID}, this.onEndGetUserByEmployeeIDDelegate, this.onGetUserByEmployeeIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserPermissionByUser(userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionByUser(System.IAsyncResult result) {
-            return base.Channel.EndGetUserPermissionByUser(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserPermissionByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionByUser(userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserPermissionByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionByUser(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserPermissionByUserCompleted(object state) {
-            if ((this.GetUserPermissionByUserCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserPermissionByUserCompleted(this, new GetUserPermissionByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserPermissionByUserAsync(string userID) {
-            this.GetUserPermissionByUserAsync(userID, null);
-        }
-        
-        public void GetUserPermissionByUserAsync(string userID, object userState) {
-            if ((this.onBeginGetUserPermissionByUserDelegate == null)) {
-                this.onBeginGetUserPermissionByUserDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionByUser);
-            }
-            if ((this.onEndGetUserPermissionByUserDelegate == null)) {
-                this.onEndGetUserPermissionByUserDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionByUser);
-            }
-            if ((this.onGetUserPermissionByUserCompletedDelegate == null)) {
-                this.onGetUserPermissionByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionByUserCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserPermissionByUserDelegate, new object[] {
-                        userID}, this.onEndGetUserPermissionByUserDelegate, this.onGetUserPermissionByUserCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUpdateFbAdmin(employeeid, ownercompanyid, fbAdmin, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.PermissionWS.PermissionService.EndUpdateFbAdmin(System.IAsyncResult result) {
-            return base.Channel.EndUpdateFbAdmin(result);
-        }
-        
-        private System.IAsyncResult OnBeginUpdateFbAdmin(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string employeeid = ((string)(inValues[0]));
-            string ownercompanyid = ((string)(inValues[1]));
-            SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin = ((SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN)(inValues[2]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUpdateFbAdmin(employeeid, ownercompanyid, fbAdmin, callback, asyncState);
-        }
-        
-        private object[] OnEndUpdateFbAdmin(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUpdateFbAdmin(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnUpdateFbAdminCompleted(object state) {
-            if ((this.UpdateFbAdminCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UpdateFbAdminCompleted(this, new UpdateFbAdminCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void UpdateFbAdminAsync(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin) {
-            this.UpdateFbAdminAsync(employeeid, ownercompanyid, fbAdmin, null);
-        }
-        
-        public void UpdateFbAdminAsync(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, object userState) {
-            if ((this.onBeginUpdateFbAdminDelegate == null)) {
-                this.onBeginUpdateFbAdminDelegate = new BeginOperationDelegate(this.OnBeginUpdateFbAdmin);
-            }
-            if ((this.onEndUpdateFbAdminDelegate == null)) {
-                this.onEndUpdateFbAdminDelegate = new EndOperationDelegate(this.OnEndUpdateFbAdmin);
-            }
-            if ((this.onUpdateFbAdminCompletedDelegate == null)) {
-                this.onUpdateFbAdminCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateFbAdminCompleted);
-            }
-            base.InvokeAsync(this.onBeginUpdateFbAdminDelegate, new object[] {
-                        employeeid,
-                        ownercompanyid,
-                        fbAdmin}, this.onEndUpdateFbAdminDelegate, this.onUpdateFbAdminCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserPermissionByUserToUI(userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionByUserToUI(System.IAsyncResult result) {
-            return base.Channel.EndGetUserPermissionByUserToUI(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserPermissionByUserToUI(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionByUserToUI(userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserPermissionByUserToUI(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionByUserToUI(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserPermissionByUserToUICompleted(object state) {
-            if ((this.GetUserPermissionByUserToUICompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserPermissionByUserToUICompleted(this, new GetUserPermissionByUserToUICompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserPermissionByUserToUIAsync(string userID) {
-            this.GetUserPermissionByUserToUIAsync(userID, null);
-        }
-        
-        public void GetUserPermissionByUserToUIAsync(string userID, object userState) {
-            if ((this.onBeginGetUserPermissionByUserToUIDelegate == null)) {
-                this.onBeginGetUserPermissionByUserToUIDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionByUserToUI);
-            }
-            if ((this.onEndGetUserPermissionByUserToUIDelegate == null)) {
-                this.onEndGetUserPermissionByUserToUIDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionByUserToUI);
-            }
-            if ((this.onGetUserPermissionByUserToUICompletedDelegate == null)) {
-                this.onGetUserPermissionByUserToUICompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionByUserToUICompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserPermissionByUserToUIDelegate, new object[] {
-                        userID}, this.onEndGetUserPermissionByUserToUIDelegate, this.onGetUserPermissionByUserToUICompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetEntityPermissionByUser(userID, StrMenuId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetEntityPermissionByUser(System.IAsyncResult result) {
-            return base.Channel.EndGetEntityPermissionByUser(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetEntityPermissionByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            string StrMenuId = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetEntityPermissionByUser(userID, StrMenuId, callback, asyncState);
-        }
-        
-        private object[] OnEndGetEntityPermissionByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetEntityPermissionByUser(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetEntityPermissionByUserCompleted(object state) {
-            if ((this.GetEntityPermissionByUserCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetEntityPermissionByUserCompleted(this, new GetEntityPermissionByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetEntityPermissionByUserAsync(string userID, string StrMenuId) {
-            this.GetEntityPermissionByUserAsync(userID, StrMenuId, null);
-        }
-        
-        public void GetEntityPermissionByUserAsync(string userID, string StrMenuId, object userState) {
-            if ((this.onBeginGetEntityPermissionByUserDelegate == null)) {
-                this.onBeginGetEntityPermissionByUserDelegate = new BeginOperationDelegate(this.OnBeginGetEntityPermissionByUser);
-            }
-            if ((this.onEndGetEntityPermissionByUserDelegate == null)) {
-                this.onEndGetEntityPermissionByUserDelegate = new EndOperationDelegate(this.OnEndGetEntityPermissionByUser);
-            }
-            if ((this.onGetEntityPermissionByUserCompletedDelegate == null)) {
-                this.onGetEntityPermissionByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEntityPermissionByUserCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetEntityPermissionByUserDelegate, new object[] {
-                        userID,
-                        StrMenuId}, this.onEndGetEntityPermissionByUserDelegate, this.onGetEntityPermissionByUserCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserMenuPerms(menuCode, userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserMenuPerms(System.IAsyncResult result) {
-            return base.Channel.EndGetUserMenuPerms(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserMenuPerms(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string menuCode = ((string)(inValues[0]));
-            string userID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserMenuPerms(menuCode, userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserMenuPerms(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserMenuPerms(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserMenuPermsCompleted(object state) {
-            if ((this.GetUserMenuPermsCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserMenuPermsCompleted(this, new GetUserMenuPermsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserMenuPermsAsync(string menuCode, string userID) {
-            this.GetUserMenuPermsAsync(menuCode, userID, null);
-        }
-        
-        public void GetUserMenuPermsAsync(string menuCode, string userID, object userState) {
-            if ((this.onBeginGetUserMenuPermsDelegate == null)) {
-                this.onBeginGetUserMenuPermsDelegate = new BeginOperationDelegate(this.OnBeginGetUserMenuPerms);
-            }
-            if ((this.onEndGetUserMenuPermsDelegate == null)) {
-                this.onEndGetUserMenuPermsDelegate = new EndOperationDelegate(this.OnEndGetUserMenuPerms);
-            }
-            if ((this.onGetUserMenuPermsCompletedDelegate == null)) {
-                this.onGetUserMenuPermsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserMenuPermsCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserMenuPermsDelegate, new object[] {
-                        menuCode,
-                        userID}, this.onEndGetUserMenuPermsDelegate, this.onGetUserMenuPermsCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserMenuPermsByUserPermission(menuCode, userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
-            return base.Channel.EndGetUserMenuPermsByUserPermission(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserMenuPermsByUserPermission(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string menuCode = ((string)(inValues[0]));
-            string userID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserMenuPermsByUserPermission(menuCode, userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserMenuPermsByUserPermission(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserMenuPermsByUserPermissionCompleted(object state) {
-            if ((this.GetUserMenuPermsByUserPermissionCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserMenuPermsByUserPermissionCompleted(this, new GetUserMenuPermsByUserPermissionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserMenuPermsByUserPermissionAsync(string menuCode, string userID) {
-            this.GetUserMenuPermsByUserPermissionAsync(menuCode, userID, null);
-        }
-        
-        public void GetUserMenuPermsByUserPermissionAsync(string menuCode, string userID, object userState) {
-            if ((this.onBeginGetUserMenuPermsByUserPermissionDelegate == null)) {
-                this.onBeginGetUserMenuPermsByUserPermissionDelegate = new BeginOperationDelegate(this.OnBeginGetUserMenuPermsByUserPermission);
-            }
-            if ((this.onEndGetUserMenuPermsByUserPermissionDelegate == null)) {
-                this.onEndGetUserMenuPermsByUserPermissionDelegate = new EndOperationDelegate(this.OnEndGetUserMenuPermsByUserPermission);
-            }
-            if ((this.onGetUserMenuPermsByUserPermissionCompletedDelegate == null)) {
-                this.onGetUserMenuPermsByUserPermissionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserMenuPermsByUserPermissionCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserMenuPermsByUserPermissionDelegate, new object[] {
-                        menuCode,
-                        userID}, this.onEndGetUserMenuPermsByUserPermissionDelegate, this.onGetUserMenuPermsByUserPermissionCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPermissionByRoleID(RoleID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetPermissionByRoleID(System.IAsyncResult result) {
-            return base.Channel.EndGetPermissionByRoleID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPermissionByRoleID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string RoleID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetPermissionByRoleID(RoleID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPermissionByRoleID(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetPermissionByRoleID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPermissionByRoleIDCompleted(object state) {
-            if ((this.GetPermissionByRoleIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPermissionByRoleIDCompleted(this, new GetPermissionByRoleIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPermissionByRoleIDAsync(string RoleID) {
-            this.GetPermissionByRoleIDAsync(RoleID, null);
-        }
-        
-        public void GetPermissionByRoleIDAsync(string RoleID, object userState) {
-            if ((this.onBeginGetPermissionByRoleIDDelegate == null)) {
-                this.onBeginGetPermissionByRoleIDDelegate = new BeginOperationDelegate(this.OnBeginGetPermissionByRoleID);
-            }
-            if ((this.onEndGetPermissionByRoleIDDelegate == null)) {
-                this.onEndGetPermissionByRoleIDDelegate = new EndOperationDelegate(this.OnEndGetPermissionByRoleID);
-            }
-            if ((this.onGetPermissionByRoleIDCompletedDelegate == null)) {
-                this.onGetPermissionByRoleIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPermissionByRoleIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPermissionByRoleIDDelegate, new object[] {
-                        RoleID}, this.onEndGetPermissionByRoleIDDelegate, this.onGetPermissionByRoleIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPermissionByRoleIDSecond(RoleID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
-            return base.Channel.EndGetPermissionByRoleIDSecond(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPermissionByRoleIDSecond(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string RoleID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetPermissionByRoleIDSecond(RoleID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetPermissionByRoleIDSecond(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPermissionByRoleIDSecondCompleted(object state) {
-            if ((this.GetPermissionByRoleIDSecondCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPermissionByRoleIDSecondCompleted(this, new GetPermissionByRoleIDSecondCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPermissionByRoleIDSecondAsync(string RoleID) {
-            this.GetPermissionByRoleIDSecondAsync(RoleID, null);
-        }
-        
-        public void GetPermissionByRoleIDSecondAsync(string RoleID, object userState) {
-            if ((this.onBeginGetPermissionByRoleIDSecondDelegate == null)) {
-                this.onBeginGetPermissionByRoleIDSecondDelegate = new BeginOperationDelegate(this.OnBeginGetPermissionByRoleIDSecond);
-            }
-            if ((this.onEndGetPermissionByRoleIDSecondDelegate == null)) {
-                this.onEndGetPermissionByRoleIDSecondDelegate = new EndOperationDelegate(this.OnEndGetPermissionByRoleIDSecond);
-            }
-            if ((this.onGetPermissionByRoleIDSecondCompletedDelegate == null)) {
-                this.onGetPermissionByRoleIDSecondCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPermissionByRoleIDSecondCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPermissionByRoleIDSecondDelegate, new object[] {
-                        RoleID}, this.onEndGetPermissionByRoleIDSecondDelegate, this.onGetPermissionByRoleIDSecondCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetUserPermissionAll(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionAll(System.IAsyncResult result) {
-            return base.Channel.EndGetUserPermissionAll(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetUserPermissionAll(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionAll(callback, asyncState);
-        }
-        
-        private object[] OnEndGetUserPermissionAll(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionAll(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetUserPermissionAllCompleted(object state) {
-            if ((this.GetUserPermissionAllCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetUserPermissionAllCompleted(this, new GetUserPermissionAllCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetUserPermissionAllAsync() {
-            this.GetUserPermissionAllAsync(null);
-        }
-        
-        public void GetUserPermissionAllAsync(object userState) {
-            if ((this.onBeginGetUserPermissionAllDelegate == null)) {
-                this.onBeginGetUserPermissionAllDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionAll);
-            }
-            if ((this.onEndGetUserPermissionAllDelegate == null)) {
-                this.onEndGetUserPermissionAllDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionAll);
-            }
-            if ((this.onGetUserPermissionAllCompletedDelegate == null)) {
-                this.onGetUserPermissionAllCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionAllCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetUserPermissionAllDelegate, null, this.onEndGetUserPermissionAllDelegate, this.onGetUserPermissionAllCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUserLogin(userName, Pwd, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndUserLogin(System.IAsyncResult result) {
-            return base.Channel.EndUserLogin(result);
-        }
-        
-        private System.IAsyncResult OnBeginUserLogin(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userName = ((string)(inValues[0]));
-            string Pwd = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserLogin(userName, Pwd, callback, asyncState);
-        }
-        
-        private object[] OnEndUserLogin(System.IAsyncResult result) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserLogin(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnUserLoginCompleted(object state) {
-            if ((this.UserLoginCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UserLoginCompleted(this, new UserLoginCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void UserLoginAsync(string userName, string Pwd) {
-            this.UserLoginAsync(userName, Pwd, null);
-        }
-        
-        public void UserLoginAsync(string userName, string Pwd, object userState) {
-            if ((this.onBeginUserLoginDelegate == null)) {
-                this.onBeginUserLoginDelegate = new BeginOperationDelegate(this.OnBeginUserLogin);
-            }
-            if ((this.onEndUserLoginDelegate == null)) {
-                this.onEndUserLoginDelegate = new EndOperationDelegate(this.OnEndUserLogin);
-            }
-            if ((this.onUserLoginCompletedDelegate == null)) {
-                this.onUserLoginCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserLoginCompleted);
-            }
-            base.InvokeAsync(this.onBeginUserLoginDelegate, new object[] {
-                        userName,
-                        Pwd}, this.onEndUserLoginDelegate, this.onUserLoginCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetOnLineUsers(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CompanyIDs, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetOnLineUsers(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetOnLineUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int pageIndex = ((int)(inValues[0]));
-            int pageSize = ((int)(inValues[1]));
-            string sort = ((string)(inValues[2]));
-            string filterString = ((string)(inValues[3]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            string userID = ((string)(inValues[6]));
-            System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[7]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetOnLineUsers(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CompanyIDs, callback, asyncState);
-        }
-        
-        private object[] OnEndGetOnLineUsers(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetOnLineUsers(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetOnLineUsersCompleted(object state) {
-            if ((this.GetOnLineUsersCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetOnLineUsersCompleted(this, new GetOnLineUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetOnLineUsersAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs) {
-            this.GetOnLineUsersAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, userID, CompanyIDs, null);
-        }
-        
-        public void GetOnLineUsersAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, object userState) {
-            if ((this.onBeginGetOnLineUsersDelegate == null)) {
-                this.onBeginGetOnLineUsersDelegate = new BeginOperationDelegate(this.OnBeginGetOnLineUsers);
-            }
-            if ((this.onEndGetOnLineUsersDelegate == null)) {
-                this.onEndGetOnLineUsersDelegate = new EndOperationDelegate(this.OnEndGetOnLineUsers);
-            }
-            if ((this.onGetOnLineUsersCompletedDelegate == null)) {
-                this.onGetOnLineUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOnLineUsersCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetOnLineUsersDelegate, new object[] {
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount,
-                        userID,
-                        CompanyIDs}, this.onEndGetOnLineUsersDelegate, this.onGetOnLineUsersCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetLookupOjbects(entityName, args, pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.PermissionWS.PermissionService.EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetLookupOjbects(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetLookupOjbects(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.EntityNames entityName = ((SMT.Saas.Tools.PermissionWS.EntityNames)(inValues[0]));
-            System.Collections.Generic.Dictionary<string, string> args = ((System.Collections.Generic.Dictionary<string, string>)(inValues[1]));
-            int pageIndex = ((int)(inValues[2]));
-            int pageSize = ((int)(inValues[3]));
-            string sort = ((string)(inValues[4]));
-            string filterString = ((string)(inValues[5]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[6]));
-            int pageCount = ((int)(inValues[7]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetLookupOjbects(entityName, args, pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        private object[] OnEndGetLookupOjbects(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetLookupOjbects(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetLookupOjbectsCompleted(object state) {
-            if ((this.GetLookupOjbectsCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetLookupOjbectsCompleted(this, new GetLookupOjbectsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetLookupOjbectsAsync(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount) {
-            this.GetLookupOjbectsAsync(entityName, args, pageIndex, pageSize, sort, filterString, paras, pageCount, null);
-        }
-        
-        public void GetLookupOjbectsAsync(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, object userState) {
-            if ((this.onBeginGetLookupOjbectsDelegate == null)) {
-                this.onBeginGetLookupOjbectsDelegate = new BeginOperationDelegate(this.OnBeginGetLookupOjbects);
-            }
-            if ((this.onEndGetLookupOjbectsDelegate == null)) {
-                this.onEndGetLookupOjbectsDelegate = new EndOperationDelegate(this.OnEndGetLookupOjbects);
-            }
-            if ((this.onGetLookupOjbectsCompletedDelegate == null)) {
-                this.onGetLookupOjbectsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLookupOjbectsCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetLookupOjbectsDelegate, new object[] {
-                        entityName,
-                        args,
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount}, this.onEndGetLookupOjbectsDelegate, this.onGetLookupOjbectsCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoAdd(obj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoAdd(System.IAsyncResult result) {
-            return base.Channel.EndSysUserInfoAdd(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoAdd(obj, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoAdd(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoAdd(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserInfoAddCompleted(object state) {
-            if ((this.SysUserInfoAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoAddCompleted(this, new SysUserInfoAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj) {
-            this.SysUserInfoAddAsync(obj, null);
-        }
-        
-        public void SysUserInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, object userState) {
-            if ((this.onBeginSysUserInfoAddDelegate == null)) {
-                this.onBeginSysUserInfoAddDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoAdd);
-            }
-            if ((this.onEndSysUserInfoAddDelegate == null)) {
-                this.onEndSysUserInfoAddDelegate = new EndOperationDelegate(this.OnEndSysUserInfoAdd);
-            }
-            if ((this.onSysUserInfoAddCompletedDelegate == null)) {
-                this.onSysUserInfoAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoAddDelegate, new object[] {
-                        obj}, this.onEndSysUserInfoAddDelegate, this.onSysUserInfoAddCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoAddORUpdate(obj, ref strMsg, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result) {
-            base.Channel.EndSysUserInfoAddORUpdate(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoAddORUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
-            string strMsg = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoAddORUpdate(obj, ref strMsg, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoAddORUpdate(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoAddORUpdate(ref strMsg, result);
-            return new object[] {
-                    strMsg};
-        }
-        
-        private void OnSysUserInfoAddORUpdateCompleted(object state) {
-            if ((this.SysUserInfoAddORUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoAddORUpdateCompleted(this, new SysUserInfoAddORUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoAddORUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string strMsg) {
-            this.SysUserInfoAddORUpdateAsync(obj, strMsg, null);
-        }
-        
-        public void SysUserInfoAddORUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string strMsg, object userState) {
-            if ((this.onBeginSysUserInfoAddORUpdateDelegate == null)) {
-                this.onBeginSysUserInfoAddORUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoAddORUpdate);
-            }
-            if ((this.onEndSysUserInfoAddORUpdateDelegate == null)) {
-                this.onEndSysUserInfoAddORUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserInfoAddORUpdate);
-            }
-            if ((this.onSysUserInfoAddORUpdateCompletedDelegate == null)) {
-                this.onSysUserInfoAddORUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoAddORUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoAddORUpdateDelegate, new object[] {
-                        obj,
-                        strMsg}, this.onEndSysUserInfoAddORUpdateDelegate, this.onSysUserInfoAddORUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginIsExistSysUserInfo(StrUserName, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndIsExistSysUserInfo(System.IAsyncResult result) {
-            return base.Channel.EndIsExistSysUserInfo(result);
-        }
-        
-        private System.IAsyncResult OnBeginIsExistSysUserInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string StrUserName = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginIsExistSysUserInfo(StrUserName, callback, asyncState);
-        }
-        
-        private object[] OnEndIsExistSysUserInfo(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndIsExistSysUserInfo(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnIsExistSysUserInfoCompleted(object state) {
-            if ((this.IsExistSysUserInfoCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.IsExistSysUserInfoCompleted(this, new IsExistSysUserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void IsExistSysUserInfoAsync(string StrUserName) {
-            this.IsExistSysUserInfoAsync(StrUserName, null);
-        }
-        
-        public void IsExistSysUserInfoAsync(string StrUserName, object userState) {
-            if ((this.onBeginIsExistSysUserInfoDelegate == null)) {
-                this.onBeginIsExistSysUserInfoDelegate = new BeginOperationDelegate(this.OnBeginIsExistSysUserInfo);
-            }
-            if ((this.onEndIsExistSysUserInfoDelegate == null)) {
-                this.onEndIsExistSysUserInfoDelegate = new EndOperationDelegate(this.OnEndIsExistSysUserInfo);
-            }
-            if ((this.onIsExistSysUserInfoCompletedDelegate == null)) {
-                this.onIsExistSysUserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIsExistSysUserInfoCompleted);
-            }
-            base.InvokeAsync(this.onBeginIsExistSysUserInfoDelegate, new object[] {
-                        StrUserName}, this.onEndIsExistSysUserInfoDelegate, this.onIsExistSysUserInfoCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoUpdate(obj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdate(System.IAsyncResult result) {
-            return base.Channel.EndSysUserInfoUpdate(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdate(obj, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoUpdate(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdate(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserInfoUpdateCompleted(object state) {
-            if ((this.SysUserInfoUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoUpdateCompleted(this, new SysUserInfoUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj) {
-            this.SysUserInfoUpdateAsync(obj, null);
-        }
-        
-        public void SysUserInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, object userState) {
-            if ((this.onBeginSysUserInfoUpdateDelegate == null)) {
-                this.onBeginSysUserInfoUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdate);
-            }
-            if ((this.onEndSysUserInfoUpdateDelegate == null)) {
-                this.onEndSysUserInfoUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdate);
-            }
-            if ((this.onSysUserInfoUpdateCompletedDelegate == null)) {
-                this.onSysUserInfoUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoUpdateDelegate, new object[] {
-                        obj}, this.onEndSysUserInfoUpdateDelegate, this.onSysUserInfoUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoUpdateForEmployeeLeft(obj, StrOwnerCompanyid, StrPostid, IsMain, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
-            return base.Channel.EndSysUserInfoUpdateForEmployeeLeft(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoUpdateForEmployeeLeft(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
-            string StrOwnerCompanyid = ((string)(inValues[1]));
-            string StrPostid = ((string)(inValues[2]));
-            bool IsMain = ((bool)(inValues[3]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateForEmployeeLeft(obj, StrOwnerCompanyid, StrPostid, IsMain, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateForEmployeeLeft(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserInfoUpdateForEmployeeLeftCompleted(object state) {
-            if ((this.SysUserInfoUpdateForEmployeeLeftCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoUpdateForEmployeeLeftCompleted(this, new SysUserInfoUpdateForEmployeeLeftCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoUpdateForEmployeeLeftAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain) {
-            this.SysUserInfoUpdateForEmployeeLeftAsync(obj, StrOwnerCompanyid, StrPostid, IsMain, null);
-        }
-        
-        public void SysUserInfoUpdateForEmployeeLeftAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, object userState) {
-            if ((this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate == null)) {
-                this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateForEmployeeLeft);
-            }
-            if ((this.onEndSysUserInfoUpdateForEmployeeLeftDelegate == null)) {
-                this.onEndSysUserInfoUpdateForEmployeeLeftDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateForEmployeeLeft);
-            }
-            if ((this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate == null)) {
-                this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateForEmployeeLeftCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate, new object[] {
-                        obj,
-                        StrOwnerCompanyid,
-                        StrPostid,
-                        IsMain}, this.onEndSysUserInfoUpdateForEmployeeLeftDelegate, this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoUpdateByUserIdandUsername(userid, username, pwd, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
-            return base.Channel.EndSysUserInfoUpdateByUserIdandUsername(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoUpdateByUserIdandUsername(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userid = ((string)(inValues[0]));
-            string username = ((string)(inValues[1]));
-            string pwd = ((string)(inValues[2]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateByUserIdandUsername(userid, username, pwd, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateByUserIdandUsername(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserInfoUpdateByUserIdandUsernameCompleted(object state) {
-            if ((this.SysUserInfoUpdateByUserIdandUsernameCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoUpdateByUserIdandUsernameCompleted(this, new SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoUpdateByUserIdandUsernameAsync(string userid, string username, string pwd) {
-            this.SysUserInfoUpdateByUserIdandUsernameAsync(userid, username, pwd, null);
-        }
-        
-        public void SysUserInfoUpdateByUserIdandUsernameAsync(string userid, string username, string pwd, object userState) {
-            if ((this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate == null)) {
-                this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateByUserIdandUsername);
-            }
-            if ((this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate == null)) {
-                this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateByUserIdandUsername);
-            }
-            if ((this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate == null)) {
-                this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateByUserIdandUsernameCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate, new object[] {
-                        userid,
-                        username,
-                        pwd}, this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate, this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserInfoUpdateToRtxAndEmail(UserAccount, NewPassword1, OldPassword1, NewPassword, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result) {
-            return base.Channel.EndSysUserInfoUpdateToRtxAndEmail(out strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserInfoUpdateToRtxAndEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string UserAccount = ((string)(inValues[0]));
-            string NewPassword1 = ((string)(inValues[1]));
-            string OldPassword1 = ((string)(inValues[2]));
-            string NewPassword = ((string)(inValues[3]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateToRtxAndEmail(UserAccount, NewPassword1, OldPassword1, NewPassword, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserInfoUpdateToRtxAndEmail(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateToRtxAndEmail(out strMsg, result);
-            return new object[] {
-                    strMsg,
-                    retVal};
-        }
-        
-        private void OnSysUserInfoUpdateToRtxAndEmailCompleted(object state) {
-            if ((this.SysUserInfoUpdateToRtxAndEmailCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserInfoUpdateToRtxAndEmailCompleted(this, new SysUserInfoUpdateToRtxAndEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserInfoUpdateToRtxAndEmailAsync(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword) {
-            this.SysUserInfoUpdateToRtxAndEmailAsync(UserAccount, NewPassword1, OldPassword1, NewPassword, null);
-        }
-        
-        public void SysUserInfoUpdateToRtxAndEmailAsync(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, object userState) {
-            if ((this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate == null)) {
-                this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateToRtxAndEmail);
-            }
-            if ((this.onEndSysUserInfoUpdateToRtxAndEmailDelegate == null)) {
-                this.onEndSysUserInfoUpdateToRtxAndEmailDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateToRtxAndEmail);
-            }
-            if ((this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate == null)) {
-                this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateToRtxAndEmailCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate, new object[] {
-                        UserAccount,
-                        NewPassword1,
-                        OldPassword1,
-                        NewPassword}, this.onEndSysUserInfoUpdateToRtxAndEmailDelegate, this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserAllInfos(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfos(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserAllInfos(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserAllInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfos(callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserAllInfos(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfos(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserAllInfosCompleted(object state) {
-            if ((this.GetSysUserAllInfosCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserAllInfosCompleted(this, new GetSysUserAllInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserAllInfosAsync() {
-            this.GetSysUserAllInfosAsync(null);
-        }
-        
-        public void GetSysUserAllInfosAsync(object userState) {
-            if ((this.onBeginGetSysUserAllInfosDelegate == null)) {
-                this.onBeginGetSysUserAllInfosDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfos);
-            }
-            if ((this.onEndGetSysUserAllInfosDelegate == null)) {
-                this.onEndGetSysUserAllInfosDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfos);
-            }
-            if ((this.onGetSysUserAllInfosCompletedDelegate == null)) {
-                this.onGetSysUserAllInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserAllInfosDelegate, null, this.onEndGetSysUserAllInfosDelegate, this.onGetSysUserAllInfosCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserAllInfosPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserAllInfosPaging(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserAllInfosPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int pageIndex = ((int)(inValues[0]));
-            int pageSize = ((int)(inValues[1]));
-            string sort = ((string)(inValues[2]));
-            string filterString = ((string)(inValues[3]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo = ((SMT.Saas.Tools.PermissionWS.LoginUserInfo)(inValues[6]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfosPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserAllInfosPaging(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfosPaging(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetSysUserAllInfosPagingCompleted(object state) {
-            if ((this.GetSysUserAllInfosPagingCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserAllInfosPagingCompleted(this, new GetSysUserAllInfosPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserAllInfosPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo) {
-            this.GetSysUserAllInfosPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, loginUserInfo, null);
-        }
-        
-        public void GetSysUserAllInfosPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, object userState) {
-            if ((this.onBeginGetSysUserAllInfosPagingDelegate == null)) {
-                this.onBeginGetSysUserAllInfosPagingDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfosPaging);
-            }
-            if ((this.onEndGetSysUserAllInfosPagingDelegate == null)) {
-                this.onEndGetSysUserAllInfosPagingDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfosPaging);
-            }
-            if ((this.onGetSysUserAllInfosPagingCompletedDelegate == null)) {
-                this.onGetSysUserAllInfosPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosPagingCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserAllInfosPagingDelegate, new object[] {
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount,
-                        loginUserInfo}, this.onEndGetSysUserAllInfosPagingDelegate, this.onGetSysUserAllInfosPagingCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserAllInfosPagingByCompanyIDs(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, CompanyIDs, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserAllInfosPagingByCompanyIDs(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserAllInfosPagingByCompanyIDs(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int pageIndex = ((int)(inValues[0]));
-            int pageSize = ((int)(inValues[1]));
-            string sort = ((string)(inValues[2]));
-            string filterString = ((string)(inValues[3]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo = ((SMT.Saas.Tools.PermissionWS.LoginUserInfo)(inValues[6]));
-            System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[7]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfosPagingByCompanyIDs(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, CompanyIDs, callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserAllInfosPagingByCompanyIDs(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfosPagingByCompanyIDs(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetSysUserAllInfosPagingByCompanyIDsCompleted(object state) {
-            if ((this.GetSysUserAllInfosPagingByCompanyIDsCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserAllInfosPagingByCompanyIDsCompleted(this, new GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserAllInfosPagingByCompanyIDsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs) {
-            this.GetSysUserAllInfosPagingByCompanyIDsAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, loginUserInfo, CompanyIDs, null);
-        }
-        
-        public void GetSysUserAllInfosPagingByCompanyIDsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, object userState) {
-            if ((this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate == null)) {
-                this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfosPagingByCompanyIDs);
-            }
-            if ((this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate == null)) {
-                this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfosPagingByCompanyIDs);
-            }
-            if ((this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate == null)) {
-                this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosPagingByCompanyIDsCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate, new object[] {
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount,
-                        loginUserInfo,
-                        CompanyIDs}, this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate, this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserBatchDel(StrSysUserIDs, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserBatchDel(System.IAsyncResult result) {
-            return base.Channel.EndSysUserBatchDel(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserBatchDel(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserBatchDel(StrSysUserIDs, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserBatchDel(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserBatchDel(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserBatchDelCompleted(object state) {
-            if ((this.SysUserBatchDelCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserBatchDelCompleted(this, new SysUserBatchDelCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserBatchDelAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs) {
-            this.SysUserBatchDelAsync(StrSysUserIDs, null);
-        }
-        
-        public void SysUserBatchDelAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, object userState) {
-            if ((this.onBeginSysUserBatchDelDelegate == null)) {
-                this.onBeginSysUserBatchDelDelegate = new BeginOperationDelegate(this.OnBeginSysUserBatchDel);
-            }
-            if ((this.onEndSysUserBatchDelDelegate == null)) {
-                this.onEndSysUserBatchDelDelegate = new EndOperationDelegate(this.OnEndSysUserBatchDel);
-            }
-            if ((this.onSysUserBatchDelCompletedDelegate == null)) {
-                this.onSysUserBatchDelCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserBatchDelCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserBatchDelDelegate, new object[] {
-                        StrSysUserIDs}, this.onEndSysUserBatchDelDelegate, this.onSysUserBatchDelCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserBatchUpdate(StrSysUserIDs, StrUserID, UserName, UserState, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserBatchUpdate(System.IAsyncResult result) {
-            return base.Channel.EndSysUserBatchUpdate(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserBatchUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            string StrUserID = ((string)(inValues[1]));
-            string UserName = ((string)(inValues[2]));
-            string UserState = ((string)(inValues[3]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserBatchUpdate(StrSysUserIDs, StrUserID, UserName, UserState, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserBatchUpdate(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserBatchUpdate(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserBatchUpdateCompleted(object state) {
-            if ((this.SysUserBatchUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserBatchUpdateCompleted(this, new SysUserBatchUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserBatchUpdateAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState) {
-            this.SysUserBatchUpdateAsync(StrSysUserIDs, StrUserID, UserName, UserState, null);
-        }
-        
-        public void SysUserBatchUpdateAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, object userState1) {
-            if ((this.onBeginSysUserBatchUpdateDelegate == null)) {
-                this.onBeginSysUserBatchUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserBatchUpdate);
-            }
-            if ((this.onEndSysUserBatchUpdateDelegate == null)) {
-                this.onEndSysUserBatchUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserBatchUpdate);
-            }
-            if ((this.onSysUserBatchUpdateCompletedDelegate == null)) {
-                this.onSysUserBatchUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserBatchUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserBatchUpdateDelegate, new object[] {
-                        StrSysUserIDs,
-                        StrUserID,
-                        UserName,
-                        UserState}, this.onEndSysUserBatchUpdateDelegate, this.onSysUserBatchUpdateCompletedDelegate, userState1);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserLoginRecordInfoAdd(obj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
-            return base.Channel.EndSysUserLoginRecordInfoAdd(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserLoginRecordInfoAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserLoginRecordInfoAdd(obj, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserLoginRecordInfoAdd(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserLoginRecordInfoAddCompleted(object state) {
-            if ((this.SysUserLoginRecordInfoAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserLoginRecordInfoAddCompleted(this, new SysUserLoginRecordInfoAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserLoginRecordInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj) {
-            this.SysUserLoginRecordInfoAddAsync(obj, null);
-        }
-        
-        public void SysUserLoginRecordInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, object userState) {
-            if ((this.onBeginSysUserLoginRecordInfoAddDelegate == null)) {
-                this.onBeginSysUserLoginRecordInfoAddDelegate = new BeginOperationDelegate(this.OnBeginSysUserLoginRecordInfoAdd);
-            }
-            if ((this.onEndSysUserLoginRecordInfoAddDelegate == null)) {
-                this.onEndSysUserLoginRecordInfoAddDelegate = new EndOperationDelegate(this.OnEndSysUserLoginRecordInfoAdd);
-            }
-            if ((this.onSysUserLoginRecordInfoAddCompletedDelegate == null)) {
-                this.onSysUserLoginRecordInfoAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserLoginRecordInfoAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserLoginRecordInfoAddDelegate, new object[] {
-                        obj}, this.onEndSysUserLoginRecordInfoAddDelegate, this.onSysUserLoginRecordInfoAddCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginSysUserLoginRecordInfoUpdate(obj, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
-            return base.Channel.EndSysUserLoginRecordInfoUpdate(result);
-        }
-        
-        private System.IAsyncResult OnBeginSysUserLoginRecordInfoUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD)(inValues[0]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserLoginRecordInfoUpdate(obj, callback, asyncState);
-        }
-        
-        private object[] OnEndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserLoginRecordInfoUpdate(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnSysUserLoginRecordInfoUpdateCompleted(object state) {
-            if ((this.SysUserLoginRecordInfoUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.SysUserLoginRecordInfoUpdateCompleted(this, new SysUserLoginRecordInfoUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void SysUserLoginRecordInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj) {
-            this.SysUserLoginRecordInfoUpdateAsync(obj, null);
-        }
-        
-        public void SysUserLoginRecordInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, object userState) {
-            if ((this.onBeginSysUserLoginRecordInfoUpdateDelegate == null)) {
-                this.onBeginSysUserLoginRecordInfoUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserLoginRecordInfoUpdate);
-            }
-            if ((this.onEndSysUserLoginRecordInfoUpdateDelegate == null)) {
-                this.onEndSysUserLoginRecordInfoUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserLoginRecordInfoUpdate);
-            }
-            if ((this.onSysUserLoginRecordInfoUpdateCompletedDelegate == null)) {
-                this.onSysUserLoginRecordInfoUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserLoginRecordInfoUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginSysUserLoginRecordInfoUpdateDelegate, new object[] {
-                        obj}, this.onEndSysUserLoginRecordInfoUpdateDelegate, this.onSysUserLoginRecordInfoUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetSysUserLoginRecordInfos(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
-            return base.Channel.EndGetSysUserLoginRecordInfos(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetSysUserLoginRecordInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserLoginRecordInfos(callback, asyncState);
-        }
-        
-        private object[] OnEndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserLoginRecordInfos(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetSysUserLoginRecordInfosCompleted(object state) {
-            if ((this.GetSysUserLoginRecordInfosCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetSysUserLoginRecordInfosCompleted(this, new GetSysUserLoginRecordInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetSysUserLoginRecordInfosAsync() {
-            this.GetSysUserLoginRecordInfosAsync(null);
-        }
-        
-        public void GetSysUserLoginRecordInfosAsync(object userState) {
-            if ((this.onBeginGetSysUserLoginRecordInfosDelegate == null)) {
-                this.onBeginGetSysUserLoginRecordInfosDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserLoginRecordInfos);
-            }
-            if ((this.onEndGetSysUserLoginRecordInfosDelegate == null)) {
-                this.onEndGetSysUserLoginRecordInfosDelegate = new EndOperationDelegate(this.OnEndGetSysUserLoginRecordInfos);
-            }
-            if ((this.onGetSysUserLoginRecordInfosCompletedDelegate == null)) {
-                this.onGetSysUserLoginRecordInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserLoginRecordInfosCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetSysUserLoginRecordInfosDelegate, null, this.onEndGetSysUserLoginRecordInfosDelegate, this.onGetSysUserLoginRecordInfosCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginUserLoginOut(UserID, LoginRecordId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndUserLoginOut(System.IAsyncResult result) {
-            return base.Channel.EndUserLoginOut(result);
-        }
-        
-        private System.IAsyncResult OnBeginUserLoginOut(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string UserID = ((string)(inValues[0]));
-            string LoginRecordId = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserLoginOut(UserID, LoginRecordId, callback, asyncState);
-        }
-        
-        private object[] OnEndUserLoginOut(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserLoginOut(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnUserLoginOutCompleted(object state) {
-            if ((this.UserLoginOutCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.UserLoginOutCompleted(this, new UserLoginOutCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void UserLoginOutAsync(string UserID, string LoginRecordId) {
-            this.UserLoginOutAsync(UserID, LoginRecordId, null);
-        }
-        
-        public void UserLoginOutAsync(string UserID, string LoginRecordId, object userState) {
-            if ((this.onBeginUserLoginOutDelegate == null)) {
-                this.onBeginUserLoginOutDelegate = new BeginOperationDelegate(this.OnBeginUserLoginOut);
-            }
-            if ((this.onEndUserLoginOutDelegate == null)) {
-                this.onEndUserLoginOutDelegate = new EndOperationDelegate(this.OnEndUserLoginOut);
-            }
-            if ((this.onUserLoginOutCompletedDelegate == null)) {
-                this.onUserLoginOutCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserLoginOutCompleted);
-            }
-            base.InvokeAsync(this.onBeginUserLoginOutDelegate, new object[] {
-                        UserID,
-                        LoginRecordId}, this.onEndUserLoginOutDelegate, this.onUserLoginOutCompletedDelegate, userState);
-        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserLoginOperation(string UserID, string LoginRecordId, bool IsLogin, System.AsyncCallback callback, object asyncState) {
@@ -15910,6 +14094,52 @@ namespace SMT.Saas.Tools.PermissionWS {
             }
             base.InvokeAsync(this.onBeginGetLatestTimeOfPermissionDelegate, new object[] {
                         employeeid}, this.onEndGetLatestTimeOfPermissionDelegate, this.onGetLatestTimeOfPermissionCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetFlowManagers(System.Collections.ObjectModel.ObservableCollection<string> companyIDs, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetFlowManagers(companyIDs, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetFlowManagers(System.IAsyncResult result) {
+            return base.Channel.EndGetFlowManagers(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetFlowManagers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> companyIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetFlowManagers(companyIDs, callback, asyncState);
+        }
+        
+        private object[] OnEndGetFlowManagers(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetFlowManagers(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetFlowManagersCompleted(object state) {
+            if ((this.GetFlowManagersCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetFlowManagersCompleted(this, new GetFlowManagersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetFlowManagersAsync(System.Collections.ObjectModel.ObservableCollection<string> companyIDs) {
+            this.GetFlowManagersAsync(companyIDs, null);
+        }
+        
+        public void GetFlowManagersAsync(System.Collections.ObjectModel.ObservableCollection<string> companyIDs, object userState) {
+            if ((this.onBeginGetFlowManagersDelegate == null)) {
+                this.onBeginGetFlowManagersDelegate = new BeginOperationDelegate(this.OnBeginGetFlowManagers);
+            }
+            if ((this.onEndGetFlowManagersDelegate == null)) {
+                this.onEndGetFlowManagersDelegate = new EndOperationDelegate(this.OnEndGetFlowManagers);
+            }
+            if ((this.onGetFlowManagersCompletedDelegate == null)) {
+                this.onGetFlowManagersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetFlowManagersCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetFlowManagersDelegate, new object[] {
+                        companyIDs}, this.onEndGetFlowManagersDelegate, this.onGetFlowManagersCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -18047,6 +16277,52 @@ namespace SMT.Saas.Tools.PermissionWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginCopyRoleInfo(string roleID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCopyRoleInfo(roleID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndCopyRoleInfo(System.IAsyncResult result) {
+            return base.Channel.EndCopyRoleInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginCopyRoleInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string roleID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginCopyRoleInfo(roleID, callback, asyncState);
+        }
+        
+        private object[] OnEndCopyRoleInfo(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndCopyRoleInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnCopyRoleInfoCompleted(object state) {
+            if ((this.CopyRoleInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CopyRoleInfoCompleted(this, new CopyRoleInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CopyRoleInfoAsync(string roleID) {
+            this.CopyRoleInfoAsync(roleID, null);
+        }
+        
+        public void CopyRoleInfoAsync(string roleID, object userState) {
+            if ((this.onBeginCopyRoleInfoDelegate == null)) {
+                this.onBeginCopyRoleInfoDelegate = new BeginOperationDelegate(this.OnBeginCopyRoleInfo);
+            }
+            if ((this.onEndCopyRoleInfoDelegate == null)) {
+                this.onEndCopyRoleInfoDelegate = new EndOperationDelegate(this.OnEndCopyRoleInfo);
+            }
+            if ((this.onCopyRoleInfoCompletedDelegate == null)) {
+                this.onCopyRoleInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCopyRoleInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginCopyRoleInfoDelegate, new object[] {
+                        roleID}, this.onEndCopyRoleInfoDelegate, this.onCopyRoleInfoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysRoleInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE obj, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginSysRoleInfoAdd(obj, callback, asyncState);
         }
@@ -19938,6 +18214,2054 @@ namespace SMT.Saas.Tools.PermissionWS {
                         companyID}, this.onEndGetCustomCompanyMenuPermsDelegate, this.onGetCustomCompanyMenuPermsCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserRoleByType(systemType, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByType(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserRoleByType(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserRoleByType(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string systemType = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByType(systemType, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserRoleByType(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByType(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserRoleByTypeCompleted(object state) {
+            if ((this.GetSysUserRoleByTypeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserRoleByTypeCompleted(this, new GetSysUserRoleByTypeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserRoleByTypeAsync(string systemType) {
+            this.GetSysUserRoleByTypeAsync(systemType, null);
+        }
+        
+        public void GetSysUserRoleByTypeAsync(string systemType, object userState) {
+            if ((this.onBeginGetSysUserRoleByTypeDelegate == null)) {
+                this.onBeginGetSysUserRoleByTypeDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByType);
+            }
+            if ((this.onEndGetSysUserRoleByTypeDelegate == null)) {
+                this.onEndGetSysUserRoleByTypeDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByType);
+            }
+            if ((this.onGetSysUserRoleByTypeCompletedDelegate == null)) {
+                this.onGetSysUserRoleByTypeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByTypeCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserRoleByTypeDelegate, new object[] {
+                        systemType}, this.onEndGetSysUserRoleByTypeDelegate, this.onGetSysUserRoleByTypeCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserRoleByID(menuID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByID(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserRoleByID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserRoleByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string menuID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByID(menuID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserRoleByID(System.IAsyncResult result) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserRoleByIDCompleted(object state) {
+            if ((this.GetSysUserRoleByIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserRoleByIDCompleted(this, new GetSysUserRoleByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserRoleByIDAsync(string menuID) {
+            this.GetSysUserRoleByIDAsync(menuID, null);
+        }
+        
+        public void GetSysUserRoleByIDAsync(string menuID, object userState) {
+            if ((this.onBeginGetSysUserRoleByIDDelegate == null)) {
+                this.onBeginGetSysUserRoleByIDDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByID);
+            }
+            if ((this.onEndGetSysUserRoleByIDDelegate == null)) {
+                this.onEndGetSysUserRoleByIDDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByID);
+            }
+            if ((this.onGetSysUserRoleByIDCompletedDelegate == null)) {
+                this.onGetSysUserRoleByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserRoleByIDDelegate, new object[] {
+                        menuID}, this.onEndGetSysUserRoleByIDDelegate, this.onGetSysUserRoleByIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserRoleByUser(UserID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserRoleByUser(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserRoleByUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserRoleByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string UserID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserRoleByUser(UserID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserRoleByUser(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserRoleByUser(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserRoleByUserCompleted(object state) {
+            if ((this.GetSysUserRoleByUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserRoleByUserCompleted(this, new GetSysUserRoleByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserRoleByUserAsync(string UserID) {
+            this.GetSysUserRoleByUserAsync(UserID, null);
+        }
+        
+        public void GetSysUserRoleByUserAsync(string UserID, object userState) {
+            if ((this.onBeginGetSysUserRoleByUserDelegate == null)) {
+                this.onBeginGetSysUserRoleByUserDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserRoleByUser);
+            }
+            if ((this.onEndGetSysUserRoleByUserDelegate == null)) {
+                this.onEndGetSysUserRoleByUserDelegate = new EndOperationDelegate(this.OnEndGetSysUserRoleByUser);
+            }
+            if ((this.onGetSysUserRoleByUserCompletedDelegate == null)) {
+                this.onGetSysUserRoleByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserRoleByUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserRoleByUserDelegate, new object[] {
+                        UserID}, this.onEndGetSysUserRoleByUserDelegate, this.onGetSysUserRoleByUserCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserByRole(roleID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserByRole(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserByRole(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserByRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string roleID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserByRole(roleID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserByRole(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserByRole(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserByRoleCompleted(object state) {
+            if ((this.GetSysUserByRoleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserByRoleCompleted(this, new GetSysUserByRoleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserByRoleAsync(string roleID) {
+            this.GetSysUserByRoleAsync(roleID, null);
+        }
+        
+        public void GetSysUserByRoleAsync(string roleID, object userState) {
+            if ((this.onBeginGetSysUserByRoleDelegate == null)) {
+                this.onBeginGetSysUserByRoleDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserByRole);
+            }
+            if ((this.onEndGetSysUserByRoleDelegate == null)) {
+                this.onEndGetSysUserByRoleDelegate = new EndOperationDelegate(this.OnEndGetSysUserByRole);
+            }
+            if ((this.onGetSysUserByRoleCompletedDelegate == null)) {
+                this.onGetSysUserByRoleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserByRoleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserByRoleDelegate, new object[] {
+                        roleID}, this.onEndGetSysUserByRoleDelegate, this.onGetSysUserByRoleCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserByRoleToEmployeeLeave(string roleID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserByRoleToEmployeeLeave(roleID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserByRoleToEmployeeLeave(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserByRoleToEmployeeLeave(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserByRoleToEmployeeLeave(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string roleID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserByRoleToEmployeeLeave(roleID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserByRoleToEmployeeLeave(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserByRoleToEmployeeLeave(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserByRoleToEmployeeLeaveCompleted(object state) {
+            if ((this.GetSysUserByRoleToEmployeeLeaveCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserByRoleToEmployeeLeaveCompleted(this, new GetSysUserByRoleToEmployeeLeaveCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserByRoleToEmployeeLeaveAsync(string roleID) {
+            this.GetSysUserByRoleToEmployeeLeaveAsync(roleID, null);
+        }
+        
+        public void GetSysUserByRoleToEmployeeLeaveAsync(string roleID, object userState) {
+            if ((this.onBeginGetSysUserByRoleToEmployeeLeaveDelegate == null)) {
+                this.onBeginGetSysUserByRoleToEmployeeLeaveDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserByRoleToEmployeeLeave);
+            }
+            if ((this.onEndGetSysUserByRoleToEmployeeLeaveDelegate == null)) {
+                this.onEndGetSysUserByRoleToEmployeeLeaveDelegate = new EndOperationDelegate(this.OnEndGetSysUserByRoleToEmployeeLeave);
+            }
+            if ((this.onGetSysUserByRoleToEmployeeLeaveCompletedDelegate == null)) {
+                this.onGetSysUserByRoleToEmployeeLeaveCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserByRoleToEmployeeLeaveCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserByRoleToEmployeeLeaveDelegate, new object[] {
+                        roleID}, this.onEndGetSysUserByRoleToEmployeeLeaveDelegate, this.onGetSysUserByRoleToEmployeeLeaveCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUserRoleBatchAddInfos(RoleList, userobj, StrUserName, AddDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndUserRoleBatchAddInfos(System.IAsyncResult result) {
+            return base.Channel.EndUserRoleBatchAddInfos(result);
+        }
+        
+        private System.IAsyncResult OnBeginUserRoleBatchAddInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE>)(inValues[0]));
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[1]));
+            string StrUserName = ((string)(inValues[2]));
+            System.DateTime AddDate = ((System.DateTime)(inValues[3]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserRoleBatchAddInfos(RoleList, userobj, StrUserName, AddDate, callback, asyncState);
+        }
+        
+        private object[] OnEndUserRoleBatchAddInfos(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserRoleBatchAddInfos(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUserRoleBatchAddInfosCompleted(object state) {
+            if ((this.UserRoleBatchAddInfosCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UserRoleBatchAddInfosCompleted(this, new UserRoleBatchAddInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UserRoleBatchAddInfosAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate) {
+            this.UserRoleBatchAddInfosAsync(RoleList, userobj, StrUserName, AddDate, null);
+        }
+        
+        public void UserRoleBatchAddInfosAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, object userState) {
+            if ((this.onBeginUserRoleBatchAddInfosDelegate == null)) {
+                this.onBeginUserRoleBatchAddInfosDelegate = new BeginOperationDelegate(this.OnBeginUserRoleBatchAddInfos);
+            }
+            if ((this.onEndUserRoleBatchAddInfosDelegate == null)) {
+                this.onEndUserRoleBatchAddInfosDelegate = new EndOperationDelegate(this.OnEndUserRoleBatchAddInfos);
+            }
+            if ((this.onUserRoleBatchAddInfosCompletedDelegate == null)) {
+                this.onUserRoleBatchAddInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserRoleBatchAddInfosCompleted);
+            }
+            base.InvokeAsync(this.onBeginUserRoleBatchAddInfosDelegate, new object[] {
+                        RoleList,
+                        userobj,
+                        StrUserName,
+                        AddDate}, this.onEndUserRoleBatchAddInfosDelegate, this.onUserRoleBatchAddInfosCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginBatchAddUserRole(RoleObj, ref IsResult, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result) {
+            return base.Channel.EndBatchAddUserRole(ref IsResult, result);
+        }
+        
+        private System.IAsyncResult OnBeginBatchAddUserRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(inValues[0]));
+            string IsResult = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginBatchAddUserRole(RoleObj, ref IsResult, callback, asyncState);
+        }
+        
+        private object[] OnEndBatchAddUserRole(System.IAsyncResult result) {
+            string IsResult = this.GetDefaultValueForInitialization<string>();
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndBatchAddUserRole(ref IsResult, result);
+            return new object[] {
+                    IsResult,
+                    retVal};
+        }
+        
+        private void OnBatchAddUserRoleCompleted(object state) {
+            if ((this.BatchAddUserRoleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.BatchAddUserRoleCompleted(this, new BatchAddUserRoleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void BatchAddUserRoleAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, string IsResult) {
+            this.BatchAddUserRoleAsync(RoleObj, IsResult, null);
+        }
+        
+        public void BatchAddUserRoleAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, string IsResult, object userState) {
+            if ((this.onBeginBatchAddUserRoleDelegate == null)) {
+                this.onBeginBatchAddUserRoleDelegate = new BeginOperationDelegate(this.OnBeginBatchAddUserRole);
+            }
+            if ((this.onEndBatchAddUserRoleDelegate == null)) {
+                this.onEndBatchAddUserRoleDelegate = new EndOperationDelegate(this.OnEndBatchAddUserRole);
+            }
+            if ((this.onBatchAddUserRoleCompletedDelegate == null)) {
+                this.onBatchAddUserRoleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnBatchAddUserRoleCompleted);
+            }
+            base.InvokeAsync(this.onBeginBatchAddUserRoleDelegate, new object[] {
+                        RoleObj,
+                        IsResult}, this.onEndBatchAddUserRoleDelegate, this.onBatchAddUserRoleCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUserRoleUpdateInfo(UserRoleObj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.PermissionWS.PermissionService.EndUserRoleUpdateInfo(System.IAsyncResult result) {
+            base.Channel.EndUserRoleUpdateInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginUserRoleUpdateInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserRoleUpdateInfo(UserRoleObj, callback, asyncState);
+        }
+        
+        private object[] OnEndUserRoleUpdateInfo(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserRoleUpdateInfo(result);
+            return null;
+        }
+        
+        private void OnUserRoleUpdateInfoCompleted(object state) {
+            if ((this.UserRoleUpdateInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UserRoleUpdateInfoCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UserRoleUpdateInfoAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj) {
+            this.UserRoleUpdateInfoAsync(UserRoleObj, null);
+        }
+        
+        public void UserRoleUpdateInfoAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, object userState) {
+            if ((this.onBeginUserRoleUpdateInfoDelegate == null)) {
+                this.onBeginUserRoleUpdateInfoDelegate = new BeginOperationDelegate(this.OnBeginUserRoleUpdateInfo);
+            }
+            if ((this.onEndUserRoleUpdateInfoDelegate == null)) {
+                this.onEndUserRoleUpdateInfoDelegate = new EndOperationDelegate(this.OnEndUserRoleUpdateInfo);
+            }
+            if ((this.onUserRoleUpdateInfoCompletedDelegate == null)) {
+                this.onUserRoleUpdateInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserRoleUpdateInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginUserRoleUpdateInfoDelegate, new object[] {
+                        UserRoleObj}, this.onEndUserRoleUpdateInfoDelegate, this.onUserRoleUpdateInfoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserRoleUpdate(obj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserRoleUpdate(System.IAsyncResult result) {
+            base.Channel.EndSysUserRoleUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserRoleUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserRoleUpdate(obj, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserRoleUpdate(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserRoleUpdate(result);
+            return null;
+        }
+        
+        private void OnSysUserRoleUpdateCompleted(object state) {
+            if ((this.SysUserRoleUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserRoleUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserRoleUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj) {
+            this.SysUserRoleUpdateAsync(obj, null);
+        }
+        
+        public void SysUserRoleUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, object userState) {
+            if ((this.onBeginSysUserRoleUpdateDelegate == null)) {
+                this.onBeginSysUserRoleUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserRoleUpdate);
+            }
+            if ((this.onEndSysUserRoleUpdateDelegate == null)) {
+                this.onEndSysUserRoleUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserRoleUpdate);
+            }
+            if ((this.onSysUserRoleUpdateCompletedDelegate == null)) {
+                this.onSysUserRoleUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserRoleUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserRoleUpdateDelegate, new object[] {
+                        obj}, this.onEndSysUserRoleUpdateDelegate, this.onSysUserRoleUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserRoleDelete(userroleid, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserRoleDelete(System.IAsyncResult result) {
+            base.Channel.EndSysUserRoleDelete(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserRoleDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userroleid = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserRoleDelete(userroleid, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserRoleDelete(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserRoleDelete(result);
+            return null;
+        }
+        
+        private void OnSysUserRoleDeleteCompleted(object state) {
+            if ((this.SysUserRoleDeleteCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserRoleDeleteCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserRoleDeleteAsync(string userroleid) {
+            this.SysUserRoleDeleteAsync(userroleid, null);
+        }
+        
+        public void SysUserRoleDeleteAsync(string userroleid, object userState) {
+            if ((this.onBeginSysUserRoleDeleteDelegate == null)) {
+                this.onBeginSysUserRoleDeleteDelegate = new BeginOperationDelegate(this.OnBeginSysUserRoleDelete);
+            }
+            if ((this.onEndSysUserRoleDeleteDelegate == null)) {
+                this.onEndSysUserRoleDeleteDelegate = new EndOperationDelegate(this.OnEndSysUserRoleDelete);
+            }
+            if ((this.onSysUserRoleDeleteCompletedDelegate == null)) {
+                this.onSysUserRoleDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserRoleDeleteCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserRoleDeleteDelegate, new object[] {
+                        userroleid}, this.onEndSysUserRoleDeleteDelegate, this.onSysUserRoleDeleteCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserInfo(userName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserInfo(System.IAsyncResult result) {
+            return base.Channel.EndGetUserInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userName = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserInfo(userName, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserInfo(System.IAsyncResult result) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserInfoCompleted(object state) {
+            if ((this.GetUserInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserInfoCompleted(this, new GetUserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserInfoAsync(string userName) {
+            this.GetUserInfoAsync(userName, null);
+        }
+        
+        public void GetUserInfoAsync(string userName, object userState) {
+            if ((this.onBeginGetUserInfoDelegate == null)) {
+                this.onBeginGetUserInfoDelegate = new BeginOperationDelegate(this.OnBeginGetUserInfo);
+            }
+            if ((this.onEndGetUserInfoDelegate == null)) {
+                this.onEndGetUserInfoDelegate = new EndOperationDelegate(this.OnEndGetUserInfo);
+            }
+            if ((this.onGetUserInfoCompletedDelegate == null)) {
+                this.onGetUserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserInfoDelegate, new object[] {
+                        userName}, this.onEndGetUserInfoDelegate, this.onGetUserInfoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserByID(userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserByID(System.IAsyncResult result) {
+            return base.Channel.EndGetUserByID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserByID(userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserByID(System.IAsyncResult result) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserByID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserByIDCompleted(object state) {
+            if ((this.GetUserByIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserByIDCompleted(this, new GetUserByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserByIDAsync(string userID) {
+            this.GetUserByIDAsync(userID, null);
+        }
+        
+        public void GetUserByIDAsync(string userID, object userState) {
+            if ((this.onBeginGetUserByIDDelegate == null)) {
+                this.onBeginGetUserByIDDelegate = new BeginOperationDelegate(this.OnBeginGetUserByID);
+            }
+            if ((this.onEndGetUserByIDDelegate == null)) {
+                this.onEndGetUserByIDDelegate = new EndOperationDelegate(this.OnEndGetUserByID);
+            }
+            if ((this.onGetUserByIDCompletedDelegate == null)) {
+                this.onGetUserByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserByIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserByIDDelegate, new object[] {
+                        userID}, this.onEndGetUserByIDDelegate, this.onGetUserByIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserByEmployeeID(employeeID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserByEmployeeID(System.IAsyncResult result) {
+            return base.Channel.EndGetUserByEmployeeID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserByEmployeeID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string employeeID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserByEmployeeID(employeeID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserByEmployeeID(System.IAsyncResult result) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserByEmployeeID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserByEmployeeIDCompleted(object state) {
+            if ((this.GetUserByEmployeeIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserByEmployeeIDCompleted(this, new GetUserByEmployeeIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserByEmployeeIDAsync(string employeeID) {
+            this.GetUserByEmployeeIDAsync(employeeID, null);
+        }
+        
+        public void GetUserByEmployeeIDAsync(string employeeID, object userState) {
+            if ((this.onBeginGetUserByEmployeeIDDelegate == null)) {
+                this.onBeginGetUserByEmployeeIDDelegate = new BeginOperationDelegate(this.OnBeginGetUserByEmployeeID);
+            }
+            if ((this.onEndGetUserByEmployeeIDDelegate == null)) {
+                this.onEndGetUserByEmployeeIDDelegate = new EndOperationDelegate(this.OnEndGetUserByEmployeeID);
+            }
+            if ((this.onGetUserByEmployeeIDCompletedDelegate == null)) {
+                this.onGetUserByEmployeeIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserByEmployeeIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserByEmployeeIDDelegate, new object[] {
+                        employeeID}, this.onEndGetUserByEmployeeIDDelegate, this.onGetUserByEmployeeIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserPermissionByUser(userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionByUser(System.IAsyncResult result) {
+            return base.Channel.EndGetUserPermissionByUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserPermissionByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionByUser(userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserPermissionByUser(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionByUser(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserPermissionByUserCompleted(object state) {
+            if ((this.GetUserPermissionByUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserPermissionByUserCompleted(this, new GetUserPermissionByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserPermissionByUserAsync(string userID) {
+            this.GetUserPermissionByUserAsync(userID, null);
+        }
+        
+        public void GetUserPermissionByUserAsync(string userID, object userState) {
+            if ((this.onBeginGetUserPermissionByUserDelegate == null)) {
+                this.onBeginGetUserPermissionByUserDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionByUser);
+            }
+            if ((this.onEndGetUserPermissionByUserDelegate == null)) {
+                this.onEndGetUserPermissionByUserDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionByUser);
+            }
+            if ((this.onGetUserPermissionByUserCompletedDelegate == null)) {
+                this.onGetUserPermissionByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionByUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserPermissionByUserDelegate, new object[] {
+                        userID}, this.onEndGetUserPermissionByUserDelegate, this.onGetUserPermissionByUserCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUpdateFbAdmin(employeeid, ownercompanyid, fbAdmin, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PermissionWS.PermissionService.EndUpdateFbAdmin(System.IAsyncResult result) {
+            return base.Channel.EndUpdateFbAdmin(result);
+        }
+        
+        private System.IAsyncResult OnBeginUpdateFbAdmin(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string employeeid = ((string)(inValues[0]));
+            string ownercompanyid = ((string)(inValues[1]));
+            SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin = ((SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN)(inValues[2]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUpdateFbAdmin(employeeid, ownercompanyid, fbAdmin, callback, asyncState);
+        }
+        
+        private object[] OnEndUpdateFbAdmin(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUpdateFbAdmin(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUpdateFbAdminCompleted(object state) {
+            if ((this.UpdateFbAdminCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UpdateFbAdminCompleted(this, new UpdateFbAdminCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UpdateFbAdminAsync(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin) {
+            this.UpdateFbAdminAsync(employeeid, ownercompanyid, fbAdmin, null);
+        }
+        
+        public void UpdateFbAdminAsync(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, object userState) {
+            if ((this.onBeginUpdateFbAdminDelegate == null)) {
+                this.onBeginUpdateFbAdminDelegate = new BeginOperationDelegate(this.OnBeginUpdateFbAdmin);
+            }
+            if ((this.onEndUpdateFbAdminDelegate == null)) {
+                this.onEndUpdateFbAdminDelegate = new EndOperationDelegate(this.OnEndUpdateFbAdmin);
+            }
+            if ((this.onUpdateFbAdminCompletedDelegate == null)) {
+                this.onUpdateFbAdminCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUpdateFbAdminCompleted);
+            }
+            base.InvokeAsync(this.onBeginUpdateFbAdminDelegate, new object[] {
+                        employeeid,
+                        ownercompanyid,
+                        fbAdmin}, this.onEndUpdateFbAdminDelegate, this.onUpdateFbAdminCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserPermissionByUserToUI(userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionByUserToUI(System.IAsyncResult result) {
+            return base.Channel.EndGetUserPermissionByUserToUI(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserPermissionByUserToUI(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionByUserToUI(userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserPermissionByUserToUI(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionByUserToUI(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserPermissionByUserToUICompleted(object state) {
+            if ((this.GetUserPermissionByUserToUICompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserPermissionByUserToUICompleted(this, new GetUserPermissionByUserToUICompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserPermissionByUserToUIAsync(string userID) {
+            this.GetUserPermissionByUserToUIAsync(userID, null);
+        }
+        
+        public void GetUserPermissionByUserToUIAsync(string userID, object userState) {
+            if ((this.onBeginGetUserPermissionByUserToUIDelegate == null)) {
+                this.onBeginGetUserPermissionByUserToUIDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionByUserToUI);
+            }
+            if ((this.onEndGetUserPermissionByUserToUIDelegate == null)) {
+                this.onEndGetUserPermissionByUserToUIDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionByUserToUI);
+            }
+            if ((this.onGetUserPermissionByUserToUICompletedDelegate == null)) {
+                this.onGetUserPermissionByUserToUICompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionByUserToUICompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserPermissionByUserToUIDelegate, new object[] {
+                        userID}, this.onEndGetUserPermissionByUserToUIDelegate, this.onGetUserPermissionByUserToUICompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetEntityPermissionByUser(userID, StrMenuId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetEntityPermissionByUser(System.IAsyncResult result) {
+            return base.Channel.EndGetEntityPermissionByUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetEntityPermissionByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userID = ((string)(inValues[0]));
+            string StrMenuId = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetEntityPermissionByUser(userID, StrMenuId, callback, asyncState);
+        }
+        
+        private object[] OnEndGetEntityPermissionByUser(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetEntityPermissionByUser(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetEntityPermissionByUserCompleted(object state) {
+            if ((this.GetEntityPermissionByUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetEntityPermissionByUserCompleted(this, new GetEntityPermissionByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetEntityPermissionByUserAsync(string userID, string StrMenuId) {
+            this.GetEntityPermissionByUserAsync(userID, StrMenuId, null);
+        }
+        
+        public void GetEntityPermissionByUserAsync(string userID, string StrMenuId, object userState) {
+            if ((this.onBeginGetEntityPermissionByUserDelegate == null)) {
+                this.onBeginGetEntityPermissionByUserDelegate = new BeginOperationDelegate(this.OnBeginGetEntityPermissionByUser);
+            }
+            if ((this.onEndGetEntityPermissionByUserDelegate == null)) {
+                this.onEndGetEntityPermissionByUserDelegate = new EndOperationDelegate(this.OnEndGetEntityPermissionByUser);
+            }
+            if ((this.onGetEntityPermissionByUserCompletedDelegate == null)) {
+                this.onGetEntityPermissionByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetEntityPermissionByUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetEntityPermissionByUserDelegate, new object[] {
+                        userID,
+                        StrMenuId}, this.onEndGetEntityPermissionByUserDelegate, this.onGetEntityPermissionByUserCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserMenuPerms(menuCode, userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserMenuPerms(System.IAsyncResult result) {
+            return base.Channel.EndGetUserMenuPerms(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserMenuPerms(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string menuCode = ((string)(inValues[0]));
+            string userID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserMenuPerms(menuCode, userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserMenuPerms(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserMenuPerms(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserMenuPermsCompleted(object state) {
+            if ((this.GetUserMenuPermsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserMenuPermsCompleted(this, new GetUserMenuPermsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserMenuPermsAsync(string menuCode, string userID) {
+            this.GetUserMenuPermsAsync(menuCode, userID, null);
+        }
+        
+        public void GetUserMenuPermsAsync(string menuCode, string userID, object userState) {
+            if ((this.onBeginGetUserMenuPermsDelegate == null)) {
+                this.onBeginGetUserMenuPermsDelegate = new BeginOperationDelegate(this.OnBeginGetUserMenuPerms);
+            }
+            if ((this.onEndGetUserMenuPermsDelegate == null)) {
+                this.onEndGetUserMenuPermsDelegate = new EndOperationDelegate(this.OnEndGetUserMenuPerms);
+            }
+            if ((this.onGetUserMenuPermsCompletedDelegate == null)) {
+                this.onGetUserMenuPermsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserMenuPermsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserMenuPermsDelegate, new object[] {
+                        menuCode,
+                        userID}, this.onEndGetUserMenuPermsDelegate, this.onGetUserMenuPermsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserMenuPermsByUserPermission(menuCode, userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
+            return base.Channel.EndGetUserMenuPermsByUserPermission(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserMenuPermsByUserPermission(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string menuCode = ((string)(inValues[0]));
+            string userID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserMenuPermsByUserPermission(menuCode, userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserMenuPermsByUserPermission(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserMenuPermsByUserPermissionCompleted(object state) {
+            if ((this.GetUserMenuPermsByUserPermissionCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserMenuPermsByUserPermissionCompleted(this, new GetUserMenuPermsByUserPermissionCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserMenuPermsByUserPermissionAsync(string menuCode, string userID) {
+            this.GetUserMenuPermsByUserPermissionAsync(menuCode, userID, null);
+        }
+        
+        public void GetUserMenuPermsByUserPermissionAsync(string menuCode, string userID, object userState) {
+            if ((this.onBeginGetUserMenuPermsByUserPermissionDelegate == null)) {
+                this.onBeginGetUserMenuPermsByUserPermissionDelegate = new BeginOperationDelegate(this.OnBeginGetUserMenuPermsByUserPermission);
+            }
+            if ((this.onEndGetUserMenuPermsByUserPermissionDelegate == null)) {
+                this.onEndGetUserMenuPermsByUserPermissionDelegate = new EndOperationDelegate(this.OnEndGetUserMenuPermsByUserPermission);
+            }
+            if ((this.onGetUserMenuPermsByUserPermissionCompletedDelegate == null)) {
+                this.onGetUserMenuPermsByUserPermissionCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserMenuPermsByUserPermissionCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserMenuPermsByUserPermissionDelegate, new object[] {
+                        menuCode,
+                        userID}, this.onEndGetUserMenuPermsByUserPermissionDelegate, this.onGetUserMenuPermsByUserPermissionCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPermissionByRoleID(RoleID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetPermissionByRoleID(System.IAsyncResult result) {
+            return base.Channel.EndGetPermissionByRoleID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPermissionByRoleID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string RoleID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetPermissionByRoleID(RoleID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPermissionByRoleID(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetPermissionByRoleID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPermissionByRoleIDCompleted(object state) {
+            if ((this.GetPermissionByRoleIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPermissionByRoleIDCompleted(this, new GetPermissionByRoleIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPermissionByRoleIDAsync(string RoleID) {
+            this.GetPermissionByRoleIDAsync(RoleID, null);
+        }
+        
+        public void GetPermissionByRoleIDAsync(string RoleID, object userState) {
+            if ((this.onBeginGetPermissionByRoleIDDelegate == null)) {
+                this.onBeginGetPermissionByRoleIDDelegate = new BeginOperationDelegate(this.OnBeginGetPermissionByRoleID);
+            }
+            if ((this.onEndGetPermissionByRoleIDDelegate == null)) {
+                this.onEndGetPermissionByRoleIDDelegate = new EndOperationDelegate(this.OnEndGetPermissionByRoleID);
+            }
+            if ((this.onGetPermissionByRoleIDCompletedDelegate == null)) {
+                this.onGetPermissionByRoleIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPermissionByRoleIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPermissionByRoleIDDelegate, new object[] {
+                        RoleID}, this.onEndGetPermissionByRoleIDDelegate, this.onGetPermissionByRoleIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPermissionByRoleIDSecond(RoleID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
+            return base.Channel.EndGetPermissionByRoleIDSecond(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPermissionByRoleIDSecond(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string RoleID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetPermissionByRoleIDSecond(RoleID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetPermissionByRoleIDSecond(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPermissionByRoleIDSecondCompleted(object state) {
+            if ((this.GetPermissionByRoleIDSecondCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPermissionByRoleIDSecondCompleted(this, new GetPermissionByRoleIDSecondCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPermissionByRoleIDSecondAsync(string RoleID) {
+            this.GetPermissionByRoleIDSecondAsync(RoleID, null);
+        }
+        
+        public void GetPermissionByRoleIDSecondAsync(string RoleID, object userState) {
+            if ((this.onBeginGetPermissionByRoleIDSecondDelegate == null)) {
+                this.onBeginGetPermissionByRoleIDSecondDelegate = new BeginOperationDelegate(this.OnBeginGetPermissionByRoleIDSecond);
+            }
+            if ((this.onEndGetPermissionByRoleIDSecondDelegate == null)) {
+                this.onEndGetPermissionByRoleIDSecondDelegate = new EndOperationDelegate(this.OnEndGetPermissionByRoleIDSecond);
+            }
+            if ((this.onGetPermissionByRoleIDSecondCompletedDelegate == null)) {
+                this.onGetPermissionByRoleIDSecondCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPermissionByRoleIDSecondCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPermissionByRoleIDSecondDelegate, new object[] {
+                        RoleID}, this.onEndGetPermissionByRoleIDSecondDelegate, this.onGetPermissionByRoleIDSecondCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetUserPermissionAll(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetUserPermissionAll(System.IAsyncResult result) {
+            return base.Channel.EndGetUserPermissionAll(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetUserPermissionAll(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetUserPermissionAll(callback, asyncState);
+        }
+        
+        private object[] OnEndGetUserPermissionAll(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetUserPermissionAll(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetUserPermissionAllCompleted(object state) {
+            if ((this.GetUserPermissionAllCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetUserPermissionAllCompleted(this, new GetUserPermissionAllCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetUserPermissionAllAsync() {
+            this.GetUserPermissionAllAsync(null);
+        }
+        
+        public void GetUserPermissionAllAsync(object userState) {
+            if ((this.onBeginGetUserPermissionAllDelegate == null)) {
+                this.onBeginGetUserPermissionAllDelegate = new BeginOperationDelegate(this.OnBeginGetUserPermissionAll);
+            }
+            if ((this.onEndGetUserPermissionAllDelegate == null)) {
+                this.onEndGetUserPermissionAllDelegate = new EndOperationDelegate(this.OnEndGetUserPermissionAll);
+            }
+            if ((this.onGetUserPermissionAllCompletedDelegate == null)) {
+                this.onGetUserPermissionAllCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetUserPermissionAllCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetUserPermissionAllDelegate, null, this.onEndGetUserPermissionAllDelegate, this.onGetUserPermissionAllCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUserLogin(userName, Pwd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.PermissionWS.T_SYS_USER SMT.Saas.Tools.PermissionWS.PermissionService.EndUserLogin(System.IAsyncResult result) {
+            return base.Channel.EndUserLogin(result);
+        }
+        
+        private System.IAsyncResult OnBeginUserLogin(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userName = ((string)(inValues[0]));
+            string Pwd = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserLogin(userName, Pwd, callback, asyncState);
+        }
+        
+        private object[] OnEndUserLogin(System.IAsyncResult result) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserLogin(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUserLoginCompleted(object state) {
+            if ((this.UserLoginCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UserLoginCompleted(this, new UserLoginCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UserLoginAsync(string userName, string Pwd) {
+            this.UserLoginAsync(userName, Pwd, null);
+        }
+        
+        public void UserLoginAsync(string userName, string Pwd, object userState) {
+            if ((this.onBeginUserLoginDelegate == null)) {
+                this.onBeginUserLoginDelegate = new BeginOperationDelegate(this.OnBeginUserLogin);
+            }
+            if ((this.onEndUserLoginDelegate == null)) {
+                this.onEndUserLoginDelegate = new EndOperationDelegate(this.OnEndUserLogin);
+            }
+            if ((this.onUserLoginCompletedDelegate == null)) {
+                this.onUserLoginCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserLoginCompleted);
+            }
+            base.InvokeAsync(this.onBeginUserLoginDelegate, new object[] {
+                        userName,
+                        Pwd}, this.onEndUserLoginDelegate, this.onUserLoginCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetOnLineUsers(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CompanyIDs, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetOnLineUsers(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetOnLineUsers(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            string userID = ((string)(inValues[6]));
+            System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[7]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetOnLineUsers(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, CompanyIDs, callback, asyncState);
+        }
+        
+        private object[] OnEndGetOnLineUsers(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetOnLineUsers(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetOnLineUsersCompleted(object state) {
+            if ((this.GetOnLineUsersCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetOnLineUsersCompleted(this, new GetOnLineUsersCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetOnLineUsersAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs) {
+            this.GetOnLineUsersAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, userID, CompanyIDs, null);
+        }
+        
+        public void GetOnLineUsersAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, object userState) {
+            if ((this.onBeginGetOnLineUsersDelegate == null)) {
+                this.onBeginGetOnLineUsersDelegate = new BeginOperationDelegate(this.OnBeginGetOnLineUsers);
+            }
+            if ((this.onEndGetOnLineUsersDelegate == null)) {
+                this.onEndGetOnLineUsersDelegate = new EndOperationDelegate(this.OnEndGetOnLineUsers);
+            }
+            if ((this.onGetOnLineUsersCompletedDelegate == null)) {
+                this.onGetOnLineUsersCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOnLineUsersCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetOnLineUsersDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        userID,
+                        CompanyIDs}, this.onEndGetOnLineUsersDelegate, this.onGetOnLineUsersCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetLookupOjbects(entityName, args, pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PermissionWS.PermissionService.EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetLookupOjbects(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetLookupOjbects(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.EntityNames entityName = ((SMT.Saas.Tools.PermissionWS.EntityNames)(inValues[0]));
+            System.Collections.Generic.Dictionary<string, string> args = ((System.Collections.Generic.Dictionary<string, string>)(inValues[1]));
+            int pageIndex = ((int)(inValues[2]));
+            int pageSize = ((int)(inValues[3]));
+            string sort = ((string)(inValues[4]));
+            string filterString = ((string)(inValues[5]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[6]));
+            int pageCount = ((int)(inValues[7]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetLookupOjbects(entityName, args, pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        private object[] OnEndGetLookupOjbects(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetLookupOjbects(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetLookupOjbectsCompleted(object state) {
+            if ((this.GetLookupOjbectsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetLookupOjbectsCompleted(this, new GetLookupOjbectsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetLookupOjbectsAsync(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount) {
+            this.GetLookupOjbectsAsync(entityName, args, pageIndex, pageSize, sort, filterString, paras, pageCount, null);
+        }
+        
+        public void GetLookupOjbectsAsync(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, object userState) {
+            if ((this.onBeginGetLookupOjbectsDelegate == null)) {
+                this.onBeginGetLookupOjbectsDelegate = new BeginOperationDelegate(this.OnBeginGetLookupOjbects);
+            }
+            if ((this.onEndGetLookupOjbectsDelegate == null)) {
+                this.onEndGetLookupOjbectsDelegate = new EndOperationDelegate(this.OnEndGetLookupOjbects);
+            }
+            if ((this.onGetLookupOjbectsCompletedDelegate == null)) {
+                this.onGetLookupOjbectsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLookupOjbectsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetLookupOjbectsDelegate, new object[] {
+                        entityName,
+                        args,
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount}, this.onEndGetLookupOjbectsDelegate, this.onGetLookupOjbectsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoAdd(obj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoAdd(System.IAsyncResult result) {
+            return base.Channel.EndSysUserInfoAdd(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoAdd(obj, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoAdd(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoAdd(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserInfoAddCompleted(object state) {
+            if ((this.SysUserInfoAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoAddCompleted(this, new SysUserInfoAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj) {
+            this.SysUserInfoAddAsync(obj, null);
+        }
+        
+        public void SysUserInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, object userState) {
+            if ((this.onBeginSysUserInfoAddDelegate == null)) {
+                this.onBeginSysUserInfoAddDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoAdd);
+            }
+            if ((this.onEndSysUserInfoAddDelegate == null)) {
+                this.onEndSysUserInfoAddDelegate = new EndOperationDelegate(this.OnEndSysUserInfoAdd);
+            }
+            if ((this.onSysUserInfoAddCompletedDelegate == null)) {
+                this.onSysUserInfoAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoAddDelegate, new object[] {
+                        obj}, this.onEndSysUserInfoAddDelegate, this.onSysUserInfoAddCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoAddORUpdate(obj, ref strMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result) {
+            base.Channel.EndSysUserInfoAddORUpdate(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoAddORUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
+            string strMsg = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoAddORUpdate(obj, ref strMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoAddORUpdate(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoAddORUpdate(ref strMsg, result);
+            return new object[] {
+                    strMsg};
+        }
+        
+        private void OnSysUserInfoAddORUpdateCompleted(object state) {
+            if ((this.SysUserInfoAddORUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoAddORUpdateCompleted(this, new SysUserInfoAddORUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoAddORUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string strMsg) {
+            this.SysUserInfoAddORUpdateAsync(obj, strMsg, null);
+        }
+        
+        public void SysUserInfoAddORUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string strMsg, object userState) {
+            if ((this.onBeginSysUserInfoAddORUpdateDelegate == null)) {
+                this.onBeginSysUserInfoAddORUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoAddORUpdate);
+            }
+            if ((this.onEndSysUserInfoAddORUpdateDelegate == null)) {
+                this.onEndSysUserInfoAddORUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserInfoAddORUpdate);
+            }
+            if ((this.onSysUserInfoAddORUpdateCompletedDelegate == null)) {
+                this.onSysUserInfoAddORUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoAddORUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoAddORUpdateDelegate, new object[] {
+                        obj,
+                        strMsg}, this.onEndSysUserInfoAddORUpdateDelegate, this.onSysUserInfoAddORUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginEmployeeEntryAddDefaultRole(SMT.Saas.Tools.PermissionWS.T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginEmployeeEntryAddDefaultRole(user, companyID, compayName, deptID, postID, employeeID, employeePostID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndEmployeeEntryAddDefaultRole(System.IAsyncResult result) {
+            return base.Channel.EndEmployeeEntryAddDefaultRole(result);
+        }
+        
+        private System.IAsyncResult OnBeginEmployeeEntryAddDefaultRole(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER user = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
+            string companyID = ((string)(inValues[1]));
+            string compayName = ((string)(inValues[2]));
+            string deptID = ((string)(inValues[3]));
+            string postID = ((string)(inValues[4]));
+            string employeeID = ((string)(inValues[5]));
+            string employeePostID = ((string)(inValues[6]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginEmployeeEntryAddDefaultRole(user, companyID, compayName, deptID, postID, employeeID, employeePostID, callback, asyncState);
+        }
+        
+        private object[] OnEndEmployeeEntryAddDefaultRole(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndEmployeeEntryAddDefaultRole(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnEmployeeEntryAddDefaultRoleCompleted(object state) {
+            if ((this.EmployeeEntryAddDefaultRoleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.EmployeeEntryAddDefaultRoleCompleted(this, new EmployeeEntryAddDefaultRoleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void EmployeeEntryAddDefaultRoleAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID) {
+            this.EmployeeEntryAddDefaultRoleAsync(user, companyID, compayName, deptID, postID, employeeID, employeePostID, null);
+        }
+        
+        public void EmployeeEntryAddDefaultRoleAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID, object userState) {
+            if ((this.onBeginEmployeeEntryAddDefaultRoleDelegate == null)) {
+                this.onBeginEmployeeEntryAddDefaultRoleDelegate = new BeginOperationDelegate(this.OnBeginEmployeeEntryAddDefaultRole);
+            }
+            if ((this.onEndEmployeeEntryAddDefaultRoleDelegate == null)) {
+                this.onEndEmployeeEntryAddDefaultRoleDelegate = new EndOperationDelegate(this.OnEndEmployeeEntryAddDefaultRole);
+            }
+            if ((this.onEmployeeEntryAddDefaultRoleCompletedDelegate == null)) {
+                this.onEmployeeEntryAddDefaultRoleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnEmployeeEntryAddDefaultRoleCompleted);
+            }
+            base.InvokeAsync(this.onBeginEmployeeEntryAddDefaultRoleDelegate, new object[] {
+                        user,
+                        companyID,
+                        compayName,
+                        deptID,
+                        postID,
+                        employeeID,
+                        employeePostID}, this.onEndEmployeeEntryAddDefaultRoleDelegate, this.onEmployeeEntryAddDefaultRoleCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginIsExistSysUserInfo(StrUserName, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndIsExistSysUserInfo(System.IAsyncResult result) {
+            return base.Channel.EndIsExistSysUserInfo(result);
+        }
+        
+        private System.IAsyncResult OnBeginIsExistSysUserInfo(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string StrUserName = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginIsExistSysUserInfo(StrUserName, callback, asyncState);
+        }
+        
+        private object[] OnEndIsExistSysUserInfo(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndIsExistSysUserInfo(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnIsExistSysUserInfoCompleted(object state) {
+            if ((this.IsExistSysUserInfoCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.IsExistSysUserInfoCompleted(this, new IsExistSysUserInfoCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void IsExistSysUserInfoAsync(string StrUserName) {
+            this.IsExistSysUserInfoAsync(StrUserName, null);
+        }
+        
+        public void IsExistSysUserInfoAsync(string StrUserName, object userState) {
+            if ((this.onBeginIsExistSysUserInfoDelegate == null)) {
+                this.onBeginIsExistSysUserInfoDelegate = new BeginOperationDelegate(this.OnBeginIsExistSysUserInfo);
+            }
+            if ((this.onEndIsExistSysUserInfoDelegate == null)) {
+                this.onEndIsExistSysUserInfoDelegate = new EndOperationDelegate(this.OnEndIsExistSysUserInfo);
+            }
+            if ((this.onIsExistSysUserInfoCompletedDelegate == null)) {
+                this.onIsExistSysUserInfoCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIsExistSysUserInfoCompleted);
+            }
+            base.InvokeAsync(this.onBeginIsExistSysUserInfoDelegate, new object[] {
+                        StrUserName}, this.onEndIsExistSysUserInfoDelegate, this.onIsExistSysUserInfoCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoUpdate(obj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdate(System.IAsyncResult result) {
+            return base.Channel.EndSysUserInfoUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdate(obj, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoUpdate(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserInfoUpdateCompleted(object state) {
+            if ((this.SysUserInfoUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoUpdateCompleted(this, new SysUserInfoUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj) {
+            this.SysUserInfoUpdateAsync(obj, null);
+        }
+        
+        public void SysUserInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, object userState) {
+            if ((this.onBeginSysUserInfoUpdateDelegate == null)) {
+                this.onBeginSysUserInfoUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdate);
+            }
+            if ((this.onEndSysUserInfoUpdateDelegate == null)) {
+                this.onEndSysUserInfoUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdate);
+            }
+            if ((this.onSysUserInfoUpdateCompletedDelegate == null)) {
+                this.onSysUserInfoUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoUpdateDelegate, new object[] {
+                        obj}, this.onEndSysUserInfoUpdateDelegate, this.onSysUserInfoUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoUpdateForEmployeeLeft(obj, StrOwnerCompanyid, StrPostid, IsMain, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
+            return base.Channel.EndSysUserInfoUpdateForEmployeeLeft(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoUpdateForEmployeeLeft(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USER obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(inValues[0]));
+            string StrOwnerCompanyid = ((string)(inValues[1]));
+            string StrPostid = ((string)(inValues[2]));
+            bool IsMain = ((bool)(inValues[3]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateForEmployeeLeft(obj, StrOwnerCompanyid, StrPostid, IsMain, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateForEmployeeLeft(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserInfoUpdateForEmployeeLeftCompleted(object state) {
+            if ((this.SysUserInfoUpdateForEmployeeLeftCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoUpdateForEmployeeLeftCompleted(this, new SysUserInfoUpdateForEmployeeLeftCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoUpdateForEmployeeLeftAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain) {
+            this.SysUserInfoUpdateForEmployeeLeftAsync(obj, StrOwnerCompanyid, StrPostid, IsMain, null);
+        }
+        
+        public void SysUserInfoUpdateForEmployeeLeftAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, object userState) {
+            if ((this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate == null)) {
+                this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateForEmployeeLeft);
+            }
+            if ((this.onEndSysUserInfoUpdateForEmployeeLeftDelegate == null)) {
+                this.onEndSysUserInfoUpdateForEmployeeLeftDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateForEmployeeLeft);
+            }
+            if ((this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate == null)) {
+                this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateForEmployeeLeftCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoUpdateForEmployeeLeftDelegate, new object[] {
+                        obj,
+                        StrOwnerCompanyid,
+                        StrPostid,
+                        IsMain}, this.onEndSysUserInfoUpdateForEmployeeLeftDelegate, this.onSysUserInfoUpdateForEmployeeLeftCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoUpdateByUserIdandUsername(userid, username, pwd, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
+            return base.Channel.EndSysUserInfoUpdateByUserIdandUsername(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoUpdateByUserIdandUsername(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userid = ((string)(inValues[0]));
+            string username = ((string)(inValues[1]));
+            string pwd = ((string)(inValues[2]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateByUserIdandUsername(userid, username, pwd, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateByUserIdandUsername(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserInfoUpdateByUserIdandUsernameCompleted(object state) {
+            if ((this.SysUserInfoUpdateByUserIdandUsernameCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoUpdateByUserIdandUsernameCompleted(this, new SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoUpdateByUserIdandUsernameAsync(string userid, string username, string pwd) {
+            this.SysUserInfoUpdateByUserIdandUsernameAsync(userid, username, pwd, null);
+        }
+        
+        public void SysUserInfoUpdateByUserIdandUsernameAsync(string userid, string username, string pwd, object userState) {
+            if ((this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate == null)) {
+                this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateByUserIdandUsername);
+            }
+            if ((this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate == null)) {
+                this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateByUserIdandUsername);
+            }
+            if ((this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate == null)) {
+                this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateByUserIdandUsernameCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoUpdateByUserIdandUsernameDelegate, new object[] {
+                        userid,
+                        username,
+                        pwd}, this.onEndSysUserInfoUpdateByUserIdandUsernameDelegate, this.onSysUserInfoUpdateByUserIdandUsernameCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserInfoUpdateToRtxAndEmail(UserAccount, NewPassword1, OldPassword1, NewPassword, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result) {
+            return base.Channel.EndSysUserInfoUpdateToRtxAndEmail(out strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserInfoUpdateToRtxAndEmail(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string UserAccount = ((string)(inValues[0]));
+            string NewPassword1 = ((string)(inValues[1]));
+            string OldPassword1 = ((string)(inValues[2]));
+            string NewPassword = ((string)(inValues[3]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserInfoUpdateToRtxAndEmail(UserAccount, NewPassword1, OldPassword1, NewPassword, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserInfoUpdateToRtxAndEmail(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserInfoUpdateToRtxAndEmail(out strMsg, result);
+            return new object[] {
+                    strMsg,
+                    retVal};
+        }
+        
+        private void OnSysUserInfoUpdateToRtxAndEmailCompleted(object state) {
+            if ((this.SysUserInfoUpdateToRtxAndEmailCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserInfoUpdateToRtxAndEmailCompleted(this, new SysUserInfoUpdateToRtxAndEmailCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserInfoUpdateToRtxAndEmailAsync(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword) {
+            this.SysUserInfoUpdateToRtxAndEmailAsync(UserAccount, NewPassword1, OldPassword1, NewPassword, null);
+        }
+        
+        public void SysUserInfoUpdateToRtxAndEmailAsync(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, object userState) {
+            if ((this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate == null)) {
+                this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate = new BeginOperationDelegate(this.OnBeginSysUserInfoUpdateToRtxAndEmail);
+            }
+            if ((this.onEndSysUserInfoUpdateToRtxAndEmailDelegate == null)) {
+                this.onEndSysUserInfoUpdateToRtxAndEmailDelegate = new EndOperationDelegate(this.OnEndSysUserInfoUpdateToRtxAndEmail);
+            }
+            if ((this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate == null)) {
+                this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserInfoUpdateToRtxAndEmailCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserInfoUpdateToRtxAndEmailDelegate, new object[] {
+                        UserAccount,
+                        NewPassword1,
+                        OldPassword1,
+                        NewPassword}, this.onEndSysUserInfoUpdateToRtxAndEmailDelegate, this.onSysUserInfoUpdateToRtxAndEmailCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserAllInfos(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfos(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserAllInfos(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserAllInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfos(callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserAllInfos(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfos(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserAllInfosCompleted(object state) {
+            if ((this.GetSysUserAllInfosCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserAllInfosCompleted(this, new GetSysUserAllInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserAllInfosAsync() {
+            this.GetSysUserAllInfosAsync(null);
+        }
+        
+        public void GetSysUserAllInfosAsync(object userState) {
+            if ((this.onBeginGetSysUserAllInfosDelegate == null)) {
+                this.onBeginGetSysUserAllInfosDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfos);
+            }
+            if ((this.onEndGetSysUserAllInfosDelegate == null)) {
+                this.onEndGetSysUserAllInfosDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfos);
+            }
+            if ((this.onGetSysUserAllInfosCompletedDelegate == null)) {
+                this.onGetSysUserAllInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserAllInfosDelegate, null, this.onEndGetSysUserAllInfosDelegate, this.onGetSysUserAllInfosCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserAllInfosPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserAllInfosPaging(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserAllInfosPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo = ((SMT.Saas.Tools.PermissionWS.LoginUserInfo)(inValues[6]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfosPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserAllInfosPaging(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfosPaging(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetSysUserAllInfosPagingCompleted(object state) {
+            if ((this.GetSysUserAllInfosPagingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserAllInfosPagingCompleted(this, new GetSysUserAllInfosPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserAllInfosPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo) {
+            this.GetSysUserAllInfosPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, loginUserInfo, null);
+        }
+        
+        public void GetSysUserAllInfosPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, object userState) {
+            if ((this.onBeginGetSysUserAllInfosPagingDelegate == null)) {
+                this.onBeginGetSysUserAllInfosPagingDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfosPaging);
+            }
+            if ((this.onEndGetSysUserAllInfosPagingDelegate == null)) {
+                this.onEndGetSysUserAllInfosPagingDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfosPaging);
+            }
+            if ((this.onGetSysUserAllInfosPagingCompletedDelegate == null)) {
+                this.onGetSysUserAllInfosPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosPagingCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserAllInfosPagingDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        loginUserInfo}, this.onEndGetSysUserAllInfosPagingDelegate, this.onGetSysUserAllInfosPagingCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserAllInfosPagingByCompanyIDs(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, CompanyIDs, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserAllInfosPagingByCompanyIDs(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserAllInfosPagingByCompanyIDs(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo = ((SMT.Saas.Tools.PermissionWS.LoginUserInfo)(inValues[6]));
+            System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[7]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserAllInfosPagingByCompanyIDs(pageIndex, pageSize, sort, filterString, paras, ref pageCount, loginUserInfo, CompanyIDs, callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserAllInfosPagingByCompanyIDs(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserAllInfosPagingByCompanyIDs(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetSysUserAllInfosPagingByCompanyIDsCompleted(object state) {
+            if ((this.GetSysUserAllInfosPagingByCompanyIDsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserAllInfosPagingByCompanyIDsCompleted(this, new GetSysUserAllInfosPagingByCompanyIDsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserAllInfosPagingByCompanyIDsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs) {
+            this.GetSysUserAllInfosPagingByCompanyIDsAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, loginUserInfo, CompanyIDs, null);
+        }
+        
+        public void GetSysUserAllInfosPagingByCompanyIDsAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, object userState) {
+            if ((this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate == null)) {
+                this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserAllInfosPagingByCompanyIDs);
+            }
+            if ((this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate == null)) {
+                this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate = new EndOperationDelegate(this.OnEndGetSysUserAllInfosPagingByCompanyIDs);
+            }
+            if ((this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate == null)) {
+                this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserAllInfosPagingByCompanyIDsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserAllInfosPagingByCompanyIDsDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        loginUserInfo,
+                        CompanyIDs}, this.onEndGetSysUserAllInfosPagingByCompanyIDsDelegate, this.onGetSysUserAllInfosPagingByCompanyIDsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserBatchDel(StrSysUserIDs, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserBatchDel(System.IAsyncResult result) {
+            return base.Channel.EndSysUserBatchDel(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserBatchDel(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserBatchDel(StrSysUserIDs, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserBatchDel(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserBatchDel(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserBatchDelCompleted(object state) {
+            if ((this.SysUserBatchDelCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserBatchDelCompleted(this, new SysUserBatchDelCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserBatchDelAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs) {
+            this.SysUserBatchDelAsync(StrSysUserIDs, null);
+        }
+        
+        public void SysUserBatchDelAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, object userState) {
+            if ((this.onBeginSysUserBatchDelDelegate == null)) {
+                this.onBeginSysUserBatchDelDelegate = new BeginOperationDelegate(this.OnBeginSysUserBatchDel);
+            }
+            if ((this.onEndSysUserBatchDelDelegate == null)) {
+                this.onEndSysUserBatchDelDelegate = new EndOperationDelegate(this.OnEndSysUserBatchDel);
+            }
+            if ((this.onSysUserBatchDelCompletedDelegate == null)) {
+                this.onSysUserBatchDelCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserBatchDelCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserBatchDelDelegate, new object[] {
+                        StrSysUserIDs}, this.onEndSysUserBatchDelDelegate, this.onSysUserBatchDelCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserBatchUpdate(StrSysUserIDs, StrUserID, UserName, UserState, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserBatchUpdate(System.IAsyncResult result) {
+            return base.Channel.EndSysUserBatchUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserBatchUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            string StrUserID = ((string)(inValues[1]));
+            string UserName = ((string)(inValues[2]));
+            string UserState = ((string)(inValues[3]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserBatchUpdate(StrSysUserIDs, StrUserID, UserName, UserState, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserBatchUpdate(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserBatchUpdate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserBatchUpdateCompleted(object state) {
+            if ((this.SysUserBatchUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserBatchUpdateCompleted(this, new SysUserBatchUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserBatchUpdateAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState) {
+            this.SysUserBatchUpdateAsync(StrSysUserIDs, StrUserID, UserName, UserState, null);
+        }
+        
+        public void SysUserBatchUpdateAsync(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, object userState1) {
+            if ((this.onBeginSysUserBatchUpdateDelegate == null)) {
+                this.onBeginSysUserBatchUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserBatchUpdate);
+            }
+            if ((this.onEndSysUserBatchUpdateDelegate == null)) {
+                this.onEndSysUserBatchUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserBatchUpdate);
+            }
+            if ((this.onSysUserBatchUpdateCompletedDelegate == null)) {
+                this.onSysUserBatchUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserBatchUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserBatchUpdateDelegate, new object[] {
+                        StrSysUserIDs,
+                        StrUserID,
+                        UserName,
+                        UserState}, this.onEndSysUserBatchUpdateDelegate, this.onSysUserBatchUpdateCompletedDelegate, userState1);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserLoginRecordInfoAdd(obj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
+            return base.Channel.EndSysUserLoginRecordInfoAdd(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserLoginRecordInfoAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserLoginRecordInfoAdd(obj, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserLoginRecordInfoAdd(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserLoginRecordInfoAddCompleted(object state) {
+            if ((this.SysUserLoginRecordInfoAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserLoginRecordInfoAddCompleted(this, new SysUserLoginRecordInfoAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserLoginRecordInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj) {
+            this.SysUserLoginRecordInfoAddAsync(obj, null);
+        }
+        
+        public void SysUserLoginRecordInfoAddAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, object userState) {
+            if ((this.onBeginSysUserLoginRecordInfoAddDelegate == null)) {
+                this.onBeginSysUserLoginRecordInfoAddDelegate = new BeginOperationDelegate(this.OnBeginSysUserLoginRecordInfoAdd);
+            }
+            if ((this.onEndSysUserLoginRecordInfoAddDelegate == null)) {
+                this.onEndSysUserLoginRecordInfoAddDelegate = new EndOperationDelegate(this.OnEndSysUserLoginRecordInfoAdd);
+            }
+            if ((this.onSysUserLoginRecordInfoAddCompletedDelegate == null)) {
+                this.onSysUserLoginRecordInfoAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserLoginRecordInfoAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserLoginRecordInfoAddDelegate, new object[] {
+                        obj}, this.onEndSysUserLoginRecordInfoAddDelegate, this.onSysUserLoginRecordInfoAddCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginSysUserLoginRecordInfoUpdate(obj, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
+            return base.Channel.EndSysUserLoginRecordInfoUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginSysUserLoginRecordInfoUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD)(inValues[0]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginSysUserLoginRecordInfoUpdate(obj, callback, asyncState);
+        }
+        
+        private object[] OnEndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndSysUserLoginRecordInfoUpdate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnSysUserLoginRecordInfoUpdateCompleted(object state) {
+            if ((this.SysUserLoginRecordInfoUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.SysUserLoginRecordInfoUpdateCompleted(this, new SysUserLoginRecordInfoUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void SysUserLoginRecordInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj) {
+            this.SysUserLoginRecordInfoUpdateAsync(obj, null);
+        }
+        
+        public void SysUserLoginRecordInfoUpdateAsync(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, object userState) {
+            if ((this.onBeginSysUserLoginRecordInfoUpdateDelegate == null)) {
+                this.onBeginSysUserLoginRecordInfoUpdateDelegate = new BeginOperationDelegate(this.OnBeginSysUserLoginRecordInfoUpdate);
+            }
+            if ((this.onEndSysUserLoginRecordInfoUpdateDelegate == null)) {
+                this.onEndSysUserLoginRecordInfoUpdateDelegate = new EndOperationDelegate(this.OnEndSysUserLoginRecordInfoUpdate);
+            }
+            if ((this.onSysUserLoginRecordInfoUpdateCompletedDelegate == null)) {
+                this.onSysUserLoginRecordInfoUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnSysUserLoginRecordInfoUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginSysUserLoginRecordInfoUpdateDelegate, new object[] {
+                        obj}, this.onEndSysUserLoginRecordInfoUpdateDelegate, this.onSysUserLoginRecordInfoUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetSysUserLoginRecordInfos(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> SMT.Saas.Tools.PermissionWS.PermissionService.EndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
+            return base.Channel.EndGetSysUserLoginRecordInfos(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetSysUserLoginRecordInfos(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginGetSysUserLoginRecordInfos(callback, asyncState);
+        }
+        
+        private object[] OnEndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndGetSysUserLoginRecordInfos(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetSysUserLoginRecordInfosCompleted(object state) {
+            if ((this.GetSysUserLoginRecordInfosCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetSysUserLoginRecordInfosCompleted(this, new GetSysUserLoginRecordInfosCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetSysUserLoginRecordInfosAsync() {
+            this.GetSysUserLoginRecordInfosAsync(null);
+        }
+        
+        public void GetSysUserLoginRecordInfosAsync(object userState) {
+            if ((this.onBeginGetSysUserLoginRecordInfosDelegate == null)) {
+                this.onBeginGetSysUserLoginRecordInfosDelegate = new BeginOperationDelegate(this.OnBeginGetSysUserLoginRecordInfos);
+            }
+            if ((this.onEndGetSysUserLoginRecordInfosDelegate == null)) {
+                this.onEndGetSysUserLoginRecordInfosDelegate = new EndOperationDelegate(this.OnEndGetSysUserLoginRecordInfos);
+            }
+            if ((this.onGetSysUserLoginRecordInfosCompletedDelegate == null)) {
+                this.onGetSysUserLoginRecordInfosCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetSysUserLoginRecordInfosCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetSysUserLoginRecordInfosDelegate, null, this.onEndGetSysUserLoginRecordInfosDelegate, this.onGetSysUserLoginRecordInfosCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PermissionWS.PermissionService.BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginUserLoginOut(UserID, LoginRecordId, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.PermissionWS.PermissionService.EndUserLoginOut(System.IAsyncResult result) {
+            return base.Channel.EndUserLoginOut(result);
+        }
+        
+        private System.IAsyncResult OnBeginUserLoginOut(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string UserID = ((string)(inValues[0]));
+            string LoginRecordId = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).BeginUserLoginOut(UserID, LoginRecordId, callback, asyncState);
+        }
+        
+        private object[] OnEndUserLoginOut(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.PermissionWS.PermissionService)(this)).EndUserLoginOut(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnUserLoginOutCompleted(object state) {
+            if ((this.UserLoginOutCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.UserLoginOutCompleted(this, new UserLoginOutCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void UserLoginOutAsync(string UserID, string LoginRecordId) {
+            this.UserLoginOutAsync(UserID, LoginRecordId, null);
+        }
+        
+        public void UserLoginOutAsync(string UserID, string LoginRecordId, object userState) {
+            if ((this.onBeginUserLoginOutDelegate == null)) {
+                this.onBeginUserLoginOutDelegate = new BeginOperationDelegate(this.OnBeginUserLoginOut);
+            }
+            if ((this.onEndUserLoginOutDelegate == null)) {
+                this.onEndUserLoginOutDelegate = new EndOperationDelegate(this.OnEndUserLoginOut);
+            }
+            if ((this.onUserLoginOutCompletedDelegate == null)) {
+                this.onUserLoginOutCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnUserLoginOutCompleted);
+            }
+            base.InvokeAsync(this.onBeginUserLoginOutDelegate, new object[] {
+                        UserID,
+                        LoginRecordId}, this.onEndUserLoginOutDelegate, this.onUserLoginOutCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -20012,588 +20336,6 @@ namespace SMT.Saas.Tools.PermissionWS {
             
             public PermissionServiceClientChannel(System.ServiceModel.ClientBase<SMT.Saas.Tools.PermissionWS.PermissionService> client) : 
                     base(client) {
-            }
-            
-            public System.IAsyncResult BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = systemType;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByType", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByType(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(base.EndInvoke("GetSysUserRoleByType", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = menuID;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE EndGetSysUserRoleByID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(base.EndInvoke("GetSysUserRoleByID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = UserID;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByUser", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByUser(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(base.EndInvoke("GetSysUserRoleByUser", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = roleID;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserByRole", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRole(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserByRole", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = RoleList;
-                _args[1] = userobj;
-                _args[2] = StrUserName;
-                _args[3] = AddDate;
-                System.IAsyncResult _result = base.BeginInvoke("UserRoleBatchAddInfos", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndUserRoleBatchAddInfos(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("UserRoleBatchAddInfos", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = RoleObj;
-                _args[1] = IsResult;
-                System.IAsyncResult _result = base.BeginInvoke("BatchAddUserRole", _args, callback, asyncState);
-                IsResult = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public bool EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = IsResult;
-                bool _result = ((bool)(base.EndInvoke("BatchAddUserRole", _args, result)));
-                IsResult = ((string)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = UserRoleObj;
-                System.IAsyncResult _result = base.BeginInvoke("UserRoleUpdateInfo", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndUserRoleUpdateInfo(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("UserRoleUpdateInfo", _args, result);
-            }
-            
-            public System.IAsyncResult BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = obj;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserRoleUpdate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndSysUserRoleUpdate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("SysUserRoleUpdate", _args, result);
-            }
-            
-            public System.IAsyncResult BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userroleid;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserRoleDelete", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndSysUserRoleDelete(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("SysUserRoleDelete", _args, result);
-            }
-            
-            public System.IAsyncResult BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userName;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserInfo", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserInfo(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserInfo", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserByID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserByID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = employeeID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserByEmployeeID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByEmployeeID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserByEmployeeID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionByUser", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserPermissionByUser(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetUserPermissionByUser", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[3];
-                _args[0] = employeeid;
-                _args[1] = ownercompanyid;
-                _args[2] = fbAdmin;
-                System.IAsyncResult _result = base.BeginInvoke("UpdateFbAdmin", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndUpdateFbAdmin(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("UpdateFbAdmin", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionByUserToUI", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetUserPermissionByUserToUI(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(base.EndInvoke("GetUserPermissionByUserToUI", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = userID;
-                _args[1] = StrMenuId;
-                System.IAsyncResult _result = base.BeginInvoke("GetEntityPermissionByUser", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetEntityPermissionByUser(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(base.EndInvoke("GetEntityPermissionByUser", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = menuCode;
-                _args[1] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserMenuPerms", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserMenuPerms(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetUserMenuPerms", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = menuCode;
-                _args[1] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetUserMenuPermsByUserPermission", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> EndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>)(base.EndInvoke("GetUserMenuPermsByUserPermission", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = RoleID;
-                System.IAsyncResult _result = base.BeginInvoke("GetPermissionByRoleID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetPermissionByRoleID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetPermissionByRoleID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = RoleID;
-                System.IAsyncResult _result = base.BeginInvoke("GetPermissionByRoleIDSecond", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> EndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>)(base.EndInvoke("GetPermissionByRoleIDSecond", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionAll", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetUserPermissionAll(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetUserPermissionAll", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = userName;
-                _args[1] = Pwd;
-                System.IAsyncResult _result = base.BeginInvoke("UserLogin", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndUserLogin(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("UserLogin", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[8];
-                _args[0] = pageIndex;
-                _args[1] = pageSize;
-                _args[2] = sort;
-                _args[3] = filterString;
-                _args[4] = paras;
-                _args[5] = pageCount;
-                _args[6] = userID;
-                _args[7] = CompanyIDs;
-                System.IAsyncResult _result = base.BeginInvoke("GetOnLineUsers", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>)(base.EndInvoke("GetOnLineUsers", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[8];
-                _args[0] = entityName;
-                _args[1] = args;
-                _args[2] = pageIndex;
-                _args[3] = pageSize;
-                _args[4] = sort;
-                _args[5] = filterString;
-                _args[6] = paras;
-                _args[7] = pageCount;
-                System.IAsyncResult _result = base.BeginInvoke("GetLookupOjbects", _args, callback, asyncState);
-                pageCount = ((int)(_args[7]));
-                return _result;
-            }
-            
-            public string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                string _result = ((string)(base.EndInvoke("GetLookupOjbects", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = obj;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoAdd", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndSysUserInfoAdd(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("SysUserInfoAdd", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = obj;
-                _args[1] = strMsg;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoAddORUpdate", _args, callback, asyncState);
-                strMsg = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public void EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                base.EndInvoke("SysUserInfoAddORUpdate", _args, result);
-                strMsg = ((string)(_args[0]));
-            }
-            
-            public System.IAsyncResult BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = StrUserName;
-                System.IAsyncResult _result = base.BeginInvoke("IsExistSysUserInfo", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndIsExistSysUserInfo(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("IsExistSysUserInfo", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = obj;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserInfoUpdate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdate", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = obj;
-                _args[1] = StrOwnerCompanyid;
-                _args[2] = StrPostid;
-                _args[3] = IsMain;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateForEmployeeLeft", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateForEmployeeLeft", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[3];
-                _args[0] = userid;
-                _args[1] = username;
-                _args[2] = pwd;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateByUserIdandUsername", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateByUserIdandUsername", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = UserAccount;
-                _args[1] = NewPassword1;
-                _args[2] = OldPassword1;
-                _args[3] = NewPassword;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateToRtxAndEmail", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateToRtxAndEmail", _args, result)));
-                strMsg = ((string)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfos", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfos(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfos", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[7];
-                _args[0] = pageIndex;
-                _args[1] = pageSize;
-                _args[2] = sort;
-                _args[3] = filterString;
-                _args[4] = paras;
-                _args[5] = pageCount;
-                _args[6] = loginUserInfo;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfosPaging", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfosPaging", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[8];
-                _args[0] = pageIndex;
-                _args[1] = pageSize;
-                _args[2] = sort;
-                _args[3] = filterString;
-                _args[4] = paras;
-                _args[5] = pageCount;
-                _args[6] = loginUserInfo;
-                _args[7] = CompanyIDs;
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfosPagingByCompanyIDs", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfosPagingByCompanyIDs", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = StrSysUserIDs;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserBatchDel", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndSysUserBatchDel(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("SysUserBatchDel", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = StrSysUserIDs;
-                _args[1] = StrUserID;
-                _args[2] = UserName;
-                _args[3] = UserState;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserBatchUpdate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndSysUserBatchUpdate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("SysUserBatchUpdate", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = obj;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserLoginRecordInfoAdd", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("SysUserLoginRecordInfoAdd", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = obj;
-                System.IAsyncResult _result = base.BeginInvoke("SysUserLoginRecordInfoUpdate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("SysUserLoginRecordInfoUpdate", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("GetSysUserLoginRecordInfos", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>)(base.EndInvoke("GetSysUserLoginRecordInfos", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = UserID;
-                _args[1] = LoginRecordId;
-                System.IAsyncResult _result = base.BeginInvoke("UserLoginOut", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndUserLoginOut(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("UserLoginOut", _args, result)));
-                return _result;
             }
             
             public System.IAsyncResult BeginUserLoginOperation(string UserID, string LoginRecordId, bool IsLogin, System.AsyncCallback callback, object asyncState) {
@@ -21097,6 +20839,19 @@ namespace SMT.Saas.Tools.PermissionWS {
             public SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState EndGetLatestTimeOfPermission(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState _result = ((SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState)(base.EndInvoke("GetLatestTimeOfPermission", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetFlowManagers(System.Collections.ObjectModel.ObservableCollection<string> companyIDs, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = companyIDs;
+                System.IAsyncResult _result = base.BeginInvoke("GetFlowManagers", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetFlowManagers(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetFlowManagers", _args, result)));
                 return _result;
             }
             
@@ -21725,6 +21480,19 @@ namespace SMT.Saas.Tools.PermissionWS {
                 return _result;
             }
             
+            public System.IAsyncResult BeginCopyRoleInfo(string roleID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = roleID;
+                System.IAsyncResult _result = base.BeginInvoke("CopyRoleInfo", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndCopyRoleInfo(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("CopyRoleInfo", _args, result)));
+                return _result;
+            }
+            
             public System.IAsyncResult BeginSysRoleInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_ROLE obj, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = obj;
@@ -22294,6 +22062,620 @@ namespace SMT.Saas.Tools.PermissionWS {
             public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM> EndGetCustomCompanyMenuPerms(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENUCUSTOMPERM>)(base.EndInvoke("GetCustomCompanyMenuPerms", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserRoleByType(string systemType, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = systemType;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByType", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByType(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(base.EndInvoke("GetSysUserRoleByType", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserRoleByID(string menuID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = menuID;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE EndGetSysUserRoleByID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE)(base.EndInvoke("GetSysUserRoleByID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserRoleByUser(string UserID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = UserID;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserRoleByUser", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> EndGetSysUserRoleByUser(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE>)(base.EndInvoke("GetSysUserRoleByUser", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserByRole(string roleID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = roleID;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserByRole", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRole(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserByRole", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserByRoleToEmployeeLeave(string roleID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = roleID;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserByRoleToEmployeeLeave", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserByRoleToEmployeeLeave(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserByRoleToEmployeeLeave", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUserRoleBatchAddInfos(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> RoleList, SMT.Saas.Tools.PermissionWS.T_SYS_USER userobj, string StrUserName, System.DateTime AddDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = RoleList;
+                _args[1] = userobj;
+                _args[2] = StrUserName;
+                _args[3] = AddDate;
+                System.IAsyncResult _result = base.BeginInvoke("UserRoleBatchAddInfos", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndUserRoleBatchAddInfos(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("UserRoleBatchAddInfos", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginBatchAddUserRole(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE> RoleObj, ref string IsResult, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = RoleObj;
+                _args[1] = IsResult;
+                System.IAsyncResult _result = base.BeginInvoke("BatchAddUserRole", _args, callback, asyncState);
+                IsResult = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public bool EndBatchAddUserRole(ref string IsResult, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = IsResult;
+                bool _result = ((bool)(base.EndInvoke("BatchAddUserRole", _args, result)));
+                IsResult = ((string)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUserRoleUpdateInfo(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE UserRoleObj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = UserRoleObj;
+                System.IAsyncResult _result = base.BeginInvoke("UserRoleUpdateInfo", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndUserRoleUpdateInfo(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("UserRoleUpdateInfo", _args, result);
+            }
+            
+            public System.IAsyncResult BeginSysUserRoleUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERROLE obj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = obj;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserRoleUpdate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndSysUserRoleUpdate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("SysUserRoleUpdate", _args, result);
+            }
+            
+            public System.IAsyncResult BeginSysUserRoleDelete(string userroleid, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userroleid;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserRoleDelete", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndSysUserRoleDelete(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("SysUserRoleDelete", _args, result);
+            }
+            
+            public System.IAsyncResult BeginGetUserInfo(string userName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userName;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserInfo", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserInfo(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserInfo", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserByID(string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserByID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserByID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserByEmployeeID(string employeeID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = employeeID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserByEmployeeID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndGetUserByEmployeeID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("GetUserByEmployeeID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserPermissionByUser(string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionByUser", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserPermissionByUser(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetUserPermissionByUser", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUpdateFbAdmin(string employeeid, string ownercompanyid, SMT.Saas.Tools.PermissionWS.T_SYS_FBADMIN fbAdmin, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[3];
+                _args[0] = employeeid;
+                _args[1] = ownercompanyid;
+                _args[2] = fbAdmin;
+                System.IAsyncResult _result = base.BeginInvoke("UpdateFbAdmin", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndUpdateFbAdmin(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("UpdateFbAdmin", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserPermissionByUserToUI(string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionByUserToUI", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetUserPermissionByUserToUI(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(base.EndInvoke("GetUserPermissionByUserToUI", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetEntityPermissionByUser(string userID, string StrMenuId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = userID;
+                _args[1] = StrMenuId;
+                System.IAsyncResult _result = base.BeginInvoke("GetEntityPermissionByUser", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> EndGetEntityPermissionByUser(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionUI>)(base.EndInvoke("GetEntityPermissionByUser", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserMenuPerms(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = menuCode;
+                _args[1] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserMenuPerms", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetUserMenuPerms(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetUserMenuPerms", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserMenuPermsByUserPermission(string menuCode, string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = menuCode;
+                _args[1] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetUserMenuPermsByUserPermission", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> EndGetUserMenuPermsByUserPermission(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermission>)(base.EndInvoke("GetUserMenuPermsByUserPermission", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetPermissionByRoleID(string RoleID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = RoleID;
+                System.IAsyncResult _result = base.BeginInvoke("GetPermissionByRoleID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> EndGetPermissionByRoleID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Permission>)(base.EndInvoke("GetPermissionByRoleID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetPermissionByRoleIDSecond(string RoleID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = RoleID;
+                System.IAsyncResult _result = base.BeginInvoke("GetPermissionByRoleIDSecond", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> EndGetPermissionByRoleIDSecond(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserPermissionRoleID>)(base.EndInvoke("GetPermissionByRoleIDSecond", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetUserPermissionAll(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetUserPermissionAll", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetUserPermissionAll(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetUserPermissionAll", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUserLogin(string userName, string Pwd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = userName;
+                _args[1] = Pwd;
+                System.IAsyncResult _result = base.BeginInvoke("UserLogin", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.PermissionWS.T_SYS_USER EndUserLogin(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.PermissionWS.T_SYS_USER _result = ((SMT.Saas.Tools.PermissionWS.T_SYS_USER)(base.EndInvoke("UserLogin", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = userID;
+                _args[7] = CompanyIDs;
+                System.IAsyncResult _result = base.BeginInvoke("GetOnLineUsers", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser>)(base.EndInvoke("GetOnLineUsers", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = entityName;
+                _args[1] = args;
+                _args[2] = pageIndex;
+                _args[3] = pageSize;
+                _args[4] = sort;
+                _args[5] = filterString;
+                _args[6] = paras;
+                _args[7] = pageCount;
+                System.IAsyncResult _result = base.BeginInvoke("GetLookupOjbects", _args, callback, asyncState);
+                pageCount = ((int)(_args[7]));
+                return _result;
+            }
+            
+            public string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                string _result = ((string)(base.EndInvoke("GetLookupOjbects", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = obj;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoAdd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndSysUserInfoAdd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("SysUserInfoAdd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoAddORUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = obj;
+                _args[1] = strMsg;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoAddORUpdate", _args, callback, asyncState);
+                strMsg = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public void EndSysUserInfoAddORUpdate(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                base.EndInvoke("SysUserInfoAddORUpdate", _args, result);
+                strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginEmployeeEntryAddDefaultRole(SMT.Saas.Tools.PermissionWS.T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = user;
+                _args[1] = companyID;
+                _args[2] = compayName;
+                _args[3] = deptID;
+                _args[4] = postID;
+                _args[5] = employeeID;
+                _args[6] = employeePostID;
+                System.IAsyncResult _result = base.BeginInvoke("EmployeeEntryAddDefaultRole", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndEmployeeEntryAddDefaultRole(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("EmployeeEntryAddDefaultRole", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginIsExistSysUserInfo(string StrUserName, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = StrUserName;
+                System.IAsyncResult _result = base.BeginInvoke("IsExistSysUserInfo", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndIsExistSysUserInfo(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("IsExistSysUserInfo", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = obj;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserInfoUpdate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdate", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoUpdateForEmployeeLeft(SMT.Saas.Tools.PermissionWS.T_SYS_USER obj, string StrOwnerCompanyid, string StrPostid, bool IsMain, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = obj;
+                _args[1] = StrOwnerCompanyid;
+                _args[2] = StrPostid;
+                _args[3] = IsMain;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateForEmployeeLeft", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserInfoUpdateForEmployeeLeft(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateForEmployeeLeft", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoUpdateByUserIdandUsername(string userid, string username, string pwd, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[3];
+                _args[0] = userid;
+                _args[1] = username;
+                _args[2] = pwd;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateByUserIdandUsername", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserInfoUpdateByUserIdandUsername(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateByUserIdandUsername", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserInfoUpdateToRtxAndEmail(string UserAccount, string NewPassword1, string OldPassword1, string NewPassword, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = UserAccount;
+                _args[1] = NewPassword1;
+                _args[2] = OldPassword1;
+                _args[3] = NewPassword;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserInfoUpdateToRtxAndEmail", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserInfoUpdateToRtxAndEmail(out string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                bool _result = ((bool)(base.EndInvoke("SysUserInfoUpdateToRtxAndEmail", _args, result)));
+                strMsg = ((string)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserAllInfos(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfos", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfos(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfos", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = loginUserInfo;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfosPaging", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfosPaging", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                _args[6] = loginUserInfo;
+                _args[7] = CompanyIDs;
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserAllInfosPagingByCompanyIDs", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER>)(base.EndInvoke("GetSysUserAllInfosPagingByCompanyIDs", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserBatchDel(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = StrSysUserIDs;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserBatchDel", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndSysUserBatchDel(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("SysUserBatchDel", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserBatchUpdate(System.Collections.ObjectModel.ObservableCollection<string> StrSysUserIDs, string StrUserID, string UserName, string UserState, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
+                _args[0] = StrSysUserIDs;
+                _args[1] = StrUserID;
+                _args[2] = UserName;
+                _args[3] = UserState;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserBatchUpdate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndSysUserBatchUpdate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("SysUserBatchUpdate", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserLoginRecordInfoAdd(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = obj;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserLoginRecordInfoAdd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserLoginRecordInfoAdd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("SysUserLoginRecordInfoAdd", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginSysUserLoginRecordInfoUpdate(SMT.Saas.Tools.PermissionWS.T_SYS_USERLOGINRECORD obj, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = obj;
+                System.IAsyncResult _result = base.BeginInvoke("SysUserLoginRecordInfoUpdate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndSysUserLoginRecordInfoUpdate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("SysUserLoginRecordInfoUpdate", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetSysUserLoginRecordInfos(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetSysUserLoginRecordInfos", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfos(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord>)(base.EndInvoke("GetSysUserLoginRecordInfos", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginUserLoginOut(string UserID, string LoginRecordId, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = UserID;
+                _args[1] = LoginRecordId;
+                System.IAsyncResult _result = base.BeginInvoke("UserLoginOut", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndUserLoginOut(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("UserLoginOut", _args, result)));
                 return _result;
             }
         }

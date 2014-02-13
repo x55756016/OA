@@ -1596,12 +1596,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
     <None Include="Service References\FlowWFService\SMT2.disco" />
     <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.disco" />
     <None Include="Service References\DailyManagementWS\DailyManagementServices.disco" />
     <None Include="Service References\NewFileUploadWS\FileUpLoad.disco" />
+    <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
