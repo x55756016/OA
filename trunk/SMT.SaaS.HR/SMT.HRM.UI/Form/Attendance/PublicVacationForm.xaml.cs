@@ -295,54 +295,64 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="nudDays"></param>
         private void CalculateDayCount(DataGrid dgList)
         {
-            T_HR_OUTPLANDAYS entTemp = dgList.SelectedItem as T_HR_OUTPLANDAYS;
-            if (entTemp == null)
+            try
             {
-                return;
-            }
+                if (FormType == FormTypes.Browse)
+                {
+                    return;
+                }
+                T_HR_OUTPLANDAYS entTemp = dgList.SelectedItem as T_HR_OUTPLANDAYS;
+                if (entTemp == null)
+                {
+                    return;
+                }
 
-            DatePicker dtpStartDate = dgList.Columns[3].GetCellContent(dgList.SelectedItem) as DatePicker;
-            DatePicker dtpEndDate;
-            if (dgList == dgWorkDayList)
+                DatePicker dtpStartDate = dgList.Columns[3].GetCellContent(dgList.SelectedItem) as DatePicker;
+                DatePicker dtpEndDate;
+                if (dgList == dgWorkDayList)
+                {
+                    dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
+                }
+                else
+                {
+                    dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
+                }
+                if (dtpStartDate == null)
+                {
+                    return;
+                }
+
+                if (dtpEndDate == null)
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(dtpStartDate.Text))
+                {
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(dtpEndDate.Text))
+                {
+                    return;
+                }
+
+                NumericUpDown nudDays = dgList.Columns[5].GetCellContent(dgList.SelectedItem) as NumericUpDown;
+
+                nudDays.Value = 0;
+                DateTime dtStart = new DateTime();
+                DateTime dtEnd = new DateTime();
+
+                DateTime.TryParse(dtpStartDate.Text, out dtStart);
+                DateTime.TryParse(dtpEndDate.Text, out dtEnd);
+
+                decimal dDay = 0;
+                dDay = CalculateDayCount(dtStart, dtEnd);
+                nudDays.Value = dDay.ToDouble();
+            }
+            catch (Exception ex)
             {
-                dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpWorkdayEnddate") as DatePicker;
             }
-            else
-            {
-                dtpEndDate = dgList.Columns[4].GetCellContent(dgList.SelectedItem).FindName("dpVacdayEnddate") as DatePicker;
-            }
-            if (dtpStartDate == null)
-            {
-                return;
-            }
-
-            if (dtpEndDate == null)
-            {
-                return;
-            }
-
-            if (string.IsNullOrEmpty(dtpStartDate.Text))
-            {
-                return;
-            }
-
-            if (string.IsNullOrEmpty(dtpEndDate.Text))
-            {
-                return;
-            }
-
-            NumericUpDown nudDays = dgList.Columns[5].GetCellContent(dgList.SelectedItem) as NumericUpDown;
-
-            nudDays.Value = 0;
-            DateTime dtStart = new DateTime();
-            DateTime dtEnd = new DateTime();
-
-            DateTime.TryParse(dtpStartDate.Text, out dtStart);
-            DateTime.TryParse(dtpEndDate.Text, out dtEnd);
-            
-            decimal dDay = 0;
-            dDay = CalculateDayCount(dtStart, dtEnd);
-            nudDays.Value = dDay.ToDouble();           
         }
 
         /// <summary>
@@ -1133,7 +1143,11 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpVacdayStartdate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            CalculateDayCount(dgVacDayList);
+            if (FormType != FormTypes.Browse || FormType != FormTypes.Audit)
+            {
+                CalculateDayCount(dgVacDayList); 
+            }
+            
         }
 
         /// <summary>
@@ -1143,7 +1157,10 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpVacdayEnddate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            CalculateDayCount(dgVacDayList);
+            if (FormType != FormTypes.Browse || FormType != FormTypes.Audit)
+            {
+                CalculateDayCount(dgVacDayList);
+            }            
         }
 
         /// <summary>
@@ -1153,7 +1170,10 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpWorkdayStartdate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            CalculateDayCount(dgWorkDayList);
+            if (FormType != FormTypes.Browse || FormType != FormTypes.Audit)
+            {
+                CalculateDayCount(dgWorkDayList);
+            }
         }
 
         /// <summary>
@@ -1163,7 +1183,10 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpWorkdayEnddate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            CalculateDayCount(dgWorkDayList);
+            if (FormType != FormTypes.Browse || FormType != FormTypes.Audit)
+            {
+                CalculateDayCount(dgWorkDayList);
+            }
         }
 
         #endregion
@@ -1266,6 +1289,10 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             try
             {
+                if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
+                {
+                    return; 
+                }
                 if (dgVacDayList.SelectedItem == null)
                 {
                     return;
@@ -1450,6 +1477,10 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             try
             {
+                if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
+                {
+                    return;
+                }
                 T_HR_OUTPLANDAYS obje = dgWorkDayList.SelectedItem as T_HR_OUTPLANDAYS;
                 if (obje == null)
                 {
