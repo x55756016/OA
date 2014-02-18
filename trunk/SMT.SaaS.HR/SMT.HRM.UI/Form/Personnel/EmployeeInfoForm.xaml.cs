@@ -448,13 +448,13 @@ namespace SMT.HRM.UI.Form.Personnel
                 //  RefreshUI(RefreshedTypes.ProgressBar);
                 return;
             }
-            if (experience.ExperienceList.Count <= 0)
+            if (experience.ExperienceList == null || experience.ExperienceList.Count <= 0)
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("EXPERIENCEADD"),
                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return;
             }
-            if (educateHistory.EducateHistory.Count <= 0)
+            if (educateHistory.EducateHistory == null || educateHistory.EducateHistory.Count <= 0)
             {
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("EDUCATEHISTORYADD"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
