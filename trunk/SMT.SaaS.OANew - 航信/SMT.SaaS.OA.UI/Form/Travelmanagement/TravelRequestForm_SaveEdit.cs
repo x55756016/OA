@@ -45,6 +45,20 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     refreshType = RefreshedTypes.All;
                     Save();
                     break;
+                case "3":
+                    string Result = "";
+                    ComfirmWindow com = new ComfirmWindow();
+                    com.OnSelectionBoxClosed += (obj, result) =>
+                    {
+                        bool FBControl = true;
+                        ObservableCollection<string> businesstripId = new ObservableCollection<string>();//出差申请ID
+                        businesstripId.Add(Master_Golbal.BUSINESSTRIPID);
+                        this.RefreshUI(RefreshedTypes.ShowProgressBar);
+                        OaPersonOfficeClient.DeleteTravelmanagementAsync(businesstripId, FBControl);
+                    };
+                    com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确认是否删除此条记录？", ComfirmWindow.titlename, Result);
+
+                    break;
             }
         }
         #endregion
@@ -368,7 +382,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 if (e.Error != null && e.Error.Message != "")
-                {
+                {                   
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 }
                 else
@@ -378,7 +392,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                         return;
                     }
+                   
                     Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EVECTIONFORM"));
+                    
+                    this.formType = FormTypes.Edit;
                     if (GlobalFunction.IsSaveAndClose(refreshType))
                     {
                         RefreshUI(refreshType);
@@ -386,12 +403,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     }
                     else
                     {
-                        formType = FormTypes.Edit;
                         EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                         entBrowser.FormType = FormTypes.Edit;
-                        RefreshUI(RefreshedTypes.AuditInfo);
-                        RefreshUI(RefreshedTypes.All);
                     }
+                    RefreshUI(RefreshedTypes.All);//重新加载数据
                 }
             }
             catch (Exception ex)

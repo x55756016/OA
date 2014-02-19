@@ -44,7 +44,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     isPageloadCompleted = true;
                     TravelReimbursement_Golbal = e.Result;
-
+                    this.businesstrID = TravelReimbursement_Golbal.T_OA_BUSINESSTRIP.BUSINESSTRIPID;
                     //ljx  2011-8-29  
                     if (formType == FormTypes.Edit)
                     {

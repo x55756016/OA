@@ -194,6 +194,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Resubmit, ent.Travelmanagement.BUSINESSTRIPID);
             EntityBrowser browser = new EntityBrowser(AddWin);
+            browser.RemoveSMTLoading();
             browser.EntityBrowseToolBar.MaxHeight = 0;
             browser.FormType = FormTypes.Resubmit;
             browser.MinWidth = 980;
@@ -224,6 +225,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Browse, ent.Travelmanagement.BUSINESSTRIPID);
             EntityBrowser browser = new EntityBrowser(AddWin);
+            browser.RemoveSMTLoading();
             browser.EntityBrowseToolBar.MaxHeight = 0;
             browser.FormType = FormTypes.Browse;
             browser.MinWidth = 830;
@@ -326,6 +328,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             EntityBrowser browser = new EntityBrowser(AddWin);
             browser.EntityBrowseToolBar.MaxHeight = 0;
             AddWin.ParentEntityBrowser = browser;
+            browser.RemoveSMTLoading();
             browser.MinWidth = 980;
             browser.MinHeight = 380;
             browser.TitleContent = "出差申请";
@@ -362,6 +365,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, ent.Travelmanagement.BUSINESSTRIPID);
                 EntityBrowser browser = new EntityBrowser(AddWin);
                 AddWin.ParentEntityBrowser = browser;
+                browser.RemoveSMTLoading();
                 browser.EntityBrowseToolBar.MaxHeight = 0;
                 browser.FormType = FormTypes.Edit;
                 browser.MinWidth = 980;
@@ -497,6 +501,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Audit, ent.Travelmanagement.BUSINESSTRIPID);
             EntityBrowser browser = new EntityBrowser(AddWin);
+            browser.RemoveSMTLoading();
             browser.EntityBrowseToolBar.MaxHeight = 0;
             browser.FormType = FormTypes.Audit;
             browser.MinWidth = 728;

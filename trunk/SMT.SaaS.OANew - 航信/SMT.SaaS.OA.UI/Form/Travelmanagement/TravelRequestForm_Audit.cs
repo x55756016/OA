@@ -80,6 +80,20 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 };
                 items.Add(item);
             }
+            if (Master_Golbal!=null&&
+                Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString()
+                && formType==FormTypes.Edit)
+            {
+                ToolbarItem item = new ToolbarItem
+                {
+                    DisplayType = ToolbarItemDisplayTypes.Image,
+                    Key = "3",
+                    Title = "删除",
+                    ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                };
+                items.Add(item);
+            }
+
             return items;
         }
 

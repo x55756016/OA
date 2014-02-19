@@ -108,6 +108,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);//保存费用
             fbCtr.InitDataComplete += new EventHandler<FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs>(fbCtr_InitDataComplete);
             fbCtr.ItemSelectChange+=fbCtr_ItemSelectChange;
+            OaPersonOfficeClient.DeleteTravelReimbursementByBusinesstripIdCompleted += new EventHandler<DeleteTravelReimbursementByBusinesstripIdCompletedEventArgs>(Travelmanagement_DeleteTravelReimbursementByBusinesstripIdCompleted);
         }
 
         #endregion
@@ -149,6 +150,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
+            //entBrowser.BtnDelete.Click += BtnDelete_Click;
+
 
             GetVechileLevelInfos();
             if (isPageloadCompleted == true) return;//如果已经加载过，再次切换时就不再加载

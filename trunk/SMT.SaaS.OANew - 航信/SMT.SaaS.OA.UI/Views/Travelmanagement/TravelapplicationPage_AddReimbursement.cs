@@ -78,6 +78,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     WhetherReimbursement = false;
                     BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, businesstrID, WhetherReimbursement);
                     EntityBrowser browser = new EntityBrowser(AddWin);
+                    browser.RemoveSMTLoading();
                     browser.FormType = FormTypes.Edit;
                     browser.EntityBrowseToolBar.MaxHeight = 0;
                     browser.MinWidth = 980;
@@ -691,6 +692,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     {
                         BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, businesstrID);
                         EntityBrowser browser = new EntityBrowser(AddWin);
+                        browser.RemoveSMTLoading();
                         browser.FormType = FormTypes.Edit;
                         browser.MinWidth = 980;
                         browser.MinHeight = 445;

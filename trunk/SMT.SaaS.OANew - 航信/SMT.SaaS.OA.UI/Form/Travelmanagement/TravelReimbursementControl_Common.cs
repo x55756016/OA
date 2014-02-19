@@ -194,8 +194,67 @@ namespace SMT.SaaS.OA.UI.UserControls
                 //    refreshType = RefreshedTypes.CloseAndReloadData;
                 //    Save();
                 //    break;
+                case "3"://删除
+                    string Result = "";
+                    ComfirmWindow com = new ComfirmWindow();
+                    com.OnSelectionBoxClosed += (obj, result) =>
+                    {
+                        try
+                        {
+                            bool FBControl = true;
+                            ObservableCollection<string> businesstripId = new ObservableCollection<string>();//出差申请ID
+                            businesstripId.Add(businesstrID);
+                            this.RefreshUI(RefreshedTypes.ShowProgressBar);
+                            OaPersonOfficeClient.DeleteTravelReimbursementByBusinesstripIdAsync(businesstripId, FBControl);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                    };
+                    com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确认是否删除此条记录？", ComfirmWindow.titlename, Result);
+                    break;
             }
         }
+
+
+
+        #region 删除出差报销
+        void Travelmanagement_DeleteTravelReimbursementByBusinesstripIdCompleted(object sender, DeleteTravelReimbursementByBusinesstripIdCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
+                    return;
+                }
+                else
+                {
+                    if (!e.Result) //返回值为假
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("DALETEFAILED"));
+                        return;
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("删除成功！"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        this.formType = FormTypes.Browse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.ToString());
+            }
+            finally
+            {
+                this.RefreshUI(RefreshedTypes.HideProgressBar);//读取完数据后，停止动画，隐藏
+                this.RefreshUI(RefreshedTypes.All);//重新加载数据
+                this.RefreshUI(RefreshedTypes.Close);
+            }
+        }
+        #endregion
         public List<NavigateItem> GetLeftMenuItems()
         {
             List<NavigateItem> items = new List<NavigateItem>();
@@ -230,6 +289,19 @@ namespace SMT.SaaS.OA.UI.UserControls
                     ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_save.png"
                 };
                 items.Add(item);
+            }
+            if (TravelReimbursement_Golbal!=null
+                &&TravelReimbursement_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString()
+                && formType==FormTypes.Edit)
+            {
+                ToolbarItem item = new ToolbarItem
+                {
+                    DisplayType = ToolbarItemDisplayTypes.Image,
+                    Key = "3",
+                    Title = "删除",
+                    ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
+                };
+                items.Add(item);                          
             }
             return items;
         }
