@@ -10,11 +10,13 @@ using SMT.Foundation.Log;
 using System.Net;
 using System.Linq.Dynamic;
 
+using SMT.SaaS.BLLCommonServices;
 
 namespace SMT.SaaS.OA.BLL
 {
     public class ApprovalManagementBll : BaseBll<T_OA_APPROVALINFO>
     {
+        PublicInterfaceWS.PublicServiceClient PublicInterfaceClient = new PublicInterfaceWS.PublicServiceClient();
         
         public T_OA_APPROVALINFO Get_Apporval(string id)
         {
@@ -33,7 +35,9 @@ namespace SMT.SaaS.OA.BLL
         {
             try
             {
+                //先修改为1  后面再加字段
                 var q = from ent in dal.GetObjects<T_OA_APPROVALINFO>()
+                        where ent.ISSHOW == "1" || (ent.ISSHOW == null || ent.ISSHOW == "")
                         select ent;
                 if (checkState == "4")//审批人
                 {
@@ -50,7 +54,75 @@ namespace SMT.SaaS.OA.BLL
                     //q = q.Where(ent => ent.CREATEUSERID == userID);
                     if (checkState != "5")
                     {
-                        q = q.Where(ent => ent.CHECKSTATE == checkState);
+                        if (!string.IsNullOrEmpty(checkState))
+                        {
+                            q = q.Where(ent => ent.CHECKSTATE == checkState);
+                        }
+                    }
+                }
+                List<object> queryParas = new List<object>();
+                if (paras != null)
+                {
+                    queryParas.AddRange(paras);
+                }
+                string bb = filterString;
+                if (guidStringList == null)
+                {
+                    if (!(filterString.IndexOf("CREATEUSERID") > -1))
+                    {
+                        UtilityClass.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_OA_APPROVALINFO");
+                    }
+                }
+                //Tracer.Debug("事项审批中的数据filterstring"+filterString +"AAAAA"+System.DateTime.Now.ToString());
+                if (!string.IsNullOrEmpty(filterString))
+                {
+                    q = q.Where(filterString, queryParas.ToArray());
+                }
+                q = q.OrderBy(sort);
+                q = q.ToList().AsQueryable().OrderByDescending(s => s.CREATEDATE);
+                q = Utility.Pager<T_OA_APPROVALINFO>(q, pageIndex, pageSize, ref pageCount);
+                if (q.Count() > 0)
+                {
+                    return q;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("事项审批GetApprovalList" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+            }
+           
+        }
+
+
+
+        public IQueryable<T_OA_APPROVALINFO> GetApprovalListForMVC(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string userID, List<string> guidStringList, string checkState, ref  int recordTotals)
+        {
+            try
+            {
+                var q = from ent in dal.GetObjects<T_OA_APPROVALINFO>()
+                        where ent.ISSHOW == "1"  || (ent.ISSHOW == null || ent.ISSHOW=="")
+                        select ent;
+                if (checkState == "4")//审批人
+                {
+                    if (guidStringList != null)
+                    {
+                        q = from ent in q
+                            where guidStringList.Contains(ent.APPROVALID)
+                            select ent;
+                        //q = q.ToList().Where(x => guidStringList.Contains(x.APPROVALID)).AsQueryable();
+                    }
+                }
+                else//创建人
+                {
+                    //q = q.Where(ent => ent.CREATEUSERID == userID);
+                    if (checkState != "5")
+                    {
+                        if (!string.IsNullOrEmpty(checkState))
+                        {
+                            q = q.Where(ent => ent.CHECKSTATE == checkState);
+                        }
                     }
                 }
                 List<object> queryParas = new List<object>();
@@ -73,14 +145,13 @@ namespace SMT.SaaS.OA.BLL
                     q = q.Where(filterString, queryParas.ToArray());
                 }
                 q = q.OrderBy(sort);
-
+                q = q.ToList().AsQueryable().OrderByDescending(s => s.CREATEDATE);
+                recordTotals = q.Count();
                 q = Utility.Pager<T_OA_APPROVALINFO>(q, pageIndex, pageSize, ref pageCount);
-
                 if (q.Count() > 0)
-                {
+                {                    
                     return q;
                 }
-
                 return null;
             }
             catch (Exception ex)
@@ -88,7 +159,7 @@ namespace SMT.SaaS.OA.BLL
                 Tracer.Debug("事项审批GetApprovalList" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return null;
             }
-           
+
         }
         ///// <summary>
         ///// 获取文件名
@@ -163,12 +234,17 @@ namespace SMT.SaaS.OA.BLL
             try
             {
                 string appCodeList = GetMaxApprovalCode(ApprovalInfo.APPROVALCODE);
+                
                 if (appCodeList == null)
                 {
                     ApprovalInfo.APPROVALCODE = ApprovalInfo.APPROVALCODE + "0001";
                 }
                 else
                 {
+                    if (string.IsNullOrEmpty(ApprovalInfo.APPROVALCODE))
+                    {
+                        ApprovalInfo.APPROVALCODE = appCodeList;
+                    }
                     ApprovalInfo.APPROVALCODE = ApprovalInfo.APPROVALCODE.Substring(0, 11) + (Convert.ToInt32(appCodeList.Substring(11)) + 1).ToString().PadLeft(4,'0');
                     
                 }
@@ -505,6 +581,123 @@ namespace SMT.SaaS.OA.BLL
                 return null;
             }
         }
+
+
+        /// <summary>
+        /// 根据公司ID获取事项类型
+        /// 读取公司下的子公司
+        /// </summary>
+        /// <param name="companyid">公司ID</param>        
+        /// <returns>返回集合</returns>
+        public List<string> GetApprovalTypeByCompanyid(string companyid)
+        {
+            try
+            {
+                SMT.SaaS.BLLCommonServices.OrganizationWS.OrganizationServiceClient hrOrg = new BLLCommonServices.OrganizationWS.OrganizationServiceClient();
+                List<string> listCompanyIDs = new List<string>();
+                listCompanyIDs.Add(companyid);
+                
+                //子公司ID集合
+                //注释原因：流程只取当前公司的
+                //string[] listChildCompanys = hrOrg.GetChildCompanyByCompanyID(listCompanyIDs.ToArray());
+                //子公司ID连接字符串
+                string strCompanys = string.Empty;
+                List<string> listcompanys = new List<string>();
+                listcompanys.Add(companyid);
+                //strCompanys = companyid + ",";
+                //if (listChildCompanys.Count() > 0)
+                //{
+                //    for (int i = 0; i < listChildCompanys.Count(); i++)
+                //    {
+                //        strCompanys += listChildCompanys[i] +",";
+                //        listcompanys.Add(listChildCompanys[i]);
+                //    }
+                //}
+                //去掉最后一个,符合
+                //strCompanys = strCompanys.Substring(0,strCompanys.Length-1);
+                strCompanys = companyid;
+                //获取公司所在的部门
+                var departments = hrOrg.GetDepartmentByCompanyIDs(strCompanys);
+                List<string> listDeparts = new List<string>();
+                if (departments.Count() > 0)
+                {
+                    foreach (var dept in departments)
+                    {
+                        listDeparts.Add(dept.DEPARTMENTID);
+                    }
+                }
+                //公司设置
+                var ents = from ent in dal.GetObjects<T_OA_APPROVALTYPESET>()
+                           where listcompanys.Contains(ent.ORGANIZATIONID) && ent.ORGANIZATIONTYPE == "0"
+                           select ent;
+                //部门设置
+                var entdepartments = from ent in dal.GetObjects<T_OA_APPROVALTYPESET>()
+                                     //where listDeparts.Contains(ent.ORGANIZATIONID) && ent.ORGANIZATIONTYPE == "1"
+                                     where listDeparts.Contains(ent.ORGANIZATIONID) && ent.ORGANIZATIONTYPE == "1"
+                                     select ent;
+                List<string> ApprovalTypes = new List<string>();
+                if (ents.Count() > 0)
+                {
+                    ents.ToList().ForEach(
+                        item =>
+                        {
+                            var entExist = from ent in ApprovalTypes
+                                           where ent == item.TYPEAPPROVAL
+                                           select ent;
+                            if (entExist.Count() == 0)
+                            {
+                                ApprovalTypes.Add(item.TYPEAPPROVAL);
+                            }
+                        }
+                        );
+                }
+
+                if (entdepartments.Count() > 0)
+                {
+                    entdepartments.ToList().ForEach(
+                        item =>
+                        {
+                            var entExist = from ent in ApprovalTypes
+                                           where ent == item.TYPEAPPROVAL
+                                           select ent;
+                            if (entExist.Count() == 0)
+                            {
+                                ApprovalTypes.Add(item.TYPEAPPROVAL);
+                            }
+                        }
+                        );
+                }
+                //if (entdepartments.Count() == 0)
+                //{
+                //    if (ents.Count() > 0)
+                //    {
+                //        ents.ToList().ForEach(
+                //            item =>
+                //            {
+                //                ApprovalTypes.Add(item.TYPEAPPROVAL);
+                //            }
+                //            );
+                //    }
+                //}
+                //else
+                //{
+                //    entdepartments.ToList().ForEach(
+                //            item =>
+                //            {
+                //                ApprovalTypes.Add(item.TYPEAPPROVAL);
+                //            }
+                //            );
+                //}
+                return ApprovalTypes.Count() > 0 ? ApprovalTypes : null;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("事项审批ApprovalManagementBll-GetApprovalTypeByCompanyandDepartmentid" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+            }
+        }
+
+
         /// <summary>
         /// 通过公司名称获取公司下的部门 -by luojie
         /// </summary>
@@ -584,6 +777,193 @@ namespace SMT.SaaS.OA.BLL
             }
             return ApprovalTypeList == null ? null : ApprovalTypeList;
         }
+
+        
+
+        #region 审核手机版元数据构造
+
+        
+        public string GetXmlString(string Formid)
+        {
+            T_OA_APPROVALINFO Info = Get_Apporval(Formid);
+            //SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY LEFTOFFICECATEGORY = cbxEmployeeType.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+            decimal? stateValue = Convert.ToDecimal("1");
+            string checkState = string.Empty;
+            string checkStateDict
+                = PermClient.GetDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
+            checkState = checkStateDict == null ? "" : checkStateDict;
+
+            //SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST employee
+            //    = SMT.SaaS.BLLCommonServices.Utility.GetEmployeeOrgByid(Info.OWNERID);
+            //decimal? postlevelValue = Convert.ToDecimal(employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString());
+            string postLevelName = string.Empty;
+            string postLevelDict
+                 = PermClient.GetDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
+            postLevelName = postLevelDict == null ? "" : postLevelDict;
+
+            //decimal? overTimeValue = Convert.ToDecimal(Info);
+            //SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
+            //List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CURRENTEMPLOYEENAME", employee.T_HR_EMPLOYEE.EMPLOYEECNAME, employee.T_HR_EMPLOYEE.EMPLOYEECNAME));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", Info.CHECKSTATE, checkState));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString(), postLevelName));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAM", Info.OWNERNAME, Info.OWNERNAME));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, Info.OWNERCOMPANYID));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, Info.OWNERDEPARTMENTID));
+            //AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, Info.OWNERPOSTID));
+
+            //string StrSource = GetBusinessObject("T_OA_APPROVALINFO");
+            //Tracer.Debug("获取的元数据模板为：" + StrSource);
+            //string outApplyXML = mx.TableToXml(Info, null, StrSource, AutoList);
+            //Tracer.Debug("组合后的元数据为：" + outApplyXML);
+            return string.Empty;
+        }
+
+        public string GetBusinessObject(string ModeCode)
+        {
+            if (PublicInterfaceClient == null)
+            {
+                PublicInterfaceClient = new PublicInterfaceWS.PublicServiceClient();
+            }
+            string BusinessObject = PublicInterfaceClient.GetBusinessObject("OA", ModeCode);
+            return BusinessObject;
+        }
+
+
+        
+
+
+        #endregion
+ 
+    }
+
+    public class ApprovalFlowUserBll : BaseBll<T_OA_APPROVALFLOWUSERS>
+    {
+        #region 添加事项审批自定义流程审核人
+        //
+        //批量添加公文发布
+        /// <summary>
+        /// 添加事项审批自定义流程人员
+        /// add ljx  2014-2-17
+        /// </summary>
+        /// <param name="FlowUsers">流程审核人员列表</param>
+        /// <returns></returns>
+        //public bool BatchAddFlowUsers(List<T_OA_APPROVALFLOWUSERS> listFlowUsers, string formID)
+        //{
+        //    try
+        //    {
+        //        bool needSave = false;
+        //        if (listFlowUsers.Count() > 0)
+        //        {
+        //            var ents = from ent in dal.GetObjects<T_OA_APPROVALFLOWUSERS>()
+        //                       where ent.APPROVALINFOID == formID
+        //                       select ent;
+        //            foreach (T_OA_APPROVALFLOWUSERS obj in listFlowUsers)
+        //            {
+        //                //根据审核人ID、表单ID、审核人顺序过滤
+        //                //如果只有一个则flowuserorder默认为1
+        //                var tempEnt = ents.FirstOrDefault(s => s.APPROVALINFOID == obj.APPROVALINFOID && s.MODELCODE == obj.MODELCODE
+        //                               && s.FLOWUSERID == obj.FLOWUSERID && s.FLOWUSERORDER == obj.FLOWUSERORDER);
+        //                if (tempEnt != null)
+        //                {
+        //                    continue;
+        //                }
+        //                else
+        //                {
+        //                    dal.AddToContext(obj);
+        //                    needSave = true;
+        //                }
+        //            }
+        //            if (needSave)
+        //            {
+        //                int i = dal.SaveContextChanges();
+        //                if (i > 0)
+        //                {
+        //                    return true;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return true;
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Tracer.Debug("事项审批添加自定义流程失败ApprovalFlowUserBll-BatchAddFlowUsers" + System.DateTime.Now.ToString() + " " + ex.ToString());
+        //        return false;
+        //    }
+        //}
+        /// <summary>
+        /// 删除单条自定义流程记录
+        /// </summary>
+        /// <param name="approvalFlowUserID"></param>
+        /// <returns></returns>
+        //public bool DeleteApprovalFlowUser(string approvalFlowUserID)
+        //{
+        //    try
+        //    {
+        //        var users = (from ent in dal.GetObjects<T_OA_APPROVALFLOWUSERS>()
+        //                     where ent.APPROVALFLOWUSERID == approvalFlowUserID
+        //                     select ent);
+        //        if (users.Count() > 0)
+        //        {
+        //            var user = users.FirstOrDefault();
+
+        //            if (dal.Delete(user) > 0)
+        //            {
+        //                return true;
+        //            }
+        //            else
+        //            {
+        //                return false;
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        dal.RollbackTransaction();
+        //        Tracer.Debug("事项审批删除单个审核人出错ApprovalFlowUserBll-DeleteApprovalFlowUser" + System.DateTime.Now.ToString() + " " + ex.ToString());
+        //        return false;
+        //    }
+        //}
+
+        /// <summary>
+        /// 删除某个事项审批的自定义流程信息
+        /// </summary>
+        /// <param name="formID">表单ID</param>
+        /// <returns></returns>
+        //public bool DeleteAllApprovalFlowUserByFormID(string formID)
+        //{
+        //    try
+        //    {
+        //        var users = (from ent in dal.GetObjects<T_OA_APPROVALFLOWUSERS>()
+        //                     where ent.APPROVALINFOID == formID
+        //                     select ent);
+        //        if (users.Count() > 0)
+        //        {
+        //            foreach (var obj in users)
+        //            {
+        //                if (!(dal.Delete(obj) > 0)) ;
+        //                {
+        //                    string aa = "事项审批删除单个审核人出错,人为：" + obj.FLOWUSERNAME + ";岗位：" + obj.FLOWUSERPOSTNAME;
+
+        //                    Tracer.Debug(aa + System.DateTime.Now.ToString() + " " + obj.FLOWUSERID.ToString());
+        //                }
+        //            }
+        //            return true;
+        //        }
+        //        return false;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Tracer.Debug("事项审批删除单个审核人出错ApprovalFlowUserBll-DeleteAllApprovalFlowUserByFormID：" + System.DateTime.Now.ToString() + " " + ex.ToString());
+        //        return false;
+        //    }
+        //}
+        #endregion
  
     }
 }

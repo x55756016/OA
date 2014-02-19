@@ -45,7 +45,7 @@ namespace SMT.SaaS.OA.BLL
             //           select a;
             //return ents.Count() > 0 ? ents.FirstOrDefault() : null;
 
-            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
+            var entsM = from a in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
                         where a.TRAVELREIMBURSEMENTID == TravelReimbursementID
 
                         select a;
@@ -453,12 +453,12 @@ namespace SMT.SaaS.OA.BLL
                 dal.CommitTransaction();
                 //更新元数据单号
                 //var BUSINESSTRIPID = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
-                //                     where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
-                //                     select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
+                //                      where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
+                //                      select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
 
-                //UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
-                //    , "自动生成", Master.NOBUDGETCLAIMS);
-                //Tracer.Debug("出差更新元数据中出差单号成功！");
+                UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
+                    , "自动生成", Master.NOBUDGETCLAIMS);
+                Tracer.Debug("出差更新元数据中出差单号成功！");
             }
             catch (Exception ex)
             {

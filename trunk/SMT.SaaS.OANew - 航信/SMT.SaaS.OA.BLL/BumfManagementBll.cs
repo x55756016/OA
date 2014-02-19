@@ -10,6 +10,7 @@ using SMT.SaaS.OA.DAL.Views;
 using SMT.Foundation.Log;
 using Enyim.Caching;
 using Enyim.Caching.Memcached;
+using SMT.SaaS.BLLCommonServices.PermissionWS;
 
 namespace SMT.SaaS.OA.BLL
 {
@@ -898,6 +899,39 @@ namespace SMT.SaaS.OA.BLL
             }
         }
 
+        /// <summary>
+        /// 获取公文级别或缓急程度 
+        /// 供MVC调用
+        /// </summary>
+        /// <param name="category">类型</param>
+        /// <returns>返回字符串集合</returns>
+        public List<string> GetDocGradeOrPriority(string category)
+        {
+            List<string> listDicts = new List<string>();
+            try
+            {
+                PermissionServiceClient PermClient = new PermissionServiceClient();
+                var dicts = PermClient.GetDictionaryByCategoryArray(new string[] { category });
+                if (dicts != null)
+                {
+                    if (dicts.Count() > 0)
+                    {
+                        dicts.ToList().ForEach(s => 
+                        {
+                            listDicts.Add(s.DICTIONARYNAME);
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("公司发文BumfManagementBll-GetDocGradeOrPriority" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+
+            }
+            return listDicts;
+        } 
+
         
         //获取查询的文档类型信息
         /// <summary>
@@ -1059,6 +1093,7 @@ namespace SMT.SaaS.OA.BLL
             }
             catch (Exception ex)
             {
+                StrResult = "ERROR";
                 Tracer.Debug("公司发文BumfManagementBll-UpdateDocTypeTemplateInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return false;
            
@@ -1346,9 +1381,7 @@ namespace SMT.SaaS.OA.BLL
             }
 
         }
-
-
-
+      
     }
     #endregion
 
@@ -1942,7 +1975,7 @@ namespace SMT.SaaS.OA.BLL
                     //DateTime dt = new DateTime();
                     //dt = System.DateTime.Now;
                     //ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
-                    ents = ents.OrderBy(sort);//.OrderByDescending(sd => sd.OACompanySendDoc.ISDISTRIBUTE);
+                    ents = ents.ToList().AsQueryable().OrderByDescending(s=>s.OACompanySendDoc.CREATEDATE);//.OrderByDescending(sd => sd.OACompanySendDoc.ISDISTRIBUTE);
                     ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
                     //DateTime dt2 = new DateTime();
                     //dt2 = System.DateTime.Now;
@@ -1957,6 +1990,92 @@ namespace SMT.SaaS.OA.BLL
                 Tracer.Debug("公司发文BumfManagementBll-GetSendDocInfosListByTypeCompanyDepartmentSearch" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return null;
                 
+            }
+
+        }
+
+
+
+
+
+        public List<V_BumfCompanySendDoc> GetSendDocInfosListByTypeCompanyDepartmentSearchForMVC(int pageIndex, int pageSize,
+            string sort, string filterString, IList<object> paras, ref int pageCount, List<V_FlowAPP> flowInfoList,
+            string checkState, string userID,ref int recordsTotal)
+        {
+            try
+            {
+                //SMT_OA_EFModel.SMT_OA_EFModelContext context = dal.lbc.GetDataContext() as SMT_OA_EFModel.SMT_OA_EFModelContext;
+
+
+
+                var ents = (from a in dal.GetObjects().Include("T_OA_SENDDOCTYPE")
+                            join b in dal.GetObjects<T_OA_SENDDOCTYPE>() on a.T_OA_SENDDOCTYPE.SENDDOCTYPE equals b.SENDDOCTYPE
+                            select new V_BumfCompanySendDoc
+                            {
+                                senddoc = a,
+                                OACompanySendDoc = a,
+                                doctype = b,
+                                OWNERCOMPANYID = a.OWNERCOMPANYID,
+                                OWNERID = a.OWNERID,
+                                OWNERPOSTID = a.OWNERPOSTID,
+                                OWNERDEPARTMENTID = a.OWNERDEPARTMENTID,
+                                CREATEUSERID = a.CREATEUSERID
+                            });
+
+                if (ents.Count() > 0)
+                {
+                    if (flowInfoList != null)
+                    {
+
+                        ents = (from a in ents.ToList().AsQueryable()
+                                join l in flowInfoList on a.OACompanySendDoc.SENDDOCID equals l.FormID
+                                select new V_BumfCompanySendDoc
+                                {
+                                    OACompanySendDoc = a.OACompanySendDoc,
+                                    doctype = a.doctype,
+                                    flowApp = l,
+                                    CREATEDATE = (DateTime)a.OACompanySendDoc.CREATEDATE,
+                                    OWNERCOMPANYID = a.OWNERCOMPANYID,
+                                    OWNERID = a.OWNERID,
+                                    OWNERPOSTID = a.OWNERPOSTID,
+                                    OWNERDEPARTMENTID = a.OWNERDEPARTMENTID,
+                                    CREATEUSERID = a.CREATEUSERID
+
+                                });
+                    }
+                    if (!string.IsNullOrEmpty(checkState))
+                    {
+                        ents = ents.Where(s => checkState == s.OACompanySendDoc.CHECKSTATE);
+                    }
+                    List<object> queryParas = new List<object>();
+                    queryParas.AddRange(paras);                    
+                    if (checkState != CheckStates.WaittingApproval.ToString())//如果是待审核，不需权限控制
+                    {
+                        UtilityClass.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_OA_SENDDOC");
+                    }                    
+                    if (!string.IsNullOrEmpty(filterString))
+                    {
+                        //ents = ents.ToList().AsQueryable().Where(filterString, queryParas.ToArray());
+                        ents = ents.Where(filterString, queryParas.ToArray());
+                    }
+                    
+                    //ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
+                    ents = ents.ToList().AsQueryable().OrderByDescending(s => s.OACompanySendDoc.CREATEDATE);//.OrderByDescending(sd => sd.OACompanySendDoc.ISDISTRIBUTE);
+                    recordsTotal = ents.Count();
+                    ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
+                    //DateTime dt2 = new DateTime();
+                    //dt2 = System.DateTime.Now;
+                    //TimeSpan ddt = dt2 - dt;
+                    return ents.Count() > 0 ? ents.ToList() : null;
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("公司发文BumfManagementBll-GetSendDocInfosListByTypeCompanyDepartmentSearch" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+
             }
 
         }
@@ -1984,15 +2103,17 @@ namespace SMT.SaaS.OA.BLL
             try
             {
                 //SMT_OA_EFModel.SMT_OA_EFModelContext context = dal.lbc.GetDataContext() as SMT_OA_EFModel.SMT_OA_EFModelContext;
-                
-                
 
+                //为空时默认
+                DateTime dt = DateTime.Parse("2011-01-01");
                 var ents = (from a in dal.GetObjects().Include("T_OA_SENDDOCTYPE")
                             join b in dal.GetObjects<T_OA_SENDDOCTYPE>() on a.T_OA_SENDDOCTYPE.SENDDOCTYPE equals b.SENDDOCTYPE
                             join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on a.SENDDOCID equals c.FORMID
+                            orderby a.CREATEDATE descending
                             //where a.ISDISTRIBUTE == "1" && (c.VIEWER == userID || c.VIEWER == postID || c.VIEWER == departmentID || c.VIEWER == companyID)
                             select new V_BumfCompanySendDoc 
-                            { 
+                            {
+                                CREATEDATE = a.CREATEDATE == null ? dt : (DateTime)a.CREATEDATE,
                                 OACompanySendDoc = a, doctype = b, distrbuteuser = c,
                                 OWNERCOMPANYID = a.OWNERCOMPANYID,OWNERID = a.OWNERID,
                                 OWNERDEPARTMENTID = a.OWNERDEPARTMENTID,OWNERPOSTID = a.OWNERPOSTID
@@ -2016,7 +2137,7 @@ namespace SMT.SaaS.OA.BLL
                     }
 
                     //ents = ents.OrderBy(sort);
-                    ents = ents.OrderByDescending(item=>item.OACompanySendDoc.CREATEDATE);
+                    ents = ents.ToList().AsQueryable().OrderByDescending(item=>item.CREATEDATE);
                     ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
                     return ents;
                 }
@@ -2029,6 +2150,70 @@ namespace SMT.SaaS.OA.BLL
                 Tracer.Debug("公司发文BumfManagementBll-GetMySendDocInfosList" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return null;
                 
+            }
+
+        }
+
+
+        public IQueryable<V_BumfCompanySendDoc> GetMySendDocInfosListForMVC(int pageIndex, int pageSize, string sort,
+            string filterString, IList<object> paras, ref int pageCount, List<V_FlowAPP> flowInfoList, string checkState,
+            string userID, string postID, string companyID, string departmentID,ref int recordsTotal)
+        {
+            try
+            {
+                //SMT_OA_EFModel.SMT_OA_EFModelContext context = dal.lbc.GetDataContext() as SMT_OA_EFModel.SMT_OA_EFModelContext;
+
+                //为空时默认
+                DateTime dt = DateTime.Parse("2011-01-01");
+                var ents = (from a in dal.GetObjects().Include("T_OA_SENDDOCTYPE")
+                            join b in dal.GetObjects<T_OA_SENDDOCTYPE>() on a.T_OA_SENDDOCTYPE.SENDDOCTYPE equals b.SENDDOCTYPE
+                            join c in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on a.SENDDOCID equals c.FORMID
+                            orderby a.CREATEDATE descending
+                            //where a.ISDISTRIBUTE == "1" && (c.VIEWER == userID || c.VIEWER == postID || c.VIEWER == departmentID || c.VIEWER == companyID)
+                            select new V_BumfCompanySendDoc
+                            {
+                                CREATEDATE = a.CREATEDATE == null ? dt : (DateTime)a.CREATEDATE,
+                                OACompanySendDoc = a,
+                                doctype = b,
+                                distrbuteuser = c,
+                                OWNERCOMPANYID = a.OWNERCOMPANYID,
+                                OWNERID = a.OWNERID,
+                                OWNERDEPARTMENTID = a.OWNERDEPARTMENTID,
+                                OWNERPOSTID = a.OWNERPOSTID
+                            });
+                if (ents.Count() > 0)
+                {
+
+
+                    ents = ents.Where(s => (s.OACompanySendDoc.ISDISTRIBUTE == "1") &&
+                        (s.distrbuteuser.VIEWER == userID
+                        || s.distrbuteuser.VIEWER == postID
+                        || s.distrbuteuser.VIEWER == departmentID
+                        || s.distrbuteuser.VIEWER == companyID));
+                    List<object> queryParas = new List<object>();
+                    queryParas.AddRange(paras);
+                    //UtilityClass.SetOrganizationFilter(ref filterString, ref queryParas, userID, "OAMYCOMPANYDOC");  个人没有权限验证2010-7-22
+
+                    if (!string.IsNullOrEmpty(filterString))
+                    {
+                        ents = ents.ToList().AsQueryable().Where(filterString, queryParas.ToArray());
+                    }
+
+                    //ents = ents.OrderBy(sort);
+                    ents = ents.ToList().AsQueryable().OrderByDescending(item => item.CREATEDATE);
+                    recordsTotal = ents.Count();
+                    ents = Utility.Pager<V_BumfCompanySendDoc>(ents, pageIndex, pageSize, ref pageCount);
+                    return ents;
+                }
+
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("公司发文BumfManagementBll-GetMySendDocInfosList" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+
             }
 
         }
@@ -2109,6 +2294,7 @@ namespace SMT.SaaS.OA.BLL
                 
             }
         }
+                
         /// <summary>
         /// 获取用户在设定的权限范围内的 公文编号信息2011-3-11
         /// </summary>
@@ -2122,7 +2308,7 @@ namespace SMT.SaaS.OA.BLL
             {
                 //获取审核通过的公文
                 var ents = from ent in dal.GetObjects<T_OA_SENDDOC>()
-                           where ent.CHECKSTATE == "2"
+                           where ent.CHECKSTATE == "2" && ent.NUM != null
                            select new V_CompanyDocNum {
                                CHECKSTATE = ent.CHECKSTATE,
                                NUM = ent.NUM,
@@ -2139,8 +2325,8 @@ namespace SMT.SaaS.OA.BLL
                 {
                     
                     List<object> queryParas = new List<object>();
-                   
-                    UtilityClass.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_OA_SENDDOC");
+                   //注释掉不需要按权限过滤
+                    //UtilityClass.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_OA_SENDDOC");
                     
                    
                     if (!string.IsNullOrEmpty(filterString))
@@ -2306,8 +2492,7 @@ namespace SMT.SaaS.OA.BLL
             {
                 int i = dal.Add(DistrbuteObj);
                 if (i == 1)
-                {
-              
+                {              
                     return true;
                 }
                 else
@@ -2334,6 +2519,7 @@ namespace SMT.SaaS.OA.BLL
             try
             {
                 string StrReturn = "";
+                bool needSave = false;
                 if (DistrbuteList.Count() > 0)
                 {
                     
@@ -2350,7 +2536,7 @@ namespace SMT.SaaS.OA.BLL
                         {
                             //dal.DataContext.AddObject("T_OA_DISTRIBUTEUSER", obj);
                             dal.AddToContext(obj);
-                            
+                            needSave = true;
                         }
 
                         //暂不考虑  会使用数据引擎来处理
@@ -2369,16 +2555,18 @@ namespace SMT.SaaS.OA.BLL
                         //    //}
                         //}
                     }
-                    int i = dal.SaveContextChanges();
-                    if (i > 0)
+                    if (needSave)
                     {
-                        
+                        int i = dal.SaveContextChanges();
+                        if (i > 0)
+                        {
+                            return true;
+                        }
+                    }
+                    else
+                    {
                         return true;
                     }
-                        
-                    
-
-
                 }
                 return false;
             }
@@ -2576,6 +2764,8 @@ namespace SMT.SaaS.OA.BLL
                                         {
                                             SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg userMsg = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
                                             userMsg.FormID = doc.SENDDOCID;
+                                            
+                                            
                                             if (k < ListEmployees.Length)
                                             {
                                                 userMsg.UserID = ListEmployees[k];
@@ -2715,6 +2905,365 @@ namespace SMT.SaaS.OA.BLL
             return Isbool;
         }
 
+        /// <summary>
+        /// 生成查看已发布的公司发文的发布单
+        /// </summary>
+        /// <param name="ViewDoc"></param>
+        /// <returns></returns>
+        private int AddSendDocViewRecord(T_OA_VIEWSENDDOC ViewDoc,string ownerCompanyID)
+        {
+            try
+            {
+                Tracer.Debug("公司发文 开始生成待办以提醒发布");
+                using (BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient ewClient
+                    = new BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient())
+                {
+                    string strXML = EmployeeSurveyAppBll.ObjListToXml(ViewDoc, "OA");
+                    BLLCommonServices.EngineConfigWS.CustomUserMsg[] userMsg = new BLLCommonServices.EngineConfigWS.CustomUserMsg[1];
+                    userMsg[0] = new BLLCommonServices.EngineConfigWS.CustomUserMsg()
+                    {
+                        FormID = ViewDoc.SENDDOCID,
+                        UserID = ViewDoc.OWNERID
+                    };
+                    ewClient.ApplicationEngineTrigger(userMsg, "OA", "T_OA_VIEWSENDDOC", ownerCompanyID, strXML, BLLCommonServices.EngineConfigWS.MsgType.Task);
+                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("BumfManagementBll-AddSendDocRecord:" + ex.ToString());
+                return 0;
+            }
+        }
+
+
+        
+        /// <summary>
+        /// 公文发布后再发布消息代办
+        /// ljx 2013-12-21
+        /// </summary>
+        /// <param name="DistrbuteList"></param>
+        /// <param name="LstCompanyIDs"></param>
+        /// <param name="LstDepartmentIDs"></param>
+        /// <param name="LstPostIDs"></param>
+        /// <param name="employeeids"></param>
+        /// <param name="doc"></param>
+        /// <returns></returns>
+        public bool BatchAddDocDistrbuteInfoOnlyDocForMVC(List<T_OA_DISTRIBUTEUSER> DistrbuteList, List<string> LstCompanyIDs, List<string> LstDepartmentIDs, List<string> LstPostIDs, List<string> employeeids, T_OA_SENDDOC doc)
+        {
+            bool Isbool = true;            
+            try
+            {                
+                if (DistrbuteList.Count() > 0)
+                {                    
+                    //发布公文的时候关闭待办
+                    BumfCompanySendDocManagementBll.CloseDotask(doc.SENDDOCID, doc.OWNERID);
+                    //发布邮件或RTX放置后期处理，并不影响程序更新
+                    SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient PersonnelClient = new BLLCommonServices.PersonnelWS.PersonnelServiceClient();
+                    //获取所有的员工
+                    
+                    string[] ListEmployees = PersonnelClient.GetEmployeeIDsWithParas(LstCompanyIDs.ToArray(), false, LstDepartmentIDs.ToArray(), false, LstPostIDs.ToArray());
+                    //List<V_EMPLOYEEView>
+                    List<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> listViewEmployees = new List<BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>();
+                    var entEmployees = personClient.GetEmployeeByIDs(ListEmployees);
+                    if (entEmployees != null)
+                    {
+                        listViewEmployees = entEmployees.ToList();
+                    }
+                    ListEmployees = ListEmployees.Distinct().ToArray();
+                    SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient EngineClient = new SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
+                    SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[] List = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[ListEmployees.Length];
+                    string submitName = string.Empty;
+                    submitName = doc.SENDDOCTITLE;
+                    int SendCount = 0;                    
+                    if (ListEmployees.Length > 0)
+                    {
+                        if (ListEmployees.Length > 0)
+                        {
+                            if (ListEmployees.Length > 200)
+                            {
+                                int IntForTimes = ListEmployees.Length / 200 + (ListEmployees.Length % 200 == 0 ? 0 : 1);//200的倍数
+                                for (int g = 0; g < IntForTimes; g++)
+                                {
+                                    SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[] List1 = null;
+                                    List<SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK> listTasks = new List<BLLCommonServices.EngineConfigWS.T_WF_DOTASK>(); 
+                                    if (g == IntForTimes - 1 && ListEmployees.Length % 200 != 0)
+                                    {
+                                        List1 = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[ListEmployees.Length % 200];
+                                    }
+                                    else
+                                    {
+                                        List1 = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[200];
+                                    }
+                                    for (int k = g * 200; k < ((g + 1) * 200); k++)
+                                    {
+                                        SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg userMsg = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
+                                        SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK ent = new SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK();
+                                        userMsg.FormID = doc.SENDDOCID;
+                                        #region 发布公文查看代办
+                                        AddViewDocAndSendTask(doc, ListEmployees, k,listViewEmployees);
+                                        #endregion
+                                        if (k < ListEmployees.Length)
+                                        {
+                                            userMsg.UserID = ListEmployees[k];
+                                            List1[k % 200] = userMsg;
+                                            string bb = Utility.ObjListToXml(doc, "OA", submitName);
+                                            SMT.Foundation.Log.Tracer.Debug("员工ID:" + userMsg.UserID);
+                                            #region 添加代办
+
+                                            var ents = from ent1 in listViewEmployees
+                                                       where ent1.EMPLOYEEID == ListEmployees[k]
+                                                       select ent1;
+                                            if (ents.Count() > 0)
+                                            {
+                                                SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE viewEmployee = new BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE();
+                                                if (ents.Count() > 0)
+                                                {
+                                                    viewEmployee = ents.FirstOrDefault();
+                                                    ent.COMPANYID = viewEmployee.OWNERCOMPANYID;//公司ID
+                                                    ent.ORDERID = doc.SENDDOCID;//单据ID
+                                                    ent.ORDERUSERID = viewEmployee.EMPLOYEEID;//单据所属人ID
+                                                    ent.ORDERUSERNAME = viewEmployee.EMPLOYEEENAME;//单据所属人名称
+                                                    ent.ORDERSTATUS = 1;//单据状态
+                                                    ent.MESSAGEBODY = "您有新的公文:" + doc.SENDDOCTITLE;//消息体
+                                                    ent.APPLICATIONURL = "OANEW/SendDoc/Detail";//应用URL
+                                                    ent.RECEIVEUSERID = viewEmployee.EMPLOYEEID;//接收用户ID
+                                                    ent.BEFOREPROCESSDATE = (DateTime?)DateTime.Now.AddDays(3);//可处理时间（主要针对KPI考核）
+                                                    ent.DOTASKTYPE = 0;//待办任务类型(0、待办任务、1、流程咨询、3 )
+                                                    ent.CLOSEDDATE = DateTime.Now.AddDays(3);//待办关闭时间
+                                                    ent.ENGINECODE = "";//引擎代码
+                                                    ent.DOTASKSTATUS = 0;//代办任务状态(0、未处理 1、已处理 、2、任务撤销 10、删除)
+                                                    ent.MAILSTATUS = 0;//邮件状态(0、未发送 1、已发送、2、未知 )
+                                                    ent.RTXSTATUS = 0;//RTX状态(0、未发送 1、已发送、2、未知 )
+                                                    ent.ISALARM = 0;//是否已提醒(0、未提醒 1、已提醒、2、未知 )
+                                                    ent.APPFIELDVALUE = "";//应用字段值
+                                                    ent.FLOWXML = "";//流程XML
+                                                    ent.APPXML = "";//应用XML
+                                                    ent.SYSTEMCODE = "OA";//系统代码
+                                                    //ent.SYSTEMNAME = "";//系统名称
+                                                    ent.MODELCODE = "T_OA_SENDDOC";//模块代码
+                                                    ent.MODELNAME = "公司发文";//模块名称
+                                                    ent.CREATEDATETIME = DateTime.Now;//创建日期
+                                                    ent.REMARK = "自动发起公文查看";//备注
+                                                    //ent.APPFIELDVALUE1 = "";//
+                                                    listTasks.Add(ent);
+                                                }
+                                            }
+                                            #endregion 
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+                                    EngineClient.ApplicationMsgTrigger(List1, "OA", "T_OA_SENDDOC", Utility.ObjListToXml(doc, "OA", submitName), SMT.SaaS.BLLCommonServices.EngineConfigWS.MsgType.Msg);
+                                    EngineClient.AddDoTaskEntity(listTasks.ToArray());
+                                }
+                            }
+                            else
+                            {
+                                List<SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK> listTasks = new List<BLLCommonServices.EngineConfigWS.T_WF_DOTASK>(); 
+                                //不足200的按员工数发
+                                for (int k = 0; k < ListEmployees.Length; k++)
+                                {
+                                    SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg userMsg = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
+                                    SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK ent = new SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK();
+                                    userMsg.FormID = doc.SENDDOCID;
+                                    userMsg.UserID = ListEmployees[k];
+                                    List[k] = userMsg;
+                                    AddViewDocAndSendTask(doc, ListEmployees, k,listViewEmployees);
+                                    string bb = Utility.ObjListToXml(doc, "OA", submitName);
+                                    SendCount = SendCount + 1;
+                                    #region 添加代办
+                                    var ents = from ent1 in listViewEmployees
+                                               where ent1.EMPLOYEEID == ListEmployees[k]
+                                               select ent1;
+                                    if (ents.Count() > 0)
+                                    {
+                                        SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE viewEmployee = new BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE();
+                                        if (ents.Count() > 0)
+                                        {
+                                            viewEmployee = ents.FirstOrDefault();
+                                            ent.COMPANYID = viewEmployee.OWNERCOMPANYID;//公司ID
+                                            ent.ORDERID = doc.SENDDOCID;//单据ID
+                                            ent.ORDERUSERID = viewEmployee.EMPLOYEEID;//单据所属人ID
+                                            ent.ORDERUSERNAME = viewEmployee.EMPLOYEEENAME;//单据所属人名称
+                                            ent.ORDERSTATUS = 1;//单据状态
+                                            ent.MESSAGEBODY = "您有新的公文:" + doc.SENDDOCTITLE;//消息体
+                                            ent.APPLICATIONURL = "OANEW/SendDoc/Detail";//应用URL
+                                            ent.RECEIVEUSERID = viewEmployee.EMPLOYEEID;//接收用户ID
+                                            ent.BEFOREPROCESSDATE = (DateTime?)DateTime.Now.AddDays(3);//可处理时间（主要针对KPI考核）
+                                            ent.DOTASKTYPE = 0;//待办任务类型(0、待办任务、1、流程咨询、3 )
+                                            ent.CLOSEDDATE = DateTime.Now.AddDays(3);//待办关闭时间
+                                            ent.ENGINECODE = "";//引擎代码
+                                            ent.DOTASKSTATUS = 0;//代办任务状态(0、未处理 1、已处理 、2、任务撤销 10、删除)
+                                            ent.MAILSTATUS = 0;//邮件状态(0、未发送 1、已发送、2、未知 )
+                                            ent.RTXSTATUS = 0;//RTX状态(0、未发送 1、已发送、2、未知 )
+                                            ent.ISALARM = 0;//是否已提醒(0、未提醒 1、已提醒、2、未知 )
+                                            ent.APPFIELDVALUE = "";//应用字段值
+                                            ent.FLOWXML = "";//流程XML
+                                            ent.APPXML = "";//应用XML
+                                            ent.SYSTEMCODE = "OA";//系统代码
+                                            //ent.SYSTEMNAME = "";//系统名称
+                                            ent.MODELCODE = "T_OA_SENDDOC";//模块代码
+                                            ent.MODELNAME = "公司发文";//模块名称
+                                            ent.CREATEDATETIME = DateTime.Now;//创建日期
+                                            ent.REMARK = "自动发起公文查看";//备注
+                                            //ent.APPFIELDVALUE1 = "";//
+                                            listTasks.Add(ent);
+                                        }
+                                    }
+                                    #endregion
+                                }
+                                EngineClient.ApplicationMsgTrigger(List, "OA", "T_OA_SENDDOC", Utility.ObjListToXml(doc, "OA", submitName), SMT.SaaS.BLLCommonServices.EngineConfigWS.MsgType.Msg);
+                                Tracer.Debug("发布公司发文公文标题：" + doc.SENDDOCTITLE + "共发布了" + SendCount.ToString() + " 人");
+                                EngineClient.AddDoTaskEntity(listTasks.ToArray());
+                            }
+                        }                        
+                    }
+                    if (employeeids != null)
+                    {
+                        List<SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK> listTasks = new List<BLLCommonServices.EngineConfigWS.T_WF_DOTASK>();
+                        SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[] List1 = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[employeeids.Count()];
+                        List<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> employee1s = new List<BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE>();
+                        var employeeents = personClient.GetEmployeeByIDs(employeeids.ToArray());
+                        if(employeeents.Count() >0)
+                        {
+                            employee1s = employeeents.ToList();
+                        }
+                        for (int k = 0; k < employeeids.Count; k++)
+                        {
+                            SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg userMsg = new SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
+                            SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK ent = new SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK();
+                            userMsg.FormID = doc.SENDDOCID;
+                            userMsg.UserID = employeeids[k];
+                            AddViewDocAndSendTask(doc, ListEmployees, k, employee1s);
+                            List1[k] = userMsg;
+                            string bb = Utility.ObjListToXml(doc, "OA", submitName);
+                            SendCount = SendCount + 1;
+                            #region 添加代办
+                            var ents = from ent1 in employeeents
+                                       where ent1.EMPLOYEEID == employeeids[k]
+                                       select ent1;
+                            if (ents.Count() > 0)
+                            {
+                                SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE viewEmployee = new BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE();
+                                if (ents.Count() > 0)
+                                {
+                                    viewEmployee = ents.FirstOrDefault();
+                                    ent.COMPANYID = viewEmployee.OWNERCOMPANYID;//公司ID
+                                    ent.ORDERID = doc.SENDDOCID;//单据ID
+                                    ent.ORDERUSERID = viewEmployee.EMPLOYEEID;//单据所属人ID
+                                    ent.ORDERUSERNAME = viewEmployee.EMPLOYEEENAME;//单据所属人名称
+                                    ent.ORDERSTATUS = 1;//单据状态
+                                    ent.MESSAGEBODY = "您有新的公文:" + doc.SENDDOCTITLE;//消息体
+                                    ent.APPLICATIONURL = "OANEW/SendDoc/Detail";//应用URL
+                                    ent.RECEIVEUSERID = viewEmployee.EMPLOYEEID;//接收用户ID
+                                    ent.BEFOREPROCESSDATE = (DateTime?)DateTime.Now.AddDays(3);//可处理时间（主要针对KPI考核）
+                                    ent.DOTASKTYPE = 0;//待办任务类型(0、待办任务、1、流程咨询、3 )
+                                    ent.CLOSEDDATE = DateTime.Now.AddDays(3);//待办关闭时间
+                                    ent.ENGINECODE = "";//引擎代码
+                                    ent.DOTASKSTATUS = 0;//代办任务状态(0、未处理 1、已处理 、2、任务撤销 10、删除)
+                                    ent.MAILSTATUS = 0;//邮件状态(0、未发送 1、已发送、2、未知 )
+                                    ent.RTXSTATUS = 0;//RTX状态(0、未发送 1、已发送、2、未知 )
+                                    ent.ISALARM = 0;//是否已提醒(0、未提醒 1、已提醒、2、未知 )
+                                    ent.APPFIELDVALUE = "";//应用字段值
+                                    ent.FLOWXML = "";//流程XML
+                                    ent.APPXML = "";//应用XML
+                                    ent.SYSTEMCODE = "OA";//系统代码
+                                    //ent.SYSTEMNAME = "";//系统名称
+                                    ent.MODELCODE = "T_OA_SENDDOC";//模块代码
+                                    ent.MODELNAME = "公司发文";//模块名称
+                                    ent.CREATEDATETIME = DateTime.Now;//创建日期
+                                    ent.REMARK = "自动发起公文查看";//备注
+                                    //ent.APPFIELDVALUE1 = "";//
+                                    listTasks.Add(ent);
+                                }
+                            }
+                            #endregion
+                        }
+                        //Tracer.Debug("发布公司发文公文标题：" + doc.SENDDOCTITLE + "共发布了" + employeeids.Count.ToString() + " 人");
+                        EngineClient.ApplicationMsgTrigger(List1, "OA", "T_OA_SENDDOC", Utility.ObjListToXml(doc, "OA", submitName), SMT.SaaS.BLLCommonServices.EngineConfigWS.MsgType.Msg);
+                        EngineClient.AddDoTaskEntity(listTasks.ToArray());
+                    }
+                    #region 缓存发布的对象及公文
+                    try
+                    {
+                        foreach (var employeeid in ListEmployees)
+                        {
+                            MemCacheClient.Store(StoreMode.Set, employeeid + "SendDocMent", 1);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug("Memcache缓存公司发文对象失败：" + ex.ToString());
+                    }
+                    #endregion
+                }
+                else
+                {                    
+                    SMT.Foundation.Log.Tracer.Debug("公司发文："+doc.SENDDOCID+"发布对象为空。发文标题："+ doc.SENDDOCTITLE);
+                }                
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("公司发文BumfManagementBll-BatchAddDocDistrbuteInfoOnlyDocForMVC" + System.DateTime.Now.ToString() + " " + ex.ToString());                
+            }
+            return Isbool;
+        }
+
+        private void AddViewDocAndSendTask(T_OA_SENDDOC doc, string[] ListEmployees, int k,List<SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE> listviewEmployees)
+        {
+            T_OA_VIEWSENDDOC viewDoc = new T_OA_VIEWSENDDOC();
+            var ents = from ent in listviewEmployees
+                       where ent.EMPLOYEEID == ListEmployees[k]
+                       select ent;
+            SMT.SaaS.BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE viewEmployee = new BLLCommonServices.PersonnelWS.T_HR_EMPLOYEE();
+            if (ents.Count() > 0)
+            {
+                viewEmployee = ents.FirstOrDefault();
+            }
+            else
+            {
+                return;
+            }
+            viewDoc.VIEWSENDDOCID = Guid.NewGuid().ToString();
+            viewDoc.OWNERID = ListEmployees[k];
+            viewDoc.ISVIEW = "0";
+            viewDoc.OWNERCOMPANYID = viewEmployee.OWNERCOMPANYID;
+            viewDoc.OWNERDEPARTMENTID = viewEmployee.OWNERDEPARTMENTID;
+            viewDoc.OWNERPOSTID = viewEmployee.OWNERPOSTID;
+            viewDoc.OWNERNAME = viewEmployee.EMPLOYEECNAME;
+            viewDoc.SENDDOCID = doc.SENDDOCID;
+            viewDoc.CREATEDATE = DateTime.Now;
+            viewDoc.CREATEUSERID = doc.OWNERID;
+            viewDoc.CREATECOMPANYID = viewEmployee.OWNERCOMPANYID;
+            viewDoc.CREATEPOSTID = viewEmployee.OWNERPOSTID;
+            viewDoc.CREATEDEPARTMENTID = viewEmployee.OWNERDEPARTMENTID;
+            dal.AddToContext(viewDoc);
+            int intview = dal.SaveContextChanges();
+            //ViewSendDocBLL bll = new ViewSendDocBLL();
+            //string intview = bll.AddViewDocInfo(viewDoc);
+            //if (intview ==0)
+            //{
+            //    SMT.Foundation.Log.Tracer.Debug("保存查看记录失败，员工ID:" + ListEmployees[k]);
+            //}
+            //else
+            //{
+                //BLLCommonServices.Utility.SubmitMyRecord<T_OA_VIEWSENDDOC>(viewDoc);
+                AddSendDocViewRecord(viewDoc,viewEmployee.OWNERCOMPANYID);
+            //}
+        }
+
+        public string AddDoTaskViewDoc(List<BLLCommonServices.EngineConfigWS.T_WF_DOTASK> listTasks)
+        {
+            string strReturn = string.Empty;
+            BLLCommonServices.EngineConfigWS.T_WF_DOTASK task = new BLLCommonServices.EngineConfigWS.T_WF_DOTASK();
+
+            return strReturn;
+        }
+
         
         /// <summary>
         /// 更改发布信息
@@ -2723,7 +3272,6 @@ namespace SMT.SaaS.OA.BLL
         /// <returns></returns>
         public bool UpdateDocDistrbuteInfo(T_OA_DISTRIBUTEUSER DistrbuteObj)
         {
-
             try
             {
                 var entity = from ent in dal.GetTable()
@@ -2934,6 +3482,105 @@ namespace SMT.SaaS.OA.BLL
 
         
                 
+    }
+
+    #endregion
+
+    #region 查看公文
+    public class ViewSendDocBLL : BaseBll<T_OA_VIEWSENDDOC>
+    {
+        public bool UpdateViewSenddoc(T_OA_VIEWSENDDOC viewDoc)
+        {
+            try
+            {
+                var entity = from ent in dal.GetTable()
+                             where ent.VIEWSENDDOCID == viewDoc.VIEWSENDDOCID
+                             select ent;
+
+                if (entity.Count() > 0)
+                {
+                    var entitys = entity.FirstOrDefault();
+                    entitys.ISVIEW = "1";
+                    
+                    if (dal.Update(entitys) > 0)
+                    {
+                        BumfCompanySendDocManagementBll.CloseDotask(entitys.VIEWSENDDOCID, entitys.OWNERID);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("公司发文BumfManagementBll-UpdateDocDistrbuteInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return false;
+
+            }
+        }
+
+        public T_OA_VIEWSENDDOC GetViewSendDoc(string docId,string employeeID)
+        {
+            try
+            {
+                var entViewSendDoc = from a in dal.GetObjects()
+                              where a.SENDDOCID == docId && a.OWNERID == employeeID
+                              && a.ISVIEW =="0"
+                               select a;
+                if (entViewSendDoc.Count() > 0)
+                {                    
+                    return entViewSendDoc.FirstOrDefault();
+                }
+                else
+                {
+                    Tracer.Debug("ViewSendDocBLL-GetViewSendDoc:未找到相应的查看公司发文信息");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("ViewSendDocBLL-GetViewSendDoc:" + ex.ToString());
+                return null;
+            }
+        }
+
+        public string AddViewDocInfo(T_OA_VIEWSENDDOC viewDoc)
+        {
+            try
+            {
+
+                string StrReturn = "";
+                var tempEnt = dal.GetObjects().FirstOrDefault(s => s.OWNERID == viewDoc.OWNERID
+                    && s.SENDDOCID == viewDoc.SENDDOCID );
+                if (tempEnt != null)
+                {
+                    StrReturn = "REPETITION"; //{0}已存在，保存失败！                    
+                }
+                else
+                {
+                    viewDoc.CREATEDATE = System.DateTime.Now;
+                    Utility.RefreshEntity(viewDoc);
+                    bool i = Add(viewDoc);
+                    string Record = string.Empty;
+                    if (i)
+                    {
+                        Tracer.Debug("查看公司发文保存成功 ID:" + viewDoc.SENDDOCID);
+                    }
+
+                    if (i == false || !(string.IsNullOrEmpty(Record)))
+                    {
+                        StrReturn = "SAVEFAILED";//保存失败
+                    }
+                }
+                return StrReturn;
+
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("AddViewDocInfo Add" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return "SAVEFAILED";//保存失败
+
+            }
+        }
     }
 
     #endregion
