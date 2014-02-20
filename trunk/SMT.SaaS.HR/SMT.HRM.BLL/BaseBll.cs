@@ -83,7 +83,27 @@ namespace SMT.HRM.BLL
                 throw (ex);
             }
         }
-
+        public bool AddAlarmAttend(TEntity entity,string message)
+        {
+            try
+            {
+                int i = dal.Add(entity);
+                if (i >= 1)
+                {
+                    SaveMyRecordWithCustomerMessage(entity, message);
+                    MvcCacheClear(entity, "Add");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -217,7 +237,26 @@ namespace SMT.HRM.BLL
             }
             return strTemp;
         }
-
+        /// <summary>
+        /// 将指定的单据记录存储到我的单据
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        public string SaveMyRecordWithCustomerMessage(TEntity entity,object customerMessage)
+        {
+            string strTemp = string.Empty;
+            try
+            {
+                //SMT.Foundation.Log.Tracer.Debug("开始调用我的单据" + entity.GetType().Name);
+                BLLCommonServices.Utility.SubmitMyRecord<TEntity>(entity,customerMessage.ToString());
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("调用我的单据出现错误"+ex.ToString());
+                strTemp = ex.ToString();
+            }
+            return strTemp;
+        }
         /// <summary>
         /// 将指定的单据记录存储到我的单据（将OWNERID转成CREATEUSERID）
         /// </summary>

@@ -1978,7 +1978,9 @@ namespace SMT.HRM.BLL
                      where e.T_HR_EMPLOYEELEAVERECORD.TOTALHOURS <= c.totalHours
                      select e.T_HR_EMPLOYEELEAVERECORD;
             ents = ents.Except(ex);
-            ents = ents.OrderBy("STARTDATETIME");
+            ents = from ent in ents.ToList().AsQueryable()
+                   orderby  ent.STARTDATETIME descending
+                   select ent;
 
             ents = Utility.Pager<T_HR_EMPLOYEELEAVERECORD>(ents, pageIndex, pageSize, ref pageCount);
             return ents.Count()>0 ? ents.ToArray() : null;

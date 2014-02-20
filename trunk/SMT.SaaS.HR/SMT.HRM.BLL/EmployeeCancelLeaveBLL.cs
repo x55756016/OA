@@ -251,7 +251,18 @@ namespace SMT.HRM.BLL
                 IQueryable<T_HR_OUTPLANDAYS> entVacDays = entOutPlanDays.Where(s => s.DAYTYPE == strVacDayType);
                 //IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE >= dtStart && s.ENDDATE <= dtEnd);
                 // 销假时间要在开始时间和结束时间之间
-                IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE <= dtStart && s.ENDDATE >= dtEnd);
+                //注释掉没考虑某一区间的情况
+                //IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType && s.STARTDATE <= dtStart && s.ENDDATE >= dtEnd);
+                //条件过滤有四种情况
+                //1:在区间内
+                //2：大于开始时间且结束时间小于销假结束时间
+                //3：开始日期大于 销假开始日期且结束日期处于有效期之间
+                //4：开始日期小于销假开始日期且结束日期在开始时间和结束时间
+                IQueryable<T_HR_OUTPLANDAYS> entWorkDays = entOutPlanDays.Where(s => s.DAYTYPE == strWorkDayType 
+                                                            && ((s.STARTDATE <= dtStart && s.ENDDATE >= dtEnd) 
+                                                            || (s.STARTDATE >= dtStart && s.ENDDATE <=dtEnd)
+                                                            || (s.STARTDATE >= dtStart && s.STARTDATE <=dtEnd && s.ENDDATE >=dtEnd)
+                                                            || (s.STARTDATE <= dtStart && s.ENDDATE >=dtStart && s.ENDDATE <= dtEnd)));
                 SchedulingTemplateDetailBLL bllTemplateDetail = new SchedulingTemplateDetailBLL();
                 IQueryable<T_HR_SCHEDULINGTEMPLATEDETAIL> entTemplateDetails = bllTemplateDetail.GetTemplateDetailRdListByAttendanceSolutionId(entAttendSol.ATTENDANCESOLUTIONID);
                 T_HR_SCHEDULINGTEMPLATEMASTER entTemplateMaster = entTemplateDetails.FirstOrDefault().T_HR_SCHEDULINGTEMPLATEMASTER;

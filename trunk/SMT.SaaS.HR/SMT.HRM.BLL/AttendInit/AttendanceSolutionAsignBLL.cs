@@ -1868,6 +1868,13 @@ namespace SMT.HRM.BLL
                 if (strResult == "{SAVESUCCESSED}")
                 {
                     i = 1;
+                    if (CheckState == ((int)CheckStates.Approved).ToString())
+                    {   //发送到期提醒定时任务
+                        T_HR_ATTENDANCESOLUTIONASIGN q = (from ent in dal.GetObjects()
+                                                          where ent.ATTENDANCESOLUTIONASIGNID == strEntityKeyValue
+                                                          select ent).FirstOrDefault();
+                        SendEngineXml(q);
+                    }
                 }
                 else
                 {
@@ -1881,6 +1888,45 @@ namespace SMT.HRM.BLL
                 return 0;
             }
         }
+
+        #region 到期定时提醒
+        /// <summary>
+        /// 员工合同到期提醒xml
+        /// </summary>
+        /// <param name="entTemp"></param>
+        public void SendEngineXml(T_HR_ATTENDANCESOLUTIONASIGN entTemp)
+        {
+            DateTime dtStart = System.DateTime.Now;
+            string strStartTime = "10:00";
+            int alarmDay = 7;//提前7天提醒
+            if (entTemp.ENDDATE != null)
+            {
+                dtStart = Convert.ToDateTime(entTemp.ENDDATE).AddDays(-alarmDay);
+            }
+            //dtStart = new DateTime(System.DateTime.Now.Year, System.DateTime.Now.Month, remindDate);
+            List<object> objArds = new List<object>();
+            objArds.Add(entTemp.OWNERCOMPANYID);
+            objArds.Add("HR");
+            objArds.Add("T_HR_ATTENDANCESOLUTIONASIGN");
+            objArds.Add(entTemp.ATTENDANCESOLUTIONASIGNID);
+            objArds.Add(dtStart.ToString("yyyy/MM/d"));
+            objArds.Add(strStartTime);
+            objArds.Add("");
+            objArds.Add("");
+            objArds.Add(entTemp.ASSIGNEDOBJECTTYPE+" "+entTemp.ASSIGNEDOBJECTID + " 考勤方案分配到期提醒");
+            objArds.Add("");
+            objArds.Add(Utility.strEngineFuncWSSite);
+            objArds.Add("EventTriggerProcess");
+            objArds.Add("<Para FuncName=\"ATTENDANCESOLUTIONASIGNRemindTrigger\" Name=\"ATTENDANCESOLUTIONASIGNID\" Value=\"" + entTemp.ATTENDANCESOLUTIONASIGNID + "\"></Para>");
+            objArds.Add("Г");
+            objArds.Add("CustomBinding");
+            SMT.Foundation.Log.Tracer.Debug("调用引擎信息，考勤方案分配ID：" + entTemp.ATTENDANCESOLUTIONASIGNID);
+            SMT.Foundation.Log.Tracer.Debug("调用引擎信息，考勤方案分配类型及id：" + entTemp.ASSIGNEDOBJECTTYPE + " " + entTemp.ASSIGNEDOBJECTID);
+            SMT.Foundation.Log.Tracer.Debug("开始调用引擎的默认消息");
+
+            Utility.SendEngineEventTriggerData(objArds);
+        }
+        #endregion 
     }
 }
 

@@ -501,6 +501,9 @@ namespace SMT.HRM.BLL
                 {
                     //员工异动表
                     var employeePostChange = tmp.EMPLOYEEPOSTCHANGE;
+
+                    
+
                     //员工ID
                     string employeeID = tmp.EMPLOYEEID;
                     //异动审核状态
@@ -646,9 +649,24 @@ namespace SMT.HRM.BLL
                             else
                             {
                                 #region 兼职岗位异动
+                                employeePost.EDITSTATE = "0";//原岗位 改为0未生效
+                                employeePost.CHECKSTATE = "2";
+                                dal.UpdateFromContext(employeePost);
+
                                 var toPost = dal.GetObjects<T_HR_POST>().Where(t => t.POSTID == employeePostChange.TOPOSTID).FirstOrDefault();
                                 employeePost.T_HR_POST = toPost;
                                 dal.UpdateFromContext(employeePost);
+
+                                var toemployeePost = (from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>()
+                                                    where ep.T_HR_EMPLOYEE.EMPLOYEEID == employeeID && ep.T_HR_POST.POSTID == employeePostChange.TOPOSTID
+                                                    select ep).FirstOrDefault();
+                                if (toemployeePost != null)
+                                {
+                                    toemployeePost.ISAGENCY = "1"; //异动后岗位 为兼职岗位
+                                    toemployeePost.EDITSTATE = "1"; //改为生效
+                                    dal.UpdateFromContext(toemployeePost);
+                                }
+
                                 #endregion
                             }
                         }

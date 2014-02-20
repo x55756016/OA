@@ -748,7 +748,7 @@ namespace SMT.HRM.BLL
             //strRes.Append("</System>");
 
             //return strRes.ToString();
-            SMT.Foundation.Log.Tracer.Debug("发出合同提醒定时触发数据:\r\n"+strRes.ToString());
+            SMT.Foundation.Log.Tracer.Debug("发出提醒定时触发数据:\r\n"+strRes.ToString());
             EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
             //EngineClient.SaveEventData(strRes.ToString());
             EngineClient.WFAddTimingTrigger(trigger);
