@@ -15,6 +15,7 @@ using SMT.SaaS.FrameworkUI;
 using System.Collections.ObjectModel;
 using SMT.Saas.Tools.AttendanceWS;
 using SMT.SaaS.MobileXml;
+using SMT.SaaS.FrameworkUI.ChildWidow;
 
 namespace SMT.HRM.UI.Form.Attendance
 {
@@ -86,7 +87,23 @@ namespace SMT.HRM.UI.Form.Attendance
                     closeFormFlag = true;
                     Save();
                     break;
+                case "Delete":
+                    Delete(cancelLeave.CANCELLEAVEID);
+                    break;
             }
+        }
+
+        private void Delete(string id)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.EmployeeCancelLeaveDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { id }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
         }
 
         public List<NavigateItem> GetLeftMenuItems()
@@ -103,6 +120,24 @@ namespace SMT.HRM.UI.Form.Attendance
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+            {
+                ToolbarItems = Utility.CreateFormSaveButton();
+            }
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEECANCELLEAVE", cancelLeave.OWNERID,
+                    cancelLeave.OWNERPOSTID, cancelLeave.OWNERDEPARTMENTID, cancelLeave.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -259,10 +294,28 @@ namespace SMT.HRM.UI.Form.Attendance
             client.EmployeeCancelLeaveAddCompleted += new EventHandler<EmployeeCancelLeaveAddCompletedEventArgs>(client_EmployeeCancelLeaveAddCompleted);
             //client.EmployeeCancelLeaveUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeCancelLeaveUpdateCompleted);
             client.EmployeeCancelLeaveUpdateCompleted += new EventHandler<EmployeeCancelLeaveUpdateCompletedEventArgs>(client_EmployeeCancelLeaveUpdateCompleted);
+            client.EmployeeCancelLeaveDeleteCompleted += new EventHandler<EmployeeCancelLeaveDeleteCompletedEventArgs>(client_EmployeeCancelLeaveDeleteCompleted);
             //获取员工名称，并显示所在的公司架构
             //perClient.GetEmployeeDetailByIDCompleted += new EventHandler<SMT.Saas.Tools.PersonnelWS.GetEmployeeDetailByIDCompletedEventArgs>(perClient_GetEmployeeDetailByIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
             client.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(client_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
+        }
+
+        void client_EmployeeCancelLeaveDeleteCompleted(object sender, EmployeeCancelLeaveDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         void client_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted(object sender, GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs e)
@@ -352,6 +405,7 @@ namespace SMT.HRM.UI.Form.Attendance
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -605,6 +659,8 @@ namespace SMT.HRM.UI.Form.Attendance
                     entBrowser.FormType = FormTypes.Edit;
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
             }
         }

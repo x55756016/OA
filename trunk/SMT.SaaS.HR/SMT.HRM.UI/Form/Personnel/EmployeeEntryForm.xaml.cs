@@ -99,6 +99,7 @@ namespace SMT.HRM.UI.Form.Personnel
             client.GetEmployeeEntryByIDCompleted += new EventHandler<GetEmployeeEntryByIDCompletedEventArgs>(client_GetEmployeeEntryByIDCompleted);
             client.EmployeeEntryAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeEntryAddCompleted);
             client.EmployeeEntryUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeEntryUpdateCompleted);
+            client.EmployeeEntryDeleteCompleted += new EventHandler<EmployeeEntryDeleteCompletedEventArgs>(client_EmployeeEntryDeleteCompleted);
             // client.GetEmployeePostByEmployeeIDCompleted += new EventHandler<GetEmployeePostByEmployeeIDCompletedEventArgs>(client_GetEmployeePostByEmployeeIDCompleted);
             //client.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(client_GetEmployeeByIDCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
@@ -107,7 +108,7 @@ namespace SMT.HRM.UI.Form.Personnel
             perclient.SysUserInfoAddCompleted += new EventHandler<SMT.Saas.Tools.PermissionWS.SysUserInfoAddCompletedEventArgs>(perclient_SysUserInfoAddCompleted);
             perclient.SysUserInfoUpdateCompleted += new EventHandler<SysUserInfoUpdateCompletedEventArgs>(perclient_SysUserInfoUpdateCompleted);
             perclient.GetUserByEmployeeIDCompleted += new EventHandler<GetUserByEmployeeIDCompletedEventArgs>(perclient_GetUserByEmployeeIDCompleted);
-
+            
             orclient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
             orclient.GetPostNumberCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostNumberCompletedEventArgs>(orclient_GetPostNumberCompleted);
             if (FormType == FormTypes.Browse)//|| FormType == FormTypes.Audit
@@ -162,6 +163,23 @@ namespace SMT.HRM.UI.Form.Personnel
                 RefreshUI(RefreshedTypes.ShowProgressBar);
                 client.GetEmployeeEntryByIDAsync(strID);
             }
+        }
+
+        void client_EmployeeEntryDeleteCompleted(object sender, EmployeeEntryDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
 
@@ -408,6 +426,7 @@ namespace SMT.HRM.UI.Form.Personnel
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -443,8 +462,25 @@ namespace SMT.HRM.UI.Form.Personnel
                     Save();
                     //  Cancel();
                     break;
+                case "Delete":
+                    Delete(employeeEntry.EMPLOYEEENTRYID);
+                    break;
             }
         }
+
+        private void Delete(string id)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.EmployeeEntryDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { id }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
+        }
+
         public List<NavigateItem> GetLeftMenuItems()
         {
             List<NavigateItem> items = new List<NavigateItem>();
@@ -457,6 +493,27 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_EMPLOYEEENTRY", EmployeeEntry.OWNERID,
+            //        EmployeeEntry.OWNERPOSTID, EmployeeEntry.OWNERDEPARTMENTID, EmployeeEntry.OWNERCOMPANYID);
+
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                //重新提交只显示审核
+                //ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEENTRY", EmployeeEntry.OWNERID,
+                //    EmployeeEntry.OWNERPOSTID, EmployeeEntry.OWNERDEPARTMENTID, EmployeeEntry.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -1037,6 +1094,10 @@ namespace SMT.HRM.UI.Form.Personnel
                 //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EMPLOYEEENTRY"));
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"),
              Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+
                 RefreshUI(RefreshedTypes.All);
             }
         }

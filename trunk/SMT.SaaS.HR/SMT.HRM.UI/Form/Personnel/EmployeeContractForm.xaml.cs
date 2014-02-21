@@ -88,6 +88,7 @@ namespace SMT.HRM.UI.Form.Personnel
             client.EmployeeContractAddCompleted += new EventHandler<EmployeeContractAddCompletedEventArgs>(client_EmployeeContractAddCompleted);
             client.EmployeeContractUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_EmployeeContractUpdateCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
+            client.EmployeeContractDeleteCompleted += new EventHandler<EmployeeContractDeleteCompletedEventArgs>(client_EmployeeContractDeleteCompleted);
             //ctrFile.SystemName = "HR";
             //ctrFile.ModelName = "EMPLOYEECONTRACT";
             this.Loaded += new RoutedEventHandler(EmployeeContractForm_Loaded);
@@ -99,6 +100,23 @@ namespace SMT.HRM.UI.Form.Personnel
 
             }
             
+        }
+
+        void client_EmployeeContractDeleteCompleted(object sender, EmployeeContractDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"),Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         void EmployeeContractForm_Loaded(object sender, RoutedEventArgs e)
@@ -254,10 +272,10 @@ namespace SMT.HRM.UI.Form.Personnel
             //else
             //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_EMPLOYEECHECK", EmployeeContract.OWNERID,
             //        EmployeeContract.OWNERPOSTID, EmployeeContract.OWNERDEPARTMENTID, EmployeeContract.OWNERCOMPANYID);
-
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -293,7 +311,24 @@ namespace SMT.HRM.UI.Form.Personnel
                     closeFormFlag = true;
                     Save();
                     break;
+                case "Delete":
+                    Delete(employeeContract.EMPLOYEECONTACTID);
+                    break;
+
             }
+        }
+
+        private void Delete(string empContactId)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.EmployeeContractDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { empContactId }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
         }
 
         public List<NavigateItem> GetLeftMenuItems()
@@ -308,6 +343,25 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_EMPLOYEECHECK", EmployeeContract.OWNERID,
+            //        EmployeeContract.OWNERPOSTID, EmployeeContract.OWNERDEPARTMENTID, EmployeeContract.OWNERCOMPANYID);
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEECHECK", EmployeeContract.OWNERID,
+                    EmployeeContract.OWNERPOSTID, EmployeeContract.OWNERDEPARTMENTID, EmployeeContract.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -695,6 +749,8 @@ namespace SMT.HRM.UI.Form.Personnel
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"),
                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                     isSubmit = false;
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                 }
                 if (closeFormFlag)
                 {

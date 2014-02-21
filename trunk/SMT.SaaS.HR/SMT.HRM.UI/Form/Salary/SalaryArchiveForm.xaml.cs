@@ -761,6 +761,18 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));//lkEmployee.TxtLookUp.Text
+
+
+            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY SKILLPOSTLEVELDict = cbxSkillPostLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY SKILLSALARYLEVELDict = cbxSkillSalaryLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
+            if (SKILLPOSTLEVELDict != null)
+            {
+                if (SKILLSALARYLEVELDict != null)
+                {
+                    AutoList.Add(basedata("T_HR_SALARYARCHIVE", "SKILLPOSTLEVEL", SKILLPOSTLEVELDict.DICTIONARYVALUE.ToString() +"-"+ SKILLSALARYLEVELDict.DICTIONARYVALUE, SKILLPOSTLEVELDict.DICTIONARYNAME + "-" + SKILLSALARYLEVELDict.DICTIONARYNAME));
+                }
+            }
+
             foreach (var v in archiveItemsList)
             {
                 AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));

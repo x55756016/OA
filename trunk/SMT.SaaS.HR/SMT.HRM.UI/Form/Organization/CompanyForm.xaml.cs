@@ -11,6 +11,7 @@ using SMT.SaaS.FrameworkUI;
 using SMT.SaaS.FrameworkUI.AuditControl;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.MobileXml;
+using System.Windows.Browser;
 namespace SMT.HRM.UI.Form
 {
     public partial class CompanyForm : BaseForm, IEntityEditor, IAudit, IClient
@@ -43,7 +44,8 @@ namespace SMT.HRM.UI.Form
         OrganizationServiceClient client;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient personClient;
         private string companyid;
-
+        public delegate void refreshGridView();
+        public event refreshGridView ReloadDataEvent;
         /// <summary>
         /// 无参的构造函数，为了平台的待办任务的创建  zwp 2011.10.09
         /// </summary>
@@ -65,15 +67,15 @@ namespace SMT.HRM.UI.Form
         /// <param name="org">公司实例</param>
         public CompanyForm(T_HR_COMPANY org)
         {
-          
+
             InitializeComponent();
             Company = org;
-           // InitControlEvent();
+            // InitControlEvent();
             this.Loaded += (sender, args) =>
             {
                 InitControlEvent();
             };
-          
+
 
             //绑定国家
             //  Utility.CbxItemBinder(cbxCountry, "COUNTYTYPE", Company.COUNTYTYPE);
@@ -93,9 +95,9 @@ namespace SMT.HRM.UI.Form
             this.Loaded += (sender, args) =>
             {
                 InitControlEvent();
-              
+
             };
-           
+
             #region 原来的
             /*
             if (FormType == FormTypes.Audit || FormType == FormTypes.Browse)
@@ -146,6 +148,7 @@ namespace SMT.HRM.UI.Form
             }
 
         }
+
         private void InitControlEvent()
         {
             client = new OrganizationServiceClient();
@@ -154,16 +157,16 @@ namespace SMT.HRM.UI.Form
             client.CompanyAddCompleted += new EventHandler<CompanyAddCompletedEventArgs>(client_CompanyAddCompleted);
             client.CompanyUpdateCompleted += new EventHandler<CompanyUpdateCompletedEventArgs>(client_CompanyUpdateCompleted);
             client.IsChildCompanyCompleted += new EventHandler<IsChildCompanyCompletedEventArgs>(client_IsChildCompanyCompleted);
-
             client.GetDepartmentByIdCompleted += new EventHandler<GetDepartmentByIdCompletedEventArgs>(client_GetDepartmentByIdCompleted);
             client.CompanyIndexUpdateCompleted += new EventHandler<CompanyIndexUpdateCompletedEventArgs>(client_CompanyIndexUpdateCompleted);
+            client.CompanyDeleteCompleted += new EventHandler<CompanyDeleteCompletedEventArgs>(client_CompanyDeleteCompletedEventArgs);
             personClient.GetEmployeeToEngineCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeToEngineCompletedEventArgs>(personClient_GetEmployeeToEngineCompleted);
             //this.Loaded += new RoutedEventHandler(CompanyForm_Loaded);
             CompanForm_Load();
             
-
         }
 
+       
         void CompanForm_Load()
         {
             #region 新增
@@ -242,7 +245,7 @@ namespace SMT.HRM.UI.Form
         {
             RefreshUI(RefreshedTypes.AuditInfo);
             needsubmit = false;
-        
+
 
             //隐藏工具栏 不允许二次提交
             //EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
@@ -272,7 +275,7 @@ namespace SMT.HRM.UI.Form
         {
             if (e.Error != null && e.Error.Message != "")
             {
-              
+
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
                             Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
@@ -385,7 +388,7 @@ namespace SMT.HRM.UI.Form
 
 
             }
-        
+
         }
 
         /// <summary>
@@ -448,6 +451,7 @@ namespace SMT.HRM.UI.Form
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -489,6 +493,9 @@ namespace SMT.HRM.UI.Form
                     closeFormFlag = true;
                     Cancel();
                     break;
+                case "Delete":
+                    delete(company.COMPANYID);
+                    break;
                 //case "2":
                 //    SubmitAduit();
                 //    break;
@@ -509,6 +516,35 @@ namespace SMT.HRM.UI.Form
 
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+            {
+                ToolbarItems = Utility.CreateFormSaveButton();
+            }
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_COMPANY", Company.OWNERID,
+            //        Company.OWNERPOSTID, Company.OWNERDEPARTMENTID, Company.OWNERCOMPANYID);
+
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+
+            else if (FormType == FormTypes.Resubmit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.RemoveAt(0);
+                ToolbarItems.RemoveAt(0);
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_COMPANY", Company.OWNERID,
+                    Company.OWNERPOSTID, Company.OWNERDEPARTMENTID, Company.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -843,6 +879,8 @@ namespace SMT.HRM.UI.Form
                     entBrowser.FormType = FormTypes.Edit;
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
 
 
@@ -1057,11 +1095,42 @@ namespace SMT.HRM.UI.Form
 
         public void delete(string strid)
         {
-            string strMsg = "";
-            if (!string.IsNullOrEmpty(strid))
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
             {
                 client.CompanyDeleteAsync(strid, strMsg);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除该公司信息？"), ComfirmWindow.titlename, Result);
+        }
+
+        public void client_CompanyDeleteCompletedEventArgs(object sender, CompanyDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
+            else
+            {
+                if (e.strMsg != "")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr(e.strMsg),
+                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"),
+             Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    closeForm();
+                    //ReloadData();
+                    //HtmlPage.Window.Invoke("SLCloseCurrentPage");
+                }
+            }
+            FormType = FormTypes.Browse;
+            this.RefreshUI(RefreshedTypes.All);
         }
 
         public void SubmitAudit()

@@ -82,6 +82,7 @@ namespace SMT.HRM.UI.Form.Personnel
             client.GetPensionMasterByIDCompleted += new EventHandler<GetPensionMasterByIDCompletedEventArgs>(client_GetPensionMasterByIDCompleted);
             client.PensionMasterAddCompleted += new EventHandler<PensionMasterAddCompletedEventArgs>(client_PensionMasterAddCompleted);
             client.PensionMasterUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_PensionMasterUpdateCompleted);
+            client.PensionMasterDeleteCompleted += new EventHandler<PensionMasterDeleteCompletedEventArgs>(client_PensionMasterDeleteCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
             this.Loaded += new RoutedEventHandler(PensionMasterForm_Loaded);
             #region 原来的
@@ -92,6 +93,23 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             */
             #endregion
+        }
+
+        void client_PensionMasterDeleteCompleted(object sender, PensionMasterDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         void PensionMasterForm_Loaded(object sender, RoutedEventArgs e)
@@ -147,8 +165,8 @@ namespace SMT.HRM.UI.Form.Personnel
 
             if (FormType == FormTypes.Edit)
             {
-
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
@@ -177,7 +195,23 @@ namespace SMT.HRM.UI.Form.Personnel
                     Save();
                     // Cancel();
                     break;
+                case "Delete":
+                    Delete(pensionMaster.PENSIONMASTERID);
+                    break;
             }
+        }
+
+        private void Delete(string id)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.PensionMasterDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { id }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
         }
 
         /// <summary>
@@ -210,13 +244,33 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         public List<ToolbarItem> GetToolBarItems()
         {
-            List<ToolbarItem> items = new List<ToolbarItem>();
-            if (FormType != FormTypes.Browse)
-            {
-                items = Utility.CreateFormSaveButton();
-            }
+            //List<ToolbarItem> items = new List<ToolbarItem>();
+            //if (FormType != FormTypes.Browse)
+            //{
+            //    items = Utility.CreateFormSaveButton();
+            //}
 
-            return items;
+            //return items;
+            
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            else
+                ToolbarItems = Utility.CreateFormSaveButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
+                    PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+
+            if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
+                    PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            return ToolbarItems;
         }
 
         public event UIRefreshedHandler OnUIRefreshed;
@@ -509,6 +563,9 @@ namespace SMT.HRM.UI.Form.Personnel
                     //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"));
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDDATASUCCESSED"),
                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                 }
                 if (closeFormFlag)
                 {

@@ -46,6 +46,8 @@ namespace SMT.HRM.UI.Form
         private RefreshedTypes refreshType = RefreshedTypes.CloseAndReloadData;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient personClient;
         private string postID = "";
+        public delegate void refreshGridView();
+        public event refreshGridView ReloadDataEvent;
         //List<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> deptList;//部门字典
         #endregion
 
@@ -100,6 +102,36 @@ namespace SMT.HRM.UI.Form
             client.GetPostDictionaryByDepartmentDictionayIDCompleted += new EventHandler<GetPostDictionaryByDepartmentDictionayIDCompletedEventArgs>(client_GetPostDictionaryByDepartmentDictionayIDCompleted);
             personClient.GetEmployeeToEngineCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeToEngineCompletedEventArgs>(personClient_GetEmployeeToEngineCompleted);
             this.Loaded += new RoutedEventHandler(PostForm_Loaded);
+            client.PostDeleteCompleted += new EventHandler<PostDeleteCompletedEventArgs>(client_PostDeleteCompletedEventArgs);
+
+        }
+
+        public void client_PostDeleteCompletedEventArgs(object sender, PostDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                if (e.strMsg != "")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr(e.strMsg),
+                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"),
+             Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                    entBrowser.Close();
+                    
+                    //HtmlPage.Window.Invoke("SLCloseCurrentPage");
+                }
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         void PostForm_Loaded(object sender, RoutedEventArgs e)
@@ -463,6 +495,8 @@ namespace SMT.HRM.UI.Form
                     entBrowser.FormType = FormTypes.Edit;
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
             }
             RefreshUI(RefreshedTypes.HideProgressBar);
@@ -597,6 +631,7 @@ namespace SMT.HRM.UI.Form
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -639,6 +674,9 @@ namespace SMT.HRM.UI.Form
                     Save();
                     // Cancel();
                     break;
+                case "Delete":
+                    delete(post.POSTID);
+                    break;
             }
         }
 
@@ -665,6 +703,32 @@ namespace SMT.HRM.UI.Form
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_POST", Post.OWNERID,
+            //        Post.OWNERPOSTID, Post.OWNERDEPARTMENTID, Post.OWNERCOMPANYID);
+
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else if (FormType == FormTypes.Resubmit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.RemoveAt(0);
+                ToolbarItems.RemoveAt(0);
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_POST", Post.OWNERID,
+                    Post.OWNERPOSTID, Post.OWNERDEPARTMENTID, Post.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -1096,10 +1160,15 @@ namespace SMT.HRM.UI.Form
         }
         public void delete(string strid)
         {
-            //if (!string.IsNullOrEmpty(strid))
-            //{
-            //    client.PostDeleteAsync(strid);
-            //}
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.PostDeleteAsync(strid, strMsg);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除该岗位信息？"), ComfirmWindow.titlename, Result);
         }
 
         public void SubmitAudit()

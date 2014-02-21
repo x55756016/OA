@@ -74,12 +74,30 @@ namespace SMT.HRM.UI.Form.Personnel
             client.EmployeeInsuranceAddCompleted += new EventHandler<EmployeeInsuranceAddCompletedEventArgs>(client_EmployeeInsuranceAddCompleted);
             client.EmployeeInsuranceUpdateCompleted += new EventHandler<EmployeeInsuranceUpdateCompletedEventArgs>(client_EmployeeInsuranceUpdateCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
+            client.EmployeeInsuranceDeleteCompleted += new EventHandler<EmployeeInsuranceDeleteCompletedEventArgs>(client_EmployeeInsuranceDeleteCompleted);
             this.Loaded += new RoutedEventHandler(EmployeeInsuranceForm_Loaded);
             if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
             {
                 this.IsEnabled = false;
             }
 
+        }
+
+        void client_EmployeeInsuranceDeleteCompleted(object sender, EmployeeInsuranceDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         void EmployeeInsuranceForm_Loaded(object sender, RoutedEventArgs e)
@@ -121,6 +139,7 @@ namespace SMT.HRM.UI.Form.Personnel
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -155,7 +174,23 @@ namespace SMT.HRM.UI.Form.Personnel
                     Save();
                     //  Cancel();
                     break;
+                case "Delete":
+                    Delete(employInsurance.EMPLOYINSURANCEID);
+                    break;
             }
+        }
+
+        private void Delete(string id)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.EmployeeInsuranceDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { id }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
         }
 
         public List<NavigateItem> GetLeftMenuItems()
@@ -172,6 +207,26 @@ namespace SMT.HRM.UI.Form.Personnel
 
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_EMPLOYEEINSURANCE", EmployeeInsurance.OWNERID,
+            //        EmployeeInsurance.OWNERPOSTID, EmployeeInsurance.OWNERDEPARTMENTID, EmployeeInsurance.OWNERCOMPANYID);
+
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEINSURANCE", EmployeeInsurance.OWNERID,
+                    EmployeeInsurance.OWNERPOSTID, EmployeeInsurance.OWNERDEPARTMENTID, EmployeeInsurance.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -450,6 +505,8 @@ namespace SMT.HRM.UI.Form.Personnel
                     entBrowser.FormType = FormTypes.Edit;
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
             }
             RefreshUI(RefreshedTypes.HideProgressBar);

@@ -18,7 +18,8 @@ namespace SMT.HRM.UI.Form.Personnel
     public partial class LeftOfficeConfirmForm : BaseForm, IEntityEditor, IAudit, IClient
     {
         public FormTypes FormType { get; set; }
-        public T_HR_LEFTOFFICECONFIRM LeftOfficeConfirm { get; set; }
+        
+        private T_HR_LEFTOFFICECONFIRM leftOfficeConfirm;
         public List<BorrowThing> BThings;
         public string createUserName;
         public string ownerUserName;
@@ -43,6 +44,17 @@ namespace SMT.HRM.UI.Form.Personnel
             conformID = strID;
             InitParas(strID);
         }
+
+        public T_HR_LEFTOFFICECONFIRM LeftOfficeConfirm
+        {
+            get { return leftOfficeConfirm; }
+            set
+            {
+                leftOfficeConfirm = value;
+                this.DataContext = value;
+            }
+        }
+
         /// <summary>
         /// 无参的构造函数，为了平台的待办任务的创建
         /// add by ldx
@@ -115,6 +127,7 @@ namespace SMT.HRM.UI.Form.Personnel
         {
             client.GetLeftOfficeConfirmByIDCompleted += new EventHandler<GetLeftOfficeConfirmByIDCompletedEventArgs>(client_GetLeftOfficeConfirmByIDCompleted);
             client.LeftOfficeConfirmUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_LeftOfficeConfirmUpdateCompleted);
+            client.LeftOfficeConfirmDeleteCompleted += new EventHandler<LeftOfficeConfirmDeleteCompletedEventArgs>(client_LeftOfficeConfirmDeleteCompleted);
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
             client.LeftOfficeConfirmAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_LeftOfficeConfirmAddCompleted);
             fbClient.GetLeavingUserCompleted += new EventHandler<SMT.Saas.Tools.FBServiceWS.GetLeavingUserCompletedEventArgs>(fbClient_GetLeavingUserCompleted);
@@ -134,6 +147,23 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             */
             #endregion
+        }
+
+        void client_LeftOfficeConfirmDeleteCompleted(object sender, LeftOfficeConfirmDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.Close();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
       
@@ -376,6 +406,8 @@ namespace SMT.HRM.UI.Form.Personnel
             Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                     RefreshUI(RefreshedTypes.ProgressBar);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
             }
             RefreshUI(RefreshedTypes.ProgressBar);
@@ -580,6 +612,7 @@ namespace SMT.HRM.UI.Form.Personnel
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -613,7 +646,23 @@ namespace SMT.HRM.UI.Form.Personnel
                     Save();
                     //Cancel();
                     break;
+                case "Delete":
+                    Delete(leftOfficeConfirm.CONFIRMID);
+                    break;
             }
+        }
+
+        private void Delete(string id)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.LeftOfficeConfirmDeleteAsync(new System.Collections.ObjectModel.ObservableCollection<string>(new List<string>() { id }));
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除吗？"), ComfirmWindow.titlename, Result);
         }
 
         public List<NavigateItem> GetLeftMenuItems()
@@ -628,6 +677,26 @@ namespace SMT.HRM.UI.Form.Personnel
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+                ToolbarItems = Utility.CreateFormSaveButton();
+            //else
+            //    ToolbarItems = Utility.CreateFormSaveButton("T_HR_LEFTOFFICE", LeftOffice.OWNERID,
+            //        LeftOffice.OWNERPOSTID, LeftOffice.OWNERDEPARTMENTID, LeftOffice.OWNERCOMPANYID);
+
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                //ToolbarItems = Utility.CreateFormEditButton("T_HR_LEFTOFFICECONFIRM", LeftOfficeConfirm.OWNERID,
+                //    LeftOfficeConfirm.OWNERPOSTID, LeftOfficeConfirm.OWNERDEPARTMENTID, LeftOfficeConfirm.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 

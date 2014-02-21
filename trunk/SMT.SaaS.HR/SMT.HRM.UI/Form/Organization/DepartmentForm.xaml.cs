@@ -46,7 +46,8 @@ namespace SMT.HRM.UI.Form
         OrganizationServiceClient client;
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient pclient = new Saas.Tools.PersonnelWS.PersonnelServiceClient();
         private string departmentid;
-
+        public delegate void refreshGridView();
+        public event refreshGridView ReloadDataEvent;
         /// <summary>
         /// 无参的构造函数，为了平台的待办任务的创建  zwp 2011.10.09
         /// </summary>
@@ -115,7 +116,35 @@ namespace SMT.HRM.UI.Form
             client.GetDepartmentActivedByCompanyIDCompleted += new EventHandler<GetDepartmentActivedByCompanyIDCompletedEventArgs>(client_GetDepartmentActivedByCompanyIDCompleted);
             pclient.GetEmployeeToEngineCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeToEngineCompletedEventArgs>(pclient_GetEmployeeToEngineCompleted);
             this.Loaded += new RoutedEventHandler(DepartmentForm_Loaded);
+            client.DepartmentDeleteCompleted += new EventHandler<DepartmentDeleteCompletedEventArgs>(client_DepartmentDeleteCompletedEventArgs);
+        
         }
+
+        public void client_DepartmentDeleteCompletedEventArgs(object sender, DepartmentDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
+              Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                if (e.strMsg != "")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr(e.strMsg),
+                  Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                else
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESS"),
+             Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                    closeForm();
+                }
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+        }
+
 
         void DepartmentForm_Loaded(object sender, RoutedEventArgs e)
         {
@@ -426,6 +455,7 @@ namespace SMT.HRM.UI.Form
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -592,11 +622,28 @@ namespace SMT.HRM.UI.Form
                     closeFormFlag = true;
                     Cancel();
                     break;
+                case "Delete":
+                    delete(department.DEPARTMENTID);
+                    break;
                 //case "2":
                 //    SubmitAduit();
                 //    break;
             }
         }
+
+        public void delete(string strid)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.DepartmentDeleteAsync(strid, strMsg);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除该部门信息？"), ComfirmWindow.titlename, Result);
+        }
+
 
         public List<NavigateItem> GetLeftMenuItems()
         {
@@ -611,6 +658,30 @@ namespace SMT.HRM.UI.Form
         }
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.New)
+            {
+                ToolbarItems = Utility.CreateFormSaveButton();
+            }
+            else if (FormType == FormTypes.Edit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
+            }
+            else if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
+            else if (FormType == FormTypes.Resubmit)
+            {
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.RemoveAt(0);
+                ToolbarItems.RemoveAt(0);
+            }
+            else
+            {
+                ToolbarItems = Utility.CreateFormEditButton("T_HR_DEPARTMENT", Department.OWNERID,
+                    Department.OWNERPOSTID, Department.OWNERDEPARTMENTID, Department.OWNERCOMPANYID);
+            }
             return ToolbarItems;
         }
 
@@ -974,6 +1045,8 @@ namespace SMT.HRM.UI.Form
                     entBrowser.FormType = FormTypes.Edit;
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.All);
             }
 
@@ -1071,20 +1144,6 @@ namespace SMT.HRM.UI.Form
         {
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.Close();
-        }
-
-        void client_DepartmentDeleteCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (e.Error != null && e.Error.Message != "")
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERRORINFO"),
-                           Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-            }
-            else
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED"),
-        Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
-            }
         }
 
         void client_DepartmentCancelCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
