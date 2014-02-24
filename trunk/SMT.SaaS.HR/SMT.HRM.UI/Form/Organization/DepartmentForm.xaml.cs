@@ -455,7 +455,13 @@ namespace SMT.HRM.UI.Form
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (Department != null)
+                {
+                    if (Department.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -665,7 +671,13 @@ namespace SMT.HRM.UI.Form
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (Department != null)
+                {
+                    if (Department.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
             }
             else if (FormType == FormTypes.Browse)
             {

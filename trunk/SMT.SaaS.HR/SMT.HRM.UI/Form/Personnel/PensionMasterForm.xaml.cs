@@ -166,7 +166,13 @@ namespace SMT.HRM.UI.Form.Personnel
             if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (PensionMaster != null)
+                {
+                    if (PensionMaster.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
@@ -251,7 +257,7 @@ namespace SMT.HRM.UI.Form.Personnel
             //}
 
             //return items;
-            
+            List<ToolbarItem> items = new List<ToolbarItem>();
             if (FormType == FormTypes.New)
                 ToolbarItems = Utility.CreateFormSaveButton();
             else
@@ -261,11 +267,22 @@ namespace SMT.HRM.UI.Form.Personnel
             if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (PensionMaster != null)
+                {
+                    if (PensionMaster.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
             }
             else
-                ToolbarItems = Utility.CreateFormEditButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
-                    PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+            {
+                if (PensionMaster != null)
+                {
+                    ToolbarItems = Utility.CreateFormEditButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
+                        PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+                }
+            }
             if (FormType == FormTypes.Browse)
             {
                 ToolbarItems = new List<ToolbarItem>();
