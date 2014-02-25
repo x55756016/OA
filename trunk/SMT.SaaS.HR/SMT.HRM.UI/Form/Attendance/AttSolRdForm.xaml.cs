@@ -24,6 +24,7 @@ using SMT.Saas.Tools.AttendanceWS;
 using System.Collections.ObjectModel;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.FrameworkUI.AuditControl;
+using SMT.SaaS.FrameworkUI.ChildWidow;
 
 namespace SMT.HRM.UI.Form.Attendance
 {
@@ -66,6 +67,24 @@ namespace SMT.HRM.UI.Form.Attendance
             //clientAtt.ModifyAttendanceSolutionCompleted += new EventHandler<ModifyAttendanceSolutionCompletedEventArgs>(clientAtt_ModifyAttendanceSolutionCompleted);
             clientAtt.AuditAttSolCompleted += new EventHandler<AuditAttSolCompletedEventArgs>(clientAtt_AuditAttSolCompleted);
             clientAtt.CheckAttSolIsExistsAsignRdCompleted += new EventHandler<CheckAttSolIsExistsAsignRdCompletedEventArgs>(clientAtt_CheckAttSolIsExistsAsignRdCompleted);
+            //添加删除考勤方案事件
+            clientAtt.RemoveAttendanceSolutionCompleted += new EventHandler<RemoveAttendanceSolutionCompletedEventArgs>(clientAtt_RemoveAttendanceSolutionCompleted);
+        }
+        //删除考勤方案
+        void clientAtt_RemoveAttendanceSolutionCompleted(object sender, RemoveAttendanceSolutionCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                CloseForm();
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCESOLUTION")));
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
         }
 
         /// <summary>
@@ -234,12 +253,29 @@ namespace SMT.HRM.UI.Form.Attendance
                 case "1":
                     Cancel();
                     break;
+                case "Delete":
+                    //删除考勤方案定义
+                    delete(AttendanceSolutionID);
+                    break;
                 //case "2":
                 //    Submit();
                 //    break;
             }
         }
 
+        //删除考勤方案
+        public void delete(string strID)
+        {
+            string Result = "";            
+            
+            //提示是否删除
+            ComfirmWindow delComfirm = new ComfirmWindow();
+            delComfirm.OnSelectionBoxClosed += (obj, result) =>
+            {
+                clientAtt.RemoveAttendanceSolutionAsync(strID);
+            };
+            delComfirm.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确定要删除此考勤方案？", ComfirmWindow.titlename, Result);
+        }
         private void RefreshUI(RefreshedTypes type)
         {
             if (OnUIRefreshed != null)
@@ -360,6 +396,7 @@ namespace SMT.HRM.UI.Form.Attendance
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -390,6 +427,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
             if (FormType == FormTypes.New)
             {
+                AttendanceSolutionID = entAttendanceSolution.ATTENDANCESOLUTIONID;
                 clientAtt.AddAttendanceSolutionAndCreateRelationAsync(entAttendanceSolution, entAttendanceSolutionDeducts, entAttendFreeLeaves);
             }
             else
@@ -681,6 +719,9 @@ namespace SMT.HRM.UI.Form.Attendance
                     AttendanceSolutionID = entAttendanceSolution.ATTENDANCESOLUTIONID;
                     EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                     entBrowser.FormType = FormTypes.Edit;
+                    //添加删除按钮
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
                 else

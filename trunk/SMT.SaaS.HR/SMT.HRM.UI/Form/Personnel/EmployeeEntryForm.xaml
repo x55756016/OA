@@ -164,7 +164,7 @@
                         <TextBox Style="{StaticResource TextBoxStyle}" Name="txtMark" HorizontalAlignment="Stretch" Width="Auto"
             	            Grid.Row="2" Grid.Column="1" Height="48" TextWrapping="Wrap"  Margin="0,0,30,0">
                         </TextBox>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="注意：默认密码为 smt加上证件号后六位" Visibility="Visible"
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="注意：默认密码为 aisino加上证件号后六位" Visibility="Visible"
                                    Foreground="Red"></TextBlock>
                     </Grid>
                 </ctr:TabItem>

@@ -15,6 +15,7 @@ using SMT.SaaS.FrameworkUI;
 using SMT.Saas.Tools.AttendanceWS;
 using SMT.SAAS.Main.CurrentContext;
 using SMT.SaaS.MobileXml;
+using SMT.SaaS.FrameworkUI.ChildWidow;
 
 namespace SMT.HRM.UI.Form.Attendance
 {
@@ -83,6 +84,10 @@ namespace SMT.HRM.UI.Form.Attendance
                     closeFormFlag = true;
                     Save();
                     break;
+                case "Delete":
+                    //删除加班申请
+                    delete(OvertimeRecord.OVERTIMERECORDID);
+                    break;
             }
         }
 
@@ -140,6 +145,7 @@ namespace SMT.HRM.UI.Form.Attendance
             SMT.SaaS.MobileXml.MobileXml mx = new SMT.SaaS.MobileXml.MobileXml();
             List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
             AutoList.Add(basedata("T_HR_EMPLOYEEOVERTIMERECORD", "CHECKSTATE", "1", checkState));
+            AutoList.Add(basedata("T_HR_EMPLOYEEOVERTIMERECORD", "CURRENTEMPLOYEENAME", "1", Info.EMPLOYEENAME));
             AutoList.Add(basedata("T_HR_EMPLOYEEOVERTIMERECORD", "OWNERPOSTNAME", tbOrgName.Text.Trim(), tbOrgName.Text.Trim()));
             AutoList.Add(basedata("T_HR_EMPLOYEEOVERTIMERECORD", "POSTLEVEL", tbEmpLevel.Text.Trim(), postLevelName));
             AutoList.Add(basedata("T_HR_EMPLOYEEOVERTIMERECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
@@ -271,7 +277,26 @@ namespace SMT.HRM.UI.Form.Attendance
             //perClient.GetEmployeeDetailByIDCompleted += new EventHandler<SMT.Saas.Tools.PersonnelWS.GetEmployeeDetailByIDCompletedEventArgs>(perClient_GetEmployeeDetailByIDCompleted);
             //perClient.GetEmployeeInfoByEmployeeIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeInfoByEmployeeIDCompletedEventArgs>(perClient_GetEmployeeInfoByEmployeeIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
+            //perClient.RemoveOverTimeRd
+            client.RemoveOverTimeRdCompleted += new EventHandler<RemoveOverTimeRdCompletedEventArgs>(client_RemoveOverTimeRdCompleted);
         }
+        //删除加班申请
+        void client_RemoveOverTimeRdCompleted(object sender, RemoveOverTimeRdCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "EMPLOYEEOVERTIMERECORD"));                
+                CloseForm();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+        }
+
+        
         /// <summary>
         /// 获取加班申请人员的员工信息
         /// </summary>
@@ -378,7 +403,8 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else if (FormType == FormTypes.Edit)
             {
-                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems = Utility.CreateFormEditButton();                
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -575,6 +601,9 @@ namespace SMT.HRM.UI.Form.Attendance
                     {
                         RefreshUI(RefreshedTypes.Close);
                     }
+                    //添加删除按钮
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
             }
@@ -634,7 +663,20 @@ namespace SMT.HRM.UI.Form.Attendance
                 perClient.GetEmpOrgInfoByIDAsync(OvertimeRecord.OWNERID, OvertimeRecord.OWNERPOSTID, OvertimeRecord.OWNERDEPARTMENTID, OvertimeRecord.OWNERCOMPANYID);
             }
         }
-       
+        public void delete(string strid)
+        {
+            string Result = "";
+            string strMsg = string.Empty;
+            ObservableCollection<string> delIDs = new ObservableCollection<string>();
+            delIDs.Add(strid);
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.RemoveOverTimeRdAsync(delIDs);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("确定要删除加班申请信息？"), ComfirmWindow.titlename, Result);
+        }
 
         ///// <summary>
         ///// 获取加班申请人员的员工信息

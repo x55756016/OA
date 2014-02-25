@@ -149,6 +149,35 @@ namespace SMT.HRM.UI.Form.Salary
             //client.GetSalarySolutionStandardWithPagingCompleted += new EventHandler<GetSalarySolutionStandardWithPagingCompletedEventArgs>(client_GetSalarySolutionStandardWithPagingCompleted);
             //client.SalarySolutionStandardAddCompleted += new EventHandler<SalarySolutionStandardAddCompletedEventArgs>(client_SalarySolutionStandardAddCompleted);
             //client.SalarySolutionStandardDeleteCompleted += new EventHandler<SalarySolutionStandardDeleteCompletedEventArgs>(client_SalarySolutionStandardDeleteCompleted);
+            client.SalarySolutionDeleteCompleted += new EventHandler<SalarySolutionDeleteCompletedEventArgs>(client_SalarySolutionDeleteCompleted);
+        }
+
+        void client_SalarySolutionDeleteCompleted(object sender, SalarySolutionDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "SALARYSOLUTION"),
+Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "SALARYSOLUTION"));
+                CloseForm();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+        }
+
+        
+
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        private void CloseForm()
+        {
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            entBrowser.Close();
         }
 
         void client_SalarySolutionSameSearchCompleted(object sender, SalarySolutionSameSearchCompletedEventArgs e)
@@ -176,7 +205,7 @@ namespace SMT.HRM.UI.Form.Salary
                     //        SalarySolution.T_HR_SALARYSOLUTIONITEM = SolutionItemWinForm.salarySolutionItemsList;
                     //    }
                     //}
-
+                    SalarySolutionID = SalarySolution.SALARYSOLUTIONID;
                     client.SalarySolutionAddAsync(SalarySolution);
                 }
             }
@@ -287,6 +316,9 @@ namespace SMT.HRM.UI.Form.Salary
                 SolutionItemWinForm.IsEnabled = true;
                 EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                 entBrowser.FormType = FormTypes.Edit;
+                //添加删除按钮
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.AuditInfo);
             }
             RefreshUI(RefreshedTypes.All);
@@ -416,6 +448,7 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 //    ToolbarItems.Add(item);
                 //}
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_SALARYSOLUTION", SalarySolution.OWNERID,
@@ -443,8 +476,27 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 case "1":
                     Cancel();
                     break;
+                case "Delete":
+                    //删除薪资方案
+                    delete(SalarySolutionID);
+                    break;
             }
 
+        }
+
+        //删除薪资方案
+        public void delete(string strID)
+        {
+            string Result = "";
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            ObservableCollection<string> ids = new ObservableCollection<string>();
+            ids.Add(strID);
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.SalarySolutionDeleteAsync(ids);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确定要删除薪资方案设置信息？", ComfirmWindow.titlename, Result);
         }
         public void RefreshUI(RefreshedTypes type)
         {

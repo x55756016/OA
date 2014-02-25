@@ -105,8 +105,25 @@ namespace SMT.HRM.UI.Form.Attendance
                     Save();
                     //Cancel();
                     break;
+                case "Delete":
+                    //删除异常签卡申请
+                    delete(SignInID);
+                    break;
             }
         }
+        public void delete(string strid)
+        {
+            string Result = "";
+            ObservableCollection<string> delIDs = new ObservableCollection<string>();
+            delIDs.Add(strid);
+            ComfirmWindow delComfirm = new ComfirmWindow();
+            delComfirm.OnSelectionBoxClosed += (obj, result) =>
+            {
+                clientAtt.EmployeeSigninRecordDeleteAsync(delIDs);
+            };
+            delComfirm.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确定要删除异常签卡记录？", ComfirmWindow.titlename, Result);
+        }
+
 
         private void RefreshUI(RefreshedTypes type)
         {
@@ -311,6 +328,7 @@ namespace SMT.HRM.UI.Form.Attendance
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -341,7 +359,33 @@ namespace SMT.HRM.UI.Form.Attendance
            // perClient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(perClient_GetEmployeePostBriefByEmployeeIDCompleted);
            // psClient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(psClient_GetEmployeePostBriefByEmployeeIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
+            clientAtt.EmployeeSigninRecordDeleteCompleted += new EventHandler<EmployeeSigninRecordDeleteCompletedEventArgs>(clientAtt_EmployeeSigninRecordDeleteCompleted);
         }
+
+        void clientAtt_EmployeeSigninRecordDeleteCompleted(object sender, EmployeeSigninRecordDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "EMPLOYEESIGNINRECORD"));
+                closeForm();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+        }
+
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        private void closeForm()
+        {
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            entBrowser.Close();
+        }
+
 
 
         /// <summary>
@@ -536,6 +580,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
             if (FormType == FormTypes.New)
             {
+                SignInID = SignInRecord.SIGNINID;
                 clientAtt.EmployeeSignInRecordAddAsync(SignInRecord, entSubmits);
             }
             else if (FormType == FormTypes.Edit || FormType == FormTypes.Audit || FormType == FormTypes.Resubmit)
@@ -829,6 +874,9 @@ namespace SMT.HRM.UI.Form.Attendance
                 SignInID = SignInRecord.SIGNINID;
                 EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                 entBrowser.FormType = FormTypes.Edit;
+                //添加删除按钮
+                ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
                 RefreshUI(RefreshedTypes.AuditInfo);
             }
             else

@@ -141,8 +141,11 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEECANCELLEAVE", cancelLeave.OWNERID,
-                    cancelLeave.OWNERPOSTID, cancelLeave.OWNERDEPARTMENTID, cancelLeave.OWNERCOMPANYID);
+                if (cancelLeave != null)
+                {
+                    ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEECANCELLEAVE", cancelLeave.OWNERID,
+                        cancelLeave.OWNERPOSTID, cancelLeave.OWNERDEPARTMENTID, cancelLeave.OWNERCOMPANYID);
+                }
             }
             return ToolbarItems;
         }
@@ -268,7 +271,10 @@ namespace SMT.HRM.UI.Form.Attendance
             string state = "-1";
             if (cancelLeave != null)
                 state = cancelLeave.CHECKSTATE;
-
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
 

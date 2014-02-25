@@ -27,6 +27,7 @@ using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 using System.Text;
 using SMT.SaaS.LocalData;
+using SMT.SaaS.FrameworkUI.ChildWidow;
 
 namespace SMT.HRM.UI.Form.Attendance
 {
@@ -91,8 +92,24 @@ namespace SMT.HRM.UI.Form.Attendance
             clientOrg.GetDepartmentByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetDepartmentByIdCompletedEventArgs>(clientOrg_GetDepartmentByIdCompleted);
             clientOrg.GetCompanyByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetCompanyByIdCompletedEventArgs>(clientOrg_GetCompanyByIdCompleted);            
             clientPer.GetEmployeeByIDsCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmployeeByIDsCompletedEventArgs>(clientPer_GetEmployeeByIDsCompleted);
-            
+            clientAtt.RemoveAttendanceSolutionAsignCompleted += new EventHandler<RemoveAttendanceSolutionAsignCompletedEventArgs>(clientAtt_RemoveAttendanceSolutionAsignCompleted);
             this.Loaded += new RoutedEventHandler(AttendanceSolutionAsignForm_Loaded);
+        }
+        //删除考勤方案分配返回事件
+        void clientAtt_RemoveAttendanceSolutionAsignCompleted(object sender, RemoveAttendanceSolutionAsignCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCESOLUTIONASIGNFORM")));
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                CloseForm();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+
         }
 
         void clientAtt_GetAttendanceSolutionAsignRdListByCreateCompanyIdCompleted(object sender, GetAttendanceSolutionAsignRdListByCreateCompanyIdCompletedEventArgs e)
@@ -236,7 +253,24 @@ namespace SMT.HRM.UI.Form.Attendance
                 case "3":
                     Submit();
                     break;
+                case "Delete":
+                    //删除考勤方案分配
+                    delete(AttendanceSolutionAsignID);
+                    break;
             }
+        }
+
+        //删除考勤方案分配
+        public void delete(string strID)
+        {
+            string Result = "";
+            //提示是否删除
+            ComfirmWindow delComfirm = new ComfirmWindow();
+            delComfirm.OnSelectionBoxClosed += (obj, result) =>
+            {
+                clientAtt.RemoveAttendanceSolutionAsignAsync(strID);
+            };
+            delComfirm.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确定要删除此考勤方案分配信息？", ComfirmWindow.titlename, Result);
         }
 
         private void Submit()
@@ -399,6 +433,7 @@ namespace SMT.HRM.UI.Form.Attendance
             else if (FormType == FormTypes.Edit)
             {
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {
@@ -773,6 +808,7 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 if (FormType == FormTypes.New)
                 {
+                    AttendanceSolutionAsignID = entAttendanceSolutionAsign.ATTENDANCESOLUTIONASIGNID;   
                     clientAtt.AddAttendanceSolutionAsignAsync(entAttendanceSolutionAsign);
                 }
                 else
@@ -926,6 +962,9 @@ namespace SMT.HRM.UI.Form.Attendance
                     AttendanceSolutionAsignID = entAttendanceSolutionAsign.ATTENDANCESOLUTIONASIGNID;
                     EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                     entBrowser.FormType = FormTypes.Edit;
+                    //添加删除按钮
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
                 else

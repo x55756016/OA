@@ -58,7 +58,6 @@ namespace SMT.HRM.UI.Form.Salary
         public void initEvent()
         {
             InitParas();
-            
             if (string.IsNullOrEmpty(salarySystemID))
             {
                 salarySystem = new T_HR_SALARYSYSTEM();
@@ -68,8 +67,9 @@ namespace SMT.HRM.UI.Form.Salary
                 salarySystem.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                 salarySystem.OWNERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 salarySystem.OWNERPOSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+
+                this.DataContext = salarySystem;
                 SetToolBar();
-                this.DataContext = salarySystem;               
             }
             else
             {
@@ -97,7 +97,35 @@ namespace SMT.HRM.UI.Form.Salary
             client.GetPostLevelDistinctionBySystemIDCompleted += new EventHandler<GetPostLevelDistinctionBySystemIDCompletedEventArgs>(client_GetPostLevelDistinctionBySystemIDCompleted);
             client.PostLevelDistinctionUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(client_PostLevelDistinctionUpdateCompleted);
             permissionClient.GetSysDictionaryByCategoryCompleted += new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(permissionClient_GetSysDictionaryByCategoryCompleted);
+            client.SalarySystemDeleteCompleted += new EventHandler<SalarySystemDeleteCompletedEventArgs>(client_SalarySystemDeleteCompleted);
         }
+
+        void client_SalarySystemDeleteCompleted(object sender, SalarySystemDeleteCompletedEventArgs e)
+        {
+            if (e.Error != null && e.Error.Message != "")
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+                //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "SALARYSYSTEM"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                CloseForm();
+            }
+            FormType = FormTypes.Browse;
+            RefreshUI(RefreshedTypes.All);
+        }
+
+        /// <summary>
+        /// 关闭窗口
+        /// </summary>
+        private void CloseForm()
+        {
+            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+            entBrowser.Close();
+        }
+
         #region 岗位工资和级差额
         /// <summary>
         /// 生成岗位工资和级差额完成事件
@@ -137,6 +165,9 @@ namespace SMT.HRM.UI.Form.Salary
                         //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("MODIFYSUCCESSED"));
                         //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "SALARYSYSTEM"));
                     }
+                    //添加删除按钮
+                    ToolbarItems = Utility.CreateFormEditButton();
+                    ToolbarItems.Add(ToolBarItems.Delete);
                     RefreshUI(RefreshedTypes.All);
                 }
             }
@@ -239,17 +270,15 @@ namespace SMT.HRM.UI.Form.Salary
                 //{
                 //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("NOTFOUND"));
                 //    return;
-                //}               
-
+                //}
                 salarySystem = e.Result;
                 if (FormType == FormTypes.Resubmit)
                 {
                     salarySystem.CHECKSTATE = ((int)CheckStates.UnSubmit).ToString();
                 }
                 this.DataContext = salarySystem;
-                SetToolBar();
                 RefreshUI(RefreshedTypes.AuditInfo);
-               
+                SetToolBar();
             }
         }
 
@@ -286,7 +315,7 @@ namespace SMT.HRM.UI.Form.Salary
                 //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Result));
                 //}
                 client.PostLevelDistinctionUpdateAsync(postLevels, "ADD");
-
+                
             }
             //  RefreshUI(RefreshedTypes.All);
             RefreshUI(RefreshedTypes.ProgressBar);
@@ -312,6 +341,7 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 salarySystem.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
                 salarySystem.CREATEDATE = System.DateTime.Now;
+                salarySystemID = salarySystem.SALARYSYSTEMID;
                 client.SalarySystemAddAsync(salarySystem);
             }
             return true;
@@ -341,11 +371,12 @@ namespace SMT.HRM.UI.Form.Salary
                 //    ToolbarItems.Add(item);
                 //}
                 ToolbarItems = Utility.CreateFormEditButton();
+                ToolbarItems.Add(ToolBarItems.Delete);
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_SALARYSYSTEM", salarySystem.OWNERID,
                     salarySystem.OWNERPOSTID, salarySystem.OWNERDEPARTMENTID, salarySystem.OWNERCOMPANYID);
-            
+
             RefreshUI(RefreshedTypes.All);
         }
 
@@ -383,8 +414,27 @@ namespace SMT.HRM.UI.Form.Salary
                 case "1":
                     Cancel();
                     break;
+                case "Delete":
+                    //删除薪资体系设置
+                    delete(salarySystemID);
+                    break;
             }
 
+        }
+
+        //删除薪资体系设置
+        public void delete(string strID)
+        {
+            string Result = "";
+            //提示是否删除
+            ComfirmWindow com = new ComfirmWindow();
+            ObservableCollection<string> ids = new ObservableCollection<string>();
+            ids.Add(strID);
+            com.OnSelectionBoxClosed += (obj, result) =>
+            {
+                client.SalarySystemDeleteAsync(ids);
+            };
+            com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);
         }
         public void RefreshUI(RefreshedTypes type)
         {

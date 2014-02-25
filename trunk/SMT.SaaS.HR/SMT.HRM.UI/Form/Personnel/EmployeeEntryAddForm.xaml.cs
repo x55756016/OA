@@ -126,11 +126,11 @@ namespace SMT.HRM.UI.Form.Personnel
             string strCarID = Employee.IDNUMBER;
             if (strCarID.Length > 6)
             {
-                txtPwd.Password = "smt"+strCarID.Substring(strCarID.Length - 6);
+                txtPwd.Password = "aisino"+strCarID.Substring(strCarID.Length - 6);
             }
             else
             {
-                txtPwd.Password = "smt"+strCarID;
+                txtPwd.Password = "aisino" + strCarID;
             }
             txtPwd.IsEnabled = false;
             SysUser.CREATEUSER = Common.CurrentLoginUserInfo.EmployeeID;

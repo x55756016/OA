@@ -261,8 +261,13 @@ namespace SMT.HRM.UI.Form.Personnel
             if (FormType == FormTypes.New)
                 ToolbarItems = Utility.CreateFormSaveButton();
             else
-                ToolbarItems = Utility.CreateFormSaveButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
-                    PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+            {
+                if (PensionMaster != null)
+                {
+                    ToolbarItems = Utility.CreateFormSaveButton("T_HR_PENSIONMASTER", PensionMaster.OWNERID,
+                        PensionMaster.OWNERPOSTID, PensionMaster.OWNERDEPARTMENTID, PensionMaster.OWNERCOMPANYID);
+                }
+            }
 
             if (FormType == FormTypes.Edit)
             {

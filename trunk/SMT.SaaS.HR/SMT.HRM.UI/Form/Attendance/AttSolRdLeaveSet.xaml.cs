@@ -164,12 +164,16 @@ namespace SMT.HRM.UI.Form.Attendance
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("LEAVESETFORM"), string.Format(Utility.GetResourceStr("REQUIRED"), Utility.GetResourceStr("LEAVESETFORM")));
                 return; 
             }
-
-            entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.No) + 1).ToString();
+            //注释原因：在加班单终审时没有进行加1判断
+            //entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.No) + 1).ToString();
+            entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.No)).ToString();
+            entAttSol.ISEXPIRED = (Convert.ToInt32(IsChecked.No)).ToString();
             if (cbIsExpired.IsChecked.Value == true)
             {
-                entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes) + 1).ToString();
-
+                //entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes) + 1).ToString();
+                //entAttSol.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes) + 1).ToString();
+                entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes)).ToString();
+                entAttSol.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes)).ToString();
                 decimal.TryParse(nudAdjustExpiredValue.Value.ToString(), out dAdjustExpiredValue);
                 if (dAdjustExpiredValue <= 0)
                 {
@@ -243,9 +247,11 @@ namespace SMT.HRM.UI.Form.Attendance
                 this.DataContext = entAttendanceSolution;
 
                 cbIsExpired.IsChecked = false;
-                if (entAttendanceSolution.ISEXPIRED == (Convert.ToInt32(IsChecked.Yes) + 1).ToString())
+                if (entAttendanceSolution.ISEXPIRED == (Convert.ToInt32(IsChecked.Yes)).ToString())
                 {
                     cbIsExpired.IsChecked = true;
+                    tbAdjustExpiredValueTitle.Visibility = Visibility.Visible;
+                    nudAdjustExpiredValue.Visibility = Visibility.Visible;
                 }
             }
             else

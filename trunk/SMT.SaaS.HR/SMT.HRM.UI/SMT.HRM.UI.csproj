@@ -2402,6 +2402,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="发布说明.txt" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <None Include="Service References\OutApplyWS\OutAppliecrecordService.wsdl" />

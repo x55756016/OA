@@ -1,0 +1,8 @@
+﻿1.航信发布需要修改的地方：
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.HR\SMT.HRM.UI\Form\Personnel\EmployeeEntryForm.xaml
+将 "注意：默认密码为 smt加上证件号后六位" 改为 "注意：默认密码为 aisino加上证件号后六位"
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.HR\SMT.HRM.UI\Form\Personnel\EmployeeEntryAddForm.xaml
+将"注意：默认密码为 smt加上证件号后六位,请在完成此次保存后再修改密码" 的smt改为aisino
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.HR\SMT.HRM.UI\Form\Personnel\EmployeeEntryAddForm.xaml.cs
+将129行 txtPwd.Password = "smt"+strCarID.Substring(strCarID.Length - 6);  的smt改为aisino
+ txtPwd.Password = "aisino" + strCarID; 的smt改为aisino
