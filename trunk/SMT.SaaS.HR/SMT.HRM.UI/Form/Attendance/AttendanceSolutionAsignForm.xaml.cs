@@ -99,17 +99,18 @@ namespace SMT.HRM.UI.Form.Attendance
         void clientAtt_RemoveAttendanceSolutionAsignCompleted(object sender, RemoveAttendanceSolutionAsignCompletedEventArgs e)
         {
             if (e.Error == null)
-            {
+            {                
                 Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCESOLUTIONASIGNFORM")));
+                FormType = FormTypes.Browse;
+                RefreshUI(RefreshedTypes.All);
+                CloseForm();
             }
             else
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-                CloseForm();
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));                
             }
-            FormType = FormTypes.Browse;
-            RefreshUI(RefreshedTypes.All);
-
+            //FormType = FormTypes.Browse;
+            //RefreshUI(RefreshedTypes.All);
         }
 
         void clientAtt_GetAttendanceSolutionAsignRdListByCreateCompanyIdCompleted(object sender, GetAttendanceSolutionAsignRdListByCreateCompanyIdCompletedEventArgs e)
@@ -306,6 +307,10 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
             return ToolbarItems;
         }
 
@@ -415,6 +420,10 @@ namespace SMT.HRM.UI.Form.Attendance
             string state = "-1";
             if (entAttendanceSolutionAsign != null)
                 state = entAttendanceSolutionAsign.CHECKSTATE;
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
 

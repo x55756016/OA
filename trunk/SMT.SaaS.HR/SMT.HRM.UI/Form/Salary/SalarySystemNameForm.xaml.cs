@@ -471,6 +471,10 @@ namespace SMT.HRM.UI.Form.Salary
             {
                 ToolbarItems = Utility.CreateFormSaveButton();
             }
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
             return ToolbarItems;
         }
 
@@ -538,6 +542,11 @@ namespace SMT.HRM.UI.Form.Salary
             string state = "-1";
             if (salarySystem != null)
                 state = salarySystem.CHECKSTATE;
+
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
         #endregion

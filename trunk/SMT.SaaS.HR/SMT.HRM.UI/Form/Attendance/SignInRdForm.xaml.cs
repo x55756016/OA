@@ -150,6 +150,10 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
             return ToolbarItems;
         }
 
@@ -309,6 +313,10 @@ namespace SMT.HRM.UI.Form.Attendance
             string state = "-1";
             if (SignInRecord != null)
                 state = SignInRecord.CHECKSTATE;
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
 

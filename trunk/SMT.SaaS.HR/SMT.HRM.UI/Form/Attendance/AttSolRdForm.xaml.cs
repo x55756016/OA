@@ -75,16 +75,19 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             if (e.Error == null)
             {
-                CloseForm();
+                
                 Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "ATTENDANCESOLUTION")));
+                FormType = FormTypes.Browse;
+                RefreshUI(RefreshedTypes.All);
+                CloseForm();
             }
             else
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
                 
             }
-            FormType = FormTypes.Browse;
-            RefreshUI(RefreshedTypes.All);
+            //FormType = FormTypes.Browse;
+            //RefreshUI(RefreshedTypes.All);
         }
 
         /// <summary>

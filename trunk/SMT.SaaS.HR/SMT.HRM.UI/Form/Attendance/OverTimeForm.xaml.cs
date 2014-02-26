@@ -106,6 +106,10 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public List<ToolbarItem> GetToolBarItems()
         {
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
             return ToolbarItems;
         }
 
@@ -252,7 +256,10 @@ namespace SMT.HRM.UI.Form.Attendance
             string state = "-1";
             if (OvertimeRecord != null)
                 state = OvertimeRecord.CHECKSTATE;
-
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
 
@@ -289,11 +296,12 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "EMPLOYEEOVERTIMERECORD"));                
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("DELETESUCCESSED", "EMPLOYEEOVERTIMERECORD"));
+                FormType = FormTypes.Browse;
+                RefreshUI(RefreshedTypes.All);
                 CloseForm();
             }
-            FormType = FormTypes.Browse;
-            RefreshUI(RefreshedTypes.All);
+            
         }
 
         

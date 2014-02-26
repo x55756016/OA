@@ -543,6 +543,10 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             {
                 ToolbarItems = Utility.CreateFormSaveButton();
             }
+            if (FormType == FormTypes.Browse)
+            {
+                ToolbarItems = new List<ToolbarItem>();
+            }
             return ToolbarItems;
         }
 
@@ -592,6 +596,11 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             string state = "-1";
             if (SalarySolution != null)
                 state = SalarySolution.CHECKSTATE;
+
+            if (FormType == FormTypes.Browse)
+            {
+                state = "-1";
+            }
             return state;
         }
         #endregion
