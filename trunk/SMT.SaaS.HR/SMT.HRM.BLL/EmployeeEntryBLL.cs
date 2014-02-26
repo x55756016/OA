@@ -584,6 +584,7 @@ namespace SMT.HRM.BLL
                     if (ent != null)
                     {
                         dal.Delete(ent);
+                        DeleteMyRecord(ent); //人员入职删除待办
                     }
                 }
 
@@ -1205,7 +1206,7 @@ namespace SMT.HRM.BLL
                             bool flag = PermClient.SysUserInfoUpdate(user);
                             if (flag)
                             {
-                                //this.AddDefaultRole(user,employee,employeePost);//添加员工默认角色
+                                this.AddDefaultRole(user,employee,employeePost);//添加员工默认角色
                             }
                         }
 
@@ -1267,7 +1268,7 @@ namespace SMT.HRM.BLL
                 string comID = employee.OWNERCOMPANYID, deptID = employee.OWNERDEPARTMENTID, postID = employee.OWNERPOSTID;
                 string employeeID = employee.EMPLOYEEID;
                 string employeePostID = employeePost.EMPLOYEEPOSTID;
-                bool flag = false;// perclient.EmployeeEntryAddDefaultRole(user, comID, companyName, deptID, postID,employeeID, employeePostID);
+                bool flag = perclient.EmployeeEntryAddDefaultRole(user, comID, companyName, deptID, postID,employeeID, employeePostID);
                 if (flag)
                 {
                     SMT.Foundation.Log.Tracer.Debug("员工入职添加默认角色成功，员工ID:" + employeeID);

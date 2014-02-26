@@ -572,6 +572,37 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public string DeleteAttSol(string strAttendanceSolutionId)
         {
+            //SalarySolutionItemBLL bll = new SalarySolutionItemBLL();
+            //foreach (string id in IDs)
+            //{
+            //    var ents = from e in dal.GetObjects<T_HR_SALARYSOLUTION>()
+            //               where e.SALARYSOLUTIONID == id
+            //               select e;
+            //    var ent = ents.Count() > 0 ? ents.FirstOrDefault() : null;
+            //    if (ent != null)
+            //    {
+
+            //        bll.SalarySolutionItemsDeleteBySID(ent.SALARYSOLUTIONID);
+            //        var taxItems = from c in dal.GetObjects<T_HR_SALARYTAXES>()
+            //                       where c.T_HR_SALARYSOLUTION.SALARYSOLUTIONID == ent.SALARYSOLUTIONID
+            //                       select c;
+            //        if (taxItems.Count() > 0)
+            //        {
+            //            foreach (var taxitem in taxItems)
+            //            {
+            //                dal.DeleteFromContext(taxitem);
+            //            }
+            //            dal.SaveContextChanges();
+            //        }
+            //        //dal.DeleteFromContext(ent);
+            //        Delete(ent);
+            //        //BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
+            //    }
+
+            //    //TODO:删除项目所包含的明细
+            //}
+
+            //return dal.SaveContextChanges();
             string strMsg = string.Empty;
             try
             {
@@ -602,9 +633,35 @@ namespace SMT.HRM.BLL
                 {
                     return "{DELETEAUDITERROR}";
                 }
+                #region 删除考勤方案对应信息
+                var ents = from ent in dal.GetObjects<T_HR_ATTENDANCESOLUTIONDEDUCT>().Include("T_HR_ATTENDANCESOLUTION")
+                           where ent.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID == entDel.ATTENDANCESOLUTIONID
+                           select ent;
+                if (ents.Count() > 0)
+                {
+                    foreach (var taxitem in ents)
+                    {
+                        dal.DeleteFromContext(taxitem);
+                    }
+                    dal.SaveContextChanges(); 
+                }
+                //删除假期设置
+                var entsLeaves = from ent in dal.GetObjects<T_HR_ATTENDFREELEAVE>().Include("T_HR_ATTENDANCESOLUTION")
+                           where ent.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID == entDel.ATTENDANCESOLUTIONID
+                           select ent;
+                if (entsLeaves.Count() > 0)
+                {
+                    foreach (var taxitem in entsLeaves)
+                    {
+                        dal.DeleteFromContext(taxitem);
+                    }
+                    dal.SaveContextChanges(); 
+                }
 
-                dalAttendanceSolution.Delete(entDel);
-
+                #endregion
+                //dalAttendanceSolution.Delete(entDel);
+                Delete(entDel);
+                dal.SaveContextChanges();
                 strMsg = "{DELETESUCCESSED}";
             }
             catch (Exception ex)

@@ -88,7 +88,9 @@ namespace SMT.HRM.BLL
                             //DataContext.DeleteObject(tmp);
                         }
                     }
-                    dal.DeleteFromContext(ent);
+                    //需要删除待办
+                    Delete(ent);
+                    //dal.DeleteFromContext(ent);
                    // DataContext.DeleteObject(ent);
                 }
 
