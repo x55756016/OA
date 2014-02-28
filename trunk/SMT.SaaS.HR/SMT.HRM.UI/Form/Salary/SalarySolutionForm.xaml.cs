@@ -448,7 +448,14 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 //    ToolbarItems.Add(item);
                 //}
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (SalarySolution != null)
+                {
+                    if (SalarySolution.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
+                //ToolbarItems.Add(ToolBarItems.Delete);
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_SALARYSOLUTION", SalarySolution.OWNERID,
@@ -546,6 +553,16 @@ Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
             if (FormType == FormTypes.Browse)
             {
                 ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                if (SalarySolution != null)
+                {
+                    if (SalarySolution.CHECKSTATE == "1" && FormType == FormTypes.Edit)
+                    {
+                        ToolbarItems = new List<ToolbarItem>();
+                    }
+                }
             }
             return ToolbarItems;
         }

@@ -1383,7 +1383,7 @@ namespace SMT.HRM.UI.Form.Personnel
             cbxPostLevel.IsEnabled = false;
             if (FormType == FormTypes.Edit || FormType == FormTypes.Resubmit)
             {
-
+                lkPost.SearchButton.IsEnabled = true; //重新提交入职岗位可以选择
                 txtUser.IsEnabled = true;
                 txtPwd.IsEnabled = true;
                 txtUser.IsReadOnly = false;

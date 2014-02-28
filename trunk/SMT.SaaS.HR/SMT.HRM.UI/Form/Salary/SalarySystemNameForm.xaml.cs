@@ -371,7 +371,14 @@ namespace SMT.HRM.UI.Form.Salary
                 //    ToolbarItems.Add(item);
                 //}
                 ToolbarItems = Utility.CreateFormEditButton();
-                ToolbarItems.Add(ToolBarItems.Delete);
+                if (salarySystem != null)
+                {
+                    if (salarySystem.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
+                //ToolbarItems.Add(ToolBarItems.Delete);
             }
             else
                 ToolbarItems = Utility.CreateFormEditButton("T_HR_SALARYSYSTEM", salarySystem.OWNERID,
@@ -474,6 +481,16 @@ namespace SMT.HRM.UI.Form.Salary
             if (FormType == FormTypes.Browse)
             {
                 ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                if (salarySystem != null)
+                {
+                    if (salarySystem.CHECKSTATE == "1" && FormType == FormTypes.Edit)
+                    {
+                        ToolbarItems = new List<ToolbarItem>();
+                    }
+                }
             }
             return ToolbarItems;
         }

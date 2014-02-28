@@ -106,9 +106,20 @@ namespace SMT.HRM.UI.Form.Attendance
 
         public List<ToolbarItem> GetToolBarItems()
         {
+
             if (FormType == FormTypes.Browse)
             {
                 ToolbarItems = new List<ToolbarItem>();
+            }
+            else
+            {
+                if (OvertimeRecord != null)
+                {
+                    if (OvertimeRecord.CHECKSTATE == "1" && FormType == FormTypes.Edit)
+                    {
+                        ToolbarItems = new List<ToolbarItem>();
+                    }
+                }
             }
             return ToolbarItems;
         }
@@ -411,8 +422,15 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else if (FormType == FormTypes.Edit)
             {
-                ToolbarItems = Utility.CreateFormEditButton();                
-                ToolbarItems.Add(ToolBarItems.Delete);
+                ToolbarItems = Utility.CreateFormEditButton();
+                if (OvertimeRecord != null)
+                {
+                    if (OvertimeRecord.CHECKSTATE == "0")
+                    {
+                        ToolbarItems.Add(ToolBarItems.Delete);
+                    }
+                }
+                //ToolbarItems.Add(ToolBarItems.Delete);
             }
             else if (FormType == FormTypes.Browse)
             {

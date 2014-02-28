@@ -1125,8 +1125,8 @@ namespace SMT.HRM.UI.Form.Personnel
            // cbxEmployeeType.IsEnabled = false;
             dpLeftDate.IsEnabled = false;
             dpApplyDate.IsEnabled = false;
-            txtLeftReason.IsReadOnly = true;
-            txtLeftRemark.IsReadOnly = true;
+            //txtLeftReason.IsReadOnly = true;
+           // txtLeftRemark.IsReadOnly = true;
             DtBorrowMoney.IsReadOnly = true;
             DtBorrowThing.IsReadOnly = true;
             //dpConfirmDate.IsEnabled = false;

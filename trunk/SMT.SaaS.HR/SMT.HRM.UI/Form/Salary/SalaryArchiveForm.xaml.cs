@@ -22,7 +22,6 @@ using OrganizationWS = SMT.Saas.Tools.OrganizationWS;
 using SMT.SaaS.FrameworkUI.OrganizationControl;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.MobileXml;
-using SMT.Saas.Tools.HrCommonServiceWS;
 namespace SMT.HRM.UI.Form.Salary
 {
     public partial class SalaryArchiveForm : BaseForm, IEntityEditor, IAudit, IClient
@@ -51,7 +50,6 @@ namespace SMT.HRM.UI.Form.Salary
         private string createDepartmentID { get; set; }//传给流程的部门ID
         private bool isNew;//true 表示从快捷方式新建单据
         public T_HR_CUSTOMGUERDONARCHIVE CustomArchive { get; set; }//个人活动经费
-        private HrCommonServiceClient ComClient;
 
         public SalaryArchiveForm()
         {
@@ -61,26 +59,6 @@ namespace SMT.HRM.UI.Form.Salary
             strArchiveID = string.Empty;
             this.Loaded += new RoutedEventHandler(SalaryArchiveForm_Loaded);
             lkBalancePost.TxtLookUp.Text = "跨机构发薪时使用";
-           
-        }
-
-        void ComClient_GetAppConfigByNameCompleted(object sender, GetAppConfigByNameCompletedEventArgs e)
-        {
-            if (e.Error != null && !string.IsNullOrEmpty(e.Error.Message))
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-            }
-            else
-            {
-                if (e.Result != null)
-                {
-                    if (e.Result == "false")
-                    {
-                        this.isForHunanHangxing.Visibility = Visibility.Collapsed;
-                    }
-                }
-            }
-            //throw new NotImplementedException();
         }
         public SalaryArchiveForm(FormTypes type, string archiveID)
         {
@@ -93,9 +71,6 @@ namespace SMT.HRM.UI.Form.Salary
         void SalaryArchiveForm_Loaded(object sender, RoutedEventArgs e)
         {
             InitParas();
-            ComClient = new HrCommonServiceClient();
-            ComClient.GetAppConfigByNameCompleted += ComClient_GetAppConfigByNameCompleted;
-            ComClient.GetAppConfigByNameAsync("isForHuNanHangXingSalary");
             if (FormType == FormTypes.Audit || FormType == FormTypes.Browse)
             {
                 EnableControl();
@@ -406,19 +381,41 @@ namespace SMT.HRM.UI.Form.Salary
                 // ObservableCollection<V_SALARYARCHIVEITEM> its = new ObservableCollection<V_SALARYARCHIVEITEM>();
 
                 List<V_SALARYARCHIVEITEM> its = new List<V_SALARYARCHIVEITEM>();
+                List<V_SALARYARCHIVEITEM> itsView = new List<V_SALARYARCHIVEITEM>();
                 if (e.Result != null)
                 {
                     its = e.Result.OrderBy(m => m.ORDERNUMBER).ToList();
+                    //its = its.Where(s=> s.SUM != null).ToList();
                     archiveItemsList = new List<V_SALARYARCHIVEITEM>();
                     foreach (var it in its)
                     {
                         V_SALARYARCHIVEITEM item = new V_SALARYARCHIVEITEM();
                         item.SALARYARCHIVEITEM = it.SALARYARCHIVEITEM;
+                        //解密后的薪资值
+                        string desString = SMT.SaaS.FrameworkUI.Common.Utility.AESDecrypt(it.SUM);                        
                         item.SUM = it.SUM;
                         item.SALARYITEMNAME = it.SALARYITEMNAME;
-                        item.REMARK = it.REMARK;
-                        archiveItemsList.Add(item);
+                        item.REMARK = it.REMARK;                       
+                        
+                        if (!string.IsNullOrEmpty(desString) && desString != "0")
+                        {
+                            try
+                            {
+                                if (double.Parse(desString) > 0)
+                                {
+                                    itsView.Add(it);
+                                    archiveItemsList.Add(item);
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                                               
                     }
+                    its.Clear();
+                    its = itsView;
                     try
                     {
                         for (int i = 0; i < its.Count; i++)
@@ -439,7 +436,15 @@ namespace SMT.HRM.UI.Form.Salary
                             i++;
                         }
                     }
-                    DtGrid.ItemsSource = its;
+                    DtGrid.ItemsSource = itsView;
+                    //if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
+                    //{
+                    //    DtGrid.ItemsSource = itsView;
+                    //}
+                    //else
+                    //{
+                    //    DtGrid.ItemsSource = its;
+                    //}
                     dataPager.PageCount = e.pageCount;
                 }
             }
@@ -761,21 +766,12 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));//lkEmployee.TxtLookUp.Text
-
-
-            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY SKILLPOSTLEVELDict = cbxSkillPostLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
-            SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY SKILLSALARYLEVELDict = cbxSkillSalaryLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY;
-            if (SKILLPOSTLEVELDict != null)
-            {
-                if (SKILLSALARYLEVELDict != null)
-                {
-                    AutoList.Add(basedata("T_HR_SALARYARCHIVE", "SKILLPOSTLEVEL", SKILLPOSTLEVELDict.DICTIONARYVALUE.ToString() +"-"+ SKILLSALARYLEVELDict.DICTIONARYVALUE, SKILLPOSTLEVELDict.DICTIONARYNAME + "-" + SKILLSALARYLEVELDict.DICTIONARYNAME));
-                }
-            }
-
             foreach (var v in archiveItemsList)
             {
-                AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));
+                if (!string.IsNullOrEmpty(v.SUM) && v.SUM != "0")
+                {
+                    AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));
+                }
             }
             string a = mx.TableToXml(Info, archiveItemsList, StrSource, AutoList);
 
@@ -843,11 +839,6 @@ namespace SMT.HRM.UI.Form.Salary
                     para.Add("EMPLOYEECNAME", SalaryArchive.EMPLOYEENAME);
                     para.Add("EMPLOYEEID", SalaryArchive.EMPLOYEEID);
                     para.Add("POSTLEVEL", PostLevel);
-                    //
-                    //para.Add("POSTLEVEL", PostLevel);
-                    //para.Add("POSTLEVEL", PostLevel);
-                    //
-
                     para.Add("EFFECTIVETIME", SalaryArchive.OTHERSUBJOIN == null ? "" : (SalaryArchive.OTHERSUBJOIN.ToString() + "年" + SalaryArchive.OTHERADDDEDUCT.ToString() + "月"));
 
                     entity.SystemCode = "HR";
@@ -1034,14 +1025,7 @@ namespace SMT.HRM.UI.Form.Salary
                 //    clientperson.EmployeeSamePostSalaryLevelUpdateAsync(SalaryArchive.EMPLOYEEID, Convert.ToDecimal(tmpempost.SALARYLEVEL), "CHANGE");
                 //else
                 //    clientperson.EmployeeSamePostSalaryLevelUpdateAsync(SalaryArchive.EMPLOYEEID, Convert.ToDecimal(tmpempost.SALARYLEVEL), "EDIT");
-                if (this.cbxSkillSalaryLevel.SelectedItem != null)
-                {
-                    SalaryArchive.SKILLSALARYLEVEL = (this.cbxSkillSalaryLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
-                }
-                if (this.cbxSkillPostLevel.SelectedItem != null)
-                {
-                    SalaryArchive.SKILLPOSTLEVEL = (this.cbxSkillPostLevel.SelectedItem as SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY).DICTIONARYVALUE.ToString();
-                }
+
                 if (FormType == FormTypes.New)
                 {
                     //薪资档案异动，新建薪资档案
