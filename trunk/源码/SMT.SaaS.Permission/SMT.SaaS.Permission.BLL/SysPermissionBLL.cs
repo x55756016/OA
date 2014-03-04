@@ -563,5 +563,32 @@ namespace SMT.SaaS.Permission.BLL
             return result;
         }
         #endregion
+
+        /// <summary>
+        /// 获取某些公司的流程管理员
+        /// </summary>
+        /// <param name="companyIDs">公司ID集合</param>
+        /// <returns>返回系统用户集合</returns>
+        public List<T_SYS_USER> GetFlowManagers(List<string> companyIDs)
+        {
+            List<T_SYS_USER> listUsers = new List<T_SYS_USER>();
+            try
+            {
+                var ents = from ent in dal.GetObjects<T_SYS_USER>()
+                           where ent.STATE == "1" && ent.ISFLOWMANAGER == "1"
+                           && companyIDs.Contains(ent.OWNERCOMPANYID)
+                           select ent;
+                if (ents.Count() > 0)
+                {
+                    listUsers = ents.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return listUsers;
+        }
+
     }
 }

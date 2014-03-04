@@ -648,7 +648,49 @@ namespace SMT.SaaS.Permission.BLL
             }
         }
 
-
+        /// <summary>
+        ///  员工入职的话自动添加一个默认的角色信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="companyID"></param>
+        /// <param name="compayName"></param>
+        /// <param name="deptID"></param>
+        /// <param name="postID"></param>
+        /// <param name="employeeID"></param>
+        /// <param name="employeePostID"></param>
+        /// <returns></returns>
+        public bool EmployeeEntryAddDefaultRole(T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID)
+        {
+            bool flag = false;
+            try
+            {
+                SysRoleBLL bll = new SysRoleBLL();
+                T_SYS_ROLE role = bll.GetEntryDefaultRole(companyID, compayName, deptID, postID, employeeID);
+                if (role != null)
+                {
+                    T_SYS_USERROLE userRole = new T_SYS_USERROLE();
+                    userRole.USERROLEID = System.Guid.NewGuid().ToString();
+                    userRole.CREATEDATE = System.DateTime.Now;
+                    userRole.OWNERCOMPANYID = companyID;
+                    userRole.POSTID = postID;
+                    userRole.EMPLOYEEPOSTID = employeePostID;
+                    userRole.T_SYS_USERReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_USER", "SYSUSERID", user.SYSUSERID);
+                    userRole.T_SYS_ROLEReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_ROLE", "ROLEID", role.ROLEID);
+                    userRole.CREATEUSER = employeeID;
+                    int i = dal.Add(userRole);
+                    if (i > 0)
+                    {
+                        flag = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("EmployeeEntryAddDefaultRole错误：" + ex.ToString());
+                flag = false;
+            }
+            return flag;
+        }
         #region 调用即时通讯接口
         //public string InsertDataToImServices(List<T_SYS_USERROLE> RoleObj)
         //{

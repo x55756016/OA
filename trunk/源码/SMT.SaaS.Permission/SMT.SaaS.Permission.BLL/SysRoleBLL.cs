@@ -19,6 +19,10 @@ namespace SMT.SaaS.Permission.BLL
     #region 系统角色
     public class SysRoleBLL : BaseBll<T_SYS_ROLE>
     {
+        #region 全局变量
+        private const string strRoleName = "员工入职默认基础权限角色";//默认名称
+        private const string strDefaultRoleName = "员工入职默认基础权限角色DefaultRoleName";//默认名称+DefaultRoleName
+        #endregion
         /// <summary>
         /// 根据系统类型获取角色信息
         /// </summary>u
@@ -1101,6 +1105,311 @@ namespace SMT.SaaS.Permission.BLL
 
             }
 
+        }
+
+        /// <summary>
+        /// 得到该公司默认基础角色（没有则新建一个）
+        /// </summary>
+        /// <param name="companyID"></param>
+        /// <param name="compayName"></param>
+        /// <param name="deptID"></param>
+        /// <param name="postID"></param>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        public T_SYS_ROLE GetEntryDefaultRole(string companyID, string compayName, string deptID, string postID, string employeeID)
+        {
+            try
+            {
+                //没有加上公司的名字作为条件，因为公司名称可能会改变
+                //string strName = compayName + strRoleName;
+                var ent = (from e in dal.GetObjects()
+                           where e.OWNERCOMPANYID == companyID && strRoleName.Contains(e.ROLENAME)//该公司的默认角色
+                           select e).FirstOrDefault();
+                if (ent != null)
+                {
+                    return ent;
+                }
+                else
+                {
+                    return AddEntryDefaultRole(companyID, compayName, deptID, postID, employeeID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("获取或添加员工默认角色出错EntryDefaultRole" + ex.ToString());
+                return null;
+            }
+        }
+        /// <summary>
+        /// 添加一个默认该公司默认基础角色，考虑到基础权限的变化，所以系统预先建个名为:员工入职默认基础权限角色DefaultRoleName
+        /// 的角色，以便满足基础角色的变更
+        /// </summary>
+        /// <param name="companyID"></param>
+        /// <param name="compayName"></param>
+        /// <param name="deptID"></param>
+        /// <param name="postID"></param>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        public T_SYS_ROLE AddEntryDefaultRole(string companyID, string compayName, string deptID, string postID, string employeeID)
+        {
+            try
+            {
+                var roleEnt = (from e in dal.GetObjects()
+                               where e.ROLENAME == strDefaultRoleName
+                               select e).FirstOrDefault();
+                if (roleEnt != null)
+                {
+                    #region 有默认角色
+                    bool flag = false;
+                    // dal.BeginTransaction();//事务开始
+                    T_SYS_ROLE newRole = new T_SYS_ROLE();//新角色信息
+                    Utility.CloneEntity<T_SYS_ROLE>(roleEnt, newRole);
+                    newRole.ROLEID = Guid.NewGuid().ToString();
+                    newRole.ROLENAME = compayName + strRoleName;
+                    newRole.REMARK = "该角色为员工入职自动产生，有公司的基本权限的，可修改以增加员工基本入职绑定的基本权限";
+                    newRole.OWNERCOMPANYID = companyID;//存入职员工的默认组织架构信息
+                    newRole.OWNERDEPARTMENTID = deptID;
+                    newRole.OWNERPOSTID = postID;
+                    newRole.OWNERID = employeeID;
+                    newRole.CREATECOMPANYID = companyID;
+                    newRole.CREATEDEPARTMENTID = deptID;
+                    newRole.CREATEPOSTID = postID;
+                    newRole.CREATEUSER = employeeID;
+                    newRole.CREATEUSERNAME = "系统默认产生";
+                    newRole.UPDATEUSERNAME = "系统默认产生";
+                    newRole.UPDATEDATE = DateTime.Now;
+                    newRole.CREATEDATE = DateTime.Now;
+                    if (this.AddSysRoleInfo(newRole))
+                    {
+                        flag = CopyRoleEntityMenu(roleEnt.ROLEID, newRole.ROLEID);//普通授权
+                        flag = CopyRoleCustomPerm(roleEnt.ROLEID, newRole);//自定义授权
+                    }
+                    if (flag)
+                    {
+                        //dal.CommitTransaction();
+                        return newRole;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                    #endregion
+                }
+                else
+                {
+                    //如果系统没有预先建立（那就先去建立一个），应该默认建立一个，后期完成
+                    Tracer.Debug("AddEntryDefaultRole获取预先建立默认角色为空，请先健建立一个名称为员工入职默认基础权限角色DefaultRoleName的默认角色");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                //dal.RollbackTransaction();
+                Tracer.Debug("复制角色信息错误SysRoleBLL-CopyRoleInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 复制角色信息，包含复制权限授权和自定义授权(每个角色权限不是很多，可以循环去取和保存)
+        /// </summary>
+        /// <param name="roleID">角色ID</param>
+        /// <returns></returns>
+        public bool CopyRoleInfo(string roleID)
+        {
+            bool flag = false;
+            try
+            {
+                var roleEnt = (from e in dal.GetObjects()
+                               where e.ROLEID == roleID
+                               select e).FirstOrDefault();
+                if (roleEnt != null)
+                {
+                    dal.BeginTransaction();//事务开始
+                    T_SYS_ROLE newRole = new T_SYS_ROLE();//新角色信息
+                    Utility.CloneEntity<T_SYS_ROLE>(roleEnt, newRole);
+                    newRole.ROLEID = Guid.NewGuid().ToString();
+                    newRole.ROLENAME = roleEnt.ROLENAME + " - 副本";
+                    newRole.UPDATEDATE = DateTime.Now;
+                    newRole.CREATEDATE = DateTime.Now;
+                    if (this.AddSysRoleInfo(newRole))
+                    {
+                        flag = CopyRoleEntityMenu(roleID, newRole.ROLEID);//普通授权
+                        flag = CopyRoleCustomPerm(roleID, newRole);//自定义授权
+                    }
+                    if (flag)
+                    {
+                        dal.CommitTransaction();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                flag = false;
+                dal.RollbackTransaction();
+                Tracer.Debug("复制角色信息错误SysRoleBLL-CopyRoleInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            }
+            return flag;
+        }
+
+        /// <summary>
+        /// 复制角色的自定义权限
+        /// </summary>
+        /// <param name="roleID"></param>
+        /// <param name="newRole"></param>
+        /// <returns></returns>
+        public bool CopyRoleCustomPerm(string roleID, T_SYS_ROLE newRole)
+        {
+            bool flag = false;
+            try
+            {
+
+                var cuPerm = from e in dal.GetObjects<T_SYS_ENTITYMENUCUSTOMPERM>().Include("T_SYS_ENTITYMENU").Include("T_SYS_PERMISSION")
+                             where e.T_SYS_ROLE.ROLEID == roleID
+                             select e;
+                if (cuPerm != null && cuPerm.Any())
+                {
+                    foreach (var item in cuPerm)
+                    {
+                        T_SYS_ENTITYMENUCUSTOMPERM newCuperm = new T_SYS_ENTITYMENUCUSTOMPERM();
+                        Utility.CloneEntity<T_SYS_ENTITYMENUCUSTOMPERM>(item, newCuperm);
+                        newCuperm.ENTITYMENUCUSTOMPERMID = Guid.NewGuid().ToString();
+                        newCuperm.CREATEDATE = DateTime.Now;
+                        newCuperm.UPDATEDATE = DateTime.Now;
+                        if (item.T_SYS_ENTITYMENU == null || item.T_SYS_PERMISSION == null)
+                        {
+                            continue;
+                        }
+                        T_SYS_ROLE tempRole = new T_SYS_ROLE();
+                        Utility.CloneEntity<T_SYS_ROLE>(newRole, tempRole);
+                        newCuperm.T_SYS_ROLEReference.EntityKey = newRole.EntityKey;
+                        newCuperm.T_SYS_ROLE = newRole;
+
+                        //newCuperm.T_SYS_ENTITYMENUReference = new EntityReference<T_SYS_ENTITYMENU>();
+                        newCuperm.T_SYS_ENTITYMENUReference.EntityKey = item.T_SYS_ENTITYMENU.EntityKey;
+                        //newCuperm.T_SYS_ENTITYMENU = item.T_SYS_ENTITYMENU;
+
+                        // newCuperm.T_SYS_PERMISSIONReference = new EntityReference<T_SYS_PERMISSION>();
+                        newCuperm.T_SYS_PERMISSIONReference.EntityKey = item.T_SYS_PERMISSION.EntityKey;
+                        //newCuperm.T_SYS_PERMISSION = item.T_SYS_PERMISSION;
+                        int i = dal.Add(newCuperm);
+                        if (i > 0)
+                        {
+                            flag = true;
+                        }
+                    }
+                }
+                else
+                {
+                    flag = true;//没有权限也是保存成功
+                }
+            }
+            catch (Exception ex)
+            {
+                flag = false;
+                Tracer.Debug("复制角色信息错误SysRoleBLL-CopyRoleCustomPerm" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            }
+            return flag;
+        }
+
+
+        /// <summary>
+        /// 复制权限授权信息
+        /// </summary>
+        /// <param name="roleID"></param>
+        /// <param name="newRoleID"></param>
+        /// <returns></returns>
+        public bool CopyRoleEntityMenu(string roleID, string newRoleID)
+        {
+            bool flag = false;
+            try
+            {
+                var roleMenuEnt = from e in dal.GetObjects<T_SYS_ROLEENTITYMENU>().Include("T_SYS_ENTITYMENU")
+                                  where e.T_SYS_ROLE.ROLEID == roleID
+                                  select e;
+                if (roleMenuEnt != null && roleMenuEnt.Any())//有权限定义信息
+                {
+                    foreach (var item in roleMenuEnt)
+                    {
+                        T_SYS_ROLEENTITYMENU NewRoleMenu = new T_SYS_ROLEENTITYMENU();
+                        Utility.CloneEntity<T_SYS_ROLEENTITYMENU>(item, NewRoleMenu);
+                        NewRoleMenu.ROLEENTITYMENUID = Guid.NewGuid().ToString();
+                        NewRoleMenu.CREATEDATE = DateTime.Now;
+                        NewRoleMenu.UPDATEDATE = DateTime.Now;
+                        //NewRoleMenu.T_SYS_ROLE = newRole;
+                        NewRoleMenu.T_SYS_ROLEReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_ROLE", "ROLEID", newRoleID);
+                        if (item.T_SYS_ENTITYMENU == null)
+                        {
+                            continue;
+                        }
+                        NewRoleMenu.T_SYS_ENTITYMENUReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_ENTITYMENU", "ENTITYMENUID", item.T_SYS_ENTITYMENU.ENTITYMENUID);
+                        int i = dal.Add(NewRoleMenu);
+                        if (i > 0)
+                        {
+                            flag = CopyRolePermisson(item.ROLEENTITYMENUID, NewRoleMenu);
+                        }
+                    }
+                }
+                else
+                {
+                    flag = true;//没有权限也是保存成功
+                }
+            }
+            catch (Exception ex)
+            {
+                flag = false;
+                Tracer.Debug("复制角色信息错误SysRoleBLL-CopyRoleEntityMenu" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            }
+            return flag;
+        }
+
+        /// <summary>
+        /// 复制菜单的权限
+        /// </summary>
+        /// <param name="roleMenuID"></param>
+        /// <param name="NewRoleMenu"></param>
+        /// <returns></returns>
+        public bool CopyRolePermisson(string roleMenuID, T_SYS_ROLEENTITYMENU NewRoleMenu)
+        {
+            bool flag = false;
+            try
+            {
+                var perEnt = from e in dal.GetObjects<T_SYS_ROLEMENUPERMISSION>().Include("T_SYS_PERMISSION").Include("T_SYS_ROLEENTITYMENU")
+                             where e.T_SYS_ROLEENTITYMENU.ROLEENTITYMENUID == roleMenuID
+                             select e;
+                if (perEnt != null && perEnt.Any())
+                {
+                    foreach (var item in perEnt)
+                    {
+                        T_SYS_ROLEMENUPERMISSION newPer = new T_SYS_ROLEMENUPERMISSION();
+                        Utility.CloneEntity<T_SYS_ROLEMENUPERMISSION>(item, newPer);
+                        newPer.ROLEMENUPERMID = Guid.NewGuid().ToString();
+                        newPer.CREATEDATE = DateTime.Now;
+                        newPer.UPDATEDATE = DateTime.Now;
+                        if (item.T_SYS_ROLEENTITYMENU == null || item.T_SYS_PERMISSION == null)
+                        {
+                            continue;
+                        }
+                        newPer.T_SYS_ROLEENTITYMENU = NewRoleMenu;
+                        newPer.T_SYS_PERMISSIONReference.EntityKey = new System.Data.EntityKey("SMT_System_EFModelContext.T_SYS_PERMISSION", "PERMISSIONID", item.T_SYS_PERMISSION.PERMISSIONID);
+                        int i = dal.Add(newPer);
+                        if (i > 0)
+                        {
+                            flag = true;
+                        }
+                    }
+                }
+                else
+                {
+                    flag = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                flag = false;
+                Tracer.Debug("复制角色信息错误SysRoleBLL-CopyRolePermisson" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            }
+            return flag;
         }
     }
     #endregion
