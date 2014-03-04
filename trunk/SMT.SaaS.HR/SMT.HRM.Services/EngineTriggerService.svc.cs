@@ -13,6 +13,7 @@ using SMT.HRM.BLL.Common;
 using SMT.Foundation.Log;
 using System.Reflection;
 using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
+using SMT.HRM.BLL;
 
 namespace SMT.HRM.Services
 {
@@ -81,6 +82,9 @@ namespace SMT.HRM.Services
                         break;
                     case "T_HR_ORGANAZITIONCHANGE":
                         ORGCHANGERemindTrigger(eGFunc);
+                        break;
+                    case "ATTENDANCESOLUTIONASIGNRemindTrigger":
+                        ATTENDANCESOLUTIONASIGNRemindTrigger(eGFunc);
                         break;
                     default:
                         break;
@@ -399,6 +403,86 @@ namespace SMT.HRM.Services
             
         }
 
+
+        /// <summary>
+        /// 考勤方案到期提醒
+        /// </summary>
+        /// <param name="eGFunc"></param>
+        private void ATTENDANCESOLUTIONASIGNRemindTrigger(IEnumerable<XElement> eGFunc)
+        {
+            try
+            {
+                SMT.Foundation.Log.Tracer.Debug("考勤方案分配到期提醒开始");
+                if (eGFunc.Count() == 0)
+                {
+                    return;
+                }
+
+                string strId = string.Empty;
+
+                foreach (var item in eGFunc)
+                {
+                    if (item.Attribute("Name").Value == "ATTENDANCESOLUTIONASIGNID")
+                    {
+                        strId = item.Attribute("Value").Value;
+                        break;
+                    }
+                }
+                AttendanceSolutionAsignBLL attSolutionAsigBll = new AttendanceSolutionAsignBLL();
+
+                T_HR_ATTENDANCESOLUTIONASIGN attensolutionAsin = attSolutionAsigBll.GetAttendanceSolutionAsignByID(strId);
+
+                if (attensolutionAsin != null)
+                {
+                    if (attensolutionAsin.ENDDATE >= DateTime.Now.AddDays(-8) && attensolutionAsin.CHECKSTATE == "2")
+                    {
+                        T_HR_ATTENDANCESOLUTIONASIGN entity= new T_HR_ATTENDANCESOLUTIONASIGN();
+                       
+                        Utility.CloneEntity(attensolutionAsin, entity);
+                        entity.ATTENDANCESOLUTIONASIGNID = Guid.NewGuid().ToString();
+                        entity.CHECKSTATE = "0";
+                        entity.CREATEDATE = DateTime.Now;
+                        entity.UPDATEDATE = DateTime.Now;
+                        entity.STARTDATE = entity.ENDDATE.Value.AddDays(1);
+                        entity.ENDDATE = entity.ENDDATE.Value.AddYears(1);
+                        entity.REMARK = "自动定时触发的考勤方案分配 "+DateTime.Now;
+                        //entity.T_HR_ATTENDANCESOLUTION = attensolutionAsin.T_HR_ATTENDANCESOLUTION;
+                        if (attensolutionAsin.T_HR_ATTENDANCESOLUTION != null)
+                        {
+                            entity.T_HR_ATTENDANCESOLUTIONReference.EntityKey =
+                            new System.Data.EntityKey("SMT_HRM_EFModelContext.T_HR_ATTENDANCESOLUTION"
+                            , "ATTENDANCESOLUTIONID", attensolutionAsin.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID);
+
+                        }
+                        string msg = "此考勤方案分配将于"+attensolutionAsin.ENDDATE.Value.ToString("yyyy-MM-dd")+"失效，请修改失效时间！";
+                        bool t = attSolutionAsigBll.AddAlarmAttend(entity, msg);
+                        if (t)
+                        {
+                            Tracer.Debug("自动定时触发的考勤方案分配 添加成功,方案名：" + attensolutionAsin.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+                        }
+                        else
+                        {
+                            Tracer.Debug("自动定时触发的考勤方案分配 添加失败,方案名：" + attensolutionAsin.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONNAME);
+                        }
+                    }
+                    else
+                    {
+                        SMT.Foundation.Log.Tracer.Debug("考勤方案到期时间为:" + attensolutionAsin.ENDDATE.ToString()
+                            + ",不自动生成考勤方案分配。");
+                    }
+                }
+                else
+                {
+                    SMT.Foundation.Log.Tracer.Debug("没有获取到考勤方案分配");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                SMT.Foundation.Log.Tracer.Debug("考勤方案分配到期提醒出现错误:" + ex.ToString());
+            }
+
+        }
 
         /// <summary>
         /// 

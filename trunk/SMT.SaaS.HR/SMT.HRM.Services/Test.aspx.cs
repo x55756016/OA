@@ -14,18 +14,28 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //return;
-            using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
-            {
-                bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
+            #region 定时触发测试
+            //AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
+            //T_HR_ATTENDANCESOLUTIONASIGN ent = new T_HR_ATTENDANCESOLUTIONASIGN();
+            //bll.UpdateCheckState("T_HR_ATTENDANCESOLUTIONASIGN", "ATTENDANCESOLUTIONASIGNID", "07D79240-4EA1-4397-A0B1-502A10106530", "2");
 
-            }
-            return;
-            using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
-            {
-                bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
+
+            string str="<Para FuncName=\"ATTENDANCESOLUTIONASIGNRemindTrigger\" Name=\"ATTENDANCESOLUTIONASIGNID\" Value=\"07D79240-4EA1-4397-A0B1-502A10106530\"></Para>";
+            EngineTriggerService sv = new EngineTriggerService();
+            sv.EventTriggerProcess(str);
+            #endregion
+            //return;
+            //using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
+            //{
+            //    bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
+
+            //}
+            //return;
+            //using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())
+            //{
+            //    bll.CalculateEmployeeAttendanceMonthlyByEmployeeID("2013-12", "c962b4ac-0c93-41b3-bb12-2ec93258ceab");
               
-            }
+            //}
             //LeftOfficeBLL bll = new LeftOfficeBLL();
             //bll.UpdateCheckState("T_HR_LEFTOFFICE", "DIMISSIONID", "634c214b-7608-4222-87e8-3ad36a474d6c", "1");
             //using (EmployeeEntryBLL bll = new EmployeeEntryBLL())

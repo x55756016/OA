@@ -1171,16 +1171,26 @@ namespace SMT.SaaS.BLLCommonServices
         /// <param name="entity">源实体</param>
         public static void SubmitMyRecord<TEntity>(object entity)
         {
-            SubmitMyRecord<TEntity>(entity, "0");
+            object obj = string.Empty as object;
+            SubmitMyRecord<TEntity>(entity, "0", obj);
         }
 
+        /// <summary>
+        /// 添加"我的单据"
+        /// </summary>
+        /// <param name="entity">源实体</param>
+        public static void SubmitMyRecord<TEntity>(object entity, string customerMessage)
+        {
+            object obj = customerMessage as object;
+            SubmitMyRecord<TEntity>(entity, "0", obj);
+        }
 
 
         /// <summary>
         /// 添加"我的单据"
         /// </summary>
         /// <param name="entity">源实体</param>
-        public static void SubmitMyRecord<TEntity>(object entity, string strIsForward)
+        public static void SubmitMyRecord<TEntity>(object entity, string strIsForward,object customerMessage)
         {
             try
             {
@@ -1361,7 +1371,14 @@ namespace SMT.SaaS.BLLCommonServices
                 {
                     case "0":
                         strSubmitXmlObj = SetSubmitXmlObj(strSysName, strFormName, strFormId, "Edit");
-                        strModelDesp = GetModelDescription(entSubmit.CREATEDATE.Value, strModelCode, "您{0}的[{1}]还未提交！");
+                        if (customerMessage.ToString() == string.Empty)
+                        {
+                            strModelDesp = GetModelDescription(entSubmit.CREATEDATE.Value, strModelCode, "您{0}的[{1}]还未提交！");
+                        }
+                        else
+                        {
+                            strModelDesp = customerMessage.ToString();
+                        }
                         break;
                     case "1":
                         strSubmitXmlObj = SetSubmitXmlObj(strSysName, strFormName, strFormId, "Audit");

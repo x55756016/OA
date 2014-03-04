@@ -15178,12 +15178,12 @@ namespace SMT.Saas.Tools.AttendanceWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/EmployeeLeaveRecordAdd", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordAddResponse")]
         System.IAsyncResult BeginEmployeeLeaveRecordAdd(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE> AdjustLeaves, System.AsyncCallback callback, object asyncState);
         
-        void EndEmployeeLeaveRecordAdd(System.IAsyncResult result);
+        string EndEmployeeLeaveRecordAdd(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/EmployeeLeaveRecordUpdate", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordUpdateResponse")]
         System.IAsyncResult BeginEmployeeLeaveRecordUpdate(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE> AdjustLeaves, System.AsyncCallback callback, object asyncState);
         
-        void EndEmployeeLeaveRecordUpdate(System.IAsyncResult result);
+        string EndEmployeeLeaveRecordUpdate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:AttendanceService/EmployeeLeaveRecordDelete", ReplyAction="urn:AttendanceService/EmployeeLeaveRecordDeleteResponse")]
         System.IAsyncResult BeginEmployeeLeaveRecordDelete(System.Collections.ObjectModel.ObservableCollection<string> leaveRecordIDs, System.AsyncCallback callback, object asyncState);
@@ -18284,6 +18284,44 @@ namespace SMT.Saas.Tools.AttendanceWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((string)(this.results[3]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeLeaveRecordAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeLeaveRecordAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class EmployeeLeaveRecordUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public EmployeeLeaveRecordUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
@@ -22210,9 +22248,9 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         public event System.EventHandler<GetRealLeaveDayByEmployeeIdAndDateCompletedEventArgs> GetRealLeaveDayByEmployeeIdAndDateCompleted;
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeLeaveRecordAddCompleted;
+        public event System.EventHandler<EmployeeLeaveRecordAddCompletedEventArgs> EmployeeLeaveRecordAddCompleted;
         
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> EmployeeLeaveRecordUpdateCompleted;
+        public event System.EventHandler<EmployeeLeaveRecordUpdateCompletedEventArgs> EmployeeLeaveRecordUpdateCompleted;
         
         public event System.EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs> EmployeeLeaveRecordDeleteCompleted;
         
@@ -27327,8 +27365,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeLeaveRecordAdd(System.IAsyncResult result) {
-            base.Channel.EndEmployeeLeaveRecordAdd(result);
+        string SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeLeaveRecordAdd(System.IAsyncResult result) {
+            return base.Channel.EndEmployeeLeaveRecordAdd(result);
         }
         
         private System.IAsyncResult OnBeginEmployeeLeaveRecordAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -27338,14 +27376,15 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         private object[] OnEndEmployeeLeaveRecordAdd(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeLeaveRecordAdd(result);
-            return null;
+            string retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeLeaveRecordAdd(result);
+            return new object[] {
+                    retVal};
         }
         
         private void OnEmployeeLeaveRecordAddCompleted(object state) {
             if ((this.EmployeeLeaveRecordAddCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.EmployeeLeaveRecordAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.EmployeeLeaveRecordAddCompleted(this, new EmployeeLeaveRecordAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
@@ -27374,8 +27413,8 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeLeaveRecordUpdate(System.IAsyncResult result) {
-            base.Channel.EndEmployeeLeaveRecordUpdate(result);
+        string SMT.Saas.Tools.AttendanceWS.AttendanceService.EndEmployeeLeaveRecordUpdate(System.IAsyncResult result) {
+            return base.Channel.EndEmployeeLeaveRecordUpdate(result);
         }
         
         private System.IAsyncResult OnBeginEmployeeLeaveRecordUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -27385,14 +27424,15 @@ namespace SMT.Saas.Tools.AttendanceWS {
         }
         
         private object[] OnEndEmployeeLeaveRecordUpdate(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeLeaveRecordUpdate(result);
-            return null;
+            string retVal = ((SMT.Saas.Tools.AttendanceWS.AttendanceService)(this)).EndEmployeeLeaveRecordUpdate(result);
+            return new object[] {
+                    retVal};
         }
         
         private void OnEmployeeLeaveRecordUpdateCompleted(object state) {
             if ((this.EmployeeLeaveRecordUpdateCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.EmployeeLeaveRecordUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+                this.EmployeeLeaveRecordUpdateCompleted(this, new EmployeeLeaveRecordUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
@@ -35063,9 +35103,10 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 return _result;
             }
             
-            public void EndEmployeeLeaveRecordAdd(System.IAsyncResult result) {
+            public string EndEmployeeLeaveRecordAdd(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                base.EndInvoke("EmployeeLeaveRecordAdd", _args, result);
+                string _result = ((string)(base.EndInvoke("EmployeeLeaveRecordAdd", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginEmployeeLeaveRecordUpdate(SMT.Saas.Tools.AttendanceWS.T_HR_EMPLOYEELEAVERECORD LeaveRecord, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.AttendanceWS.V_ADJUSTLEAVE> AdjustLeaves, System.AsyncCallback callback, object asyncState) {
@@ -35076,9 +35117,10 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 return _result;
             }
             
-            public void EndEmployeeLeaveRecordUpdate(System.IAsyncResult result) {
+            public string EndEmployeeLeaveRecordUpdate(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                base.EndInvoke("EmployeeLeaveRecordUpdate", _args, result);
+                string _result = ((string)(base.EndInvoke("EmployeeLeaveRecordUpdate", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginEmployeeLeaveRecordDelete(System.Collections.ObjectModel.ObservableCollection<string> leaveRecordIDs, System.AsyncCallback callback, object asyncState) {

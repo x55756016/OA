@@ -2713,6 +2713,16 @@ namespace SMT.Saas.Tools.EngineWS {
         
         int EndGetDoTaskNumberByIM(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntity", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntityResponse")]
+        System.IAsyncResult BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState);
+        
+        string EndAddDoTaskEntity(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitle", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitleResponse")]
+        System.IAsyncResult BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<string> EndGetPersonFromDoTaskByTitle(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistory", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistoryResponse")]
         System.IAsyncResult BeginGetForwardHistory(string modelCode, string formID, System.AsyncCallback callback, object asyncState);
         
@@ -2878,18 +2888,19 @@ namespace SMT.Saas.Tools.EngineWS {
         void EndApplicationNotesTrigger(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineList", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineListResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.UserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.UserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_DOTASK))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.CustomUserMsg))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE>))]
@@ -3053,6 +3064,44 @@ namespace SMT.Saas.Tools.EngineWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddDoTaskEntityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddDoTaskEntityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPersonFromDoTaskByTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPersonFromDoTaskByTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<string> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<string>)(this.results[0]));
             }
         }
     }
@@ -3585,6 +3634,18 @@ namespace SMT.Saas.Tools.EngineWS {
         
         private System.Threading.SendOrPostCallback onGetDoTaskNumberByIMCompletedDelegate;
         
+        private BeginOperationDelegate onBeginAddDoTaskEntityDelegate;
+        
+        private EndOperationDelegate onEndAddDoTaskEntityDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddDoTaskEntityCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetPersonFromDoTaskByTitleDelegate;
+        
+        private EndOperationDelegate onEndGetPersonFromDoTaskByTitleDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPersonFromDoTaskByTitleCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetForwardHistoryDelegate;
         
         private EndOperationDelegate onEndGetForwardHistoryDelegate;
@@ -3910,6 +3971,10 @@ namespace SMT.Saas.Tools.EngineWS {
         public event System.EventHandler<GetDoTaskNumberCompletedEventArgs> GetDoTaskNumberCompleted;
         
         public event System.EventHandler<GetDoTaskNumberByIMCompletedEventArgs> GetDoTaskNumberByIMCompleted;
+        
+        public event System.EventHandler<AddDoTaskEntityCompletedEventArgs> AddDoTaskEntityCompleted;
+        
+        public event System.EventHandler<GetPersonFromDoTaskByTitleCompletedEventArgs> GetPersonFromDoTaskByTitleCompleted;
         
         public event System.EventHandler<GetForwardHistoryCompletedEventArgs> GetForwardHistoryCompleted;
         
@@ -4400,6 +4465,100 @@ namespace SMT.Saas.Tools.EngineWS {
             }
             base.InvokeAsync(this.onBeginGetDoTaskNumberByIMDelegate, new object[] {
                         userid}, this.onEndGetDoTaskNumberByIMDelegate, this.onGetDoTaskNumberByIMCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddDoTaskEntity(dotaskList, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddDoTaskEntity(System.IAsyncResult result) {
+            return base.Channel.EndAddDoTaskEntity(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddDoTaskEntity(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK>)(inValues[0]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddDoTaskEntity(dotaskList, callback, asyncState);
+        }
+        
+        private object[] OnEndAddDoTaskEntity(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddDoTaskEntity(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddDoTaskEntityCompleted(object state) {
+            if ((this.AddDoTaskEntityCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddDoTaskEntityCompleted(this, new AddDoTaskEntityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddDoTaskEntityAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList) {
+            this.AddDoTaskEntityAsync(dotaskList, null);
+        }
+        
+        public void AddDoTaskEntityAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, object userState) {
+            if ((this.onBeginAddDoTaskEntityDelegate == null)) {
+                this.onBeginAddDoTaskEntityDelegate = new BeginOperationDelegate(this.OnBeginAddDoTaskEntity);
+            }
+            if ((this.onEndAddDoTaskEntityDelegate == null)) {
+                this.onEndAddDoTaskEntityDelegate = new EndOperationDelegate(this.OnEndAddDoTaskEntity);
+            }
+            if ((this.onAddDoTaskEntityCompletedDelegate == null)) {
+                this.onAddDoTaskEntityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddDoTaskEntityCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddDoTaskEntityDelegate, new object[] {
+                        dotaskList}, this.onEndAddDoTaskEntityDelegate, this.onAddDoTaskEntityCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPersonFromDoTaskByTitle(receiveuserids, messagebody, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<string> SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
+            return base.Channel.EndGetPersonFromDoTaskByTitle(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPersonFromDoTaskByTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> receiveuserids = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            string messagebody = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetPersonFromDoTaskByTitle(receiveuserids, messagebody, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<string> retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetPersonFromDoTaskByTitle(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPersonFromDoTaskByTitleCompleted(object state) {
+            if ((this.GetPersonFromDoTaskByTitleCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPersonFromDoTaskByTitleCompleted(this, new GetPersonFromDoTaskByTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPersonFromDoTaskByTitleAsync(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody) {
+            this.GetPersonFromDoTaskByTitleAsync(receiveuserids, messagebody, null);
+        }
+        
+        public void GetPersonFromDoTaskByTitleAsync(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, object userState) {
+            if ((this.onBeginGetPersonFromDoTaskByTitleDelegate == null)) {
+                this.onBeginGetPersonFromDoTaskByTitleDelegate = new BeginOperationDelegate(this.OnBeginGetPersonFromDoTaskByTitle);
+            }
+            if ((this.onEndGetPersonFromDoTaskByTitleDelegate == null)) {
+                this.onEndGetPersonFromDoTaskByTitleDelegate = new EndOperationDelegate(this.OnEndGetPersonFromDoTaskByTitle);
+            }
+            if ((this.onGetPersonFromDoTaskByTitleCompletedDelegate == null)) {
+                this.onGetPersonFromDoTaskByTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPersonFromDoTaskByTitleCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPersonFromDoTaskByTitleDelegate, new object[] {
+                        receiveuserids,
+                        messagebody}, this.onEndGetPersonFromDoTaskByTitleDelegate, this.onGetPersonFromDoTaskByTitleCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6714,6 +6873,33 @@ namespace SMT.Saas.Tools.EngineWS {
             public int EndGetDoTaskNumberByIM(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 int _result = ((int)(base.EndInvoke("GetDoTaskNumberByIM", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = dotaskList;
+                System.IAsyncResult _result = base.BeginInvoke("AddDoTaskEntity", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndAddDoTaskEntity(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("AddDoTaskEntity", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = receiveuserids;
+                _args[1] = messagebody;
+                System.IAsyncResult _result = base.BeginInvoke("GetPersonFromDoTaskByTitle", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<string> EndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<string> _result = ((System.Collections.ObjectModel.ObservableCollection<string>)(base.EndInvoke("GetPersonFromDoTaskByTitle", _args, result)));
                 return _result;
             }
             

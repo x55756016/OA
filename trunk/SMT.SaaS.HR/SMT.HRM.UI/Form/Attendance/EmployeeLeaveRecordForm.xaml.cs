@@ -310,14 +310,106 @@ namespace SMT.HRM.UI.Form.Attendance
             //获取员工名称，并显示所在的公司架构
            // perClient.GetEmployeeDetailByIDCompleted += new EventHandler<GetEmployeeDetailByIDCompletedEventArgs>(perClient_GetEmployeeDetailByIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
-            clientAtt.EmployeeLeaveRecordAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordAddCompleted);
-            clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
+            //clientAtt.EmployeeLeaveRecordAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordAddCompleted);
+            clientAtt.EmployeeCancelLeaveAddCompleted += new EventHandler<EmployeeCancelLeaveAddCompletedEventArgs>(clientAtt_EmployeeCancelLeaveAddCompleted);
+            //clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
+            clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<EmployeeLeaveRecordUpdateCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
             clientAtt.EmployeeLeaveRecordDeleteCompleted += new EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs>(clientAtt_EmployeeLeaveRecordDeleteCompleted);
             clientAtt.AuditLeaveRecordCompleted += new EventHandler<AuditLeaveRecordCompletedEventArgs>(clientAtt_AuditLeaveRecordCompleted);
           //  clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
             toolbar1.btnNew.Content = "添加带薪假(冲减)";
             toolbar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             toolbar1.btnDelete.Click += new RoutedEventHandler(btnDelete_Click);
+        }
+
+        void clientAtt_EmployeeLeaveRecordUpdateCompleted(object sender, EmployeeLeaveRecordUpdateCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                if (!string.IsNullOrEmpty(e.Result))
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Result.ToString());
+                    return;
+                }
+                if (LeaveRecord.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
+                {
+                    if (!isSubmit)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    }
+                }
+                else
+                {
+                    if (!isSubmit)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+                    }
+                }
+                if (needsubmit)
+                {
+                    try
+                    {
+                        EntityBrowser entBrowser1 = this.FindParentByType<EntityBrowser>();
+                        entBrowser1.ManualSubmit();
+                        BackToSubmit();
+                    }
+                    catch (Exception ex)
+                    {
+                        RefreshUI(RefreshedTypes.HideProgressBar);
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("提交失败"));
+                    }
+                }
+                if (closeFormFlag)
+                {
+                    RefreshUI(RefreshedTypes.Close);
+                    return;
+                }
+
+                FormType = FormTypes.Edit;
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.FormType = FormTypes.Edit;
+                RefreshUI(RefreshedTypes.AuditInfo);
+            }
+            else
+            {
+                needsubmit = false;
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            RefreshUI(RefreshedTypes.All);
+        }
+
+        void clientAtt_EmployeeCancelLeaveAddCompleted(object sender, EmployeeCancelLeaveAddCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                if (!string.IsNullOrEmpty(e.Result))
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Result.ToString());
+                    return;
+                }
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", ""));
+
+                if (closeFormFlag)
+                {
+                    CloseForm();
+                    return;
+                }
+
+                FormType = FormTypes.Edit;
+                LeaveRecordID = LeaveRecord.LEAVERECORDID;
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.FormType = FormTypes.Edit;
+                RefreshUI(RefreshedTypes.AuditInfo);
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            ToolbarItems = Utility.CreateFormEditButton();
+            ToolbarItems.Add(ToolBarItems.Delete);
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            RefreshUI(RefreshedTypes.All);
         }
 
         void clientAtt_EmployeeLeaveRecordDeleteCompleted(object sender, EmployeeLeaveRecordDeleteCompletedEventArgs e)
@@ -773,7 +865,16 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                flag = true;
+                if (DateTime.Parse(dpStartDate.Value.ToString()) <= DateTime.Now)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATETIME"), "请假开始时间不能小于当前时间");
+                    flag = false;
+                    return;
+                }
+                else
+                {
+                    flag = true;
+                }
             }
 
             //检查截止日期是否填写
@@ -1601,90 +1702,90 @@ namespace SMT.HRM.UI.Form.Attendance
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void clientAtt_EmployeeLeaveRecordAddCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", ""));
+        //void clientAtt_EmployeeLeaveRecordAddCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", ""));
 
-                if (closeFormFlag)
-                {
-                    CloseForm();
-                    return;
-                }
+        //        if (closeFormFlag)
+        //        {
+        //            CloseForm();
+        //            return;
+        //        }
 
-                FormType = FormTypes.Edit;
-                LeaveRecordID = LeaveRecord.LEAVERECORDID;
-                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                entBrowser.FormType = FormTypes.Edit;
-                RefreshUI(RefreshedTypes.AuditInfo);
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            ToolbarItems = Utility.CreateFormEditButton();
-            ToolbarItems.Add(ToolBarItems.Delete);
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            RefreshUI(RefreshedTypes.All);
-        }
+        //        FormType = FormTypes.Edit;
+        //        LeaveRecordID = LeaveRecord.LEAVERECORDID;
+        //        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+        //        entBrowser.FormType = FormTypes.Edit;
+        //        RefreshUI(RefreshedTypes.AuditInfo);
+        //    }
+        //    else
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+        //    }
+        //    ToolbarItems = Utility.CreateFormEditButton();
+        //    ToolbarItems.Add(ToolBarItems.Delete);
+        //    RefreshUI(RefreshedTypes.HideProgressBar);
+        //    RefreshUI(RefreshedTypes.All);
+        //}
 
         /// <summary>
         /// 更新员工请假记录
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void clientAtt_EmployeeLeaveRecordUpdateCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (LeaveRecord.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
-                {
-                    if (!isSubmit)
-                    {
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
-                    }
-                }
-                else
-                {
-                    if (!isSubmit)
-                    {
-                        Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
-                    }
-                }
-                if (needsubmit)
-                {
-                    try
-                    {
-                        EntityBrowser entBrowser1 = this.FindParentByType<EntityBrowser>();
-                        entBrowser1.ManualSubmit();
-                        BackToSubmit();
-                    }
-                    catch (Exception ex)
-                    {
-                        RefreshUI(RefreshedTypes.HideProgressBar);
-                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("提交失败"));
-                    }
-                }
-                if (closeFormFlag)
-                {
-                    RefreshUI(RefreshedTypes.Close);
-                    return;
-                }
+        //void clientAtt_EmployeeLeaveRecordUpdateCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        if (LeaveRecord.CHECKSTATE == Utility.GetCheckState(CheckStates.UnSubmit))
+        //        {
+        //            if (!isSubmit)
+        //            {
+        //                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (!isSubmit)
+        //            {
+        //                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("AUDITSUCCESSED", Utility.GetResourceStr("CURRENTRECORD", "")));
+        //            }
+        //        }
+        //        if (needsubmit)
+        //        {
+        //            try
+        //            {
+        //                EntityBrowser entBrowser1 = this.FindParentByType<EntityBrowser>();
+        //                entBrowser1.ManualSubmit();
+        //                BackToSubmit();
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                RefreshUI(RefreshedTypes.HideProgressBar);
+        //                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("提交失败"));
+        //            }
+        //        }
+        //        if (closeFormFlag)
+        //        {
+        //            RefreshUI(RefreshedTypes.Close);
+        //            return;
+        //        }
 
-                FormType = FormTypes.Edit;
-                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                entBrowser.FormType = FormTypes.Edit;
-                RefreshUI(RefreshedTypes.AuditInfo);
-            }
-            else
-            {
-                needsubmit = false;
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            RefreshUI(RefreshedTypes.All);
-        }
+        //        FormType = FormTypes.Edit;
+        //        EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+        //        entBrowser.FormType = FormTypes.Edit;
+        //        RefreshUI(RefreshedTypes.AuditInfo);
+        //    }
+        //    else
+        //    {
+        //        needsubmit = false;
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+        //    }
+        //    RefreshUI(RefreshedTypes.HideProgressBar);
+        //    RefreshUI(RefreshedTypes.All);
+        //}
 
           /// <summary>
         ///     回到提交前的状态
@@ -1801,7 +1902,13 @@ namespace SMT.HRM.UI.Form.Attendance
             }
 
             DateTime dtSelDate = dpStartDate.Value.Value;
-
+            //请假开始时间不能小于当前时间
+            if (dtSelDate <= DateTime.Now)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATETIME"), "请假开始时间不能小于当前时间");
+                
+                return;
+            }
             if (dtSelDate.Month < DateTime.Now.AddMonths(-1).Month)
             {
                 strMsg = "LEAVEOUTAPPROVED";
@@ -1837,6 +1944,13 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpEndDate_OnValueChanged(object sender, EventArgs e)
         {
+            DateTime dtSelDate = dpStartDate.Value.Value;
+            //请假开始时间不能小于当前时间
+            if (dtSelDate <= DateTime.Now)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATETIME"), "请假开始时间不能小于当前时间");
+                return;
+            }
             CalculateDayCount();
         }
 

@@ -43,6 +43,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CustomUserMsg" nillable="true" type="tns:CustomUserMsg" />
+  <xs:complexType name="ArrayOfT_WF_DOTASK">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_WF_DOTASK" nillable="true" type="tns:T_WF_DOTASK" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_WF_DOTASK" nillable="true" type="tns:ArrayOfT_WF_DOTASK" />
   <xs:complexType name="ArrayOfT_FLOW_ENGINENOTES">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="T_FLOW_ENGINENOTES" nillable="true" type="tns:T_FLOW_ENGINENOTES" />

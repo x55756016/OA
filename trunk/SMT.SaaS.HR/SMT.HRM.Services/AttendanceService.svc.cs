@@ -2464,11 +2464,11 @@ namespace SMT.HRM.Services
         /// <param name="LeaveRecord">请假记录实体</param>
         /// <param name="AdjustLeave">请假调休记录实体</param>
         [OperationContract]
-        public void EmployeeLeaveRecordAdd(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        public string EmployeeLeaveRecordAdd(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
         {
             using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
             {
-                bll.EmployeeLeaveRecordAdd(LeaveRecord, AdjustLeaves);
+                return bll.EmployeeLeaveRecordAdd(LeaveRecord, AdjustLeaves);
             }
         }
 
@@ -2478,11 +2478,11 @@ namespace SMT.HRM.Services
         /// <param name="LeaveRecord"></param>
         /// <param name="AdjustLeave"></param>
         [OperationContract]
-        public void EmployeeLeaveRecordUpdate(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        public string EmployeeLeaveRecordUpdate(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
         {
             using (EmployeeLeaveRecordBLL bll = new EmployeeLeaveRecordBLL())
             {
-                bll.EmployeeLeaveRecordUpdate(LeaveRecord, AdjustLeaves);
+                return bll.EmployeeLeaveRecordUpdate(LeaveRecord, AdjustLeaves);
             }
         }
 
@@ -2636,8 +2636,6 @@ namespace SMT.HRM.Services
                 bll.EmployeeSigninRecordUpdate(entity, entityList);
             }
         }
-
-
         /// <summary>
         /// 根据ID获取签卡记录信息
         /// </summary>

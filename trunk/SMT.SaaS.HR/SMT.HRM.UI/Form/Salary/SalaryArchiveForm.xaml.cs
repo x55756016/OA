@@ -381,41 +381,19 @@ namespace SMT.HRM.UI.Form.Salary
                 // ObservableCollection<V_SALARYARCHIVEITEM> its = new ObservableCollection<V_SALARYARCHIVEITEM>();
 
                 List<V_SALARYARCHIVEITEM> its = new List<V_SALARYARCHIVEITEM>();
-                List<V_SALARYARCHIVEITEM> itsView = new List<V_SALARYARCHIVEITEM>();
                 if (e.Result != null)
                 {
                     its = e.Result.OrderBy(m => m.ORDERNUMBER).ToList();
-                    //its = its.Where(s=> s.SUM != null).ToList();
                     archiveItemsList = new List<V_SALARYARCHIVEITEM>();
                     foreach (var it in its)
                     {
                         V_SALARYARCHIVEITEM item = new V_SALARYARCHIVEITEM();
                         item.SALARYARCHIVEITEM = it.SALARYARCHIVEITEM;
-                        //解密后的薪资值
-                        string desString = SMT.SaaS.FrameworkUI.Common.Utility.AESDecrypt(it.SUM);                        
                         item.SUM = it.SUM;
                         item.SALARYITEMNAME = it.SALARYITEMNAME;
-                        item.REMARK = it.REMARK;                       
-                        
-                        if (!string.IsNullOrEmpty(desString) && desString != "0")
-                        {
-                            try
-                            {
-                                if (double.Parse(desString) > 0)
-                                {
-                                    itsView.Add(it);
-                                    archiveItemsList.Add(item);
-                                }
-                            }
-                            catch
-                            {
-
-                            }
-                        }
-                                               
+                        item.REMARK = it.REMARK;
+                        archiveItemsList.Add(item);
                     }
-                    its.Clear();
-                    its = itsView;
                     try
                     {
                         for (int i = 0; i < its.Count; i++)
@@ -436,15 +414,7 @@ namespace SMT.HRM.UI.Form.Salary
                             i++;
                         }
                     }
-                    DtGrid.ItemsSource = itsView;
-                    //if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
-                    //{
-                    //    DtGrid.ItemsSource = itsView;
-                    //}
-                    //else
-                    //{
-                    //    DtGrid.ItemsSource = its;
-                    //}
+                    DtGrid.ItemsSource = its;
                     dataPager.PageCount = e.pageCount;
                 }
             }
@@ -766,14 +736,32 @@ namespace SMT.HRM.UI.Form.Salary
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDS", txtSum.Text, txtSum.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "FUNDSREMARK", txtSumRemark.Text, txtSumRemark.Text));
             AutoList.Add(basedata("T_HR_SALARYARCHIVE", "EMPLOYEENAME", Info.EMPLOYEENAME, Info.EMPLOYEENAME));//lkEmployee.TxtLookUp.Text
+            //需要转换的薪资项目
+            List<V_SALARYARCHIVEITEM> listView = new List<V_SALARYARCHIVEITEM>();
             foreach (var v in archiveItemsList)
             {
                 if (!string.IsNullOrEmpty(v.SUM) && v.SUM != "0")
                 {
-                    AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));
+                    string desString = SMT.SaaS.FrameworkUI.Common.Utility.AESDecrypt(v.SUM);
+                    if (!string.IsNullOrEmpty(desString) && desString != "0")
+                    {
+                        try
+                        {
+                            if (double.Parse(desString) > 0)
+                            {
+                                AutoList.Add(basedataForChild("V_SALARYARCHIVEITEM", "REMARK", v.REMARK, "", v.SALARYARCHIVEITEM));
+                                listView.Add(v);
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    
                 }
             }
-            string a = mx.TableToXml(Info, archiveItemsList, StrSource, AutoList);
+            string a = mx.TableToXml(Info, listView, StrSource, AutoList);
 
             return a;
         }

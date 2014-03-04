@@ -1193,18 +1193,64 @@ namespace SMT.HRM.BLL
         #endregion
 
         #region 操作
+        ///// <summary>
+        ///// 添加请假记录和请假调休记录
+        ///// </summary>
+        ///// <param name="LeaveRecord">请假记录实体</param>
+        ///// <param name="AdjustLeave">请假调休记录实体</param>
+        //public void EmployeeLeaveRecordAdd(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        //{
+        //    try
+        //    {
+        //        //添加请假记录
+        //        T_HR_EMPLOYEELEAVERECORD ent = new T_HR_EMPLOYEELEAVERECORD();
+        //        Utility.CloneEntity(LeaveRecord, ent);
+        //        ent.T_HR_LEAVETYPESETReference.EntityKey =
+        //            new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_LEAVETYPESET", "LEAVETYPESETID", LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPESETID);
+
+        //        //添加请假调休记录
+        //        if (AdjustLeaves != null)
+        //        {
+        //            foreach (V_ADJUSTLEAVE item in AdjustLeaves)
+        //            {
+        //                T_HR_ADJUSTLEAVE entity = new T_HR_ADJUSTLEAVE();
+        //                Utility.CloneEntity(item.T_HR_ADJUSTLEAVE, entity);
+        //                //entity.T_HR_EMPLOYEELEAVERECORDReference.EntityKey =
+        //                //    new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEELEAVERECORD", "LEAVERECORDID", temp.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID);
+        //                //DataContext.AddObject("T_HR_ADJUSTLEAVE", entity);
+        //                ent.T_HR_ADJUSTLEAVE = new System.Data.Objects.DataClasses.EntityCollection<T_HR_ADJUSTLEAVE>();
+        //                ent.T_HR_ADJUSTLEAVE.Add(entity);
+        //            }
+        //        }
+
+        //        base.Add(ent);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Utility.SaveLog(ex.ToString());
+        //        throw ex;
+        //    }
+        //}
+
         /// <summary>
         /// 添加请假记录和请假调休记录
         /// </summary>
         /// <param name="LeaveRecord">请假记录实体</param>
         /// <param name="AdjustLeave">请假调休记录实体</param>
-        public void EmployeeLeaveRecordAdd(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        public string EmployeeLeaveRecordAdd(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
         {
+            string strReturn = string.Empty;
             try
             {
+                
                 //添加请假记录
                 T_HR_EMPLOYEELEAVERECORD ent = new T_HR_EMPLOYEELEAVERECORD();
                 Utility.CloneEntity(LeaveRecord, ent);
+                if (ent.STARTDATETIME > DateTime.Now)
+                {
+                    strReturn = "请假开始时间不能小于当前时间";
+                    return strReturn;
+                }
                 ent.T_HR_LEAVETYPESETReference.EntityKey =
                     new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_LEAVETYPESET", "LEAVETYPESETID", LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPESETID);
 
@@ -1223,32 +1269,103 @@ namespace SMT.HRM.BLL
                     }
                 }
 
-                base.Add(ent);
+                bool blSave = base.Add(ent);
+                if (!blSave)
+                {
+                    strReturn = "保存失败";
+                }
             }
             catch (Exception ex)
             {
                 Utility.SaveLog(ex.ToString());
                 throw ex;
             }
+            return strReturn;
         }
+        ///// <summary>
+        ///// 修改请假记录和请假调休记录
+        ///// </summary>
+        ///// <param name="LeaveRecord"></param>
+        ///// <param name="AdjustLeave"></param>
+        //public void EmployeeLeaveRecordUpdate(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        //{
+        //    try
+        //    {
+        //        //修改请假记录
+        //        var ent = dal.GetObjects().FirstOrDefault(s => s.LEAVERECORDID == LeaveRecord.LEAVERECORDID);
+        //        if (ent == null)
+        //        {
+        //            return;
+        //        }
+
+
+        //        Utility.CloneEntity(LeaveRecord, ent);
+        //        ent.T_HR_LEAVETYPESETReference.EntityKey =
+        //            new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_LEAVETYPESET", "LEAVETYPESETID", LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPESETID);
+        //        dal.UpdateFromContext(ent);
+        //        dal.SaveContextChanges();
+        //        SaveMyRecord(ent);
+
+        //        if (AdjustLeaves != null)
+        //        {
+        //            foreach (var temp in AdjustLeaves)
+        //            {
+        //                var entity = dal.GetObjects<T_HR_ADJUSTLEAVE>().FirstOrDefault(s => s.ADJUSTLEAVEID == temp.T_HR_ADJUSTLEAVE.ADJUSTLEAVEID);
+        //                //如果找到就修改,反之就添加
+        //                if (entity != null)
+        //                {
+        //                    Utility.CloneEntity(temp.T_HR_ADJUSTLEAVE, entity);
+        //                    if (entity.T_HR_EMPLOYEELEAVERECORD != null)
+        //                    {
+        //                        entity.T_HR_EMPLOYEELEAVERECORDReference.EntityKey =
+        //                             new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEELEAVERECORD", "LEAVERECORDID", temp.T_HR_ADJUSTLEAVE.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID);
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    entity = new T_HR_ADJUSTLEAVE();
+        //                    Utility.CloneEntity(temp.T_HR_ADJUSTLEAVE, entity);
+        //                    entity.T_HR_EMPLOYEELEAVERECORDReference.EntityKey =
+        //                        new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_EMPLOYEELEAVERECORD", "LEAVERECORDID", temp.T_HR_ADJUSTLEAVE.T_HR_EMPLOYEELEAVERECORD.LEAVERECORDID);
+        //                    //DataContext.AddObject("T_HR_ADJUSTLEAVE", entity);
+        //                    dal.AddToContext(entity);
+        //                }
+        //            }
+        //        }
+        //        dal.SaveContextChanges();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Utility.SaveLog(ex.ToString());
+        //        throw ex;
+        //    }
+        //}
+
         /// <summary>
         /// 修改请假记录和请假调休记录
         /// </summary>
         /// <param name="LeaveRecord"></param>
         /// <param name="AdjustLeave"></param>
-        public void EmployeeLeaveRecordUpdate(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
+        public string EmployeeLeaveRecordUpdate(T_HR_EMPLOYEELEAVERECORD LeaveRecord, List<V_ADJUSTLEAVE> AdjustLeaves)
         {
+            string strReturn = string.Empty;
             try
             {
                 //修改请假记录
                 var ent = dal.GetObjects().FirstOrDefault(s => s.LEAVERECORDID == LeaveRecord.LEAVERECORDID);
                 if (ent == null)
                 {
-                    return;
+                    strReturn = "请假记录不存在";
+                    return strReturn;
                 }
 
-
+                if (LeaveRecord.STARTDATETIME > DateTime.Now)
+                {
+                    strReturn = "请假开始时间不能小于当前时间";
+                    return strReturn;
+                }
                 Utility.CloneEntity(LeaveRecord, ent);
+                
                 ent.T_HR_LEAVETYPESETReference.EntityKey =
                     new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_LEAVETYPESET", "LEAVETYPESETID", LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPESETID);
                 dal.UpdateFromContext(ent);
@@ -1282,12 +1399,14 @@ namespace SMT.HRM.BLL
                     }
                 }
                 dal.SaveContextChanges();
+                
             }
             catch (Exception ex)
             {
                 Utility.SaveLog(ex.ToString());
                 throw ex;
             }
+            return strReturn;
         }
         /// <summary>
         /// 删除请假记录组

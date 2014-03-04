@@ -371,6 +371,9 @@
     <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_DOTASK1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.T_WF_FORWARDHISTORY.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EngineConfigWS\SMT.SaaS.BLLCommonServices.EngineConfigWS.UserInfo1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -1982,7 +1985,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\FlowWFService\SMT1.disco" />
-    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
     <Content Include="FlowXml\BOSystemList.xml" />
     <Content Include="FlowXml\EDMBO\BOList.xml" />
     <Content Include="FlowXml\EDMBO\T_EDM_APPLYFORMASTER.xml" />
@@ -2430,6 +2432,7 @@
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDRAFT.xml" />
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDRAFTTASK.XML" />
     <None Include="Service References\OrganizationWS\OrganizationService2.disco" />
+    <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
     <Content Include="Service References\FileUploadWS\configuration.svcinfo" />
     <Content Include="Service References\FileUploadWS\configuration91.svcinfo" />
     <Content Include="Service References\FileUploadWS\FileUpLoad.disco" />

@@ -64,12 +64,13 @@
     <Attribute Name="OLDSALARYLEVEL" LableResourceID="OLDSALARYLEVEL" Description="原有薪级" DataType="decimal" DataValue="" DataText=""></Attribute>
     <Attribute Name="PAYCOMPANY" LableResourceID="PAYCOMPANY" Description="发薪机构" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="AVAILABLEDATE" LableResourceID="AVAILABLEDATE" Description="生效时间" DataType="string" DataValue="" DataText=""></Attribute>
-
     <Attribute Name="lkAttendanceCompany" LableResourceID="lkAttendanceCompany" Description="考勤机构" DataType="string" DataValue="" DataText=""></Attribute>
     <Attribute Name="lkBalancePost" LableResourceID="lkBalancePost" Description="结算岗位" DataType="string" DataValue="" DataText=""></Attribute>
-	<Attribute Name="FUNDS" LableResourceID="FUNDS" Description="个人活动经费" DataType="string" DataValue="" DataText=""></Attribute>
-	<Attribute Name="FUNDSREMARK" LableResourceID="FUNDSREMARK" Description="活动经费备注" DataType="string" DataValue="" DataText=""></Attribute>
-	<Attribute Name="FUNDSPEASON" LableResourceID="FUNDSPEASON" Description="活动经费下拨人" DataType="string" DataValue="" DataText=""></Attribute>
+	  <Attribute Name="FUNDS" LableResourceID="FUNDS" Description="个人活动经费" DataType="string" DataValue="" DataText=""></Attribute>
+	  <Attribute Name="FUNDSREMARK" LableResourceID="FUNDSREMARK" Description="活动经费备注" DataType="string" DataValue="" DataText=""></Attribute>
+	  <Attribute Name="FUNDSPEASON" LableResourceID="FUNDSPEASON" Description="活动经费下拨人" DataType="string" DataValue="" DataText=""></Attribute>
+
+    <Attribute Name="SKILLPOSTLEVEL" LableResourceID="SKILLPOSTLEVEL" Description="新技能级别" DataType="string" DataValue="" DataText=""></Attribute>
 
     <ObjectList Name="SALARYARCHIVEITEMLIST" LableResourceID="SALARYARCHIVEITEMLIST" Description="薪资档案薪资项" DataText="">
       <Object Name="V_SALARYARCHIVEITEM" LableResourceID="SALARYARCHIVEITEMDetail" Description="薪资项" Key="SALARYARCHIVEITEM" id="">

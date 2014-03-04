@@ -70,7 +70,10 @@ namespace SMT.SaaS.FrameworkUI
 
        
         //public SMT.SaaS.FrameworkUI.ToolBar btnToolBar = new ToolBar();
-
+        public void RemoveSMTLoading()
+        {
+            PARENT.Children.Clear();
+        }
 
         public EntityBrowser(object editor)
         {
@@ -246,12 +249,12 @@ namespace SMT.SaaS.FrameworkUI
 
         void HrCommws_GetAppConfigByNameCompleted(object sender, Saas.Tools.HrCommonServiceWS.GetAppConfigByNameCompletedEventArgs e)
         {
-            string[] result = e.Result.Split(';');
-            if (result[0] == "true" && result[1] == SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
-            {
-                //beyond隐藏手动审核
-                //Manubtn.Visibility = Visibility.Visible;
-            }
+            //string[] result = e.Result.Split(';');
+            //if (result[0] == "true" && result[1] == SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID)
+            //{
+            //    //beyond隐藏手动审核
+            //    //Manubtn.Visibility = Visibility.Visible;
+            //}
         }
 
         public void Show()
@@ -479,18 +482,18 @@ namespace SMT.SaaS.FrameworkUI
                 {
                     //state = "";
                 }
-                if (FormType == FormTypes.Edit)
-                {
-                    string img;
-                    BtnDelete.TextBlock.Text = UIHelper.GetResourceStr("SUBMITAUDIT");
-                    img = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_audit.png";
+                //if (state == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+                //{
+                //    string img;
+                //    BtnDelete.TextBlock.Text ="删除";
+                //    img = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png";
 
-                    BtnDelete.Image.Source = new BitmapImage(new Uri(img, UriKind.Relative));
-                    BtnDelete.Style = (Style)Application.Current.Resources["ButtonToolBarStyle"];
-                    BtnDelete.Click += BtnDelete_Click;
-                    toolBar1.ButtonContainer.Children.Add(BtnDelete);
-                    BtnDelete.Visibility = Visibility.Collapsed;//默认不显示
-                }
+                //    BtnDelete.Image.Source = new BitmapImage(new Uri(img, UriKind.Relative));
+                //    BtnDelete.Style = (Style)Application.Current.Resources["ButtonToolBarStyle"];
+                //    //BtnDelete.Click += BtnDelete_Click;
+                //    toolBar1.ButtonContainer.Children.Add(BtnDelete);
+                //    //BtnDelete.Visibility = Visibility.Collapsed;//默认不显示
+                //}
 
                 if (state != "-1" && Convert.ToInt32(CheckStates.Approved).ToString() != state
                     && Convert.ToInt32(CheckStates.UnApproved).ToString() != state)

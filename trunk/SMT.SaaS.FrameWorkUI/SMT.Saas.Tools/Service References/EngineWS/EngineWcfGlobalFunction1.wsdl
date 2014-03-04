@@ -14,8 +14,8 @@
       <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
       <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
       <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL" />
-      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
-      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEngineWcfGlobalFunction_AddTask_InputMessage">
@@ -62,6 +62,18 @@
   </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_GetDoTaskNumberByIM_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDoTaskNumberByIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_AddDoTaskEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskEntity" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_AddDoTaskEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDoTaskEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_GetPersonFromDoTaskByTitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonFromDoTaskByTitle" />
+  </wsdl:message>
+  <wsdl:message name="IEngineWcfGlobalFunction_GetPersonFromDoTaskByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonFromDoTaskByTitleResponse" />
   </wsdl:message>
   <wsdl:message name="IEngineWcfGlobalFunction_GetForwardHistory_InputMessage">
     <wsdl:part name="parameters" element="tns:GetForwardHistory" />
@@ -305,6 +317,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberByIM" message="tns:IEngineWcfGlobalFunction_GetDoTaskNumberByIM_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberByIMResponse" message="tns:IEngineWcfGlobalFunction_GetDoTaskNumberByIM_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddDoTaskEntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntity" message="tns:IEngineWcfGlobalFunction_AddDoTaskEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntityResponse" message="tns:IEngineWcfGlobalFunction_AddDoTaskEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonFromDoTaskByTitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitle" message="tns:IEngineWcfGlobalFunction_GetPersonFromDoTaskByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitleResponse" message="tns:IEngineWcfGlobalFunction_GetPersonFromDoTaskByTitle_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetForwardHistory">
       <wsdl:input wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistory" message="tns:IEngineWcfGlobalFunction_GetForwardHistory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistoryResponse" message="tns:IEngineWcfGlobalFunction_GetForwardHistory_OutputMessage" />
@@ -527,6 +547,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetDoTaskNumberByIM">
       <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberByIM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDoTaskEntity">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonFromDoTaskByTitle">
+      <soap12:operation soapAction="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

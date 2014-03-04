@@ -86,6 +86,7 @@ namespace SMT.HRM.DAL
             string strEfficDateFrom, string strEfficDateTo, string strOrderBy, string strFilter, params object[] objArgs)
         {
             var ents = from v in GetObjects()
+                       
                        select v;
 
             switch (sType)
@@ -156,8 +157,11 @@ namespace SMT.HRM.DAL
                 ents = ents.Where(strFilter, objArgs);
             }
 
-
-            return ents.OrderBy(strOrderBy);
+            var ent1 = from ent in ents.ToList()
+                       orderby  ent.EMPLOYEENAME
+                       select ent;
+            //return ents.ToList().ord.AsQueryable();// (strOrderBy);
+            return ent1.AsQueryable();
         }
 
         /// <summary>

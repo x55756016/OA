@@ -12,24 +12,28 @@
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
-    <ReferencedAssemblies />
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.Entity" />
+      <ReferencedAssembly AssemblyName="System.ServiceModel" />
+    </ReferencedAssemblies>
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EngineWcfGlobalFunction8.xsd" MetadataType="Schema" ID="35260997-fe69-470c-b5f0-843bafc2dc32" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" />
-    <MetadataFile FileName="EngineWcfGlobalFunction1.wsdl" MetadataType="Wsdl" ID="08aed113-99ef-435a-a8d2-a79c76a18d24" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?wsdl" />
-    <MetadataFile FileName="EngineWcfGlobalFunction9.xsd" MetadataType="Schema" ID="ebdbcc90-3f6d-409c-9dfc-a983f6b7a203" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" />
-    <MetadataFile FileName="EngineWcfGlobalFunction10.xsd" MetadataType="Schema" ID="5b778ac1-e4ef-4e7f-bbcc-43697ce448fa" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" />
-    <MetadataFile FileName="EngineWcfGlobalFunction11.xsd" MetadataType="Schema" ID="453c30e3-fea2-4f03-9ed2-d78fe89fdd1a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" />
-    <MetadataFile FileName="EngineWcfGlobalFunction12.xsd" MetadataType="Schema" ID="ade5742b-051f-4994-8157-dd8969afc944" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" />
-    <MetadataFile FileName="EngineWcfGlobalFunction13.xsd" MetadataType="Schema" ID="692b8064-a91e-479d-8f0b-af9098ac693a" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" />
-    <MetadataFile FileName="EngineWcfGlobalFunction17.xsd" MetadataType="Schema" ID="a97756a2-3c16-4163-93ab-8dae80727a6d" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" />
-    <MetadataFile FileName="EngineWcfGlobalFunction1.disco" MetadataType="Disco" ID="e20b4332-13ad-4632-86f6-f383352bafdf" SourceId="1" SourceUrl="http://portal.smt-online.net/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?disco" />
+    <MetadataFile FileName="EngineWcfGlobalFunction8.xsd" MetadataType="Schema" ID="a3873464-f1b6-44ee-8fd9-2ab8be73c14a" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" />
+    <MetadataFile FileName="EngineWcfGlobalFunction9.xsd" MetadataType="Schema" ID="c42ff187-f479-487f-9d81-391b88d6245c" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" />
+    <MetadataFile FileName="EngineWcfGlobalFunction10.xsd" MetadataType="Schema" ID="cc2dddff-45b4-4661-8709-973c2f9376f4" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" />
+    <MetadataFile FileName="EngineWcfGlobalFunction11.xsd" MetadataType="Schema" ID="a1db9a9c-88ea-4c6e-ad53-e4ce4f0b26bc" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" />
+    <MetadataFile FileName="EngineWcfGlobalFunction12.xsd" MetadataType="Schema" ID="8e6a7b33-09db-4d67-8110-b5b8aea18f52" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" />
+    <MetadataFile FileName="EngineWcfGlobalFunction13.xsd" MetadataType="Schema" ID="444f6983-9ee2-4517-882b-3fa241176361" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" />
+    <MetadataFile FileName="EngineWcfGlobalFunction1.wsdl" MetadataType="Wsdl" ID="5fd3f97f-17ab-486d-8f5a-429270bb7015" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?wsdl" />
+    <MetadataFile FileName="EngineWcfGlobalFunction17.xsd" MetadataType="Schema" ID="d62b16cc-d498-4cca-b0bb-2d373bd7ce30" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" />
+    <MetadataFile FileName="EngineWcfGlobalFunction1.disco" MetadataType="Disco" ID="b8febf46-5e0a-4eb5-9484-b31fbc343d51" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
