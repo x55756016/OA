@@ -15,8 +15,8 @@ using SMT.SaaS.Permission.DAL.views;
 using SMT.Foundation.Log;
 using InterActiveDirectory;
 using SMT.SaaS.Permission.BLL.PersonnelWS;
-using SMT.SaaS.Permission.CustomerModel;
 //using SMT.SaaS.BLLCommonServices.FlowWFService;
+using SMT.SaaS.Permission.CustomerModel;
 
 
 namespace SMT.SaaS.Permission.Services
@@ -1291,7 +1291,19 @@ namespace SMT.SaaS.Permission.Services
         #endregion
 
         #region 角色管理
-
+        /// <summary>
+        /// 复制角色信息
+        /// </summary>
+        /// <param name="roleID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public bool CopyRoleInfo(string roleID)
+        {
+            using (SysRoleBLL RoleBll = new SysRoleBLL())
+            {
+                return RoleBll.CopyRoleInfo(roleID);
+            }
+        }
 
         [OperationContract]
         //增
@@ -1470,7 +1482,6 @@ namespace SMT.SaaS.Permission.Services
             }
 
         }
-
         /// <summary>
         /// 服务器端分页 角色
         /// </summary>
@@ -1984,10 +1995,9 @@ namespace SMT.SaaS.Permission.Services
                         return;
                     }
 
-
                     RoleEntityMenuBLL roleEmBll = new RoleEntityMenuBLL();
                     roleEmBll.UpdateRoleInfo(RoleID, strResult);//修改信息
-                    strResult = string.Empty;                    
+                    strResult = string.Empty;
                     IQueryable<T_SYS_ENTITYMENUCUSTOMPERM> cuspers = bll.GetCustomPermByRoleID(RoleID);
                     //if (cuspers != null)
                     //{
@@ -2435,7 +2445,24 @@ namespace SMT.SaaS.Permission.Services
                     userList = (List<T_SYS_USER>)WCFCache.Current[keyString];
                 }
                 #endregion
-                return userList !=null ? userList : null;
+                return userList != null ? userList : null;
+            }
+        }
+
+        /// <summary>
+        /// 根据角色获取该角色下的所有用户信息 人员离职审核通过调用
+        /// </summary>
+        /// <param name="roleID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_SYS_USER> GetSysUserByRoleToEmployeeLeave(string roleID)
+        {
+            using (SysUserRoleBLL bll = new SysUserRoleBLL())
+            {
+                List<T_SYS_USER> userList;
+                IQueryable<T_SYS_USER> IQList = bll.GetSysUserByRole(roleID);
+                userList = IQList == null ? null : IQList.ToList();
+                return userList != null ? userList : null;
             }
         }
 
@@ -2637,7 +2664,6 @@ namespace SMT.SaaS.Permission.Services
                 return plist.Count() > 0 ? plist : null;
             }
         }
-
         /// <summary>
         /// 修改预算管理员
         /// </summary>
@@ -2653,6 +2679,7 @@ namespace SMT.SaaS.Permission.Services
                 return bll.UpdateFbAdmin(employeeid, ownercompanyid, fbAdmin);
             }
         }
+
         /// <summary>
         /// 根据用户名称得到用户所拥有的权限  简化版 2010-9-27 添加了预算管理员的判断 2011-12-15
         /// 
@@ -2707,7 +2734,6 @@ namespace SMT.SaaS.Permission.Services
                 return plist.Count() > 0 ? plist.ToList() : null;
             }
         }
-
 
         private static int GetUserMenuPermsTimes = 0;
         /// <summary>
@@ -2996,6 +3022,41 @@ namespace SMT.SaaS.Permission.Services
                 UserBll.SysUserInfoAddORUpdate(obj, ref strMsg);
             }
         }
+
+        /// <summary>
+        /// 员工入职的话自动添加一个默认的角色信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="companyID"></param>
+        /// <param name="compayName"></param>
+        /// <param name="deptID"></param>
+        /// <param name="postID"></param>
+        /// <param name="employeeID"></param>
+        /// <param name="employeePostID"></param>
+        /// <returns></returns>
+         [OperationContract]
+        public bool EmployeeEntryAddDefaultRole(T_SYS_USER user, string companyID, string compayName, string deptID, string postID, string employeeID, string employeePostID)
+        {
+            using (SysUserRoleBLL UserBll = new SysUserRoleBLL())
+            {
+                return UserBll.EmployeeEntryAddDefaultRole( user,  companyID,  compayName,  deptID,  postID,  employeeID,  employeePostID);
+            }
+        }
+        
+      /// <summary>
+      /// 获取一个角色只有一个人情况的信息，并返回流程管理员信息
+      /// </summary>
+      /// <param name="employeeID">员工ID</param>
+      /// <param name="companyID">公司ID（用于查找改公司的流程管理员）</param>
+      /// <returns></returns>
+        // [OperationContract]
+        // public V_CheckRoleInfo GetCheckRoleInfoByEmployeeID(string employeeID, string companyID)
+        //{
+        //    using (SysUserRoleBLL UserBll = new SysUserRoleBLL())
+        //    {
+        //        return UserBll.GetCheckRoleInfoByEmployeeID(employeeID,companyID);
+        //    }
+        // }
 
         [OperationContract]
         private bool IsExistSysUserInfo(string StrUserName)
@@ -3935,5 +3996,28 @@ namespace SMT.SaaS.Permission.Services
             }
         }
         #endregion
+        /// <summary>
+        /// 获取某些公司的流程管理员集合
+        /// </summary>
+        /// <param name="companyIDs">公司ID集合</param>
+        /// <returns>返回系统用户集合</returns>
+        [OperationContract]
+        public List<T_SYS_USER> GetFlowManagers(List<string> companyIDs)
+        {
+            using (SysPermissionBLL bll = new SysPermissionBLL())
+            {
+                List<T_SYS_USER> listUsers = new List<T_SYS_USER>();
+                try
+                {
+                    listUsers = bll.GetFlowManagers(companyIDs);
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug("PermissionService-GetFlowManagers获取流程管理员集合出错:" + ex.ToString());
+                    //return null;
+                }
+                return listUsers;
+            }
+        }
     }
 }
