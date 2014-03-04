@@ -1547,11 +1547,13 @@ namespace SMT.SaaS.Permission.UI.UserControls
                     return;
                 }
 
-                var q = from c in ListCustomerpermission
-                        where c.EntityMenuId == entMenu.ENTITYMENUID
-                        select c;
-
-                ListPermValue = q.FirstOrDefault().PermissionValue;
+                var q = (from c in ListCustomerpermission
+                         where c.EntityMenuId == entMenu.ENTITYMENUID
+                         select c).FirstOrDefault();
+                if (q != null)
+                {
+                    ListPermValue = q.PermissionValue;
+                }
                 if (ListPermValue != null)
                 {
                     var qc = from p in ListPermValue
