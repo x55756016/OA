@@ -368,12 +368,18 @@ namespace SMT.SaaS.OA.BLL
                         user.CONTENT = ApprovalInfo.CONTENT;
                         user.ISCHARGE = ApprovalInfo.ISCHARGE;
                         user.TEL = ApprovalInfo.TEL;
+                        user.ISPERSONFLOW = ApprovalInfo.ISPERSONFLOW;
                         user.CHARGEMONEY = ApprovalInfo.CHARGEMONEY;
                         user.APPROVALTITLE = ApprovalInfo.APPROVALTITLE;
                         user.TYPEAPPROVAL = ApprovalInfo.TYPEAPPROVAL;
                         user.TYPEAPPROVALONE = ApprovalInfo.TYPEAPPROVALONE;
                         user.TYPEAPPROVALTWO = ApprovalInfo.TYPEAPPROVALTWO;
                         user.TYPEAPPROVALTHREE = ApprovalInfo.TYPEAPPROVALTHREE;
+                        user.OWNERID = ApprovalInfo.OWNERID;
+                        user.OWNERNAME = ApprovalInfo.OWNERNAME;
+                        user.OWNERPOSTID = ApprovalInfo.OWNERPOSTID;
+                        user.OWNERDEPARTMENTID = ApprovalInfo.OWNERDEPARTMENTID;
+                        user.OWNERCOMPANYID = ApprovalInfo.OWNERCOMPANYID;                        
                     }
                     
                     user.UPDATEUSERID = ApprovalInfo.UPDATEUSERID;                    

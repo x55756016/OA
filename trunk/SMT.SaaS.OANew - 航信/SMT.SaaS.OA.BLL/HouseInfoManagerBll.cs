@@ -361,6 +361,7 @@ namespace SMT.SaaS.OA.BLL
 
             try
             {
+                //Tracer.Debug("公司发文中查询的内容：" + Doctitle );
                 IQueryable<V_SystemNotice> ent = GetHouseAndNoticeInfoToMobile(pageIndex, pageSize, ref pageCount, ref DataCount, employeeid
                     , postIDs, companyIDs, departmentIDs, filterString, paras, Doctitle);
                 return ent != null ? ent.ToList() : null;
@@ -382,15 +383,128 @@ namespace SMT.SaaS.OA.BLL
         {
             try
             {
-
+                
                 var Publishdoc = from doc in dal.GetObjects<T_OA_SENDDOC>().Include("T_OA_SENDDOCTYPE")
                                  join n in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on doc.SENDDOCID equals n.FORMID                                 
-                                 where doc.CHECKSTATE == "2" && doc.ISDISTRIBUTE == "1" &&
+                                 where doc.CHECKSTATE == "2" && doc.ISDISTRIBUTE == "1" && doc.ISTOP !="1"  &&
                                   (n.VIEWER == userID
                                   || postIDs.Contains(n.VIEWER)
                                   || departmentIDs.Contains(n.VIEWER)
                                   || companyIDs.Contains(n.VIEWER))
                                  select new { doc,n};
+                //设置为置顶的数据
+                var topDocs = from topdoc in dal.GetObjects<T_OA_SENDDOC>().Include("T_OA_SENDDOCTYPE")
+                              join n in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on topdoc.SENDDOCID equals n.FORMID
+                              where topdoc.CHECKSTATE == "2" && topdoc.ISDISTRIBUTE == "1" && topdoc.ISTOP == "1" &&
+                               (n.VIEWER == userID
+                               || postIDs.Contains(n.VIEWER)
+                               || departmentIDs.Contains(n.VIEWER)
+                               || companyIDs.Contains(n.VIEWER))
+                              orderby topdoc.PUBLISHDATE descending
+                              select new { topdoc, n };
+                if (topDocs.Count() > 0)
+                { 
+
+                }
+                if (Publishdoc.Count() > 0)
+                {
+                    //if (!string.IsNullOrEmpty(Doctitle))
+                    //{
+                    //    Publishdoc = from ent in Publishdoc
+                    //                 where Doctitle.Contains(ent.doc.NUM)
+                    //                 select ent;
+                    //}
+                    if (!string.IsNullOrEmpty(filterString))
+                    {
+                        Publishdoc = Publishdoc.Where(filterString, paras);
+                    }
+                }
+                //Tracer.Debug("公司发文中查询的内容-paras：" + Doctitle);
+
+                var Compaydoc = (from ent in Publishdoc
+                                 select new  V_SystemNotice
+                                 {
+                                     FormId = ent.doc.SENDDOCID,
+                                     //FormTitle = "神州通" + c.NUM.Trim() + "－" + c.SENDDOCTITLE.Trim(),
+                                     FormTitle = ent.doc.NUM.Trim().Length > 0 ? ent.doc.NUM.Trim() + "－" + ent.doc.SENDDOCTITLE.Trim() : ent.doc.SENDDOCTITLE.Trim(),
+                                     Formtype = ent.doc.T_OA_SENDDOCTYPE.SENDDOCTYPE,
+                                     FormDate = (DateTime)ent.doc.PUBLISHDATE
+                                 }).ToList().Distinct().AsQueryable().OrderByDescending(c => c.FormDate);
+                if (!string.IsNullOrEmpty(Doctitle))
+                { 
+                    //查询条件不为空
+                    List<V_SystemNotice> listNotes = new List<V_SystemNotice>();
+                    Compaydoc.ToList().ForEach(s => {
+                        s.TitleNotes = s.FormTitle + s.FormDate.ToString("yyyy年MM月dd");
+                        listNotes.Add(s);
+                    });
+                    Compaydoc = (from ent in listNotes
+                                //where Doctitle.Contains(ent.TitleNotes)
+                                where ent.TitleNotes.Contains(Doctitle)
+                                 select ent).ToList().AsQueryable().OrderByDescending(c => c.FormDate);
+                }
+                //Compaydoc = Compaydoc.AsQueryable().Distinct().AsQueryable();
+                //List<V_SystemNotice> aaa = Compaydoc.ToList();
+                //aaa =aaa.Distinct().ToList();
+                //Compaydoc = Compaydoc.ToList().Distinct().ToList().AsQueryable();
+                //var entity = notice.Union(house).Union(companydoc);
+                List<V_SystemNotice> newNotices = new List<V_SystemNotice>();
+                var entity = Utility.PagerMobile<V_SystemNotice>(Compaydoc, pageIndex, pageSize, ref pageCount, ref DataCount);
+                //entity = entity.OrderByDescending(c => c.FormDate);
+                newNotices = entity.ToList();
+                if (topDocs.Count() > 0)
+                {
+                    var CompayTopdoc = (from ent in topDocs
+                                     select new V_SystemNotice
+                                     {
+                                         FormId = ent.topdoc.SENDDOCID,
+                                         //FormTitle = "神州通" + c.NUM.Trim() + "－" + c.SENDDOCTITLE.Trim(),
+                                         FormTitle = ent.topdoc.NUM.Trim().Length > 0 ? "【置顶】" + ent.topdoc.NUM.Trim() + "－" + ent.topdoc.SENDDOCTITLE.Trim() : "【置顶】"  + ent.topdoc.SENDDOCTITLE.Trim(),
+                                         Formtype = ent.topdoc.T_OA_SENDDOCTYPE.SENDDOCTYPE,
+                                         FormDate = (DateTime)ent.topdoc.PUBLISHDATE,
+                                         IsTop = ent.topdoc.ISTOP
+                                     }).ToList().Distinct().AsQueryable().OrderByDescending(c => c.FormDate);
+                    int intCount = 0;
+                    foreach (var singledoc in CompayTopdoc)
+                    {                        
+                        newNotices.Insert(intCount, singledoc);
+                        intCount++;
+                    }
+                }
+
+                //Tracer.Debug("公司发文中查询的内容-结果：" + entity.Count().ToString());
+                //return entity;
+                return newNotices.AsQueryable();
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("房源管理手机版HouseInfoManagerBll-GetHouseAndNoticeInfo" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return null;
+            }
+        }
+
+
+
+
+
+        /// <summary>
+        /// 获取会议通知和房源发布信息、公文   修改按时间进行查询
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<V_SystemNotice> GetHouseAndNoticeInfoToMobileNew(int pageIndex, int pageSize, ref int pageCount, ref int DataCount, string userID, List<string> postIDs
+            , List<string> companyIDs, List<string> departmentIDs, string filterString, List<object> paras, string Doctitle,string strStart,string strEnd)
+        {
+            try
+            {
+
+                var Publishdoc = from doc in dal.GetObjects<T_OA_SENDDOC>().Include("T_OA_SENDDOCTYPE")
+                                 join n in dal.GetObjects<T_OA_DISTRIBUTEUSER>() on doc.SENDDOCID equals n.FORMID
+                                 where doc.CHECKSTATE == "2" && doc.ISDISTRIBUTE == "1" &&
+                                  (n.VIEWER == userID
+                                  || postIDs.Contains(n.VIEWER)
+                                  || departmentIDs.Contains(n.VIEWER)
+                                  || companyIDs.Contains(n.VIEWER))
+                                 select new { doc, n };
 
                 if (Publishdoc.Count() > 0)
                 {
@@ -406,7 +520,32 @@ namespace SMT.SaaS.OA.BLL
                     }
                 }
 
-
+                DateTime dtStart = new DateTime() ;
+                DateTime dtEnd = new DateTime();
+                if (!string.IsNullOrEmpty(strStart))
+                {
+                    try
+                    {
+                        dtStart = DateTime.Parse(strStart);
+                    }
+                    catch (Exception ex)
+                    {
+                        strStart = string.Empty;
+                        Tracer.Debug("房源管理HouseInfoManagerBll-GetHouseAndNoticeInfoToMobileNew开始时间转换出错：" + strStart + " " + ex.ToString());
+                    }
+                }
+                if (!string.IsNullOrEmpty(strEnd))
+                {
+                    try
+                    {
+                        dtEnd = DateTime.Parse(strEnd +" 23:59:59");
+                    }
+                    catch (Exception ex)
+                    {
+                        strEnd = string.Empty;
+                        Tracer.Debug("房源管理HouseInfoManagerBll-GetHouseAndNoticeInfoToMobileNew结束时间转换出错：" + strEnd + " " + ex.ToString());
+                    } 
+                }
                 var Compaydoc = (from ent in Publishdoc
                                  select new V_SystemNotice
                                  {
@@ -416,12 +555,23 @@ namespace SMT.SaaS.OA.BLL
                                      Formtype = ent.doc.T_OA_SENDDOCTYPE.SENDDOCTYPE,
                                      FormDate = (DateTime)ent.doc.PUBLISHDATE
                                  }).ToList().AsQueryable().OrderByDescending(c => c.FormDate);
-
+                if (!string.IsNullOrEmpty(strStart) && string.IsNullOrEmpty(strEnd))
+                {
+                    Compaydoc = Compaydoc.Where(s => s.FormDate >= dtStart).ToList().AsQueryable().OrderByDescending(c => c.FormDate);
+                }
+                if (string.IsNullOrEmpty(strStart) && !string.IsNullOrEmpty(strEnd))
+                {
+                    Compaydoc = Compaydoc.Where(s => s.FormDate <= dtEnd).ToList().AsQueryable().OrderByDescending(c => c.FormDate);
+                }
+                if (!string.IsNullOrEmpty(strStart) && !string.IsNullOrEmpty(strEnd))
+                {
+                    Compaydoc = Compaydoc.Where(s => s.FormDate >= dtStart && s.FormDate <= dtEnd).ToList().AsQueryable().OrderByDescending(c => c.FormDate);
+                }
                 //var entity = notice.Union(house).Union(companydoc);
 
                 var entity = Utility.PagerMobile<V_SystemNotice>(Compaydoc, pageIndex, pageSize, ref pageCount, ref DataCount);
                 //entity = entity.OrderByDescending(c => c.FormDate);
-                
+
 
                 return entity;
             }

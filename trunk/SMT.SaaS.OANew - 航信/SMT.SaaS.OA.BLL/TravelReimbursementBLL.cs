@@ -8,6 +8,9 @@ using SMT.SaaS.OA.DAL.Views;
 using System.Linq.Dynamic;
 using SMT.Foundation.Log;
 using SMT.SaaS.BLLCommonServices.FBServiceWS;
+using System.Data.OracleClient;
+using System.Configuration;
+using System.Data;
 
 namespace SMT.SaaS.OA.BLL
 {
@@ -147,24 +150,24 @@ namespace SMT.SaaS.OA.BLL
                         {
                             string trid = entList[i].TRAVELREIMBURSEMENTID;
                             var ent = trdal.GetObjects<T_OA_REIMBURSEMENTDETAIL>().Include("T_OA_TRAVELREIMBURSEMENT")
-                                      .Where(p=>p.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == trid);
+                                      .Where(p => p.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == trid);
 
-                            if (ent!=null)
+                            if (ent != null)
                             {
                                 foreach (var td in ent)
                                 {
-                                    dal.DeleteFromContext(td) ;
+                                    dal.DeleteFromContext(td);
                                 }
                             }
 
                             Tracer.Debug("delete " + trid);
                             if (entList[i] != null)
                             {
-                                if(entList[i]!=null)
+                                if (entList[i] != null)
                                     base.DeleteMyRecord(entList[i]);
-                                if(entList[i]!=null)
+                                if (entList[i] != null)
                                     dal.DeleteFromContext(entList[i]);
-                            }                            
+                            }
                         }
                         dal.SaveContextChanges();
                     }
@@ -373,10 +376,10 @@ namespace SMT.SaaS.OA.BLL
         public int UpdateTravelReimbursementFromEngine(string BorrowID, string StrCheckState)
         {
             dal.BeginTransaction();
-          
+
             string oldCheckState = string.Empty;
             try
-            { 
+            {
                 T_OA_TRAVELREIMBURSEMENT Master = new T_OA_TRAVELREIMBURSEMENT();
                 FBServiceClient FBClient = new FBServiceClient();
                 string strMsg = "";//string.Empty;
@@ -384,12 +387,12 @@ namespace SMT.SaaS.OA.BLL
                           where ent.TRAVELREIMBURSEMENTID == BorrowID
                           select ent).FirstOrDefault();//GetTravelReimbursementById(BorrowID);
                 oldCheckState = Master.CHECKSTATE;//保留旧的审核状态
-               
+
                 Master.CHECKSTATE = StrCheckState;
 
                 Master.UPDATEDATE = DateTime.Now;
                 Master.EntityKey = new System.Data.EntityKey("SMT_OA_EFModelContext.T_OA_TRAVELREIMBURSEMENT", "TRAVELREIMBURSEMENTID", Master.TRAVELREIMBURSEMENTID);
-               
+
 
                 Tracer.Debug("事务开始 出差报销引擎开始更新预算关联单据：出差报销id：" + BorrowID + " 审核状态：" + StrCheckState);
                 var fbResult = FBClient.UpdateExtensionOrder("Travel", BorrowID, StrCheckState, ref strMsg);//手机审单时通过后台修改个人费用报销中对应的报销单据状态
@@ -397,7 +400,7 @@ namespace SMT.SaaS.OA.BLL
                 if (string.IsNullOrEmpty(strMsg))//预算没有错误才执行改变表单状态的操作
                 {
                     if (fbResult == null)
-                    {                       
+                    {
                         Tracer.Debug("事务中 出差报销引擎开始更新预算关联单据失败:"
                             + "no FB.Result was returned");
                         throw new Exception("出差报销引擎开始更新预算关联单据失败");
@@ -438,15 +441,15 @@ namespace SMT.SaaS.OA.BLL
                     else
                     {
                         Tracer.Debug("事务回滚 引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
-                            + BorrowID + " 审核状态：" + StrCheckState);                       
+                            + BorrowID + " 审核状态：" + StrCheckState);
                         throw new Exception("引擎更新出差报销单号失败,受影响的记录数小于1：出差报销id："
                             + BorrowID + " 审核状态：" + StrCheckState);
                     }
                 }
                 else
                 {
-                    Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID+ " 出差报销引擎开始更新预算关联单据返回结果为空");
-                   
+                    Tracer.Debug("事务回滚 引擎更新出差报销状态失败：" + BorrowID + " 出差报销引擎开始更新预算关联单据返回结果为空");
+
                     throw new Exception(strMsg);
                 }
                 Tracer.Debug("事务确认成功：引擎更新出差报销，同步预算单，考勤记录成功！");
@@ -455,10 +458,10 @@ namespace SMT.SaaS.OA.BLL
                 //var BUSINESSTRIPID = (from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_BUSINESSTRIP")
                 //                      where ent.TRAVELREIMBURSEMENTID == Master.TRAVELREIMBURSEMENTID
                 //                      select ent).First().T_OA_BUSINESSTRIP.BUSINESSTRIPID;
+                Tracer.Debug("88888888888888888888888888888888");
 
-                UpdateEntityXML(Master.TRAVELREIMBURSEMENTID
-                    , "自动生成", Master.NOBUDGETCLAIMS);
-                Tracer.Debug("出差更新元数据中出差单号成功！");
+                //UpdateEntityXMLNumber(Master.TRAVELREIMBURSEMENTID
+                //    , "自动生成", Master.NOBUDGETCLAIMS);
             }
             catch (Exception ex)
             {
@@ -470,17 +473,22 @@ namespace SMT.SaaS.OA.BLL
             return 1;
         }
 
-        public string UpdateEntityXML(string Formid, string OldString, string ReplaceString)
+        public string UpdateEntityXMLNumber(string Formid)
         {
             try
             {
                 TravelReimbursementBLL bll = new TravelReimbursementBLL();
-                ReplaceString = (from ent in bll.dal.GetObjects()
+                string ReplaceString = (from ent in bll.dal.GetObjects()
+                                 where ent.TRAVELREIMBURSEMENTID==Formid
                                  select ent.NOBUDGETCLAIMS).FirstOrDefault();
                 if (string.IsNullOrEmpty(ReplaceString))
                 {
                     Tracer.Debug("出差报销提交审核替换元数据单号，获取的单号为空：" + ReplaceString);
                     return "";
+                }
+                else
+                {
+                    Tracer.Debug("开始更新出差报销单号：获取的最新单号为：" + ReplaceString +  " formid: " + Formid);
                 }
                 //更新元数据里的报销单号
                 SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient client =
@@ -490,17 +498,20 @@ namespace SMT.SaaS.OA.BLL
                 xml = client.GetMetadataByFormid(Formid);
                 Tracer.Debug("获取到的元数据：" + xml);
                 xml = xml.Replace("自动生成", ReplaceString);
-                Tracer.Debug("替换单号后的XML:" + xml);
-                bool flag = client.UpdateMetadataByFormid(Formid, xml);
+                if (string.IsNullOrEmpty(xml))
+                {
+                    Tracer.Debug("获取到的流程元数据为空，不更新元数据单号");
+                    return "";
+                }
+                bool flag = UpdateMetadataByFormid2(Formid, xml);
                 if (flag)
                 {
-                    Tracer.Debug("出差报销元数据替换单号成功：" + ReplaceString);
+                    Tracer.Debug("新出差报销元数据替换单号成功：" + ReplaceString);
                     return "";
                 }
                 else
                 {
                     Tracer.Debug("出差报销元数据替换单号UpdateMetadataByFormid返回false：Formid：" + Formid
-                        + OldString
                         + ReplaceString);
                     return "";
                 }
@@ -512,6 +523,89 @@ namespace SMT.SaaS.OA.BLL
             }
 
         }
+
+        public static bool UpdateMetadataByFormid2(string formid, string xml)
+        {
+            string str = ConfigurationManager.AppSettings["ConnectionString"];
+            var conn = new OracleConnection(str);
+            try
+            {
+                conn.Open();
+                string sql = "UPDATE smtwf.FLOW_FLOWRECORDMASTER_T set BUSINESSOBJECT=:BUSINESSOBJECT where FORMID=:FORMID ";
+                string sqlDb = "UPDATE smtwf.T_WF_DOTASK set APPXML=:APPXML where ORDERID=:FORMID ";
+                try
+                {
+                    #region 审核主表
+                    OracleParameter[] pageparm =
+                        { 
+                            new OracleParameter(":FORMID",OracleType.NVarChar), 
+                            new OracleParameter(":BUSINESSOBJECT",OracleType.Clob)                   
+
+                        };
+                    pageparm[0].Value = formid;//
+                    pageparm[1].Value = xml;//
+                    int n;
+                    OracleCommand cmd = new OracleCommand(sql, conn);
+                    AttachParameters(cmd, pageparm);
+
+                    n = cmd.ExecuteNonQuery();
+
+                    Tracer.Debug("UpdateMetadataByFormid2【第1次】：【审核主表FLOW_FLOWRECORDMASTER_T】[更新元数据]成功 影响记录数：" + n + ";formid＝" + formid + ";xml=" + xml);
+                    #endregion
+                    #region 待办任务
+                    OracleParameter[] pageparmDb =
+                        { 
+                            new OracleParameter(":FORMID",OracleType.NVarChar), 
+                            new OracleParameter(":APPXML",OracleType.Clob)                   
+
+                        };
+                    pageparmDb[0].Value = formid;//
+                    pageparmDb[1].Value = xml;//
+                    OracleCommand cmdDb = new OracleCommand(sqlDb, conn);
+                    AttachParameters(cmdDb, pageparmDb);
+                    int n2 = cmdDb.ExecuteNonQuery();
+                    Tracer.Debug("UpdateMetadataByFormid2【第1次】：【待办任务T_WF_DOTASK】[更新元数据]成功 影响记录数：" + n2 + ";formid＝" + formid + ";xml=" + xml);
+                    #endregion
+                    return true;
+
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug("更新元数据【第1次】 UpdateMetadataByFormid2 异常信息：" + ex.Message);
+                    return false;
+                }
+                finally
+                {
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                    Tracer.Debug("更新元数据【第1次】:UpdateMetadataByFormid2-> \r\n SQL=" + sql + "\r\n SQL=" + sqlDb);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("更新元数据【第1次】:UpdateMetadataByFormid2:异常信息：" + ex.Message);
+                return false;
+            }
+        }
+
+        private static void AttachParameters(OracleCommand command, OracleParameter[] commandParameters)
+        {
+            foreach (OracleParameter p in commandParameters)
+            {
+                //check for derived output value with no value assigned
+                if ((p.Direction == ParameterDirection.InputOutput) && (p.Value == null))
+                {
+                    p.Value = DBNull.Value;
+                }
+                command.Parameters.Add(p);
+            }
+        }
+
+
 
         public void InsertAttenceRecord(T_OA_TRAVELREIMBURSEMENT travel)
         {
@@ -526,15 +620,15 @@ namespace SMT.SaaS.OA.BLL
                     return;
                 }
 
-                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD> ListRecord 
+                List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD> ListRecord
                     = new List<AttendanceWS.T_HR_EMPLOYEEEVECTIONRECORD>();
-                
+
                 var Details = from ent in dal.GetObjects<T_OA_REIMBURSEMENTDETAIL>().Include("T_OA_TRAVELREIMBURSEMENT")
-                              where ent.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == travel.TRAVELREIMBURSEMENTID                              
+                              where ent.T_OA_TRAVELREIMBURSEMENT.TRAVELREIMBURSEMENTID == travel.TRAVELREIMBURSEMENTID
                               select ent;
                 if (Details.Count() > 0)
                 {
-                    List<T_OA_REIMBURSEMENTDETAIL> ListDetals = Details.ToList().OrderBy(c => c.STARTDATE).ToList();                   
+                    List<T_OA_REIMBURSEMENTDETAIL> ListDetals = Details.ToList().OrderBy(c => c.STARTDATE).ToList();
                     T_OA_REIMBURSEMENTDETAIL item = new T_OA_REIMBURSEMENTDETAIL();
                     item = ListDetals[0];
 
@@ -571,7 +665,7 @@ namespace SMT.SaaS.OA.BLL
                     {
                         Record.STARTDATE = ListDetals[0].STARTDATE.Value;
                         Record.STARTTIME = ((DateTime)ListDetals[0].STARTDATE).ToShortTimeString();
-                        Record.ENDDATE = ListDetals[ListDetals.Count()-1].ENDDATE.Value;
+                        Record.ENDDATE = ListDetals[ListDetals.Count() - 1].ENDDATE.Value;
                         Record.ENDTIME = ((DateTime)ListDetals[ListDetals.Count() - 1].ENDDATE).ToShortTimeString();
                         Record.DESTINATION = item.DESTCITY;//出差目的地
                         ListRecord.Add(Record);
@@ -580,11 +674,11 @@ namespace SMT.SaaS.OA.BLL
                     {
                         Record.STARTDATE = item.STARTDATE.Value;
                         Record.STARTTIME = ((DateTime)item.STARTDATE).ToShortTimeString();
-                       
+
                         Record.ENDDATE = item.ENDDATE.Value;
                         Record.ENDTIME = ((DateTime)item.ENDDATE).ToShortTimeString();
                         Record.DESTINATION = item.DESTCITY;//出差目的地
-                        
+
                         ListRecord.Add(Record);
                     }
 
@@ -748,7 +842,7 @@ namespace SMT.SaaS.OA.BLL
 
 
                     //}
-#endregion
+                    #endregion
 
                 }
                 try
@@ -756,10 +850,10 @@ namespace SMT.SaaS.OA.BLL
                     if (ListRecord.Count() > 0)
                     {
                         SMT.SaaS.OA.BLL.AttendanceWS.AttendanceServiceClient Client
-                            = new AttendanceWS.AttendanceServiceClient();                       
+                            = new AttendanceWS.AttendanceServiceClient();
                         Client.AddEmployeeEvectionRdList(ListRecord.ToArray());
 
-                        StrMessage = travel.CLAIMSWERENAME +" 的出差报销同步考勤数据成功，出差报销开始时间："
+                        StrMessage = travel.CLAIMSWERENAME + " 的出差报销同步考勤数据成功，出差报销开始时间："
                             + ListRecord[0].STARTDATE.Value.ToString("yyyy-MM-dd HH:mm:ss")
                             + " 结束时间:" + ListRecord[0].ENDDATE.Value.ToString("yyyy-MM-dd HH:mm:ss");
                         SMT.Foundation.Log.Tracer.Debug(StrMessage);
@@ -767,13 +861,13 @@ namespace SMT.SaaS.OA.BLL
                 }
                 catch (Exception ex)
                 {
-                    StrMessage = travel.CLAIMSWERENAME +" 的出差报销同步考勤数据出错:" + ListRecord.Count() + ex.Message.ToString();
+                    StrMessage = travel.CLAIMSWERENAME + " 的出差报销同步考勤数据出错:" + ListRecord.Count() + ex.Message.ToString();
                     SMT.Foundation.Log.Tracer.Debug(StrMessage);
                 }
             }
             catch (Exception ex)
             {
-                StrMessage = travel.CLAIMSWERENAME+" 的出差报销生成考勤数据出错" + ex.ToString();
+                StrMessage = travel.CLAIMSWERENAME + " 的出差报销生成考勤数据出错" + ex.ToString();
                 SMT.Foundation.Log.Tracer.Debug(StrMessage);
             }
         }
@@ -878,7 +972,7 @@ namespace SMT.SaaS.OA.BLL
                 if (TravelmanagementID != null)
                 {
                     var entity = from tm in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>()
-                                 where TravelmanagementID.Contains(tm.T_OA_BUSINESSTRIP.BUSINESSTRIPID) && tm.CHECKSTATE=="0"
+                                 where TravelmanagementID.Contains(tm.T_OA_BUSINESSTRIP.BUSINESSTRIPID) && tm.CHECKSTATE == "0"
                                  select tm.TRAVELREIMBURSEMENTID;
                     if (entity.Count() > 0) return entity.ToList();
                 }
@@ -935,7 +1029,7 @@ namespace SMT.SaaS.OA.BLL
         {
             bool IsExist = false;
             try
-            { 
+            {
                 using (trdal = new TravelReimbursementDAL())
                 {
                     //此方法用于检测是否有自动生成的出差报销，因此去checkstate为0，即未提交的

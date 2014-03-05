@@ -18,6 +18,7 @@ namespace SMT.SaaS.OA.BLL
         /// <param name="CheckState">审核状态</param>
         public int UpdateCheckState(string strEntityName, string EntityKeyName, string EntityKeyValue, string CheckState)
         {
+            Tracer.Debug("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm" );
             try
             {
                 using (CommDaL<TEntity> dal = new CommDaL<TEntity>())
