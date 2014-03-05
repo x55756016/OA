@@ -737,8 +737,9 @@ namespace SMT.HRM.BLL
 
                 T_HR_ATTENDANCESOLUTIONASIGN entityAsing = ent.FirstOrDefault();
                 if (entityAsing == null)
-                {
-                    Tracer.Debug("检测到员工设置为免打卡员工" + entity.T_HR_EMPLOYEE.EMPLOYEECNAME + "：修改考勤方案状态为（2为免打卡）：" + entityAsing.T_HR_ATTENDANCESOLUTION.ATTENDANCETYPE);
+                {                   
+                    Tracer.Debug("检测到员工没有分配考勤方案" + entity.T_HR_EMPLOYEE.EMPLOYEECNAME);
+                    return null;
                 }
                 if (Utility.IsNoNeedCardEmployee(strEmployeeID, dtStart))
                 {
