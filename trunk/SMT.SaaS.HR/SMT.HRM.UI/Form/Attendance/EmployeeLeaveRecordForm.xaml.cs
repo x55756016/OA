@@ -150,8 +150,15 @@ namespace SMT.HRM.UI.Form.Attendance
             }
             else
             {
-                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEELEAVERECORD", LeaveRecord.OWNERID,
-                    LeaveRecord.OWNERPOSTID, LeaveRecord.OWNERDEPARTMENTID, LeaveRecord.OWNERCOMPANYID);
+                if (LeaveRecord != null)
+                {
+                    ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEELEAVERECORD", LeaveRecord.OWNERID,
+                        LeaveRecord.OWNERPOSTID, LeaveRecord.OWNERDEPARTMENTID, LeaveRecord.OWNERCOMPANYID);
+                }
+                else
+                {
+                    ToolbarItems = new List<ToolbarItem>();
+                }
             }
             return ToolbarItems;
         }
@@ -311,7 +318,8 @@ namespace SMT.HRM.UI.Form.Attendance
            // perClient.GetEmployeeDetailByIDCompleted += new EventHandler<GetEmployeeDetailByIDCompletedEventArgs>(perClient_GetEmployeeDetailByIDCompleted);
             perClient.GetEmpOrgInfoByIDCompleted += new EventHandler<Saas.Tools.PersonnelWS.GetEmpOrgInfoByIDCompletedEventArgs>(perClient_GetEmpOrgInfoByIDCompleted);
             //clientAtt.EmployeeLeaveRecordAddCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordAddCompleted);
-            clientAtt.EmployeeCancelLeaveAddCompleted += new EventHandler<EmployeeCancelLeaveAddCompletedEventArgs>(clientAtt_EmployeeCancelLeaveAddCompleted);
+            //clientAtt.EmployeeCancelLeaveAddCompleted += new EventHandler<EmployeeCancelLeaveAddCompletedEventArgs>(clientAtt_EmployeeCancelLeaveAddCompleted);
+            clientAtt.EmployeeLeaveRecordAddCompleted += new EventHandler<EmployeeLeaveRecordAddCompletedEventArgs>(clientAtt_EmployeeLeaveRecordAddCompleted);
             //clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
             clientAtt.EmployeeLeaveRecordUpdateCompleted += new EventHandler<EmployeeLeaveRecordUpdateCompletedEventArgs>(clientAtt_EmployeeLeaveRecordUpdateCompleted);
             clientAtt.EmployeeLeaveRecordDeleteCompleted += new EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs>(clientAtt_EmployeeLeaveRecordDeleteCompleted);
@@ -320,6 +328,39 @@ namespace SMT.HRM.UI.Form.Attendance
             toolbar1.btnNew.Content = "添加带薪假(冲减)";
             toolbar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             toolbar1.btnDelete.Click += new RoutedEventHandler(btnDelete_Click);
+        }
+
+        void clientAtt_EmployeeLeaveRecordAddCompleted(object sender, EmployeeLeaveRecordAddCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                if (!string.IsNullOrEmpty(e.Result))
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Result.ToString());
+                    return;
+                }
+                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", ""));
+
+                if (closeFormFlag)
+                {
+                    CloseForm();
+                    return;
+                }
+
+                FormType = FormTypes.Edit;
+                LeaveRecordID = LeaveRecord.LEAVERECORDID;
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.FormType = FormTypes.Edit;
+                RefreshUI(RefreshedTypes.AuditInfo);
+            }
+            else
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+            }
+            ToolbarItems = Utility.CreateFormEditButton();
+            ToolbarItems.Add(ToolBarItems.Delete);
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            RefreshUI(RefreshedTypes.All);
         }
 
         void clientAtt_EmployeeLeaveRecordUpdateCompleted(object sender, EmployeeLeaveRecordUpdateCompletedEventArgs e)
@@ -379,38 +420,7 @@ namespace SMT.HRM.UI.Form.Attendance
             RefreshUI(RefreshedTypes.All);
         }
 
-        void clientAtt_EmployeeCancelLeaveAddCompleted(object sender, EmployeeCancelLeaveAddCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (!string.IsNullOrEmpty(e.Result))
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Result.ToString());
-                    return;
-                }
-                Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", ""));
-
-                if (closeFormFlag)
-                {
-                    CloseForm();
-                    return;
-                }
-
-                FormType = FormTypes.Edit;
-                LeaveRecordID = LeaveRecord.LEAVERECORDID;
-                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                entBrowser.FormType = FormTypes.Edit;
-                RefreshUI(RefreshedTypes.AuditInfo);
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            ToolbarItems = Utility.CreateFormEditButton();
-            ToolbarItems.Add(ToolBarItems.Delete);
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            RefreshUI(RefreshedTypes.All);
-        }
+        
 
         void clientAtt_EmployeeLeaveRecordDeleteCompleted(object sender, EmployeeLeaveRecordDeleteCompletedEventArgs e)
         {
@@ -1895,6 +1905,11 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpStartDate_ValueChanged(object sender, EventArgs e)
         {
+            //如果是查看、审核则不触发此事件
+            if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
+            {
+                return;
+            }
             string strMsg = string.Empty;
             if (dpStartDate.Value == null)
             {
@@ -1914,7 +1929,17 @@ namespace SMT.HRM.UI.Form.Attendance
                 strMsg = "LEAVEOUTAPPROVED";
                 return;
             }
-
+            DateTime dtStart = new DateTime();
+            DateTime dtEnd = new DateTime(); 
+            if (dpEndDate.Value != null && dpStartDate.Value != null)
+            {
+                dtStart = dpStartDate.Value.Value;
+                dtEnd = dpEndDate.Value.Value;
+                if (dtEnd > dtStart && entAttendanceSolution == null)
+                {
+                    LeaveEndDateChange();
+                }
+            }
             if (entAttendanceSolution == null)
             {
                 return;
@@ -1944,7 +1969,32 @@ namespace SMT.HRM.UI.Form.Attendance
         /// <param name="e"></param>
         private void dpEndDate_OnValueChanged(object sender, EventArgs e)
         {
-            DateTime dtSelDate = dpStartDate.Value.Value;
+            //DateTime dtSelDate = dpStartDate.Value.Value;
+            ////请假开始时间不能小于当前时间
+            //if (dtSelDate <= DateTime.Now)
+            //{
+            //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("STARTDATETIME"), "请假开始时间不能小于当前时间");
+            //    return;
+            //}
+            //CalculateDayCount();
+            LeaveEndDateChange();
+        }
+
+        /// <summary>
+        /// 结束时间变化事件
+        /// </summary>
+        private void LeaveEndDateChange()
+        {
+            //如果是查看、审核则不触发此事件
+            if (FormType == FormTypes.Browse || FormType == FormTypes.Audit)
+            {
+                return;
+            }
+            if (dpStartDate.Value == null)
+            {
+                return;
+            }
+            DateTime dtSelDate = dpStartDate.Value.Value;            
             //请假开始时间不能小于当前时间
             if (dtSelDate <= DateTime.Now)
             {

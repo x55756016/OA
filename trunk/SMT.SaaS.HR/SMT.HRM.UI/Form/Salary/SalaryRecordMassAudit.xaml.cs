@@ -77,14 +77,15 @@ namespace SMT.HRM.UI.Form.Salary
 
         void SalaryRecordMassAudit_Loaded(object sender, RoutedEventArgs e)
         {
+            tbDpepart.Visibility = Visibility.Collapsed;
+            lkdepart.Visibility = Visibility.Collapsed;
             if ((FormType == FormTypes.Audit || FormType == FormTypes.Resubmit) && !string.IsNullOrWhiteSpace(FormID))
             {
                 InitParas();
                 //  basePage.GetEntityLogo("T_HR_SALARYRECORDBATCH");
                 tbAuditType.Visibility = Visibility.Collapsed;
                 cbxAuditType.Visibility = Visibility.Collapsed;
-                tbDpepart.Visibility = Visibility.Collapsed;
-                lkdepart.Visibility = Visibility.Collapsed;
+               
 
                 client.GetSalaryRecordBatchByIDAsync(FormID, "AUDIT");
 
@@ -736,11 +737,11 @@ namespace SMT.HRM.UI.Form.Salary
                 return;
             }
 
-            if (lkdepart.DataContext == null)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("WARNING"), "请选择预算扣除部门！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                return;
-            }
+            //if (lkdepart.DataContext == null)
+            //{
+            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("WARNING"), "请选择预算扣除部门！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            //    return;
+            //}
 
             if (ids.Count == 0)
             {
@@ -1125,13 +1126,13 @@ namespace SMT.HRM.UI.Form.Salary
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("没有选中任何数据"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
             }
-            if (lkdepart.DataContext == null && SalaryRecordBatch.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("请选择预算扣除部门"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            //if (lkdepart.DataContext == null && SalaryRecordBatch.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            //{
+            //    RefreshUI(RefreshedTypes.HideProgressBar);
+            //    e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
+            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("请选择预算扣除部门"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
 
-            }
+            //}
         }
 
         public void OnSubmitCompleted(SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)

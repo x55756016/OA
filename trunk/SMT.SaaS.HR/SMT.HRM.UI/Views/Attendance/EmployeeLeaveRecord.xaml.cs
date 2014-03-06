@@ -556,7 +556,7 @@ namespace SMT.HRM.UI.Views.Attendance
             //form.MinWidth = 820;
             //form.MinHeight = 600;
             entBrowser.FormType = FormTypes.Resubmit;
-
+            //form.LeaveRecord = tmpEnt;
             entBrowser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
         }
 
@@ -583,6 +583,11 @@ namespace SMT.HRM.UI.Views.Attendance
 
             V_EmpLeaveRdInfo tmpEnt = dgEmpLeaveRdList.SelectedItems[0] as V_EmpLeaveRdInfo;
 
+            if (tmpEnt.CHECKSTATE != Convert.ToInt32(CheckStates.UnSubmit).ToString())
+            {
+                ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), "不是未提交的单据不可以修改", Utility.GetResourceStr("CONFIRMBUTTON"));
+                return; 
+            }
             EmployeeLeaveRecordForm form = new EmployeeLeaveRecordForm(FormTypes.Edit, tmpEnt.LEAVERECORDID);
             EntityBrowser entBrowser = new EntityBrowser(form);
             //Modified by: Sam

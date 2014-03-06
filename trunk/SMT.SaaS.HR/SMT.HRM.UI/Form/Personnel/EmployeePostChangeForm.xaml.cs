@@ -94,7 +94,7 @@ namespace SMT.HRM.UI.Form.Personnel
             client.GetEmployeeToEngineCompleted += new EventHandler<GetEmployeeToEngineCompletedEventArgs>(client_GetEmployeeToEngineCompleted);
             client.GetAllPostByEmployeeIDCompleted += new EventHandler<GetAllPostByEmployeeIDCompletedEventArgs>(client_GetAllPostByEmployeeIdCompeted);
             client.CheckBusinesstripCompleted += new EventHandler<CheckBusinesstripCompletedEventArgs>(Client_CheckBusinesstripCompleted);
-
+            client.GetPostsActivedByEmployeeIDCompleted += new EventHandler<GetPostsActivedByEmployeeIDCompletedEventArgs>(client_GetPostsActivedByEmployeeIDCompleted);
             orgClient = new SMT.Saas.Tools.OrganizationWS.OrganizationServiceClient();
             orgClient.GetPostByIdCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostByIdCompletedEventArgs>(orgClient_GetPostByIdCompleted);
             orgClient.GetPostNumberCompleted += new EventHandler<SMT.Saas.Tools.OrganizationWS.GetPostNumberCompletedEventArgs>(orgClient_GetPostNumberCompleted);
@@ -112,6 +112,24 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             */
             #endregion
+        }
+
+        
+        void client_GetPostsActivedByEmployeeIDCompleted(object sender, GetPostsActivedByEmployeeIDCompletedEventArgs e)
+        {
+            //zhangwei modify 2014-3-6 员工主键岗位异动判断是否选择的是兼职岗位
+            if (e != null)
+            {
+                var employeePostList = e.Result;
+                var isExists = employeePostList.Where(t => t.T_HR_POST.POSTID == ent.POSTID && t.ISAGENCY == "1" && t.EDITSTATE == "1").FirstOrDefault();
+                if (isExists == null)
+                {
+                    MessageBox.Show("请选择兼职岗位");
+                    return;
+                }
+                lkPost.DataContext = ent;
+                HandlePostChanged(ent);
+            }
         }
 
         void client_EmployeePostChangeDeleteCompleted(object sender, EmployeePostChangeDeleteCompletedEventArgs e)
@@ -167,7 +185,7 @@ namespace SMT.HRM.UI.Form.Personnel
             if (isMainPostChanged)
             {
                 this.chkIsAgency.Visibility=Visibility.Collapsed;
-                IsAgencyLabel.Text = "员工主兼职互换操作";
+                IsAgencyLabel.Text = "员工主兼职互换";
             }
         }
 
@@ -1391,24 +1409,14 @@ namespace SMT.HRM.UI.Form.Personnel
                 {
                     if (isMainPostChanged == true)
                     {
-                        var q = from item in SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts
-                                where item.PostID == ent.POSTID
-                                && item.IsAgency==true
-                                select item;
-                        if (q.FirstOrDefault()==null)
-                        {
-                            MessageBox.Show("请选择有效的兼职岗位");
-                            return;
-                        }
-
-
+                        client.GetPostsActivedByEmployeeIDAsync(PostChange.OWNERID);
                     }
-                    orgClient.GetPostNumberAsync(ent.POSTID);
-                    //lkPost.DataContext = ent;
-                    //HandlePostChanged(ent);
+                    else
+                    {
+                        orgClient.GetPostNumberAsync(ent.POSTID);
+                    }
                 }
             };
-
             lookup.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
         }
 
@@ -1495,6 +1503,7 @@ namespace SMT.HRM.UI.Form.Personnel
 
                 if (ent != null && ent.Count > 0)
                 {
+                    
                     ExtOrgObj companyInfo = ent.FirstOrDefault();
                     ExtOrgObj post = (ExtOrgObj)companyInfo.ParentObject;
                     string postid = post.ObjectID;
@@ -1510,7 +1519,15 @@ namespace SMT.HRM.UI.Form.Personnel
                     T_HR_EMPLOYEE temp = new T_HR_EMPLOYEE();
                     temp = ent.FirstOrDefault().ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE;
                     
-                    lkEmployeeName.DataContext = temp;
+                    
+                    //如果是员工主兼互换，必须选择主岗位 zhangwei modify 2014-3-6
+                    var selectPost = temp.T_HR_EMPLOYEEPOST.Where(s => s.T_HR_POST.POSTID == postid).FirstOrDefault();
+                    if (isMainPostChanged && selectPost.ISAGENCY != "0")
+                    {
+                        MessageBox.Show("请选择主岗位");
+                        return;
+                    }
+
                     //异动前岗位级别
                     pgCaution.Text = string.Empty;
                     if (temp.T_HR_EMPLOYEEPOST != null)
@@ -1536,6 +1553,9 @@ namespace SMT.HRM.UI.Form.Personnel
                             }
                         }
                     }
+
+                    lkEmployeeName.DataContext = temp;
+
                     PostChange.EMPLOYEECODE = temp.EMPLOYEECODE;
                     PostChange.EMPLOYEENAME = temp.EMPLOYEECNAME;
                     PostChange.OWNERID = temp.EMPLOYEEID;

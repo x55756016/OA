@@ -124,13 +124,21 @@ namespace SMT.HRM.UI.Form.Personnel
             SysUser.STATE = "0";
             txtUser.Text = Employee.EMPLOYEEENAME.Trim();
             string strCarID = Employee.IDNUMBER;
+            //if (strCarID.Length > 6)
+            //{
+            //    txtPwd.Password = "aisino"+strCarID.Substring(strCarID.Length - 6);
+            //}
+            //else
+            //{
+            //    txtPwd.Password = "aisino" + strCarID;
+            //}
             if (strCarID.Length > 6)
             {
-                txtPwd.Password = "aisino"+strCarID.Substring(strCarID.Length - 6);
+                txtPwd.Password = "smt" + strCarID.Substring(strCarID.Length - 6);
             }
             else
             {
-                txtPwd.Password = "aisino" + strCarID;
+                txtPwd.Password = "smt" + strCarID;
             }
             txtPwd.IsEnabled = false;
             SysUser.CREATEUSER = Common.CurrentLoginUserInfo.EmployeeID;

@@ -152,7 +152,9 @@
                         <TextBox Style="{StaticResource TextBoxStyle}" Name="txtMark" HorizontalAlignment="Stretch" Width="Auto"
             	            Grid.Row="2" Grid.Column="1"  TextWrapping="Wrap"  Margin="0,0,30,0">
                         </TextBox>
-                        <TextBlock Grid.Row="3" Grid.Column="1" Text="注意：默认密码为 aisino加上证件号后六位,请在完成此次保存后再修改密码" Visibility="Visible"
+                        <!--<TextBlock Grid.Row="3" Grid.Column="1" Text="注意：默认密码为 aisino加上证件号后六位,请在完成此次保存后再修改密码" Visibility="Visible"
+                                   Foreground="Red"></TextBlock>-->
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="注意：默认密码为 smt加上证件号后六位,请在完成此次保存后再修改密码" Visibility="Visible"
                                    Foreground="Red"></TextBlock>
                     </Grid>
                 </ctr:TabItem>
