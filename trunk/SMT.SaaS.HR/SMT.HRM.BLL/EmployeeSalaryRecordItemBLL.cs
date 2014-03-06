@@ -807,7 +807,8 @@ namespace SMT.HRM.BLL
                 {
                     foreach (var re in deducts)
                     {
-                        tmp.DeductRemark += re.PROJECTNAME + ":" + re.PROJECTMONEY + "；";
+                        //tmp.DeductRemark += re.PROJECTNAME + ":" + re.PROJECTMONEY + "；";
+                        tmp.DeductRemark += re.REMARK;
                     }
                 }
 

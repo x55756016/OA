@@ -1246,7 +1246,7 @@ namespace SMT.HRM.BLL
                 //添加请假记录
                 T_HR_EMPLOYEELEAVERECORD ent = new T_HR_EMPLOYEELEAVERECORD();
                 Utility.CloneEntity(LeaveRecord, ent);
-                if (ent.STARTDATETIME > DateTime.Now)
+                if (ent.STARTDATETIME < DateTime.Now)
                 {
                     strReturn = "请假开始时间不能小于当前时间";
                     return strReturn;
@@ -1359,7 +1359,7 @@ namespace SMT.HRM.BLL
                     return strReturn;
                 }
 
-                if (LeaveRecord.STARTDATETIME > DateTime.Now)
+                if (LeaveRecord.STARTDATETIME < DateTime.Now)
                 {
                     strReturn = "请假开始时间不能小于当前时间";
                     return strReturn;

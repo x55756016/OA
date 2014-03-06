@@ -524,12 +524,26 @@ namespace SMT.HRM.BLL
                                         select c).FirstOrDefault();
 
                         var employeePost = (from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>()
-                                            where ep.T_HR_EMPLOYEE.EMPLOYEEID == employeeID && ep.T_HR_POST.POSTID == employeePostChange.FROMPOSTID
+                                            where ep.T_HR_EMPLOYEE.EMPLOYEEID == employeeID && ep.T_HR_POST.POSTID == employeePostChange.FROMPOSTID && ep.EDITSTATE == "1"
                                             select ep).FirstOrDefault();
 
                         if (employeePost != null)
                         {
-                            if (employeePost.ISAGENCY == "0" || employeePostChange.ISAGENCY == "1")
+                            if (employeePostChange.ISAGENCY == "3") //主兼岗位互换
+                            {
+                                #region 主兼职岗位异动
+                                //原来岗位
+                                employeePost.ISAGENCY = "1";//把异动前兼职岗位
+                                dal.UpdateFromContext(employeePost);
+
+                                var currentPost = (from ep in dal.GetObjects<T_HR_EMPLOYEEPOST>()
+                                                   where ep.T_HR_EMPLOYEE.EMPLOYEEID == employeeID && ep.T_HR_POST.POSTID == employeePostChange.TOPOSTID && ep.EDITSTATE == "1"
+                                                   select ep).FirstOrDefault();
+                                currentPost.ISAGENCY = "0"; //把异动后的岗位设置为主岗位
+                                dal.UpdateFromContext(currentPost);
+                                #endregion
+                            }
+                            else if (employeePost.ISAGENCY == "0" || employeePostChange.ISAGENCY == "1")
                             {
                                 #region 主岗位异动
                                 //更具员工ID查询员工基本信息表
@@ -664,6 +678,7 @@ namespace SMT.HRM.BLL
                                 {
                                     toemployeePost.ISAGENCY = "1"; //异动后岗位 为兼职岗位
                                     toemployeePost.EDITSTATE = "1"; //改为生效
+                                    toemployeePost.CHECKSTATE = Convert.ToInt32(CheckStates.Approved).ToString();
                                     dal.UpdateFromContext(toemployeePost);
                                 }
 
@@ -972,7 +987,7 @@ namespace SMT.HRM.BLL
                     SMT.Foundation.Log.Tracer.Debug("主职异动时开始调用即时通讯接口");
                     StrMessage = IMCient.EmployeeMove(StrUserID, StrFromDeptID, StrTODeptID, StrFromPostID, StrToPostID, PostName, CompanyName);
                 }
-                else
+                else if(EntObj.ISAGENCY == "1")
                 {
                     SMT.Foundation.Log.Tracer.Debug("兼职异动时开始调用即时通讯接口");
                     StrMessage = IMCient.EmployeePartTimeEntry(StrUserID, StrTODeptID, StrToPostID, PostName, CompanyName);

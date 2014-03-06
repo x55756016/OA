@@ -214,6 +214,7 @@
     <Compile Include="SalaryStandardItemBLL.cs" />
     <Compile Include="SalarySystemBLL.cs" />
     <Compile Include="SalaryTaxesBLL.cs" />
+    <Compile Include="Salary\EmployeeSalaryImport.cs" />
     <Compile Include="SchedulingTemplateDetailBLL.cs" />
     <Compile Include="SchedulingTemplateMasterBLL.cs" />
     <Compile Include="ShiftDefineBLL.cs" />
