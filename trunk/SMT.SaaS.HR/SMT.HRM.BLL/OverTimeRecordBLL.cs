@@ -511,7 +511,8 @@ namespace SMT.HRM.BLL
             T_HR_SCHEDULINGTEMPLATEMASTER entTemplateMaster = entTemplateDetails.FirstOrDefault().T_HR_SCHEDULINGTEMPLATEMASTER;
 
 
-            TimeSpan ts = dtEnd.Subtract(dtStart);
+            //TimeSpan ts = dtEnd.Subtract(dtStart);
+            TimeSpan ts = dtOTEnd.Subtract(dtOTStart);
             int iOTDays = ts.Days;
             string strMsg = string.Empty;
 
@@ -1077,7 +1078,10 @@ namespace SMT.HRM.BLL
 
                     if (dtFirstStart >= dtOTEnd)
                     {
-                        TimeSpan tsTemp = dtOTEnd.Subtract(dtOTStart);
+                        //TimeSpan tsTemp = dtOTEnd.Subtract(dtOTStart);
+                        //TimeSpan tsTemp = dtOTEnd.Subtract(dtFirstStart);                        
+                        DateTime dtFirstStart1 = DateTime.Parse(dtOTStart.ToString("yyyy-MM-dd"));
+                        TimeSpan tsTemp = dtOTEnd.Subtract(dtFirstStart1);
                         dTempOverTimeHours += tsTemp.Hours * 60 + tsTemp.Minutes;
                         break;
                     }

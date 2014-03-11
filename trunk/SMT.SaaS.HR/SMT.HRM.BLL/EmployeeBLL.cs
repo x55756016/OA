@@ -844,13 +844,16 @@ namespace SMT.HRM.BLL
             SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_EMPLOYEE");
 
 
-            IQueryable<V_EMPLOYEEVIEW> ents = from o in dal.GetObjects()
+            IQueryable<V_EMPLOYEEVIEW> ents = from l in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>()
+                                              join o in dal.GetObjects<T_HR_EMPLOYEE>()  on l.EMPLOYEEID equals o.EMPLOYEEID
                                               join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
                                               join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
                                               join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
                                               join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
                                               //  join le in dal.GetObjects<T_HR_LEFTOFFICECONFIRM>() on ep.EMPLOYEEPOSTID equals le.EMPLOYEEPOSTID
-                                              where o.EMPLOYEESTATE == "2"
+                                              //where o.EMPLOYEESTATE == "2"
+                                              //考虑做了离职确认后再入职其它公司
+                                              where o.EMPLOYEESTATE =="2" || l.CHECKSTATE =="2"
                                               select new V_EMPLOYEEVIEW
                                               {
                                                   EMPLOYEEID = o.EMPLOYEEID,
@@ -879,100 +882,109 @@ namespace SMT.HRM.BLL
             switch (sType.ToUpper())
             {
                 case "COMPANY":
-                    ents = from o in dal.GetObjects()
-                           join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
-                           join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
-                           join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                           join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                           //  join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-                           where c.COMPANYID == sValue && o.EMPLOYEESTATE == "2"
-                           select new V_EMPLOYEEVIEW
-                           {
-                               EMPLOYEEID = o.EMPLOYEEID,
-                               EMPLOYEECNAME = o.EMPLOYEECNAME,
-                               EMPLOYEECODE = o.EMPLOYEECODE,
-                               EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               EMPLOYEESTATE = o.EMPLOYEESTATE,
-                               FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.BRIEFNAME,
-                               DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                               POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
-                               SEX = o.SEX,
-                               EMAIL = o.EMAIL,
-                               IDNUMBER = o.IDNUMBER,
-                               MOBILE = o.MOBILE,
-                               OWNERID = o.EMPLOYEEID,
-                               OWNERPOSTID = p.POSTID,
-                               OWNERDEPARTMENTID = d.DEPARTMENTID,
-                               OWNERCOMPANYID = c.COMPANYID,
-                               CREATEUSERID = o.CREATEUSERID,
-                               OFFICEPHONE = o.OFFICEPHONE
-                           };
+                    //ents = from o in dal.GetObjects()
+                    //       join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                    //       join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
+                    //       join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                    //       join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                    //       //  join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                    //       where c.COMPANYID == sValue && o.EMPLOYEESTATE == "2"
+                    //       select new V_EMPLOYEEVIEW
+                    //       {
+                    //           EMPLOYEEID = o.EMPLOYEEID,
+                    //           EMPLOYEECNAME = o.EMPLOYEECNAME,
+                    //           EMPLOYEECODE = o.EMPLOYEECODE,
+                    //           EMPLOYEEENAME = o.EMPLOYEEENAME,
+                    //           EMPLOYEESTATE = o.EMPLOYEESTATE,
+                    //           FINGERPRINTID = o.FINGERPRINTID,
+                    //           COMPANYNAME = c.BRIEFNAME,
+                    //           DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                    //           POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
+                    //           SEX = o.SEX,
+                    //           EMAIL = o.EMAIL,
+                    //           IDNUMBER = o.IDNUMBER,
+                    //           MOBILE = o.MOBILE,
+                    //           OWNERID = o.EMPLOYEEID,
+                    //           OWNERPOSTID = p.POSTID,
+                    //           OWNERDEPARTMENTID = d.DEPARTMENTID,
+                    //           OWNERCOMPANYID = c.COMPANYID,
+                    //           CREATEUSERID = o.CREATEUSERID,
+                    //           OFFICEPHONE = o.OFFICEPHONE
+                    //       };
+                    ents = from  ent in ents
+                               where ent.OWNERCOMPANYID == sValue
+                               select ent;
                     break;
                 case "DEPARTMENT":
-                    ents = from o in dal.GetObjects()
-                           join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
-                           join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
-                           join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                           join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                           // join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-                           where d.DEPARTMENTID == sValue && o.EMPLOYEESTATE == "2"
-                           select new V_EMPLOYEEVIEW
-                           {
-                               EMPLOYEEID = o.EMPLOYEEID,
-                               EMPLOYEECNAME = o.EMPLOYEECNAME,
-                               EMPLOYEECODE = o.EMPLOYEECODE,
-                               EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               EMPLOYEESTATE = o.EMPLOYEESTATE,
-                               FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.BRIEFNAME,
-                               DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                               POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
-                               SEX = o.SEX,
-                               EMAIL = o.EMAIL,
-                               IDNUMBER = o.IDNUMBER,
-                               MOBILE = o.MOBILE,
-                               OWNERID = o.EMPLOYEEID,
-                               OWNERPOSTID = p.POSTID,
-                               OWNERDEPARTMENTID = d.DEPARTMENTID,
-                               OWNERCOMPANYID = c.COMPANYID,
-                               CREATEUSERID = o.CREATEUSERID,
-                               OFFICEPHONE = o.OFFICEPHONE
-                           };
+                    //ents = from o in dal.GetObjects()
+                    //       join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                    //       join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
+                    //       join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                    //       join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                    //       // join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                    //       where d.DEPARTMENTID == sValue && o.EMPLOYEESTATE == "2"
+                    //       select new V_EMPLOYEEVIEW
+                    //       {
+                    //           EMPLOYEEID = o.EMPLOYEEID,
+                    //           EMPLOYEECNAME = o.EMPLOYEECNAME,
+                    //           EMPLOYEECODE = o.EMPLOYEECODE,
+                    //           EMPLOYEEENAME = o.EMPLOYEEENAME,
+                    //           EMPLOYEESTATE = o.EMPLOYEESTATE,
+                    //           FINGERPRINTID = o.FINGERPRINTID,
+                    //           COMPANYNAME = c.BRIEFNAME,
+                    //           DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                    //           POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
+                    //           SEX = o.SEX,
+                    //           EMAIL = o.EMAIL,
+                    //           IDNUMBER = o.IDNUMBER,
+                    //           MOBILE = o.MOBILE,
+                    //           OWNERID = o.EMPLOYEEID,
+                    //           OWNERPOSTID = p.POSTID,
+                    //           OWNERDEPARTMENTID = d.DEPARTMENTID,
+                    //           OWNERCOMPANYID = c.COMPANYID,
+                    //           CREATEUSERID = o.CREATEUSERID,
+                    //           OFFICEPHONE = o.OFFICEPHONE
+                    //       };
+                    ents = from ent in ents
+                           where ent.OWNERDEPARTMENTID == sValue
+                           select ent;
                     break;
                 case "POST":
-                    ents = from o in dal.GetObjects()
-                           join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
-                           join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
-                           join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
-                           join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
-                           //join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
-                           where p.POSTID == sValue && o.EMPLOYEESTATE == "2"
-                           select new V_EMPLOYEEVIEW
-                           {
-                               EMPLOYEEID = o.EMPLOYEEID,
-                               EMPLOYEECNAME = o.EMPLOYEECNAME,
-                               EMPLOYEECODE = o.EMPLOYEECODE,
-                               EMPLOYEEENAME = o.EMPLOYEEENAME,
-                               EMPLOYEESTATE = o.EMPLOYEESTATE,
-                               FINGERPRINTID = o.FINGERPRINTID,
-                               COMPANYNAME = c.BRIEFNAME,
-                               DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                               POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
-                               SEX = o.SEX,
-                               EMAIL = o.EMAIL,
-                               IDNUMBER = o.IDNUMBER,
-                               MOBILE = o.MOBILE,
-                               OWNERID = o.EMPLOYEEID,
-                               OWNERPOSTID = p.POSTID,
-                               OWNERDEPARTMENTID = d.DEPARTMENTID,
-                               OWNERCOMPANYID = c.COMPANYID,
-                               CREATEUSERID = o.CREATEUSERID,
-                               EMPLOYEEPOSTID = ep.EMPLOYEEPOSTID,
-                               ISAGENCY = ep.ISAGENCY,
-                               POSTLEVEL = ep.POSTLEVEL,
-                               OFFICEPHONE = o.OFFICEPHONE
-                           };
+                    //ents = from o in dal.GetObjects()
+                    //       join ep in dal.GetObjects<T_HR_EMPLOYEEPOST>() on o.EMPLOYEEID equals ep.T_HR_EMPLOYEE.EMPLOYEEID
+                    //       join p in dal.GetObjects<T_HR_POST>() on ep.T_HR_POST.POSTID equals p.POSTID
+                    //       join d in dal.GetObjects<T_HR_DEPARTMENT>() on p.T_HR_DEPARTMENT.DEPARTMENTID equals d.DEPARTMENTID
+                    //       join c in dal.GetObjects<T_HR_COMPANY>() on d.T_HR_COMPANY.COMPANYID equals c.COMPANYID
+                    //       //join le in dal.GetObjects<T_HR_LEFTOFFICE>() on ep.EMPLOYEEPOSTID equals le.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID
+                    //       where p.POSTID == sValue && o.EMPLOYEESTATE == "2"
+                    //       select new V_EMPLOYEEVIEW
+                    //       {
+                    //           EMPLOYEEID = o.EMPLOYEEID,
+                    //           EMPLOYEECNAME = o.EMPLOYEECNAME,
+                    //           EMPLOYEECODE = o.EMPLOYEECODE,
+                    //           EMPLOYEEENAME = o.EMPLOYEEENAME,
+                    //           EMPLOYEESTATE = o.EMPLOYEESTATE,
+                    //           FINGERPRINTID = o.FINGERPRINTID,
+                    //           COMPANYNAME = c.BRIEFNAME,
+                    //           DEPARTMENTNAME = d.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                    //           POSTNAME = p.T_HR_POSTDICTIONARY.POSTNAME,
+                    //           SEX = o.SEX,
+                    //           EMAIL = o.EMAIL,
+                    //           IDNUMBER = o.IDNUMBER,
+                    //           MOBILE = o.MOBILE,
+                    //           OWNERID = o.EMPLOYEEID,
+                    //           OWNERPOSTID = p.POSTID,
+                    //           OWNERDEPARTMENTID = d.DEPARTMENTID,
+                    //           OWNERCOMPANYID = c.COMPANYID,
+                    //           CREATEUSERID = o.CREATEUSERID,
+                    //           EMPLOYEEPOSTID = ep.EMPLOYEEPOSTID,
+                    //           ISAGENCY = ep.ISAGENCY,
+                    //           POSTLEVEL = ep.POSTLEVEL,
+                    //           OFFICEPHONE = o.OFFICEPHONE
+                    //       };
+                    ents = from ent in ents
+                           where ent.OWNERPOSTID == sValue
+                           select ent;
                     break;
             }
 
