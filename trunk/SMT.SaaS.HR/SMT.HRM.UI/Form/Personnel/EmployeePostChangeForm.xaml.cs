@@ -482,6 +482,12 @@ namespace SMT.HRM.UI.Form.Personnel
                     toPostLevel = PostChange.TOPOSTLEVEL.ToString();
 
                 }
+                if (PostChange.ISAGENCY == "3")
+                {
+                    isMainPostChanged = true;
+                    this.chkIsAgency.Visibility = Visibility.Collapsed;
+                    IsAgencyLabel.Text = "员工主兼职互换";
+                }
 
                 client.GetAllPostByEmployeeIDAsync(e.Result.T_HR_EMPLOYEE.EMPLOYEEID);
 
@@ -873,8 +879,11 @@ namespace SMT.HRM.UI.Form.Personnel
             }
             else
             {
-                ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEPOSTCHANGE", PostChange.OWNERID,
-                    PostChange.OWNERPOSTID, PostChange.OWNERDEPARTMENTID, PostChange.OWNERCOMPANYID);
+                if (PostChange != null)
+                {
+                    ToolbarItems = Utility.CreateFormEditButton("T_HR_EMPLOYEEPOSTCHANGE", PostChange.OWNERID,
+                        PostChange.OWNERPOSTID, PostChange.OWNERDEPARTMENTID, PostChange.OWNERCOMPANYID);
+                }
             }
             return ToolbarItems;
         }
@@ -1163,7 +1172,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     //下面重制整个员工主岗位异动的判断,异动判断放入getpersonAccountData中
                     isSave = true;
                     //by luojie
-                    if (GetCheckerCount() > 0)//判断是否有重复岗位
+                    if (!isMainPostChanged && GetCheckerCount() > 0)//判断是否有重复岗位
                     {
                         needsubmit = false;
                         isSubmit = false;

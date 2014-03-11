@@ -513,6 +513,12 @@ namespace SMT.HRM.UI.Form.Attendance
                 Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("加班时长为0"));
                 return flag;
             }
+            if ((Convert.ToDateTime(dpEndDate.Value) - Convert.ToDateTime(dpStartDate.Value)).Days >=1)
+            {
+                RefreshUI(RefreshedTypes.HideProgressBar);
+                Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), Utility.GetResourceStr("加班不能超过1天"));
+                return flag;
+            }
             if (FormType == FormTypes.Edit)
             {
                 OvertimeRecord.UPDATEDATE = System.DateTime.Now;
