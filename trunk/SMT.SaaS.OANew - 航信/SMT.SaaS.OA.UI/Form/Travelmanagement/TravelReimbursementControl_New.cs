@@ -140,8 +140,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     if (ToolLevel != null)//乘坐交通工具级别
                     {
-                        T_SYS_DICTIONARY ComLevelObj = ToolLevel.SelectedItem as T_SYS_DICTIONARY;
-                        TrDetail.TAKETHETOOLLEVEL = ComLevelObj.DICTIONARYVALUE.ToString();
+                        if (ToolLevel.SelectedIndex > 0)
+                        {
+                            T_SYS_DICTIONARY ComLevelObj = ToolLevel.SelectedItem as T_SYS_DICTIONARY;
+                            TrDetail.TAKETHETOOLLEVEL = ComLevelObj.DICTIONARYVALUE.ToString();
+                        }
                     }
                     if (txtToolubsidies != null)//交通费
                     {

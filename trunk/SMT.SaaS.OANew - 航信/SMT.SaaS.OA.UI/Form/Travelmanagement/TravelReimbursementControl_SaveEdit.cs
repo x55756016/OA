@@ -136,21 +136,21 @@ namespace SMT.SaaS.OA.UI.UserControls
                     return false;
                 }
 
-                T_OA_REIMBURSEMENTDETAIL entDetail = obje as T_OA_REIMBURSEMENTDETAIL;
+                //T_OA_REIMBURSEMENTDETAIL entDetail = obje as T_OA_REIMBURSEMENTDETAIL;
 
-                var queryData = from c in TripDetails
-                                where c.STARTDATE > dpStartTime.Value && c.ENDDATE > dpEndTime.Value && c.REIMBURSEMENTDETAILID != entDetail.REIMBURSEMENTDETAILID
-                                orderby c.STARTDATE
-                                select c;
+                //var queryData = from c in TripDetails
+                //                where c.STARTDATE > dpStartTime.Value && c.ENDDATE > dpEndTime.Value && c.REIMBURSEMENTDETAILID != entDetail.REIMBURSEMENTDETAILID
+                //                orderby c.STARTDATE
+                //                select c;
 
-                if (queryData.Count() > 0)
-                {
-                    if (queryData.FirstOrDefault().STARTDATE < entDetail.ENDDATE)
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
-                }
+                //if (queryData.Count() > 0)
+                //{
+                //    if (queryData.FirstOrDefault().STARTDATE < entDetail.ENDDATE)
+                //    {
+                //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                //        return false;
+                //    }
+                //}
 
 
                 TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrEdit.Columns[6].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
@@ -168,9 +168,22 @@ namespace SMT.SaaS.OA.UI.UserControls
                 }
 
             }
+            #region 判断出差明细开始时间
+            for (int i = 0; i < TripDetails.Count; i++)
+            {
+                for (int j = i + 1; j < TripDetails.Count; j++)
+                {
+                    if (TripDetails[j].STARTDATE.Value <= TripDetails[i].ENDDATE.Value)
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return false;
+                    }
+                }
+            }
+            #endregion
             #endregion
 
-            #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"           
+            #region "判断出差开始城市是否用重复,下一条开始时间是否小于上一条结束时间"
             for (int i = 0; i < TravelDetailList_Golbal.Count; i++)
             {
                 if (TravelDetailList_Golbal.Count > 1)

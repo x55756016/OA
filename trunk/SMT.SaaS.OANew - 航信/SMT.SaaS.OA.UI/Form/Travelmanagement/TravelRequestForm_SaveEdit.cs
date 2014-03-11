@@ -212,34 +212,38 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "STARTDATETIME"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
-                }
-
-                T_OA_BUSINESSTRIPDETAIL entDetail = obje as T_OA_BUSINESSTRIPDETAIL;
-
-                var queryData = from c in entBusinessTripDetails
-                                where c.STARTDATE > dpStartTime.Value && c.ENDDATE > dpEndTime.Value && c.BUSINESSTRIPDETAILID != entDetail.BUSINESSTRIPDETAILID
-                                orderby c.STARTDATE
-                                select c;
-
-                if (queryData.Count() > 0)
-                {
-                    if (queryData.FirstOrDefault().STARTDATE < entDetail.ENDDATE)
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
-                }
+                }              
                 #endregion
 
-                #region "判断交通工具类型"
+                #region "判断交通工具及级别"
                 TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                 if (ComVechile.SelectedIndex <= 0)//交通工具类型
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
+                TravelDictionaryComboBox ComVechile2 = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                if (ComVechile2.SelectedIndex < 0)//交通工具类型
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "交通工具级别不能为空，请确认。", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
+                }
                 #endregion
             }
+
+            #region 判断出差明细开始时间
+            for (int i = 0; i < entBusinessTripDetails.Count; i++)
+            {
+                for (int j = i + 1; j < entBusinessTripDetails.Count; j++)
+                {
+                    if (entBusinessTripDetails[j].STARTDATE.Value <= entBusinessTripDetails[i].ENDDATE.Value)
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return false;
+                    }
+                }
+            }
+            #endregion
 
             #region "判断出差开始城市是否用重复"
             for (int i = 0; i < TraveDetailList_Golbal.Count; i++)

@@ -502,14 +502,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 }
                                 if (entareaallowance != null)
                                 {
-                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * obje.THENUMBEROFNIGHTS.ToDouble())//判断住宿费超标
+                                    decimal days = System.Convert.ToDecimal(obje.THENUMBEROFNIGHTS);
+                                    if (days.ToDouble() == 0.5)
+                                    {
+                                        days = 1;
+                                    }
+                                    else
+                                    {
+                                        days = decimal.Truncate(days);
+                                    }
+                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())//判断住宿费超标
                                     {
                                         txtASubsidies.BorderBrush = new SolidColorBrush(Colors.Red);
                                         txtASubsidies.Foreground = new SolidColorBrush(Colors.Red);
                                         txtAccommodation.Visibility = Visibility.Visible;
                                         this.txtAccommodation.Text = "住宿费超标";
                                     }
-                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * obje.THENUMBEROFNIGHTS.ToDouble())
+                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())
                                     {
                                         if (txtASubsidiesForeBrush != null)
                                         {
@@ -883,14 +892,23 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 }
                                 if (entareaallowance != null)
                                 {
-                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * obj.THENUMBEROFNIGHTS.ToDouble())//判断住宿费超标
+                                    decimal days = System.Convert.ToDecimal(obje.THENUMBEROFNIGHTS);
+                                    if (days.ToDouble() == 0.5)
+                                    {
+                                        days = 1;
+                                    }
+                                    else
+                                    {
+                                        days = decimal.Truncate(days);
+                                    }
+                                    if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())//判断住宿费超标
                                     {
                                         txtASubsidies.BorderBrush = new SolidColorBrush(Colors.Red);
                                         txtASubsidies.Foreground = new SolidColorBrush(Colors.Red);
                                         txtAccommodation.Visibility = Visibility.Visible;
                                         this.txtAccommodation.Text = "住宿费超标";
                                     }
-                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * obj.THENUMBEROFNIGHTS.ToDouble())
+                                    if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())
                                     {
                                         if (txtASubsidiesForeBrush != null && txtASubsidies.Foreground == null)
                                         {

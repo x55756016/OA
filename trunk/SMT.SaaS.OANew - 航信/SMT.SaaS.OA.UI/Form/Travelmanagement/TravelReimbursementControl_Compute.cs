@@ -1170,9 +1170,19 @@ namespace SMT.SaaS.OA.UI.UserControls
                         //住宿天数
                         double totaldays = System.Convert.ToDouble(obj.BUSINESSDAYS);
                         obj.THENUMBEROFNIGHTS = totaldays.ToString();
+                        //住宿天数舍弃小数位
+                        decimal days = System.Convert.ToDecimal(obj.BUSINESSDAYS);
+                        if (days.ToDouble() == 0.5)
+                        {
+                            days = 1;
+                        }
+                        else
+                        {
+                            days = decimal.Truncate(days);
+                        }
                         if (entareaallowance != null)
                         {
-                            if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * totaldays)//判断住宿费超标
+                            if (txtASubsidies.Text.ToDouble() > entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())//判断住宿费超标
                             {
                                 //文本框标红
                                 txtASubsidies.BorderBrush = new SolidColorBrush(Colors.Red);
@@ -1182,7 +1192,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 //this.txtAccommodation.Text = "住宿费超标";
                             }
 
-                            if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * totaldays)
+                            if (txtASubsidies.Text.ToDouble() <= entareaallowance.ACCOMMODATION.ToDouble() * days.ToDouble())
                             {
                                 if (txtASubsidiesForeBrush != null)
                                 {
