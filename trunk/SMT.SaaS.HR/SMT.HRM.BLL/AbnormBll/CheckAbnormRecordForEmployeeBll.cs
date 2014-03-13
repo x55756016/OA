@@ -923,7 +923,8 @@ namespace SMT.HRM.BLL
                 Tracer.Debug("处理错误的考勤异常，检查到考勤记录共：" + entAbnormRecords.Count()+"条");
                 foreach (var item in entAbnormRecords)
                 {   //如果当天正常，删除相关的异常考勤，签卡记录，待办任务
-                    Tracer.Debug("处理错误的考勤异常，异常日期：" + item.ABNORMALDATE + "考勤状态：" + item.T_HR_ATTENDANCERECORD.ATTENDANCESTATE);
+                    Tracer.Debug("处理错误的考勤异常，异常日期：" + item.ABNORMALDATE + "考勤状态：" + item.T_HR_ATTENDANCERECORD.ATTENDANCESTATE
+                        +" 异常签卡状态："+item.SINGINSTATE);
                     if (item.T_HR_ATTENDANCERECORD.ATTENDANCESTATE == (Convert.ToInt32(Common.AttendanceState.Regular) + 1).ToString())
                     {
                         DeleteSigFromAbnormal(item);

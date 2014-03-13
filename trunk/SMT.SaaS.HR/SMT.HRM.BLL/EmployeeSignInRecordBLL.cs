@@ -10,6 +10,7 @@ using System.Collections;
 using System.Linq.Dynamic;
 using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.HRM.CustomModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.BLL
 {
@@ -405,6 +406,18 @@ namespace SMT.HRM.BLL
                     T_HR_EMPLOYEEABNORMRECORD entAbnormRecord = item.T_HR_EMPLOYEEABNORMRECORD;
                     entAbnormRecord.SINGINSTATE = singinstate;//(Convert.ToInt32(Common.IsChecked.Yes) + 1).ToString();
                     bllAbnormRecord.ModifyAbnormRecord(entAbnormRecord);
+                    try
+                    {
+                        var q = (from ent in dal.GetObjects<T_HR_EMPLOYEEABNORMRECORD>()
+                                where ent.ABNORMRECORDID == entAbnormRecord.ABNORMRECORDID
+                                select ent).FirstOrDefault();
+                        Tracer.Debug("异常签卡终审修改异常考勤记录状态为已签卡,异常日期：" + q.ABNORMALDATE
+                            +"异常考勤状态,2为正常状态："+q.SINGINSTATE);
+                    }
+                    catch (Exception ex)
+                    {
+                        Tracer.Debug("异常签卡终审修改异常考勤记录异常："+ex.ToString());
+                    }
                 }
 
                 entAudit.CHECKSTATE = strCheckState;
@@ -415,6 +428,13 @@ namespace SMT.HRM.BLL
 
                 if (entAudit.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString() && entAudit.CHECKSTATE != strCheckState)
                 {
+                    Tracer.Debug(" 异常签卡审核异常 entAudit.CHECKSTATE != strCheckState,entAudit.CHECKSTATE:" + entAudit.CHECKSTATE
+                        + " 流程传过来的审核状态为：" + strCheckState
+                        + " 表示流程更新业务表单失败：执行ClearNoSignInRecord"
+                        +" entAudit.EMPLOYEENAME:"+entAudit.EMPLOYEENAME
+                        +" entAudit.SIGNINID:"+entAudit.SIGNINID
+                        + " entAudit.SIGNINTIME:"+entAudit.SIGNINTIME);
+
                     List<T_HR_EMPLOYEEABNORMRECORD> entABnormRecords = entDetails.Select(c => c.T_HR_EMPLOYEEABNORMRECORD).ToList();
                     ClearNoSignInRecord("T_HR_EMPLOYEESIGNINRECORD", entAudit.EMPLOYEEID, entABnormRecords);
                 }

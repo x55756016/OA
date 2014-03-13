@@ -485,7 +485,9 @@ namespace SMT.HRM.BLL
                         {
                             i = dal.Delete(sig);
                             Tracer.Debug("删除签卡明细,员工id：" + sig.OWNERID + " 异常日期：" + sig.ABNORMALDATE + "异常时长"
-                                + sig.ABNORMALTIME + " 异常时段：" + sig.ATTENDPERIOD + "异常类型" + sig.ABNORMCATEGORY);
+                                + sig.ABNORMALTIME + " 异常时段：" + sig.ATTENDPERIOD + "异常类型" + sig.ABNORMCATEGORY
+                                + "异常签卡状态为："+AbnormRecorditem.SINGINSTATE
+                                +" 删除的签卡明细记录： "+i+" 条");
                         }
                         catch (Exception ex)
                         {
