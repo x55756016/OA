@@ -16863,6 +16863,11 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         void EndAssignPersonMoney(ref string strMsg, System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/ImportEmployeeMonthlySalary", ReplyAction="urn:SalaryService/ImportEmployeeMonthlySalaryResponse")]
+        System.IAsyncResult BeginImportEmployeeMonthlySalary(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, string year, string month, ref string owerCompayId, ref string UImsg, System.AsyncCallback callback, object asyncState);
+        
+        string EndImportEmployeeMonthlySalary(ref string owerCompayId, ref string UImsg, System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:SalaryService/CheckSalaryAuditState", ReplyAction="urn:SalaryService/CheckSalaryAuditStateResponse")]
         System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState);
         
@@ -19170,6 +19175,39 @@ namespace SMT.Saas.Tools.SalaryWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ImportEmployeeMonthlySalaryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ImportEmployeeMonthlySalaryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string owerCompayId {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+        
+        public string UImsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[2]));
             }
         }
     }
@@ -22216,6 +22254,12 @@ namespace SMT.Saas.Tools.SalaryWS {
         
         private System.Threading.SendOrPostCallback onAssignPersonMoneyCompletedDelegate;
         
+        private BeginOperationDelegate onBeginImportEmployeeMonthlySalaryDelegate;
+        
+        private EndOperationDelegate onEndImportEmployeeMonthlySalaryDelegate;
+        
+        private System.Threading.SendOrPostCallback onImportEmployeeMonthlySalaryCompletedDelegate;
+        
         private BeginOperationDelegate onBeginCheckSalaryAuditStateDelegate;
         
         private EndOperationDelegate onEndCheckSalaryAuditStateDelegate;
@@ -23393,6 +23437,8 @@ namespace SMT.Saas.Tools.SalaryWS {
         public event System.EventHandler<PayRemindByOrgIDCompletedEventArgs> PayRemindByOrgIDCompleted;
         
         public event System.EventHandler<AssignPersonMoneyCompletedEventArgs> AssignPersonMoneyCompleted;
+        
+        public event System.EventHandler<ImportEmployeeMonthlySalaryCompletedEventArgs> ImportEmployeeMonthlySalaryCompleted;
         
         public event System.EventHandler<CheckSalaryAuditStateCompletedEventArgs> CheckSalaryAuditStateCompleted;
         
@@ -26953,6 +26999,64 @@ namespace SMT.Saas.Tools.SalaryWS {
                         strCheckState,
                         Companyid,
                         strMsg}, this.onEndAssignPersonMoneyDelegate, this.onAssignPersonMoneyCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.SalaryWS.SalaryService.BeginImportEmployeeMonthlySalary(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, string year, string month, ref string owerCompayId, ref string UImsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginImportEmployeeMonthlySalary(UploadFile, year, month, ref owerCompayId, ref UImsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.SalaryWS.SalaryService.EndImportEmployeeMonthlySalary(ref string owerCompayId, ref string UImsg, System.IAsyncResult result) {
+            return base.Channel.EndImportEmployeeMonthlySalary(ref owerCompayId, ref UImsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginImportEmployeeMonthlySalary(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile = ((SMT.Saas.Tools.SalaryWS.UploadFileModel)(inValues[0]));
+            string year = ((string)(inValues[1]));
+            string month = ((string)(inValues[2]));
+            string owerCompayId = ((string)(inValues[3]));
+            string UImsg = ((string)(inValues[4]));
+            return ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).BeginImportEmployeeMonthlySalary(UploadFile, year, month, ref owerCompayId, ref UImsg, callback, asyncState);
+        }
+        
+        private object[] OnEndImportEmployeeMonthlySalary(System.IAsyncResult result) {
+            string owerCompayId = this.GetDefaultValueForInitialization<string>();
+            string UImsg = this.GetDefaultValueForInitialization<string>();
+            string retVal = ((SMT.Saas.Tools.SalaryWS.SalaryService)(this)).EndImportEmployeeMonthlySalary(ref owerCompayId, ref UImsg, result);
+            return new object[] {
+                    owerCompayId,
+                    UImsg,
+                    retVal};
+        }
+        
+        private void OnImportEmployeeMonthlySalaryCompleted(object state) {
+            if ((this.ImportEmployeeMonthlySalaryCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ImportEmployeeMonthlySalaryCompleted(this, new ImportEmployeeMonthlySalaryCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ImportEmployeeMonthlySalaryAsync(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, string year, string month, string owerCompayId, string UImsg) {
+            this.ImportEmployeeMonthlySalaryAsync(UploadFile, year, month, owerCompayId, UImsg, null);
+        }
+        
+        public void ImportEmployeeMonthlySalaryAsync(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, string year, string month, string owerCompayId, string UImsg, object userState) {
+            if ((this.onBeginImportEmployeeMonthlySalaryDelegate == null)) {
+                this.onBeginImportEmployeeMonthlySalaryDelegate = new BeginOperationDelegate(this.OnBeginImportEmployeeMonthlySalary);
+            }
+            if ((this.onEndImportEmployeeMonthlySalaryDelegate == null)) {
+                this.onEndImportEmployeeMonthlySalaryDelegate = new EndOperationDelegate(this.OnEndImportEmployeeMonthlySalary);
+            }
+            if ((this.onImportEmployeeMonthlySalaryCompletedDelegate == null)) {
+                this.onImportEmployeeMonthlySalaryCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnImportEmployeeMonthlySalaryCompleted);
+            }
+            base.InvokeAsync(this.onBeginImportEmployeeMonthlySalaryDelegate, new object[] {
+                        UploadFile,
+                        year,
+                        month,
+                        owerCompayId,
+                        UImsg}, this.onEndImportEmployeeMonthlySalaryDelegate, this.onImportEmployeeMonthlySalaryCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -36397,6 +36501,29 @@ namespace SMT.Saas.Tools.SalaryWS {
                 _args[0] = strMsg;
                 base.EndInvoke("AssignPersonMoney", _args, result);
                 strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginImportEmployeeMonthlySalary(SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile, string year, string month, ref string owerCompayId, ref string UImsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[5];
+                _args[0] = UploadFile;
+                _args[1] = year;
+                _args[2] = month;
+                _args[3] = owerCompayId;
+                _args[4] = UImsg;
+                System.IAsyncResult _result = base.BeginInvoke("ImportEmployeeMonthlySalary", _args, callback, asyncState);
+                owerCompayId = ((string)(_args[3]));
+                UImsg = ((string)(_args[4]));
+                return _result;
+            }
+            
+            public string EndImportEmployeeMonthlySalary(ref string owerCompayId, ref string UImsg, System.IAsyncResult result) {
+                object[] _args = new object[2];
+                _args[0] = owerCompayId;
+                _args[1] = UImsg;
+                string _result = ((string)(base.EndInvoke("ImportEmployeeMonthlySalary", _args, result)));
+                owerCompayId = ((string)(_args[0]));
+                UImsg = ((string)(_args[1]));
+                return _result;
             }
             
             public System.IAsyncResult BeginCheckSalaryAuditState(ref string strMsg, string filterString, System.Collections.ObjectModel.ObservableCollection<string> paras, System.AsyncCallback callback, object asyncState) {

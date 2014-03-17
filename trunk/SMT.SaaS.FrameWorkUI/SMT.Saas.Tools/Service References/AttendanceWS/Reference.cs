@@ -3679,6 +3679,10 @@ namespace SMT.Saas.Tools.AttendanceWS {
         
         private string YEARLYBALANCETYPEField;
         
+        private string YOUTHEXTENDField;
+        
+        private System.Nullable<decimal> YOUTHEXTENDVALUEField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> ADJUSTEXPIREDVALUE {
             get {
@@ -4260,6 +4264,32 @@ namespace SMT.Saas.Tools.AttendanceWS {
                 if ((object.ReferenceEquals(this.YEARLYBALANCETYPEField, value) != true)) {
                     this.YEARLYBALANCETYPEField = value;
                     this.RaisePropertyChanged("YEARLYBALANCETYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string YOUTHEXTEND {
+            get {
+                return this.YOUTHEXTENDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.YOUTHEXTENDField, value) != true)) {
+                    this.YOUTHEXTENDField = value;
+                    this.RaisePropertyChanged("YOUTHEXTEND");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> YOUTHEXTENDVALUE {
+            get {
+                return this.YOUTHEXTENDVALUEField;
+            }
+            set {
+                if ((this.YOUTHEXTENDVALUEField.Equals(value) != true)) {
+                    this.YOUTHEXTENDVALUEField = value;
+                    this.RaisePropertyChanged("YOUTHEXTENDVALUE");
                 }
             }
         }

@@ -402,6 +402,12 @@
   <wsdl:message name="SalaryService_AssignPersonMoney_OutputMessage">
     <wsdl:part name="parameters" element="AssignPersonMoneyResponse" />
   </wsdl:message>
+  <wsdl:message name="SalaryService_ImportEmployeeMonthlySalary_InputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeMonthlySalary" />
+  </wsdl:message>
+  <wsdl:message name="SalaryService_ImportEmployeeMonthlySalary_OutputMessage">
+    <wsdl:part name="parameters" element="ImportEmployeeMonthlySalaryResponse" />
+  </wsdl:message>
   <wsdl:message name="SalaryService_CheckSalaryAuditState_InputMessage">
     <wsdl:part name="parameters" element="CheckSalaryAuditState" />
   </wsdl:message>
@@ -1658,6 +1664,10 @@
     <wsdl:operation name="AssignPersonMoney">
       <wsdl:input wsaw:Action="urn:SalaryService/AssignPersonMoney" message="SalaryService_AssignPersonMoney_InputMessage" />
       <wsdl:output wsaw:Action="urn:SalaryService/AssignPersonMoneyResponse" message="SalaryService_AssignPersonMoney_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportEmployeeMonthlySalary">
+      <wsdl:input wsaw:Action="urn:SalaryService/ImportEmployeeMonthlySalary" message="SalaryService_ImportEmployeeMonthlySalary_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SalaryService/ImportEmployeeMonthlySalaryResponse" message="SalaryService_ImportEmployeeMonthlySalary_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CheckSalaryAuditState">
       <wsdl:input wsaw:Action="urn:SalaryService/CheckSalaryAuditState" message="SalaryService_CheckSalaryAuditState_InputMessage" />

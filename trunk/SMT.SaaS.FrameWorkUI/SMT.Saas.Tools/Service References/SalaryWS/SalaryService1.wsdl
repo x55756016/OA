@@ -589,6 +589,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ImportEmployeeMonthlySalary">
+      <soap:operation soapAction="urn:SalaryService/ImportEmployeeMonthlySalary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CheckSalaryAuditState">
       <soap:operation soapAction="urn:SalaryService/CheckSalaryAuditState" style="document" />
       <wsdl:input>

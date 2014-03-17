@@ -377,6 +377,8 @@
           <xs:element minOccurs="0" name="WORKTIMEPERDAY" nillable="true" type="xs:decimal" />
           <xs:element minOccurs="0" name="YEARLYBALANCEDATE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="YEARLYBALANCETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YOUTHEXTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YOUTHEXTENDVALUE" nillable="true" type="xs:decimal" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
