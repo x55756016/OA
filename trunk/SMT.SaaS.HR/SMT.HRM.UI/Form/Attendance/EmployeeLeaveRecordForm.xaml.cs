@@ -34,6 +34,7 @@ namespace SMT.HRM.UI.Form.Attendance
         public T_HR_ATTENDANCESOLUTION entAttendanceSolution { get; set; }
         decimal dCurLevelDays = 0;
         AttendanceServiceClient clientAtt;
+        
         SMT.Saas.Tools.PersonnelWS.PersonnelServiceClient perClient;
         private bool closeFormFlag = false;//是否关闭窗体 false 表示不关闭
         private bool canSubmit = false;//能否提交审核
@@ -62,7 +63,8 @@ namespace SMT.HRM.UI.Form.Attendance
             //LeaveRecordType = entLeave.LEAVETYPENAME;
             FormType = type;
             LeaveRecordID = strID;
-
+            //perClient = new PersonnelServiceClient();
+            //perClient.GetEmployeeFunds();
             this.Loaded += new RoutedEventHandler(EmployeeLeaveRecordForm_Loaded);
         }
 
@@ -325,9 +327,23 @@ namespace SMT.HRM.UI.Form.Attendance
             clientAtt.EmployeeLeaveRecordDeleteCompleted += new EventHandler<EmployeeLeaveRecordDeleteCompletedEventArgs>(clientAtt_EmployeeLeaveRecordDeleteCompleted);
             clientAtt.AuditLeaveRecordCompleted += new EventHandler<AuditLeaveRecordCompletedEventArgs>(clientAtt_AuditLeaveRecordCompleted);
           //  clientAtt.GetEmployeeLeaveRdListsByLeaveRecordIDCompleted += new EventHandler<GetEmployeeLeaveRdListsByLeaveRecordIDCompletedEventArgs>(clientAtt_GetEmployeeLeaveRdListsByLeaveRecordIDCompleted);
+            perClient.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(perClient_GetEmployeeByIDCompleted);
             toolbar1.btnNew.Content = "添加带薪假(冲减)";
             toolbar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             toolbar1.btnDelete.Click += new RoutedEventHandler(btnDelete_Click);
+        }
+
+        void perClient_GetEmployeeByIDCompleted(object sender, GetEmployeeByIDCompletedEventArgs e)
+        {
+            if (e.Error == null)
+            {
+                T_HR_EMPLOYEE employee = e.Result;
+                tbEmpBirthday.Text = "";
+                if (employee.BIRTHDAY != null)
+                {
+                    tbEmpBirthday.Text = employee.BIRTHDAY.ToString();
+                }
+            }
         }
 
         void clientAtt_EmployeeLeaveRecordAddCompleted(object sender, EmployeeLeaveRecordAddCompletedEventArgs e)
@@ -550,7 +566,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 LeaveRecord.EMPLOYEECODE = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeCode;
                 LeaveRecord.EMPLOYEENAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
                 LeaveRecord.CHECKSTATE = Convert.ToInt32(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit).ToString();
-
+                
                 //权限控制
                 LeaveRecord.OWNERCOMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
                 LeaveRecord.OWNERDEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
@@ -602,6 +618,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                 entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
                 entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
+                perClient.GetEmployeeByIDAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
         }
 
@@ -1659,7 +1676,7 @@ namespace SMT.HRM.UI.Form.Attendance
                        this.IsEnabled = false;
                        return;
                    }
-
+                   
                    //赋值
                    tbEmpName.Text = employeeView.EMPLOYEECNAME;
                    tbOrgName.Text = employeeView.POSTNAME + " - " + employeeView.DEPARTMENTNAME + " - " + employeeView.COMPANYNAME;
@@ -1858,7 +1875,29 @@ namespace SMT.HRM.UI.Form.Attendance
                             return;
                         }
                     }
-
+                    #region 五四青年节
+                    string strBirthDay = tbEmpBirthday.Text;
+                    //五四青年节
+                    if (ent.LEAVETYPEVALUE == "12")
+                    {
+                        if (string.IsNullOrEmpty(strBirthDay))
+                        {
+                            MessageBox.Show("五四青年节没获取到生日信息，不能选择此假");
+                            return;
+                        }
+                        DateTime dtBirthday = new DateTime();
+                        DateTime dtYouth = new DateTime();
+                        DateTime.TryParse(strBirthDay, out dtBirthday);
+                        DateTime.TryParse(DateTime.Now.Year.ToString()+"-05-04",out dtYouth);                        
+                         
+                        if (dtBirthday.AddYears(29) <= dtYouth)
+                        {
+                            MessageBox.Show("已超过五四假的设置条件，不能选择此假");
+                            return;
+                        }
+                    }
+                    
+                    #endregion
                     if (!string.IsNullOrEmpty(ent.POSTLEVELRESTRICT))
                     {
                         decimal dlevel = 0, dCheckLevel = 0;

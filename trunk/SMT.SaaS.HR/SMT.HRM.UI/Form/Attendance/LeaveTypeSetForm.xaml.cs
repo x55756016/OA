@@ -329,6 +329,14 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 if (FormType == FormTypes.New)
                 {
+                    //如果最小值是0.5获取到的值是0
+                    if (nudMaxDays.Value > 0)
+                    {
+                        if (entLeaveTypeSet.MAXDAYS == 0)
+                        {
+                            entLeaveTypeSet.MAXDAYS = (decimal)nudMaxDays.Value;
+                        }
+                    }
                     clientAtt.AddLeaveTypeSetAsync(entLeaveTypeSet);
                 }
                 else

@@ -306,6 +306,13 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 if (FormType == FormTypes.New)
                 {
+                    if (nudLeaveDays.Value > 0)
+                    {
+                        if (entFreeLeaveDaySet.LEAVEDAYS == 0)
+                        {
+                            entFreeLeaveDaySet.LEAVEDAYS = (decimal)nudLeaveDays.Value;
+                        }
+                    }
                     clientAtt.AddFreeLeaveDaySetAsync(entFreeLeaveDaySet);
                 }
                 else

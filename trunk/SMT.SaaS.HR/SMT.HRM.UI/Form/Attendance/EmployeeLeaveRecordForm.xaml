@@ -83,6 +83,7 @@
                 <TextBlock x:Name="tbEmpSex" Grid.Row="1" Grid.Column="4" Visibility="Collapsed"/>
                 <TextBlock x:Name="tbEmpLevel" Grid.Row="1" Grid.Column="4" Visibility="Collapsed"/>
 				<TextBlock x:Name="tbEmpWorkAge" Grid.Row="1" Grid.Column="4" Visibility="Collapsed"/>
+                <TextBlock x:Name="tbEmpBirthday" Grid.Row="1" Grid.Column="4" Visibility="Collapsed"/>
 				
                 <!--Row2 开始时间-->
                 <TextBlock Grid.Row="2" Text="{Binding Converter={StaticResource ResourceConveter}, Source=STARTDATETIME}" VerticalAlignment="Center" Margin="5,0,0,0"/>

@@ -56,7 +56,7 @@
                 <appCtr:DictionaryComboBox x:Name="cbxkFineType" Grid.Row="1" Grid.Column="2" IsShowNull="False" HorizontalAlignment="Stretch" Category="LEAVEFINETYPE" SelectedValue="{Binding FINETYPE, Mode=TwoWay}" Width="Auto" Height="24" VerticalAlignment="Center" SelectionChanged="cbxkFineType_SelectionChanged" />
 
                 <TextBlock x:Name="tbMaxDaysTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=LEAVEMAXDAYS}" Style="{StaticResource SysTextBlockStyle}" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                <inputToolkit:NumericUpDown x:Name="nudMaxDays" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="6" Width="Auto" VerticalAlignment="Stretch" Height="24" Value="{Binding MAXDAYS, Mode=TwoWay}" DecimalPlaces="1" Increment="0.5" Minimum="1" Maximum="1200"></inputToolkit:NumericUpDown>
+                <inputToolkit:NumericUpDown x:Name="nudMaxDays" Style="{StaticResource NumericUpDownStyle}" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="6" Width="Auto" VerticalAlignment="Stretch" Height="24" Value="{Binding MAXDAYS, Mode=TwoWay}" DecimalPlaces="2" Increment="0.01" Minimum="0.5" Maximum="1200"></inputToolkit:NumericUpDown>
 
                 <!--Row 2:PostLevelRestrict & SexRestrict-->
                 <TextBlock x:Name="tbPostLevelRestrictTitle" Text="{Binding Converter={StaticResource ResourceConveter}, Source=POSTLEVELRESTRICT}" Style="{StaticResource SysTextBlockStyle}" Grid.Row="2" Width="Auto" VerticalAlignment="Center" Margin="5,0,0,0" />

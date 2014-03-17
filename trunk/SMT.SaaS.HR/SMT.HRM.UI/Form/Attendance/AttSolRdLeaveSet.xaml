@@ -22,6 +22,7 @@
     		<Grid.RowDefinitions>
     			<RowDefinition Height="30"/>
     			<RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
     		</Grid.RowDefinitions>
     		<Grid.ColumnDefinitions>
     			<ColumnDefinition Width="110"/>
@@ -42,8 +43,16 @@
     		<CheckBox x:Name="cbIsExpired" Style="{StaticResource CheckBoxStyle}" Margin="5,0,0,0" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Click="cbIsExpired_Click"/>
 
     		<TextBlock x:Name="tbAdjustExpiredValueTitle" Grid.Row="1" Grid.Column="4" Text="{Binding Converter={StaticResource ResourceConveter}, Source=ADJUSTEXPIREDVALUE}" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Visibility="Collapsed"/>
-    		<inputToolkit:NumericUpDown x:Name="nudAdjustExpiredValue" Style="{StaticResource NumericUpDownStyle}" Margin="5,0,0,0" Grid.Row="1" Grid.Column="6" Maximum="100000" Value="{Binding ADJUSTEXPIREDVALUE, Mode=TwoWay}" Visibility="Collapsed"/>            
-    	</Grid>
+    		<inputToolkit:NumericUpDown x:Name="nudAdjustExpiredValue" Style="{StaticResource NumericUpDownStyle}" Margin="5,0,0,0" Grid.Row="1" Grid.Column="6" Maximum="100000" Value="{Binding ADJUSTEXPIREDVALUE, Mode=TwoWay}" Visibility="Collapsed"/>
+
+            <!--Row 2:五四三八是否延长-->
+            <TextBlock x:Name="tbYouth" Grid.Row="2" Grid.Column="0" Text="三八五四延长" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <CheckBox x:Name="cbYouthIsExpired" Style="{StaticResource CheckBoxStyle}" Margin="5,0,0,0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Click="cbYouthIsExpired_Click"/>
+
+            <TextBlock x:Name="tbYouthAdjustExpiredValueTitle" Grid.Row="2" Grid.Column="4" Text="延长时间(天)" Style="{StaticResource SysTextBlockStyle}" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <inputToolkit:NumericUpDown x:Name="nudYouthAdjustExpiredValue" Style="{StaticResource NumericUpDownStyle}" Margin="5,0,0,0" Grid.Row="2" Grid.Column="6" Maximum="100000" Value="{Binding YOUTHEXTENDVALUE, Mode=TwoWay}" Visibility="Collapsed"/>
+
+        </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>

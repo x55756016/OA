@@ -71,8 +71,10 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             entAttendanceSolution = new T_HR_ATTENDANCESOLUTION();
             entAttendanceSolution.ISEXPIRED = "0";
-            cbIsExpired.IsChecked = false;
+            entAttendanceSolution.YOUTHEXTEND = "0";
 
+            cbIsExpired.IsChecked = false;
+            cbYouthIsExpired.IsChecked = false;
             this.DataContext = entAttendanceSolution;
         }
 
@@ -139,7 +141,7 @@ namespace SMT.HRM.UI.Form.Attendance
             }
 
             decimal dAdjustExpiredValue = 0;
-
+            decimal dYouthAdjustExpiredValue = 0;
             if (cbxkAnnualLeaveSet.SelectedItem == null)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ANNUALLEAVESET"), string.Format(Utility.GetResourceStr("REQUIRED"), Utility.GetResourceStr("ANNUALLEAVESET")));
@@ -167,7 +169,9 @@ namespace SMT.HRM.UI.Form.Attendance
             //注释原因：在加班单终审时没有进行加1判断
             //entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.No) + 1).ToString();
             entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.No)).ToString();
+            entAttendanceSolution.YOUTHEXTEND = (Convert.ToInt32(IsChecked.No)).ToString();
             entAttSol.ISEXPIRED = (Convert.ToInt32(IsChecked.No)).ToString();
+            entAttSol.YOUTHEXTEND = (Convert.ToInt32(IsChecked.No)).ToString();
             if (cbIsExpired.IsChecked.Value == true)
             {
                 //entAttendanceSolution.ISEXPIRED = (Convert.ToInt32(IsChecked.Yes) + 1).ToString();
@@ -182,8 +186,21 @@ namespace SMT.HRM.UI.Form.Attendance
                     return;
                 }
             }
+            if (cbYouthIsExpired.IsChecked.Value == true)
+            {                
+                entAttendanceSolution.YOUTHEXTEND = (Convert.ToInt32(IsChecked.Yes)).ToString();
+                entAttSol.YOUTHEXTEND = (Convert.ToInt32(IsChecked.Yes)).ToString();
+                decimal.TryParse(nudYouthAdjustExpiredValue.Value.ToString(), out dYouthAdjustExpiredValue);
+                if (dYouthAdjustExpiredValue <= 0)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, "提示", "三八五四延长时间不能小于或等于0");
+                    entAttSol = null;
+                    return;
+                }
+            }
 
             entAttSol.ADJUSTEXPIREDVALUE = dAdjustExpiredValue;
+            entAttSol.YOUTHEXTENDVALUE = dYouthAdjustExpiredValue;
         }
 
         public bool Save(ref T_HR_ATTENDANCESOLUTION entAttSol, out ObservableCollection<T_HR_ATTENDFREELEAVE> entListTemp)
@@ -197,7 +214,7 @@ namespace SMT.HRM.UI.Form.Attendance
             {
                 return false;
             }
-
+            
             if (dgLeaveSetlist.ItemsSource == null)
             {
                 Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "ATTENDANCEUNUSUALDEDUCT"));
@@ -247,11 +264,18 @@ namespace SMT.HRM.UI.Form.Attendance
                 this.DataContext = entAttendanceSolution;
 
                 cbIsExpired.IsChecked = false;
+                cbYouthIsExpired.IsChecked = false;
                 if (entAttendanceSolution.ISEXPIRED == (Convert.ToInt32(IsChecked.Yes)).ToString())
                 {
                     cbIsExpired.IsChecked = true;
                     tbAdjustExpiredValueTitle.Visibility = Visibility.Visible;
                     nudAdjustExpiredValue.Visibility = Visibility.Visible;
+                }
+                if (entAttendanceSolution.YOUTHEXTEND == (Convert.ToInt32(IsChecked.Yes)).ToString())
+                {
+                    cbYouthIsExpired.IsChecked = true;
+                    tbYouthAdjustExpiredValueTitle.Visibility = Visibility.Visible;
+                    nudYouthAdjustExpiredValue.Visibility = Visibility.Visible;
                 }
             }
             else
@@ -283,7 +307,32 @@ namespace SMT.HRM.UI.Form.Attendance
         {
             IsEnabledAdjustExpiredValue(cbIsExpired);
         }
+        /// <summary>
+        /// 三八五四是否延长
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbYouthIsExpired_Click(object sender, RoutedEventArgs e)
+        {
+            IsEnabledYouthAdjustExpiredValue(cbYouthIsExpired);
+        }
 
+        /// <summary>
+        /// 控制三八五四是否填写有效时长
+        /// </summary>
+        /// <param name="cbxk"></param>
+        private void IsEnabledYouthAdjustExpiredValue(CheckBox cbx)
+        {
+            Visibility vib = Visibility.Collapsed;
+
+            if (cbx.IsChecked.Value == true)
+            {
+                vib = Visibility.Visible;
+            }
+
+            tbYouthAdjustExpiredValueTitle.Visibility = vib;
+            nudYouthAdjustExpiredValue.Visibility = vib;
+        }
         //private void lkLeaveTypeSet_FindClick(object sender, EventArgs e)
         //{
         //    Dictionary<string, string> cols = new Dictionary<string, string>();
