@@ -143,8 +143,10 @@ namespace SMT.HRM.BLL
 
             if (entLeaveTypeSet.LEAVETYPEVALUE != (Convert.ToInt32(Common.LeaveTypeValue.AdjustLeave) + 1).ToString())
             {
+                //考虑
                 ems = from e in ems
-                      where e.EFFICDATE >= dtYearStart && e.TERMINATEDATE <= dtYearEnd
+                      where e.EFFICDATE >= dtYearStart && e.TERMINATEDATE <= dtYearEnd  
+                          || (e.EFFICDATE <= dtYearStart && e.TERMINATEDATE >= dtYearEnd)
                       select e;
             }
 
@@ -1581,7 +1583,7 @@ namespace SMT.HRM.BLL
                     Tracer.Debug(entEmployee.EMPLOYEECNAME + "无法生成生成过带薪假" + " 通过考勤方案没有获取到关联的假期标准(只为带薪假的)，方案id：" + entAttSolAsign.T_HR_ATTENDANCESOLUTION.ATTENDANCESOLUTIONID); 
                     return;
                 }
-
+                
                 EmployeeLevelDayCountBLL bllLevelDayCount = new EmployeeLevelDayCountBLL();
                 //已经存在的带薪假记录
                 var entExists = from ent in dal.GetObjects<T_HR_EMPLOYEELEVELDAYCOUNT>()
@@ -1591,7 +1593,10 @@ namespace SMT.HRM.BLL
                 foreach (T_HR_ATTENDFREELEAVE entAttendFreeLeave in entAttendFreeLeaves)
                 {
                     T_HR_LEAVETYPESET entLeaveTypeSet = entAttendFreeLeave.T_HR_LEAVETYPESET;
-
+                    if (!(entLeaveTypeSet.LEAVETYPEVALUE == "12" || entLeaveTypeSet.LEAVETYPEVALUE == "13"))
+                    {
+                        continue; 
+                    }
                     if (entLeaveTypeSet == null)
                     {
                         Tracer.Debug(entEmployee.EMPLOYEECNAME + "生成过带薪假" + entLeaveTypeSet.LEAVETYPENAME + "被跳过，无假期设置项目T_HR_LEAVETYPESET无记录");
@@ -1747,7 +1752,59 @@ namespace SMT.HRM.BLL
                             continue;
                         }
                     }
+                    #region 三八五四节日处理
+                    //员工生日
+                    DateTime birthDate = (DateTime)entEmployee.BIRTHDAY;
+                    DateTime dtYouth = new DateTime();                    
+                    //五四
+                    if (strVacType == "12")
+                    {
+                        DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                        //年龄小于等于28岁
+                        if (birthDate.AddYears(28) <= dtYouth)
+                        {
+                            continue;
+                        }                        
+                    }
+                    //三八
+                    if (strVacType == "13")
+                    {
+                        DateTime.TryParse(DateTime.Now.Year.ToString() + "-03-08", out dtYouth);
+                    }
 
+                    if (entAttSolAsign.T_HR_ATTENDANCESOLUTION != null)
+                    {
+                        //三八五四是否进行了延期设置
+                        string strExtend = string.Empty;
+                        decimal dbDays = 0;
+                        if (string.IsNullOrEmpty(entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND))
+                        {
+                            strExtend = "0";
+                        }
+                        else
+                        {
+                            strExtend = entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND;
+                        }
+                        if (strExtend == "1")
+                        {
+                            //延期天数
+                            dbDays = (decimal)entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTENDVALUE;
+                        }
+                        if (dbDays > 0)
+                        {
+                            dtEfficDate = dtYouth;
+                            dtStart = dtYouth;
+                            dtTerminateDate = dtYouth.AddDays((double)dbDays);
+                        }
+                        else
+                        {
+                            //不延长则是当天
+                            dtEfficDate = dtYouth;
+                            dtStart = dtYouth;
+                            dtTerminateDate = dtYouth; 
+                        }
+                    }
+                    #endregion
                     T_HR_EMPLOYEELEVELDAYCOUNT entAdd = new T_HR_EMPLOYEELEVELDAYCOUNT();
                     entAdd.RECORDID = System.Guid.NewGuid().ToString().ToUpper();
                     entAdd.DAYS = dAddDays;                  //可休假 的 可休天数 即为 新方案 对应 假期标准 的 带薪假设置 的 可休假数(天)

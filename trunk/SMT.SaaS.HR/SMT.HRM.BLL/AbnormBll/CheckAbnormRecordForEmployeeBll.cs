@@ -511,6 +511,23 @@ namespace SMT.HRM.BLL
                       orderby c.PUNCHDATE
                       select c;
 
+            //liujx加2014-3-14
+            try
+            {
+                EmployeeEntryBLL entry = new EmployeeEntryBLL();
+                T_HR_EMPLOYEEENTRY EmployeeEntry = entry.GetEmployeeEntryByEmployeeID(entAttRd.EMPLOYEEID);
+                //入职时间终审通过且更新时间比
+                if (EmployeeEntry.CHECKSTATE == "2" && EmployeeEntry.UPDATEDATE > dtAttStart)
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("CheckAbnormRecordWithWorkStart-获取入职记录时出错，员工ID:" + entAttRd.EMPLOYEEID + " 错误信息： " + ex.ToString());
+            }
+            //结束
+
             //无记录，即视为缺勤
             if (cls.Count() == 0)
             {
@@ -567,7 +584,22 @@ namespace SMT.HRM.BLL
             DateTime.TryParse(strAttEndTime.Trim(), out dtAttEnd);
             DateTime.TryParse(strAttOffCardStartTime.Trim(), out dtAttCardStart);
             DateTime.TryParse(strAttOffCardEndTime.Trim(), out dtAttCardEnd);
-
+            //liujx加2014-3-14
+            try
+            {
+                EmployeeEntryBLL entry = new EmployeeEntryBLL();
+                T_HR_EMPLOYEEENTRY EmployeeEntry = entry.GetEmployeeEntryByEmployeeID(entAttRd.EMPLOYEEID);
+                //入职时间终审通过且更新时间比
+                if (EmployeeEntry.CHECKSTATE == "2" && EmployeeEntry.UPDATEDATE > dtAttEnd)
+                {
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("获取入职记录时出错，员工ID:" + entAttRd.EMPLOYEEID + " 错误信息： " + ex.ToString());
+            }
+            //end
             List<T_HR_EMPLOYEECLOCKINRECORD> entTemps = new List<T_HR_EMPLOYEECLOCKINRECORD>();
 
             foreach (T_HR_EMPLOYEECLOCKINRECORD item in entClockInList)
