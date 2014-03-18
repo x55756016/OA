@@ -356,11 +356,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
                             //计算本次出差的时间
                             List<string> list = new List<string>{detail.BUSINESSDAYS};
-                            if (detail.BUSINESSDAYS != null)
+                            if (detail.BUSINESSDAYS != null && !detail.BUSINESSDAYS.Contains("null"))
                             {
                                 double totalHours = System.Convert.ToDouble(list[0]);
                                 BusinessDays += totalHours;//总天数
                                 toodays = totalHours;//单条数据的天数
+                            }
+                            else
+                            {
+                                detail.BUSINESSDAYS = "0";
                             }
                             double tresult = toodays;//计算本次出差的总天数
 

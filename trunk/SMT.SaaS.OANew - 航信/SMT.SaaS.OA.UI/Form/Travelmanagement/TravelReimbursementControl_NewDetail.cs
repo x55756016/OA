@@ -195,10 +195,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                 var ent = TravelDetailList_Golbal[i];
                 //住宿费
                 TextBox txtASubsidies = DaGrEdit.Columns[9].GetCellContent(ent).FindName("txtACCOMMODATION") as TextBox;
-                if (i == lastIndex)
+                if (i>0 &&i == lastIndex)
                 {
                     //txtASubsidies.IsEnabled = false;
                     txtASubsidies.IsReadOnly = true;
+                    txtASubsidies.Text = string.Empty;
                 }
                 else
                 {
@@ -207,6 +208,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             
         }
+
         #endregion
     }
 }

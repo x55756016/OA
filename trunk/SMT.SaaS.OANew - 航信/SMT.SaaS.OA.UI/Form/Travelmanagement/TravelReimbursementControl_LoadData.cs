@@ -406,7 +406,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 if (txtASubsidies != null)//住宿费
                                 {
                                     txtASubsidies.Text = obje.ACCOMMODATION.ToString();
-                                    if (i == objs.Count - 1)
+                                    if (i>0 && i == objs.Count - 1)
                                     {
                                         txtASubsidies.IsReadOnly = true;
                                     }
