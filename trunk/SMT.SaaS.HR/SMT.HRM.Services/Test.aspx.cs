@@ -20,9 +20,9 @@ namespace SMT.HRM.Services
             //bll.UpdateCheckState("T_HR_ATTENDANCESOLUTIONASIGN", "ATTENDANCESOLUTIONASIGNID", "07D79240-4EA1-4397-A0B1-502A10106530", "2");
 
 
-            string str="<Para FuncName=\"ATTENDANCESOLUTIONASIGNRemindTrigger\" Name=\"ATTENDANCESOLUTIONASIGNID\" Value=\"07D79240-4EA1-4397-A0B1-502A10106530\"></Para>";
-            EngineTriggerService sv = new EngineTriggerService();
-            sv.EventTriggerProcess(str);
+            //string str="<Para FuncName=\"ATTENDANCESOLUTIONASIGNRemindTrigger\" Name=\"ATTENDANCESOLUTIONASIGNID\" Value=\"07D79240-4EA1-4397-A0B1-502A10106530\"></Para>";
+            //EngineTriggerService sv = new EngineTriggerService();
+            //sv.EventTriggerProcess(str);
             #endregion
             //return;
             //using (AttendMonthlyBalanceBLL bll = new AttendMonthlyBalanceBLL())

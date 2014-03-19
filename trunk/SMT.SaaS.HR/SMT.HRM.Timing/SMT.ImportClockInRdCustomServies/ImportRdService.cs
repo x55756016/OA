@@ -17,7 +17,6 @@ using SMT.ImportClockInRdCustomServies.AttendanceWS;
 using System.Net;
 using SMT.Foundation.Log;
 
-[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 namespace SMT.ImportClockInRdCustomServies
 {
     public partial class ImportRdService : ServiceBase
@@ -39,6 +38,7 @@ namespace SMT.ImportClockInRdCustomServies
         private string strNewDevices = string.Empty;
         private string strIPs = string.Empty;
         private string strCompanyIDs =string.Empty;
+        private string StrCustomerName = string.Empty;
 
         public ImportRdService()
         {
@@ -59,6 +59,8 @@ namespace SMT.ImportClockInRdCustomServies
             iPort = int.Parse(ConfigurationManager.AppSettings["clockPort"].ToString());
             strIPs = ConfigurationManager.AppSettings["clockIp"].ToString();
             strCompanyIDs = ConfigurationManager.AppSettings["companyID"].ToString();
+
+            StrCustomerName = ConfigurationManager.AppSettings["CustomerName"].ToString();
 
             if (TestMode == "true")
             {
@@ -153,7 +155,16 @@ namespace SMT.ImportClockInRdCustomServies
                     try
                     {
                         isReadToRead = false;
-                        ImportRd();                        
+                        if (StrCustomerName == "HuNanHangXing")
+                        {
+                            //如果是湖南航信
+                            Tracer.Debug("开始导入湖南航信打卡机记录");
+                            ImportRdHuNanHangXing();
+                        }
+                        else
+                        {
+                            ImportRd();
+                        }
                         Tracer.Debug("读取打卡机记录完成，已释放资源。");
 
                     }

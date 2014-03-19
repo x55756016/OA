@@ -135,7 +135,7 @@ namespace SMT.HRM.UI.Form.Salary
                 }
                 //PROJECTNAME传递的是员工全名
                 EmployeeAddsumInfoList.Add(EmployeeAddSumView);
-                initAddSum();
+                initAddSum("1");
                 DtGrid.ItemsSource = EmployeeAddsumInfoList;
                 RefreshUI(RefreshedTypes.AuditInfo);
                 SetToolBar();
@@ -230,8 +230,11 @@ namespace SMT.HRM.UI.Form.Salary
         //    }
         //}
 
-
-        private void initAddSum()
+        /// <summary>
+        /// 初始化加扣款
+        /// </summary>
+        /// <param name="flag">1：:初始化   2：保存</param>
+        private void initAddSum(string flag)
         {
             EmployeeAddSum = new T_HR_EMPLOYEEADDSUM();
             EmployeeAddSum.ADDSUMID = EmployeeAddSumView.ADDSUMID;
@@ -240,9 +243,26 @@ namespace SMT.HRM.UI.Form.Salary
             EmployeeAddSum.CREATEPOSTID = EmployeeAddSumView.CREATEPOSTID;
             EmployeeAddSum.CREATEUSERID = EmployeeAddSumView.CREATEUSERID;
             EmployeeAddSum.CREATEDATE = EmployeeAddSumView.CREATEDATE;
-            EmployeeAddSum.CHECKSTATE = EmployeeAddSumView.CHECKSTATE;
-            EmployeeAddSum.DEALMONTH = EmployeeAddSumView.DEALMONTH;
-            EmployeeAddSum.DEALYEAR = EmployeeAddSumView.DEALYEAR;
+            EmployeeAddSum.CHECKSTATE = EmployeeAddSumView.CHECKSTATE;            
+            if(flag =="2")
+            {
+                double month = numMonth.Value;
+                double year = numYear.Value;
+                if (month != null)
+                {
+                    EmployeeAddSum.DEALMONTH = month.ToString();// EmployeeAddSumView.DEALMONTH;
+                }
+                if (year != null)
+                {
+                    EmployeeAddSum.DEALYEAR = year.ToString();// EmployeeAddSumView.DEALYEAR;
+                }                
+            }
+            else
+            {
+                EmployeeAddSum.DEALMONTH = EmployeeAddSumView.DEALMONTH;
+                EmployeeAddSum.DEALYEAR = EmployeeAddSumView.DEALYEAR;
+            }
+            
             EmployeeAddSum.EMPLOYEECODE = EmployeeAddSumView.EMPLOYEECODE;
             EmployeeAddSum.EMPLOYEEID = EmployeeAddSumView.EMPLOYEEID;
            // EmployeeAddSum.EMPLOYEENAME = EmployeeAddSumView.EMPLOYEENAME;
@@ -520,21 +540,26 @@ namespace SMT.HRM.UI.Form.Salary
                 //
                 List<V_EmployeeAddsumView> infoList = new List<V_EmployeeAddsumView>();
                 infoList.AddRange(EmployeeAddsumInfoList);
-                //infoList.AddRange(EmployeeAddsumDelList);
+                //添加删除的员工加扣款
+                infoList.AddRange(EmployeeAddsumDelList);
 
                 foreach (var admSum in infoList)
                 {
-                    if (admSum.PROJECTMONEY == 0 || isZore())
+                    if (admSum.PROJECTCODE != "del")
                     {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("输入的金额不能为0"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        RefreshUI(RefreshedTypes.ProgressBar);
-                        return false;
-                    }
-                    if (admSum.PROJECTMONEY == null)
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("请输入正确的金额"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        RefreshUI(RefreshedTypes.ProgressBar);
-                        return false;
+                        //不是删除的则做数据校验
+                        if (admSum.PROJECTMONEY == 0 || isZore())
+                        {
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("输入的金额不能为0"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            RefreshUI(RefreshedTypes.ProgressBar);
+                            return false;
+                        }
+                        if (admSum.PROJECTMONEY == null)
+                        {
+                            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("请输入正确的金额"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                            RefreshUI(RefreshedTypes.ProgressBar);
+                            return false;
+                        }
                     }
 
 
@@ -573,7 +598,7 @@ namespace SMT.HRM.UI.Form.Salary
             else
             {
 
-                initAddSum();
+                initAddSum("2");
                 if (EmployeeAddSum.PROJECTMONEY == 0 || EmployeeAddSum.PROJECTMONEY == null || isZore())
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("加扣款金额不能为0"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
@@ -745,11 +770,21 @@ namespace SMT.HRM.UI.Form.Salary
             var ent = DtGrid.SelectedItems[0] as V_EmployeeAddsumView;
             EmployeeAddsumInfoList.Remove(ent);
             //  DtGrid.ItemsSource = EmployeeAddsumInfoList;
+            ObservableCollection<string> ids = new ObservableCollection<string>();
             if (!EmployeeAddsumDelList.Contains(ent))
             {
                 ent.PROJECTCODE = "del";
+                ids.Add(ent.ADDSUMID);
                 EmployeeAddsumDelList.Add(ent);
             }
+            //string Result = "";
+            //ComfirmWindow com = new ComfirmWindow();
+            //com.OnSelectionBoxClosed += (obj, result) =>
+            //{
+            //    client.EmployeeAddSumDeleteAsync(ids);
+            //};
+            //com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), Utility.GetResourceStr("DELETEALTER"), ComfirmWindow.titlename, Result);
+            
         }
 
         private void DtGrid_LoadingRow(object sender, DataGridRowEventArgs e)

@@ -334,13 +334,14 @@ namespace SMT.HRM.UI.Form.Attendance
                     {
                         if (entLeaveTypeSet.MAXDAYS == 0)
                         {
-                            entLeaveTypeSet.MAXDAYS = (decimal)nudMaxDays.Value;
+                            entLeaveTypeSet.MAXDAYS = decimal.Round((decimal)nudMaxDays.Value, 2); //(decimal)nudMaxDays.Value;
                         }
                     }
                     clientAtt.AddLeaveTypeSetAsync(entLeaveTypeSet);
                 }
                 else
                 {
+                    entLeaveTypeSet.MAXDAYS = decimal.Round((decimal)entLeaveTypeSet.MAXDAYS, 2);
                     clientAtt.ModifyLeaveTypeSetAsync(entLeaveTypeSet);
                 }
 

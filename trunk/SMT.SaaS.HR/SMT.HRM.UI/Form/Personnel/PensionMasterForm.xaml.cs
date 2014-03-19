@@ -762,7 +762,7 @@ namespace SMT.HRM.UI.Form.Personnel
                     PensionMaster.OWNERCOMPANYID = ent.OWNERCOMPANYID;
                     PensionMaster.OWNERDEPARTMENTID = ent.OWNERDEPARTMENTID;
                     PensionMaster.OWNERPOSTID = ent.OWNERPOSTID;
-                    PensionMaster.OWNERID = ent.OWNERID;
+                    PensionMaster.OWNERID = ent.EMPLOYEEID; //ent.OWNERID; ownerid为空 改成employeeid
                     PensionMaster.T_HR_EMPLOYEE = entity;
                 }
             };

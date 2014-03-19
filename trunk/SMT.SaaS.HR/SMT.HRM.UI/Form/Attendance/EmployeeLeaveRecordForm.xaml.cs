@@ -957,7 +957,21 @@ namespace SMT.HRM.UI.Form.Attendance
 
 
             //检查请假时长是否超过最大允许值
-            if (nudTotalDays.Value > dMaxDays * dWorkTimePerDay)
+            double doubleHours = 0;
+            if (LeaveRecordType == "12" || LeaveRecordType == "13")
+            {
+                doubleHours = dMaxDays * dWorkTimePerDay;
+                string strdouble = "";
+                strdouble = (dMaxDays * dWorkTimePerDay).ToString("0.0");
+                doubleHours = Convert.ToDouble(strdouble);
+            }
+            else
+            {
+                doubleHours = dMaxDays * dWorkTimePerDay;
+ 
+            }
+            //aa = dMaxDays * dWorkTimePerDay.
+            if (nudTotalDays.Value > doubleHours)
             {
                 Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("OVERLEAVEMAXDAYS"));
                 flag = false;
@@ -1027,6 +1041,78 @@ namespace SMT.HRM.UI.Form.Attendance
                 else
                 {
                     flag = true;
+                }
+            }
+            if (LeaveRecordType == "12" || LeaveRecordType == "13")
+            {
+                DateTime dtNow = DateTime.Now;
+                DateTime dtYouth = new DateTime();
+                DateTime dtYouthStart = (DateTime)dpStartDate.Value;
+                DateTime dtYouthEnd = (DateTime)dpEndDate.Value;
+
+                DateTime dtYouthStartOut = new DateTime();
+                DateTime dtYouthEndOut = new DateTime();
+                string strDate = string.Empty;
+                if (entAttendanceSolution != null)
+                {
+                    if (entAttendanceSolution.YOUTHEXTEND == null || entAttendanceSolution.YOUTHEXTEND == "0")
+                    {
+                        //五四节
+                        if (LeaveRecordType == "12")
+                        {                            
+                            DateTime.TryParse(dtYouthStart.Year.ToString() + "-" + dtYouthStart.Month.ToString() + "-" + dtYouthStart.Day.ToString(), out dtYouthStartOut);
+                            DateTime.TryParse(dtYouthEnd.Year.ToString() + "-" + dtYouthEnd.Month.ToString() + "-" + dtYouthEnd.Day.ToString(), out dtYouthEndOut);
+                            DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                            if (dtYouthStartOut != dtYouth || dtYouthEndOut != dtYouth)
+                            {
+                                MessageBox.Show("五四青年节必须在当天请假");
+                                flag = false;
+                                return; 
+                            }
+                        }
+
+                        if (LeaveRecordType == "13")
+                        {
+                            DateTime.TryParse(dtYouthStart.Year.ToString() + "-" + dtYouthStart.Month.ToString() + "-" + dtYouthStart.Day.ToString(), out dtYouthStartOut);
+                            DateTime.TryParse(dtYouthEnd.Year.ToString() + "-" + dtYouthEnd.Month.ToString() + "-" + dtYouthEnd.Day.ToString(), out dtYouthEndOut);
+                            DateTime.TryParse(DateTime.Now.Year.ToString() + "-03-08", out dtYouth);
+                            if (dtYouthStartOut != dtYouth || dtYouthEndOut != dtYouth)
+                            {
+                                MessageBox.Show("三八节必须在当天请假");
+                                flag = false;
+                                return;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (LeaveRecordType == "12")
+                        {
+                            DateTime.TryParse(dtYouthStart.Year.ToString() + "-" + dtYouthStart.Month.ToString() + "-" + dtYouthStart.Day.ToString(), out dtYouthStartOut);
+                            
+                            DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                            if (dtYouthStartOut < dtYouth || dtYouthEndOut != dtYouth)
+                            {
+                                MessageBox.Show("五四青年节不能超前申请");
+                                flag = false;
+                                return;
+                            }
+                        }
+
+                        if (LeaveRecordType == "13")
+                        {
+                            DateTime.TryParse(dtYouthStart.Year.ToString() + "-" + dtYouthStart.Month.ToString() + "-" + dtYouthStart.Day.ToString(), out dtYouthStartOut);
+                            
+                            DateTime.TryParse(DateTime.Now.Year.ToString() + "-03-08", out dtYouth);
+                            if (dtYouthStartOut < dtYouth )
+                            {
+                                MessageBox.Show("三八节不能超前申请");
+                                flag = false;
+                                return;
+                            }
+                        }
+ 
+                    }
                 }
             }
             ////检查带薪假期，当前有无冲减天数
@@ -1329,7 +1415,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 //
                 T_HR_LEAVETYPESET entLeave = lkLeaveTypeName.DataContext as T_HR_LEAVETYPESET;
                 LeaveRecordType = entLeave.LEAVETYPEVALUE;
-
+                
                 if (dWordTimePerDay > 0)
                 {
                     //一天的工作时长
@@ -1888,15 +1974,15 @@ namespace SMT.HRM.UI.Form.Attendance
                         DateTime dtBirthday = new DateTime();
                         DateTime dtYouth = new DateTime();
                         DateTime.TryParse(strBirthDay, out dtBirthday);
-                        DateTime.TryParse(DateTime.Now.Year.ToString()+"-05-04",out dtYouth);                        
-                         
-                        if (dtBirthday.AddYears(29) <= dtYouth)
+                        DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                        if (dtBirthday.AddYears(28) < dtYouth)
                         {
                             MessageBox.Show("已超过五四假的设置条件，不能选择此假");
                             return;
                         }
+                        
                     }
-                    
+
                     #endregion
                     if (!string.IsNullOrEmpty(ent.POSTLEVELRESTRICT))
                     {

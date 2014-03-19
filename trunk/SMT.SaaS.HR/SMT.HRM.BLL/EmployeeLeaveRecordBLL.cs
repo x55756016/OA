@@ -1251,6 +1251,48 @@ namespace SMT.HRM.BLL
                     strReturn = "请假开始时间不能小于当前时间";
                     return strReturn;
                 }
+                #region 五四青年节
+                try
+                {
+                    string strBirthDay = string.Empty;
+                    EmployeeBLL employee = new EmployeeBLL();
+                    T_HR_EMPLOYEE employeeInfo = employee.GetEmployeeByID(LeaveRecord.EMPLOYEEID);
+                    if (employeeInfo == null)
+                    {
+                        strReturn = "获取员工信息为空";
+                        return strReturn;
+                    }
+                    if (employeeInfo.BIRTHDAY == null)
+                    {
+                        strReturn = "没有获取到生日信息";
+                        return strReturn;
+                    }
+                    strBirthDay = employeeInfo.BIRTHDAY.ToString();
+                    //五四青年节
+                    if (LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPEVALUE == "12")
+                    {
+                        if (string.IsNullOrEmpty(strBirthDay))
+                        {
+                            strReturn = "没有获取到生日信息";
+                            return strReturn;
+                        }
+                        DateTime dtBirthday = new DateTime();
+                        DateTime dtYouth = new DateTime();
+                        DateTime.TryParse(strBirthDay, out dtBirthday);
+                        DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                        if (dtBirthday.AddYears(28) < dtYouth)
+                        {
+                            strReturn = "已超过五四假的设置条件，不能保存此假";
+                            return strReturn;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Tracer.Debug("修改请假记录出现错误：" + ex.ToString());
+                }
+
+                #endregion
                 ent.T_HR_LEAVETYPESETReference.EntityKey =
                     new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_LEAVETYPESET", "LEAVETYPESETID", LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPESETID);
 
@@ -1358,7 +1400,48 @@ namespace SMT.HRM.BLL
                     strReturn = "请假记录不存在";
                     return strReturn;
                 }
+                #region 五四青年节
+                try
+                {
+                    string strBirthDay = string.Empty;
+                    EmployeeBLL employee = new EmployeeBLL();
+                    T_HR_EMPLOYEE employeeInfo = employee.GetEmployeeByID(LeaveRecord.EMPLOYEEID);
+                    if (employeeInfo == null)
+                    {
+                        strReturn = "获取员工信息为空";
+                        return strReturn;
+                    }
+                    if (employeeInfo.BIRTHDAY == null)
+                    {
+                        strReturn = "没有获取到生日信息";
+                        return strReturn;
+                    }
+                    strBirthDay = employeeInfo.BIRTHDAY.ToString();
+                    //五四青年节
+                    if (LeaveRecord.T_HR_LEAVETYPESET.LEAVETYPEVALUE == "12")
+                    {
+                        if (string.IsNullOrEmpty(strBirthDay))
+                        {
+                            strReturn = "没有获取到生日信息";
+                            return strReturn;
+                        }
+                        DateTime dtBirthday = new DateTime();
+                        DateTime dtYouth = new DateTime();
+                        DateTime.TryParse(strBirthDay, out dtBirthday);
+                        DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
+                        if (dtBirthday.AddYears(28) < dtYouth)
+                        {
+                            strReturn = "已超过五四假的设置条件，不能保存此假";
+                            return strReturn;
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Tracer.Debug("修改请假记录出现错误："+ex.ToString());
+                }
 
+                #endregion
                 if (LeaveRecord.STARTDATETIME < DateTime.Now)
                 {
                     strReturn = "请假开始时间不能小于当前时间";

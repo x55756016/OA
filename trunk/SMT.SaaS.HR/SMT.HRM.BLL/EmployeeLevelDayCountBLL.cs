@@ -1801,7 +1801,11 @@ namespace SMT.HRM.BLL
                             //不延长则是当天
                             dtEfficDate = dtYouth;
                             dtStart = dtYouth;
-                            dtTerminateDate = dtYouth; 
+                            dtTerminateDate = dtYouth;                            
+                        }
+                        if (entLeaveTypeSet.MAXDAYS != null)
+                        {
+                            dAddDays = (decimal)entLeaveTypeSet.MAXDAYS;
                         }
                     }
                     #endregion
@@ -1926,8 +1930,11 @@ namespace SMT.HRM.BLL
                           select ent;
                 if (emp.FirstOrDefault() != null)
                 {
-                    dSOCIALSERVICE = emp.FirstOrDefault().SOCIALSERVICEYEAR;
-                    Tracer.Debug("生成员工带薪年假：获取的员工档案中员工社保缴交起始时间：" + dSOCIALSERVICE.ToString());
+                    if (emp.FirstOrDefault().SOCIALSERVICEYEAR != null)
+                    {
+                        dSOCIALSERVICE = emp.FirstOrDefault().SOCIALSERVICEYEAR;
+                        Tracer.Debug("生成员工带薪年假：获取的员工档案中员工社保缴交起始时间：" + dSOCIALSERVICE.ToString());
+                    }                    
                 }
                 //如果员工档案未获取到员工社保缴交日期，从社保档案获取
                 if (string.IsNullOrEmpty(dSOCIALSERVICE))

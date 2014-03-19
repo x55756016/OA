@@ -519,6 +519,7 @@ namespace SMT.HRM.BLL
                 //入职时间终审通过且更新时间比
                 if (EmployeeEntry.CHECKSTATE == "2" && EmployeeEntry.UPDATEDATE > dtAttStart)
                 {
+                    Tracer.Debug("检查异常，Liujx添加员工入职逻辑退出异常检查");
                     return;
                 }
             }
@@ -592,6 +593,7 @@ namespace SMT.HRM.BLL
                 //入职时间终审通过且更新时间比
                 if (EmployeeEntry.CHECKSTATE == "2" && EmployeeEntry.UPDATEDATE > dtAttEnd)
                 {
+                    Tracer.Debug("检查异常，Liujx添加员工入职逻辑退出异常检查");
                     return;
                 }
             }

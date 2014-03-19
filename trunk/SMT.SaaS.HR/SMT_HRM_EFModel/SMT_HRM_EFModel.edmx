@@ -1009,6 +1009,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="YEARLYBALANCETYPE" Type="nvarchar2" MaxLength="2" />
     <Property Name="YEARLYBALANCEDATE" Type="nvarchar2" MaxLength="100" />
     <Property Name="ISAUTOIMPORTPUNCH" Type="nvarchar2" MaxLength="20" />
+    <Property Name="YOUTHEXTEND" Type="nvarchar2" MaxLength="2" />
+    <Property Name="YOUTHEXTENDVALUE" Type="number" />
   </EntityType>
   <EntityType Name="T_HR_ATTENDANCESOLUTIONASIGN">
     <Key>
@@ -6244,6 +6246,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
     <Property Name="YEARLYBALANCETYPE" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
     <Property Name="YEARLYBALANCEDATE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="ISAUTOIMPORTPUNCH" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="YOUTHEXTEND" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="YOUTHEXTENDVALUE" Type="Decimal" Precision="18" Scale="0" />
     <NavigationProperty Name="T_HR_ATTENDFREELEAVE" Relationship="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_ATT" FromRole="T_HR_ATTENDANCESOLUTION" ToRole="T_HR_ATTENDFREELEAVE" />
     <NavigationProperty Name="T_HR_OVERTIMEREWARD" Relationship="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_OVE" FromRole="T_HR_ATTENDANCESOLUTION" ToRole="T_HR_OVERTIMEREWARD" />
     <NavigationProperty Name="T_HR_SCHEDULINGTEMPLATEMASTER" Relationship="SMT_HRM_EFModel.FK_T_HR_ATT_REFERENCE_T_HR_SCH" FromRole="T_HR_ATTENDANCESOLUTION" ToRole="T_HR_SCHEDULINGTEMPLATEMASTER" />
@@ -10197,6 +10201,8 @@ FROM "dbo"."V_POST" "V_POST"</DefiningQuery>
           <ScalarProperty Name="YEARLYBALANCETYPE" ColumnName="YEARLYBALANCETYPE" />
           <ScalarProperty Name="YEARLYBALANCEDATE" ColumnName="YEARLYBALANCEDATE" />
           <ScalarProperty Name="ISAUTOIMPORTPUNCH" ColumnName="ISAUTOIMPORTPUNCH" />
+          <ScalarProperty Name="YOUTHEXTEND" ColumnName="YOUTHEXTEND" />
+          <ScalarProperty Name="YOUTHEXTENDVALUE" ColumnName="YOUTHEXTENDVALUE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

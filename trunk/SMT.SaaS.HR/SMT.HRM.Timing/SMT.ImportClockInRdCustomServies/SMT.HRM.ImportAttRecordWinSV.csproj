@@ -77,6 +77,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Lib\log4net.dll</HintPath>
@@ -85,11 +88,15 @@
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -102,11 +109,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HangXingDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HangXingDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HangXingDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HangXingDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HangXingDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HangXingDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\SqlDAO.cs" />
     <Compile Include="ImportRdService.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ImportRdService.Designer.cs">
       <DependentUpon>ImportRdService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportRdServiceHangXing.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="kqjl.cs">
+      <DependentUpon>HangXingDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
@@ -151,6 +180,24 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
+    <EntityDeploy Include="HangXingDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HangXingDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="HangXingDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HangXingDb.edmx</DependentUpon>
+      <LastGenOutput>HangXingDb.Context.cs</LastGenOutput>
+    </None>
+    <None Include="HangXingDb.edmx.diagram">
+      <DependentUpon>HangXingDb.edmx</DependentUpon>
+    </None>
+    <None Include="HangXingDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HangXingDb.edmx</DependentUpon>
+      <LastGenOutput>HangXingDb.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Service References\AttendanceWS\AttendanceService.wsdl" />
     <None Include="Service References\AttendanceWS\AttendanceService.xsd">
       <SubType>Designer</SubType>
@@ -330,6 +377,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

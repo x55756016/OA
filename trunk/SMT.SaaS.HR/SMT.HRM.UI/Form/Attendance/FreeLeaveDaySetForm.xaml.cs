@@ -306,17 +306,18 @@ namespace SMT.HRM.UI.Form.Attendance
 
                 if (FormType == FormTypes.New)
                 {
-                    if (nudLeaveDays.Value > 0)
+                    if (aanudLeaveDays.Value > 0)
                     {
                         if (entFreeLeaveDaySet.LEAVEDAYS == 0)
                         {
-                            entFreeLeaveDaySet.LEAVEDAYS = (decimal)nudLeaveDays.Value;
+                            entFreeLeaveDaySet.LEAVEDAYS = decimal.Round((decimal)aanudLeaveDays.Value,2);
                         }
                     }
                     clientAtt.AddFreeLeaveDaySetAsync(entFreeLeaveDaySet);
                 }
                 else
                 {
+                    entFreeLeaveDaySet.LEAVEDAYS = decimal.Round((decimal)aanudLeaveDays.Value, 2);
                     clientAtt.ModifyFreeLeaveDaySetAsync(entFreeLeaveDaySet);
                 }
             }

@@ -132,6 +132,12 @@ namespace SMT.HRM.UI.Views.Salary
             _ImgButtonReport.VerticalAlignment = VerticalAlignment.Center;
             _ImgButtonReport.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("薪酬保险缴交报表")).Click += new RoutedEventHandler(_ImgButtonReports_Click);
             ToolBar.stpOtherAction.Children.Add(_ImgButtonReport);
+
+            //员工月薪导入
+            ImageButton _ImgButtonImport = new ImageButton();
+            _ImgButtonImport.VerticalAlignment = VerticalAlignment.Center;
+            _ImgButtonImport.AddButtonAction("/SMT.SaaS.FrameworkUI;Component/Images/Tool/ico_16_1055.png", Utility.GetResourceStr("员工薪资导入")).Click += _ImgButtonImport_Click;
+            ToolBar.stpOtherAction.Children.Add(_ImgButtonImport);
             #endregion
 
             #region  新增控件(薪水对比度)
@@ -177,8 +183,82 @@ namespace SMT.HRM.UI.Views.Salary
 
             client.GetSalaryStandardPagingCompleted += new EventHandler<GetSalaryStandardPagingCompletedEventArgs>(client_GetSalaryStandardPagingCompleted);
             client.ExportEmployeePensionReportsCompleted += new EventHandler<ExportEmployeePensionReportsCompletedEventArgs>(client_ExportEmployeePensionReportsCompleted);
-
+            client.ImportEmployeeMonthlySalaryCompleted += client_ImportEmployeeMonthlySalaryCompleted;
         }
+
+
+        #region 员工薪资导入
+        public OpenFileDialog openFileDialog = null;
+
+        void _ImgButtonImport_Click(object sender, RoutedEventArgs e)
+        {
+            openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "csv Files (*.csv)|*.csv;";
+
+            if (openFileDialog.ShowDialog() != true)
+            {
+                return;
+            }
+
+            NumericUpDown nuYear = Utility.FindChildControl<NumericUpDown>(expander, "Nuyear");
+            NumericUpDown nuStartmounth = Utility.FindChildControl<NumericUpDown>(expander, "NuStartmounth");
+
+            string year = nuYear.Value.ToString();
+            string month = nuStartmounth.Value.ToString();
+            MessageBoxResult mbr = MessageBox.Show("确认导入" + year + "年" + month + "月的员工薪资项目吗？请先确保导入前已生成过导入员工的月薪，确认继续，取消终止导入", "确认框", MessageBoxButton.OKCancel);
+            if (mbr == MessageBoxResult.OK)
+            {
+                //点击了确定
+                ShowDTGrid(year,month);
+            }
+            else
+            {
+                return;
+            }
+        }
+        string UIMsg=string.Empty;
+        private void ShowDTGrid(string year, string month)
+        {
+            try
+            {
+                Stream Stream = (System.IO.Stream)openFileDialog.File.OpenRead();
+
+                byte[] Buffer = new byte[Stream.Length];
+                Stream.Read(Buffer, 0, (int)Stream.Length);
+
+                Stream.Dispose();
+                Stream.Close();
+                SMT.Saas.Tools.SalaryWS.UploadFileModel UploadFile = new Saas.Tools.SalaryWS.UploadFileModel();
+                UploadFile.FileName = openFileDialog.File.Name;
+                UploadFile.File = Buffer;
+                loadbar.Start();
+                client.ImportEmployeeMonthlySalaryAsync(UploadFile, year, month, Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, UIMsg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        void client_ImportEmployeeMonthlySalaryCompleted(object sender, ImportEmployeeMonthlySalaryCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
+            }
+            else
+            {
+                string msg = e.Result;
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), msg,
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                LoadSalaryRecordData();
+            }
+            loadbar.Stop();
+        }
+        #endregion
 
         void client_ExportEmployeePensionReportsCompleted(object sender, ExportEmployeePensionReportsCompletedEventArgs e)
         {
