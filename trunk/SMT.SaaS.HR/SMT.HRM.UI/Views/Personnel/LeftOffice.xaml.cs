@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using System.IO;
+using SMT.SaaS.FrameworkUI.Common;
 
 namespace SMT.HRM.UI.Views.Personnel
 {
@@ -536,6 +537,11 @@ namespace SMT.HRM.UI.Views.Personnel
             V_LEFTOFFICEVIEW view = e.Row.DataContext as V_LEFTOFFICEVIEW;
             //ImageButton ReportButton = DtGrid.Columns[6].GetCellContent(e.Row).FindName("ReportBtn") as ImageButton;
             Button ReportButton = DtGrid.Columns[8].GetCellContent(e.Row).FindName("ReportBtn") as Button;
+            //判断登录用户是否有离职确认的查看权限
+            if (PermissionHelper.GetPermissionValue("T_HR_LEFTOFFICECONFIRM", Permissions.Browse) < 0)
+            {
+                ReportButton.Visibility = System.Windows.Visibility.Collapsed;
+            }
             ReportButton.IsEnabled = false;
             int ISCONFIRMED = Convert.ToInt32(view.ISCONFIRMED);
             if (ISCONFIRMED < 0)

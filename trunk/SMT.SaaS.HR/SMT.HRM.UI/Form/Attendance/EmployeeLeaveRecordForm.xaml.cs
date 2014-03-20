@@ -1091,7 +1091,7 @@ namespace SMT.HRM.UI.Form.Attendance
                             DateTime.TryParse(dtYouthStart.Year.ToString() + "-" + dtYouthStart.Month.ToString() + "-" + dtYouthStart.Day.ToString(), out dtYouthStartOut);
                             
                             DateTime.TryParse(DateTime.Now.Year.ToString() + "-05-04", out dtYouth);
-                            if (dtYouthStartOut < dtYouth || dtYouthEndOut != dtYouth)
+                            if (dtYouthStartOut < dtYouth )
                             {
                                 MessageBox.Show("五四青年节不能超前申请");
                                 flag = false;

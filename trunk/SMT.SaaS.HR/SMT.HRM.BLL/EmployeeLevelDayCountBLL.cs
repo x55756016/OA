@@ -161,6 +161,18 @@ namespace SMT.HRM.BLL
             {
                 return 0;
             }
+            else
+            {
+                //如果是五四或三八节，大于有效期了则归0
+                if (entLeaveTypeSet.LEAVETYPEVALUE == "12" || entLeaveTypeSet.LEAVETYPEVALUE == "13")
+                {
+                    T_HR_EMPLOYEELEVELDAYCOUNT dayCount = ems.FirstOrDefault();
+                    if (dtStartDate > dayCount.TERMINATEDATE  || dtEndDate > dayCount.TERMINATEDATE)
+                    {
+                        return 0;
+                    }
+                } 
+            }
 
             var dets = from d in dal.GetObjects<T_HR_EMPLOYEELEVELDAYDETAILS>().Include("T_HR_EMPLOYEELEVELDAYCOUNT")
                        join m in ems on d.T_HR_EMPLOYEELEVELDAYCOUNT.RECORDID equals m.RECORDID
@@ -1593,10 +1605,7 @@ namespace SMT.HRM.BLL
                 foreach (T_HR_ATTENDFREELEAVE entAttendFreeLeave in entAttendFreeLeaves)
                 {
                     T_HR_LEAVETYPESET entLeaveTypeSet = entAttendFreeLeave.T_HR_LEAVETYPESET;
-                    if (!(entLeaveTypeSet.LEAVETYPEVALUE == "12" || entLeaveTypeSet.LEAVETYPEVALUE == "13"))
-                    {
-                        continue; 
-                    }
+                    
                     if (entLeaveTypeSet == null)
                     {
                         Tracer.Debug(entEmployee.EMPLOYEECNAME + "生成过带薪假" + entLeaveTypeSet.LEAVETYPENAME + "被跳过，无假期设置项目T_HR_LEAVETYPESET无记录");

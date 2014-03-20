@@ -80,6 +80,7 @@ namespace SMT.HRM.BLL
                                             && a.SALARYYEAR == year
                                             && a.SALARYMONTH == month
                                             && a.OWNERCOMPANYID == owerCompayId
+                                            && a.CHECKSTATE=="0"
                                             select new
                                             {
                                                 b.SALARYRECORDITEMID,
@@ -92,12 +93,12 @@ namespace SMT.HRM.BLL
                             if (item.SALARYITEMNAME == strSalaryItemName)
                             {
                                 var q = from ent in dal.GetObjects<T_HR_EMPLOYEESALARYRECORDITEM>()
-                                        where ent.SALARYRECORDITEMID == item.SALARYRECORDITEMID
+                                        where ent.SALARYRECORDITEMID == item.SALARYRECORDITEMID                                        
                                         select ent;
                                 var entsum = q.FirstOrDefault();
                                 if (entsum != null)
                                 {
-                                    entsum.SUM = strSalaryItemSUM;
+                                    entsum.SUM = AES.AESEncrypt(strSalaryItemSUM);
                                     int i = dal.Update(entsum);
                                     if (i >= 1)
                                     {

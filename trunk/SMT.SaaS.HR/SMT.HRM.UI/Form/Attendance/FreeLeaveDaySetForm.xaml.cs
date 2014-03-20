@@ -310,7 +310,11 @@ namespace SMT.HRM.UI.Form.Attendance
                     {
                         if (entFreeLeaveDaySet.LEAVEDAYS == 0)
                         {
-                            entFreeLeaveDaySet.LEAVEDAYS = decimal.Round((decimal)aanudLeaveDays.Value,2);
+                            entFreeLeaveDaySet.LEAVEDAYS = decimal.Round((decimal)aanudLeaveDays.Value, 2);
+                        }
+                        else
+                        {
+                            entFreeLeaveDaySet.LEAVEDAYS = decimal.Round((decimal)entFreeLeaveDaySet.LEAVEDAYS, 2); 
                         }
                     }
                     clientAtt.AddFreeLeaveDaySetAsync(entFreeLeaveDaySet);

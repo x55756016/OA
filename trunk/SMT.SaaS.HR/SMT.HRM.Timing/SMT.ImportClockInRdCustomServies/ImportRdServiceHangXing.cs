@@ -25,6 +25,14 @@ namespace SMT.ImportClockInRdCustomServies
     {
         public void ImportRdHuNanHangXing()
         {
+            DateTime dtCur = DateTime.Now;          
+            if (dtCur.Hour != Convert.ToInt32(ConfigurationManager.AppSettings["ElapsedHour"]))
+            {
+                Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录未在指定时间内");
+                return;
+            }
+            Tracer.Debug(DateTime.Now.ToString() + "，开始导入打卡记录,设置的导入时间点为每天：" + strElapsedHour + " 点,导入的端口为："
+                + iPort);
             if (clientAtt == null) clientAtt = new AttendanceServiceClient();
             List<T_HR_EMPLOYEECLOCKINRECORD> entTempList = new List<T_HR_EMPLOYEECLOCKINRECORD>();
 
