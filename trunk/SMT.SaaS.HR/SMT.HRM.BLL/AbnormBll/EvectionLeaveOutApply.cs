@@ -130,8 +130,12 @@ namespace SMT.HRM.BLL
                        where em.EMPLOYEEID == EMPLOYEEID
                        select em.EMPLOYEEENAME).FirstOrDefault();
 
-            string dealType = "员工：" + emp + " 请假消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
-                    + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            string dealType = string.Empty;
+            if (attState == (Convert.ToInt32(Common.AttendanceState.Leave) + 1).ToString())
+            {
+                dealType="员工：" + emp + " 请假消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                        + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            }
 
             if (attState == (Convert.ToInt32(Common.AttendanceState.Travel) + 1).ToString())
             {
@@ -142,6 +146,11 @@ namespace SMT.HRM.BLL
             if (attState == (Convert.ToInt32(Common.AttendanceState.OutApply) + 1).ToString())
             {
                 dealType = "员工：" + emp + " 外出申请消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
+                    + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
+            }
+            if (attState == (Convert.ToInt32(Common.AttendanceState.OutApplyConfirm) + 1).ToString())
+            {
+                dealType = "员工：" + emp + " 外出确认消除异常," + "时间区间:" + datLevestart.ToString("yyyy-MM-dd HH:mm:ss")
                     + "----" + dtLeveEnd.ToString("yyyy-MM-dd HH:mm:ss");
             }
 

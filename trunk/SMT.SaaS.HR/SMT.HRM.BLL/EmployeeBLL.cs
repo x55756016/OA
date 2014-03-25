@@ -1745,6 +1745,40 @@ namespace SMT.HRM.BLL
         }
 
         /// <summary>
+        /// 获取员工岗位信息 员工岗位审核通过
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <returns></returns>
+        public V_EMPLOYEEPOST GetVEmployeePostByEmployeeID(string employeeId)
+        {
+            var ents = dal.GetObjects().FirstOrDefault(s => s.EMPLOYEEID == employeeId);
+            V_EMPLOYEEPOST employeePost = new V_EMPLOYEEPOST();
+            if (ents != null)
+            {
+                employeePost.T_HR_EMPLOYEE = ents;
+                var eposts = dal.GetObjects<T_HR_EMPLOYEEPOST>().Include("T_HR_EMPLOYEE").Include("T_HR_POST").Where(s => s.T_HR_EMPLOYEE.EMPLOYEEID == ents.EMPLOYEEID && s.CHECKSTATE=="2").OrderBy(s => s.CREATEDATE);
+
+                employeePost.EMPLOYEEPOSTS = eposts.Count() > 0 ? eposts.ToList() : null;
+
+                if (employeePost.EMPLOYEEPOSTS != null)
+                {
+                    foreach (var ep in employeePost.EMPLOYEEPOSTS)
+                    {
+                        //加载岗位字典
+                        ep.T_HR_POST.T_HR_POSTDICTIONARYReference.Load();
+                        //加载部门
+                        ep.T_HR_POST.T_HR_DEPARTMENTReference.Load();
+                        //加载部门字典
+                        ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARYReference.Load();
+                        //加载公司
+                        ep.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANYReference.Load();
+                    }
+                }
+            }
+            return employeePost;
+        }
+
+        /// <summary>
         /// 根据员工ID查询员工详细信息
         /// </summary>
         /// <param name="employeeID">员工ID集合</param>

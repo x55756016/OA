@@ -404,14 +404,38 @@ namespace SMT.HRM.BLL
                 }
                 else
                 {
-
+                    DateTime dtstart = DateTime.Now;
+                    DateTime dtEnd = DateTime.Now;
+                    if (entOTRd.STARTDATE == new DateTime(2001, 1, 1) ||
+                        entOTRd.ENDDATE == new DateTime(2001, 1, 1))//实际出发时间选择为未打卡不计算外出时长
+                    {
+                        var q = (from ent in dal.GetObjects<T_HR_OUTAPPLYRECORD>()
+                                where ent.OUTAPPLYID == entOTRd.T_HR_OUTAPPLYRECORD.OUTAPPLYID
+                                select ent).FirstOrDefault();
+                        if (q == null)
+                        {
+                            string msg="外出确认未全部选择时间且未找到相关的外出申请单时间，检查考勤异常退出";
+                            Tracer.Debug(msg);
+                            return msg;
+                        }
+                        else
+                        {
+                            dtstart = q.STARTDATE.Value;
+                            dtEnd = q.ENDDATE.Value;
+                        }
+                    }
+                    else
+                    {
+                        dtstart = entOTRd.STARTDATE.Value;
+                        dtEnd = entOTRd.ENDDATE.Value;
+                    }
                     #region  启动处理考勤异常的线程
 
                     string attState = (Convert.ToInt32(Common.AttendanceState.OutApplyConfirm) + 1).ToString();
                     Dictionary<string, object> d = new Dictionary<string, object>();
                     d.Add("EMPLOYEEID", entOTRd.EMPLOYEEID);
-                    d.Add("STARTDATETIME", entOTRd.STARTDATE.Value);
-                    d.Add("ENDDATETIME", entOTRd.ENDDATE.Value);
+                    d.Add("STARTDATETIME", dtstart);
+                    d.Add("ENDDATETIME", dtEnd);
                     d.Add("ATTSTATE", attState);
                     Thread thread = new Thread(dealAttend);
                     thread.Start(d);
@@ -447,7 +471,7 @@ namespace SMT.HRM.BLL
 
             using (AbnormRecordBLL bll = new AbnormRecordBLL())
             {
-                //请假消除异常
+                //外出消除异常
                 bll.DealEmployeeAbnormRecord(employeeid, STARTDATETIME, ENDDATETIME, attState);
             }
         }
