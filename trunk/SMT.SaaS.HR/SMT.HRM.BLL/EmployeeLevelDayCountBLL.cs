@@ -1783,38 +1783,41 @@ namespace SMT.HRM.BLL
 
                     if (entAttSolAsign.T_HR_ATTENDANCESOLUTION != null)
                     {
-                        //三八五四是否进行了延期设置
-                        string strExtend = string.Empty;
-                        decimal dbDays = 0;
-                        if (string.IsNullOrEmpty(entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND))
+                        if (strFineType == "12" || strFineType == "13")
                         {
-                            strExtend = "0";
-                        }
-                        else
-                        {
-                            strExtend = entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND;
-                        }
-                        if (strExtend == "1")
-                        {
-                            //延期天数
-                            dbDays = (decimal)entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTENDVALUE;
-                        }
-                        if (dbDays > 0)
-                        {
-                            dtEfficDate = dtYouth;
-                            dtStart = dtYouth;
-                            dtTerminateDate = dtYouth.AddDays((double)dbDays);
-                        }
-                        else
-                        {
-                            //不延长则是当天
-                            dtEfficDate = dtYouth;
-                            dtStart = dtYouth;
-                            dtTerminateDate = dtYouth;                            
-                        }
-                        if (entLeaveTypeSet.MAXDAYS != null)
-                        {
-                            dAddDays = (decimal)entLeaveTypeSet.MAXDAYS;
+                            //三八五四是否进行了延期设置
+                            string strExtend = string.Empty;
+                            decimal dbDays = 0;
+                            if (string.IsNullOrEmpty(entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND))
+                            {
+                                strExtend = "0";
+                            }
+                            else
+                            {
+                                strExtend = entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTEND;
+                            }
+                            if (strExtend == "1")
+                            {
+                                //延期天数
+                                dbDays = (decimal)entAttSolAsign.T_HR_ATTENDANCESOLUTION.YOUTHEXTENDVALUE;
+                            }
+                            if (dbDays > 0)
+                            {
+                                dtEfficDate = dtYouth;
+                                dtStart = dtYouth;
+                                dtTerminateDate = dtYouth.AddDays((double)dbDays);
+                            }
+                            else
+                            {
+                                //不延长则是当天
+                                dtEfficDate = dtYouth;
+                                dtStart = dtYouth;
+                                dtTerminateDate = dtYouth;
+                            }
+                            if (entLeaveTypeSet.MAXDAYS != null)
+                            {
+                                dAddDays = (decimal)entLeaveTypeSet.MAXDAYS;
+                            }
                         }
                     }
                     #endregion
