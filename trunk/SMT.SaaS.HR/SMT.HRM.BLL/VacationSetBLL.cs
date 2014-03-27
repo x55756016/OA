@@ -156,7 +156,21 @@ namespace SMT.HRM.BLL
         #endregion
 
         #region 操作
-
+        /// <summary>
+        /// 根据公司，年份获取公共假期设置，包括公共假期和工作日
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public T_HR_VACATIONSET GetVactionSetByCompanyId(string companyId, string year)
+        {
+            T_HR_VACATIONSET set =
+                dal.GetObjects()
+                    .Include("T_HR_OUTPLANDAYS")
+                    .Where(t => t.ASSIGNEDOBJECTTYPE == "1" && t.ASSIGNEDOBJECTID == companyId && t.VACATIONYEAR == year)
+                    .FirstOrDefault();
+            return set;
+        }
         /// <summary>
         /// 新增公共假期设置信息
         /// </summary>

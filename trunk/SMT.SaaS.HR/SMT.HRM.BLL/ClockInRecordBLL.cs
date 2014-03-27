@@ -71,6 +71,21 @@ namespace SMT.HRM.BLL
 
             return entClockInRd.PUNCHDATE.Value;
         }
+        public List<T_HR_EMPLOYEECLOCKINRECORD> GetEmployeeClockRecordByDateAndId(DateTime dtfrom,DateTime dtend,string employeeid)
+        {
+            List<T_HR_EMPLOYEECLOCKINRECORD> cardlist = new List<T_HR_EMPLOYEECLOCKINRECORD>();
+            var q = from ent in dal.GetObjects<T_HR_EMPLOYEECLOCKINRECORD>()
+                    where ent.EMPLOYEEID == employeeid
+                    && ent.PUNCHDATE.Value >= dtfrom
+                    && ent.PUNCHDATE.Value <= dtend
+                    select ent;
+            if (q.Count() > 0)
+            {
+                cardlist = q.ToList();
+            }
+
+            return cardlist;
+        }
 
         public IQueryable<T_HR_EMPLOYEECLOCKINRECORD> GetAllClockInRdListByMultSearch(string sType, string sValue, string strOwnerID, string strEmployeeID, string strPunchDateFrom,
             string strPunchDateTo, string strSortKey)

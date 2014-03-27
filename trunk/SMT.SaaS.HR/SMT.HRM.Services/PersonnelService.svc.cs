@@ -480,6 +480,20 @@ namespace SMT.HRM.Services
         }
 
         /// <summary>
+        /// 根据员工获取员工部门审核通过数据
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public V_EMPLOYEEPOST GetVEmployeePostByEmployeeID(string employeeID)
+        {
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                return bll.GetVEmployeePostByEmployeeID(employeeID);
+            }
+        }
+
+        /// <summary>
         /// 根据员工ID获取员工照片
         /// </summary>
         /// <param name="employeeID">员工ID</param>
