@@ -732,7 +732,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             Button MyButton_Addbaodao = DaGr.Columns[12].GetCellContent(e.Row).FindName("myBtn") as Button;
             MyButton_Addbaodao.Margin = new Thickness(0);
             ReportButton_Addbaodao.Margin = new Thickness(0);
-            ReportButton_Addbaodao.IsEnabled = false;//默认将是否已报告的Button禁用
             MyButton_Addbaodao.IsEnabled = false;//默认将是否已报销的Button禁用
 
             //luojie 20120808
@@ -916,52 +915,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             EndTime.Text = string.Empty;
             SearchUserID = string.Empty;
             postId = string.Empty;
-        }
-        #endregion
-
-        #region 是否报告
-        private void ReportBtn_Click(object sender, RoutedEventArgs e)
-        {
-            //Button btn = sender as Button;
-            //btn.IsEnabled = false;
-            //if (DaGr.SelectedItems == null)
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("SELECTERROR", "OPERATION"), Utility.GetResourceStr("CONFIRMBUTTON"), MessageIcon.Exclamation);
-            //    return;
-            //}
-
-            //if (DaGr.SelectedItems.Count == 0)
-            //{
-            //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("SELECTERROR", "OPERATION"), Utility.GetResourceStr("CONFIRMBUTTON"), MessageIcon.Exclamation);
-            //    return;
-            //}
-
-            //for (int i = 0; i < DaGr.SelectedItems.Count; i++)
-            //{
-            //    V_Travelmanagement ent = new V_Travelmanagement();
-            //    ent = (DaGr.SelectedItems[i] as V_Travelmanagement);
-
-            //    businesstrID = ent.Travelmanagement.BUSINESSTRIPID;
-            //    reportid = ent.ReportId;
-            //}
-            //if (!string.IsNullOrEmpty(reportid) && reportid != "空")//如果已生成报告，直接打开表单让用户提交
-            //{
-            //    WhetherToReport = true;
-            //    BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, businesstrID, WhetherToReport);
-            //    EntityBrowser browser = new EntityBrowser(AddWin);
-            //    browser.FormType = FormTypes.Edit;
-            //    browser.EntityBrowseToolBar.MaxHeight = 0;
-            //    browser.MinWidth = 980;
-            //    browser.MinHeight = 445;
-            //    browser.TitleContent = "出差申请";
-            //    browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
-            //    browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { });
-            //}
-            //else
-            //{
-            //    ReportSwitch = true;//出差报告开关
-            //    Travelmanagement.GetTravelmanagementByIdAsync(businesstrID, btn);
-            //}
         }
         #endregion
     }

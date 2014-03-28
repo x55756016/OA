@@ -132,9 +132,6 @@
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -1068,6 +1065,7 @@
     </Compile>
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Agent.cs" />
     <Compile Include="Views\Travelmanagement\TravelapplicationPage_AddReimbursement.cs" />
+    <Compile Include="Views\Travelmanagement\TravelapplicationPage_AlterTrave.cs" />
     <Compile Include="Views\Travelmanagement\VehicleStandardManagement.xaml.cs">
       <DependentUpon>VehicleStandardManagement.xaml</DependentUpon>
     </Compile>
@@ -3146,6 +3144,10 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{9484c541-b0a2-437a-8c6f-0bfd7e13934e}</Project>
+      <Name>SMT.Saas.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
       <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
