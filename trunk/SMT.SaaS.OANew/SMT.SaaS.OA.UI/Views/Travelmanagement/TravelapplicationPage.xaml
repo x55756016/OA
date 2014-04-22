@@ -110,10 +110,10 @@
                     <!--<data:DataGridTextColumn Header="CREATEUSERID" Binding="{Binding Travelmanagement.CREATEUSERNAME}" />-->
                     <data:DataGridTextColumn Header="CREATETIME" Binding="{Binding Travelmanagement.CREATEDATE,Mode=TwoWay,Converter={StaticResource DateTimeConvert}}" />
                     <!--<data:DataGridTextColumn Header="UPDATEDATE" Binding="{Binding Travelmanagement.UPDATEDATE,Mode=TwoWay,Converter={StaticResource DateTimeConvert}}" />-->
-                    <data:DataGridTemplateColumn Header="WHETHERTOREPORT" Visibility="Collapsed">
+                    <data:DataGridTemplateColumn Header="修改行程">
                         <data:DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                    <Button x:Name="ReportBtn" Click="ReportBtn_Click"></Button>
+                                <Button x:Name="ReportBtn" Content="修改行程" Click="ReportBtn_Click"></Button>
                                     <!--<smtx:ImageButton x:Name="ReportBtn" Click="ReportBtn_Click"></smtx:ImageButton>-->
                             </DataTemplate>
                         </data:DataGridTemplateColumn.CellTemplate>

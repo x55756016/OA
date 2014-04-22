@@ -443,21 +443,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                             return;
                         }
-                        else
-                        {
-                            //设置当前出差明细的到达城市
-                            TraveDetailList_Golbal[selectGridRowIndex].DESTCITY = selectCityValue;
-                        }
                     }
-
-                    //if (citysEndList_Golbal.Count >= selectGridRowIndex)
-                    //{
-                    //    citysEndList_Golbal[selectGridRowIndex] = selectCityValue;
-                    //}
-                    //else
-                    //{
-                    //    citysEndList_Golbal.Add(selectCityValue);
-                    //}
+                    //设置当前出差明细的到达城市
+                    TraveDetailList_Golbal[selectGridRowIndex].DESTCITY = selectCityValue;
                     serchCitySender.TxtSelectedCity.Text = selectCityName;
                     //设置下一行的起始城市 如果为最后一行数据，且grid有下一行，增加下一行
                     if (selectGridRowIndex<TraveDetailList_Golbal.Count-1 )//非最后一条明细

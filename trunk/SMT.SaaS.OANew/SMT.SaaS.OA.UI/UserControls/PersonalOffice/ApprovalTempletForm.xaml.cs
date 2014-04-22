@@ -26,20 +26,22 @@ using SMT.Saas.Tools.PublicInterfaceWS;
 using SMT.SAAS.Platform.Logging;
 using SMT.SaaS.FrameworkUI.Common;
 
+
+
 namespace SMT.SaaS.OA.UI.UserControls
 {
-    public partial class ApprovalForm_aud : BaseForm, IClient, IEntityEditor, IAudit//, IFileLoadedCompleted
+    public partial class ApprovalTempletForm : BaseForm, IClient, IEntityEditor//, IFileLoadedCompleted
     {
         #region 页面变量
-        SmtOAPersonOfficeClient _VM = new SmtOAPersonOfficeClient();
+        SmtOAPersonOfficeClient OaPersonOfficeClient = new SmtOAPersonOfficeClient();
         PublicServiceClient publicClient = new PublicServiceClient();
         PersonnelServiceClient psClient = new PersonnelServiceClient();
         /// <summary>
         /// 流程返回结果状态,便于审核费用时调用 
         /// </summary>
         SMT.SaaS.FrameworkUI.CheckStates _flwResult;
-        private T_OA_APPROVALINFO approvalInfo = new T_OA_APPROVALINFO();
-        public T_OA_APPROVALINFO ApprovalInfo { get { return approvalInfo; } set { approvalInfo = value; } }
+        private T_OA_APPROVALINFOTEMPLET approvalInfo = new T_OA_APPROVALINFOTEMPLET();
+        public T_OA_APPROVALINFOTEMPLET ApprovalInfo { get { return approvalInfo; } set { approvalInfo = value; } }
         private FormTypes operationType;
         public string postLevel = string.Empty;
         public string depName = string.Empty;
@@ -49,10 +51,10 @@ namespace SMT.SaaS.OA.UI.UserControls
         string StrApprovalTwo = "";//事项审批中第二个父节点的 值
         string StrApprovalThird = "";//事项审批中第三个父节点 值
 
-        string OwnerCompanyid = "";//所属公司
-        string OwnerDepartmentid = "";//获取事项审批时用 用的部门ID
-        string Ownerid = "";//所属员工
-        string OwnerPostid = "";//所属岗位
+        string OWNERCOMPANYID = "";//所属公司
+        string OWNERDEPARTMENTID = "";//获取事项审批时用 用的部门ID
+        string OWNERID = "";//所属员工
+        string OWNERPOSTID = "";//所属岗位
 
         string StrDepartmentName = "";//所属公司名称
         string StrCompanyName = "";//所属于部门名称
@@ -71,7 +73,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         /// <summary>
         /// 无参构造函数，供平台中待办新建调用
         /// </summary>
-        public ApprovalForm_aud()
+        public ApprovalTempletForm()
         {
             InitializeComponent();
             operationType = FormTypes.New;
@@ -79,36 +81,30 @@ namespace SMT.SaaS.OA.UI.UserControls
             this.Loaded += new RoutedEventHandler(ApprovalForm_aud_Loaded);
         }
 
-        public ApprovalForm_aud(FormTypes ActionType, string SendDocID)
+        public ApprovalTempletForm(FormTypes ActionType, string SendDocID)
         {
             InitializeComponent();
-
             operationType = ActionType;
             approvalid = SendDocID;
-            ////fbCtr.SetRemarkVisiblity(Visibility.Collapsed);//隐藏预算控件中的备注
             this.Loaded += new RoutedEventHandler(ApprovalForm_aud_Loaded);
         }
 
         private void InitEvent()
         {
-            _VM.AddApporvalCompleted += new EventHandler<AddApporvalCompletedEventArgs>(AddApporvalCompleted);
-            _VM.UpdateApporvalCompleted += new EventHandler<UpdateApporvalCompletedEventArgs>(UpdateApporvalCompleted);
-            fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
-            //ctrFile.Event_AllFilesFinished += new EventHandler<FileCountEventArgs>(ctrFile_Event_AllFilesFinished);
-
-            _VM.Get_ApporvalCompleted += new EventHandler<Get_ApporvalCompletedEventArgs>(Get_ApporvalCompleted);
-            fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
-            _VM.GetApprovalTypeByCompanyandDepartmentidCompleted += new EventHandler<GetApprovalTypeByCompanyandDepartmentidCompletedEventArgs>(_VM_GetApprovalTypeByCompanyandDepartmentidCompleted);
-            //personclient.GetEmployeeDetailByIDCompleted += new EventHandler<GetEmployeeDetailByIDCompletedEventArgs>(personclient_GetEmployeeDetailByIDCompleted);
+            OaPersonOfficeClient.AddApporvalTempletCompleted += _VM_AddApporvalTempletCompleted;
+            OaPersonOfficeClient.Get_ApporvalTempletCompleted += new EventHandler<Get_ApporvalTempletCompletedEventArgs>(_VM_Get_ApporvalTempletCompleted);
+            OaPersonOfficeClient.UpdateApporvalTempletCompleted += OaPersonOfficeClient_UpdateApporvalTempletCompleted;
+            OaPersonOfficeClient.GetApprovalTypeByCompanyandDepartmentidCompleted += new EventHandler<GetApprovalTypeByCompanyandDepartmentidCompletedEventArgs>(_VM_GetApprovalTypeByCompanyandDepartmentidCompleted);
             personclient.GetEmployeePostBriefByEmployeeIDCompleted += new EventHandler<GetEmployeePostBriefByEmployeeIDCompletedEventArgs>(personclient_GetEmployeePostBriefByEmployeeIDCompleted);
             publicClient.AddContentCompleted += new EventHandler<AddContentCompletedEventArgs>(publicClient_AddContentCompleted);
             publicClient.GetContentCompleted += new EventHandler<GetContentCompletedEventArgs>(publicClient_GetContentCompleted);
 
-            psClient.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(psClient_GetEmployeeByIDCompleted);
 
-            //_VM.Get_ApporvalTempletCompleted += new EventHandler<Get_ApporvalTempletCompletedEventArgs>(_VM_Get_ApporvalTempletCompleted);
-            _VM.Get_ApporvalTempletByApporvalTypeCompleted += new EventHandler<Get_ApporvalTempletByApporvalTypeCompletedEventArgs>(_VM_Get_ApporvalTempletByApporvalTypeCompleted);
-        }       
+            //psClient.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(psClient_GetEmployeeByIDCompleted);
+        }
+
+
+
 
         #region 获取富文本框的内容
 
@@ -220,9 +216,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                                 }
                             }
                         }
-
-
-                        //CompanyName = e.Result.EMPLOYEEPOSTS[0].T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME;
                         StrName = e.Result.EMPLOYEENAME + "-" + StrPostName + "-" + StrDepartmentName + "-" + StrCompanyName;
 
 
@@ -262,43 +255,38 @@ namespace SMT.SaaS.OA.UI.UserControls
                 approvalInfo.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
                 approvalInfo.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                 approvalInfo.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-                Utility.InitFileLoad("Approval", approvalInfo.APPROVALID, operationType, uploadFile);
+                //Utility.InitFileLoad("Approval", approvalInfo.APPROVALID, operationType, uploadFile);
                 InitUserInfo();
                 postLevel = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                _VM.GetApprovalTypeByCompanyandDepartmentidAsync(OwnerCompanyid, OwnerDepartmentid);
+                OaPersonOfficeClient.GetApprovalTypeByCompanyandDepartmentidAsync(OWNERCOMPANYID, OWNERDEPARTMENTID);
                 //专用于获取电话号码
                 psClient.GetEmployeeByIDAsync(Common.CurrentLoginUserInfo.EmployeeID);
-                //InitFBControl();
+              
             }
             else
             {
 
-                _VM.Get_ApporvalAsync(approvalid);
+                OaPersonOfficeClient.Get_ApporvalTempletAsync(approvalid);
 
                 if (operationType == FormTypes.Audit || operationType == FormTypes.Browse)
                 {
                     SetControlsEnable();
                 }
-                Utility.InitFileLoad("Approval", approvalid, operationType, uploadFile);
+                //Utility.InitFileLoad("Approval", approvalid, operationType, uploadFile);
             }
 
         }
 
         private void InitUserInfo()
         {
-            OwnerCompanyid = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            OwnerDepartmentid = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+            OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
             string StrName = "";
             StrName = Common.CurrentLoginUserInfo.EmployeeName + "-" + Common.CurrentLoginUserInfo.UserPosts[0].PostName + "-" + Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName + "-" + Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
             StrPostName = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
             StrDepartmentName = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
             StrCompanyName = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
             txtOwnerName.Text = StrName;
-            //if (Common.CurrentLoginUserInfo.Telphone != null)
-            //{
-            //    txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
-            //}
-            txtTel.Text = Utility.GetEmployeePhone();
             ToolTipService.SetToolTip(txtOwnerName, StrName);
         }
 
@@ -307,10 +295,10 @@ namespace SMT.SaaS.OA.UI.UserControls
         {
             this.txtSelectPost.IsEnabled = false;
             this.txtOwnerName.IsReadOnly = true;
-            this.txtTel.IsReadOnly = true;
+            //this.txtTel.IsReadOnly = true;
             this.txtTitle.IsReadOnly = true;
-            this.ckbHasFee.IsEnabled = false;
-            this.txtFee.IsReadOnly = true;
+            //this.ckbHasFee.IsEnabled = false;
+            //this.txtFee.IsReadOnly = true;
             //this.txtContent.IsDirty = true;
             this.txtContent.IsReadOnly = true;
             this.btnLookUpOwner.IsEnabled = false;
@@ -319,67 +307,6 @@ namespace SMT.SaaS.OA.UI.UserControls
             txtContent.BorderThickness = new Thickness(1.0);
             txtContent.BorderBrush = new SolidColorBrush(Colors.Gray);
         }
-        #endregion
-
-        #region 添加完成事件
-        //添加完成
-        void AddApporvalCompleted(object sender, AddApporvalCompletedEventArgs e)
-        {
-            //提交保存为完成
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            if (e.Result > 0)
-            {
-                if (e.Error != null && e.Error.Message != "")
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
-                string xml = "";
-
-                //暂时不考虑向预算中添加费用
-                //if (ckbHasFee.IsChecked == true)
-                //{
-                //    if (approvalInfo.CHARGEMONEY > 0)
-                //    {
-                //        fbCtr.Order.ORDERID = approvalInfo.APPROVALID;
-                //        fbCtr.Save(SMT.SaaS.FrameworkUI.CheckStates.UnSubmit);//提交费用
-                //    }
-                //}
-                UserInfo User = new UserInfo();
-                User.COMPANYID = approvalInfo.OWNERCOMPANYID;
-                User.DEPARTMENTID = approvalInfo.OWNERDEPARTMENTID;
-                User.POSTID = approvalInfo.OWNERPOSTID;
-                User.USERID = approvalInfo.OWNERID;
-                User.USERNAME = approvalInfo.OWNERNAME;
-                publicClient.AddContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, approvalInfo.OWNERCOMPANYID, "OA", "T_OA_APPROVAL", User);
-                
-                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
-                entBrowser.FormType = FormTypes.Edit;
-                txtCode.Text = e.ApprovalCode;
-                approvalInfo.APPROVALCODE = e.ApprovalCode;
-                operationType = FormTypes.Edit;
-                canSubmit = true;
-                RefreshUI(RefreshedTypes.AuditInfo);
-                RefreshUI(saveType);
-
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "MATTERSAPPROVAL"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-
-            }
-            else
-            {
-
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("SAVEFAILED", "MATTERSAPPROVAL"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-        }
-        #endregion
-
-        #region 初始化预算控件
-
         #endregion
 
         #region 获取员工信息
@@ -458,23 +385,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                     //txtSelectPost
                     if (ents.Count() > 0)
                     {
-                        //DictApproval = ents.ToList().FirstOrDefault();
-                        //StrApprovalTypeName = DictApproval.DICTIONARYNAME;
                     }
                     else
                     {
-                        //var entsfather = from p in Dicts
-                        //           where p.DICTIONCATEGORY == "TYPEAPPROVAL" &&  lstApprovalids.Contains(p.DICTIONARYVALUE.ToString())
-                        //           orderby p.ORDERNUMBER
-                        //           select p;
-                        //if (entsfather.Count() > 0)
-                        //{
-                        //    DictApproval = entsfather.ToList().FirstOrDefault();
-                        //    if (DictApproval != null)
-                        //    {
-                        //        StrApprovalTypeName = DictApproval.DICTIONARYNAME;
-                        //    }
-                        //}
                     }
                     StrApprovaltype = "";
                     txtSelectPost.TxtSelectedApprovalType.Text = "";
@@ -493,14 +406,6 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #endregion
 
-        #region 文件加载完事件
-
-
-        //void ctrFile_Event_AllFilesFinished(object sender, FileCountEventArgs e)
-        //{
-        //    //_VM.Get_ApporvalAsync(approvalid);
-        //}
-        #endregion
 
         #region FormLoaded事件
 
@@ -518,74 +423,8 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-        #region Grid加载事件
 
-        //窗口加载事件 
-        private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
-        {
-            //txtSelectPost.IsEnabled = false;
-        }
-        #endregion
-
-        #region 初始化预算控件
-
-        private void InitFBControl()
-        {
-            fbCtr.ApplyType = FrameworkUI.FBControls.ChargeApplyControl.ApplyTypes.BorrowApply;//借款选择
-            if (operationType == FormTypes.New)
-            {
-                fbCtr.Order.ORDERID = "";
-                //fbCtr.strExtOrderModelCode = "SXSP";
-            }
-            else
-            {
-                fbCtr.Order.ORDERID = approvalInfo.APPROVALID;//费用对象
-            }
-            fbCtr.strExtOrderModelCode = "SXSP";
-
-
-            fbCtr.Order.CREATECOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            fbCtr.Order.CREATECOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-            fbCtr.Order.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-            fbCtr.Order.CREATEDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
-            fbCtr.Order.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-            fbCtr.Order.CREATEPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
-            fbCtr.Order.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-            fbCtr.Order.OWNERCOMPANYID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            fbCtr.Order.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
-            fbCtr.Order.OWNERDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
-            fbCtr.Order.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
-            fbCtr.Order.OWNERPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
-            fbCtr.Order.OWNERPOSTNAME = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
-            fbCtr.Order.OWNERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.OWNERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-
-            fbCtr.Order.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
-            fbCtr.Order.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
-
-            fbCtr.InitDataComplete += (o, e) =>
-            {
-                Binding bding = new Binding();
-                bding.Path = new PropertyPath("TOTALMONEY");
-                this.txtFee.SetBinding(TextBox.TextProperty, bding);
-                this.txtFee.DataContext = fbCtr.Order;
-            };
-            if (operationType == FormTypes.Audit || operationType == FormTypes.Browse)
-            {
-                fbCtr.InitData(false);
-            }
-            else
-            {
-                fbCtr.InitData();
-            }
-
-
-        }
-
-        #endregion
+        #region 添加删除修改
 
         #region 保存
         private void Save()
@@ -597,10 +436,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                     approvalInfo.APPROVALTITLE = approvalInfo.APPROVALTITLE.Replace('"', '“');
                     string ApprovalCode = "";
                     RefreshUI(RefreshedTypes.ShowProgressBar);
-                    
-                    approvalInfo.TYPEAPPROVAL = approvalInfo.TYPEAPPROVAL.Replace(",","");                    
-                    
-                    _VM.AddApporvalAsync(approvalInfo, ApprovalCode);
+
+                    approvalInfo.TYPEAPPROVAL = approvalInfo.TYPEAPPROVAL.Replace(",", "");
+
+                    OaPersonOfficeClient.AddApporvalTempletAsync(approvalInfo, ApprovalCode);
                 }
             }
             if (operationType == FormTypes.Edit || operationType == FormTypes.Resubmit)  //修改报批件
@@ -608,7 +447,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (DataValidation())
                 {
                     approvalInfo.APPROVALTITLE = txtTitle.Text;
-                    StrApprovaltype = StrApprovaltype.Replace(",","");
+                    StrApprovaltype = StrApprovaltype.Replace(",", "");
                     StrApprovalOne = StrApprovalOne.Replace(",", "");
                     StrApprovalTwo = StrApprovalTwo.Replace(",", "");
                     StrApprovalThird = StrApprovalThird.Replace(",", "");
@@ -616,17 +455,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                     approvalInfo.TYPEAPPROVALONE = StrApprovalOne;//第1个父亲字典值
                     approvalInfo.TYPEAPPROVALTWO = StrApprovalTwo;//第2个父亲字典值
                     approvalInfo.TYPEAPPROVALTHREE = StrApprovalThird; //第3个父亲字典值
-                    approvalInfo.TEL = txtTel.Text;
-                    //approvalInfo.ISCHARGE = ckbHasFee.IsChecked == true ? "1" : "0";
-                    if (Convert.ToDecimal(txtFee.Text) > 0)
-                    {
-                        approvalInfo.ISCHARGE = "1";
-                    }
-                    else
-                    {
-                        approvalInfo.ISCHARGE = "0";
-                    }
-                    approvalInfo.CHARGEMONEY = Convert.ToDecimal(txtFee.Text);
+
+                    approvalInfo.ISCHARGE = "0";
+                    //approvalInfo.CHARGEMONEY = Convert.ToDecimal(txtFee.Text);
 
                     //approvalInfo.CONTENT = txtContent.RichTextBoxContext;
                     approvalInfo.CONTENT = txtContent.Document;
@@ -634,7 +465,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                     approvalInfo.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
                     approvalInfo.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
                     RefreshUI(RefreshedTypes.ShowProgressBar);
-                    _VM.UpdateApporvalAsync(approvalInfo, "Edit");
+                    OaPersonOfficeClient.UpdateApporvalTempletAsync(approvalInfo, "Edit");
                 }
             }
             //UpdateApporval();
@@ -648,7 +479,7 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 string sbAppCode = "";
                 sbAppCode = "BPJ" + string.Format("{0:yyyyMMdd}", System.DateTime.Now);
-                approvalInfo.APPROVALCODE = sbAppCode.ToString();
+                //approvalInfo.ApprovalCode = sbAppCode.ToString();
                 approvalInfo.APPROVALTITLE = txtTitle.Text;
                 approvalInfo.TYPEAPPROVAL = StrApprovaltype;//事项审批类型
                 approvalInfo.TYPEAPPROVALONE = StrApprovalOne;//第1个父亲字典值
@@ -659,18 +490,19 @@ namespace SMT.SaaS.OA.UI.UserControls
 
                 approvalInfo.CONTENT = txtContent.Document;
 
-                approvalInfo.TEL = txtTel.Text;
+                approvalInfo.TEL = " ";
 
-                //approvalInfo.ISCHARGE = ckbHasFee.IsChecked == true ? "1" : "0";
-                if (Convert.ToDecimal(txtFee.Text) > 0)
-                {
-                    approvalInfo.ISCHARGE = "1";
-                }
-                else
-                {
-                    approvalInfo.ISCHARGE = "0";
-                }
-                approvalInfo.CHARGEMONEY = Convert.ToDecimal(txtFee.Text);
+                approvalInfo.ISCHARGE = "0";
+                //if (Convert.ToDecimal(txtFee.Text) > 0)
+                //{
+                //    approvalInfo.ISCHARGE = "1";
+                //}
+                //else
+                //{
+                //    approvalInfo.ISCHARGE = "0";
+                //}
+                approvalInfo.ISCHARGE = "0";
+                approvalInfo.CHARGEMONEY = 0;
 
                 approvalInfo.CREATEDATE = System.DateTime.Now;
                 approvalInfo.CREATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
@@ -678,6 +510,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                 approvalInfo.CREATEDEPARTMENTID = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
                 approvalInfo.CREATEPOSTID = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
                 approvalInfo.CREATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
+                approvalInfo.UPDATEUSERID = Common.CurrentLoginUserInfo.EmployeeID;
+                approvalInfo.UPDATEDATE = System.DateTime.Now;
+                approvalInfo.UPDATEUSERNAME = Common.CurrentLoginUserInfo.EmployeeName;
 
             }
             else
@@ -696,24 +531,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return false;
             }
-            try
+            if (txtContent.Document.Count() == 0)
             {
-                if (txtContent.Document.Count() == 0)
-                {
-                    //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "ApprovalCONTENT"));
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "ApprovalCONTENT"),
-                        Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("事项审批内容错误，请重新填写后再试。");
-            }
-            if (string.IsNullOrEmpty(txtTel.Text))
-            {
-                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "TEL"));
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "TEL"),
+                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "ApprovalCONTENT"));
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("REQUIRED", "ApprovalCONTENT"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return false;
             }
@@ -724,21 +545,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return false;
             }
-            if (string.IsNullOrEmpty(txtFee.Text))
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "费用不能为空，没有默认为0",
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return false;
-            }
-            if (!string.IsNullOrEmpty(txtFee.Text))
-            {
-                if (!Utility.IsInt(txtFee.Text))
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "费用必须为数字",
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return false;
-                }
-            }
 
             return true;
         }
@@ -746,93 +552,10 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private void UpdateApporval()
         {
-            _VM.UpdateApporvalAsync(approvalInfo);
+            OaPersonOfficeClient.UpdateApporvalTempletAsync(approvalInfo);
         }
-        void UpdateApporvalCompleted(object sender, UpdateApporvalCompletedEventArgs e)
-        {
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            if (e.Result > 0)
-            {
 
-
-                if (e.Error != null && e.Error.Message != "")
-                {
-
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
-                   Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
-
-                if (e.UserState.ToString() == "Edit")
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "MATTERSAPPROVAL"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                }
-                else if (e.UserState.ToString() == "Audit")
-                {
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                }
-                else if (e.UserState.ToString() == "Submit")
-                {
-
-                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                }
-                canSubmit = true;
-                //暂时去掉该功能
-                //if(approvalInfo.ISCHARGE=="1")
-                //{
-                //    if (approvalInfo.CHARGEMONEY > 0)
-                //    {
-                //        fbCtr.Order.ORDERID = approvalInfo.APPROVALID;
-                //        fbCtr.Save(_flwResult);//提交费用
-                //    }
-                //}
-                //审核时不更新上传文件
-
-                if (operationType == FormTypes.Edit || operationType == FormTypes.Resubmit)
-                {
-                    UserInfo User = new UserInfo();
-                    User.COMPANYID = approvalInfo.OWNERCOMPANYID;
-                    User.DEPARTMENTID = approvalInfo.OWNERDEPARTMENTID;
-                    User.POSTID = approvalInfo.OWNERPOSTID;
-                    User.USERID = approvalInfo.OWNERID;
-                    User.USERNAME = approvalInfo.OWNERNAME;
-                    //publicClient.UpdateContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, approvalInfo.OWNERCOMPANYID, "OA", "T_OA_APPROVAL");               
-                    publicClient.UpdateContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, User);
-                    //ctrFile.FormID = approvalInfo.APPROVALID;
-                    //ctrFile.Save();
-                }
-                RefreshUI(RefreshedTypes.AuditInfo);
-                RefreshUI(saveType);
-            }
-            else
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "修改失败",
-                   Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-        }
-        void fbCtr_SaveCompleted(object sender, SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs e)
-        {
-
-            if (e.Message != null && e.Message.Count() > 0)
-            {
-                //Utility.ShowMessageBox("AUDITFAILURE", true, false);
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("FAILURETOAPPROVE"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                RefreshUI(RefreshedTypes.HideProgressBar);
-            }
-            else
-            {
-                //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"));
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
-                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                RefreshUI(RefreshedTypes.CloseAndReloadData);
-            }
-        }
-        void Get_ApporvalCompleted(object sender, Get_ApporvalCompletedEventArgs e)
+        void _VM_Get_ApporvalTempletCompleted(object sender, Get_ApporvalTempletCompletedEventArgs e)
         {
             if (e.Result != null)
             {
@@ -849,33 +572,25 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     RefreshUI(RefreshedTypes.All);
                 }
-
-                //txtContent.Document = approvalInfo.CONTENT;
-                //txtContent.RichTextBoxContext = approvalInfo.CONTENT;
                 txtTitle.Text = approvalInfo.APPROVALTITLE;
-                txtCode.Text = approvalInfo.APPROVALCODE;
+                //txtCode.Text = approvalInfo.ApprovalCode;
 
-                txtTel.Text = string.IsNullOrEmpty(approvalInfo.TEL) ? "" : approvalInfo.TEL;
-                ckbHasFee.IsChecked = approvalInfo.ISCHARGE == "1" ? true : false;
+                //txtTel.Text = string.IsNullOrEmpty(approvalInfo.Tel) ? "" : approvalInfo.Tel;
+                //ckbHasFee.IsChecked = approvalInfo.ISCHARGE == "1" ? true : false;
 
-                _VM.GetApprovalTypeByCompanyandDepartmentidAsync(approvalInfo.OWNERCOMPANYID, approvalInfo.OWNERDEPARTMENTID);
-                //if (txtFee.Visibility == Visibility.Visible)
-                //{
-                //    txtFee.Text = approvalInfo.CHARGEMONEY.ToString();
-                //}
-                //publicClient.GetContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, approvalInfo.OWNERCOMPANYID, "OA", "T_OA_APPROVAL", User);
-                //publicClient.GetContentAsync(approvalInfo.APPROVALID);
+                OaPersonOfficeClient.GetApprovalTypeByCompanyandDepartmentidAsync(approvalInfo.OWNERCOMPANYID, approvalInfo.OWNERDEPARTMENTID);
+
                 if (operationType == FormTypes.Edit || operationType == FormTypes.Resubmit)
                 {
-                    OwnerCompanyid = approvalInfo.OWNERCOMPANYID;
-                    OwnerDepartmentid = approvalInfo.OWNERDEPARTMENTID;
-                    OwnerPostid = approvalInfo.OWNERPOSTID;
+                    OWNERCOMPANYID = approvalInfo.OWNERCOMPANYID;
+                    OWNERDEPARTMENTID = approvalInfo.OWNERDEPARTMENTID;
+                    OWNERPOSTID = approvalInfo.OWNERPOSTID;
                 }
-                txtFee.Text = approvalInfo.CHARGEMONEY.ToString();
-                if (ckbHasFee.IsChecked == true)
-                {
-                    fbCtr.Visibility = Visibility.Visible;
-                }
+                //txtFee.Text = approvalInfo.CHARGEMONEY.ToString();
+                //if (ckbHasFee.IsChecked == true)
+                //{
+                //    //fbCtr.Visibility = Visibility.Visible;
+                //}
                 if (Application.Current.Resources["SYS_DICTIONARY"] != null)
                 {
                     var ents = from a in Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>
@@ -913,47 +628,11 @@ namespace SMT.SaaS.OA.UI.UserControls
                     }
                     else
                     {
-                        fbCtr.Visibility = Visibility.Visible;
+                        //fbCtr.Visibility = Visibility.Visible;
                     }
-                    //if (!ctrFile._files.HasAccessory)
-                    //{
-                    //    SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayGrid, 4);
-                    //}
                 }
-                //InitFBControl();
-
                 depName = Utility.GetDepartmentName(approvalInfo.OWNERDEPARTMENTID);//所属部门ID
-                //string companyName = Utility.GetCompanyName(approvalInfo.OWNERCOMPANYID);
-                //string postName = Utility.GetPostName(approvalInfo.OWNERPOSTID);
-                //string StrName = approvalInfo.OWNERNAME + "-" + postName + "-" + depName + "-" + companyName;
-                //txtOwnerName.Text = StrName;
-                //ToolTipService.SetToolTip(txtOwnerName, StrName);
-                ////_VM.GetApprovalTypeByCompanyandDepartmentidAsync(OwnerCompanyid, OwnerDepartmentid);
-                //if (operationType == FormTypes.Edit)
-                //{
-                //    RefreshUI(RefreshedTypes.All);
-                //}
-                //else
-                //{
-                //    RefreshUI(RefreshedTypes.AuditInfo);
-                //}
-                //personclient.GetEmployeeDetailByIDAsync(approvalInfo.OWNERID);
-
                 personclient.GetEmployeePostBriefByEmployeeIDAsync(approvalInfo.OWNERID);
-                //if (operationType == FormTypes.Audit || operationType == FormTypes.Browse)
-                //{
-                //    //if (Common.CurrentLoginUserInfo.EmployeeID != approvalInfo.OWNERID)
-                //    //{
-                //    //    personclient.GetEmployeeDetailByIDAsync(approvalInfo.OWNERID);
-                //    //}
-                //    //else
-                //    //{
-                //    //    InitUserInfo();
-                //    //}
-                //    RefreshUI(RefreshedTypes.AuditInfo);
-                //}
-
-
             }
             else
             {
@@ -963,9 +642,111 @@ namespace SMT.SaaS.OA.UI.UserControls
                 return;
             }
         }
+
         private void Close()
         {
             RefreshUI(RefreshedTypes.Close);
+        }
+        #endregion
+
+        void OaPersonOfficeClient_UpdateApporvalTempletCompleted(object sender, UpdateApporvalTempletCompletedEventArgs e)
+        {
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            if (e.Result > 0)
+            {
+
+
+                if (e.Error != null && e.Error.Message != "")
+                {
+
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+                   Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
+
+                if (e.UserState.ToString() == "Edit")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("UPDATESUCCESSED", "MATTERSAPPROVAL"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                else if (e.UserState.ToString() == "Audit")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                else if (e.UserState.ToString() == "Submit")
+                {
+
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
+                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                }
+                canSubmit = true;
+                if (operationType == FormTypes.Edit || operationType == FormTypes.Resubmit)
+                {
+                    UserInfo User = new UserInfo();
+                    User.COMPANYID = approvalInfo.OWNERCOMPANYID;
+                    User.DEPARTMENTID = approvalInfo.OWNERDEPARTMENTID;
+                    User.POSTID = approvalInfo.OWNERPOSTID;
+                    User.USERID = approvalInfo.OWNERID;
+                    User.USERNAME = approvalInfo.OWNERNAME;
+                    //publicClient.UpdateContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, approvalInfo.OWNERCOMPANYID, "OA", "T_OA_APPROVAL");               
+                    publicClient.UpdateContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, User);
+                    //ctrFile.FormID = approvalInfo.APPROVALID;
+                    //ctrFile.Save();
+                }
+                RefreshUI(RefreshedTypes.AuditInfo);
+                RefreshUI(saveType);
+            }
+            else
+            {
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "修改失败",
+                   Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+            }
+        }
+
+        void _VM_AddApporvalTempletCompleted(object sender, AddApporvalTempletCompletedEventArgs e)
+        {
+            //提交保存为完成
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            if (e.Result > 0)
+            {
+                if (e.Error != null && e.Error.Message != "")
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return;
+                }
+                string xml = "";
+                UserInfo User = new UserInfo();
+                User.COMPANYID = approvalInfo.OWNERCOMPANYID;
+                User.DEPARTMENTID = approvalInfo.OWNERDEPARTMENTID;
+                User.POSTID = approvalInfo.OWNERPOSTID;
+                User.USERID = approvalInfo.OWNERID;
+                User.USERNAME = approvalInfo.OWNERNAME;
+                publicClient.AddContentAsync(approvalInfo.APPROVALID, approvalInfo.CONTENT, approvalInfo.OWNERCOMPANYID, "OA", "T_OA_APPROVAL", User);
+
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                entBrowser.FormType = FormTypes.Edit;
+                //txtCode.Text = e.ApprovalCode;
+                //approvalInfo.app = e.ApprovalCode;
+                operationType = FormTypes.Edit;
+                canSubmit = true;
+                RefreshUI(RefreshedTypes.AuditInfo);
+                RefreshUI(saveType);
+
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), "保存事项审批模板成功",
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+
+            }
+            else
+            {
+
+                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("SAVEFAILED", "MATTERSAPPROVAL"),
+                    Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                return;
+            }
         }
         #endregion
 
@@ -1067,24 +848,6 @@ namespace SMT.SaaS.OA.UI.UserControls
         }
         #endregion
 
-        #region CheckBox事件
-
-        private void CheckBox_Click(object sender, RoutedEventArgs e)
-        {
-            if (ckbHasFee.IsChecked == true)
-            {
-                fbCtr.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                fbCtr.Visibility = Visibility.Collapsed;
-                SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayGrid, 6);
-            }
-            //fbCtr.Visibility = ckbHasFee.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        #endregion
-
         #region 选择申请人
 
 
@@ -1097,15 +860,6 @@ namespace SMT.SaaS.OA.UI.UserControls
                 List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj> ent = lookup.SelectedObj as List<SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj>;
                 if (ent != null && ent.Count > 0)
                 {
-                    //SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj companyInfo = ent.FirstOrDefault();
-                    //SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE empInfo = (SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE)companyInfo.ObjectInstance;
-                    ////approvalInfo = new T_OA_APPROVALINFO();
-                    //approvalInfo.OWNERCOMPANYID = empInfo.OWNERCOMPANYID;
-                    //approvalInfo.OWNERDEPARTMENTID = empInfo.OWNERDEPARTMENTID;
-                    //approvalInfo.OWNERID = empInfo.EMPLOYEEID;
-                    //approvalInfo.OWNERNAME = empInfo.EMPLOYEECNAME;
-                    //approvalInfo.OWNERPOSTID = empInfo.T_HR_EMPLOYEEPOST.FirstOrDefault().EMPLOYEEPOSTID;
-                    //txtOwnerName.Text = companyInfo.ObjectName;
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj userInfo = ent.FirstOrDefault();
 
                     SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj post = (SMT.SaaS.FrameworkUI.OrganizationControl.ExtOrgObj)userInfo.ParentObject;
@@ -1120,15 +874,15 @@ namespace SMT.SaaS.OA.UI.UserControls
                     depName = dept.ObjectName;//部门
                     StrDepartmentName = depName;
 
-                    OwnerDepartmentid = deptid;
+                    OWNERDEPARTMENTID = deptid;
 
                     SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
                     string corpid = corp.COMPANYID;
                     string corpName = corp.CNAME;//公司
                     StrCompanyName = corpName;
-                    OwnerCompanyid = corpid;
+                    OWNERCOMPANYID = corpid;
 
-                    Ownerid = userInfo.ObjectID;
+                    OWNERID = userInfo.ObjectID;
                     approvalInfo.OWNERCOMPANYID = corpid;
                     approvalInfo.OWNERDEPARTMENTID = deptid;
                     approvalInfo.OWNERID = userInfo.ObjectID;
@@ -1146,26 +900,26 @@ namespace SMT.SaaS.OA.UI.UserControls
                     StrOwnerName = StrEmployee;
                     //txtTel.Text = userInfo.te
                     ToolTipService.SetToolTip(txtOwnerName, StrEmployee);
-                    txtTel.Text = string.Empty;
+                    //txtTel.Text = string.Empty;
                     if (!string.IsNullOrEmpty(Mobile))
                     {
-                        txtTel.Text = Mobile;
+                        //txtTel.Text = Mobile;
                     }
                     if (!string.IsNullOrEmpty(Tel))
                     {
-                        if (string.IsNullOrEmpty(txtTel.Text.ToString()))
-                        {
-                            txtTel.Text = Tel;
-                        }
-                        else
-                        {
-                            txtTel.Text += ";" + Tel;
-                        }
+                        //if (string.IsNullOrEmpty(txtTel.Text.ToString()))
+                        //{
+                        //    txtTel.Text = Tel;
+                        //}
+                        //else
+                        //{
+                        //    txtTel.Text += ";" + Tel;
+                        //}
                     }
                     //PersonnelServiceClient psClient = new PersonnelServiceClient();
                     psClient.GetEmployeeByIDAsync(userInfo.ObjectID);
                     //psClient.GetEmployeeByIDCompleted += new EventHandler<GetEmployeeByIDCompletedEventArgs>(psClient_GetEmployeeByIDCompleted);
-                    _VM.GetApprovalTypeByCompanyandDepartmentidAsync(OwnerCompanyid, OwnerDepartmentid);
+                    OaPersonOfficeClient.GetApprovalTypeByCompanyandDepartmentidAsync(OWNERCOMPANYID, OWNERDEPARTMENTID);
                 }
             };
             lookup.MultiSelected = true;
@@ -1174,216 +928,11 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         #endregion
 
-        #region 根据员工信息获取员工手机信息
-
-
-        void psClient_GetEmployeeByIDCompleted(object sender, GetEmployeeByIDCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                T_HR_EMPLOYEE ownerInfo = e.Result;
-                if (ownerInfo != null)
-                {
-                    if (!string.IsNullOrEmpty(ownerInfo.OFFICEPHONE))
-                    {
-                        txtTel.Text = ownerInfo.OFFICEPHONE;
-                    }
-                    else
-                    {
-                        if (ownerInfo.MOBILE != null)
-                        {
-                            txtTel.Text = ownerInfo.MOBILE;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                
-                Logger.Current.Log(e.Error.ToString(), Category.Debug, Priority.Low);
-            }
-        }
-        #endregion
-
-        #region IAudit
-
-        private string GetXmlString(string StrSource, T_OA_APPROVALINFO Info)
-        {
-            string StrReturn = "";
-            try
-            {
-                SMT.SaaS.MobileXml.MobileXml mx = new MobileXml.MobileXml();
-
-
-                List<SMT.SaaS.MobileXml.AutoDictionary> AutoList = new List<SMT.SaaS.MobileXml.AutoDictionary>();
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "CHECKSTATE", approvalInfo.CHECKSTATE, "审核中"));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERCOMPANYID", approvalInfo.OWNERCOMPANYID, StrCompanyName));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERDEPARTMENTID", approvalInfo.OWNERDEPARTMENTID, StrDepartmentName));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERPOSTID", approvalInfo.OWNERPOSTID, StrPostName));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "OWNERID", approvalInfo.OWNERID, approvalInfo.OWNERNAME + "-" + StrPostName + "-" + StrDepartmentName + "-" + StrCompanyName));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "TYPEAPPROVAL", approvalInfo.TYPEAPPROVAL, StrApprovalTypeName));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "CONTENT", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "AttachMent", approvalInfo.APPROVALID, approvalInfo.APPROVALID));
-                AutoList.Add(basedata("T_OA_APPROVALINFO", "POSTLEVEL", postLevel, postLevel));
-
-                StrReturn = mx.TableToXml(Info, "a", StrSource, AutoList);
-                //string a = mx.TableToXml(Info, "a", str, AutoList);
-
-            }
-            catch (Exception ex)
-            {
-                Logger.Current.Log(ex.Message, Category.Debug, Priority.Low);
-            }
-            return StrReturn;
-        }
-
-        public void SetFlowRecordEntity(FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
-        {
-            if (operationType == FormTypes.Edit || operationType == FormTypes.Resubmit)
-            {
-                EntityBrowser browser = this.FindParentByType<EntityBrowser>();
-                browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);
-            }
-            //entity.ModelCode = "T_OA_APPROVALINFO";
-            
-            
-            string strXmlObjectSource = string.Empty;
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("CHARGEMONEY", approvalInfo.CHARGEMONEY.ToString());
-            parameters.Add("POSTLEVEL", postLevel);
-            parameters.Add("DEPARTMENTNAME", depName);
-            entity.SystemCode = "OA";
-            if (!string.IsNullOrEmpty(entity.BusinessObjectDefineXML)) //返回的XML定义不为空时对业务对象进行填充
-                strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML, approvalInfo);
-            //strXmlObjectSource = Utility.ObjListToXml<T_OA_APPROVALINFO>(approvalInfo, entity.BusinessObjectDefineXML);
-            //strXmlObjectSource = Utility.ObjListToXml<T_OA_APPROVALINFO>(approvalInfo, parameters, "OA");
-            //strXmlObjectSource = this.GetXmlString(entity.BusinessObjectDefineXML,approvalInfo);
-
-            Dictionary<string, string> paraIDs = new Dictionary<string, string>();
-            paraIDs.Add("CreateUserID", approvalInfo.OWNERID);
-            paraIDs.Add("CreatePostID", approvalInfo.OWNERPOSTID);
-            paraIDs.Add("CreateDepartmentID", approvalInfo.OWNERDEPARTMENTID);
-            paraIDs.Add("CreateCompanyID", approvalInfo.OWNERCOMPANYID);
-
-
-            if (approvalInfo.CHECKSTATE == ((int)CheckStates.UnSubmit).ToString())
-            {
-                SMT.SaaS.FrameworkUI.Common.Utility.SetAuditEntity(entity, "T_OA_APPROVALINFO", approvalInfo.APPROVALID, strXmlObjectSource, paraIDs);
-            }
-            else
-            {
-                Utility.SetAuditEntity(entity, "T_OA_APPROVALINFO", approvalInfo.APPROVALID, strXmlObjectSource);
-            }
-        }
-
-        void AuditCtrl_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
-        {
-            if (Common.CurrentLoginUserInfo.EmployeeID != approvalInfo.OWNERID)
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
-            if ((operationType == FormTypes.Resubmit || operationType == FormTypes.Edit ))// && canSubmit == false)
-            {
-                //RefreshUI(RefreshedTypes.ShowProgressBar);
-                if (!DataValidation())
-                {
-                    RefreshUI(RefreshedTypes.HideProgressBar);
-                    e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-                    //ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"),
-                    //    Utility.GetResourceStr("请先保存修改的记录"),
-                    //Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    return;
-                }
-            }
-
-        }
-
-        public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
-        {
-            Utility.InitFileLoad(FormTypes.Audit, uploadFile,approvalInfo.APPROVALID,false);
-            string state = "";
-            SetControlsEnable();
-            string UserState = "Audit";
-            
-            switch (args)
-            {
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Auditing:
-                    state = Utility.GetCheckState(CheckStates.Approving);
-                    _flwResult = SMT.SaaS.FrameworkUI.CheckStates.Approving;
-                    isAuditing = true;
-                    break;
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Successful:
-                    state = Utility.GetCheckState(CheckStates.Approved);
-                    _flwResult = SMT.SaaS.FrameworkUI.CheckStates.Approved;
-                    break;
-                case SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Fail:
-                    state = Utility.GetCheckState(CheckStates.UnApproved);
-                    _flwResult = SMT.SaaS.FrameworkUI.CheckStates.UnApproved;
-                    break;
-            }
-
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            if (_flwResult == SMT.SaaS.FrameworkUI.CheckStates.Approving)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSSUBMITAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-            if (_flwResult == SMT.SaaS.FrameworkUI.CheckStates.Approved)
-            {
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("SUCCESSAUDIT"),
-                Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-            }
-
-            approvalInfo.CHECKSTATE = state;    
-            RefreshUI(RefreshedTypes.AuditInfo);
-            RefreshUI(saveType);
-
-            
-            //Logger.Current.Log("事项审批进入了状态修改", Category.Debug, Priority.Low);
-            
-            
-        }
-
-        public string GetAuditState()
-        {
-            string state = "-1";
-            if (approvalInfo != null)
-            {
-
-                state = approvalInfo.CHECKSTATE;//事项审批只要审核后就能看到转发按钮，切记，后面如果修改，要小心
-                //if (operationType == FormTypes.Browse)
-                //    state = "-1";
-                if (operationType == FormTypes.Resubmit && !isAuditing)//是重新提交单据并且提交，目的为了重新提交审核后隐藏保存等按钮
-                    state = "0";
-            }
-
-            return state;
-        }
-        
-        private AutoDictionary basedata(string TableName, string Name, string Value, string Text)
-        {
-            string[] strlist = new string[4];
-            strlist[0] = TableName;
-            strlist[1] = Name;
-            strlist[2] = Value;
-            strlist[3] = Text;
-            AutoDictionary ad = new AutoDictionary();
-            ad.AutoDictionaryList(strlist);
-            return ad;
-        }
-
-
-        #endregion
-
         #region IForm 成员
 
         public void ClosedWCFClient()
         {
-            _VM.DoClose();
+            OaPersonOfficeClient.DoClose();
         }
 
         public bool CheckDataContenxChange()
@@ -1410,10 +959,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             parameters.Add("CHARGEMONEY", approvalInfo.CHARGEMONEY.ToString());
             parameters.Add("POSTLEVEL", postLevel);
             parameters.Add("DEPARTMENTNAME", depName);
-            strXmlObjectSource = Utility.ObjListToXmlForTravel<T_OA_APPROVALINFO>(approvalInfo, "OA", parameters);
-            ApprovalTypeList apptype = new ApprovalTypeList(StrOld, StrApprovaltype, lstApprovalids, OwnerCompanyid, OwnerDepartmentid, strXmlObjectSource);
-
-            //ApprovalTypeList apptype = new ApprovalTypeList(StrOld, StrApprovaltype, lstApprovalids, OwnerCompanyid, OwnerDepartmentid, strXmlObjectSource);
+            strXmlObjectSource = Utility.ObjListToXmlForTravel<T_OA_APPROVALINFOTEMPLET>(approvalInfo, "OA", parameters);
+            ApprovalTypeList apptype = new ApprovalTypeList(StrOld, StrApprovaltype, lstApprovalids, OWNERCOMPANYID, OWNERDEPARTMENTID, strXmlObjectSource);
 
             apptype.SelectedClicked += (obj, ea) =>
             {
@@ -1431,9 +978,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 StrApprovalTwo = "";
                 StrApprovalThird = "";
                 GetFatherApprovalType(StrApprovaltype, "first");
-                _VM.Get_ApporvalTempletByApporvalTypeAsync(StrApprovaltype);
-                RefreshUI(RefreshedTypes.ShowProgressBar);
-               
+
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("SELECTAPPROVALTYPE"), "", "123", apptype, false, false, null);
             if (apptype is ApprovalTypeList)
@@ -1505,59 +1050,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
         }
 
-        void _VM_Get_ApporvalTempletByApporvalTypeCompleted(object sender, Get_ApporvalTempletByApporvalTypeCompletedEventArgs e)
-        {
-            RefreshUI(RefreshedTypes.HideProgressBar);
-            T_OA_APPROVALINFOTEMPLET templet = e.Result;
-            if (templet != null)
-            {
-                txtTitle.Text = templet.APPROVALTITLE;
-                txtContent.Document = templet.CONTENT;
-            }
-        }
-
         #endregion
-
-        #region 获取公司名字
-        private string GetCompanyName(string StrCompanyId)
-        {
-            string IsReturn = "";
-
-            return IsReturn;
-        }
-        #endregion
-
-        public void FileLoadedCompleted()
-        {
-            //_VM.Get_ApporvalAsync(approvalid);
-            //if (!ctrFile._files.HasAccessory)
-            //{
-            //    if (operationType == FormTypes.Browse || operationType == FormTypes.Audit)
-            //    {
-            //        SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayGrid, 4);
-            //    }
-            //}
-        }
-
-        private void HiddenGrid()
-        {
-            //if (uploadFile.f)
-            //{
-            //    if (operationType == FormTypes.Browse || operationType == FormTypes.Audit)
-            //    {
-            //        SMT.SaaS.FrameworkUI.Common.Utility.HiddenGridRow(this.LayGrid, 4);
-            //    }
-            //}
-        }
-
-        private void ControlsChanged()
-        {
-            canSubmit = false;
-        }
-
-        private void txtTitle_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ControlsChanged();
-        }
+        
     }
 }

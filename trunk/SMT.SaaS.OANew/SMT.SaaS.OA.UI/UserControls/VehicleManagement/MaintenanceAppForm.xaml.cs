@@ -54,7 +54,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             Utility.BindComboBox(cmbRepairName, "MAINTENANCENAME", 0);
             dateREPAIRDATE.Text = DateTime.Today.ToShortDateString();
             dateRETRIEVEDATE.Text = DateTime.Today.AddDays(2).ToShortDateString();
-            txtTel.Text = Common.CurrentLoginUserInfo.Telphone == null ? "" : Common.CurrentLoginUserInfo.Telphone;
+            txtTel.Text = Utility.GetEmployeePhone();
             if (conserVation != null)
             {
                 Utility.SetComboboxSelectByText(cmbRepairName, conserVation.MAINTENANCETYPE, -1);

@@ -64,7 +64,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         public bool isSubmit = false;//为真时不作保存成功的提示
         //public string UserState = string.Empty;
         //private bool IsSubmit = false;//是否是点击了提交按钮
-
+        //修改行程
+        public bool isAlterTrave = false;
 
         public EntityBrowser ParentEntityBrowser { get; set; }
 
@@ -138,6 +139,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
             entBrowser.BtnSaveSubmit.Click -= new RoutedEventHandler(entBrowser.btnSubmit_Click);
             entBrowser.BtnSaveSubmit.Click += new RoutedEventHandler(BtnSaveSubmit_Click);
+            //entBrowser.BtnDelete.Click += btnDelete_Click;
 
             fbCtr.GetPayType.Visibility = Visibility.Visible;
             if (formType == FormTypes.Browse || formType == FormTypes.Audit)
@@ -150,7 +152,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             FormToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
 
             FormToolBar1.btnEdit.Visibility = Visibility.Collapsed;//修改
+
             FormToolBar1.btnDelete.Visibility = Visibility.Collapsed;//删除
+            //FormToolBar1.btnDelete.Click += btnDelete_Click;
+
             FormToolBar1.BtnView.Visibility = Visibility.Collapsed;//查看
             FormToolBar1.btnRefresh.Visibility = Visibility.Collapsed;//刷新
             FormToolBar1.btnReSubmit.Visibility = Visibility.Collapsed;//重新提交
@@ -182,11 +187,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 Master_Golbal.OWNERDEPARTMENTNAME = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName;
                 Master_Golbal.OWNERCOMPANYNAME = Common.CurrentLoginUserInfo.UserPosts[0].CompanyName;
                 Master_Golbal.POSTLEVEL = Common.CurrentLoginUserInfo.UserPosts[0].PostLevel.ToString();
-                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
-                {
-                    Master_Golbal.TEL = Common.CurrentLoginUserInfo.Telphone;
-                    txtTELL.Text = Common.CurrentLoginUserInfo.Telphone;
-                }
+               
+                Master_Golbal.TEL = Utility.GetEmployeePhone();
+                txtTELL.Text = Utility.GetEmployeePhone();
+               
+
                 Master_Golbal.CREATEDATE = DateTime.Now;//创建时间
                 Master_Golbal.UPDATEDATE = DateTime.Now;//更新时间
                 Master_Golbal.CHECKSTATE = Utility.GetCheckState(CheckStates.UnSubmit);//未提交
@@ -218,6 +223,53 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
         }
 
+
+        #region 删除出差申请
+
+        //void btnDelete_Click(object sender, RoutedEventArgs e)
+        //{
+          
+        //}
+
+        void Travelmanagement_DeleteTravelmanagementCompleted(object sender, DeleteTravelmanagementCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Error.Message);
+                    return;
+                }
+                else
+                {
+                    if (!e.Result) //返回值为假
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("DALETEFAILED"));
+                        return;
+                    }
+                    else
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("删除成功！"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        this.formType = FormTypes.Browse;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), ex.ToString());
+            }
+            finally
+            {
+                EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                this.RefreshUI(RefreshedTypes.HideProgressBar);//读取完数据后，停止动画，隐藏                
+                this.RefreshUI(RefreshedTypes.CloseAndReloadData);//重新加载数据
+                this.RefreshUI(RefreshedTypes.All);
+                //EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                //entBrowser.Close();
+            }
+        }
+        #endregion
+
         #region InitWCFClientEvent
         private void InitWCFSvClinetEvent()
         {
@@ -235,7 +287,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
             //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
             //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
-
+            OaPersonOfficeClient.DeleteTravelmanagementCompleted += new EventHandler<DeleteTravelmanagementCompletedEventArgs>(Travelmanagement_DeleteTravelmanagementCompleted);
+            
         }
         #endregion
 
@@ -325,6 +378,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             Master_Golbal.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
                             svdgEdit.Visibility = Visibility.Visible;
                             svdgReadOnly.Visibility = Visibility.Collapsed;
+                        }
+                        if (Master_Golbal.CHECKSTATE == (Convert.ToInt32(CheckStates.UnSubmit)).ToString())
+                        {
+                            EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
+                            entBrowser.BtnDelete.Visibility = Visibility.Visible;
+                            RefreshUI(RefreshedTypes.ToolBar);
                         }
                         #endregion
 
@@ -710,6 +769,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
         }
         #endregion
-                
+
     }
 }

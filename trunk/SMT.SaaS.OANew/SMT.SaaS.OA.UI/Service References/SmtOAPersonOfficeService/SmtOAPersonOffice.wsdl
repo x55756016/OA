@@ -4,6 +4,195 @@
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_SmtOAPersonOffice" type="SmtOAPersonOffice">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsExistTravelReimbursement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelReimbursement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTravelReimbursementBySportid">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNoClaims">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateNoClaims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTravelReimbursement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateTravelReimbursement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelReimbursement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelReimbursement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelReimbursementByBusinesstripId">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelReimbursementAdd">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelReimbursementAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelReimbursementAddSimple">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelReimbursementAddSimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckTravelReimbursementByBusinesstrip">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstrip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementRoomInfos">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementDetail">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementListByUserId">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerCordListByUserId">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetWorkerCordListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkerCordList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteWorkerCordList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordAdd">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordDel">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordUpdate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionsMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionsMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_SSurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Add_SSurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_SSurveys">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_SSurveys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Get_SSurvey">
       <soap:operation soapAction="urn:SmtOAPersonOffice/Get_SSurvey" style="document" />
       <wsdl:input>
@@ -211,6 +400,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeSurveys">
       <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveys" style="document" />
       <wsdl:input>
@@ -292,8 +490,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionMaster" style="document" />
+    <wsdl:operation name="AddEmployeeSurveyView">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyView" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -301,8 +499,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionMaster" style="document" />
+    <wsdl:operation name="GetEmployeeSurveyViewList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyViewList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -310,8 +508,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMasterByCheckstateAndDate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDate" style="document" />
+    <wsdl:operation name="Get_ESurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurvey" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -319,8 +517,152 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionMasterChild">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionMasterChild" style="document" />
+    <wsdl:operation name="Get_ESurveyChecked">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyChecked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeSurveyViewList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeSurveySubjectView">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upd_ESurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Upd_ESurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeSurveyView">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmployeeSurveyView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultByUserID">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetResultByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitResult">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/SubmitResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyApps">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyApps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyAppChecked">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyAppChecked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_MyVisistedSurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_MyVisistedSurvey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_EsurveyApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Add_EsurveyApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upd_ESurveyApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Upd_ESurveyApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Del_ESurveyApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Del_ESurveyApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStaticfactonVisistedByEmployID">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyResult">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyResult" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -391,8 +733,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInfoListByOptFlag">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoListByOptFlag" style="document" />
+    <wsdl:operation name="AddRequire">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddRequire" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -400,8 +742,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInfoById">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoById" style="document" />
+    <wsdl:operation name="UpdRequire">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdRequire" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -409,8 +751,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetInfoByTitle">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoByTitle" style="document" />
+    <wsdl:operation name="GetRequireData">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetRequireData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -418,8 +760,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveys">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveys" style="document" />
+    <wsdl:operation name="GetEmployeeSurveyAppByCheckstateAndDate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -427,8 +769,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurvey" style="document" />
+    <wsdl:operation name="GetDataBySurveying">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetDataBySurveying" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -436,170 +778,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmpSurveys">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmpSurveys" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveys">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveys" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmpSurveysSubjectList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmpSurveysSubjectList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysSubject">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysSubject" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysSubject">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysSubject" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysSubjectList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysSubjectList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Save_SubjectAnswer">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Save_SubjectAnswer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysSubjectList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysSubjectList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysSubject">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysSubject" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysSubjectList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysAnswer">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysAnswer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmpSurveysAnswerList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmpSurveysAnswerList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysAnswerList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysAnswerList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysAnswerList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysAnswerList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysAnswerList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysResultList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysResultList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionDistribute">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionDistribute" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionDistribute">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionDistribute" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionDistributeChild">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionDistributeChild" style="document" />
+    <wsdl:operation name="AddSurveying">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSurveying" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -634,8 +814,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataBySurveying">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetDataBySurveying" style="document" />
+    <wsdl:operation name="AddRequireMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddRequireMaster" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -643,8 +823,521 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddSurveying">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSurveying" style="document" />
+    <wsdl:operation name="UpdRequireMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdRequireMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterDataByLoading">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetMasterDataByLoading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyDataByCultivateForCheckState">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultByCultivateForID">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetResultByCultivateForID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSurveyByCheckstateAndDate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionApp">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionApp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequireByCheckstateAndDate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionAppChild">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionAppChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionDistribute">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionDistribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionDistribute">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionDistribute" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionDistributeChild">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionDistributeChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterByCheckstateAndDate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionMasterChild">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionMasterChild" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementInfo">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementById">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementBysId">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementBysId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccordingToBusinesstripIdCheck">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTravelmanagement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelmanagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTravelmanagement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateTravelmanagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelmanagement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelmanagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TravelmanagementAdd">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelmanagementAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementRoomInfos">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementRoomInfosListBySearch">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinesstripDetail">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetBusinesstripDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsContractCanBrowser">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/IsContractCanBrowser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementListByUserId">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementListByUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnderwayTravelmanagement">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetUnderwayTravelmanagement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoAdd">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsExistOrderMealInfoByAdd">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoDel">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoDel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoUpdate">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealSingleInfoById">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealSingleInfoById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealInfos">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealInfosListByTitleTimeSearch">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementInfo">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementById">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Apporval">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_Apporval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApporvalList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalListforMVC">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApporvalListforMVC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApporval">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddApporval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporval">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApporval">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateApporval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporvalList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApprovalSet">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddApprovalSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalSetByOrgType">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalSetByOrgType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyandDepartmentid">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyid">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypesByCompanyIDs">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ApporvalTemplet">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ApporvalTemplet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_ApporvalTempletByApporvalType">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ApporvalTempletByApporvalType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalTempletList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApporvalTempletList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApporvalTemplet">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddApporvalTemplet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalTemplet">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporvalTemplet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApporvalTemplet">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateApporvalTemplet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalTempletList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporvalTempletList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -958,600 +1651,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddRequireMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddRequireMaster" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdRequireMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdRequireMaster" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetMasterDataByLoading">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetMasterDataByLoading" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSurveyDataByCultivateForCheckState">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckState" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetResultByCultivateForID">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetResultByCultivateForID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyByCheckstateAndDate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetInfroByTitle">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfroByTitle" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyMaster" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyAnswer">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeAnswer">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeAnswer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyQuestion">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionsMaster">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionsMaster" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Add_SSurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Add_SSurvey" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSurvey" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Get_SSurveys">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_SSurveys" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetWorkerCordListByUserId">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetWorkerCordListByUserId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteWorkerCordList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteWorkerCordList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordAdd">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordDel">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordDel" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordUpdate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/WorkerCordUpdate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddSatisfactionApp" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdSatisfactionApp" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetRequireByCheckstateAndDate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionAppChild">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetSatisfactionAppChild" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementInfo">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementById">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementById" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementBysId">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementBysId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAccordingToBusinesstripIdCheck">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheck" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelmanagement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelmanagement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTravelmanagement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateTravelmanagement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelmanagement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelmanagement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TravelmanagementAdd">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelmanagementAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementRoomInfos">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfos" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementRoomInfosListBySearch">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearch" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetBusinesstripDetail">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetBusinesstripDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsContractCanBrowser">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/IsContractCanBrowser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementListByUserId">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelmanagementListByUserId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUnderwayTravelmanagement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetUnderwayTravelmanagement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementInfo">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementById">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementById" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelReimbursement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelReimbursement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelReimbursementBySportid">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportid" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateNoClaims">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateNoClaims" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTravelReimbursement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateTravelReimbursement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelReimbursement">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelReimbursement" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelReimbursementByBusinesstripId">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TravelReimbursementAdd">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelReimbursementAdd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="TravelReimbursementAddSimple">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/TravelReimbursementAddSimple" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="CheckTravelReimbursementByBusinesstrip">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstrip" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementRoomInfos">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfos" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementDetail">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementDetail" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementListByUserId">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserId" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Get_Apporval">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_Apporval" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetApporvalList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApporvalList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddApporval">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddApporval" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteApporval">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporval" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateApporval">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateApporval" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteApporvalList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteApporvalList" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddApprovalSet">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddApprovalSet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalSetByOrgType">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalSetByOrgType" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalTypeByCompanyandDepartmentid">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentid" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalTypesByCompanyIDs">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddRequire">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddRequire" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdRequire">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdRequire" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetRequireData">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetRequireData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyAppByCheckstateAndDate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDate" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetCalendarListByUserID">
       <soap:operation soapAction="urn:SmtOAPersonOffice/GetCalendarListByUserID" style="document" />
       <wsdl:input>
@@ -1606,8 +1705,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DoWork">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DoWork" style="document" />
+    <wsdl:operation name="GetInfroByTitle">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfroByTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1615,8 +1714,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoAdd">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoAdd" style="document" />
+    <wsdl:operation name="AddEmployeeSurveyMaster">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyMaster" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1624,8 +1723,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="IsExistOrderMealInfoByAdd">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAdd" style="document" />
+    <wsdl:operation name="AddEmployeeSurveyAnswer">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1633,8 +1732,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoDel">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoDel" style="document" />
+    <wsdl:operation name="GetEmployeeAnswer">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1642,8 +1741,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoUpdate">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/OrderMealInfoUpdate" style="document" />
+    <wsdl:operation name="AddEmployeeSurveyQuestion">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestion" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1651,8 +1750,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealSingleInfoById">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealSingleInfoById" style="document" />
+    <wsdl:operation name="GetInfoListByOptFlag">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoListByOptFlag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1660,8 +1759,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealInfos">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealInfos" style="document" />
+    <wsdl:operation name="GetInfoById">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1669,8 +1768,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealInfosListByTitleTimeSearch">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearch" style="document" />
+    <wsdl:operation name="GetInfoByTitle">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetInfoByTitle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1678,8 +1777,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyView">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurveyView" style="document" />
+    <wsdl:operation name="AddEmpSurveys">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveys" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1687,8 +1786,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyViewList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeSurveyViewList" style="document" />
+    <wsdl:operation name="AddEmployeeSurvey">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmployeeSurvey" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1696,8 +1795,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurvey" style="document" />
+    <wsdl:operation name="DeleteEmpSurveys">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmpSurveys" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1705,8 +1804,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyChecked">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyChecked" style="document" />
+    <wsdl:operation name="UpdateEmpSurveys">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveys" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1714,8 +1813,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmployeeSurveyViewList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewList" style="document" />
+    <wsdl:operation name="GetEmpSurveysSubjectList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmpSurveysSubjectList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1723,8 +1822,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmployeeSurveySubjectView">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectView" style="document" />
+    <wsdl:operation name="DelEmpSurveysSubject">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysSubject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1732,8 +1831,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Upd_ESurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Upd_ESurvey" style="document" />
+    <wsdl:operation name="AddEmpSurveysSubject">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysSubject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1741,8 +1840,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UpdateEmployeeSurveyView">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmployeeSurveyView" style="document" />
+    <wsdl:operation name="AddEmpSurveysSubjectList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysSubjectList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1750,8 +1849,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetResultByUserID">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetResultByUserID" style="document" />
+    <wsdl:operation name="Save_SubjectAnswer">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/Save_SubjectAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1759,8 +1858,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SubmitResult">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/SubmitResult" style="document" />
+    <wsdl:operation name="DelEmpSurveysSubjectList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysSubjectList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1768,8 +1867,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeList">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmployeeList" style="document" />
+    <wsdl:operation name="UpdateEmpSurveysSubject">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysSubject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1777,8 +1876,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyApp" style="document" />
+    <wsdl:operation name="UpdateEmpSurveysSubjectList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1786,8 +1885,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyApps">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyApps" style="document" />
+    <wsdl:operation name="AddEmpSurveysAnswer">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysAnswer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1795,8 +1894,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyAppChecked">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyAppChecked" style="document" />
+    <wsdl:operation name="GetEmpSurveysAnswerList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/GetEmpSurveysAnswerList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1804,8 +1903,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Get_MyVisistedSurvey">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_MyVisistedSurvey" style="document" />
+    <wsdl:operation name="AddEmpSurveysAnswerList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysAnswerList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1813,8 +1912,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Add_EsurveyApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Add_EsurveyApp" style="document" />
+    <wsdl:operation name="DelEmpSurveysAnswerList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/DelEmpSurveysAnswerList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1822,8 +1921,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Upd_ESurveyApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Upd_ESurveyApp" style="document" />
+    <wsdl:operation name="UpdateEmpSurveysAnswerList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1831,26 +1930,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Del_ESurveyApp">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Del_ESurveyApp" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetStaticfactonVisistedByEmployID">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployID" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyResult">
-      <soap:operation soapAction="urn:SmtOAPersonOffice/Get_ESurveyResult" style="document" />
+    <wsdl:operation name="AddEmpSurveysResultList">
+      <soap:operation soapAction="urn:SmtOAPersonOffice/AddEmpSurveysResultList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

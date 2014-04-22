@@ -2214,6 +2214,9 @@ namespace SMT.SaaS.OA.UI.UserControls
                     SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY corp = (dept.ObjectInstance as SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT).T_HR_COMPANY;
                     string corpid = corp.COMPANYID;
                     string corpName = corp.CNAME;//公司
+                    PostName = postName;//岗位名称
+                    DepartmentName = deptName;//部门名称
+                    CompanyName = corpName;//公司名称
 
                     if ((ent.FirstOrDefault().ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).MOBILE != null)
                         Mobile = (ent.FirstOrDefault().ObjectInstance as SMT.Saas.Tools.PersonnelWS.T_HR_EMPLOYEE).MOBILE.ToString();

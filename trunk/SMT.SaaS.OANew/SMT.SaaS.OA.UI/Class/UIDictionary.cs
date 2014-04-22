@@ -172,11 +172,11 @@ namespace SMT.SaaS.OA.UI
             //事项审批From
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ApprovalForm_aud), new List<string> { "TYPEAPPROVAL" }));
 
-            //事项审批From
-            //dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ApprovalForm_upd), new List<string> { "TYPEAPPROVAL" }));
+            //事项审批模板From
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ApprovalTempletForm), new List<string> { "TYPEAPPROVAL" }));
 
             //事项审批View
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(FrmApprovalManagement), new List<string> { "CHECKSTATE" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(FrmApprovalManagement), new List<string> { "CHECKSTATE", "TYPEAPPROVAL" }));
 
             //事项审批设置
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ApprovalTypeSet), new List<string> { "CHECKSTATE", "TYPEAPPROVAL" }));
@@ -284,7 +284,7 @@ namespace SMT.SaaS.OA.UI
             #endregion
 
             //出差申请
-            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(BusinessApplicationsForm), new List<string> { "CHECKSTATE", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE", "CITY" }));
+            dicts.Add(new KeyValuePair<Type, List<string>>(typeof(BusinessApplicationsForm), new List<string> { "CHECKSTATE", "VICHILESTANDARD", "VICHILELEVEL", "PROVINCE", "CITY","RepayType","POSTLEVEL" }));
 
             dicts.Add(new KeyValuePair<Type, List<string>>(typeof(ConserVationForm), new List<string> { "CONSERVANAME" }));
 

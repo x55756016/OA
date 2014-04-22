@@ -1,346 +1,1039 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
-  <xs:complexType name="V_Satisfaction">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="T_OA_TRAVELREIMBURSEMENT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSREPORTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLAIMSWERE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLAIMSWERENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPUTINGTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOBUDGETCLAIMS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTOFCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REMARKS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THETOTALCOST" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRAVELREIMBURSEMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPReference" nillable="true" type="q1:EntityReferenceOfT_OA_BUSINESSTRIPUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
+  <xs:complexType name="T_OA_BUSINESSTRIP">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSTRIPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ISAGENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISALTERTRAVE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARKS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+  <xs:complexType name="ArrayOfT_OA_BUSINESSTRIPDETAIL">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Detail" nillable="true" type="q1:T_OA_SATISFACTIONDETAIL" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="RequireMaster" nillable="true" type="q2:T_OA_SATISFACTIONMASTER" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="SubjectViewList" nillable="true" type="q3:ArrayOfT_OA_SATISFACTIONDETAIL" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:T_OA_BUSINESSTRIPDETAIL" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_Satisfaction" nillable="true" type="tns:V_Satisfaction" />
-  <xs:complexType name="ArrayOfV_Satisfaction">
+  <xs:element name="ArrayOfT_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:ArrayOfT_OA_BUSINESSTRIPDETAIL" />
+  <xs:complexType name="T_OA_BUSINESSTRIPDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BUSINESSDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BUSINESSTRIPDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYCAR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GOOUTTOMEET" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PRIVATEAFFAIR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TAKETHETOOLLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEOFTRAVELTOOLS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
+          <xs:element minOccurs="0" name="T_OA_BUSINESSTRIPReference" nillable="true" type="q3:EntityReferenceOfT_OA_BUSINESSTRIPUlJdEHjk" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_BUSINESSTRIPDETAIL" nillable="true" type="tns:T_OA_BUSINESSTRIPDETAIL" />
+  <xs:complexType name="ArrayOfT_OA_TRAVELREIMBURSEMENT">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_Satisfaction" nillable="true" type="tns:V_Satisfaction" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_Satisfaction" nillable="true" type="tns:ArrayOfV_Satisfaction" />
-  <xs:complexType name="ArrayOfV_MyStaticfaction">
+  <xs:element name="ArrayOfT_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:ArrayOfT_OA_TRAVELREIMBURSEMENT" />
+  <xs:complexType name="ArrayOfT_OA_REIMBURSEMENTDETAIL">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_MyStaticfaction" nillable="true" type="tns:V_MyStaticfaction" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:T_OA_REIMBURSEMENTDETAIL" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_MyStaticfaction" nillable="true" type="tns:ArrayOfV_MyStaticfaction" />
-  <xs:complexType name="V_MyStaticfaction">
+  <xs:element name="ArrayOfT_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:ArrayOfT_OA_REIMBURSEMENTDETAIL" />
+  <xs:complexType name="T_OA_REIMBURSEMENTDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACCOMMODATION" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BUSINESSDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYCAR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GOOUTTOMEET" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MEALSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OTHERCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PRIVATEAFFAIR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REIMBURSEMENTDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTCITYNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TAKETHETOOLLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THENUMBEROFNIGHTS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSPORTATIONSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRANSPORTCOSTS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TYPEOFTRAVELTOOLS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENT" nillable="true" type="tns:T_OA_TRAVELREIMBURSEMENT" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELREIMBURSEMENTReference" nillable="true" type="q4:EntityReferenceOfT_OA_TRAVELREIMBURSEMENTUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REIMBURSEMENTDETAIL" nillable="true" type="tns:T_OA_REIMBURSEMENTDETAIL" />
+  <xs:complexType name="ArrayOfT_OA_WORKRECORD">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAMaster" nillable="true" type="q4:T_OA_SATISFACTIONMASTER" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OARequire" nillable="true" type="q5:T_OA_SATISFACTIONREQUIRE" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAResult" nillable="true" type="q6:T_OA_SATISFACTIONRESULT" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distrbuteuser" nillable="true" type="q7:T_OA_DISTRIBUTEUSER" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_WORKRECORD" nillable="true" type="tns:T_OA_WORKRECORD" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_MyStaticfaction" nillable="true" type="tns:V_MyStaticfaction" />
-  <xs:complexType name="ArrayOfV_SatisfactionResult">
+  <xs:element name="ArrayOfT_OA_WORKRECORD" nillable="true" type="tns:ArrayOfT_OA_WORKRECORD" />
+  <xs:complexType name="T_OA_WORKRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLANTIME" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WORKRECORDID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_WORKRECORD" nillable="true" type="tns:T_OA_WORKRECORD" />
+  <xs:complexType name="T_OA_SATISFACTIONMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONDETAIL" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONDETAIL" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONREQUIRE" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_SATISFACTIONMASTER" nillable="true" type="tns:T_OA_SATISFACTIONMASTER" />
+  <xs:complexType name="ArrayOfT_OA_SATISFACTIONDETAIL">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SatisfactionResult" nillable="true" type="tns:V_SatisfactionResult" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_SATISFACTIONDETAIL" nillable="true" type="tns:T_OA_SATISFACTIONDETAIL" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_SatisfactionResult" nillable="true" type="tns:ArrayOfV_SatisfactionResult" />
-  <xs:complexType name="V_SatisfactionResult">
+  <xs:element name="ArrayOfT_OA_SATISFACTIONDETAIL" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONDETAIL" />
+  <xs:complexType name="T_OA_SATISFACTIONDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONMASTER" nillable="true" type="tns:T_OA_SATISFACTIONMASTER" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONMASTERReference" nillable="true" type="q7:EntityReferenceOfT_OA_SATISFACTIONMASTERUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_SATISFACTIONDETAIL" nillable="true" type="tns:T_OA_SATISFACTIONDETAIL" />
+  <xs:complexType name="ArrayOfT_OA_SATISFACTIONREQUIRE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="LstAnswer" nillable="true" type="tns:ArrayOfV_SSubjectAnswerResult" />
-      <xs:element minOccurs="0" name="SubjectID" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:T_OA_SATISFACTIONREQUIRE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_SatisfactionResult" nillable="true" type="tns:V_SatisfactionResult" />
-  <xs:complexType name="ArrayOfV_SSubjectAnswerResult">
+  <xs:element name="ArrayOfT_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONREQUIRE" />
+  <xs:complexType name="T_OA_SATISFACTIONREQUIRE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ANSWERGROUPID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OPTFLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONREQUIREID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONDISTRIBUTE" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONDISTRIBUTE" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONMASTER" nillable="true" type="tns:T_OA_SATISFACTIONMASTER" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONMASTERReference" nillable="true" type="q8:EntityReferenceOfT_OA_SATISFACTIONMASTERUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONRESULT" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONRESULT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WAY" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:T_OA_SATISFACTIONREQUIRE" />
+  <xs:complexType name="ArrayOfT_OA_SATISFACTIONDISTRIBUTE">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_SSubjectAnswerResult" nillable="true" type="tns:V_SSubjectAnswerResult" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_SATISFACTIONDISTRIBUTE" nillable="true" type="tns:T_OA_SATISFACTIONDISTRIBUTE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_SSubjectAnswerResult" nillable="true" type="tns:ArrayOfV_SSubjectAnswerResult" />
-  <xs:complexType name="V_SSubjectAnswerResult">
+  <xs:element name="ArrayOfT_OA_SATISFACTIONDISTRIBUTE" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONDISTRIBUTE" />
+  <xs:complexType name="T_OA_SATISFACTIONDISTRIBUTE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ANSWERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTETITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PERCENTAGE" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SATISFACTIONDISTRIBUTEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:T_OA_SATISFACTIONREQUIRE" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONREQUIREReference" nillable="true" type="q9:EntityReferenceOfT_OA_SATISFACTIONREQUIREUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_SATISFACTIONDISTRIBUTE" nillable="true" type="tns:T_OA_SATISFACTIONDISTRIBUTE" />
+  <xs:complexType name="ArrayOfT_OA_SATISFACTIONRESULT">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AnswerCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_SATISFACTIONRESULT" nillable="true" type="tns:T_OA_SATISFACTIONRESULT" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_SSubjectAnswerResult" nillable="true" type="tns:V_SSubjectAnswerResult" />
-  <xs:complexType name="ArrayOfV_EmployeeID">
+  <xs:element name="ArrayOfT_OA_SATISFACTIONRESULT" nillable="true" type="tns:ArrayOfT_OA_SATISFACTIONRESULT" />
+  <xs:complexType name="T_OA_SATISFACTIONRESULT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RESULT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SATISFACTIONRESULTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONREQUIRE" nillable="true" type="tns:T_OA_SATISFACTIONREQUIRE" />
+          <xs:element minOccurs="0" name="T_OA_SATISFACTIONREQUIREReference" nillable="true" type="q10:EntityReferenceOfT_OA_SATISFACTIONREQUIREUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_SATISFACTIONRESULT" nillable="true" type="tns:T_OA_SATISFACTIONRESULT" />
+  <xs:complexType name="T_OA_DISTRIBUTEUSER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FORMID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VIEWER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VIEWNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VIEWTYPE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_DISTRIBUTEUSER" nillable="true" type="tns:T_OA_DISTRIBUTEUSER" />
+  <xs:complexType name="ArrayOfT_OA_REQUIREMASTER">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeID" nillable="true" type="tns:V_EmployeeID" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIREMASTER" nillable="true" type="tns:T_OA_REQUIREMASTER" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeID" nillable="true" type="tns:ArrayOfV_EmployeeID" />
-  <xs:complexType name="V_EmployeeID">
+  <xs:element name="ArrayOfT_OA_REQUIREMASTER" nillable="true" type="tns:ArrayOfT_OA_REQUIREMASTER" />
+  <xs:complexType name="T_OA_REQUIREMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIRETITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_REQUIRE" nillable="true" type="tns:ArrayOfT_OA_REQUIRE" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREDETAIL2" nillable="true" type="tns:ArrayOfT_OA_REQUIREDETAIL2" />
+          <xs:element minOccurs="0" name="T_OA_REQUIRERESULT" nillable="true" type="tns:ArrayOfT_OA_REQUIRERESULT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIREMASTER" nillable="true" type="tns:T_OA_REQUIREMASTER" />
+  <xs:complexType name="ArrayOfT_OA_REQUIRE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="EmployeeCompanyID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeeDepartmentID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeeIDCode" type="xs:int" />
-      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmployeePostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIRE" nillable="true" type="tns:T_OA_REQUIRE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeID" nillable="true" type="tns:V_EmployeeID" />
-  <xs:complexType name="V_EmployeeSurveysModel">
+  <xs:element name="ArrayOfT_OA_REQUIRE" nillable="true" type="tns:ArrayOfT_OA_REQUIRE" />
+  <xs:complexType name="T_OA_REQUIRE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OPTFLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREDISTRIBUTE" nillable="true" type="tns:ArrayOfT_OA_REQUIREDISTRIBUTE" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTER" nillable="true" type="tns:T_OA_REQUIREMASTER" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTERReference" nillable="true" type="q13:EntityReferenceOfT_OA_REQUIREMASTERUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_REQUIRERESULT" nillable="true" type="tns:ArrayOfT_OA_REQUIRERESULT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WAY" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIRE" nillable="true" type="tns:T_OA_REQUIRE" />
+  <xs:complexType name="ArrayOfT_OA_REQUIREDISTRIBUTE">
     <xs:sequence>
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIRE" nillable="true" type="q8:T_OA_REQUIRE" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIREDETAIL" nillable="true" type="q9:ArrayOfT_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIREDETAIL2" nillable="true" type="q10:ArrayOfT_OA_REQUIREDETAIL2" />
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIREMASTER" nillable="true" type="q11:T_OA_REQUIREMASTER" />
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIRERESULT" nillable="true" type="q12:ArrayOfT_OA_REQUIRERESULT" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIREDISTRIBUTE" nillable="true" type="tns:T_OA_REQUIREDISTRIBUTE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveysModel" nillable="true" type="tns:V_EmployeeSurveysModel" />
-  <xs:complexType name="ArrayOfV_REQUIRERESULTMODE">
+  <xs:element name="ArrayOfT_OA_REQUIREDISTRIBUTE" nillable="true" type="tns:ArrayOfT_OA_REQUIREDISTRIBUTE" />
+  <xs:complexType name="T_OA_REQUIREDISTRIBUTE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DISTRIBUTETITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREDISTRIBUTEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_REQUIRE" nillable="true" type="tns:T_OA_REQUIRE" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREReference" nillable="true" type="q14:EntityReferenceOfT_OA_REQUIREUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIREDISTRIBUTE" nillable="true" type="tns:T_OA_REQUIREDISTRIBUTE" />
+  <xs:complexType name="ArrayOfT_OA_REQUIRERESULT">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_REQUIRERESULTMODE" nillable="true" type="tns:V_REQUIRERESULTMODE" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIRERESULT" nillable="true" type="tns:T_OA_REQUIRERESULT" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_REQUIRERESULTMODE" nillable="true" type="tns:ArrayOfV_REQUIRERESULTMODE" />
-  <xs:complexType name="V_REQUIRERESULTMODE">
+  <xs:element name="ArrayOfT_OA_REQUIRERESULT" nillable="true" type="tns:ArrayOfT_OA_REQUIRERESULT" />
+  <xs:complexType name="T_OA_REQUIRERESULT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIRERESULTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RESULT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_OA_REQUIRE" nillable="true" type="tns:T_OA_REQUIRE" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTER" nillable="true" type="tns:T_OA_REQUIREMASTER" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTERReference" nillable="true" type="q15:EntityReferenceOfT_OA_REQUIREMASTERUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREReference" nillable="true" type="q15:EntityReferenceOfT_OA_REQUIREUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIRERESULT" nillable="true" type="tns:T_OA_REQUIRERESULT" />
+  <xs:complexType name="ArrayOfT_OA_REQUIREDETAIL2">
     <xs:sequence>
-      <xs:element minOccurs="0" name="RESULT" type="xs:boolean" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIREDETAIL" nillable="true" type="q13:T_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="T_OA_REQUIRERESULT" nillable="true" type="q14:T_OA_REQUIRERESULT" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIREDETAIL2" nillable="true" type="tns:T_OA_REQUIREDETAIL2" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_REQUIRERESULTMODE" nillable="true" type="tns:V_REQUIRERESULTMODE" />
-  <xs:complexType name="V_EmployeeSurveyMaster">
+  <xs:element name="ArrayOfT_OA_REQUIREDETAIL2" nillable="true" type="tns:ArrayOfT_OA_REQUIREDETAIL2" />
+  <xs:complexType name="T_OA_REQUIREDETAIL2">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREDETAIL2ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTER" nillable="true" type="tns:T_OA_REQUIREMASTER" />
+          <xs:element minOccurs="0" name="T_OA_REQUIREMASTERReference" nillable="true" type="q16:EntityReferenceOfT_OA_REQUIREMASTERUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIREDETAIL2" nillable="true" type="tns:T_OA_REQUIREDETAIL2" />
+  <xs:complexType name="ArrayOfT_OA_REQUIREDETAIL">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreateDate" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireAnswerId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireMasterId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireQuestionId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SubjectId" type="xs:decimal" />
-      <xs:element minOccurs="0" name="SubjectList" nillable="true" type="tns:ArrayOfV_EmployeeSurveyInformation" />
-      <xs:element minOccurs="0" name="SurveyTitle" nillable="true" type="xs:string" />
-      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="answerList" nillable="true" type="q15:ArrayOfT_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="masterEntity" nillable="true" type="q16:T_OA_REQUIREMASTER" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_REQUIREDETAIL" nillable="true" type="tns:T_OA_REQUIREDETAIL" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveyMaster" nillable="true" type="tns:V_EmployeeSurveyMaster" />
-  <xs:complexType name="ArrayOfV_EmployeeSurveyInformation">
+  <xs:element name="ArrayOfT_OA_REQUIREDETAIL" nillable="true" type="tns:ArrayOfT_OA_REQUIREDETAIL" />
+  <xs:complexType name="T_OA_REQUIREDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REQUIREMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBJECTID" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_REQUIREDETAIL" nillable="true" type="tns:T_OA_REQUIREDETAIL" />
+  <xs:complexType name="ArrayOfT_OA_DISTRIBUTEUSER">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeSurveyInformation" nillable="true" type="tns:V_EmployeeSurveyInformation" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_DISTRIBUTEUSER" nillable="true" type="tns:T_OA_DISTRIBUTEUSER" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeSurveyInformation" nillable="true" type="tns:ArrayOfV_EmployeeSurveyInformation" />
-  <xs:complexType name="V_EmployeeSurveyInformation">
+  <xs:element name="ArrayOfT_OA_DISTRIBUTEUSER" nillable="true" type="tns:ArrayOfT_OA_DISTRIBUTEUSER" />
+  <xs:complexType name="ArrayOfT_OA_BUSINESSTRIP">
     <xs:sequence>
-      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AnswerList" nillable="true" type="q17:ArrayOfT_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Subject" nillable="true" type="q18:T_OA_REQUIREDETAIL2" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_BUSINESSTRIP" nillable="true" type="tns:T_OA_BUSINESSTRIP" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveyInformation" nillable="true" type="tns:V_EmployeeSurveyInformation" />
-  <xs:complexType name="ArrayOfV_Satisfactions">
+  <xs:element name="ArrayOfT_OA_BUSINESSTRIP" nillable="true" type="tns:ArrayOfT_OA_BUSINESSTRIP" />
+  <xs:complexType name="T_OA_ORDERMEAL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERMEALFLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERMEALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORDERMEALTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_ORDERMEAL" nillable="true" type="tns:T_OA_ORDERMEAL" />
+  <xs:complexType name="ArrayOfT_OA_ORDERMEAL">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_Satisfactions" nillable="true" type="tns:V_Satisfactions" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_ORDERMEAL" nillable="true" type="tns:T_OA_ORDERMEAL" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_Satisfactions" nillable="true" type="tns:ArrayOfV_Satisfactions" />
-  <xs:complexType name="V_Satisfactions">
+  <xs:element name="ArrayOfT_OA_ORDERMEAL" nillable="true" type="tns:ArrayOfT_OA_ORDERMEAL" />
+  <xs:complexType name="T_OA_APPROVALINFO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPROVALCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPROVALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPROVALTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISCHARGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISMULTPERSON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISPERSONFLOW" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISSHOW" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVAL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALONE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALTHREE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALTWO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_APPROVALINFO" nillable="true" type="tns:T_OA_APPROVALINFO" />
+  <xs:complexType name="ArrayOfT_OA_APPROVALINFO">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AnswerGroupid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AnswerId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Percnet" nillable="true" type="xs:decimal" />
-      <xs:element minOccurs="0" name="SatisfactiondistrbuteidDistrbuteid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Satisfactionmasterid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Satisfactionrequireid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SurveyTitle" nillable="true" type="xs:string" />
-      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="disibuteEntity" nillable="true" type="q19:T_OA_SATISFACTIONDISTRIBUTE" />
-      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distributeuserList" nillable="true" type="q20:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="masterEntity" nillable="true" type="q21:T_OA_REQUIREMASTER" />
-      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="oldDistributeuserList" nillable="true" type="q22:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="requireEntity" nillable="true" type="q23:T_OA_SATISFACTIONREQUIRE" />
-      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="resultList" nillable="true" type="q24:ArrayOfT_OA_SATISFACTIONRESULT" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_APPROVALINFO" nillable="true" type="tns:T_OA_APPROVALINFO" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_Satisfactions" nillable="true" type="tns:V_Satisfactions" />
-  <xs:complexType name="V_EmployeeSurveySubject">
+  <xs:element name="ArrayOfT_OA_APPROVALINFO" nillable="true" type="tns:ArrayOfT_OA_APPROVALINFO" />
+  <xs:complexType name="ArrayOfT_OA_APPROVALTYPESET">
     <xs:sequence>
-      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Answer" nillable="true" type="q25:T_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="AnswerList" nillable="true" type="q26:ArrayOfT_OA_REQUIREDETAIL" />
-      <xs:element minOccurs="0" name="IsAdd" type="xs:boolean" />
-      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Master" nillable="true" type="q27:T_OA_REQUIREMASTER" />
-      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Question" nillable="true" type="q28:T_OA_REQUIREDETAIL2" />
-      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="SubjectInfo" nillable="true" type="q29:T_OA_REQUIREDETAIL2" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_APPROVALTYPESET" nillable="true" type="tns:T_OA_APPROVALTYPESET" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveySubject" nillable="true" type="tns:V_EmployeeSurveySubject" />
-  <xs:complexType name="ArrayOfV_EmployeeSurveySubject">
+  <xs:element name="ArrayOfT_OA_APPROVALTYPESET" nillable="true" type="tns:ArrayOfT_OA_APPROVALTYPESET" />
+  <xs:complexType name="T_OA_APPROVALTYPESET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORGANIZATIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ORGANIZATIONTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVAL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPESETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_APPROVALTYPESET" nillable="true" type="tns:T_OA_APPROVALTYPESET" />
+  <xs:complexType name="T_OA_APPROVALINFOTEMPLET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="APPROVALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="APPROVALTITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHARGEMONEY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISCHARGE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVAL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALONE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALTHREE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEAPPROVALTWO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_APPROVALINFOTEMPLET" nillable="true" type="tns:T_OA_APPROVALINFOTEMPLET" />
+  <xs:complexType name="ArrayOfT_OA_APPROVALINFOTEMPLET">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeSurveySubject" nillable="true" type="tns:V_EmployeeSurveySubject" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_APPROVALINFOTEMPLET" nillable="true" type="tns:T_OA_APPROVALINFOTEMPLET" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeSurveySubject" nillable="true" type="tns:ArrayOfV_EmployeeSurveySubject" />
-  <xs:complexType name="V_EmployeeSurveyRequireDistribute">
+  <xs:element name="ArrayOfT_OA_APPROVALINFOTEMPLET" nillable="true" type="tns:ArrayOfT_OA_APPROVALINFOTEMPLET" />
+  <xs:complexType name="T_OA_AREAALLOWANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ACCOMMODATION" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AREAALLOWANCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MEALSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERSEASSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRANSPORTATIONSUBSIDIES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_OA_AREADIFFERENCE" nillable="true" type="tns:T_OA_AREADIFFERENCE" />
+          <xs:element minOccurs="0" name="T_OA_AREADIFFERENCEReference" nillable="true" type="q22:EntityReferenceOfT_OA_AREADIFFERENCEUlJdEHjk" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONSReference" nillable="true" type="q22:EntityReferenceOfT_OA_TRAVELSOLUTIONSUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_AREAALLOWANCE" nillable="true" type="tns:T_OA_AREAALLOWANCE" />
+  <xs:complexType name="T_OA_AREADIFFERENCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AREACATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AREADIFFERENCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AREAINDEX" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_AREAALLOWANCE" nillable="true" type="tns:ArrayOfT_OA_AREAALLOWANCE" />
+          <xs:element minOccurs="0" name="T_OA_AREACITY" nillable="true" type="tns:ArrayOfT_OA_AREACITY" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONSReference" nillable="true" type="q23:EntityReferenceOfT_OA_TRAVELSOLUTIONSUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_AREADIFFERENCE" nillable="true" type="tns:T_OA_AREADIFFERENCE" />
+  <xs:complexType name="ArrayOfT_OA_AREAALLOWANCE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="RequireDistributeId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distributeuserList" nillable="true" type="q30:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="oldDistributeuserList" nillable="true" type="q31:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="requiredistributeEntity" nillable="true" type="q32:T_OA_REQUIREDISTRIBUTE" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_AREAALLOWANCE" nillable="true" type="tns:T_OA_AREAALLOWANCE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveyRequireDistribute" nillable="true" type="tns:V_EmployeeSurveyRequireDistribute" />
-  <xs:complexType name="V_EmployeeSurveying">
+  <xs:element name="ArrayOfT_OA_AREAALLOWANCE" nillable="true" type="tns:ArrayOfT_OA_AREAALLOWANCE" />
+  <xs:complexType name="ArrayOfT_OA_AREACITY">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MasterID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ResultList" nillable="true" type="q33:ArrayOfT_OA_REQUIRERESULT" />
-      <xs:element minOccurs="0" name="SubjectList" nillable="true" type="tns:ArrayOfV_EmployeeSurveyInformation" />
-      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_AREACITY" nillable="true" type="tns:T_OA_AREACITY" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_EmployeeSurveying" nillable="true" type="tns:V_EmployeeSurveying" />
-  <xs:complexType name="ArrayOfV_EmployeeSurveyMaster">
+  <xs:element name="ArrayOfT_OA_AREACITY" nillable="true" type="tns:ArrayOfT_OA_AREACITY" />
+  <xs:complexType name="T_OA_AREACITY">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AREACITYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_AREADIFFERENCE" nillable="true" type="tns:T_OA_AREADIFFERENCE" />
+          <xs:element minOccurs="0" name="T_OA_AREADIFFERENCEReference" nillable="true" type="q24:EntityReferenceOfT_OA_AREADIFFERENCEUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_AREACITY" nillable="true" type="tns:T_OA_AREACITY" />
+  <xs:complexType name="T_OA_TRAVELSOLUTIONS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ANDFROMTHATDAY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CUSTOMHALFDAY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="INTERVALRATIO" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MAXIMUMRANGEDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MINIMUMINTERVALDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NOALLOWANCEPOSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROGRAMMENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANGEDAYS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RANGEPOSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TRAVELSOLUTIONSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_AREAALLOWANCE" nillable="true" type="tns:ArrayOfT_OA_AREAALLOWANCE" />
+          <xs:element minOccurs="0" name="T_OA_AREADIFFERENCE" nillable="true" type="tns:ArrayOfT_OA_AREADIFFERENCE" />
+          <xs:element minOccurs="0" name="T_OA_CANTAKETHEPLANELINE" nillable="true" type="tns:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+          <xs:element minOccurs="0" name="T_OA_PROGRAMAPPLICATIONS" nillable="true" type="tns:ArrayOfT_OA_PROGRAMAPPLICATIONS" />
+          <xs:element minOccurs="0" name="T_OA_TAKETHESTANDARDTRANSPORT" nillable="true" type="tns:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+  <xs:complexType name="ArrayOfT_OA_AREADIFFERENCE">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeSurveyMaster" nillable="true" type="tns:V_EmployeeSurveyMaster" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_AREADIFFERENCE" nillable="true" type="tns:T_OA_AREADIFFERENCE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeSurveyMaster" nillable="true" type="tns:ArrayOfV_EmployeeSurveyMaster" />
-  <xs:complexType name="V_Travelmanagement">
+  <xs:element name="ArrayOfT_OA_AREADIFFERENCE" nillable="true" type="tns:ArrayOfT_OA_AREADIFFERENCE" />
+  <xs:complexType name="ArrayOfT_OA_CANTAKETHEPLANELINE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Cicty" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Cictys" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Endtime" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="NoClaims" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReportCheckState" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ReportId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Startdate" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StateReimbursement" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tdetail" type="xs:int" />
-      <xs:element minOccurs="0" name="TrCheckState" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TrId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TraveAppCheckState" nillable="true" type="xs:string" />
-      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="Travelmanagement" nillable="true" type="q34:T_OA_BUSINESSTRIP" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_CANTAKETHEPLANELINE" nillable="true" type="tns:T_OA_CANTAKETHEPLANELINE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_Travelmanagement" nillable="true" type="tns:V_Travelmanagement" />
-  <xs:complexType name="ArrayOfV_Travelmanagement">
+  <xs:element name="ArrayOfT_OA_CANTAKETHEPLANELINE" nillable="true" type="tns:ArrayOfT_OA_CANTAKETHEPLANELINE" />
+  <xs:complexType name="T_OA_CANTAKETHEPLANELINE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CANTAKETHEPLANELINEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTCITY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LANDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REGIONAL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONSReference" nillable="true" type="q26:EntityReferenceOfT_OA_TRAVELSOLUTIONSUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_CANTAKETHEPLANELINE" nillable="true" type="tns:T_OA_CANTAKETHEPLANELINE" />
+  <xs:complexType name="ArrayOfT_OA_PROGRAMAPPLICATIONS">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_Travelmanagement" nillable="true" type="tns:V_Travelmanagement" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_PROGRAMAPPLICATIONS" nillable="true" type="tns:T_OA_PROGRAMAPPLICATIONS" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_Travelmanagement" nillable="true" type="tns:ArrayOfV_Travelmanagement" />
-  <xs:complexType name="ArrayOfV_TravelReimbursement">
+  <xs:element name="ArrayOfT_OA_PROGRAMAPPLICATIONS" nillable="true" type="tns:ArrayOfT_OA_PROGRAMAPPLICATIONS" />
+  <xs:complexType name="T_OA_PROGRAMAPPLICATIONS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PROGRAMAPPLICATIONSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONSReference" nillable="true" type="q27:EntityReferenceOfT_OA_TRAVELSOLUTIONSUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_PROGRAMAPPLICATIONS" nillable="true" type="tns:T_OA_PROGRAMAPPLICATIONS" />
+  <xs:complexType name="ArrayOfT_OA_TAKETHESTANDARDTRANSPORT">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_TravelReimbursement" nillable="true" type="tns:V_TravelReimbursement" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_TAKETHESTANDARDTRANSPORT" nillable="true" type="tns:T_OA_TAKETHESTANDARDTRANSPORT" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_TravelReimbursement" nillable="true" type="tns:ArrayOfV_TravelReimbursement" />
-  <xs:complexType name="V_TravelReimbursement">
+  <xs:element name="ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" nillable="true" type="tns:ArrayOfT_OA_TAKETHESTANDARDTRANSPORT" />
+  <xs:complexType name="T_OA_TAKETHESTANDARDTRANSPORT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDPOSTLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TAKETHESTANDARDTRANSPORTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TAKETHETOOLLEVEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TYPEOFTRAVELTOOLS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
+          <xs:element minOccurs="0" name="T_OA_TRAVELSOLUTIONSReference" nillable="true" type="q28:EntityReferenceOfT_OA_TRAVELSOLUTIONSUlJdEHjk" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_OA_TAKETHESTANDARDTRANSPORT" nillable="true" type="tns:T_OA_TAKETHESTANDARDTRANSPORT" />
+  <xs:complexType name="ArrayOfT_OA_TRAVELSOLUTIONS">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Cicty" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Cictys" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Endtime" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Guids" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Startdate" nillable="true" type="xs:string" />
-      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="TravelReimbursement" nillable="true" type="q35:T_OA_TRAVELREIMBURSEMENT" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_TRAVELSOLUTIONS" nillable="true" type="tns:T_OA_TRAVELSOLUTIONS" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="V_TravelReimbursement" nillable="true" type="tns:V_TravelReimbursement" />
-  <xs:complexType name="ArrayOfV_DepartmentWithCompany">
+  <xs:element name="ArrayOfT_OA_TRAVELSOLUTIONS" nillable="true" type="tns:ArrayOfT_OA_TRAVELSOLUTIONS" />
+  <xs:complexType name="ArrayOfT_OA_CALENDAR">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_DepartmentWithCompany" nillable="true" type="tns:V_DepartmentWithCompany" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_OA_CALENDAR" nillable="true" type="tns:T_OA_CALENDAR" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfV_DepartmentWithCompany" nillable="true" type="tns:ArrayOfV_DepartmentWithCompany" />
-  <xs:complexType name="V_DepartmentWithCompany">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="APPROVALTYPEVALUE" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="BRIEFNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
-    </xs:sequence>
+  <xs:element name="ArrayOfT_OA_CALENDAR" nillable="true" type="tns:ArrayOfT_OA_CALENDAR" />
+  <xs:complexType name="T_OA_CALENDAR">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CALENDARID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CONTENT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PLANTIME" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="REMINDERRMODEL" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPARTREMINDER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEUSERNAME" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="V_DepartmentWithCompany" nillable="true" type="tns:V_DepartmentWithCompany" />
-  <xs:complexType name="V_EmployeeSurveyApp">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AnswerGroupId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CheckState" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="DistributeuserId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MasterId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireContent" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RequireresultId" nillable="true" type="xs:string" />
-      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="ResultList" nillable="true" type="q36:ArrayOfT_OA_REQUIRERESULT" />
-      <xs:element minOccurs="0" name="SurveyTitle" nillable="true" type="xs:string" />
-      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distributeuserList" nillable="true" type="q37:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="masterEntity" nillable="true" type="q38:T_OA_REQUIREMASTER" />
-      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="oldDistributeuserList" nillable="true" type="q39:ArrayOfT_OA_DISTRIBUTEUSER" />
-      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="requireEntity" nillable="true" type="q40:T_OA_REQUIRE" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_EmployeeSurveyApp" nillable="true" type="tns:V_EmployeeSurveyApp" />
-  <xs:complexType name="ArrayOfV_EmployeeSurveyApp">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeSurveyApp" nillable="true" type="tns:V_EmployeeSurveyApp" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeSurveyApp" nillable="true" type="tns:ArrayOfV_EmployeeSurveyApp" />
-  <xs:complexType name="V_EmployeeSurvey">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="RequireMaster" nillable="true" type="q41:T_OA_REQUIREMASTER" />
-      <xs:element minOccurs="0" name="SubjectViewList" nillable="true" type="tns:ArrayOfV_EmployeeSurveySubject" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_EmployeeSurvey" nillable="true" type="tns:V_EmployeeSurvey" />
-  <xs:complexType name="ArrayOfV_EmployeeSurvey">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_EmployeeSurvey" nillable="true" type="tns:V_EmployeeSurvey" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_EmployeeSurvey" nillable="true" type="tns:ArrayOfV_EmployeeSurvey" />
-  <xs:complexType name="ArrayOfV_MyEusurvey">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="V_MyEusurvey" nillable="true" type="tns:V_MyEusurvey" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfV_MyEusurvey" nillable="true" type="tns:ArrayOfV_MyEusurvey" />
-  <xs:complexType name="V_MyEusurvey">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OADetail" nillable="true" type="q42:T_OA_REQUIREDETAIL" />
-      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAMaster" nillable="true" type="q43:T_OA_REQUIREMASTER" />
-      <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OARequire" nillable="true" type="q44:T_OA_REQUIRE" />
-      <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="OAResult" nillable="true" type="q45:ArrayOfT_OA_REQUIRERESULT" />
-      <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
-      <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" minOccurs="0" name="distrbuteuser" nillable="true" type="q46:T_OA_DISTRIBUTEUSER" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="V_MyEusurvey" nillable="true" type="tns:V_MyEusurvey" />
+  <xs:element name="T_OA_CALENDAR" nillable="true" type="tns:T_OA_CALENDAR" />
 </xs:schema>

@@ -18,7 +18,6 @@
     <ReferencedAssemblies>
       <ReferencedAssembly AssemblyName="mscorlib" />
       <ReferencedAssembly AssemblyName="System" />
-      <ReferencedAssembly AssemblyName="System.ComponentModel.DataAnnotations" />
       <ReferencedAssembly AssemblyName="System.Core" />
       <ReferencedAssembly AssemblyName="System.Net" />
       <ReferencedAssembly AssemblyName="System.Runtime.Serialization" />

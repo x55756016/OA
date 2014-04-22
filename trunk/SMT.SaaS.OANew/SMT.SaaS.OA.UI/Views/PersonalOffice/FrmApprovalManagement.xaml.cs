@@ -25,12 +25,23 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         private string SearchDepartID = "";//所属于人的部门ID
         private string SearchCompanyID = "";//所属人的公司ID
 
+        string OwnerCompanyid = "";//所属公司
+        string OwnerDepartmentid = "";//获取事项审批时用 用的部门ID
+        string Ownerid = "";//所属员工
+        string OwnerPostid = "";//所属岗位
+        
+        private string StrApprovalOne = string.Empty;
+        private string StrApprovalTwo = string.Empty;
+        private string StrApprovalThird = string.Empty;
+        private string StrApprovaltype = string.Empty;
+
         PermissionServiceClient permclient = new PermissionServiceClient();
         PublicServiceClient publicClient = new PublicServiceClient();
         public FrmApprovalManagement()
         {
             InitializeComponent();
             this.Loaded += new RoutedEventHandler(FrmApprovalManagement_Loaded);
+            _VM.GetApprovalTypeByCompanyandDepartmentidCompleted += new EventHandler<GetApprovalTypeByCompanyandDepartmentidCompletedEventArgs>(_VM_GetApprovalTypeByCompanyandDepartmentidCompleted);
             
         }
 
@@ -82,6 +93,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
         }
         #endregion
 
+
+        SmtOAPersonOfficeClient _VM = new SmtOAPersonOfficeClient();
         void FrmApprovalManagement_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -108,8 +121,13 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             ToolBar.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             ToolBar.BtnView.Click += new RoutedEventHandler(BtnView_Click);//查看
 
-            
+
+            OwnerCompanyid = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            OwnerDepartmentid = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
+            _VM.GetApprovalTypeByCompanyandDepartmentidAsync(OwnerCompanyid, OwnerDepartmentid);
         }
+
+
         private void dg_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             SetRowLogo(dg, e.Row, "T_OA_APPROVALINFO");
@@ -198,8 +216,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
 
             ApprovalForm_aud frm = new ApprovalForm_aud();
             EntityBrowser browser = new EntityBrowser(frm);
-            browser.MinWidth = 860;
-            browser.MinHeight = 500;
+            browser.MinWidth = 688;
+            browser.MinHeight = 400;
             browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
             browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) => { }, true);
 
@@ -245,6 +263,15 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
                 }
                 filter += "@" + paras.Count().ToString() + ".Contains(APPROVALCODE) ";
                 paras.Add(txtCode.Text.Trim());
+            }
+            if (!string.IsNullOrEmpty(StrApprovaltype))
+            {
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    filter += " and ";
+                }
+                filter +=" typeapproval=@" + paras.Count().ToString() ;
+                paras.Add(StrApprovaltype);
             }
             if (SearchUserID == Common.CurrentLoginUserInfo.EmployeeID)
             {
@@ -626,6 +653,8 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             SearchDepartID = "";
             SearchCompanyID = "";
             txtOwnerName.Text = "";
+            StrApprovaltype = string.Empty;
+            txtSelectPost.TxtSelectedApprovalType.Text = string.Empty;
             
         }
         #endregion
@@ -683,6 +712,182 @@ namespace SMT.SaaS.OA.UI.Views.PersonalOffice
             lookup.MultiSelected = false;
             lookup.Show();
         }
+        #endregion
+
+
+
+        #region 选择事项审核类型
+
+        //ObservableCollection<string> lstApprovalids = new ObservableCollection<string>();
+        private void txtSelectApprovalType_SelectClick(object sender, EventArgs e)
+        {
+            SelectApprovalType txt = (SelectApprovalType)sender;
+            string StrOld = txt.TxtSelectedApprovalType.Text.ToString();
+            string strXmlObjectSource = string.Empty;
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            //parameters.Add("CHARGEMONEY", fbCtr.Order.TOTALMONEY.ToString());
+            //parameters.Add("CHARGEMONEY", approvalInfo.CHARGEMONEY.ToString());
+            //parameters.Add("POSTLEVEL", postLevel);
+            //parameters.Add("DEPARTMENTNAME", depName);
+            //strXmlObjectSource = Utility.ObjListToXmlForTravel<T_OA_APPROVALINFO>(approvalInfo, "OA", parameters);
+            ApprovalTypeList apptype = new ApprovalTypeList(StrOld, StrApprovaltype, lstApprovalids, OwnerCompanyid, OwnerDepartmentid, strXmlObjectSource);
+
+            //ApprovalTypeList apptype = new ApprovalTypeList(StrOld, StrApprovaltype, lstApprovalids, OwnerCompanyid, OwnerDepartmentid, strXmlObjectSource);
+
+            apptype.SelectedClicked += (obj, ea) =>
+            {
+                StrApprovaltype = "";
+                string StrPost = apptype.Result.Keys.FirstOrDefault();
+                if (!string.IsNullOrEmpty(StrPost))
+                {
+                    txt.TxtSelectedApprovalType.Text = StrPost;
+                    //StrApprovalTypeName = StrPost;//用于传递给手机
+                }
+                StrApprovaltype = apptype.Result[apptype.Result.Keys.FirstOrDefault()].ToString();
+                //根据选择回来的审批类型获取父值
+                //将父级的值清为空
+                StrApprovalOne = "";
+                StrApprovalTwo = "";
+                StrApprovalThird = "";
+                GetFatherApprovalType(StrApprovaltype, "first");
+                //_VM.Get_ApporvalTempletByApporvalTypeAsync(StrApprovaltype);
+                RefreshUI(RefreshedTypes.ShowProgressBar);
+
+            };
+            var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("SELECTAPPROVALTYPE"), "", "123", apptype, false, false, null);
+            if (apptype is ApprovalTypeList)
+            {
+                (apptype as ApprovalTypeList).Close += (o, args) =>
+                {
+                    windows.Close();
+                };
+            }
+        }
+        /// <summary>
+        /// 获取 选取的事项审批的类型 父级的 字典值
+        /// </summary>
+        /// <param name="apptype"></param>
+        /// <param name="forcount"></param>
+        private void GetFatherApprovalType(string apptype, string forcount)
+        {
+            //获取缓存--字典值
+            try
+            {
+                List<T_SYS_DICTIONARY> Dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+
+                if (Dicts == null)
+                {
+                    return;
+                }
+                List<T_SYS_DICTIONARY> TopApproval = new List<T_SYS_DICTIONARY>();
+                //获取  事项审批类型的字典集合
+                var ents = from p in Dicts
+                           where p.DICTIONCATEGORY == "TYPEAPPROVAL" && p.DICTIONARYVALUE == System.Convert.ToInt16(apptype)
+                           orderby p.ORDERNUMBER
+                           select p;
+                T_SYS_DICTIONARY dict = new T_SYS_DICTIONARY();
+                if (ents.Count() > 0)
+                {
+                    dict = ents.FirstOrDefault();
+                    //获取父值的信息
+                    if (dict.T_SYS_DICTIONARY2 != null)
+                    {
+                        var firstents = from ent in Dicts
+                                        where ent.DICTIONCATEGORY == "TYPEAPPROVAL" && (ent.DICTIONARYID == dict.T_SYS_DICTIONARY2.DICTIONARYID && dict.T_SYS_DICTIONARY2 != null)
+                                        orderby ent.ORDERNUMBER
+                                        select ent;
+                        if (firstents.Count() > 0)
+                        {
+                            if (forcount == "first")
+                            {
+                                StrApprovalOne = firstents.FirstOrDefault().DICTIONARYVALUE.ToString();
+                                GetFatherApprovalType(StrApprovalOne, "second");
+                            }
+                            if (forcount == "second")
+                            {
+                                StrApprovalTwo = firstents.FirstOrDefault().DICTIONARYVALUE.ToString();
+                                GetFatherApprovalType(StrApprovalTwo, "second");
+                            }
+                            if (forcount == "third")
+                            {
+                                StrApprovalThird = firstents.FirstOrDefault().DICTIONARYVALUE.ToString();
+                                GetFatherApprovalType(StrApprovalThird, "third");
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.SetLogAndShowLog(ex.ToString());
+            }
+        }
+
+        void _VM_Get_ApporvalTempletByApporvalTypeCompleted(object sender, Get_ApporvalTempletByApporvalTypeCompletedEventArgs e)
+        {
+            RefreshUI(RefreshedTypes.HideProgressBar);
+            T_OA_APPROVALINFOTEMPLET templet = e.Result;
+            if (templet != null)
+            {
+                txtTitle.Text = templet.APPROVALTITLE;
+                //txtContent.Document = templet.CONTENT;
+            }
+        }
+
+        public event UIRefreshedHandler OnUIRefreshed;
+        public void RefreshUI(RefreshedTypes type)
+        {
+            if (OnUIRefreshed != null)
+            {
+                UIRefreshedEventArgs args = new UIRefreshedEventArgs();
+                args.RefreshedType = type;
+                OnUIRefreshed(this, args);
+            }
+        }
+        #endregion
+
+
+        #region 获取公司或部门的事项审批类型
+
+        ObservableCollection<string> lstApprovalids = new ObservableCollection<string>();
+        void _VM_GetApprovalTypeByCompanyandDepartmentidCompleted(object sender, GetApprovalTypeByCompanyandDepartmentidCompletedEventArgs e)
+        {
+            if (e.Result != null)
+            {
+                lstApprovalids.Clear();
+                lstApprovalids = e.Result;
+                List<T_SYS_DICTIONARY> Dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+
+                if (Dicts == null)
+                    return;
+
+                T_SYS_DICTIONARY DictApproval = new T_SYS_DICTIONARY();
+
+                var ents = from p in Dicts
+                           where p.DICTIONCATEGORY == "TYPEAPPROVAL" && p.T_SYS_DICTIONARY2 != null && lstApprovalids.Contains(p.DICTIONARYVALUE.ToString())
+                           orderby p.ORDERNUMBER
+                           select p;
+                if (ents.Count() > 0)
+                {
+                }
+                else
+                {
+                }
+                StrApprovaltype = "";
+                txtSelectPost.TxtSelectedApprovalType.Text = "";
+                if (DictApproval != null)
+                {
+                    if (!string.IsNullOrEmpty(DictApproval.DICTIONARYID))//存在则赋值
+                    {
+                        txtSelectPost.TxtSelectedApprovalType.Text = DictApproval.DICTIONARYNAME;
+                        StrApprovaltype = DictApproval.DICTIONARYVALUE.ToString();
+                        GetFatherApprovalType(StrApprovaltype, "first");
+                    }
+                }
+
+            }
+        }
+
         #endregion
     }
 }

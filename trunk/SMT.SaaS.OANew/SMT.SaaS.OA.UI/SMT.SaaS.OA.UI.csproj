@@ -66,7 +66,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <DefineConstants>DEBUG;SILVERLIGHT</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -104,17 +104,12 @@
     <Reference Include="SMT.SAAS.ClientServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.ClientUtility">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
-    </Reference>
+    <Reference Include="SMT.SAAS.ClientUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="SMT.SAAS.CommonReportsModel">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.CommonReportsModel.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Controls.Toolkit">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
@@ -122,20 +117,8 @@
     <Reference Include="SMT.SaaS.FrameworkUI.RichNotepad">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.FrameworkUI.RichNotepad.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Globalization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Images">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Images.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.LocalData">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.MoblieXml">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
@@ -148,12 +131,6 @@
     </Reference>
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.Window">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -317,11 +294,14 @@
     <Compile Include="Form\EmployeeSurveys\SelectSchemeCW.xaml.cs">
       <DependentUpon>SelectSchemeCW.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_LoadData.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Audit.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Compute.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_NewDetail.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_SaveEdit.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_New.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Common.cs" />
-    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Core.cs" />
+    <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Event.cs" />
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Common.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_ForMvc.cs" />
     <Compile Include="Service References\AgentChannel\Reference.cs">
@@ -403,6 +383,9 @@
     </Compile>
     <Compile Include="UserControls\PersonalOffice\ApprovalType\SelectApprovalType.xaml.cs">
       <DependentUpon>SelectApprovalType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PersonalOffice\ApprovalTempletForm.xaml.cs">
+      <DependentUpon>ApprovalTempletForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Surveys\EmployeeChildWindow\EmployeesSurveyAppChildWindow.xaml.cs">
       <DependentUpon>EmployeesSurveyAppChildWindow.xaml</DependentUpon>
@@ -1052,6 +1035,9 @@
     <Compile Include="Views\PersonalOffice\FrmWorkerCordManagement.xaml.cs">
       <DependentUpon>FrmWorkerCordManagement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PersonalOffice\FrmApprovalTempletManagement.xaml.cs">
+      <DependentUpon>FrmApprovalTempletManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\S_Images.xaml.cs">
       <DependentUpon>S_Images.xaml</DependentUpon>
     </Compile>
@@ -1079,6 +1065,7 @@
     </Compile>
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Agent.cs" />
     <Compile Include="Views\Travelmanagement\TravelapplicationPage_AddReimbursement.cs" />
+    <Compile Include="Views\Travelmanagement\TravelapplicationPage_AlterTrave.cs" />
     <Compile Include="Views\Travelmanagement\VehicleStandardManagement.xaml.cs">
       <DependentUpon>VehicleStandardManagement.xaml</DependentUpon>
     </Compile>
@@ -1245,6 +1232,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\PersonalOffice\ApprovalType\SelectApprovalType.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PersonalOffice\ApprovalTempletForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -2450,6 +2441,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\PersonalOffice\FrmApprovalTempletManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\S_Images.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -2876,6 +2871,9 @@
     <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_APPROVALINFO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_APPROVALINFOTEMPLET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\SmtOAPersonOfficeService\SMT.SaaS.OA.UI.SmtOAPersonOfficeService.T_OA_APPROVALTYPESET.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -3042,7 +3040,6 @@
     <None Include="Service References\TravelExpApplyMaster\OaInterface21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SMT-OA 测试文档.doc" />
     <None Include="SMT.SaaS.FrameworkUI.AuditService.Flow_FlowRecord_T.datasource" />
     <None Include="Service References\EngineDataSource\configuration91.svcinfo" />
     <None Include="Service References\EngineDataSource\configuration.svcinfo" />
@@ -3110,6 +3107,7 @@
     <EmbeddedResource Include="Assets\Resources\OASystem.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OASystem.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -3123,9 +3121,37 @@
     <WCFMetadataStorage Include="Service References\TravelExpApplyMaster\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Globalization\SMT.SAAS.Globalization.csproj">
+      <Project>{7C8EB5BC-8C15-41BC-B4AC-4AEB046D692C}</Project>
+      <Name>SMT.SAAS.Globalization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
+      <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
+      <Name>SMT.SaaS.LocalData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContextLoadData\SMT.SAAS.Main.CurrentContextLoadData.csproj">
+      <Project>{1e53de37-0661-4f98-b1ef-8eff67807f31}</Project>
+      <Name>SMT.SAAS.Main.CurrentContextLoadData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{9484c541-b0a2-437a-8c6f-0bfd7e13934e}</Project>
+      <Name>SMT.Saas.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
+      <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
+      <Name>SMT.SaaS.Window</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\SMT.SAAS.FrameWork\SMT.SAAS.Themes\SMT.SAAS.Themes.csproj" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
       <Project>{2C6FFFA6-6ACD-4C24-ADD5-ACEB431011E0}</Project>

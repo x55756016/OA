@@ -37,11 +37,11 @@
                 <TextBlock Style="{StaticResource ToolBarTB1}" Height="23" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="已选中的事项审批类型" FontSize="15" FontWeight="ExtraBold"  Margin="2,5,0,0"/>
             </Border>
             <TextBlock Height="auto" HorizontalAlignment="Left"  Name="CheckedApproval" VerticalAlignment="Top" Grid.Row="3" Margin="8" />
-            <Border Background="#f7f7f7" Grid.Row="4" BorderBrush="Gray" BorderThickness="0.8" >
+            <Border Visibility="Collapsed" Background="#f7f7f7" Grid.Row="4" BorderBrush="Gray" BorderThickness="0.8" >
                 <TextBlock  Height="23" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Text="事项审批类型流程" FontSize="15" FontWeight="ExtraBold" Margin="2,5,0,0" />
             </Border>
             <ScrollViewer HorizontalScrollBarVisibility="Hidden" Grid.Row="5" Width="400" MinHeight="50"  MaxHeight="70" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <TextBlock   HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" x:Name="tblFlow"  FontSize="15"  Foreground="Red" Width="300" TextWrapping="Wrap"  Margin="2,5,2,0" />
+                <TextBlock Visibility="Collapsed"  HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" x:Name="tblFlow"  FontSize="15"  Foreground="Red" Width="300" TextWrapping="Wrap"  Margin="2,5,2,0" />
             </ScrollViewer>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom" Grid.Row="6">
                 <Button Content="确定" x:Name="btSave"  Click="btnOk_Click" Style="{StaticResource CommonButtonStyle}"/>

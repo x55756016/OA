@@ -388,39 +388,39 @@ namespace SMT.SaaS.OA.UI.UserControls
 
         private void ShowApprovalTypeFlow(string TypeValue)
         {
-            StringBuilder xml = new StringBuilder(@"<?xml version=""1.0"" encoding=""utf-8""?>");
-            xml.Append(Environment.NewLine);
-            xml.Append(@"    <System>");
-            xml.Append(Environment.NewLine);
-            xml.Append(@"       <Name>OA</Name>");
-            xml.Append(Environment.NewLine);
-            xml.Append(@"       <Object Name=""Test"">");
-            xml.Append(Environment.NewLine);
-            //xml.Append(@"           <Attribute Name=""TYPEAPPROVAL""  DataType=""string"" DataValue="""+TypeValue+ @"""></Attribute>");
+            //StringBuilder xml = new StringBuilder(@"<?xml version=""1.0"" encoding=""utf-8""?>");
             //xml.Append(Environment.NewLine);
-            //xml.Append(@"           <Attribute  Name=""Price""  DataType=""decimal"" DataValue=""1""></Attribute>");
+            //xml.Append(@"    <System>");
+            //xml.Append(Environment.NewLine);
+            //xml.Append(@"       <Name>OA</Name>");
+            //xml.Append(Environment.NewLine);
+            //xml.Append(@"       <Object Name=""Test"">");
+            //xml.Append(Environment.NewLine);
+            ////xml.Append(@"           <Attribute Name=""TYPEAPPROVAL""  DataType=""string"" DataValue="""+TypeValue+ @"""></Attribute>");
+            ////xml.Append(Environment.NewLine);
+            ////xml.Append(@"           <Attribute  Name=""Price""  DataType=""decimal"" DataValue=""1""></Attribute>");
+            ////xml.Append(@"       </Object>");
+            ////xml.Append(Environment.NewLine);
+            ////xml.Append(@"</System>");
+            ////XmlString
+
+            //Byte[] b = System.Text.UTF8Encoding.UTF8.GetBytes(XmlString);
+            //XElement xele = XElement.Load(System.Xml.XmlReader.Create(new MemoryStream(b)));
+            //var eGFunc = from ent in xele.Descendants("Attribute")
+            //             select ent;
+            //foreach (var StrElement in eGFunc)
+            //{
+                
+            //    if (StrElement.Attribute("Name").Value == "TYPEAPPROVAL")
+            //    {
+            //        StrElement.Attribute("DataValue").Value = TypeValue.ToString();
+            //    }
+            //    xml.Append(StrElement);
+
+            //}
             //xml.Append(@"       </Object>");
             //xml.Append(Environment.NewLine);
             //xml.Append(@"</System>");
-            //XmlString
-
-            Byte[] b = System.Text.UTF8Encoding.UTF8.GetBytes(XmlString);
-            XElement xele = XElement.Load(System.Xml.XmlReader.Create(new MemoryStream(b)));
-            var eGFunc = from ent in xele.Descendants("Attribute")
-                         select ent;
-            foreach (var StrElement in eGFunc)
-            {
-                
-                if (StrElement.Attribute("Name").Value == "TYPEAPPROVAL")
-                {
-                    StrElement.Attribute("DataValue").Value = TypeValue.ToString();
-                }
-                xml.Append(StrElement);
-
-            }
-            xml.Append(@"       </Object>");
-            xml.Append(Environment.NewLine);
-            xml.Append(@"</System>");
 
 
 

@@ -45,6 +45,20 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     refreshType = RefreshedTypes.All;
                     Save();
                     break;
+                case "3":
+                    string Result = "";
+                    ComfirmWindow com = new ComfirmWindow();
+                    com.OnSelectionBoxClosed += (obj, result) =>
+                    {
+                        bool FBControl = true;
+                        ObservableCollection<string> businesstripId = new ObservableCollection<string>();//出差申请ID
+                        businesstripId.Add(Master_Golbal.BUSINESSTRIPID);
+                        this.RefreshUI(RefreshedTypes.ShowProgressBar);
+                        OaPersonOfficeClient.DeleteTravelmanagementAsync(businesstripId, FBControl);
+                    };
+                    com.SelectionBox(Utility.GetResourceStr("DELETECONFIRM"), "确认是否删除此条记录？", ComfirmWindow.titlename, Result);
+
+                    break;
             }
         }
         #endregion
@@ -198,34 +212,38 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "STARTDATETIME"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
-                }
-
-                T_OA_BUSINESSTRIPDETAIL entDetail = obje as T_OA_BUSINESSTRIPDETAIL;
-
-                var queryData = from c in entBusinessTripDetails
-                                where c.STARTDATE > dpStartTime.Value && c.ENDDATE > dpEndTime.Value && c.BUSINESSTRIPDETAILID != entDetail.BUSINESSTRIPDETAILID
-                                orderby c.STARTDATE
-                                select c;
-
-                if (queryData.Count() > 0)
-                {
-                    if (queryData.FirstOrDefault().STARTDATE < entDetail.ENDDATE)
-                    {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                        return false;
-                    }
-                }
+                }              
                 #endregion
 
-                #region "判断交通工具类型"
+                #region "判断交通工具及级别"
                 TravelDictionaryComboBox ComVechile = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[4].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
                 if (ComVechile.SelectedIndex <= 0)//交通工具类型
                 {
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("STRINGNOTNULL", "TYPEOFTRAVELTOOLS"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return false;
                 }
+                TravelDictionaryComboBox ComVechile2 = ((TravelDictionaryComboBox)((StackPanel)DaGrs.Columns[5].GetCellContent(obje)).Children.FirstOrDefault()) as TravelDictionaryComboBox;
+                if (ComVechile2.SelectedIndex < 0)//交通工具类型
+                {
+                    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "交通工具级别不能为空，请确认。", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                    return false;
+                }
                 #endregion
             }
+
+            #region 判断出差明细开始时间
+            for (int i = 0; i < entBusinessTripDetails.Count; i++)
+            {
+                for (int j = i + 1; j < entBusinessTripDetails.Count; j++)
+                {
+                    if (entBusinessTripDetails[j].STARTDATE.Value <= entBusinessTripDetails[i].ENDDATE.Value)
+                    {
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANNOTBEREPEATEDTOADD", "KPIRECEIVEDATE"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+                        return false;
+                    }
+                }
+            }
+            #endregion
 
             #region "判断出差开始城市是否用重复"
             for (int i = 0; i < TraveDetailList_Golbal.Count; i++)
@@ -355,8 +373,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             else
             {
-                //UserState = "Edit";
-                OaPersonOfficeClient.UpdateTravelmanagementAsync(Master_Golbal, TraveDetailList_Golbal, "Edit");
+                if (isAlterTrave)
+                {   //修改行程
+                    OaPersonOfficeClient.UpdateTravelmanagementAsync(Master_Golbal, TraveDetailList_Golbal, "isAlterTrave");
+                }
+                else
+                {
+                    //UserState = "Edit";
+                    OaPersonOfficeClient.UpdateTravelmanagementAsync(Master_Golbal, TraveDetailList_Golbal, "Edit");
+                }
             }
         }
         #endregion
@@ -368,17 +393,20 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
                 if (e.Error != null && e.Error.Message != "")
-                {
+                {                   
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                 }
                 else
                 {
                     if (e.Result != "")
                     {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Result), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                         return;
                     }
+                   
                     Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), Utility.GetResourceStr("ADDSUCCESSED", "EVECTIONFORM"));
+                    
+                    this.formType = FormTypes.Edit;
                     if (GlobalFunction.IsSaveAndClose(refreshType))
                     {
                         RefreshUI(refreshType);
@@ -386,12 +414,10 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     }
                     else
                     {
-                        formType = FormTypes.Edit;
                         EntityBrowser entBrowser = this.FindParentByType<EntityBrowser>();
                         entBrowser.FormType = FormTypes.Edit;
-                        RefreshUI(RefreshedTypes.AuditInfo);
-                        RefreshUI(RefreshedTypes.All);
                     }
+                    RefreshUI(RefreshedTypes.All);//重新加载数据
                 }
             }
             catch (Exception ex)
@@ -415,7 +441,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 {
                     if (e.Result != "")
                     {
-                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Error.Message), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
+                        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr(e.Result), Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                         return;
                     }
                     if (e.UserState != null && e.UserState.ToString() == "Edit")

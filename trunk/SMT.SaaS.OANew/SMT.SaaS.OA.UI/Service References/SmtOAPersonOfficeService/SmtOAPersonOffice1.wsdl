@@ -4,15 +4,141 @@
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd0" />
       <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL" />
-      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_OA_EFModel" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.Services" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL.Views" />
+      <xsd:import schemaLocation="http://localhost:3938/SmtOAPersonOffice.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.OA.DAL" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursement_InputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelReimbursement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursement_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelReimbursementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_InputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelReimbursementBySportid" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelReimbursementBySportidResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateNoClaims_InputMessage">
+    <wsdl:part name="parameters" element="UpdateNoClaims" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateNoClaims_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateNoClaimsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateTravelReimbursement_InputMessage">
+    <wsdl:part name="parameters" element="UpdateTravelReimbursement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateTravelReimbursement_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateTravelReimbursementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursement_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelReimbursement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursement_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelReimbursementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelReimbursementByBusinesstripId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelReimbursementByBusinesstripIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAdd_InputMessage">
+    <wsdl:part name="parameters" element="TravelReimbursementAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAdd_OutputMessage">
+    <wsdl:part name="parameters" element="TravelReimbursementAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAddSimple_InputMessage">
+    <wsdl:part name="parameters" element="TravelReimbursementAddSimple" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAddSimple_OutputMessage">
+    <wsdl:part name="parameters" element="TravelReimbursementAddSimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_InputMessage">
+    <wsdl:part name="parameters" element="CheckTravelReimbursementByBusinesstrip" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_OutputMessage">
+    <wsdl:part name="parameters" element="CheckTravelReimbursementByBusinesstripResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementRoomInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementRoomInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetWorkerCordListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetWorkerCordListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetWorkerCordListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetWorkerCordListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteWorkerCordList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteWorkerCordList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteWorkerCordList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteWorkerCordListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordAdd_InputMessage">
+    <wsdl:part name="parameters" element="WorkerCordAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordAdd_OutputMessage">
+    <wsdl:part name="parameters" element="WorkerCordAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordDel_InputMessage">
+    <wsdl:part name="parameters" element="WorkerCordDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordDel_OutputMessage">
+    <wsdl:part name="parameters" element="WorkerCordDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordUpdate_InputMessage">
+    <wsdl:part name="parameters" element="WorkerCordUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_WorkerCordUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="WorkerCordUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionsMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionsMaster" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionsMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionsMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Add_SSurvey_InputMessage">
+    <wsdl:part name="parameters" element="Add_SSurvey" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Add_SSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="Add_SSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSurvey_InputMessage">
+    <wsdl:part name="parameters" element="GetSurvey" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="GetSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_SSurveys_InputMessage">
+    <wsdl:part name="parameters" element="Get_SSurveys" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_SSurveys_OutputMessage">
+    <wsdl:part name="parameters" element="Get_SSurveysResponse" />
+  </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_Get_SSurvey_InputMessage">
     <wsdl:part name="parameters" element="Get_SSurvey" />
   </wsdl:message>
@@ -151,6 +277,12 @@
   <wsdl:message name="SmtOAPersonOffice_Result_EmployeeByRequireID_OutputMessage">
     <wsdl:part name="parameters" element="Result_EmployeeByRequireIDResponse" />
   </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="DoWork" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="DoWorkResponse" />
+  </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveys_InputMessage">
     <wsdl:part name="parameters" element="GetEmployeeSurveys" />
   </wsdl:message>
@@ -205,29 +337,125 @@
   <wsdl:message name="SmtOAPersonOffice_UpdateEmployeeSurveys_OutputMessage">
     <wsdl:part name="parameters" element="UpdateEmployeeSurveysResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionMaster_InputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionMaster" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyView_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyView" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionMaster_OutputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionMasterResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyView_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyViewResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionMaster_InputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionMaster" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyViewList_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyViewList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionMaster_OutputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionMasterResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyViewList_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyViewListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetMasterByCheckstateAndDate_InputMessage">
-    <wsdl:part name="parameters" element="GetMasterByCheckstateAndDate" />
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurvey_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurvey" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetMasterByCheckstateAndDate_OutputMessage">
-    <wsdl:part name="parameters" element="GetMasterByCheckstateAndDateResponse" />
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurvey_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionMasterChild_InputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionMasterChild" />
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyChecked_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyChecked" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionMasterChild_OutputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionMasterChildResponse" />
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyChecked_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyCheckedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmployeeSurveyViewList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmployeeSurveyViewListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmployeeSurveySubjectView" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmployeeSurveySubjectViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Upd_ESurvey_InputMessage">
+    <wsdl:part name="parameters" element="Upd_ESurvey" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Upd_ESurvey_OutputMessage">
+    <wsdl:part name="parameters" element="Upd_ESurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmployeeSurveyView_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeSurveyView" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmployeeSurveyView_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmployeeSurveyViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetResultByUserID_InputMessage">
+    <wsdl:part name="parameters" element="GetResultByUserID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetResultByUserID_OutputMessage">
+    <wsdl:part name="parameters" element="GetResultByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_SubmitResult_InputMessage">
+    <wsdl:part name="parameters" element="SubmitResult" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_SubmitResult_OutputMessage">
+    <wsdl:part name="parameters" element="SubmitResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeList_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeList_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApp_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApp_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApps_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyApps" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApps_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyAppChecked_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyAppChecked" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyAppChecked_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyAppCheckedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_MyVisistedSurvey_InputMessage">
+    <wsdl:part name="parameters" element="Get_MyVisistedSurvey" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_MyVisistedSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="Get_MyVisistedSurveyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Add_EsurveyApp_InputMessage">
+    <wsdl:part name="parameters" element="Add_EsurveyApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Add_EsurveyApp_OutputMessage">
+    <wsdl:part name="parameters" element="Add_EsurveyAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Upd_ESurveyApp_InputMessage">
+    <wsdl:part name="parameters" element="Upd_ESurveyApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Upd_ESurveyApp_OutputMessage">
+    <wsdl:part name="parameters" element="Upd_ESurveyAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Del_ESurveyApp_InputMessage">
+    <wsdl:part name="parameters" element="Del_ESurveyApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Del_ESurveyApp_OutputMessage">
+    <wsdl:part name="parameters" element="Del_ESurveyAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_InputMessage">
+    <wsdl:part name="parameters" element="GetStaticfactonVisistedByEmployID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_OutputMessage">
+    <wsdl:part name="parameters" element="GetStaticfactonVisistedByEmployIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyResult_InputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyResult" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyResult_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ESurveyResultResponse" />
   </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_Get_ESurveyResults_InputMessage">
     <wsdl:part name="parameters" element="Get_ESurveyResults" />
@@ -271,149 +499,41 @@
   <wsdl:message name="SmtOAPersonOffice_Result_ESurveyByRequireID_OutputMessage">
     <wsdl:part name="parameters" element="Result_ESurveyByRequireIDResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoListByOptFlag_InputMessage">
-    <wsdl:part name="parameters" element="GetInfoListByOptFlag" />
+  <wsdl:message name="SmtOAPersonOffice_AddRequire_InputMessage">
+    <wsdl:part name="parameters" element="AddRequire" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoListByOptFlag_OutputMessage">
-    <wsdl:part name="parameters" element="GetInfoListByOptFlagResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddRequire_OutputMessage">
+    <wsdl:part name="parameters" element="AddRequireResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoById_InputMessage">
-    <wsdl:part name="parameters" element="GetInfoById" />
+  <wsdl:message name="SmtOAPersonOffice_UpdRequire_InputMessage">
+    <wsdl:part name="parameters" element="UpdRequire" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoById_OutputMessage">
-    <wsdl:part name="parameters" element="GetInfoByIdResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdRequire_OutputMessage">
+    <wsdl:part name="parameters" element="UpdRequireResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoByTitle_InputMessage">
-    <wsdl:part name="parameters" element="GetInfoByTitle" />
+  <wsdl:message name="SmtOAPersonOffice_GetRequireData_InputMessage">
+    <wsdl:part name="parameters" element="GetRequireData" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfoByTitle_OutputMessage">
-    <wsdl:part name="parameters" element="GetInfoByTitleResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetRequireData_OutputMessage">
+    <wsdl:part name="parameters" element="GetRequireDataResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveys_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveys" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyAppByCheckstateAndDate" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveys_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyAppByCheckstateAndDateResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurvey_InputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurvey" />
+  <wsdl:message name="SmtOAPersonOffice_GetDataBySurveying_InputMessage">
+    <wsdl:part name="parameters" element="GetDataBySurveying" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurvey_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetDataBySurveying_OutputMessage">
+    <wsdl:part name="parameters" element="GetDataBySurveyingResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmpSurveys_InputMessage">
-    <wsdl:part name="parameters" element="DeleteEmpSurveys" />
+  <wsdl:message name="SmtOAPersonOffice_AddSurveying_InputMessage">
+    <wsdl:part name="parameters" element="AddSurveying" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmpSurveys_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteEmpSurveysResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveys_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveys" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveys_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysSubjectList_InputMessage">
-    <wsdl:part name="parameters" element="GetEmpSurveysSubjectList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysSubjectList_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmpSurveysSubjectListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubject_InputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysSubject" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubject_OutputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysSubjectResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubject_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysSubject" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubject_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysSubjectResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubjectList_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysSubjectList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubjectList_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysSubjectListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Save_SubjectAnswer_InputMessage">
-    <wsdl:part name="parameters" element="Save_SubjectAnswer" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Save_SubjectAnswer_OutputMessage">
-    <wsdl:part name="parameters" element="Save_SubjectAnswerResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubjectList_InputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysSubjectList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubjectList_OutputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysSubjectListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubject_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysSubject" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubject_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswer_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysAnswer" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswer_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysAnswerResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysAnswerList_InputMessage">
-    <wsdl:part name="parameters" element="GetEmpSurveysAnswerList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysAnswerList_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmpSurveysAnswerListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswerList_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysAnswerList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswerList_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysAnswerListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysAnswerList_InputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysAnswerList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysAnswerList_OutputMessage">
-    <wsdl:part name="parameters" element="DelEmpSurveysAnswerListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysAnswerList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmpSurveysAnswerListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysResultList_InputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysResultList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysResultList_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmpSurveysResultListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionDistribute_InputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionDistribute" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionDistribute_OutputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionDistributeResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionDistribute_InputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionDistribute" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionDistribute_OutputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionDistributeResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionDistributeChild_InputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionDistributeChild" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionDistributeChild_OutputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionDistributeChildResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddSurveying_OutputMessage">
+    <wsdl:part name="parameters" element="AddSurveyingResponse" />
   </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_AddRequireDistribute_InputMessage">
     <wsdl:part name="parameters" element="AddRequireDistribute" />
@@ -433,17 +553,359 @@
   <wsdl:message name="SmtOAPersonOffice_GetDistributeData_OutputMessage">
     <wsdl:part name="parameters" element="GetDistributeDataResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetDataBySurveying_InputMessage">
-    <wsdl:part name="parameters" element="GetDataBySurveying" />
+  <wsdl:message name="SmtOAPersonOffice_AddRequireMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddRequireMaster" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetDataBySurveying_OutputMessage">
-    <wsdl:part name="parameters" element="GetDataBySurveyingResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddRequireMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddRequireMasterResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSurveying_InputMessage">
-    <wsdl:part name="parameters" element="AddSurveying" />
+  <wsdl:message name="SmtOAPersonOffice_UpdRequireMaster_InputMessage">
+    <wsdl:part name="parameters" element="UpdRequireMaster" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSurveying_OutputMessage">
-    <wsdl:part name="parameters" element="AddSurveyingResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdRequireMaster_OutputMessage">
+    <wsdl:part name="parameters" element="UpdRequireMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetMasterDataByLoading_InputMessage">
+    <wsdl:part name="parameters" element="GetMasterDataByLoading" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetMasterDataByLoading_OutputMessage">
+    <wsdl:part name="parameters" element="GetMasterDataByLoadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_InputMessage">
+    <wsdl:part name="parameters" element="GetSurveyDataByCultivateForCheckState" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_OutputMessage">
+    <wsdl:part name="parameters" element="GetSurveyDataByCultivateForCheckStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetResultByCultivateForID_InputMessage">
+    <wsdl:part name="parameters" element="GetResultByCultivateForID" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetResultByCultivateForID_OutputMessage">
+    <wsdl:part name="parameters" element="GetResultByCultivateForIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyByCheckstateAndDate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeSurveyByCheckstateAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionApp_InputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionApp_OutputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionApp_InputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionApp" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionApp_OutputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionAppResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetRequireByCheckstateAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetRequireByCheckstateAndDate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetRequireByCheckstateAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetRequireByCheckstateAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionAppChild_InputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionAppChild" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionAppChild_OutputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionAppChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionDistribute_InputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionDistribute" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionDistribute_OutputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionDistributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionDistribute_InputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionDistribute" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionDistribute_OutputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionDistributeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionDistributeChild_InputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionDistributeChild" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionDistributeChild_OutputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionDistributeChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionMaster" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddSatisfactionMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionMaster_InputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionMaster" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionMaster_OutputMessage">
+    <wsdl:part name="parameters" element="UpdSatisfactionMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetMasterByCheckstateAndDate_InputMessage">
+    <wsdl:part name="parameters" element="GetMasterByCheckstateAndDate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetMasterByCheckstateAndDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetMasterByCheckstateAndDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionMasterChild_InputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionMasterChild" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionMasterChild_OutputMessage">
+    <wsdl:part name="parameters" element="GetSatisfactionMasterChildResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementById_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementById_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementBysId_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementBysId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementBysId_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementBysIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_InputMessage">
+    <wsdl:part name="parameters" element="GetAccordingToBusinesstripIdCheck" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_OutputMessage">
+    <wsdl:part name="parameters" element="GetAccordingToBusinesstripIdCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelmanagement_InputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelmanagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistTravelmanagement_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistTravelmanagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateTravelmanagement_InputMessage">
+    <wsdl:part name="parameters" element="UpdateTravelmanagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateTravelmanagement_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateTravelmanagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelmanagement_InputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelmanagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteTravelmanagement_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteTravelmanagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelmanagementAdd_InputMessage">
+    <wsdl:part name="parameters" element="TravelmanagementAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_TravelmanagementAdd_OutputMessage">
+    <wsdl:part name="parameters" element="TravelmanagementAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosListBySearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosListBySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetBusinesstripDetail_InputMessage">
+    <wsdl:part name="parameters" element="GetBusinesstripDetail" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetBusinesstripDetail_OutputMessage">
+    <wsdl:part name="parameters" element="GetBusinesstripDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsContractCanBrowser_InputMessage">
+    <wsdl:part name="parameters" element="IsContractCanBrowser" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsContractCanBrowser_OutputMessage">
+    <wsdl:part name="parameters" element="IsContractCanBrowserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementListByUserId_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementListByUserId" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementListByUserId_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelmanagementListByUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetUnderwayTravelmanagement_InputMessage">
+    <wsdl:part name="parameters" element="GetUnderwayTravelmanagement" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetUnderwayTravelmanagement_OutputMessage">
+    <wsdl:part name="parameters" element="GetUnderwayTravelmanagementResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoAdd_InputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoAdd_OutputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_InputMessage">
+    <wsdl:part name="parameters" element="IsExistOrderMealInfoByAdd" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_OutputMessage">
+    <wsdl:part name="parameters" element="IsExistOrderMealInfoByAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoDel_InputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoDel" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoDel_OutputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoDelResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoUpdate_InputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoUpdate" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="OrderMealInfoUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealSingleInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealSingleInfoById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealSingleInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealSingleInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfos_InputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealInfos" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfos_OutputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealInfosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealInfosListByTitleTimeSearch" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetOrderMealInfosListByTitleTimeSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementInfo" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementById_InputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementById" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementById_OutputMessage">
+    <wsdl:part name="parameters" element="GetTravelReimbursementByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_Apporval_InputMessage">
+    <wsdl:part name="parameters" element="Get_Apporval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_Apporval_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ApporvalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalList_InputMessage">
+    <wsdl:part name="parameters" element="GetApporvalList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalList_OutputMessage">
+    <wsdl:part name="parameters" element="GetApporvalListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalListforMVC_InputMessage">
+    <wsdl:part name="parameters" element="GetApporvalListforMVC" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalListforMVC_OutputMessage">
+    <wsdl:part name="parameters" element="GetApporvalListforMVCResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApporval_InputMessage">
+    <wsdl:part name="parameters" element="AddApporval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApporval_OutputMessage">
+    <wsdl:part name="parameters" element="AddApporvalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporval_InputMessage">
+    <wsdl:part name="parameters" element="DeleteApporval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporval_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateApporval_InputMessage">
+    <wsdl:part name="parameters" element="UpdateApporval" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateApporval_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateApporvalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApprovalSet_InputMessage">
+    <wsdl:part name="parameters" element="AddApprovalSet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApprovalSet_OutputMessage">
+    <wsdl:part name="parameters" element="AddApprovalSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalSetByOrgType_InputMessage">
+    <wsdl:part name="parameters" element="GetApprovalSetByOrgType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalSetByOrgType_OutputMessage">
+    <wsdl:part name="parameters" element="GetApprovalSetByOrgTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_InputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyandDepartmentid" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_OutputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyandDepartmentidResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyid_InputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyid" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyid_OutputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyidResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_InputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypesByCompanyIDs" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_OutputMessage">
+    <wsdl:part name="parameters" element="GetApprovalTypesByCompanyIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ApporvalTemplet_InputMessage">
+    <wsdl:part name="parameters" element="Get_ApporvalTemplet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ApporvalTemplet_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ApporvalTempletResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ApporvalTempletByApporvalType_InputMessage">
+    <wsdl:part name="parameters" element="Get_ApporvalTempletByApporvalType" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_Get_ApporvalTempletByApporvalType_OutputMessage">
+    <wsdl:part name="parameters" element="Get_ApporvalTempletByApporvalTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalTempletList_InputMessage">
+    <wsdl:part name="parameters" element="GetApporvalTempletList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_GetApporvalTempletList_OutputMessage">
+    <wsdl:part name="parameters" element="GetApporvalTempletListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApporvalTemplet_InputMessage">
+    <wsdl:part name="parameters" element="AddApporvalTemplet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_AddApporvalTemplet_OutputMessage">
+    <wsdl:part name="parameters" element="AddApporvalTempletResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalTemplet_InputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalTemplet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalTemplet_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalTempletResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateApporvalTemplet_InputMessage">
+    <wsdl:part name="parameters" element="UpdateApporvalTemplet" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_UpdateApporvalTemplet_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateApporvalTempletResponse" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalTempletList_InputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalTempletList" />
+  </wsdl:message>
+  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalTempletList_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteApporvalTempletListResponse" />
   </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_AreaAllowanceADD_InputMessage">
     <wsdl:part name="parameters" element="AreaAllowanceADD" />
@@ -649,402 +1111,6 @@
   <wsdl:message name="SmtOAPersonOffice_GetCopyTravleSolution_OutputMessage">
     <wsdl:part name="parameters" element="GetCopyTravleSolutionResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddRequireMaster_InputMessage">
-    <wsdl:part name="parameters" element="AddRequireMaster" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddRequireMaster_OutputMessage">
-    <wsdl:part name="parameters" element="AddRequireMasterResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdRequireMaster_InputMessage">
-    <wsdl:part name="parameters" element="UpdRequireMaster" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdRequireMaster_OutputMessage">
-    <wsdl:part name="parameters" element="UpdRequireMasterResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetMasterDataByLoading_InputMessage">
-    <wsdl:part name="parameters" element="GetMasterDataByLoading" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetMasterDataByLoading_OutputMessage">
-    <wsdl:part name="parameters" element="GetMasterDataByLoadingResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_InputMessage">
-    <wsdl:part name="parameters" element="GetSurveyDataByCultivateForCheckState" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_OutputMessage">
-    <wsdl:part name="parameters" element="GetSurveyDataByCultivateForCheckStateResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetResultByCultivateForID_InputMessage">
-    <wsdl:part name="parameters" element="GetResultByCultivateForID" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetResultByCultivateForID_OutputMessage">
-    <wsdl:part name="parameters" element="GetResultByCultivateForIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyByCheckstateAndDate" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyByCheckstateAndDateResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfroByTitle_InputMessage">
-    <wsdl:part name="parameters" element="GetInfroByTitle" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetInfroByTitle_OutputMessage">
-    <wsdl:part name="parameters" element="GetInfroByTitleResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyMaster_InputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyMaster" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyMaster_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyMasterResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyAnswer_InputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyAnswer" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyAnswer_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyAnswerResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeAnswer_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeAnswer" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeAnswer_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeAnswerResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyQuestion_InputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyQuestion" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyQuestion_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyQuestionResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionsMaster_InputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionsMaster" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionsMaster_OutputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionsMasterResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Add_SSurvey_InputMessage">
-    <wsdl:part name="parameters" element="Add_SSurvey" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Add_SSurvey_OutputMessage">
-    <wsdl:part name="parameters" element="Add_SSurveyResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSurvey_InputMessage">
-    <wsdl:part name="parameters" element="GetSurvey" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSurvey_OutputMessage">
-    <wsdl:part name="parameters" element="GetSurveyResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_SSurveys_InputMessage">
-    <wsdl:part name="parameters" element="Get_SSurveys" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_SSurveys_OutputMessage">
-    <wsdl:part name="parameters" element="Get_SSurveysResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetWorkerCordListByUserId_InputMessage">
-    <wsdl:part name="parameters" element="GetWorkerCordListByUserId" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetWorkerCordListByUserId_OutputMessage">
-    <wsdl:part name="parameters" element="GetWorkerCordListByUserIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteWorkerCordList_InputMessage">
-    <wsdl:part name="parameters" element="DeleteWorkerCordList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteWorkerCordList_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteWorkerCordListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordAdd_InputMessage">
-    <wsdl:part name="parameters" element="WorkerCordAdd" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordAdd_OutputMessage">
-    <wsdl:part name="parameters" element="WorkerCordAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordDel_InputMessage">
-    <wsdl:part name="parameters" element="WorkerCordDel" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordDel_OutputMessage">
-    <wsdl:part name="parameters" element="WorkerCordDelResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordUpdate_InputMessage">
-    <wsdl:part name="parameters" element="WorkerCordUpdate" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_WorkerCordUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="WorkerCordUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionApp_InputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionApp" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddSatisfactionApp_OutputMessage">
-    <wsdl:part name="parameters" element="AddSatisfactionAppResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionApp_InputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionApp" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdSatisfactionApp_OutputMessage">
-    <wsdl:part name="parameters" element="UpdSatisfactionAppResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetRequireByCheckstateAndDate_InputMessage">
-    <wsdl:part name="parameters" element="GetRequireByCheckstateAndDate" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetRequireByCheckstateAndDate_OutputMessage">
-    <wsdl:part name="parameters" element="GetRequireByCheckstateAndDateResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionAppChild_InputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionAppChild" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetSatisfactionAppChild_OutputMessage">
-    <wsdl:part name="parameters" element="GetSatisfactionAppChildResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementInfo_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementInfo" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementInfo_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementInfoResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementById_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementById" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementById_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementByIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementBysId_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementBysId" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementBysId_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementBysIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_InputMessage">
-    <wsdl:part name="parameters" element="GetAccordingToBusinesstripIdCheck" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_OutputMessage">
-    <wsdl:part name="parameters" element="GetAccordingToBusinesstripIdCheckResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelmanagement_InputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelmanagement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelmanagement_OutputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelmanagementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateTravelmanagement_InputMessage">
-    <wsdl:part name="parameters" element="UpdateTravelmanagement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateTravelmanagement_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateTravelmanagementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelmanagement_InputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelmanagement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelmanagement_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelmanagementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelmanagementAdd_InputMessage">
-    <wsdl:part name="parameters" element="TravelmanagementAdd" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelmanagementAdd_OutputMessage">
-    <wsdl:part name="parameters" element="TravelmanagementAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfos_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfos" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfos_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosListBySearch" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementRoomInfosListBySearchResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetBusinesstripDetail_InputMessage">
-    <wsdl:part name="parameters" element="GetBusinesstripDetail" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetBusinesstripDetail_OutputMessage">
-    <wsdl:part name="parameters" element="GetBusinesstripDetailResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsContractCanBrowser_InputMessage">
-    <wsdl:part name="parameters" element="IsContractCanBrowser" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsContractCanBrowser_OutputMessage">
-    <wsdl:part name="parameters" element="IsContractCanBrowserResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementListByUserId_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementListByUserId" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelmanagementListByUserId_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelmanagementListByUserIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetUnderwayTravelmanagement_InputMessage">
-    <wsdl:part name="parameters" element="GetUnderwayTravelmanagement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetUnderwayTravelmanagement_OutputMessage">
-    <wsdl:part name="parameters" element="GetUnderwayTravelmanagementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementInfo_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementInfo" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementInfo_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementInfoResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementById_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementById" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementById_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementByIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursement_InputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelReimbursement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursement_OutputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelReimbursementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_InputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelReimbursementBySportid" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_OutputMessage">
-    <wsdl:part name="parameters" element="IsExistTravelReimbursementBySportidResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateNoClaims_InputMessage">
-    <wsdl:part name="parameters" element="UpdateNoClaims" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateNoClaims_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateNoClaimsResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateTravelReimbursement_InputMessage">
-    <wsdl:part name="parameters" element="UpdateTravelReimbursement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateTravelReimbursement_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateTravelReimbursementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursement_InputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelReimbursement" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursement_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelReimbursementResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_InputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelReimbursementByBusinesstripId" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteTravelReimbursementByBusinesstripIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAdd_InputMessage">
-    <wsdl:part name="parameters" element="TravelReimbursementAdd" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAdd_OutputMessage">
-    <wsdl:part name="parameters" element="TravelReimbursementAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAddSimple_InputMessage">
-    <wsdl:part name="parameters" element="TravelReimbursementAddSimple" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_TravelReimbursementAddSimple_OutputMessage">
-    <wsdl:part name="parameters" element="TravelReimbursementAddSimpleResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_InputMessage">
-    <wsdl:part name="parameters" element="CheckTravelReimbursementByBusinesstrip" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_OutputMessage">
-    <wsdl:part name="parameters" element="CheckTravelReimbursementByBusinesstripResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementRoomInfos" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementRoomInfosResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementDetail_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementDetail" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementDetail_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementDetailResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementListByUserId_InputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementListByUserId" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetTravelReimbursementListByUserId_OutputMessage">
-    <wsdl:part name="parameters" element="GetTravelReimbursementListByUserIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_Apporval_InputMessage">
-    <wsdl:part name="parameters" element="Get_Apporval" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_Apporval_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ApporvalResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApporvalList_InputMessage">
-    <wsdl:part name="parameters" element="GetApporvalList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApporvalList_OutputMessage">
-    <wsdl:part name="parameters" element="GetApporvalListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddApporval_InputMessage">
-    <wsdl:part name="parameters" element="AddApporval" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddApporval_OutputMessage">
-    <wsdl:part name="parameters" element="AddApporvalResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteApporval_InputMessage">
-    <wsdl:part name="parameters" element="DeleteApporval" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteApporval_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteApporvalResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateApporval_InputMessage">
-    <wsdl:part name="parameters" element="UpdateApporval" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateApporval_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateApporvalResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalList_InputMessage">
-    <wsdl:part name="parameters" element="DeleteApporvalList" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteApporvalList_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteApporvalListResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddApprovalSet_InputMessage">
-    <wsdl:part name="parameters" element="AddApprovalSet" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddApprovalSet_OutputMessage">
-    <wsdl:part name="parameters" element="AddApprovalSetResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalSetByOrgType_InputMessage">
-    <wsdl:part name="parameters" element="GetApprovalSetByOrgType" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalSetByOrgType_OutputMessage">
-    <wsdl:part name="parameters" element="GetApprovalSetByOrgTypeResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_InputMessage">
-    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyandDepartmentid" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_OutputMessage">
-    <wsdl:part name="parameters" element="GetApprovalTypeByCompanyandDepartmentidResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_InputMessage">
-    <wsdl:part name="parameters" element="GetApprovalTypesByCompanyIDs" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_OutputMessage">
-    <wsdl:part name="parameters" element="GetApprovalTypesByCompanyIDsResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddRequire_InputMessage">
-    <wsdl:part name="parameters" element="AddRequire" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddRequire_OutputMessage">
-    <wsdl:part name="parameters" element="AddRequireResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdRequire_InputMessage">
-    <wsdl:part name="parameters" element="UpdRequire" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdRequire_OutputMessage">
-    <wsdl:part name="parameters" element="UpdRequireResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetRequireData_InputMessage">
-    <wsdl:part name="parameters" element="GetRequireData" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetRequireData_OutputMessage">
-    <wsdl:part name="parameters" element="GetRequireDataResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyAppByCheckstateAndDate" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyAppByCheckstateAndDateResponse" />
-  </wsdl:message>
   <wsdl:message name="SmtOAPersonOffice_GetCalendarListByUserID_InputMessage">
     <wsdl:part name="parameters" element="GetCalendarListByUserID" />
   </wsdl:message>
@@ -1081,175 +1147,247 @@
   <wsdl:message name="SmtOAPersonOffice_GetApporvalList22_OutputMessage">
     <wsdl:part name="parameters" element="GetApporvalList22Response" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="DoWork" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfroByTitle_InputMessage">
+    <wsdl:part name="parameters" element="GetInfroByTitle" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DoWork_OutputMessage">
-    <wsdl:part name="parameters" element="DoWorkResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfroByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfroByTitleResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoAdd_InputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoAdd" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyMaster_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyMaster" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoAdd_OutputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoAddResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyMaster_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyMasterResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_InputMessage">
-    <wsdl:part name="parameters" element="IsExistOrderMealInfoByAdd" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyAnswer_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyAnswer" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_OutputMessage">
-    <wsdl:part name="parameters" element="IsExistOrderMealInfoByAddResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyAnswerResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoDel_InputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoDel" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeAnswer_InputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAnswer" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoDel_OutputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoDelResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmployeeAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmployeeAnswerResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoUpdate_InputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoUpdate" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyQuestion_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyQuestion" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_OrderMealInfoUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="OrderMealInfoUpdateResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyQuestionResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealSingleInfoById_InputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealSingleInfoById" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoListByOptFlag_InputMessage">
+    <wsdl:part name="parameters" element="GetInfoListByOptFlag" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealSingleInfoById_OutputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealSingleInfoByIdResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoListByOptFlag_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfoListByOptFlagResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfos_InputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealInfos" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetInfoById" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfos_OutputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealInfosResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfoByIdResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_InputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealInfosListByTitleTimeSearch" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoByTitle_InputMessage">
+    <wsdl:part name="parameters" element="GetInfoByTitle" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_OutputMessage">
-    <wsdl:part name="parameters" element="GetOrderMealInfosListByTitleTimeSearchResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetInfoByTitle_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfoByTitleResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyView_InputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyView" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveys_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveys" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurveyView_OutputMessage">
-    <wsdl:part name="parameters" element="AddEmployeeSurveyViewResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveys_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyViewList_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyViewList" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurvey_InputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurvey" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeSurveyViewList_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeSurveyViewListResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmployeeSurvey_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmployeeSurveyResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurvey_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurvey" />
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmpSurveys_InputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpSurveys" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurvey_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyResponse" />
+  <wsdl:message name="SmtOAPersonOffice_DeleteEmpSurveys_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteEmpSurveysResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyChecked_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyChecked" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveys_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveys" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyChecked_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyCheckedResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveys_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_InputMessage">
-    <wsdl:part name="parameters" element="DeleteEmployeeSurveyViewList" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysSubjectList_InputMessage">
+    <wsdl:part name="parameters" element="GetEmpSurveysSubjectList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteEmployeeSurveyViewListResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysSubjectList_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmpSurveysSubjectListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_InputMessage">
-    <wsdl:part name="parameters" element="DeleteEmployeeSurveySubjectView" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubject_InputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysSubject" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_OutputMessage">
-    <wsdl:part name="parameters" element="DeleteEmployeeSurveySubjectViewResponse" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubject_OutputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysSubjectResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Upd_ESurvey_InputMessage">
-    <wsdl:part name="parameters" element="Upd_ESurvey" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubject_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysSubject" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Upd_ESurvey_OutputMessage">
-    <wsdl:part name="parameters" element="Upd_ESurveyResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubject_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysSubjectResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmployeeSurveyView_InputMessage">
-    <wsdl:part name="parameters" element="UpdateEmployeeSurveyView" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubjectList_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysSubjectList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_UpdateEmployeeSurveyView_OutputMessage">
-    <wsdl:part name="parameters" element="UpdateEmployeeSurveyViewResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysSubjectList_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysSubjectListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetResultByUserID_InputMessage">
-    <wsdl:part name="parameters" element="GetResultByUserID" />
+  <wsdl:message name="SmtOAPersonOffice_Save_SubjectAnswer_InputMessage">
+    <wsdl:part name="parameters" element="Save_SubjectAnswer" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetResultByUserID_OutputMessage">
-    <wsdl:part name="parameters" element="GetResultByUserIDResponse" />
+  <wsdl:message name="SmtOAPersonOffice_Save_SubjectAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="Save_SubjectAnswerResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_SubmitResult_InputMessage">
-    <wsdl:part name="parameters" element="SubmitResult" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubjectList_InputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysSubjectList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_SubmitResult_OutputMessage">
-    <wsdl:part name="parameters" element="SubmitResultResponse" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysSubjectList_OutputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysSubjectListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeList_InputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeList" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubject_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysSubject" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetEmployeeList_OutputMessage">
-    <wsdl:part name="parameters" element="GetEmployeeListResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubject_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApp_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyApp" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApp_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyAppResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysSubjectListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApps_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyApps" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswer_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysAnswer" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyApps_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyAppsResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysAnswerResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyAppChecked_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyAppChecked" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysAnswerList_InputMessage">
+    <wsdl:part name="parameters" element="GetEmpSurveysAnswerList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyAppChecked_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyAppCheckedResponse" />
+  <wsdl:message name="SmtOAPersonOffice_GetEmpSurveysAnswerList_OutputMessage">
+    <wsdl:part name="parameters" element="GetEmpSurveysAnswerListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_MyVisistedSurvey_InputMessage">
-    <wsdl:part name="parameters" element="Get_MyVisistedSurvey" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswerList_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysAnswerList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_MyVisistedSurvey_OutputMessage">
-    <wsdl:part name="parameters" element="Get_MyVisistedSurveyResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysAnswerList_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysAnswerListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Add_EsurveyApp_InputMessage">
-    <wsdl:part name="parameters" element="Add_EsurveyApp" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysAnswerList_InputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysAnswerList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Add_EsurveyApp_OutputMessage">
-    <wsdl:part name="parameters" element="Add_EsurveyAppResponse" />
+  <wsdl:message name="SmtOAPersonOffice_DelEmpSurveysAnswerList_OutputMessage">
+    <wsdl:part name="parameters" element="DelEmpSurveysAnswerListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Upd_ESurveyApp_InputMessage">
-    <wsdl:part name="parameters" element="Upd_ESurveyApp" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_InputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysAnswerList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Upd_ESurveyApp_OutputMessage">
-    <wsdl:part name="parameters" element="Upd_ESurveyAppResponse" />
+  <wsdl:message name="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateEmpSurveysAnswerListResponse" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Del_ESurveyApp_InputMessage">
-    <wsdl:part name="parameters" element="Del_ESurveyApp" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysResultList_InputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysResultList" />
   </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Del_ESurveyApp_OutputMessage">
-    <wsdl:part name="parameters" element="Del_ESurveyAppResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_InputMessage">
-    <wsdl:part name="parameters" element="GetStaticfactonVisistedByEmployID" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_OutputMessage">
-    <wsdl:part name="parameters" element="GetStaticfactonVisistedByEmployIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyResult_InputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyResult" />
-  </wsdl:message>
-  <wsdl:message name="SmtOAPersonOffice_Get_ESurveyResult_OutputMessage">
-    <wsdl:part name="parameters" element="Get_ESurveyResultResponse" />
+  <wsdl:message name="SmtOAPersonOffice_AddEmpSurveysResultList_OutputMessage">
+    <wsdl:part name="parameters" element="AddEmpSurveysResultListResponse" />
   </wsdl:message>
   <wsdl:portType name="SmtOAPersonOffice">
+    <wsdl:operation name="IsExistTravelReimbursement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursement" message="SmtOAPersonOffice_IsExistTravelReimbursement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementResponse" message="SmtOAPersonOffice_IsExistTravelReimbursement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTravelReimbursementBySportid">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportid" message="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportidResponse" message="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNoClaims">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateNoClaims" message="SmtOAPersonOffice_UpdateNoClaims_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateNoClaimsResponse" message="SmtOAPersonOffice_UpdateNoClaims_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTravelReimbursement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelReimbursement" message="SmtOAPersonOffice_UpdateTravelReimbursement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelReimbursementResponse" message="SmtOAPersonOffice_UpdateTravelReimbursement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelReimbursement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursement" message="SmtOAPersonOffice_DeleteTravelReimbursement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementResponse" message="SmtOAPersonOffice_DeleteTravelReimbursement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelReimbursementByBusinesstripId">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripId" message="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripIdResponse" message="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelReimbursementAdd">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAdd" message="SmtOAPersonOffice_TravelReimbursementAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddResponse" message="SmtOAPersonOffice_TravelReimbursementAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelReimbursementAddSimple">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddSimple" message="SmtOAPersonOffice_TravelReimbursementAddSimple_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddSimpleResponse" message="SmtOAPersonOffice_TravelReimbursementAddSimple_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckTravelReimbursementByBusinesstrip">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstrip" message="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstripResponse" message="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementRoomInfos">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfos" message="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfosResponse" message="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementDetail">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementDetail" message="SmtOAPersonOffice_GetTravelReimbursementDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementDetailResponse" message="SmtOAPersonOffice_GetTravelReimbursementDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserId" message="SmtOAPersonOffice_GetTravelReimbursementListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserIdResponse" message="SmtOAPersonOffice_GetTravelReimbursementListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkerCordListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetWorkerCordListByUserId" message="SmtOAPersonOffice_GetWorkerCordListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetWorkerCordListByUserIdResponse" message="SmtOAPersonOffice_GetWorkerCordListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkerCordList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteWorkerCordList" message="SmtOAPersonOffice_DeleteWorkerCordList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteWorkerCordListResponse" message="SmtOAPersonOffice_DeleteWorkerCordList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordAdd">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordAdd" message="SmtOAPersonOffice_WorkerCordAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordAddResponse" message="SmtOAPersonOffice_WorkerCordAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordDel">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordDel" message="SmtOAPersonOffice_WorkerCordDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordDelResponse" message="SmtOAPersonOffice_WorkerCordDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WorkerCordUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordUpdate" message="SmtOAPersonOffice_WorkerCordUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordUpdateResponse" message="SmtOAPersonOffice_WorkerCordUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionsMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionsMaster" message="SmtOAPersonOffice_AddSatisfactionsMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionsMasterResponse" message="SmtOAPersonOffice_AddSatisfactionsMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_SSurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Add_SSurvey" message="SmtOAPersonOffice_Add_SSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Add_SSurveyResponse" message="SmtOAPersonOffice_Add_SSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSurvey" message="SmtOAPersonOffice_GetSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSurveyResponse" message="SmtOAPersonOffice_GetSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_SSurveys">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_SSurveys" message="SmtOAPersonOffice_Get_SSurveys_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_SSurveysResponse" message="SmtOAPersonOffice_Get_SSurveys_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Get_SSurvey">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_SSurvey" message="SmtOAPersonOffice_Get_SSurvey_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_SSurveyResponse" message="SmtOAPersonOffice_Get_SSurvey_OutputMessage" />
@@ -1342,6 +1480,10 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Result_EmployeeByRequireID" message="SmtOAPersonOffice_Result_EmployeeByRequireID_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Result_EmployeeByRequireIDResponse" message="SmtOAPersonOffice_Result_EmployeeByRequireID_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DoWork" message="SmtOAPersonOffice_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DoWorkResponse" message="SmtOAPersonOffice_DoWork_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeSurveys">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveys" message="SmtOAPersonOffice_GetEmployeeSurveys_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveysResponse" message="SmtOAPersonOffice_GetEmployeeSurveys_OutputMessage" />
@@ -1378,21 +1520,85 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveys" message="SmtOAPersonOffice_UpdateEmployeeSurveys_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveysResponse" message="SmtOAPersonOffice_UpdateEmployeeSurveys_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionMaster" message="SmtOAPersonOffice_AddSatisfactionMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionMasterResponse" message="SmtOAPersonOffice_AddSatisfactionMaster_OutputMessage" />
+    <wsdl:operation name="AddEmployeeSurveyView">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyView" message="SmtOAPersonOffice_AddEmployeeSurveyView_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyViewResponse" message="SmtOAPersonOffice_AddEmployeeSurveyView_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionMaster" message="SmtOAPersonOffice_UpdSatisfactionMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionMasterResponse" message="SmtOAPersonOffice_UpdSatisfactionMaster_OutputMessage" />
+    <wsdl:operation name="GetEmployeeSurveyViewList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyViewList" message="SmtOAPersonOffice_GetEmployeeSurveyViewList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyViewListResponse" message="SmtOAPersonOffice_GetEmployeeSurveyViewList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMasterByCheckstateAndDate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDate" message="SmtOAPersonOffice_GetMasterByCheckstateAndDate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetMasterByCheckstateAndDate_OutputMessage" />
+    <wsdl:operation name="Get_ESurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurvey" message="SmtOAPersonOffice_Get_ESurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResponse" message="SmtOAPersonOffice_Get_ESurvey_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionMasterChild">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionMasterChild" message="SmtOAPersonOffice_GetSatisfactionMasterChild_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionMasterChildResponse" message="SmtOAPersonOffice_GetSatisfactionMasterChild_OutputMessage" />
+    <wsdl:operation name="Get_ESurveyChecked">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyChecked" message="SmtOAPersonOffice_Get_ESurveyChecked_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyCheckedResponse" message="SmtOAPersonOffice_Get_ESurveyChecked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeSurveyViewList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewList" message="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewListResponse" message="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployeeSurveySubjectView">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectView" message="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectViewResponse" message="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd_ESurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurvey" message="SmtOAPersonOffice_Upd_ESurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyResponse" message="SmtOAPersonOffice_Upd_ESurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployeeSurveyView">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveyView" message="SmtOAPersonOffice_UpdateEmployeeSurveyView_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveyViewResponse" message="SmtOAPersonOffice_UpdateEmployeeSurveyView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultByUserID">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetResultByUserID" message="SmtOAPersonOffice_GetResultByUserID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetResultByUserIDResponse" message="SmtOAPersonOffice_GetResultByUserID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitResult">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/SubmitResult" message="SmtOAPersonOffice_SubmitResult_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/SubmitResultResponse" message="SmtOAPersonOffice_SubmitResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeList" message="SmtOAPersonOffice_GetEmployeeList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeListResponse" message="SmtOAPersonOffice_GetEmployeeList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyApp" message="SmtOAPersonOffice_Get_ESurveyApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppResponse" message="SmtOAPersonOffice_Get_ESurveyApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyApps">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyApps" message="SmtOAPersonOffice_Get_ESurveyApps_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppsResponse" message="SmtOAPersonOffice_Get_ESurveyApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyAppChecked">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppChecked" message="SmtOAPersonOffice_Get_ESurveyAppChecked_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppCheckedResponse" message="SmtOAPersonOffice_Get_ESurveyAppChecked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_MyVisistedSurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_MyVisistedSurvey" message="SmtOAPersonOffice_Get_MyVisistedSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_MyVisistedSurveyResponse" message="SmtOAPersonOffice_Get_MyVisistedSurvey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_EsurveyApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Add_EsurveyApp" message="SmtOAPersonOffice_Add_EsurveyApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Add_EsurveyAppResponse" message="SmtOAPersonOffice_Add_EsurveyApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upd_ESurveyApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyApp" message="SmtOAPersonOffice_Upd_ESurveyApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyAppResponse" message="SmtOAPersonOffice_Upd_ESurveyApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Del_ESurveyApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Del_ESurveyApp" message="SmtOAPersonOffice_Del_ESurveyApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Del_ESurveyAppResponse" message="SmtOAPersonOffice_Del_ESurveyApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStaticfactonVisistedByEmployID">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployID" message="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployIDResponse" message="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ESurveyResult">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResult" message="SmtOAPersonOffice_Get_ESurveyResult_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResultResponse" message="SmtOAPersonOffice_Get_ESurveyResult_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Get_ESurveyResults">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResults" message="SmtOAPersonOffice_Get_ESurveyResults_InputMessage" />
@@ -1422,101 +1628,29 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Result_ESurveyByRequireID" message="SmtOAPersonOffice_Result_ESurveyByRequireID_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Result_ESurveyByRequireIDResponse" message="SmtOAPersonOffice_Result_ESurveyByRequireID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInfoListByOptFlag">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoListByOptFlag" message="SmtOAPersonOffice_GetInfoListByOptFlag_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoListByOptFlagResponse" message="SmtOAPersonOffice_GetInfoListByOptFlag_OutputMessage" />
+    <wsdl:operation name="AddRequire">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddRequire" message="SmtOAPersonOffice_AddRequire_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddRequireResponse" message="SmtOAPersonOffice_AddRequire_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInfoById">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoById" message="SmtOAPersonOffice_GetInfoById_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoByIdResponse" message="SmtOAPersonOffice_GetInfoById_OutputMessage" />
+    <wsdl:operation name="UpdRequire">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdRequire" message="SmtOAPersonOffice_UpdRequire_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdRequireResponse" message="SmtOAPersonOffice_UpdRequire_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetInfoByTitle">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoByTitle" message="SmtOAPersonOffice_GetInfoByTitle_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoByTitleResponse" message="SmtOAPersonOffice_GetInfoByTitle_OutputMessage" />
+    <wsdl:operation name="GetRequireData">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetRequireData" message="SmtOAPersonOffice_GetRequireData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetRequireDataResponse" message="SmtOAPersonOffice_GetRequireData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveys">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveys" message="SmtOAPersonOffice_AddEmpSurveys_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResponse" message="SmtOAPersonOffice_AddEmpSurveys_OutputMessage" />
+    <wsdl:operation name="GetEmployeeSurveyAppByCheckstateAndDate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDate" message="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurvey" message="SmtOAPersonOffice_AddEmployeeSurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyResponse" message="SmtOAPersonOffice_AddEmployeeSurvey_OutputMessage" />
+    <wsdl:operation name="GetDataBySurveying">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetDataBySurveying" message="SmtOAPersonOffice_GetDataBySurveying_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetDataBySurveyingResponse" message="SmtOAPersonOffice_GetDataBySurveying_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmpSurveys">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmpSurveys" message="SmtOAPersonOffice_DeleteEmpSurveys_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmpSurveysResponse" message="SmtOAPersonOffice_DeleteEmpSurveys_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveys">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveys" message="SmtOAPersonOffice_UpdateEmpSurveys_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysResponse" message="SmtOAPersonOffice_UpdateEmpSurveys_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmpSurveysSubjectList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysSubjectList" message="SmtOAPersonOffice_GetEmpSurveysSubjectList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_GetEmpSurveysSubjectList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysSubject">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubject" message="SmtOAPersonOffice_DelEmpSurveysSubject_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectResponse" message="SmtOAPersonOffice_DelEmpSurveysSubject_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysSubject">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubject" message="SmtOAPersonOffice_AddEmpSurveysSubject_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectResponse" message="SmtOAPersonOffice_AddEmpSurveysSubject_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysSubjectList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectList" message="SmtOAPersonOffice_AddEmpSurveysSubjectList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_AddEmpSurveysSubjectList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Save_SubjectAnswer">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Save_SubjectAnswer" message="SmtOAPersonOffice_Save_SubjectAnswer_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Save_SubjectAnswerResponse" message="SmtOAPersonOffice_Save_SubjectAnswer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysSubjectList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectList" message="SmtOAPersonOffice_DelEmpSurveysSubjectList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_DelEmpSurveysSubjectList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysSubject">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubject" message="SmtOAPersonOffice_UpdateEmpSurveysSubject_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectResponse" message="SmtOAPersonOffice_UpdateEmpSurveysSubject_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysSubjectList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectList" message="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysAnswer">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswer" message="SmtOAPersonOffice_AddEmpSurveysAnswer_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerResponse" message="SmtOAPersonOffice_AddEmpSurveysAnswer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmpSurveysAnswerList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysAnswerList" message="SmtOAPersonOffice_GetEmpSurveysAnswerList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_GetEmpSurveysAnswerList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysAnswerList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerList" message="SmtOAPersonOffice_AddEmpSurveysAnswerList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_AddEmpSurveysAnswerList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DelEmpSurveysAnswerList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysAnswerList" message="SmtOAPersonOffice_DelEmpSurveysAnswerList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_DelEmpSurveysAnswerList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmpSurveysAnswerList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerList" message="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmpSurveysResultList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResultList" message="SmtOAPersonOffice_AddEmpSurveysResultList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResultListResponse" message="SmtOAPersonOffice_AddEmpSurveysResultList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionDistribute">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionDistribute" message="SmtOAPersonOffice_AddSatisfactionDistribute_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionDistributeResponse" message="SmtOAPersonOffice_AddSatisfactionDistribute_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionDistribute">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionDistribute" message="SmtOAPersonOffice_UpdSatisfactionDistribute_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionDistributeResponse" message="SmtOAPersonOffice_UpdSatisfactionDistribute_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionDistributeChild">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionDistributeChild" message="SmtOAPersonOffice_GetSatisfactionDistributeChild_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionDistributeChildResponse" message="SmtOAPersonOffice_GetSatisfactionDistributeChild_OutputMessage" />
+    <wsdl:operation name="AddSurveying">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSurveying" message="SmtOAPersonOffice_AddSurveying_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSurveyingResponse" message="SmtOAPersonOffice_AddSurveying_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddRequireDistribute">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddRequireDistribute" message="SmtOAPersonOffice_AddRequireDistribute_InputMessage" />
@@ -1530,13 +1664,241 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetDistributeData" message="SmtOAPersonOffice_GetDistributeData_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetDistributeDataResponse" message="SmtOAPersonOffice_GetDistributeData_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataBySurveying">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetDataBySurveying" message="SmtOAPersonOffice_GetDataBySurveying_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetDataBySurveyingResponse" message="SmtOAPersonOffice_GetDataBySurveying_OutputMessage" />
+    <wsdl:operation name="AddRequireMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddRequireMaster" message="SmtOAPersonOffice_AddRequireMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddRequireMasterResponse" message="SmtOAPersonOffice_AddRequireMaster_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddSurveying">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSurveying" message="SmtOAPersonOffice_AddSurveying_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSurveyingResponse" message="SmtOAPersonOffice_AddSurveying_OutputMessage" />
+    <wsdl:operation name="UpdRequireMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdRequireMaster" message="SmtOAPersonOffice_UpdRequireMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdRequireMasterResponse" message="SmtOAPersonOffice_UpdRequireMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterDataByLoading">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetMasterDataByLoading" message="SmtOAPersonOffice_GetMasterDataByLoading_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetMasterDataByLoadingResponse" message="SmtOAPersonOffice_GetMasterDataByLoading_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSurveyDataByCultivateForCheckState">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckState" message="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckStateResponse" message="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultByCultivateForID">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetResultByCultivateForID" message="SmtOAPersonOffice_GetResultByCultivateForID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetResultByCultivateForIDResponse" message="SmtOAPersonOffice_GetResultByCultivateForID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSurveyByCheckstateAndDate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDate" message="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionApp" message="SmtOAPersonOffice_AddSatisfactionApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionAppResponse" message="SmtOAPersonOffice_AddSatisfactionApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionApp">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionApp" message="SmtOAPersonOffice_UpdSatisfactionApp_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionAppResponse" message="SmtOAPersonOffice_UpdSatisfactionApp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequireByCheckstateAndDate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDate" message="SmtOAPersonOffice_GetRequireByCheckstateAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetRequireByCheckstateAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionAppChild">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionAppChild" message="SmtOAPersonOffice_GetSatisfactionAppChild_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionAppChildResponse" message="SmtOAPersonOffice_GetSatisfactionAppChild_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionDistribute">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionDistribute" message="SmtOAPersonOffice_AddSatisfactionDistribute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionDistributeResponse" message="SmtOAPersonOffice_AddSatisfactionDistribute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionDistribute">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionDistribute" message="SmtOAPersonOffice_UpdSatisfactionDistribute_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionDistributeResponse" message="SmtOAPersonOffice_UpdSatisfactionDistribute_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionDistributeChild">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionDistributeChild" message="SmtOAPersonOffice_GetSatisfactionDistributeChild_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionDistributeChildResponse" message="SmtOAPersonOffice_GetSatisfactionDistributeChild_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSatisfactionMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionMaster" message="SmtOAPersonOffice_AddSatisfactionMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionMasterResponse" message="SmtOAPersonOffice_AddSatisfactionMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdSatisfactionMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionMaster" message="SmtOAPersonOffice_UpdSatisfactionMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionMasterResponse" message="SmtOAPersonOffice_UpdSatisfactionMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterByCheckstateAndDate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDate" message="SmtOAPersonOffice_GetMasterByCheckstateAndDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetMasterByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetMasterByCheckstateAndDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSatisfactionMasterChild">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionMasterChild" message="SmtOAPersonOffice_GetSatisfactionMasterChild_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionMasterChildResponse" message="SmtOAPersonOffice_GetSatisfactionMasterChild_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementInfo">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementInfo" message="SmtOAPersonOffice_GetTravelmanagementInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementInfoResponse" message="SmtOAPersonOffice_GetTravelmanagementInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementById">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementById" message="SmtOAPersonOffice_GetTravelmanagementById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementByIdResponse" message="SmtOAPersonOffice_GetTravelmanagementById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementBysId">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementBysId" message="SmtOAPersonOffice_GetTravelmanagementBysId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementBysIdResponse" message="SmtOAPersonOffice_GetTravelmanagementBysId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccordingToBusinesstripIdCheck">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheck" message="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheckResponse" message="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistTravelmanagement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelmanagement" message="SmtOAPersonOffice_IsExistTravelmanagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelmanagementResponse" message="SmtOAPersonOffice_IsExistTravelmanagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTravelmanagement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelmanagement" message="SmtOAPersonOffice_UpdateTravelmanagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelmanagementResponse" message="SmtOAPersonOffice_UpdateTravelmanagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTravelmanagement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelmanagement" message="SmtOAPersonOffice_DeleteTravelmanagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelmanagementResponse" message="SmtOAPersonOffice_DeleteTravelmanagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TravelmanagementAdd">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelmanagementAdd" message="SmtOAPersonOffice_TravelmanagementAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelmanagementAddResponse" message="SmtOAPersonOffice_TravelmanagementAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementRoomInfos">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfos" message="SmtOAPersonOffice_GetTravelmanagementRoomInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosResponse" message="SmtOAPersonOffice_GetTravelmanagementRoomInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementRoomInfosListBySearch">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearch" message="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearchResponse" message="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinesstripDetail">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetBusinesstripDetail" message="SmtOAPersonOffice_GetBusinesstripDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetBusinesstripDetailResponse" message="SmtOAPersonOffice_GetBusinesstripDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsContractCanBrowser">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsContractCanBrowser" message="SmtOAPersonOffice_IsContractCanBrowser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsContractCanBrowserResponse" message="SmtOAPersonOffice_IsContractCanBrowser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelmanagementListByUserId">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementListByUserId" message="SmtOAPersonOffice_GetTravelmanagementListByUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementListByUserIdResponse" message="SmtOAPersonOffice_GetTravelmanagementListByUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnderwayTravelmanagement">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetUnderwayTravelmanagement" message="SmtOAPersonOffice_GetUnderwayTravelmanagement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetUnderwayTravelmanagementResponse" message="SmtOAPersonOffice_GetUnderwayTravelmanagement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoAdd">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoAdd" message="SmtOAPersonOffice_OrderMealInfoAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoAddResponse" message="SmtOAPersonOffice_OrderMealInfoAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistOrderMealInfoByAdd">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAdd" message="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAddResponse" message="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoDel">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoDel" message="SmtOAPersonOffice_OrderMealInfoDel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoDelResponse" message="SmtOAPersonOffice_OrderMealInfoDel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderMealInfoUpdate">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoUpdate" message="SmtOAPersonOffice_OrderMealInfoUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoUpdateResponse" message="SmtOAPersonOffice_OrderMealInfoUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealSingleInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealSingleInfoById" message="SmtOAPersonOffice_GetOrderMealSingleInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealSingleInfoByIdResponse" message="SmtOAPersonOffice_GetOrderMealSingleInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealInfos">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfos" message="SmtOAPersonOffice_GetOrderMealInfos_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosResponse" message="SmtOAPersonOffice_GetOrderMealInfos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderMealInfosListByTitleTimeSearch">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearch" message="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearchResponse" message="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementInfo">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementInfo" message="SmtOAPersonOffice_GetTravelReimbursementInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementInfoResponse" message="SmtOAPersonOffice_GetTravelReimbursementInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTravelReimbursementById">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementById" message="SmtOAPersonOffice_GetTravelReimbursementById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementByIdResponse" message="SmtOAPersonOffice_GetTravelReimbursementById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Apporval">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_Apporval" message="SmtOAPersonOffice_Get_Apporval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalResponse" message="SmtOAPersonOffice_Get_Apporval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApporvalList" message="SmtOAPersonOffice_GetApporvalList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApporvalListResponse" message="SmtOAPersonOffice_GetApporvalList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalListforMVC">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApporvalListforMVC" message="SmtOAPersonOffice_GetApporvalListforMVC_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApporvalListforMVCResponse" message="SmtOAPersonOffice_GetApporvalListforMVC_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddApporval">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddApporval" message="SmtOAPersonOffice_AddApporval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddApporvalResponse" message="SmtOAPersonOffice_AddApporval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporval">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporval" message="SmtOAPersonOffice_DeleteApporval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalResponse" message="SmtOAPersonOffice_DeleteApporval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApporval">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateApporval" message="SmtOAPersonOffice_UpdateApporval_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateApporvalResponse" message="SmtOAPersonOffice_UpdateApporval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalList" message="SmtOAPersonOffice_DeleteApporvalList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalListResponse" message="SmtOAPersonOffice_DeleteApporvalList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddApprovalSet">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddApprovalSet" message="SmtOAPersonOffice_AddApprovalSet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddApprovalSetResponse" message="SmtOAPersonOffice_AddApprovalSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalSetByOrgType">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalSetByOrgType" message="SmtOAPersonOffice_GetApprovalSetByOrgType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalSetByOrgTypeResponse" message="SmtOAPersonOffice_GetApprovalSetByOrgType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyandDepartmentid">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentid" message="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentidResponse" message="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypeByCompanyid">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyid" message="SmtOAPersonOffice_GetApprovalTypeByCompanyid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyidResponse" message="SmtOAPersonOffice_GetApprovalTypeByCompanyid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApprovalTypesByCompanyIDs">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDs" message="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDsResponse" message="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ApporvalTemplet">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalTemplet" message="SmtOAPersonOffice_Get_ApporvalTemplet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalTempletResponse" message="SmtOAPersonOffice_Get_ApporvalTemplet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_ApporvalTempletByApporvalType">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalTempletByApporvalType" message="SmtOAPersonOffice_Get_ApporvalTempletByApporvalType_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalTempletByApporvalTypeResponse" message="SmtOAPersonOffice_Get_ApporvalTempletByApporvalType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApporvalTempletList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApporvalTempletList" message="SmtOAPersonOffice_GetApporvalTempletList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApporvalTempletListResponse" message="SmtOAPersonOffice_GetApporvalTempletList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddApporvalTemplet">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddApporvalTemplet" message="SmtOAPersonOffice_AddApporvalTemplet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddApporvalTempletResponse" message="SmtOAPersonOffice_AddApporvalTemplet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalTemplet">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalTemplet" message="SmtOAPersonOffice_DeleteApporvalTemplet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalTempletResponse" message="SmtOAPersonOffice_DeleteApporvalTemplet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApporvalTemplet">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateApporvalTemplet" message="SmtOAPersonOffice_UpdateApporvalTemplet_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateApporvalTempletResponse" message="SmtOAPersonOffice_UpdateApporvalTemplet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApporvalTempletList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalTempletList" message="SmtOAPersonOffice_DeleteApporvalTempletList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalTempletListResponse" message="SmtOAPersonOffice_DeleteApporvalTempletList_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AreaAllowanceADD">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AreaAllowanceADD" message="SmtOAPersonOffice_AreaAllowanceADD_InputMessage" />
@@ -1674,270 +2036,6 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetCopyTravleSolution" message="SmtOAPersonOffice_GetCopyTravleSolution_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetCopyTravleSolutionResponse" message="SmtOAPersonOffice_GetCopyTravleSolution_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddRequireMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddRequireMaster" message="SmtOAPersonOffice_AddRequireMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddRequireMasterResponse" message="SmtOAPersonOffice_AddRequireMaster_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdRequireMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdRequireMaster" message="SmtOAPersonOffice_UpdRequireMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdRequireMasterResponse" message="SmtOAPersonOffice_UpdRequireMaster_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetMasterDataByLoading">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetMasterDataByLoading" message="SmtOAPersonOffice_GetMasterDataByLoading_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetMasterDataByLoadingResponse" message="SmtOAPersonOffice_GetMasterDataByLoading_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetSurveyDataByCultivateForCheckState">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckState" message="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSurveyDataByCultivateForCheckStateResponse" message="SmtOAPersonOffice_GetSurveyDataByCultivateForCheckState_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetResultByCultivateForID">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetResultByCultivateForID" message="SmtOAPersonOffice_GetResultByCultivateForID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetResultByCultivateForIDResponse" message="SmtOAPersonOffice_GetResultByCultivateForID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyByCheckstateAndDate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDate" message="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetEmployeeSurveyByCheckstateAndDate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetInfroByTitle">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfroByTitle" message="SmtOAPersonOffice_GetInfroByTitle_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfroByTitleResponse" message="SmtOAPersonOffice_GetInfroByTitle_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyMaster" message="SmtOAPersonOffice_AddEmployeeSurveyMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyMasterResponse" message="SmtOAPersonOffice_AddEmployeeSurveyMaster_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyAnswer">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswer" message="SmtOAPersonOffice_AddEmployeeSurveyAnswer_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswerResponse" message="SmtOAPersonOffice_AddEmployeeSurveyAnswer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeAnswer">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeAnswer" message="SmtOAPersonOffice_GetEmployeeAnswer_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeAnswerResponse" message="SmtOAPersonOffice_GetEmployeeAnswer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyQuestion">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestion" message="SmtOAPersonOffice_AddEmployeeSurveyQuestion_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestionResponse" message="SmtOAPersonOffice_AddEmployeeSurveyQuestion_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionsMaster">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionsMaster" message="SmtOAPersonOffice_AddSatisfactionsMaster_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionsMasterResponse" message="SmtOAPersonOffice_AddSatisfactionsMaster_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Add_SSurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Add_SSurvey" message="SmtOAPersonOffice_Add_SSurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Add_SSurveyResponse" message="SmtOAPersonOffice_Add_SSurvey_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetSurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSurvey" message="SmtOAPersonOffice_GetSurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSurveyResponse" message="SmtOAPersonOffice_GetSurvey_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Get_SSurveys">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_SSurveys" message="SmtOAPersonOffice_Get_SSurveys_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_SSurveysResponse" message="SmtOAPersonOffice_Get_SSurveys_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetWorkerCordListByUserId">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetWorkerCordListByUserId" message="SmtOAPersonOffice_GetWorkerCordListByUserId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetWorkerCordListByUserIdResponse" message="SmtOAPersonOffice_GetWorkerCordListByUserId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteWorkerCordList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteWorkerCordList" message="SmtOAPersonOffice_DeleteWorkerCordList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteWorkerCordListResponse" message="SmtOAPersonOffice_DeleteWorkerCordList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordAdd">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordAdd" message="SmtOAPersonOffice_WorkerCordAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordAddResponse" message="SmtOAPersonOffice_WorkerCordAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordDel">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordDel" message="SmtOAPersonOffice_WorkerCordDel_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordDelResponse" message="SmtOAPersonOffice_WorkerCordDel_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="WorkerCordUpdate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/WorkerCordUpdate" message="SmtOAPersonOffice_WorkerCordUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/WorkerCordUpdateResponse" message="SmtOAPersonOffice_WorkerCordUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddSatisfactionApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionApp" message="SmtOAPersonOffice_AddSatisfactionApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddSatisfactionAppResponse" message="SmtOAPersonOffice_AddSatisfactionApp_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdSatisfactionApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionApp" message="SmtOAPersonOffice_UpdSatisfactionApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdSatisfactionAppResponse" message="SmtOAPersonOffice_UpdSatisfactionApp_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetRequireByCheckstateAndDate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDate" message="SmtOAPersonOffice_GetRequireByCheckstateAndDate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetRequireByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetRequireByCheckstateAndDate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetSatisfactionAppChild">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionAppChild" message="SmtOAPersonOffice_GetSatisfactionAppChild_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetSatisfactionAppChildResponse" message="SmtOAPersonOffice_GetSatisfactionAppChild_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementInfo">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementInfo" message="SmtOAPersonOffice_GetTravelmanagementInfo_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementInfoResponse" message="SmtOAPersonOffice_GetTravelmanagementInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementById">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementById" message="SmtOAPersonOffice_GetTravelmanagementById_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementByIdResponse" message="SmtOAPersonOffice_GetTravelmanagementById_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementBysId">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementBysId" message="SmtOAPersonOffice_GetTravelmanagementBysId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementBysIdResponse" message="SmtOAPersonOffice_GetTravelmanagementBysId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAccordingToBusinesstripIdCheck">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheck" message="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetAccordingToBusinesstripIdCheckResponse" message="SmtOAPersonOffice_GetAccordingToBusinesstripIdCheck_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelmanagement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelmanagement" message="SmtOAPersonOffice_IsExistTravelmanagement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelmanagementResponse" message="SmtOAPersonOffice_IsExistTravelmanagement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTravelmanagement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelmanagement" message="SmtOAPersonOffice_UpdateTravelmanagement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelmanagementResponse" message="SmtOAPersonOffice_UpdateTravelmanagement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelmanagement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelmanagement" message="SmtOAPersonOffice_DeleteTravelmanagement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelmanagementResponse" message="SmtOAPersonOffice_DeleteTravelmanagement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="TravelmanagementAdd">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelmanagementAdd" message="SmtOAPersonOffice_TravelmanagementAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelmanagementAddResponse" message="SmtOAPersonOffice_TravelmanagementAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementRoomInfos">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfos" message="SmtOAPersonOffice_GetTravelmanagementRoomInfos_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosResponse" message="SmtOAPersonOffice_GetTravelmanagementRoomInfos_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementRoomInfosListBySearch">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearch" message="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementRoomInfosListBySearchResponse" message="SmtOAPersonOffice_GetTravelmanagementRoomInfosListBySearch_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetBusinesstripDetail">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetBusinesstripDetail" message="SmtOAPersonOffice_GetBusinesstripDetail_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetBusinesstripDetailResponse" message="SmtOAPersonOffice_GetBusinesstripDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsContractCanBrowser">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsContractCanBrowser" message="SmtOAPersonOffice_IsContractCanBrowser_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsContractCanBrowserResponse" message="SmtOAPersonOffice_IsContractCanBrowser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelmanagementListByUserId">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementListByUserId" message="SmtOAPersonOffice_GetTravelmanagementListByUserId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelmanagementListByUserIdResponse" message="SmtOAPersonOffice_GetTravelmanagementListByUserId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUnderwayTravelmanagement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetUnderwayTravelmanagement" message="SmtOAPersonOffice_GetUnderwayTravelmanagement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetUnderwayTravelmanagementResponse" message="SmtOAPersonOffice_GetUnderwayTravelmanagement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementInfo">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementInfo" message="SmtOAPersonOffice_GetTravelReimbursementInfo_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementInfoResponse" message="SmtOAPersonOffice_GetTravelReimbursementInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementById">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementById" message="SmtOAPersonOffice_GetTravelReimbursementById_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementByIdResponse" message="SmtOAPersonOffice_GetTravelReimbursementById_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelReimbursement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursement" message="SmtOAPersonOffice_IsExistTravelReimbursement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementResponse" message="SmtOAPersonOffice_IsExistTravelReimbursement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsExistTravelReimbursementBySportid">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportid" message="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistTravelReimbursementBySportidResponse" message="SmtOAPersonOffice_IsExistTravelReimbursementBySportid_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateNoClaims">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateNoClaims" message="SmtOAPersonOffice_UpdateNoClaims_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateNoClaimsResponse" message="SmtOAPersonOffice_UpdateNoClaims_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateTravelReimbursement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelReimbursement" message="SmtOAPersonOffice_UpdateTravelReimbursement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateTravelReimbursementResponse" message="SmtOAPersonOffice_UpdateTravelReimbursement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelReimbursement">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursement" message="SmtOAPersonOffice_DeleteTravelReimbursement_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementResponse" message="SmtOAPersonOffice_DeleteTravelReimbursement_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteTravelReimbursementByBusinesstripId">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripId" message="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteTravelReimbursementByBusinesstripIdResponse" message="SmtOAPersonOffice_DeleteTravelReimbursementByBusinesstripId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="TravelReimbursementAdd">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAdd" message="SmtOAPersonOffice_TravelReimbursementAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddResponse" message="SmtOAPersonOffice_TravelReimbursementAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="TravelReimbursementAddSimple">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddSimple" message="SmtOAPersonOffice_TravelReimbursementAddSimple_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/TravelReimbursementAddSimpleResponse" message="SmtOAPersonOffice_TravelReimbursementAddSimple_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CheckTravelReimbursementByBusinesstrip">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstrip" message="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/CheckTravelReimbursementByBusinesstripResponse" message="SmtOAPersonOffice_CheckTravelReimbursementByBusinesstrip_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementRoomInfos">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfos" message="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementRoomInfosResponse" message="SmtOAPersonOffice_GetTravelReimbursementRoomInfos_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementDetail">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementDetail" message="SmtOAPersonOffice_GetTravelReimbursementDetail_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementDetailResponse" message="SmtOAPersonOffice_GetTravelReimbursementDetail_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetTravelReimbursementListByUserId">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserId" message="SmtOAPersonOffice_GetTravelReimbursementListByUserId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetTravelReimbursementListByUserIdResponse" message="SmtOAPersonOffice_GetTravelReimbursementListByUserId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Get_Apporval">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_Apporval" message="SmtOAPersonOffice_Get_Apporval_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ApporvalResponse" message="SmtOAPersonOffice_Get_Apporval_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetApporvalList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApporvalList" message="SmtOAPersonOffice_GetApporvalList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApporvalListResponse" message="SmtOAPersonOffice_GetApporvalList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddApporval">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddApporval" message="SmtOAPersonOffice_AddApporval_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddApporvalResponse" message="SmtOAPersonOffice_AddApporval_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteApporval">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporval" message="SmtOAPersonOffice_DeleteApporval_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalResponse" message="SmtOAPersonOffice_DeleteApporval_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateApporval">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateApporval" message="SmtOAPersonOffice_UpdateApporval_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateApporvalResponse" message="SmtOAPersonOffice_UpdateApporval_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteApporvalList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalList" message="SmtOAPersonOffice_DeleteApporvalList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteApporvalListResponse" message="SmtOAPersonOffice_DeleteApporvalList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddApprovalSet">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddApprovalSet" message="SmtOAPersonOffice_AddApprovalSet_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddApprovalSetResponse" message="SmtOAPersonOffice_AddApprovalSet_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalSetByOrgType">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalSetByOrgType" message="SmtOAPersonOffice_GetApprovalSetByOrgType_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalSetByOrgTypeResponse" message="SmtOAPersonOffice_GetApprovalSetByOrgType_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalTypeByCompanyandDepartmentid">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentid" message="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypeByCompanyandDepartmentidResponse" message="SmtOAPersonOffice_GetApprovalTypeByCompanyandDepartmentid_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetApprovalTypesByCompanyIDs">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDs" message="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApprovalTypesByCompanyIDsResponse" message="SmtOAPersonOffice_GetApprovalTypesByCompanyIDs_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddRequire">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddRequire" message="SmtOAPersonOffice_AddRequire_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddRequireResponse" message="SmtOAPersonOffice_AddRequire_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdRequire">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdRequire" message="SmtOAPersonOffice_UpdRequire_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdRequireResponse" message="SmtOAPersonOffice_UpdRequire_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetRequireData">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetRequireData" message="SmtOAPersonOffice_GetRequireData_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetRequireDataResponse" message="SmtOAPersonOffice_GetRequireData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyAppByCheckstateAndDate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDate" message="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyAppByCheckstateAndDateResponse" message="SmtOAPersonOffice_GetEmployeeSurveyAppByCheckstateAndDate_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetCalendarListByUserID">
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetCalendarListByUserID" message="SmtOAPersonOffice_GetCalendarListByUserID_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetCalendarListByUserIDResponse" message="SmtOAPersonOffice_GetCalendarListByUserID_OutputMessage" />
@@ -1962,117 +2060,109 @@
       <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetApporvalList22" message="SmtOAPersonOffice_GetApporvalList22_InputMessage" />
       <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetApporvalList22Response" message="SmtOAPersonOffice_GetApporvalList22_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DoWork" message="SmtOAPersonOffice_DoWork_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DoWorkResponse" message="SmtOAPersonOffice_DoWork_OutputMessage" />
+    <wsdl:operation name="GetInfroByTitle">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfroByTitle" message="SmtOAPersonOffice_GetInfroByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfroByTitleResponse" message="SmtOAPersonOffice_GetInfroByTitle_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoAdd">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoAdd" message="SmtOAPersonOffice_OrderMealInfoAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoAddResponse" message="SmtOAPersonOffice_OrderMealInfoAdd_OutputMessage" />
+    <wsdl:operation name="AddEmployeeSurveyMaster">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyMaster" message="SmtOAPersonOffice_AddEmployeeSurveyMaster_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyMasterResponse" message="SmtOAPersonOffice_AddEmployeeSurveyMaster_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="IsExistOrderMealInfoByAdd">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAdd" message="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/IsExistOrderMealInfoByAddResponse" message="SmtOAPersonOffice_IsExistOrderMealInfoByAdd_OutputMessage" />
+    <wsdl:operation name="AddEmployeeSurveyAnswer">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswer" message="SmtOAPersonOffice_AddEmployeeSurveyAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyAnswerResponse" message="SmtOAPersonOffice_AddEmployeeSurveyAnswer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoDel">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoDel" message="SmtOAPersonOffice_OrderMealInfoDel_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoDelResponse" message="SmtOAPersonOffice_OrderMealInfoDel_OutputMessage" />
+    <wsdl:operation name="GetEmployeeAnswer">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeAnswer" message="SmtOAPersonOffice_GetEmployeeAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeAnswerResponse" message="SmtOAPersonOffice_GetEmployeeAnswer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="OrderMealInfoUpdate">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoUpdate" message="SmtOAPersonOffice_OrderMealInfoUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/OrderMealInfoUpdateResponse" message="SmtOAPersonOffice_OrderMealInfoUpdate_OutputMessage" />
+    <wsdl:operation name="AddEmployeeSurveyQuestion">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestion" message="SmtOAPersonOffice_AddEmployeeSurveyQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyQuestionResponse" message="SmtOAPersonOffice_AddEmployeeSurveyQuestion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealSingleInfoById">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealSingleInfoById" message="SmtOAPersonOffice_GetOrderMealSingleInfoById_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealSingleInfoByIdResponse" message="SmtOAPersonOffice_GetOrderMealSingleInfoById_OutputMessage" />
+    <wsdl:operation name="GetInfoListByOptFlag">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoListByOptFlag" message="SmtOAPersonOffice_GetInfoListByOptFlag_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoListByOptFlagResponse" message="SmtOAPersonOffice_GetInfoListByOptFlag_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealInfos">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfos" message="SmtOAPersonOffice_GetOrderMealInfos_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosResponse" message="SmtOAPersonOffice_GetOrderMealInfos_OutputMessage" />
+    <wsdl:operation name="GetInfoById">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoById" message="SmtOAPersonOffice_GetInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoByIdResponse" message="SmtOAPersonOffice_GetInfoById_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetOrderMealInfosListByTitleTimeSearch">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearch" message="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetOrderMealInfosListByTitleTimeSearchResponse" message="SmtOAPersonOffice_GetOrderMealInfosListByTitleTimeSearch_OutputMessage" />
+    <wsdl:operation name="GetInfoByTitle">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetInfoByTitle" message="SmtOAPersonOffice_GetInfoByTitle_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetInfoByTitleResponse" message="SmtOAPersonOffice_GetInfoByTitle_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddEmployeeSurveyView">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyView" message="SmtOAPersonOffice_AddEmployeeSurveyView_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyViewResponse" message="SmtOAPersonOffice_AddEmployeeSurveyView_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveys">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveys" message="SmtOAPersonOffice_AddEmpSurveys_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResponse" message="SmtOAPersonOffice_AddEmpSurveys_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeSurveyViewList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyViewList" message="SmtOAPersonOffice_GetEmployeeSurveyViewList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeSurveyViewListResponse" message="SmtOAPersonOffice_GetEmployeeSurveyViewList_OutputMessage" />
+    <wsdl:operation name="AddEmployeeSurvey">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurvey" message="SmtOAPersonOffice_AddEmployeeSurvey_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmployeeSurveyResponse" message="SmtOAPersonOffice_AddEmployeeSurvey_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurvey" message="SmtOAPersonOffice_Get_ESurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResponse" message="SmtOAPersonOffice_Get_ESurvey_OutputMessage" />
+    <wsdl:operation name="DeleteEmpSurveys">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmpSurveys" message="SmtOAPersonOffice_DeleteEmpSurveys_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmpSurveysResponse" message="SmtOAPersonOffice_DeleteEmpSurveys_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyChecked">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyChecked" message="SmtOAPersonOffice_Get_ESurveyChecked_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyCheckedResponse" message="SmtOAPersonOffice_Get_ESurveyChecked_OutputMessage" />
+    <wsdl:operation name="UpdateEmpSurveys">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveys" message="SmtOAPersonOffice_UpdateEmpSurveys_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysResponse" message="SmtOAPersonOffice_UpdateEmpSurveys_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmployeeSurveyViewList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewList" message="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveyViewListResponse" message="SmtOAPersonOffice_DeleteEmployeeSurveyViewList_OutputMessage" />
+    <wsdl:operation name="GetEmpSurveysSubjectList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysSubjectList" message="SmtOAPersonOffice_GetEmpSurveysSubjectList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_GetEmpSurveysSubjectList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteEmployeeSurveySubjectView">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectView" message="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DeleteEmployeeSurveySubjectViewResponse" message="SmtOAPersonOffice_DeleteEmployeeSurveySubjectView_OutputMessage" />
+    <wsdl:operation name="DelEmpSurveysSubject">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubject" message="SmtOAPersonOffice_DelEmpSurveysSubject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectResponse" message="SmtOAPersonOffice_DelEmpSurveysSubject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Upd_ESurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurvey" message="SmtOAPersonOffice_Upd_ESurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyResponse" message="SmtOAPersonOffice_Upd_ESurvey_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveysSubject">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubject" message="SmtOAPersonOffice_AddEmpSurveysSubject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectResponse" message="SmtOAPersonOffice_AddEmpSurveysSubject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UpdateEmployeeSurveyView">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveyView" message="SmtOAPersonOffice_UpdateEmployeeSurveyView_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmployeeSurveyViewResponse" message="SmtOAPersonOffice_UpdateEmployeeSurveyView_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveysSubjectList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectList" message="SmtOAPersonOffice_AddEmpSurveysSubjectList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_AddEmpSurveysSubjectList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetResultByUserID">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetResultByUserID" message="SmtOAPersonOffice_GetResultByUserID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetResultByUserIDResponse" message="SmtOAPersonOffice_GetResultByUserID_OutputMessage" />
+    <wsdl:operation name="Save_SubjectAnswer">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Save_SubjectAnswer" message="SmtOAPersonOffice_Save_SubjectAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Save_SubjectAnswerResponse" message="SmtOAPersonOffice_Save_SubjectAnswer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SubmitResult">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/SubmitResult" message="SmtOAPersonOffice_SubmitResult_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/SubmitResultResponse" message="SmtOAPersonOffice_SubmitResult_OutputMessage" />
+    <wsdl:operation name="DelEmpSurveysSubjectList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectList" message="SmtOAPersonOffice_DelEmpSurveysSubjectList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_DelEmpSurveysSubjectList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetEmployeeList">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeList" message="SmtOAPersonOffice_GetEmployeeList_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmployeeListResponse" message="SmtOAPersonOffice_GetEmployeeList_OutputMessage" />
+    <wsdl:operation name="UpdateEmpSurveysSubject">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubject" message="SmtOAPersonOffice_UpdateEmpSurveysSubject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectResponse" message="SmtOAPersonOffice_UpdateEmpSurveysSubject_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyApp" message="SmtOAPersonOffice_Get_ESurveyApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppResponse" message="SmtOAPersonOffice_Get_ESurveyApp_OutputMessage" />
+    <wsdl:operation name="UpdateEmpSurveysSubjectList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectList" message="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysSubjectListResponse" message="SmtOAPersonOffice_UpdateEmpSurveysSubjectList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyApps">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyApps" message="SmtOAPersonOffice_Get_ESurveyApps_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppsResponse" message="SmtOAPersonOffice_Get_ESurveyApps_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveysAnswer">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswer" message="SmtOAPersonOffice_AddEmpSurveysAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerResponse" message="SmtOAPersonOffice_AddEmpSurveysAnswer_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyAppChecked">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppChecked" message="SmtOAPersonOffice_Get_ESurveyAppChecked_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyAppCheckedResponse" message="SmtOAPersonOffice_Get_ESurveyAppChecked_OutputMessage" />
+    <wsdl:operation name="GetEmpSurveysAnswerList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysAnswerList" message="SmtOAPersonOffice_GetEmpSurveysAnswerList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_GetEmpSurveysAnswerList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Get_MyVisistedSurvey">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_MyVisistedSurvey" message="SmtOAPersonOffice_Get_MyVisistedSurvey_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_MyVisistedSurveyResponse" message="SmtOAPersonOffice_Get_MyVisistedSurvey_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveysAnswerList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerList" message="SmtOAPersonOffice_AddEmpSurveysAnswerList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_AddEmpSurveysAnswerList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Add_EsurveyApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Add_EsurveyApp" message="SmtOAPersonOffice_Add_EsurveyApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Add_EsurveyAppResponse" message="SmtOAPersonOffice_Add_EsurveyApp_OutputMessage" />
+    <wsdl:operation name="DelEmpSurveysAnswerList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysAnswerList" message="SmtOAPersonOffice_DelEmpSurveysAnswerList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/DelEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_DelEmpSurveysAnswerList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Upd_ESurveyApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyApp" message="SmtOAPersonOffice_Upd_ESurveyApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Upd_ESurveyAppResponse" message="SmtOAPersonOffice_Upd_ESurveyApp_OutputMessage" />
+    <wsdl:operation name="UpdateEmpSurveysAnswerList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerList" message="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/UpdateEmpSurveysAnswerListResponse" message="SmtOAPersonOffice_UpdateEmpSurveysAnswerList_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Del_ESurveyApp">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Del_ESurveyApp" message="SmtOAPersonOffice_Del_ESurveyApp_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Del_ESurveyAppResponse" message="SmtOAPersonOffice_Del_ESurveyApp_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetStaticfactonVisistedByEmployID">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployID" message="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/GetStaticfactonVisistedByEmployIDResponse" message="SmtOAPersonOffice_GetStaticfactonVisistedByEmployID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="Get_ESurveyResult">
-      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResult" message="SmtOAPersonOffice_Get_ESurveyResult_InputMessage" />
-      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/Get_ESurveyResultResponse" message="SmtOAPersonOffice_Get_ESurveyResult_OutputMessage" />
+    <wsdl:operation name="AddEmpSurveysResultList">
+      <wsdl:input wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResultList" message="SmtOAPersonOffice_AddEmpSurveysResultList_InputMessage" />
+      <wsdl:output wsaw:Action="urn:SmtOAPersonOffice/AddEmpSurveysResultListResponse" message="SmtOAPersonOffice_AddEmpSurveysResultList_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

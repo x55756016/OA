@@ -10,24 +10,24 @@
     >
     <controls:TabControl x:Name="TabTravel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Style="{StaticResource TabControlStyle}">
         <controls:TabItem  x:Name="tbbTravelapplication" Header="出差申请" Visibility="Visible" Style="{StaticResource TabItemStyle}">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+            <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
                 <Grid Margin="4,0,0,0" x:Name="TravelapplicationGd">
                 </Grid>
-            </ScrollViewer>
+            <!--</ScrollViewer>-->
         </controls:TabItem>
 
         <controls:TabItem x:Name="TabReport" Header="{Binding Converter={StaticResource ResourceConveter}, Source=TRIPREPORT}" Visibility="Collapsed" Style="{StaticResource TabItemStyle}">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+            <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
                 <Grid Margin="4,0,0,0" x:Name="ReportGd">
                 </Grid>
-            </ScrollViewer>
+            <!--</ScrollViewer>-->
         </controls:TabItem>
 
         <controls:TabItem Header="出差报销" x:Name="traveformFather" Style="{StaticResource TabItemStyle}">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">
+            <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}">-->
                 <Grid Margin="4,0,0,0" x:Name="TravelReimbursementGd">
                 </Grid>
-            </ScrollViewer>
+            <!--</ScrollViewer>-->
         </controls:TabItem>
     </controls:TabControl>
 </smtLocal:BaseForm>

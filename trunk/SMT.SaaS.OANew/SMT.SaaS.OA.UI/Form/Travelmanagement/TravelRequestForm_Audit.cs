@@ -21,7 +21,6 @@ using System.Windows.Media;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SAAS.Platform.Logging;
 using SMT.SaaS.MobileXml;
-using System.Xml.Linq;
 
 namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 {
@@ -72,15 +71,32 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             List<ToolbarItem> items = new List<ToolbarItem>();
             if (formType != FormTypes.Browse && formType != FormTypes.Audit)
             {
+                if (!isAlterTrave)//修改行程不需显示
+                {
+                    ToolbarItem item = new ToolbarItem
+                    {
+                        DisplayType = ToolbarItemDisplayTypes.Image,
+                        Key = "0",
+                        Title = Utility.GetResourceStr("SAVE"),
+                        ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_save.png"
+                    };
+                    items.Add(item);
+                }
+            }
+            if (Master_Golbal!=null&&
+                Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString()
+                && formType==FormTypes.Edit)
+            {
                 ToolbarItem item = new ToolbarItem
                 {
                     DisplayType = ToolbarItemDisplayTypes.Image,
-                    Key = "0",
-                    Title = Utility.GetResourceStr("SAVE"),
-                    ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_save.png"
+                    Key = "3",
+                    Title = "删除",
+                    ImageUrl = "/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png"
                 };
                 items.Add(item);
             }
+
             return items;
         }
 
@@ -363,60 +379,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 }
             }
             string a = mx.TableToXml(Info, TraveDetailList_Golbal, StrSource, AutoList);
-            a = CheckXml(a);//检查是否有超标
-            return a;
-        }
 
-        /// <summary>
-        /// 对生成的xml进行检查，如果交通工具超标则加上相应属性
-        /// </summary>
-        /// <param name="strXml">xml</param>
-        /// <returns>处理后xml</returns>
-        private string CheckXml(string strXml)
-        {
-            try
-            {
-                string title = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-                XDocument xDocc = XDocument.Parse(strXml);
-                var tripDetails = from customer in xDocc.Descendants("Object")
-                                  where customer.FirstAttribute.Value == "T_OA_BUSINESSTRIPDETAIL"
-                                  select customer;
-                foreach (var item in tripDetails)
-                {
-                    //获取交通工具和等级两个的属性
-                    var detail = from de in item.Descendants("Attribute")
-                                 where de.FirstAttribute.Value == "TYPEOFTRAVELTOOLS" ||
-                                 de.FirstAttribute.Value == "TAKETHETOOLLEVEL"
-                                 select de;
-                    string tools = detail.First().Attribute("DataValue").Value;//交通工具
-                    string toolLevel = detail.Last().Attribute("DataValue").Value;//交通工具等级
-                    #region 判断及添加属性
-                    int i = CheckTraveToolStand(tools, toolLevel, Master_Golbal.POSTLEVEL);//检查超标与否
-                    switch (i)
-                    {
-                        case 0://类型超标
-                            // 第一个数据为交通工具
-                            detail.First().SetAttributeValue("Color", "red");
-                            detail.First().SetAttributeValue("Tooltip", "交通工具超标");
-                            // 第二个数据为交通级别
-                            detail.Last().SetAttributeValue("Color", "red");
-                            detail.Last().SetAttributeValue("Tooltip", "交通工具级别超标");
-                            break;
-                        case 1://级别超标
-                            detail.Last().SetAttributeValue("Color", "red");
-                            detail.Last().SetAttributeValue("Tooltip", "交通工具级别超标");
-                            break;
-                        case 2://没超标
-                            break;
-                    }
-                    #endregion
-                }
-                return title + xDocc.ToString();
-            }
-            catch
-            {
-                return strXml;
-            }
+            return a;
         }
         #endregion
 

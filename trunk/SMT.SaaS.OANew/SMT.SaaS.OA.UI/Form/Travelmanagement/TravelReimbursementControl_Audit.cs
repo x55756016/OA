@@ -22,7 +22,6 @@ using SMT.Saas.Tools.FBServiceWS;
 using SMT.SAAS.Platform.Logging;
 using SMT.SaaS.MobileXml;
 using SMT.SaaS.OA.UI.AgentChannel;
-using System.Xml.Linq;
 
 namespace SMT.SaaS.OA.UI.UserControls
 {
@@ -79,7 +78,7 @@ namespace SMT.SaaS.OA.UI.UserControls
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "CHECKSTATE", TravelReimbursement_Golbal.CHECKSTATE, GetCheckState(TravelReimbursement_Golbal.CHECKSTATE)));//审核状态
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "BUSINESSTRIPID", businesstrID, string.Empty));//出差申请ID
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "AVAILABLECREDIT", UsableMoney, string.Empty));//可用额度
-            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTSTANDARDS", bxbz, string.Empty));//报销标准
+            AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTSTANDARDS", textStandards.Text, string.Empty));//报销标准
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "REIMBURSEMENTOFCOSTS", fbCtr.Order.TOTALMONEY.ToString(), string.Empty));//报销总计
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "POSTLEVEL", EmployeePostLevel, string.Empty));//出差人的岗位级别
             AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "CONTENT", TravelReimbursement_Golbal.CONTENT, TravelReimbursement_Golbal.CONTENT));//报告内容
@@ -208,6 +207,8 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (fbCtr.Order.REMARK != null)
                 {
                     AutoList.Add(basedata("T_FB_EXTENSIONORDERDETAIL", "FBREMARK", fbCtr.Order.REMARK, fbCtr.Order.REMARK, fbCtr.Order.EXTENSIONALORDERID));//科目报销备注
+
+                    AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "FBREMARK", fbCtr.Order.REMARK, fbCtr.Order.REMARK));//科目报销备注,同时加入主表
                 }
                 if (fbCtr.Order.APPLYTYPE == 1)
                 {
@@ -217,9 +218,10 @@ namespace SMT.SaaS.OA.UI.UserControls
                 {
                     StrType = "冲借款";
                 }
-                if (fbCtr.Order.REMARK != null)
+                if (!string.IsNullOrEmpty(StrType))
                 {
                     AutoList.Add(basedata("T_FB_EXTENSIONORDERDETAIL", "EXTENSIONTYPE", StrType, StrType, fbCtr.Order.EXTENSIONALORDERID));//科目报销备注
+                    AutoList.Add(basedata("T_OA_TRAVELREIMBURSEMENT", "EXTENSIONTYPE", StrType, StrType));//科目报销备注,同时加入主表
                 }
                 foreach (FBEntity item in fbCtr.ListDetail)//预算费用报销明细
                 {
@@ -286,114 +288,8 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             //string a = mx.TableToXml(Info, TrListObj, StrSource, AutoList);
             string a = mx.TableToXmlForTravel(Info, TrListObj, StrSource, AutoList);
-            a = CheckXml(a);//检查是否有超标
+
             return a;
-        }
-
-        /// <summary>
-        /// 对生成的xml进行检查，如果交通工具超标则加上相应属性
-        /// </summary>
-        /// <param name="strXml">xml</param>
-        /// <returns>处理后xml</returns>
-        private string CheckXml(string strXml)
-        {
-            try
-            {
-                string title = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
-                XDocument xDocc = XDocument.Parse(strXml);
-                var tripDetails = from customer in xDocc.Descendants("Object")
-                                  where customer.FirstAttribute.Value == "T_OA_REIMBURSEMENTDETAIL"
-                                  select customer;
-                foreach (var item in tripDetails)
-                {
-                    #region 处理交通工具和等级两个的属性
-                    var detail = from de in item.Descendants("Attribute")
-                                 where de.FirstAttribute.Value == "TYPEOFTRAVELTOOLS" ||
-                                 de.FirstAttribute.Value == "TAKETHETOOLLEVEL"
-                                 select de;
-                    string tools = detail.First().Attribute("DataValue").Value;//交通工具
-                    string toolLevel = detail.Last().Attribute("DataValue").Value;//交通工具等级
-                    int i = CheckTraveToolStand(tools, toolLevel, EmployeePostLevel);//检查超标与否
-                    switch (i)
-                    {
-                        case 0://类型超标
-                            // 第一个数据为交通工具
-                            detail.First().SetAttributeValue("Color", "red");
-                            detail.First().SetAttributeValue("Tooltip", "交通工具超标");
-                            // 第二个数据为交通级别
-                            detail.Last().SetAttributeValue("Color", "red");
-                            detail.Last().SetAttributeValue("Tooltip", "交通工具级别超标");
-                            break;
-                        case 1://交通级别超标
-                            detail.Last().SetAttributeValue("Color", "red");
-                            detail.Last().SetAttributeValue("Tooltip", "交通工具级别超标");
-                            break;
-                        case 2://没超标
-                            break;
-                        default: break;
-                    }
-                    #endregion
-                    #region 处理住宿费
-                    var accdetail = from de in item.Descendants("Attribute")
-                                    where de.FirstAttribute.Value == "STARTDATE" ||
-                                 de.FirstAttribute.Value == "ACCOMMODATION"
-                                    select de;
-                    string sTime = accdetail.First().Attribute("DataValue").Value;//出差开始时间
-                    if (IsRed(sTime))
-                    {
-                        accdetail.Last().SetAttributeValue("Color", "red");
-                        accdetail.Last().SetAttributeValue("Tooltip", "住宿费超标");
-                    }
-                    #endregion
-                }
-                return title + xDocc.ToString();
-            }
-            catch
-            {
-                return strXml;
-            }
-        }
-
-        /// <summary>
-        /// 根据开始时间早DataGrid中找到对于行的住宿费文本框信息，红色则表示超标
-        /// </summary>
-        /// <param name="strStartTime">出差开始时间</param>
-        /// <returns>是否超标</returns>
-        private bool IsRed(string strStartTime)
-        {
-            bool isRed = false;
-            try
-            {
-                if (DaGrs.ItemsSource == null)
-                {
-                    return isRed;
-                }
-                foreach (object obj in DaGrs.ItemsSource)
-                {
-                    if (DaGrs.Columns[9].GetCellContent(obj) == null || DaGrs.Columns[0].GetCellContent(obj) == null)
-                    {
-                        return isRed;
-                    }
-                    DateTimePicker textStartTime = DaGrs.Columns[0].GetCellContent(obj).FindName("StartTime") as DateTimePicker;//开始时间
-                    string strTime = textStartTime.Value.ToString();
-                    if (strStartTime == strTime)
-                    {
-                        TextBox textAccommodation = DaGrs.Columns[9].GetCellContent(obj).FindName("txtACCOMMODATION") as TextBox;//住宿费文本框的颜色
-                        var accScb = textAccommodation.Foreground as SolidColorBrush;
-                        if (accScb.Color == Colors.Red)//和当前文本框对比，如果当前文本框为红色，则表示超标
-                        {
-                            isRed = true;
-                        }
-                        break;
-                    }
-                }
-                return isRed;
-            }
-            catch (Exception)
-            {
-                return isRed;
-            }
-
         }
         #endregion
 

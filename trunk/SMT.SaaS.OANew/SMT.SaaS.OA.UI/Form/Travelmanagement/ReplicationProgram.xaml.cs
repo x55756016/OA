@@ -21,6 +21,18 @@ namespace SMT.SaaS.OA.UI.UserControls.Travelmanagement
 {
     public partial class ReplicationProgram : BaseForm, IEntityEditor
     {
+        public delegate void SelectSolutionEventHandler(Object sender, SelectSolutionEventArgs e);
+        public event SelectSolutionEventHandler SelectSolutionComplete; //声明事件
+        // 定义BoiledEventArgs类，传递给Observer所感兴趣的信息
+        public class SelectSolutionEventArgs : EventArgs
+        {
+            public readonly T_OA_TRAVELSOLUTIONS solution;
+            public SelectSolutionEventArgs(T_OA_TRAVELSOLUTIONS Solution)
+            {
+                this.solution = Solution;
+            }
+        }
+
         private SmtOAPersonOfficeClient spo;
         private T_OA_TRAVELSOLUTIONS taavel;
 
@@ -113,7 +125,12 @@ namespace SMT.SaaS.OA.UI.UserControls.Travelmanagement
 
             if (ent != null)
             {
-                Save(ent);
+                if (this.SelectSolutionComplete != null)
+                {
+                    SelectSolutionEventArgs arg=new SelectSolutionEventArgs(ent);
+                    SelectSolutionComplete(this, arg);
+                }
+                //Save(ent);
             }
             RefreshUI(RefreshedTypes.CloseAndReloadData);
         }

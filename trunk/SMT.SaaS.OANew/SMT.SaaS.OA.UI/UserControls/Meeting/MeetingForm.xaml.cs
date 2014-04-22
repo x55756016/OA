@@ -211,10 +211,7 @@ namespace SMT.SaaS.OA.UI.UserControls
                 StrDepartment = Common.CurrentLoginUserInfo.UserPosts[0].PostName;
                 StrRecordID = Common.CurrentLoginUserInfo.EmployeeID;
                 tbxRecordMembers.Text = Common.CurrentLoginUserInfo.EmployeeName;
-                if (!string.IsNullOrEmpty(Common.CurrentLoginUserInfo.Telphone))
-                {
-                    txtTel.Text = Common.CurrentLoginUserInfo.Telphone;
-                }
+                txtTel.Text = Utility.GetEmployeePhone();
             }
         }
 

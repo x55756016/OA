@@ -78,6 +78,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     WhetherReimbursement = false;
                     BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, businesstrID, WhetherReimbursement);
                     EntityBrowser browser = new EntityBrowser(AddWin);
+                    browser.RemoveSMTLoading();
                     browser.FormType = FormTypes.Edit;
                     browser.EntityBrowseToolBar.MaxHeight = 0;
                     browser.MinWidth = 980;
@@ -355,11 +356,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
                             //计算本次出差的时间
                             List<string> list = new List<string>{detail.BUSINESSDAYS};
-                            if (detail.BUSINESSDAYS != null)
+                            if (detail.BUSINESSDAYS != null && !detail.BUSINESSDAYS.Contains("null"))
                             {
                                 double totalHours = System.Convert.ToDouble(list[0]);
                                 BusinessDays += totalHours;//总天数
                                 toodays = totalHours;//单条数据的天数
+                            }
+                            else
+                            {
+                                detail.BUSINESSDAYS = "0";
                             }
                             double tresult = toodays;//计算本次出差的总天数
 
@@ -404,7 +409,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     if (entareaallowance.TRANSPORTATIONSUBSIDIES != null)
                                                     {
@@ -430,7 +435,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     TrListInfo.MEALSUBSIDIES = decimal.Parse((Convert.ToDouble(entareaallowance.MEALSUBSIDIES) * toodays).ToString());
                                                 }
@@ -444,7 +449,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
@@ -477,7 +482,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
                                                     double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
@@ -503,7 +508,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
                                                     double middlemoney = (Convert.ToDouble(travelsolutions.MAXIMUMRANGEDAYS) - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * mealSubsidies;
@@ -520,7 +525,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
@@ -553,7 +558,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbTranceport;
                                                     double middlemoney = (tresult - Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS)) * tfSubsidies;
@@ -578,7 +583,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                             }
                                             else
                                             {
-                                                if (int.Parse(postLevel) > 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                                if (int.Parse(postLevel) > travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                                 {
                                                     //最小区间段金额
                                                     double minmoney = Convert.ToDouble(travelsolutions.MINIMUMINTERVALDAYS) * DbMeal;
@@ -596,7 +601,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                 }
                                 else
                                 {
-                                    if (int.Parse(postLevel) <= 8)//当前用户的岗位级别小于副部长及以上级别的补贴标准
+                                    if (int.Parse(postLevel) <= travelsolutions.NOALLOWANCEPOSTLEVEL.ToInt32())//当前用户的岗位级别小于副部长及以上级别的补贴标准
                                     {
                                         TrListInfo.TRANSPORTATIONSUBSIDIES = 0;
                                         TrListInfo.MEALSUBSIDIES = 0;
@@ -691,6 +696,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     {
                         BusinessApplicationsForm AddWin = new BusinessApplicationsForm(FormTypes.Edit, businesstrID);
                         EntityBrowser browser = new EntityBrowser(AddWin);
+                        browser.RemoveSMTLoading();
                         browser.FormType = FormTypes.Edit;
                         browser.MinWidth = 980;
                         browser.MinHeight = 445;
