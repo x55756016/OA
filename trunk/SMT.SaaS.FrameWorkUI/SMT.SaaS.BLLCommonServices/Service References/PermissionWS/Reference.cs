@@ -6269,6 +6269,9 @@ namespace SMT.SaaS.BLLCommonServices.PermissionWS {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PermissionService/GetFlowManagers", ReplyAction="http://tempuri.org/PermissionService/GetFlowManagersResponse")]
         SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER[] GetFlowManagers(string[] companyIDs);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PermissionService/GetManagers", ReplyAction="http://tempuri.org/PermissionService/GetManagersResponse")]
+        SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER[] GetManagers(string[] companyIDs);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/PermissionService/GetSysLeftMenu", ReplyAction="http://tempuri.org/PermissionService/GetSysLeftMenuResponse")]
         SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ENTITYMENU[] GetSysLeftMenu(string sysType, string userID);
         
@@ -7724,6 +7727,10 @@ namespace SMT.SaaS.BLLCommonServices.PermissionWS {
         
         public SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER[] GetFlowManagers(string[] companyIDs) {
             return base.Channel.GetFlowManagers(companyIDs);
+        }
+        
+        public SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER[] GetManagers(string[] companyIDs) {
+            return base.Channel.GetManagers(companyIDs);
         }
         
         public SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_ENTITYMENU[] GetSysLeftMenu(string sysType, string userID) {

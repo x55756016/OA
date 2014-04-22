@@ -1,0 +1,2002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AttendanceService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="" location="http://localhost:12168/AttendanceService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_AttendanceService" type="AttendanceService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportAttendMonthlyBalanceForShow">
+      <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceForShow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendMonthlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendMonthlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendMonthlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendMonthlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendMonthlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthly">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByPostID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByPostID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByDepartmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceMonthlyByCompanyID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceMonthlyByCompanyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMonthlyBalanceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBatchBalanceByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBatchBalanceByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendMonthlyBatchBalance">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendMonthlyBatchBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendMonthlyBatchBalance">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendMonthlyBatchBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendMonthlyBatchBalance">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendMonthlyBatchBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditMonthlyBatchBalance">
+      <soap:operation soapAction="urn:AttendanceService/AuditMonthlyBatchBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendYearlyBalanceByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendYearlyBalanceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendYearlyBalanceListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendYearlyBalanceListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendYearlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendYearlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendYearlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendYearlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendYearlyBalance">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendYearlyBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByCompanyID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByCompanyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByPostID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByPostID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByDepartmentID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByDepartmentID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeAttendanceYearlyByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeAttendanceYearlyByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealCancelLeaveDayByEmployeeIdAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetRealCancelLeaveDayByEmployeeIdAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeavePaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeavePaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveAdd">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeaveAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveUpdate">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeaveUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeCancelLeaveDelete">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeCancelLeaveDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeCancelLeaveByID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeCancelLeaveByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaveRdListsByLeaveRecordID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLeaveRdListsByLeaveRecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMachineSetPaging">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMachineSetPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetAdd">
+      <soap:operation soapAction="urn:AttendanceService/AttendMachineSetAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMachineSetByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMachineSetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetUpdate">
+      <soap:operation soapAction="urn:AttendanceService/AttendMachineSetUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AttendMachineSetDelete">
+      <soap:operation soapAction="urn:AttendanceService/AttendMachineSetDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAttendRecordByEvectionAndLeaveRd">
+      <soap:operation soapAction="urn:AttendanceService/UpdateAttendRecordByEvectionAndLeaveRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAbnormRecordByCompanyId">
+      <soap:operation soapAction="urn:AttendanceService/CheckAbnormRecordByCompanyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAbnormRecordByEmployeeIds">
+      <soap:operation soapAction="urn:AttendanceService/CheckAbnormRecordByEmployeeIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateEmployeeLevelDayCountByOrgID">
+      <soap:operation soapAction="urn:AttendanceService/CalculateEmployeeLevelDayCountByOrgID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListEMPLOYEEABNORMRECORD">
+      <soap:operation soapAction="urn:AttendanceService/ListEMPLOYEEABNORMRECORD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustableVacation">
+      <soap:operation soapAction="urn:AttendanceService/GetAdjustableVacation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaverecord">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLeaverecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLasterClockInRecord">
+      <soap:operation soapAction="urn:AttendanceService/GetLasterClockInRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeesIntime">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeesIntime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAbnormRdForCompanyByDate">
+      <soap:operation soapAction="urn:AttendanceService/CheckAbnormRdForCompanyByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAbnormRdForEmployeesByDate">
+      <soap:operation soapAction="urn:AttendanceService/CheckAbnormRdForEmployeesByDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendSolAsignForOutEngineXml">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendSolAsignForOutEngineXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignByEmployeeIDAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignByEmployeeIDAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVactionSetByCompanyId">
+      <soap:operation soapAction="urn:AttendanceService/GetVactionSetByCompanyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolutionDeduct">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceSolutionDeduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByID">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetRdListForAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetRdListForAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFreeLeaveDaySet">
+      <soap:operation soapAction="urn:AttendanceService/AddFreeLeaveDaySet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyFreeLeaveDaySet">
+      <soap:operation soapAction="urn:AttendanceService/ModifyFreeLeaveDaySet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveFreeLeaveDaySet">
+      <soap:operation soapAction="urn:AttendanceService/RemoveFreeLeaveDaySet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeLeaveDaySetByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/GetFreeLeaveDaySetByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetByID">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveTypeSetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetRdListForAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveTypeSetRdListForAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetAll">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveTypeSetAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveTypeSetRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveTypeSetRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeaveTypeSet">
+      <soap:operation soapAction="urn:AttendanceService/AddLeaveTypeSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyLeaveTypeSet">
+      <soap:operation soapAction="urn:AttendanceService/ModifyLeaveTypeSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLeaveTypeSet">
+      <soap:operation soapAction="urn:AttendanceService/RemoveLeaveTypeSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOvertimeRewardByID">
+      <soap:operation soapAction="urn:AttendanceService/GetOvertimeRewardByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOvertimeRewardRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetOvertimeRewardRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOvertimeReward">
+      <soap:operation soapAction="urn:AttendanceService/AddOvertimeReward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOvertimeReward">
+      <soap:operation soapAction="urn:AttendanceService/ModifyOvertimeReward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOvertimeReward">
+      <soap:operation soapAction="urn:AttendanceService/RemoveOvertimeReward" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationSetByID">
+      <soap:operation soapAction="urn:AttendanceService/GetVacationSetByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVacationSetRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetVacationSetRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVacationSet">
+      <soap:operation soapAction="urn:AttendanceService/AddVacationSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyVacationSet">
+      <soap:operation soapAction="urn:AttendanceService/ModifyVacationSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVacationSet">
+      <soap:operation soapAction="urn:AttendanceService/RemoveVacationSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPlanDaysByID">
+      <soap:operation soapAction="urn:AttendanceService/GetOutPlanDaysByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOutPlanDaysRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAllOutPlanDaysRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutPlanDaysRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetOutPlanDaysRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOutPlanDays">
+      <soap:operation soapAction="urn:AttendanceService/AddOutPlanDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOutPlanDays">
+      <soap:operation soapAction="urn:AttendanceService/ModifyOutPlanDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOutPlanDays">
+      <soap:operation soapAction="urn:AttendanceService/RemoveOutPlanDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionReportPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionReportPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionReportAdd">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionReportAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionRecordPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordAdd">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionRecordAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeEvectionRdList">
+      <soap:operation soapAction="urn:AttendanceService/AddEmployeeEvectionRdList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordUpdate">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeEvectionRecordDelete">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeEvectionRecordDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeEvectionRecordByID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeEvectionRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRecordByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceRecordByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceRecord">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdjustLeaveDetailListByLeaveRecordID">
+      <soap:operation soapAction="urn:AttendanceService/GetAdjustLeaveDetailListByLeaveRecordID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveRecordByID">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordPaged">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveRecordReports">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeLeaveRecordReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealLeaveDayByEmployeeIdAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetRealLeaveDayByEmployeeIdAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordAdd">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordUpdate">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveRecordDelete">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveRecordDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLeaveRecordByID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLeaveRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditLeaveRecord">
+      <soap:operation soapAction="urn:AttendanceService/AuditLeaveRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLeaveDaysHistory">
+      <soap:operation soapAction="urn:AttendanceService/GetLeaveDaysHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordPagingByView">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordPagingByView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSignInRecordAdd">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSignInRecordAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordUpdate">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSigninRecordUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSigninRecordByID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeSigninRecordByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordDelete">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSigninRecordDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeSigninRecordAudit">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeSigninRecordAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormRecordByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/GetAbnormRecordByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbnormRecordRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAbnormRecordRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbnormRecordCheckAlarm">
+      <soap:operation soapAction="urn:AttendanceService/AbnormRecordCheckAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeSignIn">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeSignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeAllSignIn">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeAllSignIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeSignInDetailBySigninID">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeSignInDetailBySigninID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeesignindetail">
+      <soap:operation soapAction="urn:AttendanceService/AddEmployeesignindetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyEmployeesignindetail">
+      <soap:operation soapAction="urn:AttendanceService/ModifyEmployeesignindetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLevelDaysByEmployeeIDAndLeaveFineType">
+      <soap:operation soapAction="urn:AttendanceService/GetCurLevelDaysByEmployeeIDAndLeaveFineType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportEmployeeLeaveDayCount">
+      <soap:operation soapAction="urn:AttendanceService/ExportEmployeeLeaveDayCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeleaverecordByMultSearchId">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeleaverecordByMultSearchId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLevelDayCountRdListByMultSearchByTime">
+      <soap:operation soapAction="urn:AttendanceService/GetEmployeeLevelDayCountRdListByMultSearchByTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmployeeLevelDayCount">
+      <soap:operation soapAction="urn:AttendanceService/AddEmployeeLevelDayCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLeaveDetailPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeLeaveDetailPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurLevelDayCountByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/GetCurLevelDayCountByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountByAsignAttSol">
+      <soap:operation soapAction="urn:AttendanceService/CreateLevelDayCountByAsignAttSol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountWithAll">
+      <soap:operation soapAction="urn:AttendanceService/CreateLevelDayCountWithAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLevelDayCountWithAllForSingle">
+      <soap:operation soapAction="urn:AttendanceService/CreateLevelDayCountWithAllForSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBalanceByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceRdListForAudit">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBalanceRdListForAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendMonthlyBalanceListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendMonthlyBalanceListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportAttendMonthlyBalanceRdListReports">
+      <soap:operation soapAction="urn:AttendanceService/ExportAttendMonthlyBalanceRdListReports" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportAttendMonthlyBalanceFromCSV">
+      <soap:operation soapAction="urn:AttendanceService/ImportAttendMonthlyBalanceFromCSV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="urn:AttendanceService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <soap:operation soapAction="urn:AttendanceService/SaveFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalLandStatisticListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetPersonalLandStatisticListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonalLandDetailListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetPersonalLandDetailListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutFileLandStatisticList">
+      <soap:operation soapAction="urn:AttendanceService/OutFileLandStatisticList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutFilePersonalLandDetailList">
+      <soap:operation soapAction="urn:AttendanceService/OutFilePersonalLandDetailList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPunchDateByCompanyId">
+      <soap:operation soapAction="urn:AttendanceService/GetLatestPunchDateByCompanyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClockInRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetClockInRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListByWSRealTime">
+      <soap:operation soapAction="urn:AttendanceService/ImportClockInRdListByWSRealTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromFile">
+      <soap:operation soapAction="urn:AttendanceService/ImportClockInRdListFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromLoginData">
+      <soap:operation soapAction="urn:AttendanceService/ImportClockInRdListFromLoginData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportClockInRdListFromFileAndLoginData">
+      <soap:operation soapAction="urn:AttendanceService/ImportClockInRdListFromFileAndLoginData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewClockInRd">
+      <soap:operation soapAction="urn:AttendanceService/AddNewClockInRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutClockInRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/OutClockInRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompulsoryInitialization">
+      <soap:operation soapAction="urn:AttendanceService/CompulsoryInitialization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByEmployeeID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionByEmployeeID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionByEmployeeIDAndDate">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionByEmployeeIDAndDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditAttSol">
+      <soap:operation soapAction="urn:AttendanceService/AuditAttSol" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionAndCreateRelation">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceSolutionAndCreateRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionAndChangeRelation">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceSolutionAndChangeRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendFreeLeaveByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendFreeLeaveByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAttendFreeLeaveListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAllAttendFreeLeaveListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendFreeLeaveListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendFreeLeaveListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendFreeLeave">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendFreeLeave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendFreeLeave">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendFreeLeave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendFreeLeave">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendFreeLeave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterByID">
+      <soap:operation soapAction="urn:AttendanceService/GetSchedulingTemplateMasterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterByAttSolID">
+      <soap:operation soapAction="urn:AttendanceService/GetSchedulingTemplateMasterByAttSolID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateMasterListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetSchedulingTemplateMasterListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulingTemplateMaster">
+      <soap:operation soapAction="urn:AttendanceService/AddSchedulingTemplateMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifySchedulingTemplateMaster">
+      <soap:operation soapAction="urn:AttendanceService/ModifySchedulingTemplateMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSchedulingTemplateMaster">
+      <soap:operation soapAction="urn:AttendanceService/RemoveSchedulingTemplateMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedulingTemplateMasterAndDetail">
+      <soap:operation soapAction="urn:AttendanceService/AddSchedulingTemplateMasterAndDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifySchedulingTemplateMasterAndDetail">
+      <soap:operation soapAction="urn:AttendanceService/ModifySchedulingTemplateMasterAndDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateDetailByID">
+      <soap:operation soapAction="urn:AttendanceService/GetSchedulingTemplateDetailByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSchedulingTemplateDetailRdListByMasterId">
+      <soap:operation soapAction="urn:AttendanceService/GetAllSchedulingTemplateDetailRdListByMasterId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulingTemplateDetailListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetSchedulingTemplateDetailListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTemplateDetail">
+      <soap:operation soapAction="urn:AttendanceService/AddTemplateDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyTemplateDetail">
+      <soap:operation soapAction="urn:AttendanceService/ModifyTemplateDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplateDetail">
+      <soap:operation soapAction="urn:AttendanceService/RemoveTemplateDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTemplateDetailByTemplateMasterID">
+      <soap:operation soapAction="urn:AttendanceService/RemoveTemplateDetailByTemplateMasterID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDetailForTemplateMaster">
+      <soap:operation soapAction="urn:AttendanceService/AddDetailForTemplateMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDefineByID">
+      <soap:operation soapAction="urn:AttendanceService/GetShiftDefineByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShiftDefineListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetShiftDefineListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddShiftDefine">
+      <soap:operation soapAction="urn:AttendanceService/AddShiftDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyShiftDefine">
+      <soap:operation soapAction="urn:AttendanceService/ModifyShiftDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveShiftDefine">
+      <soap:operation soapAction="urn:AttendanceService/RemoveShiftDefine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeOverTimeRecordPaging">
+      <soap:operation soapAction="urn:AttendanceService/EmployeeOverTimeRecordPaging" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOverTimeRdByID">
+      <soap:operation soapAction="urn:AttendanceService/GetOverTimeRdByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOverTimeRd">
+      <soap:operation soapAction="urn:AttendanceService/AddOverTimeRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyOverTimeRd">
+      <soap:operation soapAction="urn:AttendanceService/ModifyOverTimeRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveOverTimeRd">
+      <soap:operation soapAction="urn:AttendanceService/RemoveOverTimeRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditOverTimeRd">
+      <soap:operation soapAction="urn:AttendanceService/AuditOverTimeRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckAttSolIsExistsAsignRd">
+      <soap:operation soapAction="urn:AttendanceService/CheckAttSolIsExistsAsignRd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionAsignRdListByCreateCompanyId">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionAsignRdListByCreateCompanyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionAsign">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceSolutionAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionAsign">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceSolutionAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceSolutionAsign">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceSolutionAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditAttSolAsign">
+      <soap:operation soapAction="urn:AttendanceService/AuditAttSolAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolution">
+      <soap:operation soapAction="urn:AttendanceService/AsignAttendanceSolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolutionWithAll">
+      <soap:operation soapAction="urn:AttendanceService/AsignAttendanceSolutionWithAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolutionByOrgID">
+      <soap:operation soapAction="urn:AttendanceService/AsignAttendanceSolutionByOrgID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AsignAttendanceSolutionByOrgIDAndMonth">
+      <soap:operation soapAction="urn:AttendanceService/AsignAttendanceSolutionByOrgIDAndMonth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCompanyIDByAttendSolAsign">
+      <soap:operation soapAction="urn:AttendanceService/GetAllCompanyIDByAttendSolAsign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductMasterByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceDeductMasterByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductMasterRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceDeductMasterRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceDeductMaster">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceDeductMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceDeductMaster">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceDeductMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceDeductMaster">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceDeductMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductDetailByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceDeductDetailByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceDeductDetailRdListByMultSearch">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceDeductDetailRdListByMultSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceDeductDetail">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceDeductDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceDeductDetail">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceDeductDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAttendanceDeductDetail">
+      <soap:operation soapAction="urn:AttendanceService/RemoveAttendanceDeductDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionDeductByID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionDeductByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendanceSolutionDeductRdListByAttSolID">
+      <soap:operation soapAction="urn:AttendanceService/GetAttendanceSolutionDeductRdListByAttSolID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttendanceSolutionDeduct">
+      <soap:operation soapAction="urn:AttendanceService/AddAttendanceSolutionDeduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAttendanceSolutionDeduct">
+      <soap:operation soapAction="urn:AttendanceService/ModifyAttendanceSolutionDeduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AttendanceService">
+    <wsdl:port name="BasicHttpBinding_AttendanceService" binding="tns:BasicHttpBinding_AttendanceService">
+      <soap:address location="http://localhost:12168/AttendanceService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

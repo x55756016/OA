@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="184fe724-020c-4212-a756-7ec29391c7f6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/AttendanceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AttendanceService.wsdl" MetadataType="Wsdl" ID="6e48c78d-358a-4307-822d-0374d67a440a" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?wsdl" />
+    <MetadataFile FileName="AttendanceService.disco" MetadataType="Disco" ID="74289393-7b94-4dbe-a574-1bb35c289f6a" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?disco" />
+    <MetadataFile FileName="AttendanceService.xsd" MetadataType="Schema" ID="70d649af-72dc-4d57-a0aa-b8441b5b6c6d" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd7" />
+    <MetadataFile FileName="AttendanceService1.xsd" MetadataType="Schema" ID="4fd73866-b603-4551-9e7c-bbc59c95bef8" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="AttendanceService2.xsd" MetadataType="Schema" ID="a61a6299-c3d9-4bfa-ac43-ac3d7bbacf9b" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd5" />
+    <MetadataFile FileName="AttendanceService3.xsd" MetadataType="Schema" ID="011db702-09d3-4000-a0bd-82147fb734bd" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AttendanceService4.xsd" MetadataType="Schema" ID="275d2d34-7bc6-47f8-84e8-3fcd72c1a999" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AttendanceService5.xsd" MetadataType="Schema" ID="7264d4cd-4132-49e6-9431-f7c0c906014f" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AttendanceService6.xsd" MetadataType="Schema" ID="5d33bbdb-9a07-434d-b583-8ca69b79fb79" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AttendanceService7.xsd" MetadataType="Schema" ID="c657ec83-df86-4226-8c9a-119f21df1451" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd8" />
+    <MetadataFile FileName="AttendanceService1.wsdl" MetadataType="Wsdl" ID="99f9edf7-107d-423c-82e2-495ebf11fc18" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="AttendanceService8.xsd" MetadataType="Schema" ID="7485cb40-22f6-47df-85b7-b681c5ed5fe9" SourceId="1" SourceUrl="http://localhost:12168/AttendanceService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

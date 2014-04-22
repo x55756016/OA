@@ -240,6 +240,12 @@
   <wsdl:message name="PermissionService_GetFlowManagers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFlowManagersResponse" />
   </wsdl:message>
+  <wsdl:message name="PermissionService_GetManagers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagers" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetManagers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagersResponse" />
+  </wsdl:message>
   <wsdl:message name="PermissionService_GetSysLeftMenu_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSysLeftMenu" />
   </wsdl:message>
@@ -1147,6 +1153,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetFlowManagers" message="tns:PermissionService_GetFlowManagers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetFlowManagersResponse" message="tns:PermissionService_GetFlowManagers_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetManagers">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetManagers" message="tns:PermissionService_GetManagers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetManagersResponse" message="tns:PermissionService_GetManagers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetSysLeftMenu">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenu" message="tns:PermissionService_GetSysLeftMenu_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSysLeftMenuResponse" message="tns:PermissionService_GetSysLeftMenu_OutputMessage" />
@@ -1976,6 +1986,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetFlowManagers">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/GetFlowManagers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagers">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetManagers" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

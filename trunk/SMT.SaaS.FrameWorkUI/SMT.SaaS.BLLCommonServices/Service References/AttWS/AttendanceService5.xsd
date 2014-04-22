@@ -1,0 +1,3513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" />
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+  <xs:element name="ImportAttendMonthlyBalanceForShow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q1:UploadFileModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportAttendMonthlyBalanceForShowResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="ImportAttendMonthlyBalanceForShowResult" nillable="true" type="q2:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendMonthlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q3:T_HR_ATTENDMONTHLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendMonthlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendMonthlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendMonthlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q4:T_HR_ATTENDMONTHLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendMonthlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendMonthlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendMonthlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMonthlyBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendMonthlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendMonthlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthly">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strIsCurrentMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAssignedObjectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAssignedObjectID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByPostID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPostID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByPostIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByDepartmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDepartmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByDepartmentIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByCompanyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceMonthlyByCompanyIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMonthlyBatchBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBatchBalanceByIDResult" nillable="true" type="q5:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByMonthlyBalanceId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendMonthlyBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByMonthlyBalanceIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBatchBalanceByMonthlyBalanceIdResult" nillable="true" type="q6:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBalanceObjectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strBalanceObjectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dBalanceMonth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBatchBalanceByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBatchBalanceByMultSearchResult" nillable="true" type="q7:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendMonthlyBatchBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q8:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendMonthlyBatchBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendMonthlyBatchBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendMonthlyBatchBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q9:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendMonthlyBatchBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendMonthlyBatchBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendMonthlyBatchBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMonthlyBatchBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendMonthlyBatchBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendMonthlyBatchBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditMonthlyBatchBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q10:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditMonthlyBatchBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditMonthlyBatchBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendYearlyBalanceByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strYearlyBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendYearlyBalanceByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendYearlyBalanceByIDResult" nillable="true" type="q11:T_HR_ATTENDYEARLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendYearlyBalanceListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendYearlyBalanceListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendYearlyBalanceListByMultSearchResult" nillable="true" type="q12:ArrayOfT_HR_ATTENDYEARLYBALANCE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendYearlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q13:T_HR_ATTENDYEARLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendYearlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendYearlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendYearlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q14:T_HR_ATTENDYEARLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendYearlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendYearlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendYearlyBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strYearlyBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendYearlyBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendYearlyBalanceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByCompanyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByCompanyIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByPostID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPostID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByPostIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByDepartmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDepartmentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByDepartmentIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurDateYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeAttendanceYearlyByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRealCancelLeaveDayByEmployeeIdAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCancelLeaveId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtCancelLeaveStartTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtCancelLeaveEndTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dCancelLeaveDay" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dCancelLeaveTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dCancelLeaveTotalTime" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRealCancelLeaveDayByEmployeeIdAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRealCancelLeaveDayByEmployeeIdAndDateResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dCancelLeaveDay" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dCancelLeaveTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dCancelLeaveTotalTime" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeavePaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q15:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeavePagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeCancelLeavePagingResult" nillable="true" type="q16:ArrayOfT_HR_EMPLOYEECANCELLEAVE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="obj" nillable="true" type="q17:T_HR_EMPLOYEECANCELLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCancelLeaveAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="obj" nillable="true" type="q18:T_HR_EMPLOYEECANCELLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCancelLeaveUpdateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IDs" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeCancelLeaveDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeCancelLeaveDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeCancelLeaveByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeCancelLeaveByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeCancelLeaveByIDResult" nillable="true" type="q20:T_HR_EMPLOYEECANCELLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaveRdListsByLeaveRecordID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveRecordID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaveRdListsByLeaveRecordIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeLeaveRdListsByLeaveRecordIDResult" nillable="true" type="q21:ArrayOfT_HR_EMPLOYEECANCELLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMachineSetPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q22:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMachineSetPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMachineSetPagingResult" nillable="true" type="q23:ArrayOfT_HR_ATTENDMACHINESET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q24:T_HR_ATTENDMACHINESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMachineSetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AttendMachineSetID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMachineSetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMachineSetByIDResult" nillable="true" type="q25:T_HR_ATTENDMACHINESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q26:T_HR_ATTENDMACHINESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="attendMachineSetIDs" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AttendMachineSetDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AttendMachineSetDeleteResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAttendRecordByEvectionAndLeaveRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurMonth" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAttendRecordByEvectionAndLeaveRdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRecordByCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRecordByCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRecordByEmployeeIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchMonth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRecordByEmployeeIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeLevelDayCountByOrgID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOrgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrgId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateEmployeeLevelDayCountByOrgIDResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListEMPLOYEEABNORMRECORD">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListEMPLOYEEABNORMRECORDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="ListEMPLOYEEABNORMRECORDResult" nillable="true" type="q28:ArrayOfAbnormalAttendanceeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustableVacation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustableVacationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetAdjustableVacationResult" nillable="true" type="q29:ArrayOfAbnormalAttendanceeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaverecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaverecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetEmployeeLeaverecordResult" nillable="true" type="q30:ArrayOfAbnormalAttendanceeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLasterClockInRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLasterClockInRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Reports" minOccurs="0" name="GetLasterClockInRecordResult" nillable="true" type="q31:ArrayOfAbnormalAttendanceeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeesIntime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ownerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ownerCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeesIntimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportEmployeesIntimeResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRdForCompanyByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtPunchFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtPunchTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRdForCompanyByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRdForEmployeesByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeIds" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtPunchFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtPunchTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAbnormRdForEmployeesByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendSolAsignForOutEngineXml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q32:T_HR_ATTENDANCESOLUTIONASIGN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendSolAsignForOutEngineXmlResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignByEmployeeIDAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignByEmployeeIDAndDateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVactionSetByCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVactionSetByCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetVactionSetByCompanyIdResult" nillable="true" type="q33:T_HR_VACATIONSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionDeduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionDeductId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionDeductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFreeLeaveDaySetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetFreeLeaveDaySetByIDResult" nillable="true" type="q34:T_HR_FREELEAVEDAYSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetRdListForAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetRdListForAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetFreeLeaveDaySetRdListForAttendanceSolutionResult" nillable="true" type="q35:ArrayOfT_HR_FREELEAVEDAYSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveTypeSetID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strIsFactor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetFreeLeaveDaySetRdListByMultSearchResult" nillable="true" type="q36:ArrayOfT_HR_FREELEAVEDAYSET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFreeLeaveDaySet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q37:T_HR_FREELEAVEDAYSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFreeLeaveDaySetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFreeLeaveDaySetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyFreeLeaveDaySet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q38:T_HR_FREELEAVEDAYSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyFreeLeaveDaySetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyFreeLeaveDaySetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFreeLeaveDaySet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFreeLeaveDaySetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveFreeLeaveDaySetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveFreeLeaveDaySetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFreeLeaveDaySetByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetFreeLeaveDaySetByEmployeeIDResult" nillable="true" type="q39:ArrayOfV_EMPLOYEELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveTypeSetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeaveTypeSetByIDResult" nillable="true" type="q40:T_HR_LEAVETYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetRdListForAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetRdListForAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeaveTypeSetRdListForAttendanceSolutionResult" nillable="true" type="q41:ArrayOfT_HR_LEAVETYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetAll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeaveTypeSetAllResult" nillable="true" type="q42:ArrayOfT_HR_LEAVETYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveTypeValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveTypeSetRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeaveTypeSetRdListByMultSearchResult" nillable="true" type="q43:ArrayOfT_HR_LEAVETYPESET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLeaveTypeSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entLTRd" nillable="true" type="q44:T_HR_LEAVETYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddLeaveTypeSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddLeaveTypeSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyLeaveTypeSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entLTRd" nillable="true" type="q45:T_HR_LEAVETYPESET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyLeaveTypeSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyLeaveTypeSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveLeaveTypeSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveTypeSetId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveLeaveTypeSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveLeaveTypeSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOvertimeRewardByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOvertimeRewardId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOvertimeRewardByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOvertimeRewardByIDResult" nillable="true" type="q46:T_HR_OVERTIMEREWARD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOvertimeRewardRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOverTimePayType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOverTimeValID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOvertimeRewardRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOvertimeRewardRdListByMultSearchResult" nillable="true" type="q47:ArrayOfT_HR_OVERTIMEREWARD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOvertimeReward">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q48:T_HR_OVERTIMEREWARD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOvertimeRewardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOvertimeRewardResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOvertimeReward">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q49:T_HR_OVERTIMEREWARD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOvertimeRewardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyOvertimeRewardResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOvertimeReward">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOvertimeRewardId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOvertimeRewardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveOvertimeRewardResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVacationSetByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strVacationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVacationSetByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetVacationSetByIDResult" nillable="true" type="q50:T_HR_VACATIONSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVacationSetRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVacName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVacYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCountyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVacationSetRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetVacationSetRdListByMultSearchResult" nillable="true" type="q51:ArrayOfT_HR_VACATIONSET" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVacationSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entVacRd" nillable="true" type="q52:T_HR_VACATIONSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddVacationSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddVacationSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyVacationSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entVacRd" nillable="true" type="q53:T_HR_VACATIONSET" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyVacationSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyVacationSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVacationSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strVacationId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveVacationSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveVacationSetResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutPlanDaysByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOutPlanDayId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutPlanDaysByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOutPlanDaysByIDResult" nillable="true" type="q54:T_HR_OUTPLANDAYS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOutPlanDaysRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVacationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCountyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDayType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOutPlanDaysRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAllOutPlanDaysRdListByMultSearchResult" nillable="true" type="q55:ArrayOfT_HR_OUTPLANDAYS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutPlanDaysRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVacationId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCountyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDayType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutPlanDaysRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOutPlanDaysRdListByMultSearchResult" nillable="true" type="q56:ArrayOfT_HR_OUTPLANDAYS" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutPlanDays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q57:T_HR_OUTPLANDAYS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutPlanDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOutPlanDaysResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOutPlanDays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q58:T_HR_OUTPLANDAYS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOutPlanDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyOutPlanDaysResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOutPlanDays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOutPlanDayId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOutPlanDaysResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveOutPlanDaysResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionReportPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q59:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionReportPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeEvectionReportPagingResult" nillable="true" type="q60:ArrayOfT_HR_EMPLOYEEEVECTIONREPORT" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionReportAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q61:T_HR_EMPLOYEEEVECTIONREPORT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionReportAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeEvectionRecordPagingResult" nillable="true" type="q62:ArrayOfT_HR_EMPLOYEEEVECTIONRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q63:T_HR_EMPLOYEEEVECTIONRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeEvectionRdList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTempList" nillable="true" type="q64:ArrayOfT_HR_EMPLOYEEEVECTIONRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeEvectionRdListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q65:T_HR_EMPLOYEEEVECTIONRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="evectionRecordIDs" nillable="true" type="q66:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeEvectionRecordDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeEvectionRecordDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeEvectionRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeEvectionRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeEvectionRecordByIDResult" nillable="true" type="q67:T_HR_EMPLOYEEEVECTIONRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceRecordByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceRecordByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAttendanceRecordByEmployeeIDResult" nillable="true" type="q68:ArrayOfV_ATTENDANCERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAttendDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAttendDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceRdListByMultSearchResult" nillable="true" type="q69:ArrayOfT_HR_ATTENDANCERECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendRdId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceRecordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustLeaveDetailListByLeaveRecordID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveRecordID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdjustLeaveDetailListByLeaveRecordIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAdjustLeaveDetailListByLeaveRecordIDResult" nillable="true" type="q70:ArrayOfV_ADJUSTLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetLeaveRecordByIDResult" nillable="true" type="q71:T_HR_EMPLOYEELEAVERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q72="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q72:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeeLeaveRecordPagingResult" nillable="true" type="q73:ArrayOfV_EmpLeaveRdInfo" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordPaged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q74="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q74:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leaveTypeSetID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordPagedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeeLeaveRecordPagedResult" nillable="true" type="q75:ArrayOfV_EmpLeaveRdInfo" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeLeaveRecordReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q76="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q76:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leaveTypeSetID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeLeaveRecordReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportEmployeeLeaveRecordReportsResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRealLeaveDayByEmployeeIdAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveRecordId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtLeaveStartTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtLeaveEndTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dLeaveDay" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveTotalTime" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRealLeaveDayByEmployeeIdAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRealLeaveDayByEmployeeIdAndDateResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dLeaveDay" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveTime" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveTotalTime" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeaveRecord" nillable="true" type="q77:T_HR_EMPLOYEELEAVERECORD" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="AdjustLeaves" nillable="true" type="q78:ArrayOfV_ADJUSTLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordAddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeLeaveRecordAddResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="LeaveRecord" nillable="true" type="q79:T_HR_EMPLOYEELEAVERECORD" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="AdjustLeaves" nillable="true" type="q80:ArrayOfV_ADJUSTLEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeLeaveRecordUpdateResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveRecordIDs" nillable="true" type="q81:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveRecordDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeLeaveRecordDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaveRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLeaveRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetEmployeeLeaveRecordByIDResult" nillable="true" type="q82:V_EMPLOYEELEAVERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditLeaveRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveRecordID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="AdjustLeaves" nillable="true" type="q83:ArrayOfV_ADJUSTLEAVE" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditLeaveRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditLeaveRecordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveDaysHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strLeaveTypeSetId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveRecordId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtLeaveStartTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtLeaveEndTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dLeaveYearTimes" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveYearDays" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveMonthTimes" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveMonthDays" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveFistDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dLeaveSYearTimes" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLeaveDaysHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dLeaveYearTimes" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveYearDays" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveMonthTimes" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveMonthDays" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dLeaveFistDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dLeaveSYearTimes" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q84="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q84:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeSignInRecordPagingResult" nillable="true" type="q85:ArrayOfT_HR_EMPLOYEESIGNINRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordPagingByView">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q86:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordPagingByViewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="EmployeeSignInRecordPagingByViewResult" nillable="true" type="q87:ArrayOfV_EMPLOYEESIGNINRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q88:T_HR_EMPLOYEESIGNINRECORD" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entityList" nillable="true" type="q89:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSignInRecordAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q90:T_HR_EMPLOYEESIGNINRECORD" />
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entityList" nillable="true" type="q91:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSigninRecordByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSigninRecordByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeSigninRecordByIDResult" nillable="true" type="q92:T_HR_EMPLOYEESIGNINRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="leaveRecordIDs" nillable="true" type="q93:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeSigninRecordDeleteResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSignInID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeSigninRecordAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeSigninRecordAuditResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbnormRecordByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbnormRecordByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAbnormRecordByEmployeeIDResult" nillable="true" type="q94:ArrayOfT_HR_EMPLOYEEABNORMRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbnormRecordRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSignInState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurStartDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurEndDate" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbnormRecordRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAbnormRecordRdListByMultSearchResult" nillable="true" type="q95:ArrayOfT_HR_EMPLOYEEABNORMRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbnormRecordCheckAlarm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbnormRecordCheckAlarmResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeSignIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="signinID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeSignInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportEmployeeSignInResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeAllSignIn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q96:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="recorderDate" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeAllSignInResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportEmployeeAllSignInResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSignInDetailBySigninID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="signinID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeSignInDetailBySigninIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeSignInDetailBySigninIDResult" nillable="true" type="q97:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeesignindetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q98:T_HR_EMPLOYEESIGNINDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeesignindetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeesignindetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyEmployeesignindetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q99:T_HR_EMPLOYEESIGNINDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyEmployeesignindetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyEmployeesignindetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLevelDaysByEmployeeIDAndLeaveFineType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveRecordId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveSetId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStartDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEndDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dCurLevelDays" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLevelDaysByEmployeeIDAndLeaveFineTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dCurLevelDays" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLevelDayCountRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sOrgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLevelDayCountRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeLevelDayCountRdListByMultSearchResult" nillable="true" type="q100:ArrayOfT_HR_EMPLOYEELEVELDAYCOUNT" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeLeaveDayCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sOrgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strLeaveType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportEmployeeLeaveDayCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportEmployeeLeaveDayCountResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeleaverecordByMultSearchId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="leavetypesetid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEfficDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeleaverecordByMultSearchIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeleaverecordByMultSearchIdResult" nillable="true" type="q101:ArrayOfT_HR_EMPLOYEELEAVERECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLevelDayCountRdListByMultSearchByTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmployeeLevelDayCountRdListByMultSearchByTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetEmployeeLevelDayCountRdListByMultSearchByTimeResult" nillable="true" type="q102:ArrayOfT_HR_EMPLOYEELEVELDAYCOUNT" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeLevelDayCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q103:T_HR_EMPLOYEELEVELDAYCOUNT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmployeeLevelDayCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddEmployeeLevelDayCountResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveDetailPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q104="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q104:ArrayOfstring" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeLeaveDetailPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeLeaveDetailPagingResult" nillable="true" type="q105:ArrayOfT_HR_EMPLOYEELEVELDAYDETAILS" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLevelDayCountByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="employeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strVacType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCurLevelDayCountByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCurLevelDayCountByEmployeeIDResult" nillable="true" type="q106:T_HR_EMPLOYEELEVELDAYCOUNT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountByAsignAttSol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionAsignId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountByAsignAttSolResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountWithAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountWithAllResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountWithAllForSingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLevelDayCountWithAllForSingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateLevelDayCountWithAllForSingleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMonthlyBalanceId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBalanceByIDResult" nillable="true" type="q107:T_HR_ATTENDMONTHLYBALANCE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceRdListForAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dBalanceMonth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceRdListForAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBalanceRdListForAuditResult" nillable="true" type="q108:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dBalanceMonth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendMonthlyBalanceListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendMonthlyBalanceListByMultSearchResult" nillable="true" type="q109:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportAttendMonthlyBalanceRdListReports">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dBalanceMonth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExportAttendMonthlyBalanceRdListReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExportAttendMonthlyBalanceRdListReportsResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportAttendMonthlyBalanceFromCSV">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q110:UploadFileModel" />
+        <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitObjectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dBalanceYear" type="xs:decimal" />
+        <xs:element minOccurs="0" name="dBalanceMonth" type="xs:decimal" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportAttendMonthlyBalanceFromCSVResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWork">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DoWorkResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q111:UploadFileModel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strFilePath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalLandStatisticListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q112="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="objArgs" nillable="true" type="q112:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalLandStatisticListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPersonalLandStatisticListByMultSearchResult" nillable="true" type="q113:ArrayOfV_LandStatistic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalLandDetailListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="iLoginTimes" type="xs:int" />
+        <xs:element minOccurs="0" name="iLoginPersonCount" type="xs:int" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q114="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="objArgs" nillable="true" type="q114:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPersonalLandDetailListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetPersonalLandDetailListByMultSearchResult" nillable="true" type="q115:ArrayOfV_LandDetail" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="iLoginTimes" type="xs:int" />
+        <xs:element minOccurs="0" name="iLoginPersonCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutFileLandStatisticList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q116="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="objArgs" nillable="true" type="q116:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutFileLandStatisticListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OutFileLandStatisticListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutFilePersonalLandDetailList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q117="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="objArgs" nillable="true" type="q117:ArrayOfanyType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutFilePersonalLandDetailListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OutFilePersonalLandDetailListResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestPunchDateByCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestPunchDateByCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLatestPunchDateByCompanyIdResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClockInRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTimeFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strTimeTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClockInRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetClockInRdListByMultSearchResult" nillable="true" type="q118:ArrayOfT_HR_EMPLOYEECLOCKINRECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListByWSRealTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCompanyId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTempList" nillable="true" type="q119:ArrayOfT_HR_EMPLOYEECLOCKINRECORD" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strClientIP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListByWSRealTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q120:UploadFileModel" />
+        <xs:element minOccurs="0" name="strFileType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitObjectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromLoginData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strUnitType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitObjectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromLoginDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromFileAndLoginData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" minOccurs="0" name="UploadFile" nillable="true" type="q121:UploadFileModel" />
+        <xs:element minOccurs="0" name="strFileType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strUnitObjectId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImportClockInRdListFromFileAndLoginDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewClockInRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entClockInRd" nillable="true" type="q122:T_HR_EMPLOYEECLOCKINRECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewClockInRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddNewClockInRdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutClockInRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchDateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strPunchDateTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutClockInRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OutClockInRdListByMultSearchResult" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompulsoryInitialization">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="objId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStar" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CompulsoryInitializationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CompulsoryInitializationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionByIDResult" nillable="true" type="q123:T_HR_ATTENDANCESOLUTION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByEmployeeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByEmployeeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionByEmployeeIDResult" nillable="true" type="q124:T_HR_ATTENDANCESOLUTION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByEmployeeIDAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strEmployeeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionByEmployeeIDAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionByEmployeeIDAndDateResult" nillable="true" type="q125:T_HR_ATTENDANCESOLUTION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAttendanceSolutionName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAttendanceType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionListByMultSearchResult" nillable="true" type="q126:ArrayOfT_HR_ATTENDANCESOLUTION" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q127:T_HR_ATTENDANCESOLUTION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q128:T_HR_ATTENDANCESOLUTION" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditAttSol">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditAttSolResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditAttSolResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionAndCreateRelation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q129:T_HR_ATTENDANCESOLUTION" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entAttendanceSolutionDeducts" nillable="true" type="q130:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entAttendFreeLeaves" nillable="true" type="q131:ArrayOfT_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionAndCreateRelationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceSolutionAndCreateRelationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionAndChangeRelation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q132:T_HR_ATTENDANCESOLUTION" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entAttendanceSolutionDeducts" nillable="true" type="q133:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entAttendFreeLeaves" nillable="true" type="q134:ArrayOfT_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionAndChangeRelationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceSolutionAndChangeRelationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendFreeLeaveByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendFreeLeaveId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendFreeLeaveByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendFreeLeaveByIDResult" nillable="true" type="q135:T_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAttendFreeLeaveListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFreeLeaveDaySetID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAttendFreeLeaveListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAllAttendFreeLeaveListByMultSearchResult" nillable="true" type="q136:ArrayOfT_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendFreeLeaveListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFreeLeaveDaySetID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendFreeLeaveListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendFreeLeaveListByMultSearchResult" nillable="true" type="q137:ArrayOfT_HR_ATTENDFREELEAVE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendFreeLeave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q138:T_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendFreeLeaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendFreeLeaveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendFreeLeave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q139:T_HR_ATTENDFREELEAVE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendFreeLeaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendFreeLeaveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendFreeLeave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendFreeLeaveId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendFreeLeaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendFreeLeaveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSchedulingTemplateMasterId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSchedulingTemplateMasterByIDResult" nillable="true" type="q140:T_HR_SCHEDULINGTEMPLATEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterByAttSolID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterByAttSolIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSchedulingTemplateMasterByAttSolIDResult" nillable="true" type="q141:T_HR_SCHEDULINGTEMPLATEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSchedulingTemplateName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCircleType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateMasterListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSchedulingTemplateMasterListByMultSearchResult" nillable="true" type="q142:ArrayOfT_HR_SCHEDULINGTEMPLATEMASTER" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSchedulingTemplateMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q143:T_HR_SCHEDULINGTEMPLATEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSchedulingTemplateMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSchedulingTemplateMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifySchedulingTemplateMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q144:T_HR_SCHEDULINGTEMPLATEMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifySchedulingTemplateMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifySchedulingTemplateMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveSchedulingTemplateMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSchedulingTemplateMasterId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveSchedulingTemplateMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveSchedulingTemplateMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSchedulingTemplateMasterAndDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entMasterTemp" nillable="true" type="q145:T_HR_SCHEDULINGTEMPLATEMASTER" />
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entDetailTemps" nillable="true" type="q146:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSchedulingTemplateMasterAndDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddSchedulingTemplateMasterAndDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifySchedulingTemplateMasterAndDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entMasterTemp" nillable="true" type="q147:T_HR_SCHEDULINGTEMPLATEMASTER" />
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entDetailTemps" nillable="true" type="q148:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifySchedulingTemplateMasterAndDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifySchedulingTemplateMasterAndDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateDetailByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateDetailId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateDetailByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSchedulingTemplateDetailByIDResult" nillable="true" type="q149:T_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSchedulingTemplateDetailRdListByMasterId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateMasterId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSchedulingTemplateDetailRdListByMasterIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAllSchedulingTemplateDetailRdListByMasterIdResult" nillable="true" type="q150:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateDetailListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateMasterId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchedulingTemplateDetailListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSchedulingTemplateDetailListByMultSearchResult" nillable="true" type="q151:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTemplateDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q152:T_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddTemplateDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddTemplateDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyTemplateDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q153:T_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyTemplateDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyTemplateDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTemplateDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateDetailId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTemplateDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveTemplateDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTemplateDetailByTemplateMasterID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateMasterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTemplateDetailByTemplateMasterIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveTemplateDetailByTemplateMasterIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDetailForTemplateMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strTemplateMasterID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemps" nillable="true" type="q154:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDetailForTemplateMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDetailForTemplateMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShiftDefineByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strShiftDefineId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShiftDefineByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetShiftDefineByIDResult" nillable="true" type="q155:T_HR_SHIFTDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShiftDefineListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strShiftDefineName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCompanyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetShiftDefineListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetShiftDefineListByMultSearchResult" nillable="true" type="q156:ArrayOfT_HR_SHIFTDEFINE" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddShiftDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q157:T_HR_SHIFTDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddShiftDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddShiftDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyShiftDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q158:T_HR_SHIFTDEFINE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyShiftDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyShiftDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveShiftDefine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strShiftDefineId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveShiftDefineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveShiftDefineResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeOverTimeRecordPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="sort" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filterString" nillable="true" type="xs:string" />
+        <xs:element xmlns:q159="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paras" nillable="true" type="q159:ArrayOfanyType" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmployeeOverTimeRecordPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="EmployeeOverTimeRecordPagingResult" nillable="true" type="q160:ArrayOfT_HR_EMPLOYEEOVERTIMERECORD" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverTimeRdByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOverTimeRecordId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOverTimeRdByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetOverTimeRdByIDResult" nillable="true" type="q161:T_HR_EMPLOYEEOVERTIMERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOverTimeRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q162:T_HR_EMPLOYEEOVERTIMERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOverTimeRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOverTimeRdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOverTimeRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entOTRd" nillable="true" type="q163:T_HR_EMPLOYEEOVERTIMERECORD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyOverTimeRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyOverTimeRdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOverTimeRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="strOverTimeRecordId" nillable="true" type="q164:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOverTimeRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveOverTimeRdResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditOverTimeRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOverTimeRecordID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditOverTimeRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditOverTimeRdResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionAsignId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionAsignByIDResult" nillable="true" type="q165:T_HR_ATTENDANCESOLUTIONASIGN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAttSolIsExistsAsignRd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckStates" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckAttSolIsExistsAsignRdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckAttSolIsExistsAsignRdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AttendanceSolutionName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAssignedObjectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtStart" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dtEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" minOccurs="0" name="GetAttendanceSolutionAsignRdListByMultSearchResult" nillable="true" type="q166:ArrayOfV_ATTENDANCESOLUTIONASIGN" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByCreateCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createCompanyId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionAsignRdListByCreateCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionAsignRdListByCreateCompanyIdResult" nillable="true" type="q167:ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionAsign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q168:T_HR_ATTENDANCESOLUTIONASIGN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionAsignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceSolutionAsignResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionAsign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q169:T_HR_ATTENDANCESOLUTIONASIGN" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionAsignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceSolutionAsignResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionAsign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionAsignId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceSolutionAsignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceSolutionAsignResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditAttSolAsign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionAsignId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCheckState" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuditAttSolAsignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AuditAttSolAsignResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionAsignId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignAttendanceSolutionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionWithAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionWithAllResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionByOrgID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOrgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrgId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionByOrgIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignAttendanceSolutionByOrgIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionByOrgIDAndMonth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOrgType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strOrgId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCurYearMonth" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AsignAttendanceSolutionByOrgIDAndMonthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AsignAttendanceSolutionByOrgIDAndMonthResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCompanyIDByAttendSolAsign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strCurYearMonth" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCompanyIDByAttendSolAsignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllCompanyIDByAttendSolAsignResult" nillable="true" type="q170:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductMasterByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceDeductMasterId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductMasterByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterByIDResult" nillable="true" type="q171:T_HR_ATTENDANCEDEDUCTMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductMasterRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strAttType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductMasterRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductMasterRdListByMultSearchResult" nillable="true" type="q172:ArrayOfT_HR_ATTENDANCEDEDUCTMASTER" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceDeductMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q173:T_HR_ATTENDANCEDEDUCTMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceDeductMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceDeductMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceDeductMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q174:T_HR_ATTENDANCEDEDUCTMASTER" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceDeductMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceDeductMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceDeductMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceDeductMasterId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceDeductMasterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceDeductMasterResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductDetailByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDeductDetailId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductDetailByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailByIDResult" nillable="true" type="q175:T_HR_ATTENDANCEDEDUCTDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductDetailRdListByMultSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strOwnerID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strDeductMasterID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceDeductDetailRdListByMultSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceDeductDetailRdListByMultSearchResult" nillable="true" type="q176:ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" />
+        <xs:element minOccurs="0" name="pageCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceDeductDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q177:T_HR_ATTENDANCEDEDUCTDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceDeductDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceDeductDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceDeductDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entRd" nillable="true" type="q178:T_HR_ATTENDANCEDEDUCTDETAIL" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceDeductDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceDeductDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceDeductDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strDeductDetailId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveAttendanceDeductDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveAttendanceDeductDetailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionDeductByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolutionDeductId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionDeductByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductByIDResult" nillable="true" type="q179:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionDeductRdListByAttSolID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strAttendanceSolID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strSortKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttendanceSolutionDeductRdListByAttSolIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetAttendanceSolutionDeductRdListByAttSolIDResult" nillable="true" type="q180:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionDeduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q181:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAttendanceSolutionDeductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionDeduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entTemp" nillable="true" type="q182:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAttendanceSolutionDeductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAttendanceSolutionDeductResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

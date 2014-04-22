@@ -98,6 +98,11 @@
     <Compile Include="Enums.cs" />
     <Compile Include="MobileXml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\AttWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\BllCommonUserPermissionWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -294,6 +299,155 @@
     <None Include="FlowXml\WPBO\T_WP_PRESETCOSTCONFIG.xml.bak" />
     <None Include="FlowXml\WPBO\T_WP_YEARNORMDRAFT.xml.bak" />
     <None Include="FlowXml\WPBO\T_WP_YEARNORMDRAFTTASK.XML.bak" />
+    <None Include="Service References\AttWS\AttendanceService.wsdl" />
+    <None Include="Service References\AttWS\AttendanceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService1.wsdl" />
+    <None Include="Service References\AttWS\AttendanceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\AttendanceService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.AbnormalAttendanceeEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCEDEDUCTDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCEDEDUCTMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCESOLUTION.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDANCESOLUTIONDEDUCT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDFREELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDMACHINESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDMONTHLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDMONTHLYBATCHBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_ATTENDYEARLYBALANCE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEEABNORMRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEECANCELLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEECLOCKINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEEEVECTIONRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEEEVECTIONREPORT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEELEVELDAYCOUNT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEELEVELDAYDETAILS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEEOVERTIMERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEESIGNINDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_EMPLOYEESIGNINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_FREELEAVEDAYSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_LEAVETYPESET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_OUTPLANDAYS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_OVERTIMEREWARD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_SCHEDULINGTEMPLATEDETAIL.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_SCHEDULINGTEMPLATEMASTER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_SHIFTDEFINE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.T_HR_VACATIONSET.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_ADJUSTLEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_ATTENDANCERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_ATTENDANCESOLUTIONASIGN.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_EmpLeaveRdInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_EMPLOYEELEAVE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_EMPLOYEELEAVERECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_EMPLOYEESIGNINRECORD.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_LandDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AttWS\SMT.SaaS.BLLCommonServices.AttWS.V_LandStatistic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices.wsdl" />
     <None Include="Service References\BllCommonUserPermissionWS\BllCommonPermissionServices.xsd">
       <SubType>Designer</SubType>
@@ -1526,6 +1680,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AttWS\" />
     <WCFMetadataStorage Include="Service References\BllCommonUserPermissionWS\" />
     <WCFMetadataStorage Include="Service References\EDMUpdateCheckStateWS\" />
     <WCFMetadataStorage Include="Service References\EMServiceWS\" />
@@ -2433,6 +2588,13 @@
     <Content Include="FlowXml\WPBO\T_WP_YEARNORMDRAFTTASK.XML" />
     <None Include="Service References\OrganizationWS\OrganizationService2.disco" />
     <None Include="Service References\EngineConfigWS\EngineWcfGlobalFunction1.disco" />
+    <None Include="Service References\AttWS\AttendanceService.disco" />
+    <None Include="Service References\AttWS\configuration91.svcinfo" />
+    <None Include="Service References\AttWS\configuration.svcinfo" />
+    <None Include="Service References\AttWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Service References\FileUploadWS\configuration.svcinfo" />
     <Content Include="Service References\FileUploadWS\configuration91.svcinfo" />
     <Content Include="Service References\FileUploadWS\FileUpLoad.disco" />
