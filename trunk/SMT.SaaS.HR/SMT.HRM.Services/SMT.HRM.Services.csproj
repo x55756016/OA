@@ -132,7 +132,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="XML\T_HR_OUTAPPLYCONFIRM.xml" />
-    <Content Include="XML\T_HR_OUTAPPLYRECORD.xml" />
+    <Content Include="XML\T_HR_OUTAPPLYRECORD.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\T_HR_EMPLOYEEOVERTIMERECORD.xml" />
     <Content Include="XML\T_HR_EMPLOYEEPOST.xml" />
     <Content Include="XML\T_HR_EMPLOYEEPOSTCHANGE.xml" />

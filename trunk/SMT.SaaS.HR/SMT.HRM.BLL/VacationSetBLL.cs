@@ -162,9 +162,28 @@ namespace SMT.HRM.BLL
         /// <param name="companyId"></param>
         /// <param name="year"></param>
         /// <returns></returns>
+        public List<T_HR_VACATIONSET> GetVactionSetListByCompanyId(string companyId, string year)
+        {
+            List<T_HR_VACATIONSET> ents=new List<T_HR_VACATIONSET>();
+            var set =
+                dal.GetObjects()
+                    .Include("T_HR_OUTPLANDAYS")
+                    .Where(t => t.ASSIGNEDOBJECTTYPE == "1" && t.ASSIGNEDOBJECTID == companyId && t.VACATIONYEAR == year);
+            if (set.Count() > 0)
+            {
+                ents = set.ToList();
+            }
+            return ents;
+        }
+        /// <summary>
+        /// 根据公司，年份获取公共假期设置，包括公共假期和工作日
+        /// </summary>
+        /// <param name="companyId"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public T_HR_VACATIONSET GetVactionSetByCompanyId(string companyId, string year)
         {
-            T_HR_VACATIONSET set =
+            var set =
                 dal.GetObjects()
                     .Include("T_HR_OUTPLANDAYS")
                     .Where(t => t.ASSIGNEDOBJECTTYPE == "1" && t.ASSIGNEDOBJECTID == companyId && t.VACATIONYEAR == year)
@@ -498,5 +517,7 @@ namespace SMT.HRM.BLL
         }
 
         #endregion        
+    
+        public T_HR_VACATIONSET List { get; set; }
     }
 }

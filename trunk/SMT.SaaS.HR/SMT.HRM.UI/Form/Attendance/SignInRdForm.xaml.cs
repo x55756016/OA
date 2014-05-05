@@ -65,6 +65,10 @@ namespace SMT.HRM.UI.Form.Attendance
             if (FormType.ToString() == "New" && !string.IsNullOrEmpty(strSignInID))
             {
                 FormType = FormTypes.Edit;
+                if (type == FormTypes.Browse)
+                {
+                    FormType = type;
+                }
             }
             else
             {
@@ -665,7 +669,7 @@ namespace SMT.HRM.UI.Form.Attendance
                 {
                     SignInRecord = e.Result;
 
-                    if (FormType == FormTypes.Resubmit)
+                    if (FormType == FormTypes.Resubmit || FormType == FormTypes.Edit)
                     {
                         SignInRecord.CHECKSTATE = (Convert.ToInt32(CheckStates.UnSubmit)).ToString();
                     }

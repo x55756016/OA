@@ -228,7 +228,14 @@ namespace SMT.HRM.UI.AppControl
 
                     nuldict.DICTIONARYNAME = dictname;
                     nuldict.DICTIONARYVALUE = -1;
-                    tmpDicts.Insert(0, nuldict);
+                    if (category != "REASONCATEGORY")
+                    {
+                        tmpDicts.Insert(0, nuldict);
+                    }
+                    else
+                    {
+                        this.IsEnabled = false;
+                    }
                 }
 
                 this.ItemsSource = tmpDicts;

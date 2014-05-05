@@ -448,6 +448,12 @@ namespace SMT.HRM.UI.Views.Attendance
             //    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), "只能修改自己的单据.");
             //    return;
             //}
+            if (entSignInRd.CHECKSTATE != "0")
+            {
+                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), "只能修改未提交的单据.");
+                return;
+            }
+
 
             strSignInID = entSignInRd.SIGNINID;
             SignInRdForm formSignInRd = new SignInRdForm(FormTypes.Edit, strSignInID);

@@ -3939,5 +3939,24 @@ namespace SMT.HRM.Services
                 bll.GetAttendanceSolutionAsignByEmployeeIDAndDate(strEmployeeID,dtStart);
             }
         }
+
+
+        [OperationContract]
+        public T_HR_VACATIONSET GetVactionSetByCompanyId(string companyId, string year)
+        {
+            using (VacationSetBLL bll = new VacationSetBLL())
+            {
+                return bll.GetVactionSetByCompanyId(companyId, year);
+            }
+        }
+
+        [OperationContract]
+        public List<T_HR_VACATIONSET> GetVactionListSetByCompanyId(string companyId, string year)
+        {
+            using (VacationSetBLL bll = new VacationSetBLL())
+            {
+                return bll.GetVactionSetListByCompanyId(companyId, year);
+            }
+        }
     }
 }

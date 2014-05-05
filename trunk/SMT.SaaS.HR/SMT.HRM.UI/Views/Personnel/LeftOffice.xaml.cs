@@ -29,6 +29,8 @@ namespace SMT.HRM.UI.Views.Personnel
         private SaveFileDialog dialog = new SaveFileDialog();
         private bool? result;
         PersonnelServiceClient client;
+        public bool ViewLeaveOfficeConfirm { get; set; }
+
         public LeftOffice()
         {
             InitializeComponent();
@@ -165,13 +167,27 @@ namespace SMT.HRM.UI.Views.Personnel
         }
 
 
-
-
-
         void LeftOffice_Loaded(object sender, RoutedEventArgs e)
         {
             GetEntityLogo("T_HR_LEFTOFFICE");
+            
             Utility.CbxItemBinder(ToolBar.cbxCheckState, "CHECKSTATE", Convert.ToInt32(CheckStates.All).ToString());
+            PermissionServiceClient pClient = new PermissionServiceClient();
+            pClient.GetUserMenuPermsByUserPermissionAsync("T_HR_LEFTOFFICECONFIRM", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
+            pClient.GetUserMenuPermsByUserPermissionCompleted += new EventHandler<GetUserMenuPermsByUserPermissionCompletedEventArgs>(pClient_GetUserMenuPermsByUserPermissionCompleted);
+        }
+
+        void pClient_GetUserMenuPermsByUserPermissionCompleted(object sender, GetUserMenuPermsByUserPermissionCompletedEventArgs e)
+        {
+            var obj = e.Result;
+            if (obj != null && obj.Count>0)
+            {
+                ViewLeaveOfficeConfirm = true;
+            }
+            else
+            {
+                ViewLeaveOfficeConfirm = false;
+            }
         }
 
         void cbxCheckState_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -372,6 +388,15 @@ namespace SMT.HRM.UI.Views.Personnel
         }
         void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            //string OwnerCompanyIDs = "";
+            //string OwnerDepartmentIDs = "";
+            //string OwnerPositionIDs = "";
+            //PermissionServiceClient PermClient = new PermissionServiceClient();
+            //PermClient.GetUserByEmployeeIDAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
+            //PermClient.GetUserByEmployeeIDCompleted += new EventHandler<GetUserByEmployeeIDCompletedEventArgs>(PermClient_GetUserByEmployeeIDCompleted);   // PermClient.GetUserByEmployeeID(employeeID);
+            
+            //int i = PermissionHelper.GetPermissionValue("T_HR_LEFTOFFICECONFIRM", Permissions.Browse);
+            //ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("CAUTION"), i.ToString(), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             if (DtGrid.SelectedItems.Count > 0)
             {
                 V_LEFTOFFICEVIEW temp = DtGrid.SelectedItems[0] as V_LEFTOFFICEVIEW;
@@ -402,6 +427,15 @@ namespace SMT.HRM.UI.Views.Personnel
              Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
             }
         }
+
+        //void PermClient_GetUserByEmployeeIDCompleted(object sender, GetUserByEmployeeIDCompletedEventArgs e)
+        //{
+        //    T_SYS_USER user = e.Result;
+
+        //    SMT.SaaS.BLLCommonServices.BllCommonUserPermissionWS.BllCommonPermissionServicesClient BllPermClient = new SMT.SaaS.BLLCommonServices.BllCommonUserPermissionWS.BllCommonPermissionServicesClient();
+            
+        //    var perms = BllPermClient.GetUserMenuPermsByUserPermissionBllCommon(entityName, user, ref OwnerCompanyIDs, ref OwnerDepartmentIDs, ref OwnerPositionIDs);
+        //}
 
         void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -538,7 +572,7 @@ namespace SMT.HRM.UI.Views.Personnel
             //ImageButton ReportButton = DtGrid.Columns[6].GetCellContent(e.Row).FindName("ReportBtn") as ImageButton;
             Button ReportButton = DtGrid.Columns[8].GetCellContent(e.Row).FindName("ReportBtn") as Button;
             //判断登录用户是否有离职确认的查看权限
-            if (PermissionHelper.GetPermissionValue("T_HR_LEFTOFFICECONFIRM", Permissions.Browse) < 0)
+            if (!ViewLeaveOfficeConfirm)
             {
                 ReportButton.Visibility = System.Windows.Visibility.Collapsed;
             }
