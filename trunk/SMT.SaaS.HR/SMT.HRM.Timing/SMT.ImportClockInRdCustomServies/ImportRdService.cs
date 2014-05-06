@@ -265,7 +265,12 @@ namespace SMT.ImportClockInRdCustomServies
                     }
                     else
                     {
-                        Tracer.Debug(DateTime.Now.ToString() + "，连接打卡机失败,请联系网管检查打卡机是否正常接入网络，打卡机IP为：" + strCurIP);
+                        string msg=DateTime.Now.ToString() + "，连接打卡机失败,请联系网管检查打卡机是否正常接入网络，打卡机IP为：" + strCurIP;
+                        Tracer.Debug(msg);
+                        SMT.Foundation.Log.LogManager log = new SMT.Foundation.Log.LogManager();
+                        Exception ex = new Exception(msg);
+                        ErrorLog msgsend = new ErrorLog(ex);
+                        log.SendMail(msgsend);
                     }
                 }
                 Tracer.Debug(DateTime.Now.ToString() + "，导入打卡记录全部完成");
@@ -377,6 +382,16 @@ namespace SMT.ImportClockInRdCustomServies
                 }
                 axCZKEM1.EnableDevice(iMachineNumber, true);//enable the device
                 axCZKEM1.Disconnect();
+                int count = entTempList.Count();
+                if (count == 0)
+                {
+                    string msg = DateTime.Now.ToString() + "，连接打卡机下载的记录数为0,请联系管理员检查打卡机是否正常，打卡机IP为：" + strCurIP;
+                    Tracer.Debug(msg);
+                    SMT.Foundation.Log.LogManager log = new SMT.Foundation.Log.LogManager();
+                    Exception ex = new Exception(msg);
+                    ErrorLog msgsend = new ErrorLog(ex);
+                    log.SendMail(msgsend);
+                }
                 Tracer.Debug("下载打卡记录成功，打卡机IP为：" + strCurIP + "。已断开打卡机连接。下载记录数："+entTempList.Count());
                 string strMsg = string.Empty;
                 List<string> companyIds = new List<string>();

@@ -332,6 +332,7 @@
     <None Include="Service References\AttendanceWS\SMT.ImportClockInRdCustomServies.AttendanceWS.V_LandStatistic.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="SMT.HRM.ImportAttRecordWinSV.exe.config" />
     <None Include="SMT.ImportClockInRdCustomServies_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

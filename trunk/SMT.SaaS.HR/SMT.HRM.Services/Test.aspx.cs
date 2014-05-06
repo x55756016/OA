@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using SMT.HRM.BLL;
 using System.Xml.Linq;
 using SMT_HRM_EFModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.Services
 {
@@ -14,6 +15,10 @@ namespace SMT.HRM.Services
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LogManager log = new LogManager();
+            Exception ex = new Exception("测试发送邮件");
+            ErrorLog msg = new ErrorLog(ex);
+            log.WriteLog(msg);
             #region 定时触发测试
             //AttendanceSolutionAsignBLL bll = new AttendanceSolutionAsignBLL();
             //T_HR_ATTENDANCESOLUTIONASIGN ent = new T_HR_ATTENDANCESOLUTIONASIGN();

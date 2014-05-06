@@ -55,9 +55,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.Foundation.Log">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
-    </Reference>
     <Reference Include="Smt.Global.IContract">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
     </Reference>
@@ -225,6 +222,10 @@
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
       <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
       <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\源码\SMT.Foundation.Log\SMT.Foundation.Log.csproj">
+      <Project>{d447b55b-efda-4d85-83b3-a9b1fae682dd}</Project>
+      <Name>SMT.Foundation.Log</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.BLL\SMT.HRM.BLL.csproj">
       <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
