@@ -624,6 +624,7 @@ namespace SMT.HRM.UI.Form.Attendance
                     RefreshUI(RefreshedTypes.AuditInfo);
                 }
             }
+            RefreshUI(RefreshedTypes.AuditInfo);
             RefreshUI(RefreshedTypes.All);
         }
 
