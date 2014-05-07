@@ -57,7 +57,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             #region beyond
             Cancel = 5
 
-            #endregion 
+            #endregion
         }
         /// <summary>
         /// 审核动作
@@ -72,13 +72,13 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             /// 审核通过
             /// </summary>
             Pass = 1
-           
-        }        
+
+        }
 
         public AuditControl()
         {
             InitializeComponent();
-            
+
             //注册按钮事件。
             this.btnFail.Click += new RoutedEventHandler(btnFail_Click);
             this.btnSuccess.Click += new RoutedEventHandler(btnSuccess_Click);
@@ -97,9 +97,9 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             IsFixedFlow = true;
 
             // beyond 加入撤单
-            this.btnCancelSubmit.Click+=new RoutedEventHandler(btnCancelSubmit_Click);
+            this.btnCancelSubmit.Click += new RoutedEventHandler(btnCancelSubmit_Click);
 
-            
+
         }
 
         protected AuditOperation currAuditOperation { get; set; }
@@ -114,7 +114,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         private bool IsCanCancel = false;
         #region 属   性
         private IAuditService auditService = null;
-        
+
         private AuditAction currentAction;
         /// <summary>
         /// 当前审核流程记录详情
@@ -310,7 +310,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         /// </summary>
         public List<FLOW_FLOWRECORDDETAIL_T> AuditEntityList { get; set; }
         public List<FLOW_FLOWRECORDDETAIL_T> AllAuditEntityList { get; set; }
-        
+
         public IAuditService AuditService
         {
             get
@@ -321,7 +321,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
                     auditService.SubimtFlowCompleted += new EventHandler<SubimtFlowCompletedEventArgs>(auditService_SubimtFlowCompleted);
                     auditService.GetFlowInfoCompleted += new EventHandler<GetFlowInfoCompletedEventArgs>(auditService_GetFlowInfoCompleted);
-                    
+
                 }
                 return auditService;
             }
@@ -336,7 +336,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             }
         }
 
-        
+
 
         // 1s 冉龙军
         // 定义服务Pclient及其提交打分事件
@@ -409,7 +409,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
         void auditService_SubimtFlowCompleted(object sender, SubimtFlowCompletedEventArgs e)
         {
-            
+
             DoAuditResult(e.Result);
         }
 
@@ -524,8 +524,8 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         {
             try
             {
-                
-                
+
+
                 //beyond 加入撤单
                 if (dataResult.FlowResult == FlowResult.SUCCESS && dataResult.SubmitFlag == SubmitFlag.Cancel)
                 {
@@ -534,7 +534,8 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                     args.EndDate = System.DateTime.Now;
                     OnAuditCompleted(this, args);
                     this.BindingData();
-                }else   if (dataResult.FlowResult == FlowResult.SUCCESS)
+                }
+                else if (dataResult.FlowResult == FlowResult.SUCCESS)
                 {
 
                     AuditEventArgs args = new AuditEventArgs(AuditEventArgs.AuditResult.Auditing, dataResult);
@@ -677,9 +678,9 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 else
                 {
                     FLOW_FLOWRECORDDETAIL_T ParentFlow = this.AllAuditEntityList.FirstOrDefault(item =>
-                                    {
-                                        return item.FLOWRECORDDETAILID == currentFLOWRECORDDETAIL.PARENTSTATEID;
-                                    });
+                    {
+                        return item.FLOWRECORDDETAILID == currentFLOWRECORDDETAIL.PARENTSTATEID;
+                    });
                     //beyond 隐藏kpi
                     Pclient.KPISystemScoreAsync(AuditEntity.CreateCompanyID, "",
                         this.AuditEntity.FormID, currentFLOWRECORDDETAIL.STATECODE, this.AuditEntity.FormID, "", currentFLOWRECORDDETAIL.STATECODE,
@@ -842,8 +843,8 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 AuditSubmitData.XML = XmlObject;
             }
 
-            
-            #endregion 
+
+            #endregion
 
             AuditSubmitData.FormID = AuditEntity.FormID;
             AuditSubmitData.ModelCode = AuditEntity.ModelCode;
@@ -864,10 +865,10 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             AuditSubmitData.NextApprovalUser.UserName = NextUserName;
             AuditSubmitData.SubmitFlag = AuditSubmitFlag;
             //AuditSubmitData.XML = XmlObject;
-           
+
             AuditSubmitData.FlowSelectType = IsFixedFlow ? FlowSelectType.FixedFlow : FlowSelectType.FreeFlow;
 
-            if (!IsFixedFlow && ckbIsEndAudit.IsChecked.Value != true && action!=AuditAction.Fail)
+            if (!IsFixedFlow && ckbIsEndAudit.IsChecked.Value != true && action != AuditAction.Fail)
             {
                 if (string.IsNullOrEmpty(this.txtAuditId.Text))
                 {
@@ -899,7 +900,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             if (AuditSubmitData.FlowType == null)
                 AuditSubmitData.FlowType = FlowType.Approval;
 
-            if (AuditSubmitFlag == SubmitFlag.Approval )
+            if (AuditSubmitFlag == SubmitFlag.Approval)
             {
                 AuditSubmitData.ApprovalUser.CompanyID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
                 AuditSubmitData.ApprovalUser.DepartmentID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID;
@@ -1314,7 +1315,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //{
             //    this.expanderTest.Visibility = System.Windows.Visibility.Visible;
             //}
-            #endregion 
+            #endregion
 
             txtAuditId.Text = string.Empty;
             txtAuditName.Text = string.Empty;
@@ -1324,7 +1325,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 return;
             }
             InitParameter();
-           // GetIsFreeFlowAndIsCancel();
+            // GetIsFreeFlowAndIsCancel();
             AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
                                            "", "");
             // 获取转发列表
@@ -1344,7 +1345,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             if (e.Result == null)
             {
                 #region 是否可以使用自选流程
-             
+
                 //if (IsUserFreeFlow)
                 //{//使用自选流程
                 //    RdbAuditFree.Visibility = Visibility.Visible;
@@ -1440,7 +1441,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                         {
                             GotoState(AuditFormViewState.End);
                         }
-                        
+
                         IsAuditUser = false;
                     }
                     //Modify by 安凯航 2011年5月21日
@@ -1498,18 +1499,18 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                     {
                         //显示代理人beyond
                         auditResults.ForEach(master =>
+                        {
+                            if (master.FLOW_FLOWRECORDDETAIL_T != null)
                             {
-                                if (master.FLOW_FLOWRECORDDETAIL_T != null)
+                                master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
                                 {
-                                    master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
-                                        {
-                                            if (!string.IsNullOrEmpty(detail.AGENTERNAME))
-                                            {
-                                                detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
-                                            }
-                                        });
-                                }
-                            });
+                                    if (!string.IsNullOrEmpty(detail.AGENTERNAME))
+                                    {
+                                        detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
+                                    }
+                                });
+                            }
+                        });
                         this.AuditListPnl.ItemsSource = auditResults;
                         this.AuditListPnl.Visibility = System.Windows.Visibility.Visible;
                     }
@@ -1527,7 +1528,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 else
                 {
                     #region 使用自选流程
-                    
+
                     //if (IsUserFreeFlow)
                     //{//使用自选流程
                     //    RdbAuditFree.Visibility = Visibility.Visible;
@@ -1550,7 +1551,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
                 #region beyond
                 this.ExtendLoad(AllAuditEntityList);
-                #endregion 
+                #endregion
             }
             if (OnBindingDataCompleted.IsNotNull())
                 OnBindingDataCompleted(this, EventArgs.Empty);
@@ -1913,7 +1914,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         private void LoadConsultation(List<FLOW_FLOWRECORDDETAIL_T> listDetail)
         {
 
-           
+
             SubmitData submmitData = new SubmitData();
             submmitData.FormID = AuditEntity.FormID;
             submmitData.ModelCode = AuditEntity.ModelCode;
@@ -1977,7 +1978,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
             if (listSend.Count > 0)
             {
-               // this.expanderConsultationSend.IsExpanded = true;//龙康才:有咨询信息时默认展开
+                // this.expanderConsultationSend.IsExpanded = true;//龙康才:有咨询信息时默认展开
                 this.expanderConsultationSend.Visibility = System.Windows.Visibility.Visible;
                 this.ConsultationListSend.ItemsSource = listSend;
             }
@@ -1985,7 +1986,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             {
                 this.expanderConsultationSend.Visibility = System.Windows.Visibility.Collapsed;
             }
-            #endregion 
+            #endregion
 
             #region 回复咨询
             List<ConsultationViewModel> listReply = new List<ConsultationViewModel>();
@@ -2013,7 +2014,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             {
                 this.expanderConsultationReply.Visibility = System.Windows.Visibility.Collapsed;
             }
-            #endregion 
+            #endregion
 
             #region old
 
@@ -2090,12 +2091,12 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //{
             //    this.expanderConsultation.Visibility = System.Windows.Visibility.Collapsed;
             //}
-            #endregion 
+            #endregion
 
             if (listDetail.FirstOrDefault(detail => detail.EDITUSERID == loginUserID || detail.AGENTUSERID == loginUserID) != null)
             {
                 this.gridAudit.Visibility = System.Windows.Visibility.Visible;
-            }            
+            }
             else
             {
                 //this.gridAudit.Visibility = System.Windows.Visibility.Collapsed;
@@ -2204,7 +2205,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             DataTemplate CountersignTemplate = this.Resources["CountersignTemplate"] as DataTemplate;
             Style listboxStyle = this.Resources["ListBoxItemStyle1"] as Style;
             System.Windows.Controls.Window winSelector = new System.Windows.Controls.Window();
-            winSelector.Unloaded+=new RoutedEventHandler(winSelector_Unloaded);
+            winSelector.Unloaded += new RoutedEventHandler(winSelector_Unloaded);
             winSelector.MinHeight = 400;
             winSelector.Width = 400;
             //winSelector.Resources.Add("UserInfoTemplate", this.Resources["UserInfoTemplate"]);
@@ -2246,16 +2247,20 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             listboxCountersign.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Stretch;
             listboxCountersign.VerticalAlignment = System.Windows.VerticalAlignment.Top;
             listboxCountersign.SetValue(Grid.RowProperty, 1);
-            listviewmodel.ForEach(item => {
-                item.ListUserInfo.ForEach(ent => {
+            listviewmodel.ForEach(item =>
+            {
+                item.ListUserInfo.ForEach(ent =>
+                {
                     ent.UserInfo.CompanyName = ent.UserInfo.UserName + "(" + ent.UserInfo.CompanyName + "->" + ent.UserInfo.DepartmentName + "->" + ent.UserInfo.PostName + ")";
-                    
+
                 });
             });
             listboxCountersign.ItemsSource = listviewmodel;
 
             listboxCountersign.Height = 300;
-            listboxCountersign.Width = 350;
+            listboxCountersign.Width = 400;
+          listboxCountersign.UpdateLayout();
+          listboxCountersign.ScrollIntoView(listviewmodel);
             Button btnOK = new Button();
             btnOK.Content = "确认";
             btnOK.Margin = new Thickness(0, 0, 5, 10);
@@ -2325,20 +2330,21 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 #endregion
 
                 InnerHandIn(currAuditOperation, curAuditAction);
-                
-                
+
+
                 winSelector.Close();
                 #endregion
             };
 
 
             ContentControl parent = new ContentControl();
+         
             parent.Content = gridSelector;
-
             winSelector.Content = parent;
             gridSelector.Children.Add(tb);
             gridSelector.Children.Add(listboxCountersign);
             gridSelector.Children.Add(btnOK);
+
             FrameworkElement fe = SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot;
 
             // Window.Show("", "", Guid.NewGuid().ToString(), true, false, parent, null);
@@ -2356,7 +2362,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 this.HandIn(AuditOperation.Cancel, AuditAction.Pass);
             };
             com.SelectionBox("确定撤单", "确定撤单吗？", ComfirmWindow.titlename, "");
-           
+
         }
 
 
@@ -2386,7 +2392,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
         void engineService_GetForwardHistoryCompleted(object sender, Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs e)
         {
-            if (e.Error==null)
+            if (e.Error == null)
             {
                 if (e.Result != null)
                 {
@@ -2595,7 +2601,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         /// </summary>
         public enum AuditResult
         {
-            Auditing, Successful, Fail, Cancel, Error, Saved, CancelSubmit=9
+            Auditing, Successful, Fail, Cancel, Error, Saved, CancelSubmit = 9
         }
         /// <summary>
         /// 审核动作
@@ -3266,7 +3272,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             }
             SMT.Saas.Tools.FlowWFService.ServiceClient client = new ServiceClient();
             client.AddConsultationCompleted += new EventHandler<AsyncCompletedEventArgs>(client_AddConsultationCompleted);
-            client.AddConsultationAsync(this.ConsultationViewModel.FlowConsultation,this.ConsultationViewModel.SubmmitData);
+            client.AddConsultationAsync(this.ConsultationViewModel.FlowConsultation, this.ConsultationViewModel.SubmmitData);
             client.CloseAsync();
         }
         #endregion
@@ -3318,7 +3324,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             }
             SMT.Saas.Tools.FlowWFService.ServiceClient client = new ServiceClient();
             client.ReplyConsultationCompleted += new EventHandler<AsyncCompletedEventArgs>(client_ReplyConsultationCompleted);
-            client.ReplyConsultationAsync(this.ConsultationViewModel.FlowConsultation,this.ConsultationViewModel.SubmmitData);
+            client.ReplyConsultationAsync(this.ConsultationViewModel.FlowConsultation, this.ConsultationViewModel.SubmmitData);
             client.CloseAsync();
         }
         #endregion
@@ -3407,7 +3413,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         public UserInfoViewModel(UserInfo UserInfo)
         {
             this.UserInfo = UserInfo;
-            this.IsCheck = true;
+            this.IsCheck = false;
         }
 
         private UserInfo _UserInfo;
@@ -3487,5 +3493,5 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
 
     }
-    #endregion 
+    #endregion
 }
