@@ -136,6 +136,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnPreviousMonth = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.btnGetOaConnect = new System.Windows.Forms.Button();
+            this.txtOaConnect = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGClockRecord)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtGEmployeeLeaveRecord)).BeginInit();
@@ -196,7 +198,7 @@
             // txtMessagebox
             // 
             this.txtMessagebox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtMessagebox.Location = new System.Drawing.Point(0, 609);
+            this.txtMessagebox.Location = new System.Drawing.Point(0, 608);
             this.txtMessagebox.Multiline = true;
             this.txtMessagebox.Name = "txtMessagebox";
             this.txtMessagebox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -1024,6 +1026,8 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.txtOaConnect);
+            this.tabPage6.Controls.Add(this.btnGetOaConnect);
             this.tabPage6.Controls.Add(this.txtSql);
             this.tabPage6.Controls.Add(this.btnExcute);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -1118,6 +1122,25 @@
             this.label9.Size = new System.Drawing.Size(341, 12);
             this.label9.TabIndex = 21;
             this.label9.Text = "如果检查不出异常，请先清空考勤初始化记录状态后再检查异常";
+            // 
+            // btnGetOaConnect
+            // 
+            this.btnGetOaConnect.Location = new System.Drawing.Point(585, 355);
+            this.btnGetOaConnect.Name = "btnGetOaConnect";
+            this.btnGetOaConnect.Size = new System.Drawing.Size(109, 22);
+            this.btnGetOaConnect.TabIndex = 0;
+            this.btnGetOaConnect.Text = "OA";
+            this.btnGetOaConnect.UseVisualStyleBackColor = true;
+            this.btnGetOaConnect.Click += new System.EventHandler(this.btnGetOaConnect_Click);
+            // 
+            // txtOaConnect
+            // 
+            this.txtOaConnect.Location = new System.Drawing.Point(26, 355);
+            this.txtOaConnect.Multiline = true;
+            this.txtOaConnect.Name = "txtOaConnect";
+            this.txtOaConnect.Size = new System.Drawing.Size(535, 22);
+            this.txtOaConnect.TabIndex = 1;
+            this.txtOaConnect.Text = "ConnectionString";
             // 
             // AttendEmploee
             // 
@@ -1297,6 +1320,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtMenuName;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtOaConnect;
+        private System.Windows.Forms.Button btnGetOaConnect;
     }
 }
 

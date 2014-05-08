@@ -1697,6 +1697,13 @@ namespace SmtPortalSetUp
 
         #endregion
 
+        private void btnGetOaConnect_Click(object sender, EventArgs e)
+        {
+            AttendaceAccount.OAWS.AgentServicesClient oaClient = new AttendaceAccount.OAWS.AgentServicesClient();
+            txtOaConnect.Text=oaClient.GetAppConfigByName(txtOaConnect.Text);
+
+        }
+
     }
 
     

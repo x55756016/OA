@@ -145,6 +145,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\OAWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\OrgWs\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,11 +160,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="打卡机导入打卡记录\AttendLog.cs">
+    <Compile Include="打卡机导入打卡记录\AttendLog%28中控%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="打卡机导入打卡记录\AttendLog.Designer.cs">
-      <DependentUpon>AttendLog.cs</DependentUpon>
+    <Compile Include="打卡机导入打卡记录\AttendLog%28中控%29.Designer.cs">
+      <DependentUpon>AttendLog%28中控%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="打卡机导入打卡记录\AttendLog%28汉王%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="打卡机导入打卡记录\AttendLog%28汉王%29.Designer.cs">
+      <DependentUpon>AttendLog%28汉王%29.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form_First.resx">
       <DependentUpon>Form_First.cs</DependentUpon>
@@ -192,8 +203,11 @@
     <EmbeddedResource Include="SalaryBalanceForm.resx">
       <DependentUpon>SalaryBalanceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="打卡机导入打卡记录\AttendLog.resx">
-      <DependentUpon>AttendLog.cs</DependentUpon>
+    <EmbeddedResource Include="打卡机导入打卡记录\AttendLog%28中控%29.resx">
+      <DependentUpon>AttendLog%28中控%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="打卡机导入打卡记录\AttendLog%28汉王%29.resx">
+      <DependentUpon>AttendLog%28汉王%29.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
@@ -459,6 +473,26 @@
     </None>
     <None Include="Service References\OACommonOfficeWS\SmtOACommonOffice8.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices.wsdl" />
+    <None Include="Service References\OAWS\AgentServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices1.wsdl" />
+    <None Include="Service References\OAWS\AgentServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AgentServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\OAWS\AttendaceAccount.OAWS.T_HR_EMPLOYEE.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OrgWs\AttendaceAccount.OrgWs.T_HR_COMPANY.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -736,6 +770,13 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\OAWS\AgentServices.disco" />
+    <None Include="Service References\OAWS\configuration91.svcinfo" />
+    <None Include="Service References\OAWS\configuration.svcinfo" />
+    <None Include="Service References\OAWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SmtPortalSetup.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -770,6 +811,7 @@
     <WCFMetadataStorage Include="Service References\AttendWS\" />
     <WCFMetadataStorage Include="Service References\HRCommonSV\" />
     <WCFMetadataStorage Include="Service References\OACommonOfficeWS\" />
+    <WCFMetadataStorage Include="Service References\OAWS\" />
     <WCFMetadataStorage Include="Service References\OrgWs\" />
     <WCFMetadataStorage Include="Service References\SalaryWS\" />
   </ItemGroup>
