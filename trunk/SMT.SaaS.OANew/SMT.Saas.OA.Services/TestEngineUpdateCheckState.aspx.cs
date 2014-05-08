@@ -4,9 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SMT.SaaS.BLLCommonServices;
 using SMT.Foundation.Log;
-using SMT.SaaS.BLLCommonServices.VMServiceWS;
+using SMT.SaaS.BLLCommonServices;
 
 namespace SMT.SaaS.OA.Services
 {
@@ -65,35 +64,29 @@ namespace SMT.SaaS.OA.Services
             sopo.TravelmanagementAdd(tob,bdlist);
         }
 
-        protected void btngetMyrecord_Click(object sender, EventArgs e)
+        protected void btnGetRefreshDocData_Click(object sender, EventArgs e)
         {
-            //SMT.SaaS.BLLCommonServices.PersonalRecordWS.PersonalRecordServiceClient client = new SMT.SaaS.BLLCommonServices.PersonalRecordWS.PersonalRecordServiceClient();
-
-            //string BeginDate = string.Empty, EndDate = string.Empty;
-            //string strCreateUserID = string.Empty, strfilterString = string.Empty, strSortKey = string.Empty;
-            //int pageCount = 0;
-            //strCreateUserID = "55922953-53b1-4bb8-b15d-0c05d0e215d2";
-            ////strCreateUserID = "5347a18b-5c9c-4e40-a1c4-ce30389224ed";  
-            //strSortKey = " CREATEDATE DESC ";
-            //strfilterString = "";//SQL       
-            //SMT.SaaS.BLLCommonServices.PersonalRecordWS.T_PF_PERSONALRECORD[] myrecords =
-            //client.GetPersonalRecord(0, strSortKey, "2", strfilterString, strCreateUserID, BeginDate, EndDate, ref pageCount);
-
-            string EntityType = "T_VM_USEVEHICLEAPPLY", EntityKey = "UVAPPLYID"
-                , EntityId = "43f8623b-a7a2-4bb9-9277-f5ded09ea8cb"
-                , strXmlParams="";
-            int CheckState = 1;
-
-            VMServicesClient vmClient = new VMServicesClient();
-            Tracer.Debug("EntityType:" + EntityType + " EntityKey:" + EntityKey + "\r\n" + " EntityId:" + EntityId + " CheckState:" + CheckState + " URL:" + vmClient.Endpoint.Address + " strXmlParams:" + strXmlParams);
-
-            //int i = vmClient.UpdateCheckState(EntityType, EntityKey, EntityId, CheckState, strXmlParams);
-            string msg=string.Empty;
-            BLLCommonServices.Utility.UpdateFormCheckState("VM", EntityType, EntityKey, EntityId,BLLCommonServices.CheckStates.Approving, ref msg, strXmlParams);
-            Tracer.Debug("" + msg);
-           
-            Tracer.Debug("更新成功!");
-
+            SmtOACommonAdmin sv = new SmtOACommonAdmin();
+            SmtOAPersonOffice office = new SmtOAPersonOffice();
+            List<string>  ddddd = office.GetApprovalTypeByCompanyid("703dfb3c-d3dc-4b1d-9bf0-3507ba01b716");
+            //List<string> ddddd = office.GetApprovalTypeByCompanyid("cafdca8a-c630-4475-a65d-490d052dca36");
+            bool needreFreshData = false;
+            int pagecont=0,contdata = 0;
+            //List<string> postid = new List<string>() { "d798ead2-559b-488c-ae76-b7640afff8e7" };
+            //List<string> departmentid = new List<string>() { "c18d20e3-9f94-4b4c-ac24-b8256132e7d2" };
+            List<string> postid = new List<string>() ;
+            List<string> departmentid = new List<string>();
+            List<string> companyid = new List<string>() { "bac05c76-0f5b-40ae-b73b-8be541ed35ed" };
+            var q = sv.RefreshSendDocData("ca356aeb-ea37-41a4-a09d-0d4491b6acf2", 1, 15, ref pagecont, ref contdata,
+                postid, departmentid, companyid, ref needreFreshData, true, string.Empty, null, "2013年");
+            if (q == null)
+            {
+                Tracer.Debug("获取到公文为空");
+            }
+            else
+            {
+                Tracer.Debug("获取到公文数：" + q.Count());
+            }
         }
     }
 }

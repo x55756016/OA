@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -20,9 +21,13 @@
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <OldToolsVersion>4.0</OldToolsVersion>
     <TargetFrameworkProfile />
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,17 +51,24 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.Foundation.Core, Version=1.1.0.1218, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Enyim.Caching, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+      <HintPath>..\..\SMT.SaaS.CommonDll\MemCache\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SMT.SaaS.CommonDll\MemCache\log4net.dll</HintPath>
     </Reference>
     <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
-    <Reference Include="Smt.Global.IContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Smt.Global.IContract">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\Smt.Global.IContract.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -97,14 +109,8 @@
     <Content Include="clientaccesspolicy.xml" />
     <Content Include="EngineEventServices.svc" />
     <Content Include="EngineServices.svc" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="OAUpdateCheckServices.svc" />
-    <None Include="Service References\vm\VMServices.disco" />
-    <None Include="Service References\vm\configuration91.svcinfo" />
-    <None Include="Service References\vm\configuration.svcinfo" />
-    <None Include="Service References\vm\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SmtOACommonAdmin.svc" />
     <Content Include="SmtOACommonOffice.svc" />
     <Content Include="SmtOADocumentAdmin.svc" />
@@ -114,13 +120,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Service References\vm\VMServices.wsdl" />
-    <None Include="Service References\vm\VMServices5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\vm\VMServices6.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AgentServices.svc.cs">
@@ -145,6 +144,7 @@
     <Compile Include="Class\Enums.cs" />
     <Compile Include="Class\LoginUserInfo.cs" />
     <Compile Include="Class\PersonOffice\ApprovalManagementService.cs" />
+    <Compile Include="Class\PersonOffice\ApprovalTempletManagementService.cs" />
     <Compile Include="Class\PersonOffice\AreaAllowanceServices.cs" />
     <Compile Include="Class\PersonOffice\CalendarManagementService.cs" />
     <Compile Include="Class\PersonOffice\EmployeeSurveyControlServices.cs" />
@@ -181,11 +181,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SerializerHelper.cs" />
-    <Compile Include="Service References\vm\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="SmtOACommonAdmin.svc.cs">
       <DependentUpon>SmtOACommonAdmin.svc</DependentUpon>
     </Compile>
@@ -216,55 +211,43 @@
     <None Include="Properties\DataSources\SMT.SaaS.BLL.FlowService.Flow_FlowRecord_T.datasource" />
     <None Include="Properties\DataSources\SMT.SaaS.BLL.FlowService.Flow_ModelFlowRelation_T.datasource" />
     <None Include="Properties\DataSources\SMT_OA_EFModel.T_OA_ACCIDENTRECORD.datasource" />
+    <None Include="Properties\PublishProfiles\桌面Publish.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\vm\VMServices.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\vm\VMServices1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\vm\VMServices2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\vm\VMServices3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\vm\VMServices4.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
-      <Name>SMT.SAAS.BLLCommonServices</Name>
+    <ProjectReference Include="..\..\源码\SMT.Foundation.NewCore\SMT.Foundation.Core.csproj">
+      <Project>{9d2f51e2-9710-4c91-a66b-823eb72437fd}</Project>
+      <Name>SMT.Foundation.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.OA.BLL\SMT.SaaS.OA.BLL.csproj">
-      <Project>{B35234A0-7BF1-49B6-BDF2-4041D0763D9B}</Project>
+      <Project>{b35234a0-7bf1-49b6-bdf2-4041d0763d9b}</Project>
       <Name>SMT.SaaS.OA.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.OA.DAL\SMT.SaaS.OA.DAL.csproj">
-      <Project>{4B906A26-7F19-4707-A3DA-61482FE72BA4}</Project>
+      <Project>{4b906a26-7f19-4707-a3da-61482fe72ba4}</Project>
       <Name>SMT.SaaS.OA.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT_OA_EFModel\SMT_OA_EFModel.csproj">
-      <Project>{30D6706D-A200-4ED0-BBAA-3574E09F54D1}</Project>
+      <Project>{30d6706d-a200-4ed0-bbaa-3574e09f54d1}</Project>
       <Name>SMT_OA_EFModel</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\vm\" />
-  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

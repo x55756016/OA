@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>123</title>
+    <script type="text/javascript">
+        var seconds = 30;
+        window.onload = function () {
+            setInterval("reMainTime()", 100);
+        }
+
+        function RndNum(n) {
+            var rnd = "";
+            for (var i = 0; i < n; i++)
+                rnd += Math.floor(Math.random() * 10);
+            return rnd;
+        }
+
+        function reMainTime() {
+            if (seconds > 0) {
+                var divMsg = document.getElementById("msgDiv");
+                divMsg.innerHTML = RndNum(1);//丢入随机数
+                seconds--;
+            } else {
+                return;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="msgDiv"></div>
+</body>
+</html>

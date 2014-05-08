@@ -12,6 +12,7 @@ using SMT.SaaS.BLLCommonServices.FlowWFService;
 
 using SMT.SaaS.OA.DAL.Views;
 using SMT.SaaS.OA.DAL;
+using SMT.Foundation.Log;
 
 
 
@@ -716,7 +717,28 @@ namespace SMT.SaaS.OA.Services
             
         }
 
-        
+        /// <summary>
+        /// 获取刚发布的公文，给张秉福的新平台公司发文调用
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]        
+        public List<V_SystemNotice> RefreshSendDocData(string employeeid, int pageIndex
+            , int pageSize, ref int pageCount, ref int DataCount, List<string> postIDs
+            , List<string> companyIDs, List<string> departmentIDs
+            , ref bool NeedGetNewData, bool NeedAllData
+            , string filterString, List<object> paras, string Doctitle)
+        {
+            using (HouseInfoManagerBll houseBll = new HouseInfoManagerBll())
+            {
+                //Tracer.Debug("服务-RefreshSendDocData-公司发文中查询的内容：" + Doctitle);
+                //Tracer.Debug("服务-RefreshSendDocData-公司发文中查询的filterString：" + filterString);
+                List<V_SystemNotice> ent = houseBll.RefreshSendDocData(employeeid,pageIndex, pageSize, ref pageCount
+                    , ref DataCount, postIDs, companyIDs, departmentIDs, ref NeedGetNewData, NeedAllData
+                    , filterString, paras, Doctitle);
+                return ent != null ? ent : null;
+            }
+        }
+
 
         /// <summary>
         /// 返回房源发布信息和会议通知  专门给手机使用
@@ -731,11 +753,13 @@ namespace SMT.SaaS.OA.Services
         /// <param name="departmentIDs">部门ID集合</param>
         /// <returns></returns>
         [OperationContract]        
-        public List<V_SystemNotice> GetHouseIssueAndNoticeInfosToMobile(int pageIndex, int pageSize,ref int pageCount,ref int DataCount,string userID, List<string> postIDs, List<string> companyIDs, List<string> departmentIDs)
+        public List<V_SystemNotice> GetHouseIssueAndNoticeInfosToMobile(int pageIndex, int pageSize,ref int pageCount,ref int DataCount,string userID, List<string> postIDs, List<string> companyIDs, List<string> departmentIDs
+            )
         {
             using (HouseInfoManagerBll houseBll = new HouseInfoManagerBll())
             {
-                IQueryable<V_SystemNotice> ent = houseBll.GetHouseAndNoticeInfoToMobile(pageIndex,pageSize, ref pageCount, ref DataCount,userID, postIDs, companyIDs, departmentIDs);
+                IQueryable<V_SystemNotice> ent = houseBll.GetHouseAndNoticeInfoToMobile(pageIndex,pageSize, ref pageCount, ref DataCount,userID, postIDs, companyIDs, departmentIDs
+                ,string.Empty,null,string.Empty);
                 return ent != null ? ent.ToList() : null;
                 
             }

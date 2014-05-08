@@ -17,13 +17,14 @@ namespace SMT.SaaS.OA.Services
 {
     public partial class SmtOAPersonOffice
     {
+        #region 事项审批增删改查
         /// <summary>
         /// 获取事项审批信息
         /// </summary>
         /// <param name="id">事项审批ID</param>
         /// <returns>返回事项审批实体</returns>
         [OperationContract]
-        private T_OA_APPROVALINFO Get_Apporval(string id)
+        public T_OA_APPROVALINFO Get_Apporval(string id)
         {
             ApprovalManagementBll approvalBll = new ApprovalManagementBll();
             //using (ApprovalManagementBll approvalBll = new ApprovalManagementBll())
@@ -95,20 +96,60 @@ namespace SMT.SaaS.OA.Services
             }
             //}
         }
-        ///// <summary>
-        ///// 获取报批附件文件名
-        ///// </summary>
-        ///// <param name="approvalID"></param>
-        ///// <returns></returns>
-        //[OperationContract]
-        //public List<T_OA_FILEUPLOAD> GetApporvalFile(string approvalID)
-        //{
-        //    ApprovalManagementBll approvalBll = new ApprovalManagementBll();
-        //    //using (ApprovalManagementBll approvalBll = new ApprovalManagementBll())
-        //    //{
-        //    return approvalBll.GetApprovalFile(approvalID);
-        //    //}
-        //}
+
+
+        [OperationContract]
+        public List<T_OA_APPROVALINFO> GetApporvalListforMVC(int pageIndex, int pageSize, string sort, string filterString, object[] paras, ref int pageCount, string flagState, LoginUserInfo loginUserInfo,ref  int recordTotals)//0待审核  1已审核
+        {
+            ApprovalManagementBll approvalBll = new ApprovalManagementBll();
+            //using (ApprovalManagementBll approvalBll = new ApprovalManagementBll())
+            //{
+            if (flagState != "4")//草稿,审核完成(已过,未过)   建立人操作
+            {
+                IQueryable<T_OA_APPROVALINFO> approvalList = approvalBll.GetApprovalListForMVC(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, loginUserInfo.userID, null, flagState, ref recordTotals);
+                if (approvalList == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return approvalList.ToList();
+                }
+            }
+            else//审批人
+            {
+                ServiceClient workFlowWS = new ServiceClient();
+                string isView = "1";
+                if (flagState == "4")
+                {
+                    isView = "0";
+                }
+                FLOW_FLOWRECORDDETAIL_T[] flowList = workFlowWS.GetFlowInfo("", "", "1", "0", "T_OA_APPROVALINFO", "", loginUserInfo.userID);
+                if (flowList == null)
+                {
+                    return null;
+                }
+                List<string> guidStringList = new List<string>();
+                foreach (FLOW_FLOWRECORDDETAIL_T f in flowList)
+                {
+                    guidStringList.Add(f.FLOW_FLOWRECORDMASTER_T.FORMID);
+                }
+                if (guidStringList.Count < 1)
+                {
+                    return null;
+                }
+                IQueryable<T_OA_APPROVALINFO> approList = approvalBll.GetApprovalList(pageIndex, pageSize, sort, filterString, paras, ref  pageCount, loginUserInfo.userID, guidStringList, flagState);
+                if (approList == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return approList.ToList();
+                }
+            }
+            //}
+        }
         /// <summary>
         /// 添加事项审批类型
         /// </summary>
@@ -127,21 +168,7 @@ namespace SMT.SaaS.OA.Services
             return 1;
             //}
         }
-        ///// <summary>
-        /////  添加报批数据 与 上传文件的关联
-        ///// </summary>
-        ///// <param name="approvakInfo"></param>
-        ///// <param name="fileInfo"></param>
-        ///// <returns></returns>
-        //[OperationContract]
-        //public string AddApprovalFile(T_OA_APPROVALINFO approvakInfo, List<T_OA_FILEUPLOAD> lst)
-        //{
-        //    ApprovalManagementBll approvalBll = new ApprovalManagementBll();
-        //    //using (ApprovalManagementBll approvalBll = new ApprovalManagementBll())
-        //    //{
-        //    return approvalBll.AddApprovalUploadFile(approvakInfo, lst);
-        //    //}
-        //}
+
         [OperationContract]
         public bool DeleteApporval(T_OA_APPROVALINFO approvakInfo)
         {
@@ -184,6 +211,54 @@ namespace SMT.SaaS.OA.Services
             return 1;
             //}
         }
+
+        #region 事项审批自定义流程设置
+        /// <summary>
+        /// 添加自定义流程信息
+        /// 2014-2-17 add
+        /// </summary>
+        /// <param name="listFlowUsers"></param>
+        /// <param name="formID"></param>
+        /// <returns></returns>
+        //[OperationContract]
+        //public bool BatchAddApprovalInfoFLowUsers(List<T_OA_APPROVALFLOWUSERS> listFlowUsers, string formID)
+        //{
+        //    using (ApprovalFlowUserBll approvalFlowUser = new ApprovalFlowUserBll())
+        //    {
+        //        return approvalFlowUser.BatchAddFlowUsers(listFlowUsers,formID);
+        //    }
+        //}
+        /// <summary>
+        /// 删除单条自定义流程记录
+        /// </summary>
+        /// <param name="approvalFlowUserID"></param>
+        /// <returns></returns>
+        //[OperationContract]
+        //public bool DeleteApprovalFlowUser(string approvalFlowUserID)
+        //{
+        //    using (ApprovalFlowUserBll approvalFlowUser = new ApprovalFlowUserBll())
+        //    {
+        //        return approvalFlowUser.DeleteApprovalFlowUser(approvalFlowUserID);
+        //    }
+        //}
+        /// <summary>
+        /// 删除某条事项审批的自定义流程记录
+        /// </summary>
+        /// <param name="formID"></param>
+        /// <returns></returns>
+        //[OperationContract]
+        //public bool DeleteAllApprovalFlowUserByFormID(string formID)
+        //{
+        //    using (ApprovalFlowUserBll approvalFlowUser = new ApprovalFlowUserBll())
+        //    {
+        //        return approvalFlowUser.DeleteAllApprovalFlowUserByFormID(formID);
+        //    }
+        //}
+
+        #endregion
+        #endregion
+
+        #region 事项审批类型设置
         ///// <summary>
         ///// 根据id, 删除附件记录 
         ///// </summary>
@@ -244,6 +319,22 @@ namespace SMT.SaaS.OA.Services
                 return approvalBll.GetApprovalTypeByCompanyandDepartmentid(companyid,departmentid);
             }
         }
+
+        /// <summary>
+        /// add by ljx 2013-12-3
+        /// 获取子公司的事项审批类型
+        /// </summary>
+        /// <param name="companyid">公司ID</param>
+        /// <returns>返回事项审批类型ID集合</returns>
+        [OperationContract]
+        public List<string> GetApprovalTypeByCompanyid(string companyid)
+        {
+            using (ApprovalManagementBll approvalBll = new ApprovalManagementBll())
+            {
+                return approvalBll.GetApprovalTypeByCompanyid(companyid);
+            }
+        }
+
         /// <summary>
         /// 通过公司名称获取公司下的部门 -by luojie
         /// </summary>
@@ -257,5 +348,8 @@ namespace SMT.SaaS.OA.Services
                 return approvalBll.GetApprovalTypesByCompanyIDs(companies);
             }
         }
+        #endregion
+
+       
     }
 }

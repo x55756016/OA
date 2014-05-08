@@ -104,9 +104,9 @@ namespace SMT.SaaS.OA.Services
             using (TravelmanagementBLL TL = new TravelmanagementBLL())
             {
                 string Travelmanagement = "";
-                if (!TL.UpdateTravelmanagement(TravelmanagementInfo, TraveDetail, FormType))
+                if (!TL.UpdateTravelmanagement(TravelmanagementInfo, TraveDetail, FormType, ref Travelmanagement))
                 {
-                    Travelmanagement = "更新数据失败！";
+                    //Travelmanagement = "更新数据失败！";
                 }
                 return Travelmanagement;
             }
@@ -136,9 +136,9 @@ namespace SMT.SaaS.OA.Services
             {
                 string returnStr = "";
 
-                if (!TL.TravelmanagementAdd(Travelmanagement, TraveDetail))
+                if (!TL.TravelmanagementAdd(Travelmanagement, TraveDetail,ref returnStr))
                 {
-                    returnStr = "添加数据失败";
+                  
                 }
                 return returnStr;
             }

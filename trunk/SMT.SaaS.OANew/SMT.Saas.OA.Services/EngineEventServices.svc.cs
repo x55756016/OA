@@ -234,8 +234,8 @@ namespace SMT.SaaS.OA.Services
                 entity.POSTLEVEL = buip.POSTLEVEL;
                 entity.STARTCITYNAME = buip.STARTCITYNAME;
                 entity.ENDCITYNAME = buip.ENDCITYNAME;
-                Tracer.Debug("出差终审自动生成出差报销："+entity.OWNERNAME
-                    +"-"+ entity.OWNERPOSTNAME
+                Tracer.Debug("出差终审自动生成出差报销：" + entity.OWNERNAME
+                    + "-" + entity.OWNERPOSTNAME
                     + "-" + entity.OWNERDEPARTMENTNAME
                     + "-" + entity.OWNERCOMPANYNAME
                     + "-岗位级别：" + entity.POSTLEVEL
