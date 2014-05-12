@@ -7,6 +7,7 @@ using System.ServiceModel.Activation;
 using System.Text;
 using SMT.HRM.BLL;
 using SMT_HRM_EFModel;
+using SMT.Foundation.Log;
 
 namespace SMT.HRM.Services
 {
@@ -68,6 +69,12 @@ namespace SMT.HRM.Services
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
+                if (entOTRd.STARTDATE <= DateTime.Now)
+                {
+                    string str = "外出申请的开始时间：必须大于当前时间";
+                    Tracer.Debug(str);
+                    return str;
+                }
                 return bllOverTimeRecord.AddOutApply(entOTRd);
             }
         }
@@ -82,6 +89,12 @@ namespace SMT.HRM.Services
         {
             using (OutApplyBLL bllOverTimeRecord = new OutApplyBLL())
             {
+                if (entOTRd.STARTDATE <= DateTime.Now)
+                {
+                    string str = "外出申请的开始时间：必须大于当前时间";
+                    Tracer.Debug(str);
+                    return str;
+                }
                 if (bllOverTimeRecord.UpdateOutApply(entOTRd) == 1)
                     return "OK";
                 else return "Fail";
