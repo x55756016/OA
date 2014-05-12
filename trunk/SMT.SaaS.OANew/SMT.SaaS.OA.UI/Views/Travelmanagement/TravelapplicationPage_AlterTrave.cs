@@ -49,7 +49,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 ent = (DaGr.SelectedItems[0] as V_Travelmanagement);
 
                 ///增加重新提交的判断，审核通过的不允许重新提交
-                if (ent.Travelmanagement.ISALTERTRAVE == "1")
+                if (ent.TraveAppCheckState!="1" && ent.Travelmanagement.ISALTERTRAVE == "1"  && (ent.TrCheckState == "0" || string.IsNullOrEmpty(ent.TrCheckState)))
                 {
                     alterTravelBusiness(ent);
                 }

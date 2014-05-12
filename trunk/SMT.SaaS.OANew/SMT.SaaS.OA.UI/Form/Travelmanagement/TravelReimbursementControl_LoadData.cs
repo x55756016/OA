@@ -141,7 +141,10 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             finally
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
+                if (InitFB == true)
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                }
             }
         }
         #endregion
@@ -248,7 +251,14 @@ namespace SMT.SaaS.OA.UI.UserControls
             }
             finally
             {
-                RefreshUI(RefreshedTypes.HideProgressBar);
+                if (InitFB == true)
+                {
+                    RefreshUI(RefreshedTypes.HideProgressBar);
+                }
+                else
+                {
+                    RefreshUI(RefreshedTypes.ShowProgressBar);
+                }
             }
         }
 

@@ -31,7 +31,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         private void InitFBControl(T_OA_TRAVELREIMBURSEMENT Travel)
         {
             if(OpenFrom=="FromMVC")return;//从mvc打卡，不使用预算科目
-            InitFB = true;
+           
             fbCtr.submitFBFormTypes = formType;//将FormType赋给FB
             //fbCtr.SetRemarkVisiblity(Visibility.Collapsed);//隐藏预算控件中的备注
             fbCtr.SetApplyTypeVisiblity(Visibility.Collapsed);//隐藏支付类型
@@ -85,72 +85,85 @@ namespace SMT.SaaS.OA.UI.UserControls
                 if (formType == FormTypes.New && Travel != null)
                 {
                     fbCtr.InitData();
+                    this.RefreshUI(RefreshedTypes.ShowProgressBar);
                 }
                 else if (formType == FormTypes.Edit || formType == FormTypes.Resubmit && Travel != null)
                 {
-                    fbCtr.InitData();
+                    fbCtr.InitData(); 
+                    this.RefreshUI(RefreshedTypes.ShowProgressBar);
                 }
             }
         }
 
         void fbCtr_InitDataComplete(object sender, FrameworkUI.FBControls.ChargeApplyControl.InitDataCompletedArgs e)
         {
-            if (OpenFrom == "FromMVC") return;
-            if (e.Message != null && e.Message.Count() > 0)
+            try
             {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Message[0]);
-                DaGrEdit.IsEnabled = false;
-                fbCtr.IsEnabled = false;
-                if (needsubmit == false)
+                if (OpenFrom == "FromMVC") return;
+                if (e.Message != null && e.Message.Count() > 0)
                 {
-                    RefreshUI(RefreshedTypes.HideProgressBar);
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), e.Message[0]);
+                    DaGrEdit.IsEnabled = false;
+                    fbCtr.IsEnabled = false;
+                    if (needsubmit == false)
+                    {
+                        RefreshUI(RefreshedTypes.HideProgressBar);
+                    }
                 }
-            }
-            Binding bding = new Binding();
-            bding.Path = new PropertyPath("TOTALMONEY");
-            if (fbCtr.ListDetail.Count() > 0)
-            {
-                this.txtChargeApplyTotal.SetBinding(TextBox.TextProperty, bding);//报销费用总额
-                this.txtChargeApplyTotal.DataContext = fbCtr.Order;
-            }
-            this.txtAvailableCredit.Text = fbCtr.TravelSubject.UsableMoney.ToString();//当前用户可用额度
-            if (fbCtr.Order.PAYMENTINFO != null && !string.IsNullOrEmpty(fbCtr.Order.PAYMENTINFO))
-            {
-                this.txtPAYMENTINFO.Text = fbCtr.Order.PAYMENTINFO;//支付信息
-                StrPayInfo = this.txtPAYMENTINFO.Text;
-            }
-            UsableMoney = txtAvailableCredit.Text;
-            if (formType == FormTypes.Browse || formType == FormTypes.Audit)
-            {
-                fbCtr.Visibility = Visibility.Collapsed;
-                lblFees.Visibility = Visibility.Collapsed;
-                fbChkBox.Visibility = Visibility.Collapsed;
-
-                fbCtr.strExtOrderModelCode = "CCBX";
-                //费用报销
+                Binding bding = new Binding();
+                bding.Path = new PropertyPath("TOTALMONEY");
                 if (fbCtr.ListDetail.Count() > 0)
                 {
-                    fbCtr.Visibility = Visibility.Visible;
-                    scvFB.Visibility = Visibility.Visible;
-                    fbChkBox.IsChecked = true;
+                    this.txtChargeApplyTotal.SetBinding(TextBox.TextProperty, bding);//报销费用总额
+                    this.txtChargeApplyTotal.DataContext = fbCtr.Order;
                 }
-                //冲借款
-                if (fbCtr.ListBorrowDetail.Count() > 0)
+                this.txtAvailableCredit.Text = fbCtr.TravelSubject.UsableMoney.ToString();//当前用户可用额度
+                if (fbCtr.Order.PAYMENTINFO != null && !string.IsNullOrEmpty(fbCtr.Order.PAYMENTINFO))
                 {
-                    var q = (from ent in fbCtr.ListBorrowDetail
-                             select ent.REPAYMONEY).Sum();
-                    if (q > 0)
+                    this.txtPAYMENTINFO.Text = fbCtr.Order.PAYMENTINFO;//支付信息
+                    StrPayInfo = this.txtPAYMENTINFO.Text;
+                }
+                UsableMoney = txtAvailableCredit.Text;
+                if (formType == FormTypes.Browse || formType == FormTypes.Audit)
+                {
+                    fbCtr.Visibility = Visibility.Collapsed;
+                    lblFees.Visibility = Visibility.Collapsed;
+                    fbChkBox.Visibility = Visibility.Collapsed;
+
+                    fbCtr.strExtOrderModelCode = "CCBX";
+                    //费用报销
+                    if (fbCtr.ListDetail.Count() > 0)
                     {
                         fbCtr.Visibility = Visibility.Visible;
                         scvFB.Visibility = Visibility.Visible;
                         fbChkBox.IsChecked = true;
                     }
+                    //冲借款
+                    if (fbCtr.ListBorrowDetail.Count() > 0)
+                    {
+                        var q = (from ent in fbCtr.ListBorrowDetail
+                                 select ent.REPAYMONEY).Sum();
+                        if (q > 0)
+                        {
+                            fbCtr.Visibility = Visibility.Visible;
+                            scvFB.Visibility = Visibility.Visible;
+                            fbChkBox.IsChecked = true;
+                        }
+                    }
+                }
+                if (formType == FormTypes.Edit)
+                {
+                    scvFB.Visibility = Visibility.Visible;
+                    fbChkBox.IsChecked = true;
                 }
             }
-            if (formType == FormTypes.Edit)
+            catch (Exception ex)
             {
-                scvFB.Visibility = Visibility.Visible;
-                fbChkBox.IsChecked = true;
+            }
+            finally
+            {
+                InitFB = true;
+                this.RefreshUI(RefreshedTypes.HideProgressBar);
             }
         }
         #endregion

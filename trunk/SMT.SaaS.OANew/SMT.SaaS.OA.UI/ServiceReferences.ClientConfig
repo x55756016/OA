@@ -107,7 +107,7 @@
       <endpoint address="http://fileserver.smt-online.net:9000/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
-      <endpoint address="http://portal.smt-online.net/New/Services/HR/PersonnelService.svc"
+      <endpoint address="http://portal.smt-online.net//New/Services/HR/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
       <endpoint address="http://portal.smt-online.net/New/Services/System/FileUploadManager.svc"

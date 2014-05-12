@@ -296,7 +296,7 @@ namespace SMT.SaaS.OA.UI.UserControls
         #region IAudit
         public void SetFlowRecordEntity(FrameworkUI.AuditControl.Flow_FlowRecord_T entity)
         {
-            if (formType == FormTypes.Edit && formType == FormTypes.Resubmit)
+            if (formType == FormTypes.Edit || formType == FormTypes.Resubmit)
             {
                 EntityBrowser browser = this.FindParentByType<EntityBrowser>();
                 browser.AuditCtrl.Auditing += new EventHandler<SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs>(AuditCtrl_Auditing);

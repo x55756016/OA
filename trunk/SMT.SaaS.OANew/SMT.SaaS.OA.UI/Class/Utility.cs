@@ -1512,7 +1512,14 @@ namespace SMT.SaaS.OA.UI
             entity.CreatePostID = paras["CreatePostID"];
             entity.CreateUserID = paras["CreateUserID"];
 
-            entity.CreateUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+            if (modelcode == "T_OA_BUSINESSTRIP")
+            {
+                entity.CreateUserName = paras["OWNERNAME"];
+            }
+            else
+            {
+                entity.CreateUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
+            }
             entity.EditUserID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
             entity.EditUserName = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName;
             entity.XmlObject = strXmlObjectSource;

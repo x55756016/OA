@@ -139,6 +139,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             paraIDs.Add("CreatePostID", Master_Golbal.OWNERPOSTID);
             paraIDs.Add("CreateDepartmentID", Master_Golbal.OWNERDEPARTMENTID);
             paraIDs.Add("CreateCompanyID", Master_Golbal.OWNERCOMPANYID);
+            paraIDs.Add("OWNERNAME", Master_Golbal.OWNERNAME);
 
             if (Master_Golbal.CHECKSTATE == Convert.ToInt32(CheckStates.UnSubmit).ToString())
             {
@@ -157,13 +158,14 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         void AuditCtrl_Auditing(object sender, SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs e)
         {
-            if (Common.CurrentLoginUserInfo.EmployeeID != Master_Golbal.OWNERID && Master_Golbal.CHECKSTATE == "0")
-            {
-                RefreshUI(RefreshedTypes.HideProgressBar);
-                e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                return;
-            }
+            //if (Common.CurrentLoginUserInfo.EmployeeID != Master_Golbal.OWNERID && Master_Golbal.CHECKSTATE == "0")
+            //    //if (Master_Golbal.CHECKSTATE == "0")
+            //    {
+            //        RefreshUI(RefreshedTypes.HideProgressBar);
+            //        e.Result = SMT.SaaS.FrameworkUI.AuditControl.AuditEventArgs.AuditResult.Cancel;
+            //        ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("OPERATINGWITHOUTAUTHORITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
+            //        return;
+            //    }
         }
         
         public void OnSubmitCompleted(FrameworkUI.AuditControl.AuditEventArgs.AuditResult args)
