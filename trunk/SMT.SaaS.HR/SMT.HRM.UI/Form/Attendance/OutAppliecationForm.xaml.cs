@@ -557,6 +557,10 @@ namespace SMT.HRM.UI.Form.Attendance
                         Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("SUCCESSED"), "保存成功");
 
                     }
+                    else
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), e.Result);
+                    }
                     if (closeFormFlag)
                     {
                         RefreshUI(RefreshedTypes.Close);
@@ -608,6 +612,10 @@ namespace SMT.HRM.UI.Form.Attendance
                         {
                             RefreshUI(RefreshedTypes.Close);
                         }
+                    }
+                    else
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("CAUTION"), e.Result);
                     }
                 }
                 else
