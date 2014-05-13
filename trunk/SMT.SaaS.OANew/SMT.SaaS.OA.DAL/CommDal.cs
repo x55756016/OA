@@ -61,7 +61,6 @@ namespace SMT.SaaS.OA.DAL
                 if (obj != null)
                 {
                     Type a = obj.GetType();
-
                     PropertyInfo[] infos = a.GetProperties();
                     foreach (PropertyInfo prop in infos)
                     {
@@ -70,17 +69,26 @@ namespace SMT.SaaS.OA.DAL
                             prop.SetValue(obj, Prameters[prop.Name], null);
                         }
                     }
-                    UpdateCont=base.Update(obj);
+                    UpdateCont = base.Update(obj);
                     if (UpdateCont > 0)
                     {
-                        Tracer.Debug("手机版修改表单状态，表单名：" + strEntityName + "单据号：" + EntityKeyValue + System.DateTime.Now.ToString() );
+                        Tracer.Debug("手机版修改表单状态，表单名：" + strEntityName + "单据号：" + EntityKeyValue + System.DateTime.Now.ToString());
                         BLLCommonServices.Utility.SubmitMyRecord<TEntity>(obj);
                     }
+                    else
+                    {
+                        Tracer.Debug("手机版修改表单状态没有修改:" + strEntityName + "单据号：" + EntityKeyValue + System.DateTime.Now.ToString());
+                    }
+                }
+                else
+                {
+                    Tracer.Debug("手机版修改表单不存在:" + strEntityName + "单据号：" + EntityKeyValue + System.DateTime.Now.ToString());
                 }
             }
             catch (Exception ex)
             {
-                Tracer.Debug("手机版修改表单状态，表单名：" + strEntityName + "单据号：" + EntityKeyValue +System.DateTime.Now.ToString() + " " + ex.ToString());
+                //Tracer.Debug("手机版修改表单状态，表单名：" + strEntityName + "单据号：" + EntityKeyValue +System.DateTime.Now.ToString() + " " + ex.ToString());
+                Tracer.Debug("手机版修改表单状态出现错误：" + strEntityName + "单据号：" + EntityKeyValue + System.DateTime.Now.ToString() + "手机版修改表单状态出现错误： " + EntityKeyValue +"错误原因："+ ex.ToString());
                 //throw (ex);
             }
             return UpdateCont;

@@ -58,13 +58,17 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SMT.Foundation.Core, Version=1.1.0.1218, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    <Reference Include="Enyim.Caching">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\Enyim.Caching.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Foundation.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Core">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.Foundation.Log">
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -74,6 +78,7 @@
     <Reference Include="System.Data.Entity">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Runtime.Serialization">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -92,6 +97,7 @@
   <ItemGroup>
     <Compile Include="AccidentRecordManageBll.cs" />
     <Compile Include="AgentAgingSetBLL.cs" />
+    <Compile Include="ApprovalTempletManagementBll.cs" />
     <Compile Include="AreaAllowanceBll.cs" />
     <Compile Include="AreaCategoryBLL.cs" />
     <Compile Include="CommBll.cs" />
@@ -178,20 +184,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
-      <Name>SMT.SAAS.BLLCommonServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT.SaaS.OA.DAL\SMT.SaaS.OA.DAL.csproj">
-      <Project>{4B906A26-7F19-4707-A3DA-61482FE72BA4}</Project>
-      <Name>SMT.SaaS.OA.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT_OA_EFModel\SMT_OA_EFModel.csproj">
-      <Project>{30D6706D-A200-4ED0-BBAA-3574E09F54D1}</Project>
-      <Name>SMT_OA_EFModel</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\DataSources\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL.datasource" />
     <None Include="Properties\DataSources\SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER.datasource" />
@@ -219,9 +211,11 @@
     <None Include="Service References\AttendanceWS\AttendanceService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\AttendanceWS\AttendanceService2.wsdl" />
     <None Include="Service References\AttendanceWS\AttendanceService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\AttendanceWS\AttendanceService21.wsdl" />
     <None Include="Service References\AttendanceWS\AttendanceService3.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -235,6 +229,33 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AttendanceWS\AttendanceService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService81.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService82.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService83.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService84.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService85.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService86.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService87.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService88.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\AttendanceWS\SMT.SaaS.OA.BLL.AttendanceWS.T_HR_ATTENDANCEDEDUCTMASTER1.datasource">
@@ -452,6 +473,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\AttendanceWS\AttendanceService1.disco" />
     <Content Include="Service References\PublicInterfaceWS\configuration.svcinfo" />
     <Content Include="Service References\PublicInterfaceWS\configuration91.svcinfo" />
     <Content Include="Service References\PublicInterfaceWS\PublicService.disco" />
@@ -479,7 +501,18 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="obj\" />
+    <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
+      <Project>{6673751A-D03D-4D7A-ACF3-F363469B73AE}</Project>
+      <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT.SaaS.OA.DAL\SMT.SaaS.OA.DAL.csproj">
+      <Project>{4b906a26-7f19-4707-a3da-61482fe72ba4}</Project>
+      <Name>SMT.SaaS.OA.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMT_OA_EFModel\SMT_OA_EFModel.csproj">
+      <Project>{30D6706D-A200-4ED0-BBAA-3574E09F54D1}</Project>
+      <Name>SMT_OA_EFModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AttendanceWS\" />

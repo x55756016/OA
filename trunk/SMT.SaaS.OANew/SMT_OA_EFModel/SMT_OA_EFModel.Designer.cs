@@ -66,7 +66,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmRelationshipAttribute("SMT_OA_EFModel", "FK_T_OA_WELFAREDISTRIBUTEUNDO", "T_OA_WELFAREDISTRIBUTEMASTER", global::System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(SMT_OA_EFModel.T_OA_WELFAREDISTRIBUTEMASTER), "T_OA_WELFAREDISTRIBUTEUNDO", global::System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(SMT_OA_EFModel.T_OA_WELFAREDISTRIBUTEUNDO))]
 
 // 原始文件名:
-// 生成日期: 2013/4/18 9:16:07
+// 生成日期: 2014/4/2 16:29:54
 namespace SMT_OA_EFModel
 {
     
@@ -152,6 +152,23 @@ namespace SMT_OA_EFModel
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<T_OA_AGENTSET> _T_OA_AGENTSET;
         /// <summary>
+        /// 架构中不存在 T_OA_APPROVALFLOWUSERS 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<T_OA_APPROVALFLOWUSERS> T_OA_APPROVALFLOWUSERS
+        {
+            get
+            {
+                if ((this._T_OA_APPROVALFLOWUSERS == null))
+                {
+                    this._T_OA_APPROVALFLOWUSERS = base.CreateQuery<T_OA_APPROVALFLOWUSERS>("[T_OA_APPROVALFLOWUSERS]");
+                }
+                return this._T_OA_APPROVALFLOWUSERS;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<T_OA_APPROVALFLOWUSERS> _T_OA_APPROVALFLOWUSERS;
+        /// <summary>
         /// 架构中不存在 T_OA_APPROVALINFO 的注释。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -168,6 +185,23 @@ namespace SMT_OA_EFModel
         }
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<T_OA_APPROVALINFO> _T_OA_APPROVALINFO;
+        /// <summary>
+        /// 架构中不存在 T_OA_APPROVALINFOTEMPLET 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<T_OA_APPROVALINFOTEMPLET> T_OA_APPROVALINFOTEMPLET
+        {
+            get
+            {
+                if ((this._T_OA_APPROVALINFOTEMPLET == null))
+                {
+                    this._T_OA_APPROVALINFOTEMPLET = base.CreateQuery<T_OA_APPROVALINFOTEMPLET>("[T_OA_APPROVALINFOTEMPLET]");
+                }
+                return this._T_OA_APPROVALINFOTEMPLET;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<T_OA_APPROVALINFOTEMPLET> _T_OA_APPROVALINFOTEMPLET;
         /// <summary>
         /// 架构中不存在 T_OA_APPROVALTYPESET 的注释。
         /// </summary>
@@ -1410,6 +1444,23 @@ namespace SMT_OA_EFModel
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         private global::System.Data.Objects.ObjectQuery<T_OA_VEHICLEUSEAPP> _T_OA_VEHICLEUSEAPP;
         /// <summary>
+        /// 架构中不存在 T_OA_VIEWSENDDOC 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Data.Objects.ObjectQuery<T_OA_VIEWSENDDOC> T_OA_VIEWSENDDOC
+        {
+            get
+            {
+                if ((this._T_OA_VIEWSENDDOC == null))
+                {
+                    this._T_OA_VIEWSENDDOC = base.CreateQuery<T_OA_VIEWSENDDOC>("[T_OA_VIEWSENDDOC]");
+                }
+                return this._T_OA_VIEWSENDDOC;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Data.Objects.ObjectQuery<T_OA_VIEWSENDDOC> _T_OA_VIEWSENDDOC;
+        /// <summary>
         /// 架构中不存在 T_OA_WELFAREDETAIL 的注释。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
@@ -1536,12 +1587,28 @@ namespace SMT_OA_EFModel
             base.AddObject("T_OA_AGENTSET", t_OA_AGENTSET);
         }
         /// <summary>
+        /// 架构中不存在 T_OA_APPROVALFLOWUSERS 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddToT_OA_APPROVALFLOWUSERS(T_OA_APPROVALFLOWUSERS t_OA_APPROVALFLOWUSERS)
+        {
+            base.AddObject("T_OA_APPROVALFLOWUSERS", t_OA_APPROVALFLOWUSERS);
+        }
+        /// <summary>
         /// 架构中不存在 T_OA_APPROVALINFO 的注释。
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         public void AddToT_OA_APPROVALINFO(T_OA_APPROVALINFO t_OA_APPROVALINFO)
         {
             base.AddObject("T_OA_APPROVALINFO", t_OA_APPROVALINFO);
+        }
+        /// <summary>
+        /// 架构中不存在 T_OA_APPROVALINFOTEMPLET 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddToT_OA_APPROVALINFOTEMPLET(T_OA_APPROVALINFOTEMPLET t_OA_APPROVALINFOTEMPLET)
+        {
+            base.AddObject("T_OA_APPROVALINFOTEMPLET", t_OA_APPROVALINFOTEMPLET);
         }
         /// <summary>
         /// 架构中不存在 T_OA_APPROVALTYPESET 的注释。
@@ -2126,6 +2193,14 @@ namespace SMT_OA_EFModel
         public void AddToT_OA_VEHICLEUSEAPP(T_OA_VEHICLEUSEAPP t_OA_VEHICLEUSEAPP)
         {
             base.AddObject("T_OA_VEHICLEUSEAPP", t_OA_VEHICLEUSEAPP);
+        }
+        /// <summary>
+        /// 架构中不存在 T_OA_VIEWSENDDOC 的注释。
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public void AddToT_OA_VIEWSENDDOC(T_OA_VIEWSENDDOC t_OA_VIEWSENDDOC)
+        {
+            base.AddObject("T_OA_VIEWSENDDOC", t_OA_VIEWSENDDOC);
         }
         /// <summary>
         /// 架构中不存在 T_OA_WELFAREDETAIL 的注释。
@@ -3944,6 +4019,434 @@ namespace SMT_OA_EFModel
         partial void OnUPDATEDATEChanged();
     }
     /// <summary>
+    /// 架构中不存在 SMT_OA_EFModel.T_OA_APPROVALFLOWUSERS 的注释。
+    /// </summary>
+    /// <KeyProperties>
+    /// APPROVALFLOWUSERID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SMT_OA_EFModel", Name="T_OA_APPROVALFLOWUSERS")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class T_OA_APPROVALFLOWUSERS : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 创建新的 T_OA_APPROVALFLOWUSERS 对象。
+        /// </summary>
+        /// <param name="aPPROVALFLOWUSERID">APPROVALFLOWUSERID 的初始值。</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static T_OA_APPROVALFLOWUSERS CreateT_OA_APPROVALFLOWUSERS(string aPPROVALFLOWUSERID)
+        {
+            T_OA_APPROVALFLOWUSERS t_OA_APPROVALFLOWUSERS = new T_OA_APPROVALFLOWUSERS();
+            t_OA_APPROVALFLOWUSERS.APPROVALFLOWUSERID = aPPROVALFLOWUSERID;
+            return t_OA_APPROVALFLOWUSERS;
+        }
+        /// <summary>
+        /// 架构中不存在属性 APPROVALFLOWUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string APPROVALFLOWUSERID
+        {
+            get
+            {
+                return this._APPROVALFLOWUSERID;
+            }
+            set
+            {
+                this.OnAPPROVALFLOWUSERIDChanging(value);
+                this.ReportPropertyChanging("APPROVALFLOWUSERID");
+                this._APPROVALFLOWUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("APPROVALFLOWUSERID");
+                this.OnAPPROVALFLOWUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _APPROVALFLOWUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALFLOWUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALFLOWUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 APPROVALINFOID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string APPROVALINFOID
+        {
+            get
+            {
+                return this._APPROVALINFOID;
+            }
+            set
+            {
+                this.OnAPPROVALINFOIDChanging(value);
+                this.ReportPropertyChanging("APPROVALINFOID");
+                this._APPROVALINFOID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("APPROVALINFOID");
+                this.OnAPPROVALINFOIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _APPROVALINFOID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALINFOIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALINFOIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERNAME
+        {
+            get
+            {
+                return this._FLOWUSERNAME;
+            }
+            set
+            {
+                this.OnFLOWUSERNAMEChanging(value);
+                this.ReportPropertyChanging("FLOWUSERNAME");
+                this._FLOWUSERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERNAME");
+                this.OnFLOWUSERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERID
+        {
+            get
+            {
+                return this._FLOWUSERID;
+            }
+            set
+            {
+                this.OnFLOWUSERIDChanging(value);
+                this.ReportPropertyChanging("FLOWUSERID");
+                this._FLOWUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERID");
+                this.OnFLOWUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERPOSTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERPOSTID
+        {
+            get
+            {
+                return this._FLOWUSERPOSTID;
+            }
+            set
+            {
+                this.OnFLOWUSERPOSTIDChanging(value);
+                this.ReportPropertyChanging("FLOWUSERPOSTID");
+                this._FLOWUSERPOSTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERPOSTID");
+                this.OnFLOWUSERPOSTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERPOSTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERPOSTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERPOSTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERPOSTNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERPOSTNAME
+        {
+            get
+            {
+                return this._FLOWUSERPOSTNAME;
+            }
+            set
+            {
+                this.OnFLOWUSERPOSTNAMEChanging(value);
+                this.ReportPropertyChanging("FLOWUSERPOSTNAME");
+                this._FLOWUSERPOSTNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERPOSTNAME");
+                this.OnFLOWUSERPOSTNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERPOSTNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERPOSTNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERPOSTNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERDEPARTMENTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERDEPARTMENTID
+        {
+            get
+            {
+                return this._FLOWUSERDEPARTMENTID;
+            }
+            set
+            {
+                this.OnFLOWUSERDEPARTMENTIDChanging(value);
+                this.ReportPropertyChanging("FLOWUSERDEPARTMENTID");
+                this._FLOWUSERDEPARTMENTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERDEPARTMENTID");
+                this.OnFLOWUSERDEPARTMENTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERDEPARTMENTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERDEPARTMENTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERDEPARTMENTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERDEPARTMENTNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERDEPARTMENTNAME
+        {
+            get
+            {
+                return this._FLOWUSERDEPARTMENTNAME;
+            }
+            set
+            {
+                this.OnFLOWUSERDEPARTMENTNAMEChanging(value);
+                this.ReportPropertyChanging("FLOWUSERDEPARTMENTNAME");
+                this._FLOWUSERDEPARTMENTNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERDEPARTMENTNAME");
+                this.OnFLOWUSERDEPARTMENTNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERDEPARTMENTNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERDEPARTMENTNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERDEPARTMENTNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERCOMPANYID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERCOMPANYID
+        {
+            get
+            {
+                return this._FLOWUSERCOMPANYID;
+            }
+            set
+            {
+                this.OnFLOWUSERCOMPANYIDChanging(value);
+                this.ReportPropertyChanging("FLOWUSERCOMPANYID");
+                this._FLOWUSERCOMPANYID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERCOMPANYID");
+                this.OnFLOWUSERCOMPANYIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERCOMPANYID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERCOMPANYIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERCOMPANYIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERCOMPANYNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string FLOWUSERCOMPANYNAME
+        {
+            get
+            {
+                return this._FLOWUSERCOMPANYNAME;
+            }
+            set
+            {
+                this.OnFLOWUSERCOMPANYNAMEChanging(value);
+                this.ReportPropertyChanging("FLOWUSERCOMPANYNAME");
+                this._FLOWUSERCOMPANYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("FLOWUSERCOMPANYNAME");
+                this.OnFLOWUSERCOMPANYNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _FLOWUSERCOMPANYNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERCOMPANYNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERCOMPANYNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 FLOWUSERORDER 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<decimal> FLOWUSERORDER
+        {
+            get
+            {
+                return this._FLOWUSERORDER;
+            }
+            set
+            {
+                this.OnFLOWUSERORDERChanging(value);
+                this.ReportPropertyChanging("FLOWUSERORDER");
+                this._FLOWUSERORDER = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("FLOWUSERORDER");
+                this.OnFLOWUSERORDERChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<decimal> _FLOWUSERORDER;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERORDERChanging(global::System.Nullable<decimal> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnFLOWUSERORDERChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> CREATEDATE
+        {
+            get
+            {
+                return this._CREATEDATE;
+            }
+            set
+            {
+                this.OnCREATEDATEChanging(value);
+                this.ReportPropertyChanging("CREATEDATE");
+                this._CREATEDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CREATEDATE");
+                this.OnCREATEDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _CREATEDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERID
+        {
+            get
+            {
+                return this._CREATEUSERID;
+            }
+            set
+            {
+                this.OnCREATEUSERIDChanging(value);
+                this.ReportPropertyChanging("CREATEUSERID");
+                this._CREATEUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEUSERID");
+                this.OnCREATEUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERNAME
+        {
+            get
+            {
+                return this._CREATEUSERNAME;
+            }
+            set
+            {
+                this.OnCREATEUSERNAMEChanging(value);
+                this.ReportPropertyChanging("CREATEUSERNAME");
+                this._CREATEUSERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEUSERNAME");
+                this.OnCREATEUSERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 MODELCODE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string MODELCODE
+        {
+            get
+            {
+                return this._MODELCODE;
+            }
+            set
+            {
+                this.OnMODELCODEChanging(value);
+                this.ReportPropertyChanging("MODELCODE");
+                this._MODELCODE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("MODELCODE");
+                this.OnMODELCODEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _MODELCODE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMODELCODEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnMODELCODEChanged();
+    }
+    /// <summary>
     /// 架构中不存在 SMT_OA_EFModel.T_OA_APPROVALINFO 的注释。
     /// </summary>
     /// <KeyProperties>
@@ -4071,6 +4574,834 @@ namespace SMT_OA_EFModel
         partial void OnAPPROVALCODEChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnAPPROVALCODEChanged();
+        /// <summary>
+        /// 架构中不存在属性 APPROVALTITLE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string APPROVALTITLE
+        {
+            get
+            {
+                return this._APPROVALTITLE;
+            }
+            set
+            {
+                this.OnAPPROVALTITLEChanging(value);
+                this.ReportPropertyChanging("APPROVALTITLE");
+                this._APPROVALTITLE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("APPROVALTITLE");
+                this.OnAPPROVALTITLEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _APPROVALTITLE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALTITLEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALTITLEChanged();
+        /// <summary>
+        /// 架构中不存在属性 TEL 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TEL
+        {
+            get
+            {
+                return this._TEL;
+            }
+            set
+            {
+                this.OnTELChanging(value);
+                this.ReportPropertyChanging("TEL");
+                this._TEL = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("TEL");
+                this.OnTELChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TEL;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTELChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTELChanged();
+        /// <summary>
+        /// 架构中不存在属性 CONTENT 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public byte[] CONTENT
+        {
+            get
+            {
+                return global::System.Data.Objects.DataClasses.StructuralObject.GetValidValue(this._CONTENT);
+            }
+            set
+            {
+                this.OnCONTENTChanging(value);
+                this.ReportPropertyChanging("CONTENT");
+                this._CONTENT = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CONTENT");
+                this.OnCONTENTChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private byte[] _CONTENT;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCONTENTChanging(byte[] value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCONTENTChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISCHARGE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISCHARGE
+        {
+            get
+            {
+                return this._ISCHARGE;
+            }
+            set
+            {
+                this.OnISCHARGEChanging(value);
+                this.ReportPropertyChanging("ISCHARGE");
+                this._ISCHARGE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("ISCHARGE");
+                this.OnISCHARGEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISCHARGE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISCHARGEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISCHARGEChanged();
+        /// <summary>
+        /// 架构中不存在属性 CHARGEMONEY 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<decimal> CHARGEMONEY
+        {
+            get
+            {
+                return this._CHARGEMONEY;
+            }
+            set
+            {
+                this.OnCHARGEMONEYChanging(value);
+                this.ReportPropertyChanging("CHARGEMONEY");
+                this._CHARGEMONEY = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CHARGEMONEY");
+                this.OnCHARGEMONEYChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<decimal> _CHARGEMONEY;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCHARGEMONEYChanging(global::System.Nullable<decimal> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCHARGEMONEYChanged();
+        /// <summary>
+        /// 架构中不存在属性 CHECKSTATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CHECKSTATE
+        {
+            get
+            {
+                return this._CHECKSTATE;
+            }
+            set
+            {
+                this.OnCHECKSTATEChanging(value);
+                this.ReportPropertyChanging("CHECKSTATE");
+                this._CHECKSTATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CHECKSTATE");
+                this.OnCHECKSTATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CHECKSTATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCHECKSTATEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCHECKSTATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERID
+        {
+            get
+            {
+                return this._OWNERID;
+            }
+            set
+            {
+                this.OnOWNERIDChanging(value);
+                this.ReportPropertyChanging("OWNERID");
+                this._OWNERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("OWNERID");
+                this.OnOWNERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERNAME
+        {
+            get
+            {
+                return this._OWNERNAME;
+            }
+            set
+            {
+                this.OnOWNERNAMEChanging(value);
+                this.ReportPropertyChanging("OWNERNAME");
+                this._OWNERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("OWNERNAME");
+                this.OnOWNERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERCOMPANYID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERCOMPANYID
+        {
+            get
+            {
+                return this._OWNERCOMPANYID;
+            }
+            set
+            {
+                this.OnOWNERCOMPANYIDChanging(value);
+                this.ReportPropertyChanging("OWNERCOMPANYID");
+                this._OWNERCOMPANYID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("OWNERCOMPANYID");
+                this.OnOWNERCOMPANYIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERCOMPANYID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERDEPARTMENTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERDEPARTMENTID
+        {
+            get
+            {
+                return this._OWNERDEPARTMENTID;
+            }
+            set
+            {
+                this.OnOWNERDEPARTMENTIDChanging(value);
+                this.ReportPropertyChanging("OWNERDEPARTMENTID");
+                this._OWNERDEPARTMENTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("OWNERDEPARTMENTID");
+                this.OnOWNERDEPARTMENTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERDEPARTMENTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERPOSTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERPOSTID
+        {
+            get
+            {
+                return this._OWNERPOSTID;
+            }
+            set
+            {
+                this.OnOWNERPOSTIDChanging(value);
+                this.ReportPropertyChanging("OWNERPOSTID");
+                this._OWNERPOSTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("OWNERPOSTID");
+                this.OnOWNERPOSTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERPOSTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERID
+        {
+            get
+            {
+                return this._CREATEUSERID;
+            }
+            set
+            {
+                this.OnCREATEUSERIDChanging(value);
+                this.ReportPropertyChanging("CREATEUSERID");
+                this._CREATEUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CREATEUSERID");
+                this.OnCREATEUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERNAME
+        {
+            get
+            {
+                return this._CREATEUSERNAME;
+            }
+            set
+            {
+                this.OnCREATEUSERNAMEChanging(value);
+                this.ReportPropertyChanging("CREATEUSERNAME");
+                this._CREATEUSERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CREATEUSERNAME");
+                this.OnCREATEUSERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATECOMPANYID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATECOMPANYID
+        {
+            get
+            {
+                return this._CREATECOMPANYID;
+            }
+            set
+            {
+                this.OnCREATECOMPANYIDChanging(value);
+                this.ReportPropertyChanging("CREATECOMPANYID");
+                this._CREATECOMPANYID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CREATECOMPANYID");
+                this.OnCREATECOMPANYIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATECOMPANYID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATECOMPANYIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATECOMPANYIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEDEPARTMENTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEDEPARTMENTID
+        {
+            get
+            {
+                return this._CREATEDEPARTMENTID;
+            }
+            set
+            {
+                this.OnCREATEDEPARTMENTIDChanging(value);
+                this.ReportPropertyChanging("CREATEDEPARTMENTID");
+                this._CREATEDEPARTMENTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CREATEDEPARTMENTID");
+                this.OnCREATEDEPARTMENTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEDEPARTMENTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDEPARTMENTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDEPARTMENTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEPOSTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEPOSTID
+        {
+            get
+            {
+                return this._CREATEPOSTID;
+            }
+            set
+            {
+                this.OnCREATEPOSTIDChanging(value);
+                this.ReportPropertyChanging("CREATEPOSTID");
+                this._CREATEPOSTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("CREATEPOSTID");
+                this.OnCREATEPOSTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEPOSTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEPOSTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEPOSTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.DateTime CREATEDATE
+        {
+            get
+            {
+                return this._CREATEDATE;
+            }
+            set
+            {
+                this.OnCREATEDATEChanging(value);
+                this.ReportPropertyChanging("CREATEDATE");
+                this._CREATEDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CREATEDATE");
+                this.OnCREATEDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.DateTime _CREATEDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanging(global::System.DateTime value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 UPDATEUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string UPDATEUSERID
+        {
+            get
+            {
+                return this._UPDATEUSERID;
+            }
+            set
+            {
+                this.OnUPDATEUSERIDChanging(value);
+                this.ReportPropertyChanging("UPDATEUSERID");
+                this._UPDATEUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("UPDATEUSERID");
+                this.OnUPDATEUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _UPDATEUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 UPDATEUSERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string UPDATEUSERNAME
+        {
+            get
+            {
+                return this._UPDATEUSERNAME;
+            }
+            set
+            {
+                this.OnUPDATEUSERNAMEChanging(value);
+                this.ReportPropertyChanging("UPDATEUSERNAME");
+                this._UPDATEUSERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("UPDATEUSERNAME");
+                this.OnUPDATEUSERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _UPDATEUSERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEUSERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEUSERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 UPDATEDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> UPDATEDATE
+        {
+            get
+            {
+                return this._UPDATEDATE;
+            }
+            set
+            {
+                this.OnUPDATEDATEChanging(value);
+                this.ReportPropertyChanging("UPDATEDATE");
+                this._UPDATEDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("UPDATEDATE");
+                this.OnUPDATEDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _UPDATEDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEDATEChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnUPDATEDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 TYPEAPPROVAL 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TYPEAPPROVAL
+        {
+            get
+            {
+                return this._TYPEAPPROVAL;
+            }
+            set
+            {
+                this.OnTYPEAPPROVALChanging(value);
+                this.ReportPropertyChanging("TYPEAPPROVAL");
+                this._TYPEAPPROVAL = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TYPEAPPROVAL");
+                this.OnTYPEAPPROVALChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TYPEAPPROVAL;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALChanged();
+        /// <summary>
+        /// 架构中不存在属性 TYPEAPPROVALONE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TYPEAPPROVALONE
+        {
+            get
+            {
+                return this._TYPEAPPROVALONE;
+            }
+            set
+            {
+                this.OnTYPEAPPROVALONEChanging(value);
+                this.ReportPropertyChanging("TYPEAPPROVALONE");
+                this._TYPEAPPROVALONE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TYPEAPPROVALONE");
+                this.OnTYPEAPPROVALONEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TYPEAPPROVALONE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALONEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALONEChanged();
+        /// <summary>
+        /// 架构中不存在属性 TYPEAPPROVALTWO 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TYPEAPPROVALTWO
+        {
+            get
+            {
+                return this._TYPEAPPROVALTWO;
+            }
+            set
+            {
+                this.OnTYPEAPPROVALTWOChanging(value);
+                this.ReportPropertyChanging("TYPEAPPROVALTWO");
+                this._TYPEAPPROVALTWO = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TYPEAPPROVALTWO");
+                this.OnTYPEAPPROVALTWOChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TYPEAPPROVALTWO;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALTWOChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALTWOChanged();
+        /// <summary>
+        /// 架构中不存在属性 TYPEAPPROVALTHREE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string TYPEAPPROVALTHREE
+        {
+            get
+            {
+                return this._TYPEAPPROVALTHREE;
+            }
+            set
+            {
+                this.OnTYPEAPPROVALTHREEChanging(value);
+                this.ReportPropertyChanging("TYPEAPPROVALTHREE");
+                this._TYPEAPPROVALTHREE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("TYPEAPPROVALTHREE");
+                this.OnTYPEAPPROVALTHREEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _TYPEAPPROVALTHREE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALTHREEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTYPEAPPROVALTHREEChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISPERSONFLOW 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISPERSONFLOW
+        {
+            get
+            {
+                return this._ISPERSONFLOW;
+            }
+            set
+            {
+                this.OnISPERSONFLOWChanging(value);
+                this.ReportPropertyChanging("ISPERSONFLOW");
+                this._ISPERSONFLOW = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISPERSONFLOW");
+                this.OnISPERSONFLOWChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISPERSONFLOW;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISPERSONFLOWChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISPERSONFLOWChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISSHOW 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISSHOW
+        {
+            get
+            {
+                return this._ISSHOW;
+            }
+            set
+            {
+                this.OnISSHOWChanging(value);
+                this.ReportPropertyChanging("ISSHOW");
+                this._ISSHOW = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISSHOW");
+                this.OnISSHOWChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISSHOW;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISSHOWChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISSHOWChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISMULTPERSON 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISMULTPERSON
+        {
+            get
+            {
+                return this._ISMULTPERSON;
+            }
+            set
+            {
+                this.OnISMULTPERSONChanging(value);
+                this.ReportPropertyChanging("ISMULTPERSON");
+                this._ISMULTPERSON = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISMULTPERSON");
+                this.OnISMULTPERSONChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISMULTPERSON;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISMULTPERSONChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISMULTPERSONChanged();
+    }
+    /// <summary>
+    /// 架构中不存在 SMT_OA_EFModel.T_OA_APPROVALINFOTEMPLET 的注释。
+    /// </summary>
+    /// <KeyProperties>
+    /// APPROVALID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SMT_OA_EFModel", Name="T_OA_APPROVALINFOTEMPLET")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class T_OA_APPROVALINFOTEMPLET : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 创建新的 T_OA_APPROVALINFOTEMPLET 对象。
+        /// </summary>
+        /// <param name="aPPROVALID">APPROVALID 的初始值。</param>
+        /// <param name="aPPROVALTITLE">APPROVALTITLE 的初始值。</param>
+        /// <param name="tEL">TEL 的初始值。</param>
+        /// <param name="cONTENT">CONTENT 的初始值。</param>
+        /// <param name="iSCHARGE">ISCHARGE 的初始值。</param>
+        /// <param name="cHECKSTATE">CHECKSTATE 的初始值。</param>
+        /// <param name="oWNERID">OWNERID 的初始值。</param>
+        /// <param name="oWNERNAME">OWNERNAME 的初始值。</param>
+        /// <param name="oWNERCOMPANYID">OWNERCOMPANYID 的初始值。</param>
+        /// <param name="oWNERDEPARTMENTID">OWNERDEPARTMENTID 的初始值。</param>
+        /// <param name="oWNERPOSTID">OWNERPOSTID 的初始值。</param>
+        /// <param name="cREATEUSERID">CREATEUSERID 的初始值。</param>
+        /// <param name="cREATEUSERNAME">CREATEUSERNAME 的初始值。</param>
+        /// <param name="cREATECOMPANYID">CREATECOMPANYID 的初始值。</param>
+        /// <param name="cREATEDEPARTMENTID">CREATEDEPARTMENTID 的初始值。</param>
+        /// <param name="cREATEPOSTID">CREATEPOSTID 的初始值。</param>
+        /// <param name="cREATEDATE">CREATEDATE 的初始值。</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static T_OA_APPROVALINFOTEMPLET CreateT_OA_APPROVALINFOTEMPLET(
+                    string aPPROVALID, 
+                    string aPPROVALTITLE, 
+                    string tEL, 
+                    byte[] cONTENT, 
+                    string iSCHARGE, 
+                    string cHECKSTATE, 
+                    string oWNERID, 
+                    string oWNERNAME, 
+                    string oWNERCOMPANYID, 
+                    string oWNERDEPARTMENTID, 
+                    string oWNERPOSTID, 
+                    string cREATEUSERID, 
+                    string cREATEUSERNAME, 
+                    string cREATECOMPANYID, 
+                    string cREATEDEPARTMENTID, 
+                    string cREATEPOSTID, 
+                    global::System.DateTime cREATEDATE)
+        {
+            T_OA_APPROVALINFOTEMPLET t_OA_APPROVALINFOTEMPLET = new T_OA_APPROVALINFOTEMPLET();
+            t_OA_APPROVALINFOTEMPLET.APPROVALID = aPPROVALID;
+            t_OA_APPROVALINFOTEMPLET.APPROVALTITLE = aPPROVALTITLE;
+            t_OA_APPROVALINFOTEMPLET.TEL = tEL;
+            t_OA_APPROVALINFOTEMPLET.CONTENT = cONTENT;
+            t_OA_APPROVALINFOTEMPLET.ISCHARGE = iSCHARGE;
+            t_OA_APPROVALINFOTEMPLET.CHECKSTATE = cHECKSTATE;
+            t_OA_APPROVALINFOTEMPLET.OWNERID = oWNERID;
+            t_OA_APPROVALINFOTEMPLET.OWNERNAME = oWNERNAME;
+            t_OA_APPROVALINFOTEMPLET.OWNERCOMPANYID = oWNERCOMPANYID;
+            t_OA_APPROVALINFOTEMPLET.OWNERDEPARTMENTID = oWNERDEPARTMENTID;
+            t_OA_APPROVALINFOTEMPLET.OWNERPOSTID = oWNERPOSTID;
+            t_OA_APPROVALINFOTEMPLET.CREATEUSERID = cREATEUSERID;
+            t_OA_APPROVALINFOTEMPLET.CREATEUSERNAME = cREATEUSERNAME;
+            t_OA_APPROVALINFOTEMPLET.CREATECOMPANYID = cREATECOMPANYID;
+            t_OA_APPROVALINFOTEMPLET.CREATEDEPARTMENTID = cREATEDEPARTMENTID;
+            t_OA_APPROVALINFOTEMPLET.CREATEPOSTID = cREATEPOSTID;
+            t_OA_APPROVALINFOTEMPLET.CREATEDATE = cREATEDATE;
+            return t_OA_APPROVALINFOTEMPLET;
+        }
+        /// <summary>
+        /// 架构中不存在属性 APPROVALID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string APPROVALID
+        {
+            get
+            {
+                return this._APPROVALID;
+            }
+            set
+            {
+                this.OnAPPROVALIDChanging(value);
+                this.ReportPropertyChanging("APPROVALID");
+                this._APPROVALID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("APPROVALID");
+                this.OnAPPROVALIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _APPROVALID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnAPPROVALIDChanged();
         /// <summary>
         /// 架构中不存在属性 APPROVALTITLE 的任何注释。
         /// </summary>
@@ -8910,6 +10241,33 @@ namespace SMT_OA_EFModel
         partial void OnENDCITYNAMEChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnENDCITYNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISALTERTRAVE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISALTERTRAVE
+        {
+            get
+            {
+                return this._ISALTERTRAVE;
+            }
+            set
+            {
+                this.OnISALTERTRAVEChanging(value);
+                this.ReportPropertyChanging("ISALTERTRAVE");
+                this._ISALTERTRAVE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISALTERTRAVE");
+                this.OnISALTERTRAVEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISALTERTRAVE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISALTERTRAVEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISALTERTRAVEChanged();
         /// <summary>
         /// 架构中不存在 T_OA_TRAVELREIMBURSEMENT 的注释。
         /// </summary>
@@ -16357,6 +17715,33 @@ namespace SMT_OA_EFModel
         partial void OnUPDATEDATEChanging(global::System.Nullable<global::System.DateTime> value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnUPDATEDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 VIEWNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string VIEWNAME
+        {
+            get
+            {
+                return this._VIEWNAME;
+            }
+            set
+            {
+                this.OnVIEWNAMEChanging(value);
+                this.ReportPropertyChanging("VIEWNAME");
+                this._VIEWNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("VIEWNAME");
+                this.OnVIEWNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _VIEWNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnVIEWNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnVIEWNAMEChanged();
     }
     /// <summary>
     /// 架构中不存在 SMT_OA_EFModel.T_OA_GIFTAPPLYDETAIL 的注释。
@@ -45016,6 +46401,87 @@ namespace SMT_OA_EFModel
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnISREDDOCChanged();
         /// <summary>
+        /// 架构中不存在属性 ISTOP 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISTOP
+        {
+            get
+            {
+                return this._ISTOP;
+            }
+            set
+            {
+                this.OnISTOPChanging(value);
+                this.ReportPropertyChanging("ISTOP");
+                this._ISTOP = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISTOP");
+                this.OnISTOPChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISTOP;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISTOPChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISTOPChanged();
+        /// <summary>
+        /// 架构中不存在属性 TOPSTARTDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> TOPSTARTDATE
+        {
+            get
+            {
+                return this._TOPSTARTDATE;
+            }
+            set
+            {
+                this.OnTOPSTARTDATEChanging(value);
+                this.ReportPropertyChanging("TOPSTARTDATE");
+                this._TOPSTARTDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("TOPSTARTDATE");
+                this.OnTOPSTARTDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _TOPSTARTDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTOPSTARTDATEChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTOPSTARTDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 TOPENDDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> TOPENDDATE
+        {
+            get
+            {
+                return this._TOPENDDATE;
+            }
+            set
+            {
+                this.OnTOPENDDATEChanging(value);
+                this.ReportPropertyChanging("TOPENDDATE");
+                this._TOPENDDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("TOPENDDATE");
+                this.OnTOPENDDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _TOPENDDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTOPENDDATEChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnTOPENDDATEChanged();
+        /// <summary>
         /// 架构中不存在 T_OA_SENDDOCTYPE 的注释。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmRelationshipNavigationPropertyAttribute("SMT_OA_EFModel", "FK_T_OA_SENDDOC", "T_OA_SENDDOCTYPE")]
@@ -47371,60 +48837,6 @@ namespace SMT_OA_EFModel
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnCONTENTChanged();
         /// <summary>
-        /// 架构中不存在属性 STARTCITYNAME 的任何注释。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string STARTCITYNAME
-        {
-            get
-            {
-                return this._STARTCITYNAME;
-            }
-            set
-            {
-                this.OnSTARTCITYNAMEChanging(value);
-                this.ReportPropertyChanging("STARTCITYNAME");
-                this._STARTCITYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("STARTCITYNAME");
-                this.OnSTARTCITYNAMEChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _STARTCITYNAME;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnSTARTCITYNAMEChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnSTARTCITYNAMEChanged();
-        /// <summary>
-        /// 架构中不存在属性 ENDCITYNAME 的任何注释。
-        /// </summary>
-        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
-        [global::System.Runtime.Serialization.DataMemberAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public string ENDCITYNAME
-        {
-            get
-            {
-                return this._ENDCITYNAME;
-            }
-            set
-            {
-                this.OnENDCITYNAMEChanging(value);
-                this.ReportPropertyChanging("ENDCITYNAME");
-                this._ENDCITYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
-                this.ReportPropertyChanged("ENDCITYNAME");
-                this.OnENDCITYNAMEChanged();
-            }
-        }
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        private string _ENDCITYNAME;
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnENDCITYNAMEChanging(string value);
-        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        partial void OnENDCITYNAMEChanged();
-        /// <summary>
         /// 架构中不存在属性 OWNERPOSTNAME 的任何注释。
         /// </summary>
         [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
@@ -47532,6 +48944,60 @@ namespace SMT_OA_EFModel
         partial void OnPOSTLEVELChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnPOSTLEVELChanged();
+        /// <summary>
+        /// 架构中不存在属性 STARTCITYNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string STARTCITYNAME
+        {
+            get
+            {
+                return this._STARTCITYNAME;
+            }
+            set
+            {
+                this.OnSTARTCITYNAMEChanging(value);
+                this.ReportPropertyChanging("STARTCITYNAME");
+                this._STARTCITYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("STARTCITYNAME");
+                this.OnSTARTCITYNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _STARTCITYNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnSTARTCITYNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnSTARTCITYNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 ENDCITYNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ENDCITYNAME
+        {
+            get
+            {
+                return this._ENDCITYNAME;
+            }
+            set
+            {
+                this.OnENDCITYNAMEChanging(value);
+                this.ReportPropertyChanging("ENDCITYNAME");
+                this._ENDCITYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ENDCITYNAME");
+                this.OnENDCITYNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ENDCITYNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnENDCITYNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnENDCITYNAMEChanged();
         /// <summary>
         /// 架构中不存在 T_OA_BUSINESSTRIP 的注释。
         /// </summary>
@@ -48238,6 +49704,33 @@ namespace SMT_OA_EFModel
         partial void OnOWNERIDChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnOWNERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 NOALLOWANCEPOSTLEVEL 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string NOALLOWANCEPOSTLEVEL
+        {
+            get
+            {
+                return this._NOALLOWANCEPOSTLEVEL;
+            }
+            set
+            {
+                this.OnNOALLOWANCEPOSTLEVELChanging(value);
+                this.ReportPropertyChanging("NOALLOWANCEPOSTLEVEL");
+                this._NOALLOWANCEPOSTLEVEL = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("NOALLOWANCEPOSTLEVEL");
+                this.OnNOALLOWANCEPOSTLEVELChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _NOALLOWANCEPOSTLEVEL;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNOALLOWANCEPOSTLEVELChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnNOALLOWANCEPOSTLEVELChanged();
         /// <summary>
         /// 架构中不存在 T_OA_AREAALLOWANCE 的注释。
         /// </summary>
@@ -53007,6 +54500,488 @@ namespace SMT_OA_EFModel
                 }
             }
         }
+    }
+    /// <summary>
+    /// 架构中不存在 SMT_OA_EFModel.T_OA_VIEWSENDDOC 的注释。
+    /// </summary>
+    /// <KeyProperties>
+    /// VIEWSENDDOCID
+    /// </KeyProperties>
+    [global::System.Data.Objects.DataClasses.EdmEntityTypeAttribute(NamespaceName="SMT_OA_EFModel", Name="T_OA_VIEWSENDDOC")]
+    [global::System.Runtime.Serialization.DataContractAttribute(IsReference=true)]
+    [global::System.Serializable()]
+    public partial class T_OA_VIEWSENDDOC : global::System.Data.Objects.DataClasses.EntityObject
+    {
+        /// <summary>
+        /// 创建新的 T_OA_VIEWSENDDOC 对象。
+        /// </summary>
+        /// <param name="vIEWSENDDOCID">VIEWSENDDOCID 的初始值。</param>
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public static T_OA_VIEWSENDDOC CreateT_OA_VIEWSENDDOC(string vIEWSENDDOCID)
+        {
+            T_OA_VIEWSENDDOC t_OA_VIEWSENDDOC = new T_OA_VIEWSENDDOC();
+            t_OA_VIEWSENDDOC.VIEWSENDDOCID = vIEWSENDDOCID;
+            return t_OA_VIEWSENDDOC;
+        }
+        /// <summary>
+        /// 架构中不存在属性 VIEWSENDDOCID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string VIEWSENDDOCID
+        {
+            get
+            {
+                return this._VIEWSENDDOCID;
+            }
+            set
+            {
+                this.OnVIEWSENDDOCIDChanging(value);
+                this.ReportPropertyChanging("VIEWSENDDOCID");
+                this._VIEWSENDDOCID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, false);
+                this.ReportPropertyChanged("VIEWSENDDOCID");
+                this.OnVIEWSENDDOCIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _VIEWSENDDOCID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnVIEWSENDDOCIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnVIEWSENDDOCIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 SENDDOCID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string SENDDOCID
+        {
+            get
+            {
+                return this._SENDDOCID;
+            }
+            set
+            {
+                this.OnSENDDOCIDChanging(value);
+                this.ReportPropertyChanging("SENDDOCID");
+                this._SENDDOCID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("SENDDOCID");
+                this.OnSENDDOCIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _SENDDOCID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnSENDDOCIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnSENDDOCIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERID
+        {
+            get
+            {
+                return this._OWNERID;
+            }
+            set
+            {
+                this.OnOWNERIDChanging(value);
+                this.ReportPropertyChanging("OWNERID");
+                this._OWNERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERID");
+                this.OnOWNERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERNAME
+        {
+            get
+            {
+                return this._OWNERNAME;
+            }
+            set
+            {
+                this.OnOWNERNAMEChanging(value);
+                this.ReportPropertyChanging("OWNERNAME");
+                this._OWNERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERNAME");
+                this.OnOWNERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERCOMPANYID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERCOMPANYID
+        {
+            get
+            {
+                return this._OWNERCOMPANYID;
+            }
+            set
+            {
+                this.OnOWNERCOMPANYIDChanging(value);
+                this.ReportPropertyChanging("OWNERCOMPANYID");
+                this._OWNERCOMPANYID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERCOMPANYID");
+                this.OnOWNERCOMPANYIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERCOMPANYID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERCOMPANYNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERCOMPANYNAME
+        {
+            get
+            {
+                return this._OWNERCOMPANYNAME;
+            }
+            set
+            {
+                this.OnOWNERCOMPANYNAMEChanging(value);
+                this.ReportPropertyChanging("OWNERCOMPANYNAME");
+                this._OWNERCOMPANYNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERCOMPANYNAME");
+                this.OnOWNERCOMPANYNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERCOMPANYNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERCOMPANYNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERDEPARTMENTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERDEPARTMENTID
+        {
+            get
+            {
+                return this._OWNERDEPARTMENTID;
+            }
+            set
+            {
+                this.OnOWNERDEPARTMENTIDChanging(value);
+                this.ReportPropertyChanging("OWNERDEPARTMENTID");
+                this._OWNERDEPARTMENTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERDEPARTMENTID");
+                this.OnOWNERDEPARTMENTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERDEPARTMENTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERDEPARTMENTNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERDEPARTMENTNAME
+        {
+            get
+            {
+                return this._OWNERDEPARTMENTNAME;
+            }
+            set
+            {
+                this.OnOWNERDEPARTMENTNAMEChanging(value);
+                this.ReportPropertyChanging("OWNERDEPARTMENTNAME");
+                this._OWNERDEPARTMENTNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERDEPARTMENTNAME");
+                this.OnOWNERDEPARTMENTNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERDEPARTMENTNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERDEPARTMENTNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERPOSTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERPOSTID
+        {
+            get
+            {
+                return this._OWNERPOSTID;
+            }
+            set
+            {
+                this.OnOWNERPOSTIDChanging(value);
+                this.ReportPropertyChanging("OWNERPOSTID");
+                this._OWNERPOSTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERPOSTID");
+                this.OnOWNERPOSTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERPOSTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 OWNERPOSTNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string OWNERPOSTNAME
+        {
+            get
+            {
+                return this._OWNERPOSTNAME;
+            }
+            set
+            {
+                this.OnOWNERPOSTNAMEChanging(value);
+                this.ReportPropertyChanging("OWNERPOSTNAME");
+                this._OWNERPOSTNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("OWNERPOSTNAME");
+                this.OnOWNERPOSTNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _OWNERPOSTNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnOWNERPOSTNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEDATE 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public global::System.Nullable<global::System.DateTime> CREATEDATE
+        {
+            get
+            {
+                return this._CREATEDATE;
+            }
+            set
+            {
+                this.OnCREATEDATEChanging(value);
+                this.ReportPropertyChanging("CREATEDATE");
+                this._CREATEDATE = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("CREATEDATE");
+                this.OnCREATEDATEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private global::System.Nullable<global::System.DateTime> _CREATEDATE;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanging(global::System.Nullable<global::System.DateTime> value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDATEChanged();
+        /// <summary>
+        /// 架构中不存在属性 ISVIEW 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string ISVIEW
+        {
+            get
+            {
+                return this._ISVIEW;
+            }
+            set
+            {
+                this.OnISVIEWChanging(value);
+                this.ReportPropertyChanging("ISVIEW");
+                this._ISVIEW = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("ISVIEW");
+                this.OnISVIEWChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _ISVIEW;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISVIEWChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnISVIEWChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERID
+        {
+            get
+            {
+                return this._CREATEUSERID;
+            }
+            set
+            {
+                this.OnCREATEUSERIDChanging(value);
+                this.ReportPropertyChanging("CREATEUSERID");
+                this._CREATEUSERID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEUSERID");
+                this.OnCREATEUSERIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEUSERNAME 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEUSERNAME
+        {
+            get
+            {
+                return this._CREATEUSERNAME;
+            }
+            set
+            {
+                this.OnCREATEUSERNAMEChanging(value);
+                this.ReportPropertyChanging("CREATEUSERNAME");
+                this._CREATEUSERNAME = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEUSERNAME");
+                this.OnCREATEUSERNAMEChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEUSERNAME;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEUSERNAMEChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATECOMPANYID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATECOMPANYID
+        {
+            get
+            {
+                return this._CREATECOMPANYID;
+            }
+            set
+            {
+                this.OnCREATECOMPANYIDChanging(value);
+                this.ReportPropertyChanging("CREATECOMPANYID");
+                this._CREATECOMPANYID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATECOMPANYID");
+                this.OnCREATECOMPANYIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATECOMPANYID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATECOMPANYIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATECOMPANYIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEDEPARTMENTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEDEPARTMENTID
+        {
+            get
+            {
+                return this._CREATEDEPARTMENTID;
+            }
+            set
+            {
+                this.OnCREATEDEPARTMENTIDChanging(value);
+                this.ReportPropertyChanging("CREATEDEPARTMENTID");
+                this._CREATEDEPARTMENTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEDEPARTMENTID");
+                this.OnCREATEDEPARTMENTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEDEPARTMENTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDEPARTMENTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEDEPARTMENTIDChanged();
+        /// <summary>
+        /// 架构中不存在属性 CREATEPOSTID 的任何注释。
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string CREATEPOSTID
+        {
+            get
+            {
+                return this._CREATEPOSTID;
+            }
+            set
+            {
+                this.OnCREATEPOSTIDChanging(value);
+                this.ReportPropertyChanging("CREATEPOSTID");
+                this._CREATEPOSTID = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("CREATEPOSTID");
+                this.OnCREATEPOSTIDChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _CREATEPOSTID;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEPOSTIDChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnCREATEPOSTIDChanged();
     }
     /// <summary>
     /// 架构中不存在 SMT_OA_EFModel.T_OA_WELFAREDETAIL 的注释。

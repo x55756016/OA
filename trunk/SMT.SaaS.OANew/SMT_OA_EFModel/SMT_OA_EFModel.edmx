@@ -6,7 +6,9 @@
     <EntitySet Name="T_OA_ACCIDENTRECORD" EntityType="SMT_OA_EFModel.Store.T_OA_ACCIDENTRECORD" store:Type="Tables" />
     <EntitySet Name="T_OA_AGENTDATESET" EntityType="SMT_OA_EFModel.Store.T_OA_AGENTDATESET" store:Type="Tables" />
     <EntitySet Name="T_OA_AGENTSET" EntityType="SMT_OA_EFModel.Store.T_OA_AGENTSET" store:Type="Tables" />
+    <EntitySet Name="T_OA_APPROVALFLOWUSERS" EntityType="SMT_OA_EFModel.Store.T_OA_APPROVALFLOWUSERS" store:Type="Tables" />
     <EntitySet Name="T_OA_APPROVALINFO" EntityType="SMT_OA_EFModel.Store.T_OA_APPROVALINFO" store:Type="Tables" />
+    <EntitySet Name="T_OA_APPROVALINFOTEMPLET" EntityType="SMT_OA_EFModel.Store.T_OA_APPROVALINFOTEMPLET" store:Type="Tables" />
     <EntitySet Name="T_OA_APPROVALTYPESET" EntityType="SMT_OA_EFModel.Store.T_OA_APPROVALTYPESET" store:Type="Tables" />
     <EntitySet Name="T_OA_ARCHIVES" EntityType="SMT_OA_EFModel.Store.T_OA_ARCHIVES" store:Type="Tables" />
     <EntitySet Name="T_OA_AREAALLOWANCE" EntityType="SMT_OA_EFModel.Store.T_OA_AREAALLOWANCE" store:Type="Tables" />
@@ -80,6 +82,7 @@
     <EntitySet Name="T_OA_VEHICLEDISPATCHDETAIL" EntityType="SMT_OA_EFModel.Store.T_OA_VEHICLEDISPATCHDETAIL" store:Type="Tables" />
     <EntitySet Name="T_OA_VEHICLEDISPATCHRECORD" EntityType="SMT_OA_EFModel.Store.T_OA_VEHICLEDISPATCHRECORD" store:Type="Tables" />
     <EntitySet Name="T_OA_VEHICLEUSEAPP" EntityType="SMT_OA_EFModel.Store.T_OA_VEHICLEUSEAPP" store:Type="Tables" />
+    <EntitySet Name="T_OA_VIEWSENDDOC" EntityType="SMT_OA_EFModel.Store.T_OA_VIEWSENDDOC" store:Type="Tables" />
     <EntitySet Name="T_OA_WELFAREDETAIL" EntityType="SMT_OA_EFModel.Store.T_OA_WELFAREDETAIL" store:Type="Tables" />
     <EntitySet Name="T_OA_WELFAREDISTRIBUTEDETAIL" EntityType="SMT_OA_EFModel.Store.T_OA_WELFAREDISTRIBUTEDETAIL" store:Type="Tables" />
     <EntitySet Name="T_OA_WELFAREDISTRIBUTEMASTER" EntityType="SMT_OA_EFModel.Store.T_OA_WELFAREDISTRIBUTEMASTER" store:Type="Tables" />
@@ -380,12 +383,65 @@
     <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEDATE" Type="date" />
   </EntityType>
+  <EntityType Name="T_OA_APPROVALFLOWUSERS">
+    <Key>
+      <PropertyRef Name="APPROVALFLOWUSERID" />
+    </Key>
+    <Property Name="APPROVALFLOWUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="APPROVALINFOID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERPOSTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERDEPARTMENTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERCOMPANYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FLOWUSERORDER" Type="number" Precision="38" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MODELCODE" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
   <EntityType Name="T_OA_APPROVALINFO">
     <Key>
       <PropertyRef Name="APPROVALID" />
     </Key>
     <Property Name="APPROVALID" Type="varchar2" Nullable="false" MaxLength="50" />
     <Property Name="APPROVALCODE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="APPROVALTITLE" Type="varchar2" Nullable="false" MaxLength="200" />
+    <Property Name="TEL" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CONTENT" Type="blob" Nullable="false" />
+    <Property Name="ISCHARGE" Type="nvarchar2" Nullable="false" MaxLength="2" />
+    <Property Name="CHARGEMONEY" Type="number" />
+    <Property Name="CHECKSTATE" Type="nvarchar2" Nullable="false" MaxLength="2" />
+    <Property Name="OWNERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="TYPEAPPROVAL" Type="nvarchar2" MaxLength="100" />
+    <Property Name="TYPEAPPROVALONE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="TYPEAPPROVALTWO" Type="nvarchar2" MaxLength="100" />
+    <Property Name="TYPEAPPROVALTHREE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISPERSONFLOW" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISSHOW" Type="nvarchar2" MaxLength="100" />
+    <Property Name="ISMULTPERSON" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_OA_APPROVALINFOTEMPLET">
+    <Key>
+      <PropertyRef Name="APPROVALID" />
+    </Key>
+    <Property Name="APPROVALID" Type="varchar2" Nullable="false" MaxLength="50" />
     <Property Name="APPROVALTITLE" Type="varchar2" Nullable="false" MaxLength="200" />
     <Property Name="TEL" Type="nvarchar2" Nullable="false" MaxLength="100" />
     <Property Name="CONTENT" Type="blob" Nullable="false" />
@@ -590,6 +646,7 @@
     <Property Name="POSTLEVEL" Type="nvarchar2" />
     <Property Name="STARTCITYNAME" Type="nvarchar2" />
     <Property Name="ENDCITYNAME" Type="nvarchar2" />
+    <Property Name="ISALTERTRAVE" Type="nvarchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="T_OA_BUSINESSTRIPDETAIL">
     <Key>
@@ -893,6 +950,7 @@
     <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEDATE" Type="date" />
+    <Property Name="VIEWNAME" Type="nvarchar2" MaxLength="200" />
   </EntityType>
   <EntityType Name="T_OA_GIFTAPPLYDETAIL">
     <Key>
@@ -2043,6 +2101,9 @@
     <Property Name="UPDATEDATE" Type="date" />
     <Property Name="PUBLISHDATE" Type="date" />
     <Property Name="ISREDDOC" Type="nvarchar2" MaxLength="2" />
+    <Property Name="ISTOP" Type="nvarchar2" MaxLength="2" />
+    <Property Name="TOPSTARTDATE" Type="date" />
+    <Property Name="TOPENDDATE" Type="date" />
   </EntityType>
   <EntityType Name="T_OA_SENDDOCTEMPLATE">
     <Key>
@@ -2142,12 +2203,12 @@
     <Property Name="NOBUDGETCLAIMS" Type="nvarchar2" MaxLength="100" />
     <Property Name="BUSINESSTRIPID" Type="nvarchar2" MaxLength="100" />
     <Property Name="CONTENT" Type="varchar2" MaxLength="2000" />
-    <Property Name="STARTCITYNAME" Type="nvarchar2" />
-    <Property Name="ENDCITYNAME" Type="nvarchar2" />
     <Property Name="OWNERPOSTNAME" Type="nvarchar2" />
     <Property Name="OWNERDEPARTMENTNAME" Type="nvarchar2" />
     <Property Name="OWNERCOMPANYNAME" Type="nvarchar2" />
     <Property Name="POSTLEVEL" Type="nvarchar2" />
+    <Property Name="STARTCITYNAME" Type="nvarchar2" />
+    <Property Name="ENDCITYNAME" Type="nvarchar2" />
   </EntityType>
   <EntityType Name="T_OA_TRAVELSOLUTIONS">
     <Key>
@@ -2175,6 +2236,7 @@
     <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEDATE" Type="date" />
     <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="NOALLOWANCEPOSTLEVEL" Type="nvarchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="T_OA_VEHICLE">
     <Key>
@@ -2351,6 +2413,28 @@
     <Property Name="UPDATEUSERID" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEUSERNAME" Type="nvarchar2" MaxLength="100" />
     <Property Name="UPDATEDATE" Type="date" />
+  </EntityType>
+  <EntityType Name="T_OA_VIEWSENDDOC">
+    <Key>
+      <PropertyRef Name="VIEWSENDDOCID" />
+    </Key>
+    <Property Name="VIEWSENDDOCID" Type="nvarchar2" Nullable="false" MaxLength="100" />
+    <Property Name="SENDDOCID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDATE" Type="date" />
+    <Property Name="ISVIEW" Type="nvarchar2" MaxLength="4" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERNAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATECOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEPOSTID" Type="nvarchar2" MaxLength="100" />
   </EntityType>
   <EntityType Name="T_OA_WELFAREDETAIL">
     <Key>
@@ -3167,7 +3251,9 @@
     <EntitySet Name="T_OA_ACCIDENTRECORD" EntityType="SMT_OA_EFModel.T_OA_ACCIDENTRECORD" />
     <EntitySet Name="T_OA_AGENTDATESET" EntityType="SMT_OA_EFModel.T_OA_AGENTDATESET" />
     <EntitySet Name="T_OA_AGENTSET" EntityType="SMT_OA_EFModel.T_OA_AGENTSET" />
+    <EntitySet Name="T_OA_APPROVALFLOWUSERS" EntityType="SMT_OA_EFModel.T_OA_APPROVALFLOWUSERS" />
     <EntitySet Name="T_OA_APPROVALINFO" EntityType="SMT_OA_EFModel.T_OA_APPROVALINFO" />
+    <EntitySet Name="T_OA_APPROVALINFOTEMPLET" EntityType="SMT_OA_EFModel.T_OA_APPROVALINFOTEMPLET" />
     <EntitySet Name="T_OA_APPROVALTYPESET" EntityType="SMT_OA_EFModel.T_OA_APPROVALTYPESET" />
     <EntitySet Name="T_OA_ARCHIVES" EntityType="SMT_OA_EFModel.T_OA_ARCHIVES" />
     <EntitySet Name="T_OA_AREAALLOWANCE" EntityType="SMT_OA_EFModel.T_OA_AREAALLOWANCE" />
@@ -3241,6 +3327,7 @@
     <EntitySet Name="T_OA_VEHICLEDISPATCHDETAIL" EntityType="SMT_OA_EFModel.T_OA_VEHICLEDISPATCHDETAIL" />
     <EntitySet Name="T_OA_VEHICLEDISPATCHRECORD" EntityType="SMT_OA_EFModel.T_OA_VEHICLEDISPATCHRECORD" />
     <EntitySet Name="T_OA_VEHICLEUSEAPP" EntityType="SMT_OA_EFModel.T_OA_VEHICLEUSEAPP" />
+    <EntitySet Name="T_OA_VIEWSENDDOC" EntityType="SMT_OA_EFModel.T_OA_VIEWSENDDOC" />
     <EntitySet Name="T_OA_WELFAREDETAIL" EntityType="SMT_OA_EFModel.T_OA_WELFAREDETAIL" />
     <EntitySet Name="T_OA_WELFAREDISTRIBUTEDETAIL" EntityType="SMT_OA_EFModel.T_OA_WELFAREDISTRIBUTEDETAIL" />
     <EntitySet Name="T_OA_WELFAREDISTRIBUTEMASTER" EntityType="SMT_OA_EFModel.T_OA_WELFAREDISTRIBUTEMASTER" />
@@ -3541,12 +3628,65 @@
     <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="UPDATEDATE" Type="DateTime" />
   </EntityType>
+  <EntityType Name="T_OA_APPROVALFLOWUSERS">
+    <Key>
+      <PropertyRef Name="APPROVALFLOWUSERID" />
+    </Key>
+    <Property Name="APPROVALFLOWUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="APPROVALINFOID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERPOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERDEPARTMENTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERCOMPANYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="FLOWUSERORDER" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="MODELCODE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
   <EntityType Name="T_OA_APPROVALINFO">
     <Key>
       <PropertyRef Name="APPROVALID" />
     </Key>
     <Property Name="APPROVALID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="APPROVALCODE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="APPROVALTITLE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="TEL" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CONTENT" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ISCHARGE" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="CHARGEMONEY" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CHECKSTATE" Type="String" Nullable="false" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="TYPEAPPROVAL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TYPEAPPROVALONE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TYPEAPPROVALTWO" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="TYPEAPPROVALTHREE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISPERSONFLOW" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISSHOW" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="ISMULTPERSON" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_OA_APPROVALINFOTEMPLET">
+    <Key>
+      <PropertyRef Name="APPROVALID" />
+    </Key>
+    <Property Name="APPROVALID" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="APPROVALTITLE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
     <Property Name="TEL" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="CONTENT" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
@@ -3755,6 +3895,7 @@
     <Property Name="POSTLEVEL" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="STARTCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="ENDCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ISALTERTRAVE" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_OA_TRAVELREIMBURSEMENT" Relationship="SMT_OA_EFModel.FK_BUSINESSTRIP_T_OA_BUS" FromRole="T_OA_BUSINESSTRIP" ToRole="T_OA_TRAVELREIMBURSEMENT" />
     <NavigationProperty Name="T_OA_BUSINESSTRIPDETAIL" Relationship="SMT_OA_EFModel.FK_T_OA_BUS_T_OA_BUSDETAIL" FromRole="T_OA_BUSINESSTRIP" ToRole="T_OA_BUSINESSTRIPDETAIL" />
   </EntityType>
@@ -4064,6 +4205,7 @@
     <Property Name="UPDATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="UPDATEDATE" Type="DateTime" />
+    <Property Name="VIEWNAME" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="T_OA_GIFTAPPLYDETAIL">
     <Key>
@@ -5235,6 +5377,9 @@
     <Property Name="UPDATEDATE" Type="DateTime" />
     <Property Name="PUBLISHDATE" Type="DateTime" />
     <Property Name="ISREDDOC" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="ISTOP" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+    <Property Name="TOPSTARTDATE" Type="DateTime" />
+    <Property Name="TOPENDDATE" Type="DateTime" />
     <NavigationProperty Name="T_OA_SENDDOCTYPE" Relationship="SMT_OA_EFModel.FK_T_OA_SENDDOC" FromRole="T_OA_SENDDOC" ToRole="T_OA_SENDDOCTYPE" />
   </EntityType>
   <EntityType Name="T_OA_SENDDOCTEMPLATE">
@@ -5335,12 +5480,12 @@
     <Property Name="UPDATEDATE" Type="DateTime" />
     <Property Name="NOBUDGETCLAIMS" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="CONTENT" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
-    <Property Name="STARTCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
-    <Property Name="ENDCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="OWNERPOSTNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="OWNERDEPARTMENTNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="OWNERCOMPANYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <Property Name="POSTLEVEL" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="STARTCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ENDCITYNAME" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_OA_BUSINESSTRIP" Relationship="SMT_OA_EFModel.FK_BUSINESSTRIP_T_OA_BUS" FromRole="T_OA_TRAVELREIMBURSEMENT" ToRole="T_OA_BUSINESSTRIP" />
     <NavigationProperty Name="T_OA_REIMBURSEMENTDETAIL" Relationship="SMT_OA_EFModel.FK_T_OA_REI_REFERENCE_T_OA_TRA" FromRole="T_OA_TRAVELREIMBURSEMENT" ToRole="T_OA_REIMBURSEMENTDETAIL" />
   </EntityType>
@@ -5370,6 +5515,7 @@
     <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="UPDATEDATE" Type="DateTime" />
     <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="NOALLOWANCEPOSTLEVEL" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="T_OA_AREAALLOWANCE" Relationship="SMT_OA_EFModel.FK_T_OA_AREAALLOWANCE" FromRole="T_OA_TRAVELSOLUTIONS" ToRole="T_OA_AREAALLOWANCE" />
     <NavigationProperty Name="T_OA_AREADIFFERENCE" Relationship="SMT_OA_EFModel.FK_T_OA_AREADIFFERENCE" FromRole="T_OA_TRAVELSOLUTIONS" ToRole="T_OA_AREADIFFERENCE" />
     <NavigationProperty Name="T_OA_CANTAKETHEPLANELINE" Relationship="SMT_OA_EFModel.FK_T_OA_CAN_REFERENCE_T_OA_TRA" FromRole="T_OA_TRAVELSOLUTIONS" ToRole="T_OA_CANTAKETHEPLANELINE" />
@@ -5560,6 +5706,28 @@
     <Property Name="UPDATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
     <Property Name="UPDATEDATE" Type="DateTime" />
     <NavigationProperty Name="T_OA_VEHICLEDISPATCHDETAIL" Relationship="SMT_OA_EFModel.FK_T_OA_VEHICLEDISPATCHDETAIL2" FromRole="T_OA_VEHICLEUSEAPP" ToRole="T_OA_VEHICLEDISPATCHDETAIL" />
+  </EntityType>
+  <EntityType Name="T_OA_VIEWSENDDOC">
+    <Key>
+      <PropertyRef Name="VIEWSENDDOCID" />
+    </Key>
+    <Property Name="VIEWSENDDOCID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SENDDOCID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERCOMPANYNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERDEPARTMENTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="OWNERPOSTNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDATE" Type="DateTime" />
+    <Property Name="ISVIEW" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEUSERNAME" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATECOMPANYID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CREATEPOSTID" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="T_OA_WELFAREDETAIL">
     <Key>
@@ -6026,11 +6194,66 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="T_OA_APPROVALFLOWUSERS">
+      <EntityTypeMapping TypeName="SMT_OA_EFModel.T_OA_APPROVALFLOWUSERS">
+        <MappingFragment StoreEntitySet="T_OA_APPROVALFLOWUSERS">
+          <ScalarProperty Name="APPROVALFLOWUSERID" ColumnName="APPROVALFLOWUSERID" />
+          <ScalarProperty Name="APPROVALINFOID" ColumnName="APPROVALINFOID" />
+          <ScalarProperty Name="FLOWUSERNAME" ColumnName="FLOWUSERNAME" />
+          <ScalarProperty Name="FLOWUSERID" ColumnName="FLOWUSERID" />
+          <ScalarProperty Name="FLOWUSERPOSTID" ColumnName="FLOWUSERPOSTID" />
+          <ScalarProperty Name="FLOWUSERPOSTNAME" ColumnName="FLOWUSERPOSTNAME" />
+          <ScalarProperty Name="FLOWUSERDEPARTMENTID" ColumnName="FLOWUSERDEPARTMENTID" />
+          <ScalarProperty Name="FLOWUSERDEPARTMENTNAME" ColumnName="FLOWUSERDEPARTMENTNAME" />
+          <ScalarProperty Name="FLOWUSERCOMPANYID" ColumnName="FLOWUSERCOMPANYID" />
+          <ScalarProperty Name="FLOWUSERCOMPANYNAME" ColumnName="FLOWUSERCOMPANYNAME" />
+          <ScalarProperty Name="FLOWUSERORDER" ColumnName="FLOWUSERORDER" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="T_OA_APPROVALINFO">
       <EntityTypeMapping TypeName="SMT_OA_EFModel.T_OA_APPROVALINFO">
         <MappingFragment StoreEntitySet="T_OA_APPROVALINFO">
           <ScalarProperty Name="APPROVALID" ColumnName="APPROVALID" />
           <ScalarProperty Name="APPROVALCODE" ColumnName="APPROVALCODE" />
+          <ScalarProperty Name="APPROVALTITLE" ColumnName="APPROVALTITLE" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+          <ScalarProperty Name="ISCHARGE" ColumnName="ISCHARGE" />
+          <ScalarProperty Name="CHARGEMONEY" ColumnName="CHARGEMONEY" />
+          <ScalarProperty Name="CHECKSTATE" ColumnName="CHECKSTATE" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
+          <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
+          <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="TYPEAPPROVAL" ColumnName="TYPEAPPROVAL" />
+          <ScalarProperty Name="TYPEAPPROVALONE" ColumnName="TYPEAPPROVALONE" />
+          <ScalarProperty Name="TYPEAPPROVALTWO" ColumnName="TYPEAPPROVALTWO" />
+          <ScalarProperty Name="TYPEAPPROVALTHREE" ColumnName="TYPEAPPROVALTHREE" />
+          <ScalarProperty Name="ISPERSONFLOW" ColumnName="ISPERSONFLOW" />
+          <ScalarProperty Name="ISSHOW" ColumnName="ISSHOW" />
+          <ScalarProperty Name="ISMULTPERSON" ColumnName="ISMULTPERSON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OA_APPROVALINFOTEMPLET">
+      <EntityTypeMapping TypeName="SMT_OA_EFModel.T_OA_APPROVALINFOTEMPLET">
+        <MappingFragment StoreEntitySet="T_OA_APPROVALINFOTEMPLET">
+          <ScalarProperty Name="APPROVALID" ColumnName="APPROVALID" />
           <ScalarProperty Name="APPROVALTITLE" ColumnName="APPROVALTITLE" />
           <ScalarProperty Name="TEL" ColumnName="TEL" />
           <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
@@ -6238,6 +6461,7 @@
           <ScalarProperty Name="POSTLEVEL" ColumnName="POSTLEVEL" />
           <ScalarProperty Name="STARTCITYNAME" ColumnName="STARTCITYNAME" />
           <ScalarProperty Name="ENDCITYNAME" ColumnName="ENDCITYNAME" />
+          <ScalarProperty Name="ISALTERTRAVE" ColumnName="ISALTERTRAVE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -6542,6 +6766,7 @@
           <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
           <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
           <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+          <ScalarProperty Name="VIEWNAME" ColumnName="VIEWNAME" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -7698,6 +7923,9 @@
           <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
           <ScalarProperty Name="PUBLISHDATE" ColumnName="PUBLISHDATE" />
           <ScalarProperty Name="ISREDDOC" ColumnName="ISREDDOC" />
+          <ScalarProperty Name="ISTOP" ColumnName="ISTOP" />
+          <ScalarProperty Name="TOPSTARTDATE" ColumnName="TOPSTARTDATE" />
+          <ScalarProperty Name="TOPENDDATE" ColumnName="TOPENDDATE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -7799,12 +8027,12 @@
           <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
           <ScalarProperty Name="NOBUDGETCLAIMS" ColumnName="NOBUDGETCLAIMS" />
           <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
-          <ScalarProperty Name="STARTCITYNAME" ColumnName="STARTCITYNAME" />
-          <ScalarProperty Name="ENDCITYNAME" ColumnName="ENDCITYNAME" />
           <ScalarProperty Name="OWNERPOSTNAME" ColumnName="OWNERPOSTNAME" />
           <ScalarProperty Name="OWNERDEPARTMENTNAME" ColumnName="OWNERDEPARTMENTNAME" />
           <ScalarProperty Name="OWNERCOMPANYNAME" ColumnName="OWNERCOMPANYNAME" />
           <ScalarProperty Name="POSTLEVEL" ColumnName="POSTLEVEL" />
+          <ScalarProperty Name="STARTCITYNAME" ColumnName="STARTCITYNAME" />
+          <ScalarProperty Name="ENDCITYNAME" ColumnName="ENDCITYNAME" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -7833,6 +8061,7 @@
           <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
           <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
           <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="NOALLOWANCEPOSTLEVEL" ColumnName="NOALLOWANCEPOSTLEVEL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -8010,6 +8239,29 @@
           <ScalarProperty Name="UPDATEUSERID" ColumnName="UPDATEUSERID" />
           <ScalarProperty Name="UPDATEUSERNAME" ColumnName="UPDATEUSERNAME" />
           <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OA_VIEWSENDDOC">
+      <EntityTypeMapping TypeName="SMT_OA_EFModel.T_OA_VIEWSENDDOC">
+        <MappingFragment StoreEntitySet="T_OA_VIEWSENDDOC">
+          <ScalarProperty Name="VIEWSENDDOCID" ColumnName="VIEWSENDDOCID" />
+          <ScalarProperty Name="SENDDOCID" ColumnName="SENDDOCID" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERNAME" ColumnName="OWNERNAME" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERCOMPANYNAME" ColumnName="OWNERCOMPANYNAME" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERDEPARTMENTNAME" ColumnName="OWNERDEPARTMENTNAME" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="OWNERPOSTNAME" ColumnName="OWNERPOSTNAME" />
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ISVIEW" ColumnName="ISVIEW" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="CREATEUSERNAME" ColumnName="CREATEUSERNAME" />
+          <ScalarProperty Name="CREATECOMPANYID" ColumnName="CREATECOMPANYID" />
+          <ScalarProperty Name="CREATEDEPARTMENTID" ColumnName="CREATEDEPARTMENTID" />
+          <ScalarProperty Name="CREATEPOSTID" ColumnName="CREATEPOSTID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

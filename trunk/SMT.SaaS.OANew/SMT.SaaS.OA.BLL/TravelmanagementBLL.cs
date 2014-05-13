@@ -24,6 +24,7 @@ using System.Linq.Dynamic;
 using SMT.Foundation.Log;
 using SMT.SaaS.BLLCommonServices.FBServiceWS;
 using SMT.SaaS.BLLCommonServices.OAUpdateCheckWS;
+using SMT.SaaS.OA.BLL.AttendanceWS;
 
 namespace SMT.SaaS.OA.BLL
 {
@@ -196,7 +197,7 @@ namespace SMT.SaaS.OA.BLL
         /// </summary>
         /// <param name="ContractApproval">申请名称</param>
         /// <returns></returns>
-        public bool TravelmanagementAdd(T_OA_BUSINESSTRIP AddTravelmanagement, List<T_OA_BUSINESSTRIPDETAIL> TraveDetail)
+        public bool TravelmanagementAdd(T_OA_BUSINESSTRIP AddTravelmanagement, List<T_OA_BUSINESSTRIPDETAIL> TraveDetail,ref string message)
         {
             try
             {
@@ -204,6 +205,11 @@ namespace SMT.SaaS.OA.BLL
                 Utility.RefreshEntity(AddTravelmanagement);
                 foreach (var detail in TraveDetail)
                 {
+                    if (detail.STARTDATE.Value < DateTime.Now)
+                    {
+                        message="出差出发时间不能小于当前时间";
+                        return false;
+                    }
                     AddTravelmanagement.T_OA_BUSINESSTRIPDETAIL.Add(detail);
                     Utility.RefreshEntity(detail);
                 }
@@ -228,9 +234,41 @@ namespace SMT.SaaS.OA.BLL
         /// </summary>
         /// <param name="contraApproval">申请名称</param>
         /// <returns></returns>
-        public bool UpdateTravelmanagement(T_OA_BUSINESSTRIP TravelmanagementUpdate, List<T_OA_BUSINESSTRIPDETAIL> TraveDetail, string FormType)
+        public bool UpdateTravelmanagement(T_OA_BUSINESSTRIP TravelmanagementUpdate, List<T_OA_BUSINESSTRIPDETAIL> TraveDetail, string FormType,ref string message)
         {
             bool returnStr = true;
+            if (FormType == "isAlterTrave")//修改行程
+            {
+                var ents = (from item in dal.GetObjects<T_OA_BUSINESSTRIPDETAIL>().Include("T_OA_BUSINESSTRIP")
+                           where item.T_OA_BUSINESSTRIP.BUSINESSTRIPID == TravelmanagementUpdate.BUSINESSTRIPID
+                           select item).ToList().OrderByDescending(c=>c.ENDDATE);
+
+
+                if (ents.Count()>0)
+                {
+                    var ent = ents.FirstOrDefault();
+                    DateTime dtNow = DateTime.Now;
+                    DateTime dtEndCheck = ent.ENDDATE.Value;
+                    int step = 0;
+                    while (step < 1)
+                    {
+                        dtEndCheck = dtEndCheck.AddDays(1);
+                        if (IsVacationDay(TravelmanagementUpdate.OWNERCOMPANYID,dtEndCheck)) continue;//假期
+                        else step = step + 1;
+                    }
+                    dtEndCheck = new DateTime(dtEndCheck.Year, dtEndCheck.Month, dtEndCheck.Day).AddDays(1).AddSeconds(-1);
+                    DateTime dtStartCheck = new DateTime(ent.ENDDATE.Value.Year, ent.ENDDATE.Value.Month, ent.ENDDATE.Value.Day);
+
+
+                    if (ent.T_OA_BUSINESSTRIP.CHECKSTATE=="2" && dtNow > dtEndCheck)//修改行程只能是到达日期或者到达日期明天23:59:59之前
+                    {
+                        message = "出差行程修改的有效期至：" + dtEndCheck.ToString("yyyy-MM-dd")
+                             + " 修改行程失败。";
+                        return false;
+                    }
+                }
+            }
+
             dal.BeginTransaction();
             try
             {
@@ -241,12 +279,16 @@ namespace SMT.SaaS.OA.BLL
                     return false;
                 }
                 //避免谜一样的提交后再次发生的保存事件 在原单据已审核的情况下不再把
-                if ((FormType == "Edit" || FormType == "New" || FormType == "Resubmit") && entity.CHECKSTATE!="1")
+                if ((FormType == "Edit" || FormType == "New" || FormType == "Resubmit" || FormType == "isAlterTrave") && entity.CHECKSTATE != "1")
                 {
                     //更新整个实体及明细
                     TravelmanagementUpdate.UPDATEDATE = DateTime.Now;
                     Utility.CloneEntity(TravelmanagementUpdate, entity);
                     entity.EntityKey = new System.Data.EntityKey("SMT_OA_EFModelContext.T_OA_BUSINESSTRIP", "BUSINESSTRIPID", entity.BUSINESSTRIPID);
+                    if (FormType == "isAlterTrave")
+                    {
+                        entity.ISALTERTRAVE = "1";                       
+                    }
                     int i = Update(entity);
                     if (i > 0)
                     {
@@ -273,6 +315,15 @@ namespace SMT.SaaS.OA.BLL
                     //再插入T_OA_BUSINESSTRIPDETAIL
                     foreach (var updateDetails in TraveDetail)
                     {
+                        if (FormType != "isAlterTrave")//修改行程不需验证
+                        {
+                            if (updateDetails.STARTDATE.Value < DateTime.Now)
+                            {
+                                message = "出差出发时间不能小于当前时间";
+                                return false;
+                            }
+                        }
+
                         T_OA_BUSINESSTRIPDETAIL detail = new T_OA_BUSINESSTRIPDETAIL();
                         Utility.CloneEntity(updateDetails, detail);
                         detail.BUSINESSTRIPDETAILID = Guid.NewGuid().ToString();
@@ -289,16 +340,107 @@ namespace SMT.SaaS.OA.BLL
                         }
                     }
                 }
-                dal.CommitTransaction();
                 Tracer.Debug("更新出差申请审核状态成功：id" + TravelmanagementUpdate.BUSINESSTRIPID + "!!!!!!!!!!!!!!!!!!!!!!!!" + "审核状态:" + TravelmanagementUpdate.CHECKSTATE);
+                if (FormType == "isAlterTrave")//修改行程
+                {
+                    var q = from ent in dal.GetObjects<T_OA_TRAVELREIMBURSEMENT>().Include("T_OA_REIMBURSEMENTDETAIL")
+                            where ent.T_OA_BUSINESSTRIP.BUSINESSTRIPID == TravelmanagementUpdate.BUSINESSTRIPID
+
+                            select ent;
+                    if (q.Count() > 0)
+                    {
+                        var travel=q.FirstOrDefault();
+                        var travelDetail = q.FirstOrDefault().T_OA_REIMBURSEMENTDETAIL.ToList();
+                        using (TravelReimbursementBLL bll = new TravelReimbursementBLL())
+                        {
+                            bll.DeleteMyRecord(travel); //人员入职删除待办
+                        }
+                        foreach (var item in travelDetail)
+                        {
+                            dal.Delete(item);
+                        }
+                        dal.Delete(travel);
+                        
+                    }
+                } 
+                           
+                dal.CommitTransaction();
             }
             catch (Exception ex)
             {
                 dal.RollbackTransaction();
                 Tracer.Debug("出差申请TravelmanagementBLL-UpdateTravelmanagement" + TravelmanagementUpdate.BUSINESSTRIPID + " " + ex.ToString());
+                throw ex;
                 return false;
             }
             return returnStr;
+        }
+        private List<T_HR_VACATIONSET> sets;
+        /// <summary>
+        /// 判断是否是假期
+        /// </summary>
+        /// <param name="employeeId"></param>
+        /// <param name="dt"></param>
+        /// <returns>true假期，false工作日</returns>
+        public bool IsVacationDay(string companyid, DateTime dt)
+        {
+            if (sets == null)
+            {
+                AttendanceWS.AttendanceServiceClient client = new AttendanceWS.AttendanceServiceClient();
+                sets = client.GetVactionListSetByCompanyId(companyid, dt.Year.ToString()).ToList();
+            }
+
+            if (sets == null)
+            {
+                //如果在公共假期设置中未找到且未周末，返回为假期
+                if (dt.DayOfWeek == DayOfWeek.Sunday || dt.DayOfWeek == DayOfWeek.Saturday)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                foreach (var set in sets)
+                {
+                    //公共假期返回1
+                    string dtNow = dt.ToString("yyyy-MM-dd");
+                    List<T_HR_OUTPLANDAYS> publicDate =
+                        set.T_HR_OUTPLANDAYS.Where(
+                            t => t.STARTDATE <= DateTime.Parse(dtNow) && t.ENDDATE >= DateTime.Parse(dtNow) && t.DAYTYPE == "1"
+                            && t.ISHALFDAY != "1")
+                            .ToList();
+                    if (publicDate.Count > 0)
+                    {
+                        return true;
+                    }
+                    //工作日返回2
+                    List<T_HR_OUTPLANDAYS> workDate =
+                        set.T_HR_OUTPLANDAYS.Where(
+                            t => t.STARTDATE <= DateTime.Parse(dtNow) && t.ENDDATE >= DateTime.Parse(dtNow) && t.DAYTYPE == "2")
+                            .ToList();
+                    if (workDate.Count > 0)
+                    {
+                        //return false;
+                    }
+                    else
+                    {
+                        //如果非公共假期设置且为周末，返回为假期
+                        if (dt.DayOfWeek == DayOfWeek.Sunday || dt.DayOfWeek == DayOfWeek.Saturday)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            //return false;
+                        }
+                    }
+                }
+            }
+            return false;
         }
         #endregion
 

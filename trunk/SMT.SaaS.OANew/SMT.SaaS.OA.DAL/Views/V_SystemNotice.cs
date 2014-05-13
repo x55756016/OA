@@ -13,6 +13,8 @@ namespace SMT.SaaS.OA.DAL
         public string Formtype { get; set; }
         public string FormTitle { get; set; }
         public DateTime FormDate { get; set; }
+        public string TitleNotes { get; set; }
+        public string IsTop { get; set; }
 
         //public V_SystemNotice(string formid,string formtype,string formtitle,DateTime dt)
         //{

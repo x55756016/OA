@@ -15,7 +15,17 @@ namespace SMT_OA_EFModel
 
             using (SMT_OA_EFModelContext context = new SMT_OA_EFModelContext())
             {
-              
+                var m = from master in context.T_OA_APPROVALINFOTEMPLET
+                        where master.TYPEAPPROVAL == "24"
+                        select master;
+                if (m.Count() > 0)
+                {
+                    //return m.ToList()[0];
+                }
+                else
+                {
+                    //return null;
+                }
                 ////create
                 //TEST_USERS entUser = new TEST_USERS();
                 //entUser.USERNAME = "user1";

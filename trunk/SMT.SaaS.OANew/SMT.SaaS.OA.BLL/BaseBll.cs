@@ -16,6 +16,7 @@ using System.Configuration;
 using SMT.SaaS.BLLCommonServices.BllCommonUserPermissionWS;
 using System.Reflection;
 using System.Resources;
+using Enyim.Caching;
 
 namespace SMT.SaaS.OA.BLL
 {
@@ -26,13 +27,22 @@ namespace SMT.SaaS.OA.BLL
         public static SMT.SaaS.BLLCommonServices.Utility UtilityClass;
         protected static PermissionServiceClient PermClient;
         protected static BllCommonPermissionServicesClient BllPermClient;
+        protected static PersonnelServiceClient personClient;
+        protected static MemcachedClient MemCacheClient;
         public BaseBll()
         {
             //if (!string.IsNullOrEmpty(CommonUserInfo.EmployeeID))
             //{
             //    //dal.CurrentUserID = CommonUserInfo.EmployeeID;
             //}
-            
+            if (MemCacheClient == null)
+            {
+                MemCacheClient = new MemcachedClient();
+            }
+            if (personClient == null)
+            {
+                personClient = new PersonnelServiceClient() ;
+            }
             if (PermClient == null)
             {
                 PermClient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient(); 
