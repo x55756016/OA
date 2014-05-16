@@ -219,12 +219,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             string Result = "";
+           
+
             if (DtGridArea.SelectedItems.Count > 0)
             {
                 ObservableCollection<string> ids = new ObservableCollection<string>();
 
                 foreach (T_OA_AREADIFFERENCE tmp in DtGridArea.SelectedItems)
                 {
+                    if (Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != tmp.CREATECOMPANYID)
+                    {
+                        Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能删除修改其他公司创建的的城市分类");
+                        return;
+                    }
                     ids.Add(tmp.AREADIFFERENCEID);
                 }
 
@@ -423,9 +430,17 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+           
             this.cmbSolution.IsEnabled = true;//修改时启用选择方案cmbox
             if (DtGridArea.SelectedItems.Count > 0)
             {
+                var item=DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE;
+                if ( Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != item.CREATECOMPANYID)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能删除修改其他公司创建的的城市分类");
+                    return;
+                }
+
                 AreaSortForm form = new AreaSortForm(FormTypes.Edit, (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE).AREADIFFERENCEID, solutionsObj);
                 EntityBrowser browser = new EntityBrowser(form);
                 browser.MinHeight = 200;

@@ -28,7 +28,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         private SmtOAPersonOfficeClient client = new SmtOAPersonOfficeClient();
         private SMT.Saas.Tools.PermissionWS.PermissionServiceClient permissionClient = new SMT.Saas.Tools.PermissionWS.PermissionServiceClient();
-        private ObservableCollection<T_SYS_DICTIONARY> PostLevelDicts;
+        private List<T_SYS_DICTIONARY> PostLevelDicts;
         private IQueryable<T_OA_AREAALLOWANCE> areaAllowance;
         private T_OA_AREAALLOWANCE allowance;
         private ObservableCollection<T_OA_AREAALLOWANCE> allowanceList;
@@ -43,29 +43,21 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             InitializeComponent();
             this.Loaded += (o, e) =>
             {
-                InitParas();
-                LoadArea();
                 GetEntityLogo("T_OA_AREAALLOWANCE");
                 Utility.DisplayGridToolBarButton(ToolBar1, "T_OA_AREAALLOWANCE", true);
-                LoadSolutionInfos();
+                InitParas();
             };
         }
 
         // 当用户导航到此页面时执行。
-
-
         private void InitParas()
         {
-            permissionClient.GetSysDictionaryByCategoryCompleted += new EventHandler<SMT.Saas.Tools.PermissionWS.GetSysDictionaryByCategoryCompletedEventArgs>(permissionClient_GetSysDictionaryByCategoryCompleted);
+            //permissionClient.GetSysDictionaryByCategoryCompleted += new EventHandler<SMT.Saas.Tools.PermissionWS.GetSysDictionaryByCategoryCompletedEventArgs>(permissionClient_GetSysDictionaryByCategoryCompleted);
             //   permissionClientOther.GetSysDictionaryByFatherIDCompleted += new EventHandler<GetSysDictionaryByFatherIDCompletedEventArgs>(permissionClientOther_GetSysDictionaryByFatherIDCompleted);
-            //获取字典中的岗位级别
-            //   DictionaryType = "POSTLEVEL";
-            permissionClient.GetSysDictionaryByCategoryAsync("POSTLEVEL");
-
             //地区差异补贴
             client.GetAreaAllowanceByAreaIDCompleted += new EventHandler<GetAreaAllowanceByAreaIDCompletedEventArgs>(client_GetAreaAllowanceByAreaIDCompleted);
-            client.GetAreaAllowanceByIDCompleted += new EventHandler<GetAreaAllowanceByIDCompletedEventArgs>(client_GetAreaAllowanceByIDCompleted);
-            client.GetQueryProgramSubsidiesCompleted += new EventHandler<GetQueryProgramSubsidiesCompletedEventArgs>(client_GetQueryProgramSubsidiesCompleted);
+            //client.GetAreaAllowanceByIDCompleted += new EventHandler<GetAreaAllowanceByIDCompletedEventArgs>(client_GetAreaAllowanceByIDCompleted);
+            //client.GetQueryProgramSubsidiesCompleted += new EventHandler<GetQueryProgramSubsidiesCompletedEventArgs>(client_GetQueryProgramSubsidiesCompleted);
             client.GetTravelSolutionFlowCompleted += new EventHandler<GetTravelSolutionFlowCompletedEventArgs>(client_GetTravelSolutionFlowCompleted);
 
             // 地区分类
@@ -85,8 +77,31 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             ToolBar1.retAudit.Visibility = Visibility.Collapsed;
             ToolBar1.retDelete.Visibility = Visibility.Collapsed;
             ToolBar1.ShowRect();
+            //开始获取数据
+            PostLevelDicts = (from a in Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>
+                             where a.DICTIONCATEGORY == "POSTLEVEL"
+                             orderby a.DICTIONARYVALUE
+                             select a).ToList();
+            LoadSolutionInfos();
         }
+        
+        #region 根据出差方案查询数据
 
+        #region "第1步，获取出差方案"
+
+        void LoadSolutionInfos()
+        {
+            int pageCount = 0;
+            string filter = "";    //查询过滤条件
+
+            ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();   //参数值
+
+            SMT.SaaS.OA.UI.SmtOAPersonOfficeService.LoginUserInfo loginUserInfo = new SMT.SaaS.OA.UI.SmtOAPersonOfficeService.LoginUserInfo();
+            loginUserInfo.companyID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+            loginUserInfo.userID = Common.CurrentLoginUserInfo.EmployeeID;
+            this.RefreshUI(RefreshedTypes.ShowProgressBar);
+            client.GetTravelSolutionFlowAsync(0, 100, "CREATEDATE descending", filter, paras, pageCount, loginUserInfo);
+        }
         void client_GetTravelSolutionFlowCompleted(object sender, GetTravelSolutionFlowCompletedEventArgs e)
         {
 
@@ -95,12 +110,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 if (e.Result != null)
                 {
                     travelObj = e.Result.ToList();
-                    BindDataGrid(e.Result.ToList(), e.pageCount);
-                    client.GetQueryProgramSubsidiesAsync(travelObj.FirstOrDefault().TRAVELSOLUTIONSID);
+                    BindComboBox(e.Result.ToList(), e.pageCount);
+                    //获取城市分类触发绑定BindComboBox事件，这里无需//LoadArea();                    
                 }
                 else
                 {
-                    BindDataGrid(null, 0);
+                    BindComboBox(null, 0);
                 }
             }
             catch (Exception ex)
@@ -108,9 +123,13 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
             }
+            finally
+            {
+                this.RefreshUI(RefreshedTypes.HideProgressBar);
+            }
         }
 
-        private void BindDataGrid(List<T_OA_TRAVELSOLUTIONS> obj, int pageCount)
+        private void BindComboBox(List<T_OA_TRAVELSOLUTIONS> obj, int pageCount)
         {
 
             if (obj == null || obj.Count < 1)
@@ -133,157 +152,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 solutionsObj = Region;
             }
         }
+        #endregion
 
-        void client_GetQueryProgramSubsidiesCompleted(object sender, GetQueryProgramSubsidiesCompletedEventArgs e)
-        {
-            try
-            {
-                if (!e.Cancelled)
-                {
-                    if (e.Result != null)
-                    {
-                        if (e.Result.Count() > 0)
-                        {
-                            e.Result.ToList().ForEach(item =>
-                            {
-                                T_OA_AREAALLOWANCE Sport = new T_OA_AREAALLOWANCE();
-                                Sport.AREAALLOWANCEID = item.AREAALLOWANCEID;
-                                //Sport.T_OA_AREADIFFERENCE.AREADIFFERENCEID = item.T_OA_AREADIFFERENCE.AREADIFFERENCEID;
-                                Sport.POSTLEVEL = item.POSTLEVEL;
-                                Sport.ACCOMMODATION = item.ACCOMMODATION;
-                                Sport.TRANSPORTATIONSUBSIDIES = item.TRANSPORTATIONSUBSIDIES;
-                                Sport.MEALSUBSIDIES = item.MEALSUBSIDIES;
-                                Sport.OVERSEASSUBSIDIES = item.OVERSEASSUBSIDIES;
-                                Sport.OWNERID = item.OWNERID;
-                                Sport.OWNERCOMPANYID = item.OWNERCOMPANYID;
-                                Sport.OWNERDEPARTMENTID = item.OWNERDEPARTMENTID;
-                                Sport.OWNERPOSTID = item.OWNERPOSTID;
-                                Sport.CREATEDATE = item.CREATEDATE;
-                                Sport.CREATEUSERID = item.CREATEUSERID;
-                                Sport.UPDATEDATE = item.UPDATEDATE;
-                                Sport.UPDATEUSERID = item.UPDATEUSERID;
-                                Sport.EntityKey = item.EntityKey;
-                            });
-                            client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
-                            //if (e.ListAREADIFFERENCE.Count() > 0)
-                            //{
-                            //    DtGridArea.ItemsSource = e.ListAREADIFFERENCE;
-                            //    client.GetAreaAllowanceByAreaIDAsync(e.ListAREADIFFERENCE.FirstOrDefault().AREADIFFERENCEID);
-                            //}
-                        }
-                        else
-                        {
-                            //cmbSolution.ItemsSource = null;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw (ex);
-            }
-        }
-
-
-
-        #region completed事件
+        #region "第2步获取地区分类"
         /// <summary>
-        /// 获取地区
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void client_GetAreaWithPagingCompleted(object sender, GetAreaWithPagingCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-                return;
-            }
-            else
-            {
-                if (e.Result != null)
-                {
-                    DtGridArea.ItemsSource = e.Result;
-                    areaDifference = e.Result.ToList();
-                    if (areaDifference != null && areaDifference.Count() > 0)
-                    {
-                        AreaID = areaDifference.FirstOrDefault().AREADIFFERENCEID;
-                        client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        ///根据ID获取地区差异补贴
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void client_GetAreaAllowanceByIDCompleted(object sender, GetAreaAllowanceByIDCompletedEventArgs e)
-        {
-
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            else
-            {
-                allowance = e.Result;
-            }
-        }
-        /// <summary>
-        /// 根据地区分类获取补贴列表
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void client_GetAreaAllowanceByAreaIDCompleted(object sender, GetAreaAllowanceByAreaIDCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            else
-            {
-                if (e.Result != null)
-                {
-                    areaAllowance = e.Result.AsQueryable();
-                }
-                else
-                {
-                    areaAllowance = null;
-                }
-
-                LoadData();
-
-            }
-        }
-        /// <summary>
-        ///从字典读取岗位级别
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void permissionClient_GetSysDictionaryByCategoryCompleted(object sender, SMT.Saas.Tools.PermissionWS.GetSysDictionaryByCategoryCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            else
-            {
-                PostLevelDicts = e.Result;
-            }
-
-        }
-        # endregion
-        void btnRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            LoadArea();
-        }
-
-
-        #region  加载数据
-        /// <summary>
-        /// 加载地区分类
+        /// 地区分类
         /// </summary>
         private void LoadArea()
         {
@@ -296,7 +169,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             //filter += "OWNERCOMPANYID ^@" + paras.Count().ToString();
             //paras.Add(loginUserInfo.companyID); 
-
+            this.RefreshUI(RefreshedTypes.ShowProgressBar);
             if (cmbSolution.SelectedIndex > 0)
             {
                 T_OA_TRAVELSOLUTIONS travelObjs = cmbSolution.SelectedItem as T_OA_TRAVELSOLUTIONS;
@@ -310,14 +183,98 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 client.GetAreaWithPagingAsync(1, 100, "AREAINDEX ascending", filter, paras, pageCount, loginUserInfo.companyID, null);
             }
         }
+
+        /// <summary>
+        /// 获取地区
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void client_GetAreaWithPagingCompleted(object sender, GetAreaWithPagingCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                    return;
+                }
+                else
+                {
+                    if (e.Result != null)
+                    {
+                        DtGridArea.ItemsSource = e.Result;
+                        areaDifference = e.Result.ToList();
+                        if (areaDifference != null && areaDifference.Count() > 0)
+                        {
+                            AreaID = areaDifference.FirstOrDefault().AREADIFFERENCEID;
+                            this.RefreshUI(RefreshedTypes.ShowProgressBar);
+                            client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                this.RefreshUI(RefreshedTypes.HideProgressBar);
+            }
+        }
+        #endregion 
+
+        #region "第3步根据地区分类获取补贴"
+        /// <summary>
+        /// 根据地区分类获取补贴列表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void client_GetAreaAllowanceByAreaIDCompleted(object sender, GetAreaAllowanceByAreaIDCompletedEventArgs e)
+        {
+            try
+            {
+                if (e.Error != null)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+                }
+                else
+                {
+                    if (e.Result != null)
+                    {
+                        areaAllowance = e.Result.AsQueryable();
+                    }
+                    else
+                    {
+                        areaAllowance = null;
+                    }
+                    BindAreaAllowanceData();
+                    //client.GetQueryProgramSubsidiesAsync(travelObj.FirstOrDefault().TRAVELSOLUTIONSID);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                this.RefreshUI(RefreshedTypes.HideProgressBar);
+            }
+        }
+
         /// <summary>
         /// 加载地区差异补贴
         /// </summary>
-
-        private void LoadData()
+        private void BindAreaAllowanceData()
         {
+            string solutionId = string.Empty;
+            if (cmbSolution.SelectedItem != null)
+            {
+                solutionsObj = cmbSolution.SelectedItem as T_OA_TRAVELSOLUTIONS;
+                solutionId = solutionsObj.TRAVELSOLUTIONSID;
+            }
             int pageCount = 0;
-            //   string filter = "";
             allowanceList = new ObservableCollection<T_OA_AREAALLOWANCE>();
             List<T_OA_AREAALLOWANCE> temp = new List<T_OA_AREAALLOWANCE>();
             System.Collections.ObjectModel.ObservableCollection<string> paras = new System.Collections.ObjectModel.ObservableCollection<string>();
@@ -328,6 +285,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     var ents = from c in PostLevelDicts
                                join b in areaAllowance on c.DICTIONARYVALUE.ToString() equals b.POSTLEVEL into d
                                from b in d.DefaultIfEmpty()
+                               //where b.T_OA_TRAVELSOLUTIONS.TRAVELSOLUTIONSID == solutionId
 
                                select new T_OA_AREAALLOWANCE
                                {
@@ -340,9 +298,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                                    AREAALLOWANCEID = b == null ? Guid.NewGuid().ToString() : b.AREAALLOWANCEID,
                                    CREATEUSERID = b == null ? null : b.CREATEUSERID
                                };
-
-                    temp = Pager(ents.AsQueryable(), 0, 100, ref pageCount);
-                    DtGrid.ItemsSource = temp;
+                    if (ents!=null && ents.Count() > 0)
+                    {
+                        temp = Pager(ents.AsQueryable(), 0, 100, ref pageCount);
+                        DtGrid.ItemsSource = temp;
+                    }
                     //dataPager.PageCount = pageCount;
                 }
                 else
@@ -384,11 +344,33 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         }
 
-        # endregion
+        public List<T_OA_AREAALLOWANCE> Pager(IQueryable<T_OA_AREAALLOWANCE> ents, int pageIndex, int pageSize, ref int pageCount)
+        {
+            int count = ents.Count();
+            pageCount = count / pageSize;
+            int tmp = count % pageSize;
 
-        # region 添加 修改 删除
+            pageCount = pageCount + (tmp > 0 ? 1 : 0);
+            if (pageIndex > pageCount)
+                pageIndex = 1;
+
+            ents = ents.Skip((pageIndex - 1) * pageSize).Take(pageSize);
+            return ents.ToList();
+        }
 
 
+        
+      
+        #endregion
+       
+        #endregion
+
+        # region 添加 修改 删除 查询
+
+        void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LoadArea();
+        }
         private void btnAreaEdit_Click(object sender, RoutedEventArgs e)
         {
 
@@ -405,12 +387,17 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             //browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
         }
 
-
         void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             this.cmbSolution.IsEnabled = true;//修改时启用选择方案cmbox
             if (DtGridArea.SelectedItems.Count > 0)
             {
+                var item = (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE);
+                if (Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != item.OWNERCOMPANYID)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能修改其他公司的出差补贴");
+                    return;
+                }
                 AreaForm form = new AreaForm(FormTypes.Edit, (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE).AREADIFFERENCEID, solutionsObj.TRAVELSOLUTIONSID);
                 EntityBrowser browser = new EntityBrowser(form);
                 browser.MinHeight = 120;
@@ -425,6 +412,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
 
         }
+
         private void btnCityAdd_Click(object sender, RoutedEventArgs e)
         {
             if (DtGridArea.SelectedItems.Count > 0)
@@ -443,8 +431,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         }
 
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            client.AreaAllowanceAsync(allowanceList, solutionsObj.TRAVELSOLUTIONSID);
 
-        #endregion
+        }
 
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
         {
@@ -456,23 +447,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         }
 
-        public List<T_OA_AREAALLOWANCE> Pager(IQueryable<T_OA_AREAALLOWANCE> ents, int pageIndex, int pageSize, ref int pageCount)
-        {
-            int count = ents.Count();
-            pageCount = count / pageSize;
-            int tmp = count % pageSize;
-
-            pageCount = pageCount + (tmp > 0 ? 1 : 0);
-            if (pageIndex > pageCount)
-                pageIndex = 1;
-
-            ents = ents.Skip((pageIndex - 1) * pageSize).Take(pageSize);
-            return ents.ToList();
-        }
-
         private void GridPager_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            BindAreaAllowanceData();
         }
 
         private void GridPagerArea_Click(object sender, RoutedEventArgs e)
@@ -480,15 +457,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             LoadArea();
         }
 
-        private void DtGridArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (DtGridArea.SelectedItems.Count > 0)
-            {
-                currentArea = DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE;
-                AreaID = currentArea.AREADIFFERENCEID;
-                client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
-            }
-        }
+
 
         private void DtGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -505,38 +474,6 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             SetRowLogo(DtGrid, e.Row, "T_OA_AREAALLOWANCE");
         }
 
-
-        private void btnSave_Click(object sender, RoutedEventArgs e)
-        {
-
-            //if (DtGrid.SelectedItems.Count > 0)
-            //{
-            //    T_OA_AREAALLOWANCE temp = DtGrid.SelectedItem as T_OA_AREAALLOWANCE;
-            //    temp.T_OA_AREADIFFERENCE = new T_OA_AREADIFFERENCE();
-            //    temp.T_OA_AREADIFFERENCE.AREADIFFERENCEID = currentArea.AREADIFFERENCEID;
-
-
-            //    client.GetAreaAllowanceByIDAsync(temp.AREAALLOWANCEID);
-            //    if (allowance == null)
-            //    {
-            //        if (temp.AREAALLOWANCEID == null)
-            //        {
-            //            temp.AREAALLOWANCEID = Guid.NewGuid().ToString();
-            //        }
-            //        temp.CREATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-            //        temp.CREATEDATE = System.DateTime.Now;
-            //        client.AreaAllowanceADDAsync(temp);
-            //    }
-            //    else
-            //    {
-            //        temp.UPDATEUSERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-            //        temp.UPDATEDATE = System.DateTime.Now;
-            //        client.AreaAllowanceUpdateAsync(temp);
-            //    }
-            //}
-            client.AreaAllowanceAsync(allowanceList, solutionsObj.TRAVELSOLUTIONSID);
-
-        }
 
         private void btnAllowanceAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -557,53 +494,49 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         }
 
-        #region 修改岗位代码
-        //private void btnAllowanceEdit_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    if (DtGrid.SelectedItems.Count > 0)
-        //    {
-        //        Form.Salary.AreaAllowanceForm form = new SMT.HRM.UI.Form.Salary.AreaAllowanceForm(FormTypes.Edit, (DtGrid.SelectedItems[0] as T_OA_AREAALLOWANCE).AREAALLOWANCEID, AreaID);
-        //        EntityBrowser browser = new EntityBrowser(form);
-        //        browser.MinHeight = 150;
-        //        browser.MinWidth = 410;
-        //        browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
-        //        browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
-        //    }
-        //    else
-        //    {
-        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("SELECTERROR", "EDIT"));
-        //        return;
-        //    }
-        //}
-        #endregion
-
-        #region IClient
-        public void ClosedWCFClient()
-        {
-            client.DoClose();
-        }
-        public bool CheckDataContenxChange()
-        {
-            return true;
-        }
-        public void SetOldEntity(object entity)
-        {
-
-        }
-        #endregion
-
         void browser_ReloadDataEvent()
         {
             LoadArea();
-            //LoadData();
-            client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
         }
 
+
+        #endregion
+
+        #region 页面事件
+        //选择出差方案
+        private void cmbSolution_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            solutionsObj = cmbSolution.SelectedItem as T_OA_TRAVELSOLUTIONS;
+            if (solutionsObj != null)
+            {
+                //获取城市分类
+                LoadArea();
+               // client.GetQueryProgramSubsidiesAsync(solutionsObj.TRAVELSOLUTIONSID);
+            }
+        }
+        //选择城市分类
+        private void DtGridArea_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (DtGridArea.SelectedItems.Count > 0)
+            {
+                currentArea = DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE;
+                AreaID = currentArea.AREADIFFERENCEID;
+                this.RefreshUI(RefreshedTypes.ShowProgressBar);
+                client.GetAreaAllowanceByAreaIDAsync(AreaID, solutionsObj.TRAVELSOLUTIONSID);
+            }
+        }
+
+        //grid编辑出差补贴
         private void btEdit_Click(object sender, RoutedEventArgs e)
         {
             if (DtGrid.SelectedItems.Count > 0)
             {
+                var item = (DtGrid.SelectedItems[0] as T_OA_AREAALLOWANCE);
+                if (Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != solutionsObj.OWNERCOMPANYID)
+                {
+                    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能修改其他公司的出差补贴");
+                    return;
+                }
                 AreaAllowanceForm form = new AreaAllowanceForm(FormTypes.Edit, (DtGrid.SelectedItems[0] as T_OA_AREAALLOWANCE).AREAALLOWANCEID, AreaID, solutionsObj.TRAVELSOLUTIONSID, (DtGrid.SelectedItems[0] as T_OA_AREAALLOWANCE).POSTLEVEL);
                 EntityBrowser browser = new EntityBrowser(form);
                 browser.MinHeight = 280;
@@ -617,30 +550,30 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                 return;
             }
         }
-
-        #region 加载数据
-        void LoadSolutionInfos()
-        {
-            int pageCount = 0;
-            string filter = "";    //查询过滤条件
-
-            ObservableCollection<object> paras = new System.Collections.ObjectModel.ObservableCollection<object>();   //参数值
-
-            SMT.SaaS.OA.UI.SmtOAPersonOfficeService.LoginUserInfo loginUserInfo = new SMT.SaaS.OA.UI.SmtOAPersonOfficeService.LoginUserInfo();
-            loginUserInfo.companyID = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
-            loginUserInfo.userID = Common.CurrentLoginUserInfo.EmployeeID;
-            client.GetTravelSolutionFlowAsync(0, 100, "CREATEDATE descending", filter, paras, pageCount, loginUserInfo);
-        }
         #endregion
 
-        #region 出差方案选择
-        private void cmbSolution_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region IClient
+        public event UIRefreshedHandler OnUIRefreshed;
+        public void RefreshUI(RefreshedTypes type)
         {
-            solutionsObj = cmbSolution.SelectedItem as T_OA_TRAVELSOLUTIONS;
-            if (solutionsObj != null)
+            if (OnUIRefreshed != null)
             {
-                client.GetQueryProgramSubsidiesAsync(solutionsObj.TRAVELSOLUTIONSID);
+                UIRefreshedEventArgs args = new UIRefreshedEventArgs();
+                args.RefreshedType = type;
+                OnUIRefreshed(this, args);
             }
+        }
+        public void ClosedWCFClient()
+        {
+            client.DoClose();
+        }
+        public bool CheckDataContenxChange()
+        {
+            return true;
+        }
+        public void SetOldEntity(object entity)
+        {
+
         }
         #endregion
     }
