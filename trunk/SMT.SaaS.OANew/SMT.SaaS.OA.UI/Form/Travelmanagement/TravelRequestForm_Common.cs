@@ -157,6 +157,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         myCity.IsEnabled = false;
                         ((DataGridCell)((StackPanel)myCity.Parent).Parent).IsEnabled = false;
                     }
+                    int lastIndex = TraveDetailList_Golbal.Count() - 1;
+                    StandardsMethod(lastIndex);//显示选中的城市的出差标准
                 }
                 catch (Exception ex)
                 {
@@ -300,6 +302,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "必须保留一条出差时间及地点!", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                     return;
                 }
+                StandardsMethod(0);//显示选中的城市的出差标准
             }
             catch (Exception ex)
             {
@@ -318,7 +321,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             SearchCity senderCity = (SearchCity)sender;
             AreaSortCity SelectCity = new AreaSortCity();
-
+            int SelectIndex = 0;
+            if (DaGrs.SelectedItem != null)
+            {
+                SelectIndex = DaGrs.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置,从0开始算起  
+            }
+            else
+            {
+                return;
+            }
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 string selectCityName = SelectCity.Result.Keys.FirstOrDefault();
@@ -338,73 +349,19 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                             return;
                         }
                     }
-                    //for (int i = 0; i < citysStartList_Golbal.Count; i++)
-                    //{
-                    //    if (citysStartList_Golbal.Count > 1)
-                    //    {
-                    //        //如果上下两条出差记录城市一样
-                    //        if (i < citysStartList_Golbal.Count - 1 && citysStartList_Golbal[i] == citysStartList_Golbal[i + 1])
-                    //        {
-                    //            //出发城市与开始城市不能相同
-                    //            ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), "出发城市重复！", Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                    //            return;
-                    //        }
-                    //    }
-                    //}
-
                     senderCity.TxtSelectedCity.Text = selectCityName;
                     if (TraveDetailList_Golbal.Count >= selectGridRowIndex + 1)
                     {
                         TraveDetailList_Golbal[selectGridRowIndex].DEPCITY = selectCityValue;
                     }
 
-
+                    StandardsMethod(SelectIndex);//显示选中的城市的出差标准
                 }
                 catch (Exception ex)
                 {
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统错误，请联系管理员：" + ex.ToString());
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                 }
-                //if (DaGrs.SelectedItem != null)
-                //{
-                //    int selectGridRowIndex = DaGrs.SelectedIndex;
-                //    if (DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem) != null)
-                //    {
-                //        //T_OA_BUSINESSTRIPDETAIL travDetaillist = DaGrs.SelectedItem as T_OA_BUSINESSTRIPDETAIL;
-                //        SearchCity thisEndCity = DaGrs.Columns[1].GetCellContent(DaGrs.SelectedItem).FindName("txtDEPARTURECITY") as SearchCity;//出发城市
-                //        SearchCity thisStartCity = DaGrs.Columns[3].GetCellContent(DaGrs.SelectedItem).FindName("txtTARGETCITIES") as SearchCity;//目标城市
-                //        //int k = citysStartList.IndexOf(travDetaillist.DEPCITY);
-
-                //        if (citysStartList.Count() >= selectGridRowIndex + 1)
-                //        {
-                //            citysStartList[selectGridRowIndex] = selectCityValue;
-                //        }
-                //        else
-                //        {
-                //            citysStartList.Add(selectCityValue);
-                //        }
-                //        if (citysStartList.Count > 1)
-                //        {
-                //            if (thisEndCity.TxtSelectedCity.Text.ToString().Trim() == thisStartCity.TxtSelectedCity.Text.ToString().Trim())
-                //            {
-                //                thisEndCity.TxtSelectedCity.Text = string.Empty;
-                //                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("出发城市和目标城市不能相同"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //                return;
-                //            }
-                //        }
-                //    }
-                //    else
-                //    {
-
-                //    }
-                //}
-                //if (citysStartList.Last().Split(',').Count() > 2)
-                //{
-                //    senderCity.TxtSelectedCity.Text = string.Empty;
-                //    citysStartList.RemoveAt(citysStartList.Count - 1);
-                //    ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("TIPS"), Utility.GetResourceStr("CANONLYCHOOSEONE", "DEPARTURECITY"), Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
-                //    return;
-                //}
             };
             var windows = SMT.SAAS.Controls.Toolkit.Windows.ProgramManager.ShowProgram(Utility.GetResourceStr("CITY"), "", "123", SelectCity, false, false, null);
             if (SelectCity is AreaSortCity)
@@ -425,7 +382,15 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
         {
             SearchCity serchCitySender = (SearchCity)sender;
             AreaSortCity SelectCity = new AreaSortCity();
-
+            int SelectIndex = 0;
+            if (DaGrs.SelectedItem != null)
+            {
+                SelectIndex = DaGrs.SelectedIndex;//选择的行数，选择的行数也就是目的城市的位置,从0开始算起  
+            }
+            else
+            {
+                return;
+            }
             SelectCity.SelectedClicked += (obj, ea) =>
             {
                 string selectCityName = SelectCity.Result.Keys.FirstOrDefault();
@@ -453,6 +418,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         TraveDetailList_Golbal[selectGridRowIndex+1].DEPCITY = selectCityValue;//下一条记录出发城市
                         SetNextDepartureCity(selectGridRowIndex);
                     }
+                    StandardsMethod(SelectIndex);//显示选中的城市的出差标准
                 }
                 catch (Exception ex)
                 {

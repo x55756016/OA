@@ -18,7 +18,6 @@ using System.Runtime.Serialization;
 using SMT.SaaS.PublicControls;
 using Telerik.Windows.Documents.FormatProviders.Pdf;
 using SMT.Saas.Tools.PublicInterfaceWS;
-using System.Windows.Media;
 
 namespace SMT.SaaS.OA.UI.UserControls
 {

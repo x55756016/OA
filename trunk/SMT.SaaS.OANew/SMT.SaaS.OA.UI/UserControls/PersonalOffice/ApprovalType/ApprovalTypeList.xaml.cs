@@ -12,7 +12,6 @@ using System.Windows.Shapes;
 using SMT.Saas.Tools.PermissionWS;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 using SMT.SaaS.FrameworkUI.Common;
-using SMT.Saas.Tools.PermissionWS;
 using System.Collections.ObjectModel;
 using SMT.Saas.Tools.FlowWFService;
 using SMT.SAAS.Main.CurrentContext;

@@ -285,11 +285,12 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             OaPersonOfficeClient.GetTravelmanagementByIdCompleted += new EventHandler<GetTravelmanagementByIdCompletedEventArgs>(Travelmanagement_GetTravelmanagementByIdCompleted);
             //OaPersonOfficeClient.GetBusinesstripDetailCompleted += new EventHandler<GetBusinesstripDetailCompletedEventArgs>(Travelmanagement_GetBusinesstripDetailCompleted);
             OaPersonOfficeClient.GetTravelSolutionByCompanyIDCompleted += new EventHandler<GetTravelSolutionByCompanyIDCompletedEventArgs>(Travelmanagement_GetTravelSolutionByCompanyIDCompleted);
-            //fbCtr.SaveCompleted += new EventHandler<SMT.SaaS.FrameworkUI.FBControls.ChargeApplyControl.SaveCompletedArgs>(fbCtr_SaveCompleted);
-            //Travelmanagement.GetUnderwayTravelmanagementAsync("6ba49ec8-feb0-4f78-b801-2b8ea5387ab3");
+            OaPersonOfficeClient.GetTravleAreaAllowanceByPostValueCompleted += OaPersonOfficeClient_GetTravleAreaAllowanceByPostValueCompleted;
             OaPersonOfficeClient.DeleteTravelmanagementCompleted += new EventHandler<DeleteTravelmanagementCompletedEventArgs>(Travelmanagement_DeleteTravelmanagementCompleted);
             
         }
+
+       
         #endregion
 
         #region 获取交通工具的级别字典
@@ -498,14 +499,9 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     //交通工具乘坐标准
                     transportToolStand = e.StandardObj.ToList();//乘坐交通工具标准设置
                 }
-                if (formType != FormTypes.New && Master_Golbal.T_OA_BUSINESSTRIPDETAIL.Count > 0)
-                {
-                    BindDataGrid(Master_Golbal.T_OA_BUSINESSTRIPDETAIL);
-                }
-                else
-                {
-                    RefreshUI(RefreshedTypes.All);
-                }
+                RefreshUI(RefreshedTypes.ShowProgressBar);
+                OaPersonOfficeClient.GetTravleAreaAllowanceByPostValueAsync(Master_Golbal.POSTLEVEL, travelsolutions_Golbal.TRAVELSOLUTIONSID, null);           
+            
             }
             catch (Exception ex)
             {
@@ -515,7 +511,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             finally
             {
                 RefreshUI(RefreshedTypes.HideProgressBar);
-            }
+              }
         }
 
         #endregion
@@ -601,6 +597,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                     {
                         foreach (var obje in objs)
                         {
+                            StandardsMethod(j);
                             j++;
                             if (obje.BUSINESSTRIPDETAILID == tmp.BUSINESSTRIPDETAILID)//判断记录的ID是否相同
                             {

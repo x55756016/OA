@@ -163,8 +163,11 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 if (DaGridReadOnly.ItemsSource != null && TraveDetailList_Golbal != null)
                 {
+                    int j= 0;
                     foreach (var TraveDetailRow in objs)
                     {
+                        StandardsMethod(j);
+                        j++;
                         if (TraveDetailRow.BUSINESSTRIPDETAILID == tmp.BUSINESSTRIPDETAILID)//判断记录的ID是否相同
                         {
                             if (TxtMyCity != null)//出发城市

@@ -322,7 +322,9 @@
 
         <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Text="{Binding Converter={StaticResource ResourceConveter}, Source=TRAVELSUBJECT}"  VerticalAlignment="Top" Margin="0,4,0,0"/>
 
-        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" x:Name="txtSubject" AcceptsReturn="True" Text="{Binding CONTENT,Mode=TwoWay}" TextWrapping="Wrap"  Height="auto" HorizontalAlignment="Left" Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" Width="618" VerticalAlignment="Stretch">
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" x:Name="txtSubject" AcceptsReturn="True" Text="{Binding CONTENT,Mode=TwoWay}"
+		 TextWrapping="Wrap"  Height="auto"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  
+		 Style="{StaticResource TextBoxStyle}" Margin="5,1,20,4" >
             <validator:ValidatorService.Validator>
                 <validator:RequiredValidator ManagerName="Group1" ErrorMessage="REQUIRED" ErrorMessageParameter="TRAVELSUBJECT"/>
             </validator:ValidatorService.Validator>
@@ -330,6 +332,14 @@
                 <behaviors:ShowRequire></behaviors:ShowRequire>
             </interaction:Interaction.Behaviors>
         </TextBox>
+
+		  <!--报销标准-->
+                <TextBlock HorizontalAlignment="Left" Grid.Row="5"  Grid.Column="0" Text="{Binding Converter={StaticResource ResourceConveter}, Source=REIMBURSEMENTSTANDARDS}"
+                            TextWrapping="Wrap"  Height="22"  VerticalAlignment="Top" Margin="0,4,0,0" />
+				<TextBox Grid.Row="5" Grid.Column="1" x:Name="textStandards" Grid.ColumnSpan="4" AcceptsReturn="True" VerticalScrollBarVisibility="Disabled"  
+						    TextWrapping="Wrap" Height="auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Style="{StaticResource TextBoxStyle}"
+							 Margin="5,1,20,4" IsReadOnly="True" />
+                <!--报销标准结束-->
 
             <Grid Grid.Row="5" Grid.Column="1" Margin="20 0 20 0" Grid.ColumnSpan="3"
                                       x:Name="scvFB" VerticalAlignment="Stretch"
@@ -339,10 +349,10 @@
             </Grid>
 			
 			<TextBlock HorizontalAlignment="Left" x:Name="lblFile"
-                                       Grid.Row="5" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}"
+                                       Grid.Row="6" Text="{Binding Converter={StaticResource ResourceConveter}, Source=FileUpload}"
                                        Height="22"
                                        VerticalAlignment="Top" Margin="0,6,0,0" />
-        <ScrollViewer Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" 
+        <ScrollViewer Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" 
                       MaxHeight="200" Margin="0,0,20,2" BorderThickness="0" 
                       VerticalScrollBarVisibility="Auto"  VerticalAlignment="Top" 
                       Style="{StaticResource ScrollViewerStyle}">

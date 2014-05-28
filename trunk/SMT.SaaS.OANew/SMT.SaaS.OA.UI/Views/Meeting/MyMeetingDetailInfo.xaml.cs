@@ -13,7 +13,6 @@ using SMT.SaaS.OA.UI.SmtOACommonOfficeService;
 using System.Windows.Browser;
 using System.Windows.Data;
 using System.Globalization;
-using SMT.SaaS.OA.UI.SmtOACommonOfficeService;
 using SMT.SaaS.FrameworkUI.ChildWidow;
 namespace SMT.SaaS.OA.UI.Views.Meeting
 {
