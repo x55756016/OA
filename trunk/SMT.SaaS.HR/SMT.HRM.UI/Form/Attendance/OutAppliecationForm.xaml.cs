@@ -152,7 +152,7 @@ namespace SMT.HRM.UI.Form.Attendance
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "CHECKSTATE", "1", checkState));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTNAME", tbOrgName.Text.Trim(), tbOrgName.Text.Trim()));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "POSTLEVEL", tbEmpLevel.Text.Trim(), postLevelName));
-            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, tbEmpName.Text));
+            AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "EMPLOYEENAME", Info.EMPLOYEENAME, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERCOMPANYID", Info.OWNERCOMPANYID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyName));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERDEPARTMENTID", Info.OWNERDEPARTMENTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentName));
             AutoList.Add(basedata("T_HR_OUTAPPLYRECORD", "OWNERPOSTID", Info.OWNERPOSTID, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostName));
