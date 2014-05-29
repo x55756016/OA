@@ -355,7 +355,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
                         TraveDetailList_Golbal[selectGridRowIndex].DEPCITY = selectCityValue;
                     }
 
-                    StandardsMethod(SelectIndex);//显示选中的城市的出差标准
+                    //StandardsMethod(SelectIndex);//显示选中的城市的出差标准
                 }
                 catch (Exception ex)
                 {

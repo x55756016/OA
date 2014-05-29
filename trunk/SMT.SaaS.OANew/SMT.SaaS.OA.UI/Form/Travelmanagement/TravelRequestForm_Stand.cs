@@ -187,6 +187,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             {
                 for (int j = 0; j < TraveDetailList_Golbal.Count() - 1; j++)//最后一条记录没有补贴
                 {
+                    if (string.IsNullOrEmpty(TraveDetailList_Golbal[j].DESTCITY)) continue;
                     string city = TraveDetailList_Golbal[j].DESTCITY.Replace(",", "");//目标城市值
                     entareaallowance = this.GetAllowanceByCityValue(city);
                     if (Master_Golbal.POSTLEVEL.ToInt32() <= noAllowancePostLevel)//当前用户的岗位级别小于副部长及以上级别的补贴标准

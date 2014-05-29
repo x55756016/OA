@@ -304,6 +304,7 @@
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_Event.cs" />
     <Compile Include="Form\Travelmanagement\TravelRequestForm_Common.cs" />
     <Compile Include="Form\Travelmanagement\TravelReimbursementControl_ForMvc.cs" />
+    <Compile Include="Form\Travelmanagement\TravelRequestForm_Stand.cs" />
     <Compile Include="Service References\AgentChannel\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
