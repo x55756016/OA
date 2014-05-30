@@ -2240,13 +2240,14 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             }
             tb.SetValue(Grid.RowProperty, 0);
 
+            ScrollViewer sp = new ScrollViewer();
             ListBox listboxCountersign = new ListBox();
 
             listboxCountersign.ItemTemplate = CountersignTemplate;
             listboxCountersign.ItemContainerStyle = listboxStyle;
             listboxCountersign.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Stretch;
             listboxCountersign.VerticalAlignment = System.Windows.VerticalAlignment.Top;
-            listboxCountersign.SetValue(Grid.RowProperty, 1);
+            sp.SetValue(Grid.RowProperty, 1);
             listviewmodel.ForEach(item =>
             {
                 item.ListUserInfo.ForEach(ent =>
@@ -2257,10 +2258,13 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             });
             listboxCountersign.ItemsSource = listviewmodel;
 
-            listboxCountersign.Height = 300;
-            listboxCountersign.Width = 400;
+            sp.Height = 300;
+            sp.Width = 400;
+            //listboxCountersign.
+          //listboxCountersign.ScrollIntoView(listviewmodel);
           listboxCountersign.UpdateLayout();
-          listboxCountersign.ScrollIntoView(listviewmodel);
+          sp.Content=listboxCountersign;
+
             Button btnOK = new Button();
             btnOK.Content = "确认";
             btnOK.Margin = new Thickness(0, 0, 5, 10);
@@ -2342,7 +2346,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             parent.Content = gridSelector;
             winSelector.Content = parent;
             gridSelector.Children.Add(tb);
-            gridSelector.Children.Add(listboxCountersign);
+            gridSelector.Children.Add(sp);
             gridSelector.Children.Add(btnOK);
 
             FrameworkElement fe = SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot;
