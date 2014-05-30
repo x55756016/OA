@@ -1,0 +1,80 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--导航处颜色变更-->
+    <Style TargetType="TextBlock" x:Key="TBFontShine1">
+        <Setter Property="Foreground" Value="{StaticResource Blueshinefont1}"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+    <Style TargetType="TextBlock" x:Key="SysTextBlockStyle">
+        <Setter Property="Margin" Value="10 3 0 0" ></Setter>
+        <Setter Property="Height" Value="22" ></Setter>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left" ></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+       
+    </Style>
+
+
+    <Style TargetType="TextBlock" x:Key="FrameGridTextBlock1">
+        <Setter Property="Width" Value="50" ></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left" ></Setter>
+        <Setter Property="VerticalAlignment" Value="Top" ></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+    </Style>
+
+    <!-- Header Text Style -->
+    <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BodyTextColorBrush}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,15,0,4"/>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextBCommonBlue1">
+        <Setter Property="Foreground" Value="{StaticResource TextBBlue1}"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextBCommonBlue12">
+        <Setter Property="Foreground" Value="{StaticResource TextBBlue12}"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+
+
+    <!--ToolBar一级导航-->
+    <Style TargetType="TextBlock" x:Key="ToolBarTB1">
+        <Setter Property="Foreground" Value="{StaticResource ToolBarfont_1}"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="FontSize" Value="13"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ToolBarTB2">
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+        <Setter Property="Margin" Value="5 0 0 0"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ToolBarTB3">
+        <Setter Property="Foreground" Value="{StaticResource BlueColor10}"></Setter>
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="FontFamily" Value="Arial,SimSun"></Setter>
+    </Style>
+
+
+</ResourceDictionary>

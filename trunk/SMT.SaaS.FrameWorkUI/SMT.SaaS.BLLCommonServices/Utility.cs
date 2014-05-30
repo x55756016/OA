@@ -21,6 +21,7 @@ using SMT.SaaS.BLLCommonServices.RMServicesWS;
 using SMT.SaaS.BLLCommonServices.WPServicesWS;
 using SMT.SaaS.BLLCommonServices.TMServicesWS;
 using SMT.SaaS.BLLCommonServices.MVCCacheSV;
+using SMT.SaaS.BLLCommonServices.EngineConfigWS;
 
 namespace SMT.SaaS.BLLCommonServices
 {
@@ -2397,7 +2398,44 @@ namespace SMT.SaaS.BLLCommonServices
         {
             return PermClient.GetDictionaryByCategoryArray(new string[] { dictionaryName }).Where(p => p.DICTIONARYVALUE == dictionaryValue).FirstOrDefault().DICTIONARYNAME;
         }
-    
+
+
+        public static void SendtimingEvent(string systemCode, string systemName, string ModelCode, string ModelName, string FormId, string strXml, DateTime triggerTime)
+        {
+            using (EngineWcfGlobalFunctionClient wcfClient = new EngineWcfGlobalFunctionClient())
+            {
+                T_WF_TIMINGTRIGGERACTIVITY triggerEntity = new T_WF_TIMINGTRIGGERACTIVITY();
+                triggerEntity.TRIGGERID = Guid.NewGuid().ToString();
+                triggerEntity.BUSINESSID = FormId;
+                triggerEntity.TRIGGERNAME = FormId;
+                triggerEntity.SYSTEMCODE = systemCode;// "OA";
+                triggerEntity.SYSTEMNAME = systemName;// "办公系统";
+                triggerEntity.MODELCODE = ModelCode;// "T_OA_BUSINESSTRIP";
+                triggerEntity.MODELNAME = ModelName;// "出差申请";
+                triggerEntity.TRIGGERACTIVITYTYPE = 2;
+
+                //获取出差申请的结束时间
+                DateTime arriveTime = triggerTime;
+                triggerEntity.TRIGGERTIME = arriveTime;//待改-出差申请的结束时间
+                Tracer.Debug("定时结束时间:" + arriveTime.ToString());
+                triggerEntity.TRIGGERROUND = 0;//只触发一次
+                triggerEntity.WCFURL = "EngineEventServices.svc";//需要传输数据至的服务名
+                triggerEntity.FUNCTIONNAME = "EventTriggerProcess";//需要传输数据至的方法名称
+                //因两次调用回调函数的问题在此产生出差报销id
+                //strXml += "<Para FuncName=\"DelayTravelreimbursmentAdd\"  Name=\"TRAVELREIMBURSEMENTID\"  Description=\"出差报销ID\" Value=\""+Guid.NewGuid().ToString()+"\" ValueName=\"出差报销ID\" ></Para>";
+                //处理消息规则里T_OA_BUSINESSTRIP的信息
+                //strXml = strXml.Replace("<?xml version=\"1.0\" encoding=\"utf-8\" ?>", "").Replace("<Paras>", "").Replace("</Paras>", "").Replace("TableName", "FuncName").Replace("T_OA_BUSINESSTRIP", "DelayTravelreimbursmentAdd").Trim();
+                //处理消息规则里T_OA_TRAVELREIMBURSEMENT的信息
+                //strXml = strXml.Replace("T_OA_TRAVELREIMBURSEMENT", "DelayTravelreimbursmentAdd");
+                triggerEntity.FUNCTIONPARAMTER = strXml;//传输的对象方法获取的数据
+                triggerEntity.PAMETERSPLITCHAR = "Г";
+                triggerEntity.WCFBINDINGCONTRACT = "CustomBinding";
+                triggerEntity.CREATEDATETIME = System.DateTime.Now;
+                //triggerEntity.TRIGGERSTART = System.DateTime.Now;
+                //triggerEntity.TRIGGEREND = Convert.ToDateTime("2099/12/30 18:00:00");
+                wcfClient.WFAddTimingTrigger(triggerEntity);
+            }
+        }
     }
 
 

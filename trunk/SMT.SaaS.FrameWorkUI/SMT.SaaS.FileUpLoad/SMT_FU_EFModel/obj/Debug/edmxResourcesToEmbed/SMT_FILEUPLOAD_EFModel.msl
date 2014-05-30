@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="SMT_FILEUPLOAD_EFModelStoreContainer" CdmEntityContainer="SMT_FILEUPLOAD_EFModelContext">
+    <EntitySetMapping Name="SMT_FILELIST">
+      <EntityTypeMapping TypeName="SMT_FILEUPLOAD_EFModel.SMT_FILELIST">
+        <MappingFragment StoreEntitySet="SMT_FILELIST">
+          <ScalarProperty Name="SMTFILELISTID" ColumnName="SMTFILELISTID" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
+          <ScalarProperty Name="FILEURL" ColumnName="FILEURL" />
+          <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+          <ScalarProperty Name="COMPANYCODE" ColumnName="COMPANYCODE" />
+          <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+          <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+          <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+          <ScalarProperty Name="APPLICATIONID" ColumnName="APPLICATIONID" />
+          <ScalarProperty Name="THUMBNAILURL" ColumnName="THUMBNAILURL" />
+          <ScalarProperty Name="INDEXL" ColumnName="INDEXL" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+          <ScalarProperty Name="CREATENAME" ColumnName="CREATENAME" />
+          <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+          <ScalarProperty Name="UPDATENAME" ColumnName="UPDATENAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+          <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+          <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+          <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+          <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+          <ScalarProperty Name="FORMID" ColumnName="FORMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMT_FILEUPLOAD_EFModel.Store" Alias="Self" Provider="EFOracleProvider" ProviderManifestToken="11g" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="SMT_FILEUPLOAD_EFModelStoreContainer">
+    <EntitySet Name="SMT_FILELIST" EntityType="SMT_FILEUPLOAD_EFModel.Store.SMT_FILELIST" store:Type="Tables" />
+  </EntityContainer>
+  <EntityType Name="SMT_FILELIST">
+    <Key>
+      <PropertyRef Name="SMTFILELISTID" />
+    </Key>
+    <Property Name="SMTFILELISTID" Type="nvarchar2" Nullable="false" MaxLength="200" />
+    <Property Name="FILENAME" Type="nvarchar2" Nullable="false" MaxLength="2000" />
+    <Property Name="FILETYPE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FILEURL" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="FILESIZE" Type="number" />
+    <Property Name="COMPANYCODE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="COMPANYNAME" Type="nvarchar2" MaxLength="400" />
+    <Property Name="SYSTEMCODE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MODELCODE" Type="nvarchar2" MaxLength="100" />
+    <Property Name="APPLICATIONID" Type="nvarchar2" MaxLength="200" />
+    <Property Name="THUMBNAILURL" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="INDEXL" Type="number" />
+    <Property Name="REMARK" Type="nvarchar2" MaxLength="1000" />
+    <Property Name="CREATETIME" Type="date" />
+    <Property Name="CREATENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="UPDATETIME" Type="date" />
+    <Property Name="UPDATENAME" Type="nvarchar2" MaxLength="100" />
+    <Property Name="PASSWORD" Type="nvarchar2" MaxLength="2000" />
+    <Property Name="OWNERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERCOMPANYID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERDEPARTMENTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="OWNERPOSTID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="CREATEUSERID" Type="nvarchar2" MaxLength="100" />
+    <Property Name="FORMID" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+</Schema>

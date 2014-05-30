@@ -1,0 +1,12 @@
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.FileUpload.Host.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.FileUpload.Host.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.FileUpLoad.Service.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.Foundation.Core.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.Foundation.Log.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT_FU_EFModel.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.FileUpLoad.Service.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT.Foundation.Core.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\bin\SMT_FU_EFModel.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\obj\Debug\SMT.FileUpload.Host.csprojResolveAssemblyReference.cache
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\obj\Debug\SMT.FileUpload.Host.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT.FileUpload.Host2\obj\Debug\SMT.FileUpload.Host.pdb

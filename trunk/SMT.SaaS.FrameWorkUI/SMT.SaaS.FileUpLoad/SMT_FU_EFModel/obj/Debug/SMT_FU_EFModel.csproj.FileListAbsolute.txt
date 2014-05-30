@@ -1,0 +1,8 @@
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\bin\Debug\SMT_FU_EFModel.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\bin\Debug\SMT_FU_EFModel.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\bin\Debug\SMT.Foundation.Core.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\bin\Debug\SMT.Foundation.Log.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\bin\Debug\SMT.Foundation.Core.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\obj\Debug\SMT_FU_EFModel.csprojResolveAssemblyReference.cache
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\obj\Debug\SMT_FU_EFModel.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SaaS.FileUpLoad\SMT_FU_EFModel\obj\Debug\SMT_FU_EFModel.pdb

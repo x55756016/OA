@@ -1,0 +1,102 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:controlsPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" 
+    xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+    xmlns:layoutToolkitPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Layout.Toolkit"
+    xmlns:primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+          
+    xmlns:global="clr-namespace:SMT.SaaS.Globalization;assembly=SMT.SaaS.Globalization"
+                          xmlns:dataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:sp="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+
+    <Style TargetType="HyperlinkButton" x:Key="HyperlinkButton"/>
+    <Style TargetType="HyperlinkButton" x:Key="HyperlinkButtonNoborder"/>
+    <Style TargetType="Button" x:Key="ButtonToolBarStyle"/>
+    <Style TargetType="Button" x:Key="ButtonCompetenceStyle"/>
+    <Style TargetType="Button" x:Key="CommonButtonStyle"/>
+    <Style x:Key="RadioButtonStyle" TargetType="RadioButton"/>
+    <Style TargetType="Button" x:Key="ButtonStyle"/>
+    <Style TargetType="TextBox" x:Key="TextBoxStyle"/>
+    <Style TargetType="controls:TreeViewItem" x:Key="TreeViewItemStyle"/>
+    <Style TargetType="controls:TreeView" x:Key="TreeViewStyle"/>
+    <Style TargetType="TextBlock" x:Key="TextBCommonBlue1"/>
+    <Style TargetType="controls:TabItem" x:Key="TabItemStyle"/>
+    <Style TargetType="controls:TabControl" x:Key="TabControlStyle"/>
+    <Style x:Key="ScrollBarStyle" TargetType="ScrollBar"/>
+    <Style x:Key="ScrollViewerStyle" TargetType="ScrollViewer"/>
+    <Style x:Key="ScrollBarStyle2" TargetType="ScrollBar"/>
+    <Style x:Key="ScrollViewerStyle2" TargetType="ScrollViewer"/>
+    <Style x:Key="ProgressBarStyle" TargetType="ProgressBar"/>
+    <Style TargetType="PasswordBox" x:Key="PasswordBoxStyle"/>
+    <Style TargetType="ListBoxItem" x:Key="ListBoxItemStyle"/>
+    <Style x:Key="ListBoxStyle" TargetType="ListBox"/>
+    <Style x:Key="GridSplitterStyle" TargetType="sp:GridSplitter"/>
+    <Style TargetType="Grid" x:Key="GridHeaderBg1"/>
+    <Style x:Key="GridStyle4" TargetType="Grid"/>
+    <Style TargetType="Grid" x:Key="FrameGridPagerStyle"/>
+    <Style x:Key="FormGridStyle" TargetType="Grid"/>
+    <Style TargetType="Grid" x:Key="MainPageGridStyle1"/>
+    <Style TargetType="Grid" x:Key="HeaderBottonStyle1"/>
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox"/>
+    <Style TargetType="controls:ChildWindow" x:Key="LoginChildWindow"/>
+    <Style x:Key="ChildWindowStyle1" TargetType="controls:ChildWindow"/>
+    <Style x:Key="CheckBoxStyle" TargetType="CheckBox"/>
+    <Style TargetType="Border" x:Key="BorderStyle"/>
+    <Style TargetType="Border" x:Key="windowtitleStyle"/>
+    <Style TargetType="Border" x:Key="GridPagerStyle"/>
+    <Style TargetType="Border" x:Key="ButtonToolBarBorder"/>
+    <Style TargetType="Border" x:Key="DetailShow_1"/>
+    <Style TargetType="Border" x:Key="DetailShow_2"/>
+    <Style x:Key="TaskBarItemBorderOver" TargetType="Border"/>
+    <Style x:Key="TaskBarItemBorder" TargetType="Border"/>
+    <Style x:Key="TaskBarItemBorder2" TargetType="Border"/>
+    <Style x:Key="TaskBarItemBorder3" TargetType="Border"/>
+    <Style x:Key="TaskBarItemBorder4" TargetType="Border"/>
+    <Style x:Key="TaskBarBGborder" TargetType="Border"/>
+    <Style x:Key="AutoCompleteBoxStyle"  TargetType="sdk:AutoCompleteBox"/>
+    <Style x:Key="AccordionStyle" TargetType="layoutToolkit:Accordion"/>
+    <Style x:Key="AccordionButtonStyle1" TargetType="layoutToolkitPrimitives:AccordionButton"/>
+    <Style TargetType="layoutToolkit:AccordionItem" x:Name="TreeMenuGroupStyle"/>
+    <Style TargetType="controlsPrimitives:CalendarButton"  x:Key="CalendarButtonStyle"/>
+    <Style TargetType="controls:Calendar" x:Key="CalendarStyle"/>
+    <Style TargetType="controls:DatePicker" x:Key="DatePickerStyle"/>
+    <Style TargetType="controlsToolkit:Expander" x:Key="ExpanderStyle"/>
+    <Style x:Key="TimePickerStyle" TargetType="inputToolkit:TimePicker"/>
+    <Style TargetType="inputToolkit:NumericUpDown" x:Key="NumericUpDownStyle"/>
+    <Style x:Key="TimeUpDownStyle" TargetType="inputToolkit:TimeUpDown"/>
+    <Style TargetType="data:DataGrid" x:Key="DataGridStyle"/>
+    <Style x:Key="DataGridStyle1" TargetType="data:DataGrid"/>
+    <Style TargetType="data:DataGrid" x:Key="DataGridPageStyle"/>
+    <Style TargetType="data:DataGridCell" x:Key="DataGridCellStyle"/>
+    <Style TargetType="dataPrimitives:DataGridColumnHeader" x:Key="DataGridColumnHeaderStyle"/>
+    <Style TargetType="dataPrimitives:DataGridColumnHeader" x:Key="DataGridColumnHeaderStyleNoConvert"/>
+    <Style x:Key="DataGridRowStyle" TargetType="data:DataGridRow"/>
+    <Style x:Key="DataGridRowStyle1" TargetType="data:DataGridRow"/>
+    <Style  x:Key="DataGridRowHeaderStyle" TargetType="dataPrimitives:DataGridRowHeader"/>
+
+
+    <Style x:Key="AutoDataGridRowHeaderStyle" TargetType="sdk:DataGridRowHeader"/>
+    <Style x:Key="AutoDataGridStyle" TargetType="sdk:DataGrid"/>
+    <Style x:Key="AutoDataGridCellStyle" TargetType="sdk:DataGridCell"/>
+    <Style x:Key="AutoDataGridColumnHeaderStyle" TargetType="sdk:DataGridColumnHeader"/>
+    <Style x:Key="AutoDataGridRowStyle" TargetType="sdk:DataGridRow"/>
+
+
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BGImageBrush11">
+        <GradientStop Color="#FFFFFF" Offset="0.0"/>
+        <GradientStop Color="#FFFFFF" Offset="0.05"/>
+        <GradientStop Color="#e0edff" Offset="0.05"/>
+        <GradientStop Color="#e0edff" Offset="0.45"/>
+        <GradientStop Color="#b2d3ff" Offset="0.45"/>
+        <GradientStop Color="#bfdbff" Offset="0.8"/>
+        <GradientStop Color="#b0d3ff" Offset="1"/>
+    </LinearGradientBrush>
+</ResourceDictionary>

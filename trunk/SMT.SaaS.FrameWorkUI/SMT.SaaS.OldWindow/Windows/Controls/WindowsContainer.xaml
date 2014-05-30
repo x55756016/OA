@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:swc="clr-namespace:System.Windows.Controls"
+	>
+
+    <ControlTemplate x:Key="WindowsContainerControlTemplate" TargetType="swc:WindowsContainer">
+
+        <Grid Background="{TemplateBinding Background}">
+
+            <Grid x:Name="ContentControl">
+
+                <Grid>
+
+                    <ContentPresenter />
+
+                    <Grid x:Name="WindowsContainerGrid" />
+
+                </Grid>
+
+            </Grid>
+
+            <Grid x:Name="ModalContainerGrid" />
+
+        </Grid>
+
+    </ControlTemplate>
+
+    <Style TargetType="swc:WindowsContainer">
+        <Setter Property="Template" Value="{StaticResource WindowsContainerControlTemplate}" />
+    </Style>
+
+</ResourceDictionary>

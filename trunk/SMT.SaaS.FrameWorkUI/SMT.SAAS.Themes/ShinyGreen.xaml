@@ -1,0 +1,979 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+    <!--系统定义主色-->
+    <SolidColorBrush x:Name="windowSetColor" Color="#FF527DB5" />
+
+    <!--系统中统一橙色-->
+    <SolidColorBrush x:Key="Color_orange" Color="#ffc92b"/>
+    <SolidColorBrush x:Key="Color_white" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Color_Black" Color="#000000"/>
+    <SolidColorBrush x:Key="Color_Blue" Color="#15428b"/>
+
+    <!--深蓝色-->
+    <Color x:Key="DeepBlueColor">#accaee</Color>
+    <Color x:Key="ShallowBlueColor">#edf4fc</Color>
+    <Color x:Key="WindowBGColor">#eaf3ff</Color>
+
+    <!--logo颜色-->
+    <Color x:Key="logoColor">#1f88ec</Color>
+
+    <Color x:Key="BlueColor2">#FFd6ebff</Color>
+    <Color x:Key="BlueColor3">#FFd0e9fd</Color>
+    <Color x:Key="BlueColor4">#FFa8d3fe</Color>
+
+
+    <Color x:Key="BlueColor5">#000002</Color>
+
+    <Color x:Key="BlueColor6">White</Color>
+    <!--灰色-->
+    <Color x:Key="BlueColor10">#666666</Color>
+    <!--logo橙色-->
+    <Color x:Key="DeepGoldColor">#ffc92b</Color>
+    <Color x:Key="ShallowGoldColor">#fcd2a7</Color>
+    <Color x:Key="ShallowGoldColor2">#fefaa4</Color>
+
+    <Color x:Key="ShadeBrushGradient2">#FFD1D4D6</Color>
+    <Color x:Key="ShadeBrushGradient3">#FFFFFFFF</Color>
+
+    <Color x:Key="WindowBackgroundBrushGradient1">#FFD1D1D1</Color>
+
+    <!--标题样式三色-->
+    <Color x:Key="HeaderBackgroundColor1">black</Color>
+    <Color x:Key="HeaderBackgroundColor2">white</Color>
+    <Color x:Key="HeaderBackgroundColor3">black</Color>
+    <SolidColorBrush x:Key="ToolBarfont_1" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="taskBarItemFont_1" Color="#FFFFFF"/>
+
+    <!--窗口阴影特效-->
+    <BlurEffect x:Name="WindowToolbarEffect" Radius="20">
+
+    </BlurEffect>
+    <DropShadowEffect x:Name="WindowEffect" Color="White" Direction="-120" 
+                      ShadowDepth="4" BlurRadius="10" Opacity="0.4" />
+
+    <!--bgcolor-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="BgColor">
+        <GradientStop Color="#FF4397e6" Offset="0.0"/>
+        <GradientStop Color="#FF94c0e9" Offset="0.572"/>
+        <GradientStop Color="#FFB7DBFD" Offset="0.75"/>
+        <GradientStop Color="#FFFFFFFF" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <RadialGradientBrush Center="0.2,0.4" RadiusY="3" RadiusX="2" GradientOrigin="0.6,0" x:Name="TaskBarItemBgOverFillB1">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+        <GradientStop Color="#6BFFFFFF" Offset="0.254"/>
+    </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="WindowButtonOverBg">
+        <RadialGradientBrush.RelativeTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="1.702" ScaleY="2.243"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+                <RotateTransform Angle="0"/>
+                <TranslateTransform X="-0.368" Y="-0.152"/>
+            </TransformGroup>
+        </RadialGradientBrush.RelativeTransform>
+        <GradientStop Color="#B28DBDFF" Offset="0"/>
+        <GradientStop Color="#008DBDFF" Offset="1"/>
+    </RadialGradientBrush>
+
+
+
+    <SolidColorBrush x:Name="HeaderSeparator" Color="#FF96BBFD" />
+    <SolidColorBrush x:Name="ColumnHeaderborder" Color="Transparent" />
+    <SolidColorBrush x:Key="HeaderBackgroundfontColor1" Color="Black"/>
+
+    <LinearGradientBrush x:Key="ButtonBackground_MouseOver" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF1D97B9"/>
+        <GradientStop Color="#FF127C9E" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Name="Border_MouserOver" Color="#198fb0"/>
+
+    <LinearGradientBrush x:Name="ColumnHeaderBackground" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#ffffff" Offset="0"/>
+        <GradientStop Color="#ffffff" Offset="0.42"/>
+        <GradientStop Color="#f3f3f3" Offset="0.42"/>
+        <GradientStop Color="#f3f3f3" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="GridView_HeaderBackground_Over" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="GridView_HeaderOuterBorder_Over" Color="#FF188CAD" />
+
+    <SolidColorBrush x:Key="ListitemOverborder" Color="Transparent"></SolidColorBrush>
+    <SolidColorBrush x:Key="datagridColorGold1" Color="{StaticResource DeepGoldColor}"></SolidColorBrush>
+    <SolidColorBrush x:Key="datagridColorGold4" Color="#FFF28926"></SolidColorBrush>
+    <!--DataGridBorder-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="DataGridBorderColor1">
+        <GradientStop Color="#6699cc" Offset="0"/>
+        <GradientStop Color="#6699cc" Offset="0.375"/>
+        <GradientStop Color="#6699cc" Offset="0.375"/>
+        <GradientStop Color="#6699cc" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush EndPoint="0.055,0.119" StartPoint="0.886,0.808" x:Key="CheckBoxBoxOver">
+        <GradientStop Color="{StaticResource ShallowGoldColor}"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--数据行选中状态Color-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="datagridColorGold2">
+        <GradientStop Color="#FFfcd2a7" Offset="0"/>
+        <GradientStop Color="#FFfefaa4" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="datagridBorder_select">
+        <GradientStop Color="#FFBBDBE6" Offset="0.12"/>
+        <GradientStop Color="#FFB4D2DC" Offset="0"/>
+        <GradientStop Color="#FF7FBFD4" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="datagridColorGold3">
+        <GradientStop Color="#FFfefaa4" Offset="0"/>
+        <GradientStop Color="#FFfefaa4" Offset="0.75"/>
+        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="datagridBorder_over">
+        <GradientStop Color="#FFE7F3F8" Offset="0"/>
+        <GradientStop Color="#FFD4E7EE" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--Treeview-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="Treeviewselect_gradient">
+        <GradientStop Color="#fcd4a6" Offset="0"/>
+        <GradientStop Color="#fbe69e" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="Treeviewhover_gradient">
+        <GradientStop Color="#fefad8" Offset="0"/>
+        <GradientStop Color="#fefaa4" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Treeviewborderselect_gradient">
+        <GradientStop Color="#FF8E8165" Offset="0"/>
+        <GradientStop Color="#FFC3BCAE" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="ListitemOverbg">
+        <GradientStop Color="#3890d0" Offset="0"/>
+        <GradientStop Color="#3890d0" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="ListitemPressbg">
+        <GradientStop Color="#FFDEF0F8" Offset="0.12" />
+        <GradientStop Color="#FFB4D2DC" Offset="0" />
+        <GradientStop Color="#FFBEDEEA" Offset="1" />
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="TaskBarItemBgOverFillB">
+        <GradientStop Color="#FFfcd2a7" Offset="0"/>
+        <GradientStop Color="#FFfefaa4" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="Datagridbg_edit" Color="#eaf3ff"></SolidColorBrush>
+
+
+
+    <SolidColorBrush x:Key="BlueColor11" Color="{StaticResource BlueColor10}"></SolidColorBrush>
+
+    <!--黄色边框颜色-->
+    <SolidColorBrush x:Key="HoverHyperLinkColorBrushYellow" Color="#ffdb6c"></SolidColorBrush>
+    <SolidColorBrush x:Key="menuItemSelectedColor" Color="#FFFDFBB5"></SolidColorBrush>
+
+    <!--窗体标题样色-->
+    <SolidColorBrush x:Key="BluefontColor1" Color="{StaticResource BlueColor5}"></SolidColorBrush>
+    <!--HeaderColor1-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="HeaderColor1">
+        <GradientStop Offset="0" Color="#FF1DBDFB" />
+        <GradientStop Offset="0.2" Color="#FF1DBEFB" />
+        <GradientStop Offset="0.4" Color="#FF3BC3F7" />
+        <GradientStop Offset="0.7" Color="#FF58D1FF" />
+        <GradientStop Offset="0.985" Color="#E596E1FF" />
+        <GradientStop Offset="0.985" Color="#FFFFFF" />
+        <GradientStop Offset="1" Color="#FFFFFF" />
+    </LinearGradientBrush>
+
+    <!--DataGrid样式统一设定-->
+    <!--选定行颜色-->
+    <SolidColorBrush x:Key="SmtColor1" Color="{StaticResource DeepBlueColor}"></SolidColorBrush>
+    <SolidColorBrush x:Key="SmtColor2" Color="{StaticResource ShallowBlueColor}"></SolidColorBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0"  x:Key="SmtColor4">
+        <!--<GradientStop Color="#FF9ADFFF" Offset="0"/>
+        <GradientStop Color="#FFFBFCF9" Offset="0.017"/>
+        <GradientStop Color="#FFFBFCF9" Offset="0.62"/>
+        <GradientStop Color="#FFFBFCF9" Offset="1"/>-->
+        <GradientStop Color="#f2f7fd" Offset="0"/>
+        <GradientStop Color="#f2f7fd" Offset="1"/>
+    </LinearGradientBrush>
+    <!--职位字体-->
+    <SolidColorBrush x:Key="SmtColor8" Color="#020514"/>
+    <!--ToolItemFontColor-->
+    <SolidColorBrush x:Key="ToolItemFontColor" Color="#FF212121"/>
+    <!--最小化工具栏-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="SmtColor5">
+        <GradientStop Color="#2397c4" Offset="0"/>
+        <GradientStop Color="#17488d" Offset="1"/>
+        <GradientStop Color="#218cbc" Offset="0.28"/>
+        <GradientStop Color="#1a64a0" Offset="0.688"/>
+        <GradientStop Color="#184f91" Offset="0.888"/>
+        <GradientStop Color="#1e7cb1" Offset="0.418"/>
+    </LinearGradientBrush>
+
+    <!--TaskToolBar-->
+    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" x:Key="TaskBarItemBorderOverFill">
+        <GradientStop Color="#fbf7d1" Offset="0"/>
+        <GradientStop Color="#de8131" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="TaskBarItemBorderOverFillB" Color="#ffe2ad"/>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="TaskBarItemBgCoror1">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="0.5"/>
+        <GradientStop Color="Transparent" Offset="0.5"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush StartPoint="0.32,0" EndPoint="0.5,0.89" x:Key="TaskBarItemBorderFill4">
+        <GradientStop Color="#59FFFFFF" Offset="0"/>
+        <GradientStop Color="transparent" Offset="0.43"/>
+        <GradientStop Color="transparent" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TaskBarItemBorderCoror1" Color="#FF9F9B9B"/>
+    <SolidColorBrush x:Key="TaskBarItemBorderbgCoror1" Color="#00FFFEFE"/>
+
+    <!--Footbar后背景-->
+    <SolidColorBrush x:Key="SmtColor6" Color="#595388"/>
+
+    <SolidColorBrush x:Key="SmtColor9" Color="#FFF7D8DB"/>
+
+    <!--滚动条样色-->
+    <LinearGradientBrush EndPoint="0,0.5" StartPoint="1.062,0.5" x:Name="SmtColor3">
+        <GradientStop Color="#FFB4D1F7" Offset="0"/>
+        <GradientStop Color="#FFAACBF6" Offset="0.5"/>
+        <GradientStop Color="#FFCADFFA" Offset="0.513"/>
+        <GradientStop Color="#FFBED0E8" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="-0.062,0.5" StartPoint="1.062,0.5" x:Key="VerticalThumbColor">
+        <GradientStop Color="#FFD1DBE6" Offset="0"/>
+        <GradientStop Color="#FFD1DAE4" Offset="0.5"/>
+        <GradientStop Color="#FFE6E9F0" Offset="0.513"/>
+        <GradientStop Color="#FFE8E9E9" Offset="1"/>
+    </LinearGradientBrush>
+    <!--边框-->
+    <SolidColorBrush x:Key="GrayColor1" Color="#FF606F94"/>
+    <LinearGradientBrush EndPoint="-0.062,0.5" StartPoint="1.062,0.5" x:Key="VerticalThumbColor_Over">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="-0.062,0.5" StartPoint="1.062,0.5" x:Key="VerticalThumbColor_Press">
+        <GradientStop Color="{StaticResource ShallowGoldColor}" Offset="0"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="0.513"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="HorizontalThumbColor">
+        <GradientStop Color="#FFE8E9E9" Offset="0"/>
+        <GradientStop Color="#FFE6E9F0" Offset="0.5"/>
+        <GradientStop Color="#FFD1DAE4" Offset="0.513"/>
+        <GradientStop Color="#FFD1DBE6" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="HorizontalThumbColor_Over">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="HorizontalThumbColor_Press">
+        <GradientStop Color="{StaticResource ShallowGoldColor}" Offset="0"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="0.513"/>
+        <GradientStop Color="{StaticResource ShallowGoldColor2}" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--主面板后背景-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="MainPageBgImages">
+        <GradientStop Color="Transparent" Offset="0.0"/>
+        <GradientStop Color="Transparent" Offset="0.55"/>
+        <GradientStop Color="Transparent" Offset="1.0"/>
+    </LinearGradientBrush>
+    <!--BorderContentBgColor-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="windowBorderContentBgColor">
+        <GradientStop Color="#FFF7F3F3" Offset="0"/>
+        <GradientStop Color="#FFF7F3F3" Offset="0.992"/>
+        <GradientStop Color="#FFF7F3F3" Offset="0.287"/>
+        <GradientStop Color="#FFF7F3F3" Offset="0.837"/>
+    </LinearGradientBrush>
+
+    <!--FormToolBarBgColor-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="FormToolBarBgColor1">
+        <GradientStop Color="#c3ddfb" Offset="0"/>
+        <GradientStop Color="#FFF8FAFD" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="FormToolBarBorderColor1" Color="#598fea"></SolidColorBrush>
+
+    <!--FooterToolbarItem-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="FooterToolbarItem">
+        <GradientStop Color="#57606b" Offset="0"/>
+        <GradientStop Color="#636b75" Offset="0.047"/>
+        <GradientStop Color="#636b75" Offset="0.43"/>
+        <GradientStop Color="#636b75" Offset="0.509"/>
+        <GradientStop Color="#636b75" Offset="1"/>
+    </LinearGradientBrush>
+
+
+
+    <!--input边框ColorBlueBorder-->
+    <SolidColorBrush x:Key="ColorBlueBorder" Color="#FF83A5D2"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextBoxOverborder" Color="#FF1f8ce9"></SolidColorBrush>
+    
+    <SolidColorBrush x:Key="TextBoxOver" Color="#FFFFC92B"/>
+    <SolidColorBrush x:Key="TextBoxFocus" Color="#FFFFC92B"/>
+
+    <SolidColorBrush x:Key="BlueLogin1" Color="#54a0e5"/>
+    <SolidColorBrush x:Key="BodyTextColorBrush" Color="#FF313131"/>
+
+
+    <!--黄色渐变色-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CommonStyleYellow">
+        <GradientStop Color="#fffcf3" Offset="0"/>
+        <GradientStop Color="#fffcf3" Offset="0.239"/>
+        <GradientStop Color="#ffdb7b" Offset="0.761"/>
+        <GradientStop Color="#ffdb7b" Offset="1"></GradientStop>
+    </LinearGradientBrush>
+
+    <!--蓝色字体颜色-->
+    <SolidColorBrush x:Key="Blueshinefont1" Color="{StaticResource BlueColor5}"></SolidColorBrush>
+    <!--弹出窗体的后背景颜色-->
+    <SolidColorBrush x:Key="Blueshinefont2" Color="#D6E8FF"></SolidColorBrush>
+
+    <!--蓝色字体颜色1-->
+    <SolidColorBrush x:Key="TextBBlue1" Color="{StaticResource BlueColor5}"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextBBlue3" Color="#f3f3f3"></SolidColorBrush>
+    <SolidColorBrush x:Key="TextBBlue12" Color="#FFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="BlueIcon1" Color="#FF7CA9FD"/>
+
+    <!--ColumnHeaderColor-->
+    <SolidColorBrush x:Key="selectedStroke" Color="#FF7CA9FD"/>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BtnOverFill">
+        <GradientStop Color="#FFFFFBDA" Offset="0"/>
+        <GradientStop Color="#FFFEEBAE" Offset="0.50"/>
+        <GradientStop Color="#FFFFD25A" Offset="0.50"/>
+        <GradientStop Color="#FFFFFBA3" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="hoverGradient">
+        <GradientStop Color="#FFFFFBDA" Offset="0"/>
+        <GradientStop Color="#FFFEEBAE" Offset="0.50"/>
+        <GradientStop Color="#FFFFD25A" Offset="0.50"/>
+        <GradientStop Color="#FFFFFBA3" Offset="1"/>
+    </LinearGradientBrush>
+    <!--边框颜色-->
+    <SolidColorBrush x:Key="BorderColor" Color="#6593cf"></SolidColorBrush>
+
+    <LinearGradientBrush x:Key="ShadeBrush"
+                       EndPoint="0.5,1"
+                       StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource ShadeBrushGradient2}"
+                  Offset="0" />
+        <GradientStop Color="{StaticResource ShadeBrushGradient3}"
+                  Offset="0.1" />
+        <GradientStop Color="{StaticResource ShadeBrushGradient3}"
+                  Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="DisabledBackgroundBrush"
+                       EndPoint="0.5,1"
+                       StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" />
+        <GradientStop Color="#FF62676A"
+                  Offset="1" />
+        <GradientStop Color="#FFD1D4D6"
+                  Offset="0.41800001263618469" />
+        <GradientStop Color="#FFA9AFB5"
+                  Offset="0.425" />
+    </LinearGradientBrush>
+
+    <!--Grid通用渐变颜色-->
+    <Color x:Key="GridColor">#FFB2D0EC</Color>
+
+
+    <!--Grid通用渐变颜色-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BGImageBrush11">
+        <GradientStop Color="#FFFFFF" Offset="0.0"/>
+        <GradientStop Color="#FFFFFF" Offset="0.05"/>
+        <GradientStop Color="#e0edff" Offset="0.05"/>
+        <GradientStop Color="#e0edff" Offset="0.45"/>
+        <GradientStop Color="#b2d3ff" Offset="0.45"/>
+        <GradientStop Color="#bfdbff" Offset="0.8"/>
+        <GradientStop Color="#b0d3ff" Offset="1"/>
+    </LinearGradientBrush>
+
+    <ImageBrush x:Key="MainPageBgColor" ImageSource="/SMT.SAAS.FrameworkUI;Component/Images/image/background.png" Stretch="Fill"/>
+    <ImageBrush x:Key="MainPageBgBottomColor" ImageSource="/SMT.SAAS.FrameworkUI;Component/Images/image/bottom.png" Stretch="Fill"/>
+    <ImageBrush x:Key="ImgColorBG" ImageSource="/SMT.SAAS.FrameworkUI;Component/Images/image/white.png" Stretch="Fill"/>
+
+    <ImageBrush x:Key="HeaderLogoImage" ImageSource="/SMT.SAAS.FrameworkUI;Component/Images/image/logo_smt1.png" Stretch="Fill"/>
+    <!--有边格-->
+    <ImageBrush x:Key="BGImageBrush112" ImageSource="/SMT.SaaS.FrameworkUI;Component/Images/Tool_BG12.png"/>
+
+    <ImageBrush x:Key="HeaderfootbgStyle1" ImageSource="/SMT.SaaS.FrameworkUI;Component/Images/appmenu_back.png"/>
+
+    <!--footbackground-->
+    <SolidColorBrush x:Key="FootBackGroundimg" Color="Transparent"></SolidColorBrush>
+
+    <!--页头导航-->
+    <!-- Image brush resources-->
+    <ImageBrush x:Key="HeaderBGImageBrush1" ImageSource="/SMT.SaaS.FrameworkUI;Component/Images/logo/mastheader.png" Stretch="Fill" />
+
+    <SolidColorBrush x:Key="BlueShine2" Color="Transparent"></SolidColorBrush>
+    <!--登陆框后背景-->
+    <SolidColorBrush x:Key="BlueShine4" Color="#FFCDE0F9"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="loginbgheader" Color="#2F87DA"></SolidColorBrush>
+    <!--页脚 颜色-->
+    <SolidColorBrush x:Key="loginfooterbg" Color="#FF4C9FEE"></SolidColorBrush>
+
+
+    <!--弹出框样式-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="WindowButtonClose">
+        <GradientStop Color="#CCF9F6F6"/>
+        <GradientStop Color="#CCC65A5A" Offset="0.456"/>
+        <GradientStop Color="#FFF21515" Offset="0.996"/>
+        <GradientStop Color="#FFE85C5C" Offset="0.512"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="WindowButtonMin">
+        <GradientStop Color="#CCEAF2FF"/>
+        <GradientStop Color="#004B92" Offset="1"/>
+        <GradientStop Color="#7F004B92" Offset="0.237"/>
+    </LinearGradientBrush>
+
+
+    <SolidColorBrush x:Key="ButtonContentBgroundColor1" Color="#cee6fe"/>
+
+    <LinearGradientBrush x:Key="WindowHeaderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="0.318"/>
+        <GradientStop Color="Transparent" Offset="0.488"/>
+        <GradientStop Color="Transparent" Offset="0.488"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="WindowHeaderBackground2" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="Transparent" Offset="0"/>
+        <GradientStop Color="Transparent" Offset="0.318"/>
+        <GradientStop Color="Transparent" Offset="0.488"/>
+        <GradientStop Color="Transparent" Offset="0.488"/>
+        <GradientStop Color="Transparent" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--WindowContentBackground-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="WindowContentBackground">
+        <!--<GradientStop Color="#eaf3ff" Offset="0"/>
+
+        <GradientStop Color="#eaf3ff" Offset="1"/>-->
+        <GradientStop Color="#f2f7fd" Offset="0"/>
+        <GradientStop Color="#f2f7fd" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="WindowBorderColor3" Color="#2d436c"/>
+
+    <!--window后背景颜色-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BoderBackgroundColor1">
+        <GradientStop Color="#FF34C6FD" Offset="0"/>
+        <GradientStop Color="#256991" Offset="1"/>
+        <GradientStop Color="#FF3C8BC0" Offset="0.134"/>
+        <GradientStop Color="#FF32507A" Offset="0.457"/>
+        <GradientStop Color="#FF2E4B74" Offset="0.71"/>
+        <GradientStop Color="#FF2A5389" Offset="0.843"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComboBoxBG1">
+        <GradientStop Color="{StaticResource BlueColor2}" Offset="0"/>
+        <GradientStop Color="{StaticResource BlueColor2}" Offset="0.318"/>
+        <GradientStop Color="{StaticResource BlueColor3}" Offset="0.488"/>
+        <GradientStop Color="#96c8f9" Offset="0.834"/>
+        <GradientStop Color="#96c8f9" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BoderBackgroundColor2">
+        <GradientStop Color="#6593cf" Offset="0"/>
+        <GradientStop Color="#6593cf" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0" x:Key="BoderBackgroundColor3">
+        <GradientStop Color="#65798a" Offset="0"/>
+        <GradientStop Color="#617485" Offset="0.992"/>
+        <GradientStop Color="#65798a" Offset="0.296"/>
+        <GradientStop Color="#65798a" Offset="0.819"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BoderinColor3">
+        <GradientStop Color="#FF077299" Offset="0.009"/>
+        <GradientStop Color="#FF077299" Offset="0.061"/>
+        <GradientStop Color="#FF077299" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.2,0.59" StartPoint="0,0" x:Key="LeftBoderBackgroundColor1">
+        <GradientStop Color="#fafdff" Offset="0"/>
+        <GradientStop Color="#fafdff" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ProgressBarColor" Color="#48A7F7"/>
+
+
+    <LinearGradientBrush x:Key="ControlItem_Background_Selected" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFF" Offset="0"/>
+        <GradientStop Color="#ffffff" Offset="0.1"/>
+        <GradientStop Color="#f4f6fa" Offset="0.1"/>
+        <GradientStop Color="#d9dee7" Offset="0.46"/>
+        <GradientStop Color="#cfd8e3" Offset="0.46"/>
+        <GradientStop Color="#d0dbe1" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ControlItem_Background_Normal" EndPoint="0.5,1" StartPoint="0.5,0">
+        <!--<GradientStop Color="#FFEBF3FF" Offset="0" />
+        <GradientStop Color="#FFD0E8FF" Offset="1" />
+        <GradientStop Color="#FFABC9EE" Offset="0.43" />
+        <GradientStop Color="#FFC6DFFF" Offset="0.42" />-->
+        <GradientStop Color="#FFFFFF" Offset="0"/>
+        <GradientStop Color="#ffffff" Offset="0.1"/>
+        <GradientStop Color="#f4f6fa" Offset="0.1"/>
+        <GradientStop Color="#d9dee7" Offset="0.46"/>
+        <GradientStop Color="#cfd8e3" Offset="0.46"/>
+        <GradientStop Color="#d0dbe1" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ControlItem_Border_Selected" Color="#c0ecfc" />
+    <SolidColorBrush x:Key="ControlOuterBorder_Focused" Color="#FFFFC92B" />
+    <SolidColorBrush x:Key="ControlItem_OuterBorder_Normal" Color="#83898e" />
+    <Style TargetType="TextBlock" x:Key="FrameGridTextBlock2">
+        <Setter Property="Width" Value="50" ></Setter>
+        <Setter Property="HorizontalAlignment" Value="Right" ></Setter>
+        <Setter Property="VerticalAlignment" Value="Top" ></Setter>
+    </Style>
+    <!--CalendarStyle-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="CalendarBackgroundColor">
+        <GradientStop Color="{StaticResource HeaderBackgroundColor1}" Offset="0"/>
+        <GradientStop Color="{StaticResource HeaderBackgroundColor1}" Offset="0.16"/>
+        <GradientStop Color="#6699cc" Offset="0.16"/>
+        <GradientStop Color="#6699cc" Offset="0.168"/>
+        <GradientStop Color="#FFFCFCFD" Offset="0.168"/>
+        <GradientStop Color="#FFFFFFFF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="Calendar_header" Color="#FFBFDBFF" />
+    <SolidColorBrush x:Key="CalendarNextButton" Color="#FF6F9DD9" />
+    <SolidColorBrush x:Key="CalendarNextButton_border" Color="#FF6F9DD9" />
+    <SolidColorBrush x:Key="Calendartitle_split" Color="#FF9AC6FF" />
+    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0" x:Key="DatePickerButton_Over">
+        <GradientStop Color="#FFE2E2E2" Offset="0"/>
+        <GradientStop Color="#FFEAF6FD" Offset="0.101"/>
+        <GradientStop Color="#FFE2F5FE" Offset="0.512"/>
+        <GradientStop Color="#FFA2E1FF" Offset="0.53"/>
+        <GradientStop Color="#FFAFDBF1" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0" x:Key="DatePickerButton_Press">
+        <GradientStop Color="#FFE2E2E2" Offset="0"/>
+        <GradientStop Color="#FFCAE7F4" Offset="0.097"/>
+        <GradientStop Color="#FFBDEAFF" Offset="0.521"/>
+        <GradientStop Color="#FF76D3FF" Offset="0.53"/>
+        <GradientStop Color="#FF8CCAEB" Offset="1"/>
+    </LinearGradientBrush>
+    <!--Time-->
+    <SolidColorBrush x:Name="UptimePath" Color="Black" />
+    <SolidColorBrush x:Name="UptimeText_select" Color="#FF88C3FF" />
+
+    <!--Common scrollview background-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="SpCscrollBgcolor1_hor">
+        <GradientStop Color="#daeaf0" Offset="0"/>
+        <GradientStop Color="#daeaf0" Offset="0.05"/>
+        <GradientStop Color="#ebf3f6" Offset="0.05"/>
+        <GradientStop Color="#ebf3f6" Offset="0.95"/>
+        <GradientStop Color="#daeaf0" Offset="0.95"/>
+        <GradientStop Color="#daeaf0" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" x:Key="SpCscrollBgcolor1_ver">
+        <GradientStop Color="#daeaf0" Offset="0"/>
+        <GradientStop Color="#daeaf0" Offset="0.05"/>
+        <GradientStop Color="#ebf3f6" Offset="0.05"/>
+        <GradientStop Color="#ebf3f6" Offset="0.95"/>
+        <GradientStop Color="#daeaf0" Offset="0.95"/>
+        <GradientStop Color="#daeaf0" Offset="1"/>
+    </LinearGradientBrush>
+    <!--Common scrollview border-->
+    <SolidColorBrush x:Name="SpCscrollBordercolor1" Color="#8c9aa7" />
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewVerBarOver_Border">
+        <GradientStop Color="#6f9cb4" Offset="0"/>
+        <GradientStop Color="#6f9cb4" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" x:Key="ComSviewVerBarOver_Bg">
+        <GradientStop Color="#cfe4eb" Offset="0"/>
+        <GradientStop Color="#aacbd6" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewHorBarOver_Border">
+        <GradientStop Color="#6f9cb4" Offset="0"/>
+        <GradientStop Color="#6f9cb4" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewHorBarOver_Bg">
+        <GradientStop Color="#cfe4eb" Offset="0"/>
+        <GradientStop Color="#aacbd6" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewVerBarPress_Border">
+        <GradientStop Color="#198eaf" Offset="0"/>
+        <GradientStop Color="#198eaf" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" x:Key="ComSviewVerBarPress_Bg">
+        <GradientStop Color="#b6d8e4" Offset="0"/>
+        <GradientStop Color="#87c3d6" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewHorBarPress_Border">
+        <GradientStop Color="#198eaf" Offset="0"/>
+        <GradientStop Color="#198eaf" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="ComSviewHorBarPress_Bg">
+        <GradientStop Color="#b6d8e4" Offset="0"/>
+        <GradientStop Color="#87c3d6" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--special scrollview background-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Spscrollcolor1">
+        <GradientStop Color="#FFE8E9E9" Offset="0"/>
+        <GradientStop Color="#FFE8E9E9" Offset="0.5"/>
+        <GradientStop Color="#FFE8E9E9" Offset="0.513"/>
+        <GradientStop Color="#FFE8E9E9" Offset="1"/>
+    </LinearGradientBrush>
+
+
+    <!--special scrollview border-->
+    <SolidColorBrush x:Key="Spscrollcolor2" Color="#FFFFC92B" />
+
+    <!--CommonButtonBackgroun?-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CommonButtonBackground1">
+        <GradientStop Color="#9facb5" Offset="0"/>
+        <GradientStop Color="#58606d" Offset="0.521"/>
+        <GradientStop Color="#89939c" Offset="0.194"/>
+        <GradientStop Color="#464a55" Offset="0.811"/>
+        <GradientStop Color="#727b84" Offset="0.507"/>
+        <GradientStop Color="#32353e" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--CommonButtonBorderbrush1-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="BlueShine1">
+        <GradientStop Color="#424a5d" Offset="0"/>
+        <GradientStop Color="#424a5d" Offset="0.047"/>
+        <GradientStop Color="#a2abb2" Offset="0.43"/>
+        <GradientStop Color="#58626e" Offset="0.509"/>
+        <GradientStop Color="#3f4a5c" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--<SolidColorBrush x:Key="BlueShine1" Color="#74A0DD"></SolidColorBrush>-->
+    <!--CommonButtonBackgroundover-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CommonButtonBackgroundover">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#919193" Offset="0.318"/>
+        <GradientStop Color="#7a787b" Offset="0.501"/>
+        <GradientStop Color="#414141" Offset="0.602"/>
+        <GradientStop Color="#403f3d" Offset="0.834"/>
+        <GradientStop Color="#3b3c3e" Offset="1"/>
+    </LinearGradientBrush>
+    <!--CommonButtonBorderoverbrush1-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CommonButtonBorderoverbrush1">
+        <GradientStop Color="#131418" Offset="0"/>
+        <GradientStop Color="#5b5b5b" Offset="0.318"/>
+        <GradientStop Color="#5b5b5b" Offset="0.488"/>
+        <GradientStop Color="#2d2d2f" Offset="0.502"/>
+        <GradientStop Color="#2d2d2f" Offset="0.834"/>
+        <GradientStop Color="#0a0e11" Offset="1"/>
+    </LinearGradientBrush>
+    <!--CommonButtonbgpress1-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="CommonButtonbgpress1">
+        <GradientStop Color="Transparent" Offset="0"/>
+
+        <GradientStop Color="Transparent" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="CommonButtonBorderpress1" Color="White" />
+
+    <!--Webpartbackgroundcolor1-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Webpartbackgroundcolor1">
+        <GradientStop Color="#83c878" Offset="0"/>
+        <GradientStop Color="#4d8b26" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Webpartbackgroundcolor2">
+        <GradientStop Color="#49898c" Offset="0"/>
+        <GradientStop Color="#49898c" Offset="0.78"/>
+        <GradientStop Color="#0a1d1f" Offset="0.78"/>
+        <GradientStop Color="#0a1d1f" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Webpartbackgroundcolor3">
+        <GradientStop Color="#86c7cb" Offset="0"/>
+        <GradientStop Color="#6eb7bd" Offset="0.30"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="Webpartbackgroundcolor4">
+        <GradientStop Color="#f3f3f3" Offset="0"/>
+        <GradientStop Color="#f3f3f3" Offset="0.986"/>
+        <GradientStop Color="#767676" Offset="0.986"/>
+        <GradientStop Color="#767676" Offset="1"/>
+    </LinearGradientBrush>
+    <!--字体颜色-->
+    <SolidColorBrush x:Key="WebPartDropShadowTextBlock1" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="WebPartDropShadowTextBlock2" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="WebPartDropShadowTextBlock3" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="WebPartDropShadowTextBlock4" Color="#000000"/>
+
+    <SolidColorBrush x:Key="Webpartbordercolor1" Color="#6893cf"/>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="mainpagebackgroundcolor1">
+        <GradientStop Color="#4e80ba" Offset="0"/>
+        <GradientStop Color="#5787c2" Offset="0.07"/>
+        <GradientStop Color="#6795cf" Offset="0.318"/>
+        <GradientStop Color="#90bdf6" Offset="0.788"/>
+        <GradientStop Color="#90bdf6" Offset="1"/>
+    </LinearGradientBrush>
+    <!--显示头像边框-->
+    <LinearGradientBrush EndPoint="1,1" StartPoint="0.0,0" x:Key="ImageWindowBorder">
+        <GradientStop Color="#FF0C458B" Offset="1"/>
+        <GradientStop Color="#FF4C8CDC" Offset="0.564"/>
+        <GradientStop Color="#FF174E93" Offset="0.686"/>
+        <GradientStop Color="#FF0B2D58" Offset="0.79"/>
+        <GradientStop Color="#FF3679CC" Offset="0.954"/>
+        <GradientStop Color="#FFEDF0F3" Offset="0.006"/>
+        <GradientStop Color="#FF7AB1F1" Offset="0.386"/>
+    </LinearGradientBrush>
+    <!--ButtonSpinnerStyle-->
+    <LinearGradientBrush EndPoint=".7,0" StartPoint=".7,1" x:Key="IncreaseButtonOver">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#F9FFF4C7" Offset="0.49"/>
+        <GradientStop Color="#FFFFDA79" Offset="0.5"/>
+        <GradientStop Color="#FFFFDA79" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="IncreaseButtonPress">
+        <GradientStop Color="#FFFFFFFF"/>
+        <GradientStop Color="#FFFEE6BC" Offset="0.49"/>
+        <GradientStop Color="#FFFFB63A" Offset="0.5"/>
+        <GradientStop Color="#FFFEC566" Offset="1"/>
+    </LinearGradientBrush>
+    <!--DecreaseButton-->
+    <LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0" x:Key="DecreaseButtonOver">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#F9FFF4C7" Offset="0.49"/>
+        <GradientStop Color="#FFFFDA79" Offset="0.5"/>
+        <GradientStop Color="#FFFFDA79" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="DecreaseButtonPress">
+        <GradientStop Color="#FFFFFFFF"/>
+        <GradientStop Color="#FFFEE6BC" Offset="0.49"/>
+        <GradientStop Color="#FFFFB63A" Offset="0.5"/>
+        <GradientStop Color="#FFFEC566" Offset="1"/>
+    </LinearGradientBrush>
+    <!--菜单项-->
+    <LinearGradientBrush x:Key="RibbonBarBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FF4BC4F3" Offset="0"/>
+        <GradientStop Color="#FF1793CE" Offset="1"/>
+        <GradientStop Color="#FF3EC8F7" Offset="0.439"/>
+        <GradientStop Color="#E52EC3F6" Offset="0.297"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush  x:Key="RibbonBarBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#83a5d2"/>
+        <GradientStop Color="#83a5d2" Offset="1"/>
+
+    </LinearGradientBrush>
+    <!--Expander-->
+    <LinearGradientBrush x:Key="ExpanderArrowFill" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#fffcf3" Offset="0"/>
+        <GradientStop Color="#fffcf3" Offset="0.239"/>
+        <GradientStop Color="#ffdb7b" Offset="0.761"/>
+        <GradientStop Color="#ffdb7b" Offset="1"></GradientStop>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ExpanderArrowHoverFill" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#FFFAE9" Offset="0"/>
+        <GradientStop Color="#FFF7CB26" Offset="0.3"/>
+        <GradientStop Color="#FFFDE94F" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ExpanderArrowPressedFill" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#D1E7FE" Offset="0"/>
+        <GradientStop Color="#FFABD0FE" Offset="0.5"/>
+        <GradientStop Color="#FF90BEF9" Offset="1"/>
+    </LinearGradientBrush>
+    <!--GridConfig_BackGround-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="GridConfig_BackGround">
+        <GradientStop Color="#FFC1DDF7"/>
+        <GradientStop Color="White" Offset="0.034"/>
+        <GradientStop Color="#FFE7EFF7" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5" x:Key="Rectangel13_Color">
+        <GradientStop Color="#FFB1CBE7"/>
+        <GradientStop Color="#FFB1CBE7" Offset="0.281"/>
+        <GradientStop Color="#FFF5F7F9" Offset="1"/>
+    </LinearGradientBrush>
+    <!--RibbonBar-->
+    <SolidColorBrush x:Key="RibbonBarSplitLines1" Color="#24bbfb"/>
+    <!--Webpart-->
+    <SolidColorBrush x:Key="WebpartUnderLines1" Color="#FF858585"/>
+    <SolidColorBrush x:Key="FlowMessageBorderBrush" Color="#51504e"/>
+
+     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="FlowMessageBackgroundBrush">
+        <GradientStop Color="#f5f5f5" Offset="0"/>
+        <GradientStop Color="#f5f5f5" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="FlowMessageBorderSolidBrush">
+        <GradientStop Color="#c3c3c3" Offset="0"/>
+        <GradientStop Color="#c3c3c3" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.992,0.458" StartPoint="0.86,0.333" x:Key="FlowMessageLineBorderSolidBrush">
+        <GradientStop Color="#FF232323" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+    </LinearGradientBrush>
+    <!--TabControl-->
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="TabItemFocusVisualTop">
+        <GradientStop Color="#ffc92b" Offset="0"/>
+        <GradientStop Color="#ffc92b" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="TabItemHighlightTop">
+        <GradientStop Color="Transparent"/>
+        <GradientStop Color="Transparent" Offset="0.126"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="TabItemTopBg_Over">
+        <GradientStop Color="#FF8AAEBB" Offset="0.027" />
+        <GradientStop Color="#FFBBDBE6" Offset="0.146" />
+        <GradientStop Color="#FF7FBFD4" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="TabItemTopBorder_Over">
+        <GradientStop Color="#FF6F9DB5" Offset="0.027" />
+        <GradientStop Color="#FF6F9DB5" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="TabItemTop_Select">
+        <GradientStop Color="#FFFFFF" Offset="0"/>
+        <GradientStop Color="#FFFFFF" Offset="0.126"/>
+        <GradientStop Color="#FFFFFF" Offset="0.13"/>
+        <GradientStop Color="#FFFFFF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="TabItemTopBg_Nomal">
+        <GradientStop Color="White" />
+        <GradientStop Color="#FFE3E8EB" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1" x:Key="TabItemTopBorder_Nomal">
+        <GradientStop Color="#FFB2B2B2" Offset="0" />
+        <GradientStop Color="#FFB2B2B2" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="DetailBgcolor_1">
+        <GradientStop Color="#c4c4c4" Offset="0.0"/>
+        <GradientStop Color="#efefef" Offset="0.572"/>
+        <GradientStop Color="#efefef" Offset="1.0"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="DetailBgcolor_2">
+        <GradientStop Color="#fdfdfd" Offset="0.0"/>
+        <GradientStop Color="#fdfdfd" Offset="0.572"/>
+        <GradientStop Color="#fdfdfd" Offset="1.0"/>
+    </LinearGradientBrush>
+
+
+    <!--CommonButton-->
+    <LinearGradientBrush x:Key="btnCombgNorm" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#FFEDEDED" Offset="0.171"/>
+        <GradientStop Color="#FFE7E7E7" Offset="0.5"/>
+        <GradientStop Color="#FFDCDCDC" Offset="0.51"/>
+        <GradientStop Color="#FFEAEBEC" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="btnComborderNorm" Color="#FF8E8F8F"/>
+
+    <LinearGradientBrush x:Key="CombgNorm" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+        <GradientStop Color="#f8f7f7" Offset="0.171"/>
+        <GradientStop Color="#f8f7f7" Offset="0.5"/>
+        <GradientStop Color="#e7e5e5" Offset="0.51"/>
+        <GradientStop Color="#e7e5e5" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Color x:Key="Over1">#FFE2F5FF</Color>
+    <Color x:Key="Over2">#FFC0E7FC</Color>
+    <Color x:Key="Over3">#FF9EDDFF</Color>
+
+    <Color x:Key="Focus">#FF1995cf</Color>
+
+    <SolidColorBrush x:Key="btnFocus" Color="{StaticResource Focus}"/>
+    <Color x:Key="PressStroke1">#FF1D415C</Color>
+    <Color x:Key="PressStroke2">#FF2C628B</Color>
+
+
+    <LinearGradientBrush x:Key="BtnComOverFill" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Over1}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource Over2}" Offset="0.509"/>
+        <GradientStop Color="{StaticResource Over3}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="btnPressBorder" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource PressStroke1}" Offset="0"/>
+        <GradientStop Color="{StaticResource PressStroke2}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Color x:Key="ButtonHighlightMid">#0095D9FF</Color>
+    <Color x:Key="ButtonHighlightMid2">#9935A6E6</Color>
+    <Color x:Key="ButtonHighlightMid3">#A535A6E6</Color>
+    <Color x:Key="TextboxPress1">#FF3B79AC</Color>
+
+    <Color x:Key="ItemOverStroke">#FFD8F0FA</Color>
+    <SolidColorBrush x:Key="TextBoxPressBrush" Color="{StaticResource TextboxPress1}"/>
+    <SolidColorBrush x:Key="hoverStroke" Color="{StaticResource ItemOverStroke}"/>
+
+    <LinearGradientBrush x:Key="btnOverFillHighlight" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="{StaticResource ButtonHighlightMid2}" Offset="0"/>
+        <GradientStop Color="{StaticResource ButtonHighlightMid}" Offset="0.101"/>
+        <GradientStop Color="{StaticResource ButtonHighlightMid}" Offset="0.899"/>
+        <GradientStop Color="{StaticResource ButtonHighlightMid2}" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ControlOuterBorder_Highlighted" Color="Transparent" />
+
+    <SolidColorBrush x:Key="TextBoxSelectBG" Color="#3399ff"/>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Name="LeftImageBGColor">
+        <GradientStop Offset="0" Color="#FF1DBDFB" />
+        <GradientStop Offset="0.2" Color="#FF1DBEFB" />
+        <GradientStop Offset="0.4" Color="#FF3BC3F7" />
+        <GradientStop Offset="0.7" Color="#FF59D1FF" />
+        <GradientStop Offset="1" Color="#7bd5f8" />
+    </LinearGradientBrush>
+
+    <!--NavigationControl-->
+    <!--灰黑色圆圈-->
+    <SolidColorBrush x:Key="CenterForeground" Color="#FF2C80CE"/>
+    <SolidColorBrush x:Key="ItemForeground" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="InCircleBorderColor" Color="#FFFFFFFF"/>
+
+    <SolidColorBrush x:Key="OutCircleBorderColor" Color="Transparent"/>
+    <RadialGradientBrush Center="0.5, 0.5"  GradientOrigin="0.5, 0.5" RadiusX="0.5"
+              RadiusY="0.5" x:Key="ItemCheckedColor">
+        <GradientStop Offset="1" Color="#FF1DBDFB" />
+        <GradientStop Offset="0.3" Color="#FF58D1FF" />
+        <GradientStop Offset="0" Color="#E596E1FF" />
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="OutCircleColor">
+        <GradientStop Color="#FFF9F9F9" Offset="0" />
+        <GradientStop Color="#FF363636" Offset="1" />
+        <GradientStop Color="#FFFFFFD4" Offset="0.628"/>
+        <GradientStop Color="#FF6D6D6D" Offset="0.631"/>
+    </RadialGradientBrush>
+    <RadialGradientBrush x:Key="InCircleColor">
+        <GradientStop Color="#FFF9F9F9" Offset="0" />
+        <GradientStop Color="#FFBBBBBB" Offset="1" />
+        <GradientStop Color="#FFDBDDDE" Offset="0.628"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush  EndPoint="1,0.5" StartPoint="0,0.5" x:Key="SplitterBackground">
+        <GradientStop Color="#cadff9" Offset="0"/>
+        <GradientStop Color="#cadff9" Offset="0.56"/>
+        <GradientStop Color="#f8fbfe" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="SplitterBackground_Strokepoint" Color="#ecedee" />
+    <SolidColorBrush x:Key="IsreadonlyBg" Color="#F7F7F7" />
+    <SolidColorBrush x:Key="IsEnableBg" Color="#4CF7F7F7" />
+</ResourceDictionary>
+

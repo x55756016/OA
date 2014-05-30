@@ -1,0 +1,91 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--边框颜色-->
+    <Style TargetType="Border" x:Key="BorderStyle">
+        <Setter Property="BorderBrush" Value="{StaticResource ColorBlueBorder}" />
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <!--弹出框标题-->
+    <Style TargetType="Border" x:Key="windowtitleStyle">
+        <Setter Property="BorderBrush" Value="#6699cc" />
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="Height" Value="0"></Setter>
+        <Setter Property="Background" Value="{StaticResource BGImageBrush11}"/>
+    </Style>
+
+    <!--边框颜色-->
+    <Style TargetType="Border" x:Key="GridPagerStyle">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#A1ACB7"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="#F2F3F4"/>
+    </Style>
+    <Style TargetType="Border" x:Key="ButtonToolBarBorder">
+        <Setter Property="BorderThickness" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="{StaticResource FormToolBarBorderColor1}"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource FormToolBarBgColor1}"/>
+    </Style>
+    <Style TargetType="Border" x:Key="DetailShow_1">
+        <Setter Property="BorderThickness" Value="0.8"/>
+        <Setter Property="BorderBrush" Value="#848484"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource DetailBgcolor_1}"/>
+        <Setter Property="Padding" Value="11,8,11,11"/>
+    </Style>
+    <Style TargetType="Border" x:Key="DetailShow_2">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#848484"/>
+        <Setter Property="Margin" Value="-10,-8,-10,-10"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="{StaticResource DetailBgcolor_2}"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="TaskBarItemBorderOver" TargetType="Border">
+        <Setter Property="Background" Value="{StaticResource TaskBarItemBgOverFillB1}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        
+        <Setter Property="Margin" Value="-1"/>
+        <Setter Property="CornerRadius" Value="2"/>
+    </Style>
+    <Style x:Key="TaskBarItemBorder" TargetType="Border">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TaskBarItemBorderCoror1}"/>
+        <Setter Property="Margin" Value="0,0,3,0"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Background" Value="{StaticResource TaskBarItemBorderbgCoror1}"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="TaskBarItemBorder2" TargetType="Border">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="white"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Effect" Value="{StaticResource WindowToolbarEffect}"/>
+    </Style>
+    <Style x:Key="TaskBarItemBorder3" TargetType="Border">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="#19FBFBFB"/>
+    </Style>
+    <Style x:Key="TaskBarItemBorder4" TargetType="Border">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Background" Value="{StaticResource TaskBarItemBorderFill4}"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style x:Key="TaskBarBGborder" TargetType="Border">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#15428b"/>
+    </Style>
+
+</ResourceDictionary>

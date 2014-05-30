@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SMT.SAAS.Themes;component/ShinyBlue.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.OtherControls.xaml" />
+    
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Border.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Button.xaml" />
+        
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.CheckBox.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Childwindow.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.ComboBox.xaml" />
+        
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.PasswordBox.xaml" /> 
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.ProgressBar.xaml"/>
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.ListBox.xaml" />
+        
+         <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Textbox.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.TabControl.xaml"/>
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Treeview.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.TextBlock.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Grid.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.GridSplitter.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.Scrollviewer.xaml" />
+
+
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.Expander.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.Accordion.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.Calendar.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.DatePicker.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.TimePicker.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/Toolkit/system.windows.TimeUpDown.xaml" />
+
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/DataGrid/system.windows.DataGrid.xaml" />
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/ToolKitResource.xaml" />
+
+        <ResourceDictionary Source="/SMT.SAAS.Themes;Component/Controls/system.windows.AutoCompleteBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+      
+</ResourceDictionary>

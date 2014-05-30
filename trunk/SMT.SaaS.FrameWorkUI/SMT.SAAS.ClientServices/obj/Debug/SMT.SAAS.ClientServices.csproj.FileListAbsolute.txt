@@ -1,0 +1,9 @@
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.SAAS.ClientServices.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.SAAS.ClientServices.pdb
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.dll
+F:\SMT.SaaS\SMT.SaaS.Portal\SMT.SAAS.FrameWork\Old_FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.pdb
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.SAAS.ClientServices.dll
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.SAAS.ClientServices.pdb
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.dll
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.pdb
+F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.csprojResolveAssemblyReference.cache

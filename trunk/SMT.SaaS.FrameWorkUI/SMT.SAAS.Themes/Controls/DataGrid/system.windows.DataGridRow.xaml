@@ -1,0 +1,227 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+
+    <Style TargetType="data:DataGridRow" x:Key="DataGridRowStyle">
+        <Setter Property="MinHeight" Value="24"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="data:DataGridRow">
+                    <dataPrimitives:DataGridFrozenGrid x:Name="Root">
+                        <dataPrimitives:DataGridFrozenGrid.Resources>
+                            <Storyboard x:Key="DetailsVisibleTransition">
+                                <DoubleAnimation Duration="00:00:0.1" Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight"/>
+                            </Storyboard>
+                        </dataPrimitives:DataGridFrozenGrid.Resources>
+                        <dataPrimitives:DataGridFrozenGrid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </dataPrimitives:DataGridFrozenGrid.ColumnDefinitions>
+                        <dataPrimitives:DataGridFrozenGrid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </dataPrimitives:DataGridFrozenGrid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="NormalAlternatingRow">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle2" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangleBorder" Storyboard.TargetProperty="Opacity" To="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle2" Storyboard.TargetProperty="Opacity" To=".5"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" To="0"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangleBorder" Storyboard.TargetProperty="Opacity" To=".5"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="NormalSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangleBorder" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle2" Storyboard.TargetProperty="Opacity" To="0"/>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOverSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangleBorder" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="UnfocusedSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid"/>
+                                <VisualState x:Name="Invalid">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <!--select-->
+                        <Rectangle x:Name="BackgroundRectangle" Margin="1" Fill="{StaticResource datagridColorGold2}" Opacity="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Stroke="{StaticResource datagridBorder_select}"/>
+                        <!--move-->
+                        <Rectangle x:Name="BackgroundRectangle2" Margin="1" Fill="{StaticResource datagridColorGold3}" Opacity="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Stroke="{StaticResource datagridBorder_over}"/>
+                        <Border BorderBrush="White" Margin="1.8" BorderThickness=".8" Grid.ColumnSpan="2" Grid.RowSpan="2" x:Name="BackgroundRectangleBorder" Opacity="0"></Border>
+                        <Rectangle x:Name="InvalidVisualElement" Fill="red" Opacity="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                        <dataPrimitives:DataGridRowHeader x:Name="RowHeader" dataPrimitives:DataGridFrozenGrid.IsFrozen="True" Grid.RowSpan="3" Background="#97B5CEEF" Style="{StaticResource DataGridRowHeaderStyle}"/>
+                        <dataPrimitives:DataGridCellsPresenter x:Name="CellsPresenter" dataPrimitives:DataGridFrozenGrid.IsFrozen="True" Grid.Column="1"/>
+                        <dataPrimitives:DataGridDetailsPresenter x:Name="DetailsPresenter" Grid.Column="1" Grid.Row="1"/>
+                        <Rectangle x:Name="BottomGridLine" Height="0" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Fill="red"/>
+                    </dataPrimitives:DataGridFrozenGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--行选中-->
+    </Style>
+    <!--datagrid透明背景-->
+    <Style x:Key="DataGridRowStyle1" TargetType="data:DataGridRow">
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="data:DataGridRow">
+                    <dataPrimitives:DataGridFrozenGrid x:Name="Root">
+                        <dataPrimitives:DataGridFrozenGrid.Resources>
+                            <Storyboard x:Key="DetailsVisibleTransition">
+                                <DoubleAnimation Duration="00:00:0.1" Storyboard.TargetName="DetailsPresenter" Storyboard.TargetProperty="ContentHeight"/>
+                            </Storyboard>
+                        </dataPrimitives:DataGridFrozenGrid.Resources>
+                        <dataPrimitives:DataGridFrozenGrid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </dataPrimitives:DataGridFrozenGrid.ColumnDefinitions>
+                        <dataPrimitives:DataGridFrozenGrid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </dataPrimitives:DataGridFrozenGrid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="NormalAlternatingRow">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                                <VisualState x:Name="NormalSelected">
+                                </VisualState>
+                                <VisualState x:Name="MouseOverSelected">
+                                </VisualState>
+                                <VisualState x:Name="UnfocusedSelected">
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid"/>
+                                <VisualState x:Name="Invalid">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="BackgroundRectangle" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="InvalidVisualElement" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle x:Name="BackgroundRectangle"  Opacity="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                        <Rectangle x:Name="InvalidVisualElement" Opacity="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                        <dataPrimitives:DataGridRowHeader x:Name="RowHeader" dataPrimitives:DataGridFrozenGrid.IsFrozen="True" Grid.RowSpan="3"/>
+                        <dataPrimitives:DataGridCellsPresenter x:Name="CellsPresenter" dataPrimitives:DataGridFrozenGrid.IsFrozen="True" Grid.Column="1"/>
+                        <dataPrimitives:DataGridDetailsPresenter x:Name="DetailsPresenter" Grid.Column="1" Grid.Row="1"/>
+                        <Rectangle x:Name="BottomGridLine" Height="1" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2"/>
+                    </dataPrimitives:DataGridFrozenGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--报表数据显示列表-->
+    <Style x:Key="AutoDataGridRowStyle" TargetType="sdk:DataGridRow">
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="FontFamily" Value="SimSun"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="sdk:DataGridRow">
+                    <sdk:DataGridFrozenGrid x:Name="Root">
+                        <sdk:DataGridFrozenGrid.Resources>
+                            <Storyboard x:Key="DetailsVisibleTransition">
+                                <DoubleAnimation Duration="00:00:0.1" Storyboard.TargetProperty="ContentHeight" Storyboard.TargetName="DetailsPresenter"/>
+                            </Storyboard>
+                        </sdk:DataGridFrozenGrid.Resources>
+                        <sdk:DataGridFrozenGrid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </sdk:DataGridFrozenGrid.ColumnDefinitions>
+                        <sdk:DataGridFrozenGrid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </sdk:DataGridFrozenGrid.RowDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="NormalAlternatingRow">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundRectangle"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To=".5" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundRectangle"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="NormalSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundRectangle"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOverSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundRectangle"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="UnfocusedSelected">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundRectangle"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid"/>
+                                <VisualState x:Name="Invalid">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="BackgroundRectangle">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="InvalidVisualElement"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle x:Name="BackgroundRectangle" Grid.ColumnSpan="2" Fill="Transparent" Opacity="0" Grid.RowSpan="2"/>
+                        <Rectangle x:Name="InvalidVisualElement" Grid.ColumnSpan="2" Fill="Transparent" Opacity="0" Grid.RowSpan="2"/>
+                        <sdk:DataGridRowHeader x:Name="RowHeader" sdk:DataGridFrozenGrid.IsFrozen="True" Grid.RowSpan="3"/>
+                        <sdk:DataGridCellsPresenter x:Name="CellsPresenter" Grid.Column="1" sdk:DataGridFrozenGrid.IsFrozen="True"/>
+                        <sdk:DataGridDetailsPresenter x:Name="DetailsPresenter" Grid.Column="1" Grid.Row="1"/>
+                        <Rectangle x:Name="BottomGridLine" Grid.Column="1" HorizontalAlignment="Stretch" Height="1" Grid.Row="2"/>
+                    </sdk:DataGridFrozenGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

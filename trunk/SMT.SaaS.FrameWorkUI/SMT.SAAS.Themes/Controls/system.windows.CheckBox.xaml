@@ -1,0 +1,123 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows">
+
+    <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Arial,SimSun"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Padding" Value="4,1,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="CheckBox">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <vsm:VisualStateManager.VisualStateGroups>
+                            <vsm:VisualStateGroup x:Name="CommonStates">
+                                <vsm:VisualStateGroup.Transitions>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.1" To="MouseOver"/>
+                                    <vsm:VisualTransition GeneratedDuration="00:00:00.1" To="Pressed"/>
+                                </vsm:VisualStateGroup.Transitions>
+                                <vsm:VisualState x:Name="Normal"/>
+                                <vsm:VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BoxOver" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="BoxOver" Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)" To="#FFF28A27"/>
+                                        <ColorAnimation Duration="0" Storyboard.TargetName="BoxOver" Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)" To="#FFF4D9BE"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BoxOver" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BackgroundFill" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="CheckStates">
+                                <vsm:VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="CheckIcon" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="BoxPress" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Unchecked"/>
+                            </vsm:VisualStateGroup>
+                            <vsm:VisualStateGroup x:Name="FocusStates">
+                                <vsm:VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="FocusedVisualElement" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </vsm:VisualState>
+                                <vsm:VisualState x:Name="Unfocused" />
+                            </vsm:VisualStateGroup>
+                        </vsm:VisualStateManager.VisualStateGroups>
+                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Rectangle x:Name="Background" Margin="1" Width="13" Height="13" RadiusX="0" RadiusY="0" Fill="#FFF4F4F4" Stroke="#FF868686" StrokeThickness="1"/>
+                            <Rectangle x:Name="BoxFill" Width="9" Height="9" RadiusX="0" RadiusY="0" Fill="#FFCACFD5" StrokeThickness="1">
+                                <Rectangle.Stroke>
+                                    <LinearGradientBrush EndPoint="-0.007,-0.012" StartPoint="0.915,0.92">
+                                        <GradientStop Color="#FFE4E5E9"/>
+                                        <GradientStop Color="#FFA2ACB9" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Stroke>
+                            </Rectangle>
+                            <Rectangle x:Name="BackgroundFill" Margin="1" Width="13" Height="13"
+                                       RadiusX="0" RadiusY="0" Fill="#FFDEEAFA" Stroke="#FF5577A3" 
+                                       StrokeThickness="1" Opacity="0"/>
+                            <Rectangle x:Name="BoxOver" Margin="3" Width="9" Height="9" RadiusX="0" 
+                                       RadiusY="0" Fill="Transparent"
+                                       Stroke="{StaticResource CheckBoxBoxOver}" StrokeThickness="1" Opacity="0">
+
+                            </Rectangle>
+                            <Rectangle x:Name="BoxPress" Margin="3" Width="9" Height="9" RadiusX="0" 
+                                       RadiusY="0" StrokeThickness="1" 
+                                       Stroke="{StaticResource CheckBoxBoxOver}" Opacity="0">
+
+                            </Rectangle>
+                            <Rectangle x:Name="BoxGradient" Width="7" Height="7" RadiusX="0" RadiusY="0" StrokeThickness="1">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush StartPoint="0.238,0.228" EndPoint="0.752,0.749">
+                                        <GradientStop Color="#00F6F6F6" Offset="0.254" />
+                                        <GradientStop Color="#53F8F8F8" Offset="0.54"/>
+                                        <GradientStop Color="#BFFFFFFF" Offset="0.996" />
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Path x:Name="CheckIcon" Margin="0,3.333,3.833,0" Width="7" Height="10" Fill="#FF787373" Stretch="Fill" VerticalAlignment="Top" HorizontalAlignment="Right" Data="M103.78572,598.96112 L105.09846,597.5661 L107.00806,600.16229 C107.00806,600.16229 109.91004,592.74463 109.91004,592.74463 C109.91004,592.74463 111.74678,593.79761 111.74678,593.79761 C111.74678,593.79761 107.88566,602.75848 107.88566,602.75848 L106.60118,602.75848 z" Visibility="Collapsed"/>
+                            <Rectangle x:Name="FocusedVisualElement" RadiusX="0" RadiusY="0" 
+                                       Stroke="{StaticResource Border_MouserOver}" 
+                                       StrokeThickness="1" Visibility="Collapsed"/>
+                            <Rectangle x:Name="DisabledVisualElement" Margin="1" RadiusX="0" RadiusY="0" Fill="#3FFFFFFF" Visibility="Collapsed"/>
+                        </Grid>
+                        <ContentPresenter
+	                                Grid.Column="1"
+	                                x:Name="contentPresenter"
+	                                Content="{TemplateBinding Content}"
+	                                ContentTemplate="{TemplateBinding ContentTemplate}"
+	                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+	                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+	                                Margin="{TemplateBinding Padding}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
