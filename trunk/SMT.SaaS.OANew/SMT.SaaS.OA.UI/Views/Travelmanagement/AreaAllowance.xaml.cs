@@ -62,14 +62,13 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
             // 地区分类
             client.GetAreaWithPagingCompleted += new EventHandler<GetAreaWithPagingCompletedEventArgs>(client_GetAreaWithPagingCompleted);
-
-            ToolBar1.btnNew.Click += new RoutedEventHandler(btnNew_Click);
             ToolBar1.btnNew.Visibility = Visibility.Collapsed;
             ToolBar1.retNew.Visibility = Visibility.Collapsed;
             ToolBar1.btnDelete.Visibility = Visibility.Collapsed;
             ToolBar1.cbxCheckState.Visibility = Visibility.Collapsed;
             ToolBar1.txtCheckStateName.Visibility = Visibility.Collapsed;
-            ToolBar1.btnEdit.Click += new RoutedEventHandler(btnEdit_Click);
+            ToolBar1.btnEdit.Visibility = Visibility.Collapsed;
+            //ToolBar1.btnEdit.Click += new RoutedEventHandler(btnEdit_Click);
             ToolBar1.btnRefresh.Click += new RoutedEventHandler(btnRefresh_Click);
             ToolBar1.btnAudit.Visibility = Visibility.Collapsed;
             ToolBar1.BtnView.Visibility = Visibility.Collapsed;
@@ -170,7 +169,7 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             //filter += "OWNERCOMPANYID ^@" + paras.Count().ToString();
             //paras.Add(loginUserInfo.companyID); 
             this.RefreshUI(RefreshedTypes.ShowProgressBar);
-            if (cmbSolution.SelectedIndex > 0)
+            if (cmbSolution.SelectedItem!=null)
             {
                 T_OA_TRAVELSOLUTIONS travelObjs = cmbSolution.SelectedItem as T_OA_TRAVELSOLUTIONS;
                 if (travelObjs != null)
@@ -180,7 +179,8 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
             }
             else
             {
-                client.GetAreaWithPagingAsync(1, 100, "AREAINDEX ascending", filter, paras, pageCount, loginUserInfo.companyID, null);
+                Utility.ShowCustomMessage(MessageTypes.Caution, "提示", "请先选择有效的出差方案");
+                //client.GetAreaWithPagingAsync(1, 100, "AREAINDEX ascending", filter, paras, pageCount, loginUserInfo.companyID, null);
             }
         }
 
@@ -377,41 +377,32 @@ namespace SMT.SaaS.OA.UI.Views.Travelmanagement
 
         }
 
-        void btnNew_Click(object sender, RoutedEventArgs e)
-        {
-            ////Form.Salary.AreaForm form = new SMT.HRM.UI.Form.Salary.AreaForm(FormTypes.New, "");
-            //EntityBrowser browser = new EntityBrowser(form);
-            ////browser.MinHeight = 120;
-            ////browser.MinWidth = 380;
-            //browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
-            //browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
-        }
 
-        void btnEdit_Click(object sender, RoutedEventArgs e)
-        {
-            this.cmbSolution.IsEnabled = true;//修改时启用选择方案cmbox
-            if (DtGridArea.SelectedItems.Count > 0)
-            {
-                var item = (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE);
-                if (Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != item.OWNERCOMPANYID)
-                {
-                    Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能修改其他公司的出差补贴");
-                    return;
-                }
-                AreaForm form = new AreaForm(FormTypes.Edit, (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE).AREADIFFERENCEID, solutionsObj.TRAVELSOLUTIONSID);
-                EntityBrowser browser = new EntityBrowser(form);
-                browser.MinHeight = 120;
-                browser.MinWidth = 380;
-                browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
-                browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
-            }
-            else
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("SELECTERROR", "EDIT"));
-                return;
-            }
+        //void btnEdit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.cmbSolution.IsEnabled = true;//修改时启用选择方案cmbox
+        //    if (DtGridArea.SelectedItems.Count > 0)
+        //    {
+        //        var item = (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE);
+        //        if (Common.CurrentLoginUserInfo.UserPosts[0].CompanyID != item.OWNERCOMPANYID)
+        //        {
+        //            Utility.ShowCustomMessage(MessageTypes.Caution, Utility.GetResourceStr("PROMPT"), "不能修改其他公司的出差补贴");
+        //            return;
+        //        }
+        //        AreaForm form = new AreaForm(FormTypes.Edit, (DtGridArea.SelectedItems[0] as T_OA_AREADIFFERENCE).AREADIFFERENCEID, solutionsObj.TRAVELSOLUTIONSID);
+        //        EntityBrowser browser = new EntityBrowser(form);
+        //        browser.MinHeight = 120;
+        //        browser.MinWidth = 380;
+        //        browser.ReloadDataEvent += new EntityBrowser.refreshGridView(browser_ReloadDataEvent);
+        //        browser.Show<string>(DialogMode.Default, SMT.SAAS.Main.CurrentContext.Common.ParentLayoutRoot, "", (result) => { });
+        //    }
+        //    else
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("SELECTERROR", "EDIT"));
+        //        return;
+        //    }
 
-        }
+        //}
 
         private void btnCityAdd_Click(object sender, RoutedEventArgs e)
         {
