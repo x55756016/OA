@@ -423,8 +423,9 @@ namespace SMT.SAAS.Platform.Core.Modularity
             }
             catch (ArgumentException ex)
             {
-
-                throw ex;
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                //throw ex;
             }
 
             return new string[0];

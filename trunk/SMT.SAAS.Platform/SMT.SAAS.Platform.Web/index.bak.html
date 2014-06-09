@@ -91,10 +91,13 @@
             var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
             strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
             //t_sys_user sysuserid
-            // strConfig = "";
+           // strConfig = "";
             plugin.content.MvcToSl.OpenModuleWithMVC("4185C4FC-7FA0-424c-89D3-BA6C63A0D537", "TravelRECORD", strConfig, strConfig);
         }
 
+        function loadCompletedSL(options) {            
+         alert("ＳＬ加载完毕");
+        }
 
         function OpenMessageBox(options) {
             var plugin = document.getElementById("SMTPlatform");
@@ -118,14 +121,14 @@
                                     "<param name=\"onerror\" value=\"onSilverlightError\" />" +
                                     "<param name=\"background\" value=\"white\" />" +
                                     "<param name=\"minRuntimeVersion\" value=\"4.0.50917.0\" />" +
-                                    "<param name=\"initparams\" value=\"p1=" + "10.10.0.93:8080" + ",p2=.new.Services,PhoneDownloadUrl=http://l13g.smtsoft.net/download,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" + "\" />" +
+                                    "<param name=\"initparams\" value=\"p1=" +"10.10.0.93:8080" + ",p2=.new.Services,PhoneDownloadUrl=http://l13g.smtsoft.net/download,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" +  "\" />" +
                                     "<param name=\"onload\" value=\"onTravelSilverlightLoad\" />" +
                                     "<param name=\"autoUpgrade\" value=\"true\" />" +
                                     "<a href=\"http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50917.0\" style=\"text-decoration: none\">" +
                                     "<img src=\"http://go.microsoft.com/fwlink/?LinkId=161376\" alt=\"获取 Microsoft Silverlight\"style=\"border-style: none\" />" +
                                     "</a>" +
                                     "</object><div id='divSMTPlatform' style='display:none; height:100%;width:100%; background:white;'></div>";
-            // var tempa = $(obj);
+           // var tempa = $(obj);
 
             // tempa.find("param[name='onload']").attr("value", "onTravelSilverlightLoad")
 
@@ -133,39 +136,9 @@
             document.getElementById("silverlightControlHost").innerHTML = obj;
             //$("#TravelCostDiv").append(tempa);
         }
-        var slNavigationTra = null;
-        var isLoad = false;
-        function onTravelSilverlightLoad(sender) {
-            slNavigationTra = sender.getHost();
-            var uid = "7d0c00b3-68be-43a8-b053-40626f11f7e3";
-            var uName = "peixjl";
-            isLoad = true;
-            slNavigationTra.Content.MvcToSl.StartSilverlight("709D9380-5405-4429-B047-20100401D237", "Module", "", "", uid, uName);
-
-        }
-        function loadCompletedSL(options) {
-            debugger;
-            //var hostControl = $("#TravelCostDiv");
-            var configXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>" +
-                        	    "<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	" +
-                                "<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>" +
-                                "<ProcessName>CreateFormFromMVC</ProcessName>" +
-                                "<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	" +
-                                "<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder>" +
-                                "<FormTypes>Edit</FormTypes></System>";
-            var moduleid = "113a24a8-1125-4209-be64-ce21915930a7";
-            if (isLoad) {
-                isLoad = false;
-                //slNavigationTra.Content.MvcToSl.OpenModuleWithMVC("709D9380-5405-4429-B047-20100401D237", "Module", "", "");
-                slNavigationTra.Content.MvcToSl.OpenModuleWithMVC(moduleid, "TravelRECORD", configXml, configXml);
-            }
-        }
-
     </script>
 </head>
-<body onload="">
-
-<input type="button" onclick="InitSilverlight();" value="加载SL" />
+<body onload="InitSilverlight()">
     <input type="button" onclick="buttonClick();" value="调用SilverLight初始化方法打开出差" />
     
   <!--  <input type="button" onclick="openDoTaskForm();" value="调用silverlight打开待办任务方法" />-->

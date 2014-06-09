@@ -170,7 +170,7 @@
         binding="customBinding" bindingConfiguration="CustomBinding_DailyManagementServices"
         contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
 
-      <endpoint address="http://10.10.0.93:8080/New/Services/HR/OutAppliecrecordService.svc"
+      <endpoint address="http://localhost:12168/OutAppliecrecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_OutAppliecrecordService"
         contract="OutApplyWS.OutAppliecrecordService" name="BasicHttpBinding_OutAppliecrecordService" />
     </client>

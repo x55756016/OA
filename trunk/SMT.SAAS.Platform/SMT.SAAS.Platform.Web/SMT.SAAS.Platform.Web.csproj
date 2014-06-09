@@ -25,6 +25,10 @@
     </UpgradeBackupLocation>
     <TargetFrameworkProfile />
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -99,6 +103,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ClientBin\SMT.SAAS.Loading.xap" />
+    <Content Include="index.bak.html" />
     <Content Include="index.html" />
     <Content Include="Silverlight.js" />
     <Content Include="SMT.SAAS.Platform.MainTestPage.aspx" />

@@ -238,6 +238,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                 if (applicationUrl.Length > 0)
                 {
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("ResolverTask()applicationUrl:" + applicationUrl);
                     using (XmlReader reader = XmlReader.Create(new StringReader(applicationUrl)))
                     {
                         XElement xmlClient = XElement.Load(reader);
@@ -299,7 +300,10 @@ namespace SMT.SAAS.Platform.WebParts.Views
                             borTaskContent.Child = null;
 
                             Type[] types = new Type[] { typeof(string), typeof(string), typeof(string), typeof(Border) };
-
+                            if (PageParameter == "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm")
+                            {
+                                types = new Type[] { typeof(string), typeof(string), typeof(string) };
+                            }
                             MethodInfo method = type.GetMethod(ProcessName, types);
 
                             if (method == null)
@@ -307,8 +311,14 @@ namespace SMT.SAAS.Platform.WebParts.Views
                             SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("开始调用业务系统打开单据方法,typeString:"
                             + typeString + "ProcessName:" + ProcessName+ "types:" + types);
                             //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
-                            method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType, borTaskContent }, null);
-
+                            if (PageParameter == "SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm")
+                            {
+                                method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType}, null);
+                            }
+                            else
+                            {
+                                method.Invoke(null, BindingFlags.Static | BindingFlags.InvokeMethod, null, new object[] { ApplicationOrder, PageParameter, FormType, borTaskContent }, null);
+                            }
                         }
 
                     }

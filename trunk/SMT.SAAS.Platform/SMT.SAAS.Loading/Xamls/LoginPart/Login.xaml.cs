@@ -348,9 +348,11 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             catch (Exception ex)
             {
                 btnAddSpace.Visibility = System.Windows.Visibility.Visible;
-                txtUserMsg.Text = "系统异常，请联系管理员";
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("系统错误，请联系管理员：" + ex.ToString());
+                string msg = "系统错误，请联系管理员：" + ex.ToString();
+                txtUserMsg.Text = msg;
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
             }
         }
 
@@ -365,12 +367,14 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             {
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(e.Error.ToString());
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", e.Error.ToString() });
             }
             else
             {
                 if (e.Result == null)
                 {
                     txtUserMsg.Text = "警告！用户异常，不能执行当前请求。";
+                    HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", txtUserMsg.Text });
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("警告！用户不存在，不能执行当前请求。");
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                     return;
@@ -413,6 +417,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             if (e.Error != null && !string.IsNullOrWhiteSpace(e.Error.Message))
             {
                 txtUserMsg.Text = "获取员工信息错误,请联系管理员";
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false",txtUserMsg.Text });
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(e.Error.Message); MessageBox.Show(e.Error.ToString());
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             }
@@ -444,7 +449,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo = SMT.SAAS.Main.CurrentContext.Common.GetLoginUserInfo(
                             employee.EMPLOYEEID, employee.EMPLOYEENAME,
                             employee.EMPLOYEECODE, employee.EMPLOYEESTATE,
-                            employee.sysuser.SYSUSERID, employee.OFFICEPHONE,
+                            employee.sysuser.SYSUSERID, employee.MOBILE, employee.OFFICEPHONE,
                             employee.SEX, postlist.ToList(),
                             employee.WORKAGE, employee.PHOTO, isAdmin);
                     SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI = new List<V_UserPermissionUI>();
@@ -492,8 +497,10 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             {
                 if (e.Error != null)
                 {
-                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("下载版本文件出错，请联系管理员" + e.Error.ToString());
+                    string msg = "下载版本文件出错，请联系管理员" + e.Error.ToString();
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                    HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
                     return;
                 }
                 if (e.Result.Length < 1)
@@ -501,6 +508,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("获取服务器更新列表为空，请联系管理员");
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                     txtUserMsg.Text = "获取服务器更新列表出错，请联系管理员";
+                    HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false",txtUserMsg.Text });
                     return;
                 }
                 txtUserMsg.Text = "获取服务器更新列表成功，正在获取更新......";
@@ -564,7 +572,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             catch (Exception ex)
             {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("更新系统出错，请联系管理员：" + ex.ToString());
+                string msg = "更新系统出错，请联系管理员：" + ex.ToString();
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                 txtUserMsg.Text = "系统更新错误，请联系管理员";
             }
@@ -618,8 +628,10 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         {
             if (e.Error != null)
             {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("服务器下载" + downloadDllName + "出错，请联系管理员" + e.Error.ToString());
+                string msg = "服务器下载" + downloadDllName + "出错，请联系管理员" + e.Error.ToString();
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", msg });
             }
             try
             {
@@ -638,7 +650,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             catch (Exception ex)
             {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("下载更新出错：" + downloadDllName + ex.ToString());
+                string msg = "下载更新出错：" + downloadDllName + ex.ToString();
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", ex.ToString() });
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                 txtUserMsg.Text = "系统更新错误，请联系管理员";
             }
@@ -758,6 +772,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                             SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
                             SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                             setLoadmingMessage("系统加载出错，请联系管理员");
+                            HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", strmsg });
                             return;
                         }
                     }
@@ -784,6 +799,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             catch (Exception ex)
             {
+                HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false", ex.ToString() });
+                this.txtUserMsg.Text=@"silverlight本地存储异常，请右键点击silverlight"
+                +System.Environment.NewLine+"选择应用程序存储，然后点击全部删除后刷新页面再试";
                 SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(sDllSourceName + " 加载系统出错：" + ex.ToString());
                 SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             }

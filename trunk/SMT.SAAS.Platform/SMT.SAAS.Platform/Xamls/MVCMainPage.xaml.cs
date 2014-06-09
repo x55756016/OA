@@ -52,6 +52,9 @@ namespace SMT.SAAS.Platform.Xamls
         //注销选择事件
         private event EventHandler<OnSelectionBoxClosedArgs> OnSelectionBoxClosed;
 
+        private string LoadComplete;
+        
+
         //主菜单
         Xamls.MainPagePart.CustomMenusSet _mainMenu;
         SplashScreenViewModel vm;
@@ -98,6 +101,11 @@ namespace SMT.SAAS.Platform.Xamls
             ViewModel.Context.Managed.OnLoadModuleCompleted += new EventHandler<ViewModel.LoadModuleEventArgs>(Managed_OnLoadModuleCompleted);
             vm.InitCompleted += new EventHandler(vm_InitCompleted);
 
+            if (System.Windows.Application.Current.Resources["LoadComplete"] != null)
+            {
+                LoadComplete = System.Windows.Application.Current.Resources["LoadComplete"] as string;
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("js LoadComplete 事件：" + LoadComplete);
+            }
             if (System.Windows.Application.Current.Resources["CurrentSysUserID"] != null && System.Windows.Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
                 ayTools.InitAsyncCompleted += new EventHandler(ayTools_InitAsyncCompleted);
@@ -164,6 +172,7 @@ namespace SMT.SAAS.Platform.Xamls
             strConfig = strMvcSource[3];
             //mvc默认加载不打开任何页面
             HtmlPage.Window.Invoke("loadCompletedSL", new string[]{"ture","加载成功"});
+            this.hideLoadingBar();
             //OpenModuleWithMVC(strModuleid, strOptType, strMessageid, strConfig);
         }
         /// <summary>
@@ -421,6 +430,11 @@ namespace SMT.SAAS.Platform.Xamls
                         //}
                         LoadMyRecord(strConfig);
                         break;
+                    case "TRAVELRECORD":
+                        //MessageBox.Show(strConfig);
+                        LoadMyRecordByConfig(strConfig);
+                       
+                        break;
                     case "NEWSMANAGER":
                         LoadNews(strModuleid);
                         break;
@@ -452,8 +466,25 @@ namespace SMT.SAAS.Platform.Xamls
                     return;
                 }
 
-                SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
-                myRecordView.ShowMyRecord(strConfig);
+                SMT.SAAS.Platform.WebParts.Views.MVCPendingTaskManager pendingTaskView = new WebParts.Views.MVCPendingTaskManager("", "open");
+                pendingTaskView.isMyrecord = true;
+                pendingTaskView.applicationUrl = strConfig;
+                if (ViewModel.Context.MainPanel != null)
+                {
+                    if (ViewModel.Context.MainPanel.DefaultContent != null)
+                    {
+                        IWebpart webpart = ViewModel.Context.MainPanel.DefaultContent as IWebpart;
+                        if (webpart != null)
+                            webpart.Stop();
+
+                    }
+                    ViewModel.Context.MainPanel.Navigation(pendingTaskView, "我的单据");
+
+                }
+
+
+               // SMT.SAAS.Platform.WebParts.Views.MyRecord myRecordView = new WebParts.Views.MyRecord();
+               // myRecordView.ShowMyRecord(strConfig);
             }
             catch (Exception ex)
             {

@@ -55,20 +55,32 @@ namespace SMT.HRM.UI.Form.Salary
 
         private void btDecryption_Click(object sender, RoutedEventArgs e)
         {
+            tbmsg.Text = "正在验证密码，请稍等......";
             string currentPwd = SMT.SaaS.FrameworkUI.Common.Utility.Encrypt(pwd.Password);
             client.LoginCheckAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, currentPwd);
             //client.LoginCheckAsync(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, pwd.Password);
         }
         void client_LoginCheckCompleted(object sender, LoginCheckCompletedEventArgs e)
         {
-            if (e.Result)
+            try
             {
-                LayoutRoot.Visibility = Visibility.Collapsed;
-                HandlerClicked();
+                if (e.Result)
+                {
+                    LayoutRoot.Visibility = Visibility.Collapsed;
+                    HandlerClicked();
+                }
+                else
+                {
+                    tbmsg.Text = Utility.GetResourceStr("PASSWORDERROR");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                tbmsg.Text = Utility.GetResourceStr("PASSWORDERROR");
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                tbmsg.Text = string.Empty;
             }
         }
         private void HandlerClicked()                      

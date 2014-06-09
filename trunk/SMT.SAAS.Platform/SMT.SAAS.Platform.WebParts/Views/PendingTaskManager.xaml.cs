@@ -332,6 +332,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                 if (messageContent.Length > 0)
                 {
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("ResolverTask(messageContent):" + messageContent);
                     using (XmlReader reader = XmlReader.Create(new StringReader(messageContent)))
                     {
                         XElement xmlClient = XElement.Load(reader);
