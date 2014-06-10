@@ -134,7 +134,8 @@ namespace SMT.HRM.BLL
             {
                 foreach (var addsum in entAddsums)
                 {
-                    remark += addsum.REMARK;
+                    remark +=(//addsum.PROJECTNAME + ":" + 项目名在系统中已被去掉
+                        "金额："+addsum.PROJECTMONEY + " " + addsum.REMARK + "  ");
                 }
 
                 addsumItem.SUM = AES.AESEncrypt(remark);
