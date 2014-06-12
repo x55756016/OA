@@ -638,9 +638,9 @@ namespace SMT.HRM.BLL
                 //判断早退
                 if (dtAttCardStart < dtOffPunch && dtAttEnd >= dtOffPunch)
                 {
-                 
-                    
-                    TimeSpan ts = dtOffPunch.Subtract(dtAttCardStart);
+
+
+                    TimeSpan ts = dtAttEnd.Subtract(dtAttCardStart);//早退时常
                     string strReasonCategory = string.Empty;
                     strAbnormCategory = (Convert.ToInt32(Common.AbnormCategory.LeaveEarly) + 1).ToString();
                     Tracer.Debug("检查异常考勤，员工姓名：" + entAttRd.EMPLOYEENAME 

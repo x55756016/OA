@@ -1983,7 +1983,7 @@ namespace SMT.HRM.BLL
 
                     //循环薪资档案中的薪资项目生成金额
                     foreach (var sItem in salaryItems)
-                    {
+                    {                       
                         if (sItem.archiveItem == null || sItem.salaryItem == null || sItem.salaryArchive == null)
                         {
                             SMT.Foundation.Log.Tracer.Debug("员工薪资档案，员工薪资档案中的薪资项其中一项为空");
@@ -1992,7 +1992,7 @@ namespace SMT.HRM.BLL
                         var tempSalaryItem = sItem.salaryItem;
                         DateTime st = System.DateTime.Now;
                         SMT.Foundation.Log.Tracer.Debug("姓名：" + empoloyee.EMPLOYEECNAME+" 薪资项："+tempSalaryItem.SALARYITEMNAME + ":");
-                        if (tempSalaryItem.SALARYITEMNAME == "假期其它扣款")
+                        if (tempSalaryItem.SALARYITEMNAME == "航信31-代扣税额")
                         {
                         }                       
                         //"1、手工录入 ；2、薪资档案中输入；3、计算公式；"
@@ -2038,23 +2038,29 @@ namespace SMT.HRM.BLL
                                     getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
                                 }
                                 //新技能工资
-                                else if (tempSalaryItem.SALARYITEMNAME == "新技能工资")
+                                else if (tempSalaryItem.SALARYITEMNAME == "航信1-新技能工资")
                                 {
-                                    var q = from ent in dal.GetObjects<T_HR_SALARYARCHIVEITEM>()
-                                            where ent.T_HR_SALARYARCHIVE.SALARYARCHIVEID == SalaryArchive.SALARYARCHIVEID
-                                            && ent.SALARYITEMID == "1E272EBC-F8F0-4A6E-A619-5B94F5C98E70"
-                                            select ent;
-                                    //湖南航信特殊薪资项目
-                                    if (q.Count() > 0)
-                                    {
-                                        var archiveitem = q.FirstOrDefault();
-                                        string strsql = archiveitem.CALCULATEFORMULACODE + " and t_hr_salaryarchive.salaryarchiveid='" + SalaryArchive.SALARYARCHIVEID + "'";
-                                        var value = dal.ExecuteCustomerSql(strsql);
-                                        Tracer.Debug("湖南航信新技能工资额:" + strsql + " 得到的结果：" + value.ToString());
-                                        SalaryItem.SUM = value.ToString();
-                                    }
+
+                                    var archiveitem = tempSalaryItem;
+                                    string strsql = archiveitem.CALCULATEFORMULACODE + " AND T_HR_SALARYARCHIVE.SALARYARCHIVEID='" + SalaryArchive.SALARYARCHIVEID + "'";
+                                    var value = dal.ExecuteCustomerSql(strsql);
+                                    Tracer.Debug("湖南航信 航信1-新技能工资:" + strsql + " 得到的结果：" + value.ToString());
+                                    SalaryItem.SUM = value.ToString();
+
                                     //SalaryItem.SUM = dDeduct.ToString();
-                                    Tracer.Debug("新技能工资：" + SalaryItem.SUM.ToString());
+                                    Tracer.Debug("航信1-新技能工资：" + SalaryItem.SUM.ToString());
+                                    getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
+                                }
+                                  else if (tempSalaryItem.SALARYITEMNAME == "航信4-岗位工资级别")
+                                {
+                                    var archiveitem = tempSalaryItem;
+                                    string strsql = archiveitem.CALCULATEFORMULACODE + " WHERE T_HR_SALARYARCHIVE.SALARYARCHIVEID='" + SalaryArchive.SALARYARCHIVEID + "'";
+                                    var value = dal.ExecuteCustomerSql(strsql);
+                                    Tracer.Debug("航信4-岗位工资级别:" + strsql + " 得到的结果：" + value.ToString());
+                                    SalaryItem.SUM = value.ToString();
+
+                                    //SalaryItem.SUM = dDeduct.ToString();
+                                    Tracer.Debug("航信4-岗位工资级别：" + SalaryItem.SUM.ToString());
                                     getCaches.Add(tempSalaryItem.SALARYITEMID, SalaryItem.SUM.ToString());
                                 }
                                 else
@@ -4552,7 +4558,7 @@ namespace SMT.HRM.BLL
         /// <returns>返回解析薪资项目ID后的结果</returns>
         public string AutoAssemblyCharacter(string strcode, string employeeid, int year, int month)
         {
-            int i = strcode.IndexOf("SELECT");
+            int i = strcode.ToUpper().IndexOf("SELECT");
             string getFront = string.Empty;
             Regex re = new Regex(@"\{\s*([^}]+)\s*\}");
             if (!re.IsMatch(strcode))
@@ -4568,7 +4574,7 @@ namespace SMT.HRM.BLL
             int getstrLength = getstr.Length;
             getstr = getstr.Substring(1, getstr.Length - 2);  //解析薪资项目ID    
             string getvalue = GetItemsValue(getstr);
-            if (getstr == GetBzxzid())
+            if (getstr.ToUpper() == GetBzxzid().ToUpper())
             {
                 getstr = SystemBasicSalary(employeeid).ToString();
             }
@@ -4579,7 +4585,7 @@ namespace SMT.HRM.BLL
             else
             {
                 var ents = (from a in dal.GetObjects<T_HR_SALARYITEM>()
-                            where a.SALARYITEMID == getstr
+                            where a.SALARYITEMID.ToUpper() == getstr.ToUpper()
                             select a).FirstOrDefault();
                 if (ents != null)
                 {
@@ -4749,11 +4755,7 @@ namespace SMT.HRM.BLL
             }
             if (j != -1)
             {
-                if (signIndex == 2)
-                {
-                    strcode += "AND " + filterTableName[signIndex] + ".EMPLOYEEID ='" + employeeid + "'";
-                }
-                else
+                if (signIndex !=-1)
                 {
                     strcode += "AND " + filterTableName[signIndex] + ".EMPLOYEEID ='" + employeeid + "'";
                 }

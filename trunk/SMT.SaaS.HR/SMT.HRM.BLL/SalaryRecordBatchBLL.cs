@@ -14,6 +14,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using System.Reflection.Emit;
 using System.Reflection;
+using SMT.Foundation.Log;
 namespace SMT.HRM.BLL
 {
     /// <summary>
@@ -713,7 +714,7 @@ namespace SMT.HRM.BLL
                 tableInfo.Columns.Add(col13);
 
                 //存储合计值
-                Dictionary<string, decimal> dictSum = new Dictionary<string, decimal>();
+                Dictionary<string, string> dictSum = new Dictionary<string, string>();
 
                 int j = 6;
                 List<T_HR_EMPLOYEESALARYRECORDITEM> ItemsListForColName = salaryRecordTmp.salaryitem.OrderBy(s => s.ORDERNUMBER).ToList();
@@ -777,11 +778,11 @@ namespace SMT.HRM.BLL
                         sb.Append("<SALARYITEM" + n + ">" + detail.SUM + "</SALARYITEM" + n + ">");
                         if (dictSum.ContainsKey("SALARYITEM" + n))
                         {
-                            dictSum["SALARYITEM" + n] += string.IsNullOrEmpty(detail.SUM) ? 0 : Convert.ToDecimal(AES.AESDecrypt(detail.SUM));
+                            dictSum["SALARYITEM" + n] += string.IsNullOrEmpty(detail.SUM) ? "0" : AES.AESDecrypt(detail.SUM);
                         }
                         else
                         {
-                            dictSum.Add("SALARYITEM" + n, string.IsNullOrEmpty(detail.SUM) ? 0 : Convert.ToDecimal(AES.AESDecrypt(detail.SUM)));
+                            dictSum.Add("SALARYITEM" + n, string.IsNullOrEmpty(detail.SUM) ? "0" : AES.AESDecrypt(detail.SUM));
                         }
                         n++;
                     }
@@ -848,8 +849,9 @@ namespace SMT.HRM.BLL
 
                 return dsd;
             }
-            catch
+            catch(Exception ex)
             {
+                Tracer.Debug(ex.ToString());
                 return null;
             }
         }
