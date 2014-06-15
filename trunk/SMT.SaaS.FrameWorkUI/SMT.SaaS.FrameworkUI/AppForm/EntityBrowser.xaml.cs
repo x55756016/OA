@@ -34,6 +34,9 @@ namespace SMT.SaaS.FrameworkUI
         private Saas.Tools.HrCommonServiceWS.HrCommonServiceClient HrCommws;
         public RowDefinition EntityBrowseToolBar;
 
+        public ToolBar EntityToolbar { get { return toolBar1; } set { toolBar1 = value; } }
+        public Expander AuduitExpander { get { return expander; } set { expander = value; } }
+
         /// <summary>
         /// 保存并提交
         /// </summary>
