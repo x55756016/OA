@@ -567,7 +567,10 @@
       <endpoint address="http://10.10.0.93:8080/New/services/RM/ResumeService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="ResumeService.ResumeService" name="BasicHttpBinding_ResumeService" />
-      <endpoint address="http://10.10.0.93:8080/New/services/Main/PlatformServices.svc"
+      <!--<endpoint address="http://10.10.0.93:8080/New/services/Main/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
+        contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />-->
+      <endpoint address="http://localhost:22222/PlatformSiServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
         contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
       <endpoint address="http://10.10.0.93:8080/New/services/MyRecord/PersonalRecordService.svc"
@@ -722,11 +725,13 @@
       <endpoint address="http://10.10.0.93:8080/New/Services/System/MainUIServices.svc"
                 binding="customBinding" bindingConfiguration="CustomBinding_MainUIServices"
                 contract="UserLoginWS.MainUIServices" name="CustomBinding_MainUIServices" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/Platform/PlatformServices.svc"
+      <!--<endpoint address="http://10.10.0.93:8080/New/Services/Platform/PlatformServices.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices1"
+                contract="PlatformWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices1" />-->
+
+<endpoint address="http://localhost:22222/PlatformServices.svc"
                 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices1"
                 contract="PlatformWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices1" />
-
-
 
       <endpoint address="http://fileserver.smt-online.net:9000/FileUpLoad.svc" binding="customBinding"
   bindingConfiguration="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService"

@@ -202,10 +202,13 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             MvcSourcelist.Add(stropttype);
             MvcSourcelist.Add(strmessageid);
             MvcSourcelist.Add(strconfig);
-            AppContext.SystemMessage("strModuleid:" + strmoduleid
-             + "strOptType:" + stropttype
-                + "strMessageid:" + strmessageid
-                   + "strConfig:" + strconfig);
+            AppContext.SystemMessage("StartSilverlight-------------"
+            +"strModuleid:" + strmoduleid+System.Environment.NewLine
+             + "strOptType:" + stropttype + System.Environment.NewLine
+                + "strMessageid:" + strmessageid + System.Environment.NewLine
+                   + "strConfig:" + strconfig + System.Environment.NewLine
+                   + "strUid:" + strUid + System.Environment.NewLine
+                   + "strUserName:" + strUserName + System.Environment.NewLine);
 
             if (Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
@@ -213,10 +216,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
 
             Application.Current.Resources.Add("MvcOpenRecordSource", MvcSourcelist);
-            foreach (var q in MvcSourcelist)
-            {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("MvcOpenRecordSource:" + q);
-            }
+           
             //SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             if (IosManager.CheckeSpace())
             {

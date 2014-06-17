@@ -223,6 +223,34 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                 ViewModel.Context.Managed.LoadModule(moduleName);
             }
+            else
+            {
+                string msg = "打开模块：" + moduleName + " 失败:MVCPendingTaskManager.CheckeDepends中module未找到。";
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(msg);
+                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                loading.Stop();
+                try
+                {
+                    if (moduleName == "SMT.Workflow.Platform.Designer")
+                    {
+                        ViewModel.Context.Managed.OnSystemLoadModuleCompleted += LoadTaskHandler = (o, e) =>
+                        {
+                            ViewModel.Context.Managed.OnSystemLoadModuleCompleted -= LoadTaskHandler;
+                            if (e.Error == null)
+                            {
+                                ResolverTask();
+                            }
+                        };
+
+                        ViewModel.Context.Managed.LoadModule(moduleName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("尝试加载流程模块失败："+ex.ToString());
+                    SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+                }
+            }
         }
 
         /// <summary>

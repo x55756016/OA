@@ -399,10 +399,11 @@ namespace SMT.SAAS.Platform.Xamls
         [ScriptableMember]
         public void OpenModuleWithMVC(string strModuleid, string strOptType, string strMessageid, string strConfig)
         {
-            AppContext.SystemMessage("strModuleid:" + strModuleid
-                + "strOptType:" + strOptType
-                   + "strMessageid:" + strMessageid
-                      + "strConfig:" + strConfig);
+            AppContext.SystemMessage("OpenModuleWithMVC-------------"
+          + "strModuleid:" + strModuleid + System.Environment.NewLine
+           + "strOptType:" + strOptType + System.Environment.NewLine
+              + "strMessageid:" + strMessageid + System.Environment.NewLine
+                 + "strConfig:" + strConfig + System.Environment.NewLine);
             try
             {
                 showLoadingBar();

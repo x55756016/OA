@@ -185,10 +185,15 @@ namespace SMT.SAAS.Platform.OracleDAL
                                orderby ent.SYSTEMTYPE, ent.ORDERNUMBER
                                select ent;
 
+              
 
                 foreach (var item in menuList)
                 {
                     var childs = menuList.Where(mm => mm.EntityMenuFatherID == item.ENTITYMENUID);
+
+                    if(item.ENTITYMENUID == "9b58888d-cf4e-40cf-bab6-de4ee00d0ceb")
+                    {
+                    }
 
                     ModuleInfo parentModule = moduleinfos.FirstOrDefault(e => (e.ModuleCode == item.SYSTEMTYPE));
 

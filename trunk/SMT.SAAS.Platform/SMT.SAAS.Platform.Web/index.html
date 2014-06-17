@@ -137,14 +137,15 @@
         var isLoad = false;
         function onTravelSilverlightLoad(sender) {
             slNavigationTra = sender.getHost();
-            var uid = "7d0c00b3-68be-43a8-b053-40626f11f7e3";
-            var uName = "peixjl";
+            var uid = "844cb8c9-2817-4b28-adde-e7745cde5c70";
+            var uName = "yangx";
             isLoad = true;
-            slNavigationTra.Content.MvcToSl.StartSilverlight("709D9380-5405-4429-B047-20100401D237", "Module", "", "", uid, uName);
+            slNavigationTra.Content.MvcToSl.StartSilverlight("", "Module", "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0", "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0", uid, uName);
 
         }
         function loadCompletedSL(options) {
             debugger;
+            var strOptType="TravelRECORD";
             //var hostControl = $("#TravelCostDiv");
             var configXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>" +
                         	    "<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	" +
@@ -154,10 +155,15 @@
                                 "<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder>" +
                                 "<FormTypes>Edit</FormTypes></System>";
             var moduleid = "113a24a8-1125-4209-be64-ce21915930a7";
+
+            strOptType = "TASK";
+            if (strOptType.toUpperCase() == "TASK") {
+                configXml = "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0";
+            }
             if (isLoad) {
                 isLoad = false;
                 //slNavigationTra.Content.MvcToSl.OpenModuleWithMVC("709D9380-5405-4429-B047-20100401D237", "Module", "", "");
-                slNavigationTra.Content.MvcToSl.OpenModuleWithMVC(moduleid, "TravelRECORD", configXml, configXml);
+                slNavigationTra.Content.MvcToSl.OpenModuleWithMVC(moduleid, strOptType, configXml, configXml);
             }
         }
 

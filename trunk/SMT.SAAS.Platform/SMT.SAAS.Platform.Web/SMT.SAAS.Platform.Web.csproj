@@ -106,6 +106,8 @@
     <Content Include="index.bak.html" />
     <Content Include="index.html" />
     <Content Include="Silverlight.js" />
+    <Content Include="SMT.SAAS.LoadingTestPage.aspx" />
+    <Content Include="SMT.SAAS.LoadingTestPage.html" />
     <Content Include="SMT.SAAS.Platform.MainTestPage.aspx" />
     <Content Include="SMT.SAAS.Platform.MainTestPage.html" />
     <Content Include="Web.config" />
