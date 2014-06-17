@@ -202,6 +202,10 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             MvcSourcelist.Add(stropttype);
             MvcSourcelist.Add(strmessageid);
             MvcSourcelist.Add(strconfig);
+            AppContext.SystemMessage("strModuleid:" + strmoduleid
+             + "strOptType:" + stropttype
+                + "strMessageid:" + strmessageid
+                   + "strConfig:" + strconfig);
 
             if (Application.Current.Resources["MvcOpenRecordSource"] != null)
             {
