@@ -35,7 +35,7 @@ namespace SMT.SaaS.FrameworkUI
         public RowDefinition EntityBrowseToolBar;
 
         public ToolBar EntityToolbar { get { return toolBar1; } set { toolBar1 = value; } }
-        public Expander AuduitExpander { get { return expander; } set { expander = value; } }
+        public Grid AuduitPanel{ get { return PnlAudit; } set { PnlAudit = value; } }
 
         /// <summary>
         /// 保存并提交

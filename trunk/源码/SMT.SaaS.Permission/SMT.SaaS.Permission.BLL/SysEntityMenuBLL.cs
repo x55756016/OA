@@ -1079,7 +1079,14 @@ namespace SMT.SaaS.Permission.BLL
                                      };
                 if (entspermission != null)
                 {
-                    
+
+                    var q = from ent in entspermission
+                            where ent.EntityMenu.ENTITYMENUID == "9b58888d-cf4e-40cf-bab6-de4ee00d0ceb"
+                            select ent;
+                    if (q.Count() > 0)
+                    {
+                        //有新流程定义菜单权限
+                    }
                     
                     foreach (var menuid in entspermission.ToList())
                     {                      
