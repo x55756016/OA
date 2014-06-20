@@ -3605,14 +3605,14 @@ namespace SMT.HRM.Services
         /// <param name="UploadFile"></param>
         /// <returns></returns>
         [OperationContract]
-        public string ImportEmployeeMonthlySalary(UploadFileModel UploadFile, string year, string month, ref string owerCompayId,ref string UImsg)
+        public string ImportEmployeeMonthlySalary(UploadFileModel UploadFile, GenerateUserInfo GenerateUser,string year, string month, ref string owerCompayId,ref string UImsg)
         {
             string strPath = string.Empty;
             SaveFile(UploadFile, out strPath);
             string strPhysicalPath = HttpContext.Current.Server.MapPath(strPath);
             using (EmployeeSalaryImportBLL bll = new EmployeeSalaryImportBLL())
             {
-                return bll.ImportEmployeeMonthlySalary(strPhysicalPath,year,month,owerCompayId,ref UImsg);
+                return bll.ImportEmployeeMonthlySalary(GenerateUser,strPhysicalPath, year, month, owerCompayId, ref UImsg);
             }
         }
 

@@ -527,9 +527,10 @@ namespace SMT.HRM.BLL
                                                             + record.REMARK + " 签卡时间：" + record.SIGNINTIME);
 
                                     List<string> list = new List<string>() { record.SIGNINID };
-                                    if (CloseAttendAbnormAlarmMsg(list, "T_HR_EMPLOYEESIGNINRECORD", AbnormRecorditem.OWNERID))
+                                    if (CloseAttendAbnormAlarmMsg(list, "T_HR_EMPLOYEESIGNINRECORD", ""))
                                     {
-                                        Tracer.Debug("关闭签卡待办成功,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID + " 创建日期：" + record.CREATEDATE + " 签卡备注"
+                                        Tracer.Debug("关闭签卡待办成功,员工名：" + record.EMPLOYEENAME + " 员工id：" + record.EMPLOYEEID 
+                                            + "员工id为空关闭所有代办，包括审核中的。  创建日期：" + record.CREATEDATE + " 签卡备注"
                                                                 + record.REMARK + " 签卡时间：" + record.SIGNINTIME);
                                     }
                                 }

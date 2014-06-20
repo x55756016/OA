@@ -1955,6 +1955,7 @@ namespace SMT.HRM.BLL
 
                 var commonSalaryItems = from c in dal.GetObjects<T_HR_SALARYITEM>()
                                         where c.OWNERCOMPANYID == GenerateCompanyEmployeeArchive.PAYCOMPANY
+                                        orderby c.SALARYITEMCODE
                                         select c;
                 if (commonSalaryItems.Count() < 1)
                 {
@@ -1963,6 +1964,10 @@ namespace SMT.HRM.BLL
                         + empoloyee.EMPLOYEECNAME + " " 
                         + " 薪资档案id：" + GenerateCompanyEmployeeArchive.SALARYARCHIVEID
                         + " 发薪机构id：" + GenerateCompanyEmployeeArchive.PAYCOMPANY);
+                    foreach (var item in commonSalaryItems)
+                    {
+                        Tracer.Debug("获取的公司薪资项目为："+item.SALARYITEMNAME);
+                    }
                     return 0;
                 }
                 //改为全集团不在使用同一套薪资项目
@@ -2131,9 +2136,9 @@ namespace SMT.HRM.BLL
                                         //{
                                         //    en.SUM = Alternative(Convert.ToDecimal(en.SUM), 0).ToString();
                                         //}
-                                        if (tempSalaryItem.SALARYITEMNAME == "实发工资")
+                                        if (tempSalaryItem.SALARYITEMNAME == "航信36-实发合计")
                                         {
-                                            Tracer.Debug("员工姓名：" + empoloyee.EMPLOYEECNAME + " 实发工资：" + tempSalaryItem.GUERDONSUM.Value.ToString() + "员工状态："
+                                            Tracer.Debug("员工姓名：" + empoloyee.EMPLOYEECNAME + " 航信36-实发合计：" + tempSalaryItem.GUERDONSUM.Value.ToString() + "员工状态："
                                                 + empoloyee.EMPLOYEESTATE);
                                             try
                                             {
@@ -2142,7 +2147,7 @@ namespace SMT.HRM.BLL
                                                 {
                                                     double dValue = double.Parse(SalaryItem.SUM.ToString());
                                                     string sum = (dValue * 0.7).ToString();
-                                                    Tracer.Debug("试用期员工实发工资:" + dValue + "*0.7=" + (dValue * 0.7).ToString());
+                                                    Tracer.Debug("航信试用期员工实发工资:" + dValue + "*0.7=" + (dValue * 0.7).ToString());
                                                     SalaryItem.SUM = sum;
                                                 }
                                             }
@@ -2185,6 +2190,11 @@ namespace SMT.HRM.BLL
                             SMT.Foundation.Log.Tracer.Debug((System.DateTime.Now - st).ToString());
                             //添加薪资项记录
                             if (!actSign) recorditems.Add(recorditem.GetEmployeeSalaryRecordItem(SalaryItem));
+                            if (tempSalaryItem.SALARYITEMNAME == "航信36-实发合计")
+                            {
+                                Tracer.Debug("航信36-实发合计 添加记录");
+                                recorditems.Add(recorditem.GetEmployeeSalaryRecordItem(SalaryItem));
+                            }
                         }
                         //循环
                     }
@@ -2398,7 +2408,7 @@ namespace SMT.HRM.BLL
         /// <param name="year">结算年份</param>
         /// <param name="month">结算月份</param>
         /// <returns></returns>
-        private T_HR_SALARYARCHIVE GetEmployeeAcitiveSalaryArchive(string employeeid,string GenerateEmployeePostid, string payCompanyid, int year, int month)
+        public T_HR_SALARYARCHIVE GetEmployeeAcitiveSalaryArchive(string employeeid,string GenerateEmployeePostid, string payCompanyid, int year, int month)
         {
             var q = from employee in dal.GetObjects<T_HR_EMPLOYEE>().Include("T_HR_SALARYARCHIVE")
                     join salaryAhive in dal.GetTable<T_HR_SALARYARCHIVE>()

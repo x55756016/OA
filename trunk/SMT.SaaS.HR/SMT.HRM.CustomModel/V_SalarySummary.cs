@@ -50,4 +50,22 @@ namespace SMT.HRM.CustomModel
         public string PerformancerewardRecord { get; set; }    //  绩效奖金
         public string DeductRemark { get; set; } //扣款备注
     }
+
+    public class GenerateUserInfo
+    {
+        public GenerateUserInfo()
+        {
+        }
+        public string GenerateUserId;
+        public string GenerateUserPostId;
+        public string GenerateUserDepartmentId;
+        public string GenerateUserCompanyId;
+        public DateTime GenerateDate;
+        public string GeneratePostId;
+        public string GenerateDepartmentId;
+        public string GenerateCompanyId;
+
+
+    }
+
 }

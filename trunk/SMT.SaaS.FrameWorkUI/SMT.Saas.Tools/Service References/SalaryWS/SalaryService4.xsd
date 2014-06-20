@@ -150,6 +150,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_SalarySummary" nillable="true" type="tns:V_SalarySummary" />
+  <xs:complexType name="GenerateUserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GenerateCompanyId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenerateDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GenerateDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeneratePostId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenerateUserCompanyId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenerateUserDepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenerateUserId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenerateUserPostId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenerateUserInfo" nillable="true" type="tns:GenerateUserInfo" />
   <xs:complexType name="ArrayOfV_RESIGN">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="V_RESIGN" nillable="true" type="tns:V_RESIGN" />

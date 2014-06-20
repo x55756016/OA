@@ -234,7 +234,17 @@ namespace SMT.HRM.UI.Views.Salary
                 UploadFile.FileName = openFileDialog.File.Name;
                 UploadFile.File = Buffer;
                 loadbar.Start();
-                client.ImportEmployeeMonthlySalaryAsync(UploadFile, year, month, Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, UIMsg);
+                GenerateUserInfo guser = new GenerateUserInfo();
+                guser.GenerateUserId = Common.CurrentLoginUserInfo.EmployeeID;
+                guser.GenerateUserPostId = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                guser.GenerateUserDepartmentId = Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID; 
+                guser.GenerateUserCompanyId = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                //结算公司，结算岗位
+                guser.GenerateCompanyId = Common.CurrentLoginUserInfo.UserPosts[0].CompanyID;
+                guser.GeneratePostId = Common.CurrentLoginUserInfo.UserPosts[0].PostID;
+                
+                
+                client.ImportEmployeeMonthlySalaryAsync(UploadFile,guser, year, month, Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, UIMsg);
             }
             catch (Exception ex)
             {
