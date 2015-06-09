@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 namespace SMT.FB.UI
 {
 	public class IndentifyCodeClass
-	{
+	{   
 		public IndentifyCodeClass()
 		{
 			// Insert code required on object creation below this point.
