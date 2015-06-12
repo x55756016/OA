@@ -20,21 +20,20 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.oa12.com/Services/system/PermissionService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://www.oa12.com/Services/HR/PermissionService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PermissionService.xsd" MetadataType="Schema" ID="f2ed70d3-1819-453d-a54a-f916eea52d44" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd3" />
-    <MetadataFile FileName="PermissionService1.xsd" MetadataType="Schema" ID="af9fd462-1508-45ea-b201-891dd4fd8c88" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd5" />
-    <MetadataFile FileName="PermissionService2.xsd" MetadataType="Schema" ID="725ed6e6-9fa6-409e-9717-ea5254d2d699" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd8" />
-    <MetadataFile FileName="PermissionService3.xsd" MetadataType="Schema" ID="a242f54c-5c00-4872-b132-24215a1d0c3f" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd0" />
-    <MetadataFile FileName="PermissionService4.xsd" MetadataType="Schema" ID="12105fce-6bfe-499b-af41-8361778510e3" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd2" />
-    <MetadataFile FileName="PermissionService5.xsd" MetadataType="Schema" ID="c3bb65b4-2620-4016-9b0f-cb8420be2c38" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd7" />
-    <MetadataFile FileName="PermissionService6.xsd" MetadataType="Schema" ID="3bfe6f17-7bb2-4c9c-af38-bc7b18e2ffcf" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd9" />
-    <MetadataFile FileName="PermissionService7.xsd" MetadataType="Schema" ID="b926a622-d708-4354-bd15-ec505bec3d0c" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd4" />
-    <MetadataFile FileName="PermissionService.disco" MetadataType="Disco" ID="949df8d1-494c-4ca4-9fec-b41be7782a8e" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?disco" />
-    <MetadataFile FileName="PermissionService8.xsd" MetadataType="Schema" ID="6130fd12-261d-4c8c-83ec-ca3fd2aaa8ea" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PermissionService9.xsd" MetadataType="Schema" ID="decaaf36-96b4-4379-bff7-3d1ea781b62d" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?xsd=xsd6" />
-    <MetadataFile FileName="PermissionService.wsdl" MetadataType="Wsdl" ID="3bc34135-d90f-4f18-bf7f-cfb7e89b53f3" SourceId="1" SourceUrl="http://www.oa12.com/Services/System/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService10.xsd" MetadataType="Schema" ID="b868c121-dcf3-42ec-af32-e763126609f1" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PermissionService1.wsdl" MetadataType="Wsdl" ID="46e57574-71b8-4f86-a77a-07d4f59f7546" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?wsdl" />
+    <MetadataFile FileName="PermissionService101.xsd" MetadataType="Schema" ID="7f59262d-9262-42a8-aa09-23c57c5eabca" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PermissionService102.xsd" MetadataType="Schema" ID="c52d5692-908e-4171-aa09-3302bf908202" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd8" />
+    <MetadataFile FileName="PermissionService103.xsd" MetadataType="Schema" ID="fd01676a-5188-4da0-877f-3b4547931a5f" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PermissionService1.disco" MetadataType="Disco" ID="94568095-16cf-48d2-a199-43f0f2a4521a" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?disco" />
+    <MetadataFile FileName="PermissionService104.xsd" MetadataType="Schema" ID="f3f3c2c7-5925-4543-876e-0a08866a89ce" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd5" />
+    <MetadataFile FileName="PermissionService105.xsd" MetadataType="Schema" ID="538a5cc1-0432-49cc-8198-2e4cedf0c913" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd4" />
+    <MetadataFile FileName="PermissionService106.xsd" MetadataType="Schema" ID="83bc6b83-3a39-470a-8fde-30195123b99b" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd7" />
+    <MetadataFile FileName="PermissionService107.xsd" MetadataType="Schema" ID="95523415-8893-411f-8d3b-bd8d0dd9448a" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd6" />
+    <MetadataFile FileName="PermissionService108.xsd" MetadataType="Schema" ID="0ff6144c-6d11-4957-94d2-943d94c7c967" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/PermissionService.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

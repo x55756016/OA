@@ -6,13 +6,14 @@ using System.IO;
 using System.Collections.Generic;
 using SMT.SAAS.Platform.DAL;
 using TM_SaaS_OA_EFModel;
-using SMT.SaaS.Permission.BLL;
+using SMT.HRM.BLL.Permission;
 using SMT.Foundation.Log;
-using SMT.SaaS.Permission.DAL;
+using SMT.HRM.DAL.Permission;
 using System.Xml.Linq;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
+using SMT.HRM.CustomModel.Permission;
 namespace SMT.SAAS.Platform.BLL
 {
     /// <summary>

@@ -503,6 +503,11 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
         System.IAsyncResult BegingetEmployeeInfobyLogin(string employeeid, System.AsyncCallback callback, object asyncState);
         
         SMT.SAAS.Platform.EmployeeInfoWS.V_EMPLOYEEDETAIL EndgetEmployeeInfobyLogin(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:EmployeeInfoService/RecordUILog", ReplyAction="urn:EmployeeInfoService/RecordUILogResponse")]
+        System.IAsyncResult BeginRecordUILog(string employee, string LogMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndRecordUILog(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -537,6 +542,12 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
         private EndOperationDelegate onEndgetEmployeeInfobyLoginDelegate;
         
         private System.Threading.SendOrPostCallback ongetEmployeeInfobyLoginCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRecordUILogDelegate;
+        
+        private EndOperationDelegate onEndRecordUILogDelegate;
+        
+        private System.Threading.SendOrPostCallback onRecordUILogCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -592,6 +603,8 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
         
         public event System.EventHandler<getEmployeeInfobyLoginCompletedEventArgs> getEmployeeInfobyLoginCompleted;
         
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RecordUILogCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
@@ -640,6 +653,53 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
             }
             base.InvokeAsync(this.onBegingetEmployeeInfobyLoginDelegate, new object[] {
                         employeeid}, this.onEndgetEmployeeInfobyLoginDelegate, this.ongetEmployeeInfobyLoginCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.SAAS.Platform.EmployeeInfoWS.EmployeeInfoService.BeginRecordUILog(string employee, string LogMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRecordUILog(employee, LogMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.SAAS.Platform.EmployeeInfoWS.EmployeeInfoService.EndRecordUILog(System.IAsyncResult result) {
+            base.Channel.EndRecordUILog(result);
+        }
+        
+        private System.IAsyncResult OnBeginRecordUILog(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string employee = ((string)(inValues[0]));
+            string LogMsg = ((string)(inValues[1]));
+            return ((SMT.SAAS.Platform.EmployeeInfoWS.EmployeeInfoService)(this)).BeginRecordUILog(employee, LogMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndRecordUILog(System.IAsyncResult result) {
+            ((SMT.SAAS.Platform.EmployeeInfoWS.EmployeeInfoService)(this)).EndRecordUILog(result);
+            return null;
+        }
+        
+        private void OnRecordUILogCompleted(object state) {
+            if ((this.RecordUILogCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RecordUILogCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RecordUILogAsync(string employee, string LogMsg) {
+            this.RecordUILogAsync(employee, LogMsg, null);
+        }
+        
+        public void RecordUILogAsync(string employee, string LogMsg, object userState) {
+            if ((this.onBeginRecordUILogDelegate == null)) {
+                this.onBeginRecordUILogDelegate = new BeginOperationDelegate(this.OnBeginRecordUILog);
+            }
+            if ((this.onEndRecordUILogDelegate == null)) {
+                this.onEndRecordUILogDelegate = new EndOperationDelegate(this.OnEndRecordUILog);
+            }
+            if ((this.onRecordUILogCompletedDelegate == null)) {
+                this.onRecordUILogCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRecordUILogCompleted);
+            }
+            base.InvokeAsync(this.onBeginRecordUILogDelegate, new object[] {
+                        employee,
+                        LogMsg}, this.onEndRecordUILogDelegate, this.onRecordUILogCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -729,6 +789,19 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
                 object[] _args = new object[0];
                 SMT.SAAS.Platform.EmployeeInfoWS.V_EMPLOYEEDETAIL _result = ((SMT.SAAS.Platform.EmployeeInfoWS.V_EMPLOYEEDETAIL)(base.EndInvoke("getEmployeeInfobyLogin", _args, result)));
                 return _result;
+            }
+            
+            public System.IAsyncResult BeginRecordUILog(string employee, string LogMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = employee;
+                _args[1] = LogMsg;
+                System.IAsyncResult _result = base.BeginInvoke("RecordUILog", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndRecordUILog(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("RecordUILog", _args, result);
             }
         }
     }
