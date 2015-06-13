@@ -390,7 +390,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
       <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
-      <Name>SMT.SaaS.LocalData %28Client\SMT.SaaS.LocalData%29</Name>
+      <Name>SMT.SaaS.LocalData</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>

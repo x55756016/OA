@@ -15,16 +15,6 @@ using System.Linq;
 using SMT.SaaS.LocalData.ViewModel;
 using SMT.SaaS.LocalData.Tables;
 
-//------------------------------------------------------------------------------
-// 版权所有: 版权所有(C)2011 SMT-Online
-// 内容摘要: 字典检测与加载类。用于负责系统字典的检测与按类型加载。
-// 完成日期：2011-05-27 
-// 版    本：V1.0 
-// 作    者：GaoY 
-// 修 改 人：
-// 修改时间： 
-//------------------------------------------------------------------------------
-
 namespace SMT.SAAS.ClientUtility
 {
     /// <summary>
@@ -37,7 +27,7 @@ namespace SMT.SAAS.ClientUtility
         //加载成功的字典类型将会被存储到集合中。
         private static List<string> _cacheCategory = new List<string>();
 
-        private ClientServices.PermissionWS.PermissionServiceClient _client;
+        private PermissionServiceClient _client;
 
         private List<string> _tempCategory = new List<string>();
         private const string RES_DIC_KEY = "SYS_DICTIONARY";
@@ -59,8 +49,8 @@ namespace SMT.SAAS.ClientUtility
         /// </summary>
         public DictionaryManager()
         {
-            _client = ClientServices.BuildClient.PermissionClient;
-            _client.GetDictionaryByCategoryArrayCompleted += new EventHandler<ClientServices.PermissionWS.GetDictionaryByCategoryArrayCompletedEventArgs>(_client_GetDictionaryByCategoryArrayCompleted);
+            _client = new PermissionServiceClient();
+            _client.GetDictionaryByCategoryArrayCompleted += new EventHandler<GetDictionaryByCategoryArrayCompletedEventArgs>(_client_GetDictionaryByCategoryArrayCompleted);
 
             permClient = new PermissionServiceClient();
             permClient.GetSysDictionaryByCategoryCompleted += new EventHandler<GetSysDictionaryByCategoryCompletedEventArgs>(permClient_GetSysDictionaryByCategoryCompleted);
@@ -168,7 +158,7 @@ namespace SMT.SAAS.ClientUtility
             return tempCategory;
         }
 
-        void _client_GetDictionaryByCategoryArrayCompleted(object sender, ClientServices.PermissionWS.GetDictionaryByCategoryArrayCompletedEventArgs e)
+        void _client_GetDictionaryByCategoryArrayCompleted(object sender, GetDictionaryByCategoryArrayCompletedEventArgs e)
         {
 
             Exception ex = e.Error;
@@ -191,7 +181,7 @@ namespace SMT.SAAS.ClientUtility
 
         }
 
-        private void SaveDictionary(List<ClientServices.PermissionWS.V_Dictionary> source)
+        private void SaveDictionary(List<V_Dictionary> source)
         {
             List<T_SYS_DICTIONARY> sourceDic = null;
             bool bIsAdd = false;
@@ -275,11 +265,11 @@ namespace SMT.SAAS.ClientUtility
 
         private void GetDictionaryInfoByLocal()
         {
-            List<ClientServices.PermissionWS.V_Dictionary> dicts = new List<ClientServices.PermissionWS.V_Dictionary>();
+            List<V_Dictionary> dicts = new List<V_Dictionary>();
             List<V_DictionaryInfo> LocalDictionaryInfos = V_DictionaryInfoVM.GetAllV_DictionaryInfo();
             foreach (var item in LocalDictionaryInfos)
             {
-                ClientServices.PermissionWS.V_Dictionary dict = SMT.SAAS.Main.CurrentContext.Common.CloneObject<V_DictionaryInfo, ClientServices.PermissionWS.V_Dictionary>(item, new ClientServices.PermissionWS.V_Dictionary());
+                V_Dictionary dict = SMT.SAAS.Main.CurrentContext.Common.CloneObject<V_DictionaryInfo, V_Dictionary>(item, new V_Dictionary());
                 dicts.Add(dict);
             }
 

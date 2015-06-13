@@ -104,23 +104,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Application">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Application.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.ClientServices">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.ClientUtility">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.ClientUtility.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.CommonReportsModel">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.CommonReportsModel.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
@@ -404,12 +392,21 @@
     <EmbeddedResource Include="Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\SMT.SAAS.DictionaryUtility.csproj">
+      <Project>{d7e796f2-24fc-456e-85e3-a980e1f46f7e}</Project>
+      <Name>SMT.SAAS.DictionaryUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
       <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
       <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Controls.Toolkit\SMT.SAAS.Controls.Toolkit.csproj">
+      <Project>{65849047-cae7-49ee-a537-9b95153766a4}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>

@@ -89,12 +89,6 @@
     <Content Include="ClientBin\Images\logo.png" />
     <Content Include="ClientBin\Images\logo_login.png" />
     <Content Include="ClientBin\Images\map.png" />
-    <Content Include="ClientBin\Images\News\Des1.png" />
-    <Content Include="ClientBin\Images\News\Des2.png" />
-    <Content Include="ClientBin\Images\News\Des3.png" />
-    <Content Include="ClientBin\Images\News\Des4.png" />
-    <Content Include="ClientBin\Images\News\Des5.png" />
-    <Content Include="ClientBin\Images\News\Des6.png" />
     <Content Include="ClientBin\Images\Next-9.png" />
     <Content Include="ClientBin\Images\refresh.png" />
     <Content Include="ClientBin\Images\UI_Main_Background.jpg" />
@@ -216,6 +210,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\System.Xml.Serialization.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientBin\Images\News\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\platformPublish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

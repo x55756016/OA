@@ -37,7 +37,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         {
             infoPanel = new InfoPanel();
             infoPanel.OnInfoClick += new EventHandler<OnInfoClickEventArgs>(infoPanel_OnInfoClick);
-            GetNewsList();
+            //GetNewsList();
             ShowinfoPanel.Children.Add(infoPanel);
 
         }

@@ -135,7 +135,7 @@ namespace SMT.SaaS.FrameworkUI.Common
                 {
                     return -1;
                 }
-                #region 注释.原因：自定义权限CustomPerms集合已经过期 GaoYan-2010.12.15
+                #region 注释.原因：自定义权限CustomPerms集合已经过期
                 ////自定义权限
                 ////有岗位的特殊权限
                 //if (CurrentContext.Common.CurrentConfig.CurrentUser.CustomPerms != null)

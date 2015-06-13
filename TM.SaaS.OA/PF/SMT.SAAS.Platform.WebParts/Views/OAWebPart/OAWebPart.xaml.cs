@@ -92,7 +92,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                 departs.Add(Common.CurrentLoginUserInfo.UserPosts[i].DepartmentID);
             }
 
-            client.GetHouseIssueAndNoticeInfosAsync(Common.CurrentLoginUserInfo.EmployeeID, posts, companys, departs);
+            //client.GetHouseIssueAndNoticeInfosAsync(Common.CurrentLoginUserInfo.EmployeeID, posts, companys, departs);
         }
         #region IWebPart 成员
 

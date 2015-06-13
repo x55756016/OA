@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using System;
 using System.Linq;
+using SMT.SAAS.Controls.Toolkit;
+using SMT.SaaS.Platform;
 
 // 内容摘要: 首页中的WEBPART容器，用于承载当前系统的WEBPART
 
@@ -13,7 +15,7 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
     public partial class WebPartHost : UserControl,IWebpart
     {
 
-        TabControl radtileview;
+        DragDockPanelHost radtileview;
         /// <summary>
         /// 创建一个WebPartHost的新实例。
         /// </summary>
@@ -42,7 +44,7 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
         {
             if (radtileview == null)
             {
-                radtileview = new  TabControl();
+                radtileview = new DragDockPanelHost();
 
                 //radtileview.MinimizedColumnWidth = new GridLength(310);
 
@@ -51,18 +53,57 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
                 //item1.Header = "系统日志";
                 //item1.Content = new SystemLogger();
                 //radtileview.Items.Add(item1);
+                //object CONTENT = null;
+                //SMT.SaaS.Platform.IWebPart currentContent = CONTENT as SMT.SaaS.Platform.IWebPart;
+                //DragDockPanel d = new DragDockPanel()
+                //{
+                //    Style = Application.Current.Resources[styleName] as Style,
+                //    Content = CONTENT,
+                //    Header = program.Title,
+                //    Margin = new Thickness(4, 4, 2, 3)
+                //};
+             
 
-                TabItem item2 = new TabItem();
-                //item2.TileState = TileViewItemState.Maximized;
+
+                DragDockPanel item2 = new DragDockPanel();
                 item2.Header = "待办任务";
                 item2.Content = new SMT.SAAS.Platform.WebParts.Views.PendingTask();
-                radtileview.Items.Add(item2);
+                IWebPart currentContent = item2.Content as IWebPart;
+                item2.Maximized += (obj, args) =>
+                {
+                    currentContent.ShowMaxiWebPart();
+                };
+                item2.Minimized += (obj1, args1) =>
+                {
+                    currentContent.ShowMiniWebPart();
+                };
+                //currentContent.OnMoreChanged += (obj3, arg3) =>
+                //{
+                //    item2.PanelState = PanelState.Maximized;
+                //};
+                item2.Style = Application.Current.Resources["WebPartDragDockPanelStyle1"] as Style;
+                radtileview.AddPanel(item2);
 
-                TabItem item5 = new TabItem();
-                //item5.TileState = Panel.Minimized;
+                DragDockPanel item5 = new DragDockPanel();
                 item5.Header = "我的单据";
                 item5.Content = new SMT.SAAS.Platform.WebParts.Views.MyRecord();
-                radtileview.Items.Add(item5);
+
+                currentContent = item5.Content as SMT.SaaS.Platform.IWebPart;
+                item5.Maximized += (obj, args) =>
+                {
+                    currentContent.ShowMaxiWebPart();
+                };
+                item5.Minimized += (obj1, args1) =>
+                {
+                    currentContent.ShowMiniWebPart();
+                };
+                //currentContent.OnMoreChanged += (obj3, arg3) =>
+                //{
+                //    item5.PanelState = PanelState.Minimized;
+                //};
+                item5.Style = Application.Current.Resources["WebPartDragDockPanelStyle1"] as Style;
+
+                radtileview.AddPanel(item5);
 
                 //RadTileViewItem item3 = new RadTileViewItem();
                 //item3.TileState = TileViewItemState.Minimized;
@@ -70,24 +111,55 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
                 //item3.Content = new SMT.SAAS.Platform.WebParts.Views.NoteRemind();
                 //radtileview.Items.Add(item3);
 
-                TabItem item4 = new TabItem();
-                //item4.TileState = TileViewItemState.Minimized;
+                DragDockPanel item4 = new DragDockPanel();
                 item4.Header = "新闻动态";
                 item4.Content = new SMT.SAAS.Platform.WebParts.Views.News();
-                radtileview.Items.Add(item4);
+
+                currentContent = item4.Content as SMT.SaaS.Platform.IWebPart;
+                item4.Maximized += (obj, args) =>
+                {
+                    currentContent.ShowMaxiWebPart();
+                };
+                item4.Minimized += (obj1, args1) =>
+                {
+                    currentContent.ShowMiniWebPart();
+                };
+                //currentContent.OnMoreChanged += (obj3, arg3) =>
+                //{
+                //    item4.PanelState = PanelState.Minimized;
+                //};
+                item4.Style = Application.Current.Resources["WebPartDragDockPanelStyle1"] as Style;
+
+                radtileview.AddPanel(item4);
 
                 //CheckeDepends("SMT.SaaS.OA.UI");
-                TabItem item6 = new TabItem();
+                DragDockPanel item6 = new DragDockPanel();
                 //item6.TileState = TileViewItemState.Minimized;
                 item6.Header = "公司发文";
                 item6.Content = new SMT.SAAS.Platform.WebParts.Views.OAWebPart();
-                radtileview.Items.Add(item6);
+
+                currentContent = item6.Content as SMT.SaaS.Platform.IWebPart;
+                item6.Maximized += (obj, args) =>
+                {
+                    currentContent.ShowMaxiWebPart();
+                };
+                item6.Minimized += (obj1, args1) =>
+                {
+                    currentContent.ShowMiniWebPart();
+                };
+                //currentContent.OnMoreChanged += (obj3, arg3) =>
+                //{
+                //    item6.PanelState = PanelState.Minimized;
+                //};
+                item6.Style = Application.Current.Resources["WebPartDragDockPanelStyle1"] as Style;
+
+                radtileview.AddPanel(item6);
 
                 Root.Children.Add(radtileview);
             }
             else
             {
-                foreach (TabItem item in radtileview.Items)
+                foreach (DragDockPanel item in radtileview.Children)
                 {
                     IWebpart webPart = item.Content as IWebpart;
                     if (webPart != null)
@@ -103,9 +175,9 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
             Root.Children.Clear();
             if (radtileview != null)
             {
-                foreach (var item in radtileview.Items)
+                foreach (var item in radtileview.Children)
                 {
-                    var radItem = item as TabItem;
+                    var radItem = item as DragDockPanel;
                     if (radItem != null)
                     {
                         ICleanup clearup = radItem.Content as ICleanup;
@@ -126,9 +198,9 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
         {
             if (radtileview != null)
             {
-                foreach (var item in radtileview.Items)
+                foreach (var item in radtileview.Children)
                 {
-                    var radItem = item as TabItem;
+                    var radItem = item as DragDockPanel;
                     if (radItem != null)
                     {
                         IWebpart clearup = radItem.Content as IWebpart;
@@ -144,9 +216,9 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
         {
             if (radtileview != null)
             {
-                foreach (var item in radtileview.Items)
+                foreach (var item in radtileview.Children)
                 {
-                    var radItem = item as TabItem;
+                    var radItem = item as DragDockPanel;
                     if (radItem != null)
                     {
                         IWebpart clearup = radItem.Content as IWebpart;
@@ -182,11 +254,11 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
             if (OAWebPaer != null)
             {
 
-                TabItem item6 = new TabItem();
+                DragDockPanel item6 = new DragDockPanel();
                 //item6.TileState = TileViewItemState.Minimized;
                 item6.Header = "公司发文";
                 item6.Content = OAWebPaer;
-                radtileview.Items.Add(item6);
+                radtileview.AddPanel(item6);
             }
         }
 

@@ -6,7 +6,10 @@
     mc:Ignorable="d"
     xmlns:LoginPart="clr-namespace:SMT.SAAS.Platform.Xamls.LoginPart"
     d:DesignHeight="768" d:DesignWidth="1024">
-    <Grid x:Name="LayoutRoot" Background="#0054a7">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/map.png"/>
+        </Grid.Background>
         <Grid>
             <Grid.Background>
                 <RadialGradientBrush GradientOrigin="0.518,-0.041" RadiusY="0.331" Center="0.517,0.268" RadiusX="0.391">
@@ -16,11 +19,11 @@
             </Grid.Background>
 
         </Grid>
-        <Image  Source="/Images/map.png" Stretch="Fill" Width="1440" Height="607" 
-                VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>
+        <!--<Image  Source="/Images/map.png" Stretch="Fill"
+                VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>-->
         <Grid ShowGridLines="True" x:Name="ShowLayoutRoot"  Background="Transparent"
                   Width="auto" Height="500" HorizontalAlignment="Center" 
-                  VerticalAlignment="Top" Margin="20,100,0,0">
+                  VerticalAlignment="Top" Margin="20,200,0,0">
             <StackPanel x:Name="spAddSpace" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="btnAddSpace" Width="150" Height="26" HorizontalAlignment="Center" VerticalAlignment="Center" Content="增加系统存储空间" Click="btnAddSpace_Click" />
                 <TextBlock x:Name="txtUserMsg" Width="Auto" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="初次访问协同办公系统，请点击上方按钮--增加系统存储空间，以确保系统能正常运行" />

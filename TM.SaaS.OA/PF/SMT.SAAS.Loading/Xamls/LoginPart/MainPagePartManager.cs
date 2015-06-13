@@ -223,6 +223,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             downloadDllName = dllXElements.FirstOrDefault();
             string path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" + downloadDllName + "?dt=" + DateTime.Now.Millisecond;
+
+            //SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("正在下载更新：" + path);
             DownloadDllClinet.OpenReadAsync(new Uri(path, UriKind.Absolute));
         }
 
@@ -326,6 +328,12 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                         try
                         {
                             DllSourceName = xElement.Attribute("Source").Value;
+                            if (DllSourceName.Contains("SMT.SaaS.FrameworkUI"))
+                            {
+
+
+
+                            }
                             dtstart = DateTime.Now;
                             //form.setLoadmingMessage( "正在加载：" + DllSourceName);
                             if (!DllSourceName.Contains("zip"))
@@ -347,8 +355,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                             }
                             else
                             {
-                                //加载zip包                               
-                                //form.setLoadmingMessage("正在加载：" + DllSourceName);
+                                //加载zip包                   
                                 if (DllSourceName.Contains("zip"))
                                 {
                                     //打开本地zip包流                

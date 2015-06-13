@@ -5,7 +5,6 @@ using SMT.SAAS.Main.CurrentContext;
 using System.Collections.Generic;
 using SMT.SAAS.Platform.WebParts.Models;
 using SMT.SAAS.Platform.WebParts.NewsWS;
-using SMT.SAAS.Platform.WebParts.NewsCallBackWS;
 
 namespace SMT.SAAS.Platform.WebParts.ClientServices
 {
@@ -34,7 +33,6 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
         {
             servers = new BasicServices();
             client = servers.PlatformClient;
-            callBackClient = servers.CallBackClient;
             publicWS = new Saas.Tools.PublicInterfaceWS.PublicServiceClient();
 
             RegisterServices();
@@ -43,7 +41,6 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
 
         #region 私有成员 Private Member
         private PlatformServicesClient client = null;
-        private NewsCallBackClient callBackClient = null;
         private BasicServices servers = null;
         public string NewsId = string.Empty; //新闻ID
         #endregion
@@ -139,31 +136,31 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
 
                 if (result)
                 {
-                    callBackClient.TalkNewsAsync(new SMT.SAAS.Platform.WebParts.NewsCallBackWS.T_PF_NEWS()
-                    {
-                        COMMENTCOUNT = _entity.COMMENTCOUNT,
-                        CREATECOMPANYID = _entity.CREATECOMPANYID,
-                        CREATEDATE = _entity.CREATEDATE,
-                        CREATEDEPARTMENTID = _entity.CREATEDEPARTMENTID,
-                        CREATEPOSTID = _entity.CREATEPOSTID,
-                        CREATEUSERID = _entity.CREATEPOSTID,
-                        CREATEUSERNAME = _entity.CREATEUSERNAME,
-                        NEWSCONTENT = new byte[0],
-                        NEWSID = _entity.NEWSID,
-                        NEWSSTATE = _entity.NEWSSTATE,
-                        NEWSTITEL = _entity.NEWSTITEL,
-                        NEWSTYPEID = _entity.NEWSTYPEID,
-                        OWNERCOMPANYID = _entity.OWNERCOMPANYID,
-                        OWNERDEPARTMENTID = _entity.OWNERDEPARTMENTID,
-                        OWNERID = _entity.OWNERID,
-                        OWNERNAME = _entity.OWNERNAME,
-                        OWNERPOSTID = _entity.OWNERPOSTID,
-                        READCOUNT = _entity.READCOUNT,
-                        UPDATEDATE = _entity.UPDATEDATE,
-                        UPDATEUSERID = _entity.UPDATEUSERID,
-                        UPDATEUSERNAME = _entity.UPDATEUSERNAME
+                    //callBackClient.TalkNewsAsync(new SMT.SAAS.Platform.WebParts.NewsCallBackWS.T_PF_NEWS()
+                    //{
+                    //    COMMENTCOUNT = _entity.COMMENTCOUNT,
+                    //    CREATECOMPANYID = _entity.CREATECOMPANYID,
+                    //    CREATEDATE = _entity.CREATEDATE,
+                    //    CREATEDEPARTMENTID = _entity.CREATEDEPARTMENTID,
+                    //    CREATEPOSTID = _entity.CREATEPOSTID,
+                    //    CREATEUSERID = _entity.CREATEPOSTID,
+                    //    CREATEUSERNAME = _entity.CREATEUSERNAME,
+                    //    NEWSCONTENT = new byte[0],
+                    //    NEWSID = _entity.NEWSID,
+                    //    NEWSSTATE = _entity.NEWSSTATE,
+                    //    NEWSTITEL = _entity.NEWSTITEL,
+                    //    NEWSTYPEID = _entity.NEWSTYPEID,
+                    //    OWNERCOMPANYID = _entity.OWNERCOMPANYID,
+                    //    OWNERDEPARTMENTID = _entity.OWNERDEPARTMENTID,
+                    //    OWNERID = _entity.OWNERID,
+                    //    OWNERNAME = _entity.OWNERNAME,
+                    //    OWNERPOSTID = _entity.OWNERPOSTID,
+                    //    READCOUNT = _entity.READCOUNT,
+                    //    UPDATEDATE = _entity.UPDATEDATE,
+                    //    UPDATEUSERID = _entity.UPDATEUSERID,
+                    //    UPDATEUSERNAME = _entity.UPDATEUSERNAME
 
-                    });
+                    //});
                 }
             };
         }
@@ -187,31 +184,31 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
                     OnExectNoQueryCompleted(this, new ExectNoQueryEventArgs(result, args.Error));
                 if (result)
                 {
-                    callBackClient.TalkNewsAsync(new SMT.SAAS.Platform.WebParts.NewsCallBackWS.T_PF_NEWS()
-                    {
-                        COMMENTCOUNT = _entity.COMMENTCOUNT,
-                        CREATECOMPANYID = _entity.CREATECOMPANYID,
-                        CREATEDATE = _entity.CREATEDATE,
-                        CREATEDEPARTMENTID = _entity.CREATEDEPARTMENTID,
-                        CREATEPOSTID = _entity.CREATEPOSTID,
-                        CREATEUSERID = _entity.CREATEPOSTID,
-                        CREATEUSERNAME = _entity.CREATEUSERNAME,
-                        NEWSCONTENT = new byte[0],
-                        NEWSID = _entity.NEWSID,
-                        NEWSSTATE = _entity.NEWSSTATE,
-                        NEWSTITEL = _entity.NEWSTITEL,
-                        NEWSTYPEID = _entity.NEWSTYPEID,
-                        OWNERCOMPANYID = _entity.OWNERCOMPANYID,
-                        OWNERDEPARTMENTID = _entity.OWNERDEPARTMENTID,
-                        OWNERID = _entity.OWNERID,
-                        OWNERNAME = _entity.OWNERNAME,
-                        OWNERPOSTID = _entity.OWNERPOSTID,
-                        READCOUNT = _entity.READCOUNT,
-                        UPDATEDATE = _entity.UPDATEDATE,
-                        UPDATEUSERID = _entity.UPDATEUSERID,
-                        UPDATEUSERNAME = _entity.UPDATEUSERNAME
+                    //callBackClient.TalkNewsAsync(new SMT.SAAS.Platform.WebParts.NewsCallBackWS.T_PF_NEWS()
+                    //{
+                    //    COMMENTCOUNT = _entity.COMMENTCOUNT,
+                    //    CREATECOMPANYID = _entity.CREATECOMPANYID,
+                    //    CREATEDATE = _entity.CREATEDATE,
+                    //    CREATEDEPARTMENTID = _entity.CREATEDEPARTMENTID,
+                    //    CREATEPOSTID = _entity.CREATEPOSTID,
+                    //    CREATEUSERID = _entity.CREATEPOSTID,
+                    //    CREATEUSERNAME = _entity.CREATEUSERNAME,
+                    //    NEWSCONTENT = new byte[0],
+                    //    NEWSID = _entity.NEWSID,
+                    //    NEWSSTATE = _entity.NEWSSTATE,
+                    //    NEWSTITEL = _entity.NEWSTITEL,
+                    //    NEWSTYPEID = _entity.NEWSTYPEID,
+                    //    OWNERCOMPANYID = _entity.OWNERCOMPANYID,
+                    //    OWNERDEPARTMENTID = _entity.OWNERDEPARTMENTID,
+                    //    OWNERID = _entity.OWNERID,
+                    //    OWNERNAME = _entity.OWNERNAME,
+                    //    OWNERPOSTID = _entity.OWNERPOSTID,
+                    //    READCOUNT = _entity.READCOUNT,
+                    //    UPDATEDATE = _entity.UPDATEDATE,
+                    //    UPDATEUSERID = _entity.UPDATEUSERID,
+                    //    UPDATEUSERNAME = _entity.UPDATEUSERNAME
 
-                    });
+                    //});
                 }
             };
         }

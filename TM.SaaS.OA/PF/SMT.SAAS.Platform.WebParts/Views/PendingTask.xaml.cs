@@ -178,7 +178,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                 _params.Status = state;
                 //bool haveNewTask = false;
                 //_startTime = DateTime.Now;
-                client.PendingCacheMainTasksParmsAsync(_params, IsAutofresh, false);
+                //client.PendingCacheMainTasksParmsAsync(_params, IsAutofresh, false);
             }
         }
 

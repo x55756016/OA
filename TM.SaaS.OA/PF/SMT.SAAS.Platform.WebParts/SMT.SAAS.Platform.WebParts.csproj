@@ -137,11 +137,6 @@
     <Compile Include="ViewModels\NewsManagerViewModel.cs" />
     <Compile Include="ViewModels\NewsMoreViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\NewsCallBackWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="ViewModels\PendingTaskViewModel.cs" />
     <Compile Include="ViewModels\RollNewsViewModel.cs" />
@@ -308,30 +303,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack.wsdl" />
-    <None Include="Service References\NewsCallBackWS\NewsCallBack.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack1.wsdl" />
-    <None Include="Service References\NewsCallBackWS\NewsCallBack1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsCallBackWS\NewsCallBack.disco" />
-    <None Include="Service References\NewsCallBackWS\configuration91.svcinfo" />
-    <None Include="Service References\NewsCallBackWS\configuration.svcinfo" />
-    <None Include="Service References\NewsCallBackWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\NewsWS\configuration91.svcinfo" />
     <None Include="Service References\NewsWS\configuration.svcinfo" />
     <None Include="Service References\NewsWS\PlatformServices1.wsdl" />
@@ -393,7 +364,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\NewsCallBackWS\" />
     <WCFMetadataStorage Include="Service References\NewsWS\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

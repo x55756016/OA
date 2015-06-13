@@ -73,6 +73,11 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             MainPageManeger.dllVersionFilePath = this.dllVersionFilePath;
             MainPageManeger.LoadCompleted += new EventHandler(loadMainPage_LoadCompleted);
             MainPageManeger.UpdateDllCompleted += new EventHandler(MainPageManeger_UpdateDllCompleted);
+#if DEBUG
+            this.txbUserName.Text = "smtwangl";
+            this.txbUserPassword.Password = "smt123456";
+#endif
+
         }
 
         #region 页面控件事件

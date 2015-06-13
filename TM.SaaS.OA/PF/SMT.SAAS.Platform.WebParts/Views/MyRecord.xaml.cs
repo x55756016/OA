@@ -121,7 +121,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             //strCreateUserID = "5347a18b-5c9c-4e40-a1c4-ce30389224ed";//
             strSortKey = " CREATEDATE DESC ";
             strfilterString = "";//过滤条件，严格按照标准SQL语句         
-            clientPerRd.GetPersonalRecordListAsync(pageIndex, strSortKey, strCheckState, strfilterString, strCreateUserID, strIsForward, BeginDate, EndDate, pageCount);
+            //clientPerRd.GetPersonalRecordListAsync(pageIndex, strSortKey, strCheckState, strfilterString, strCreateUserID, strIsForward, BeginDate, EndDate, pageCount);
 
             loadbar.Start();
         }
@@ -138,7 +138,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             //strCreateUserID = "5347a18b-5c9c-4e40-a1c4-ce30389224ed";  
             strSortKey = " CREATEDATE DESC ";
             strfilterString = "";//过滤条件，严格按照标准SQL语句        
-            clientPerRd.GetPersonalRecordAsync(pageIndex, strSortKey, strCheckState, strfilterString, strCreateUserID, BeginDate, EndDate, pageCount);
+            //clientPerRd.GetPersonalRecordAsync(pageIndex, strSortKey, strCheckState, strfilterString, strCreateUserID, BeginDate, EndDate, pageCount);
             loadbar.Start();
         }
 
@@ -151,7 +151,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         /// <param name="e"></param>
         void PersonalRdWebPart_Loaded(object sender, RoutedEventArgs e)
         {
-            BindGrid(1);
+            //BindGrid(1);
         }
 
         void clientPerRd_GetPersonalRecordCompleted(object sender, GetPersonalRecordCompletedEventArgs e)

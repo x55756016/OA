@@ -59,7 +59,7 @@ namespace SMT.SAAS.Platform.WebParts.News
 
         public void PoputNews()
         {
-            _newsServices.GetPopupNewsList();
+           // _newsServices.GetPopupNewsList();
         }
         
     }

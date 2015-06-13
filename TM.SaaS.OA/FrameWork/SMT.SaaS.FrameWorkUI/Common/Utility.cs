@@ -800,7 +800,6 @@ namespace SMT.SaaS.FrameworkUI.Common
             //sb.AppendLine("<Attribute Name=\"" + "CURRENTEMPLOYEENAME" + "\" Description=\"" + "提交者" + "\" DataType=\"" + "" + "\" DataValue=\"" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserName + "\"/>");
             //修改原因：
             //Common.CurrentConfig.CurrentUser.UserInfo已过期，被Common.CurrentLoginUserInfo代替
-            //GaoYan 2010-12-15
 
             sb.AppendLine("<Attribute Name=\"" + "CURRENTEMPLOYEENAME" + "\" Description=\"" + "提交者" + "\" DataType=\"" + "" + "\" DataValue=\"" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeName + "\"/>");
             sb.AppendLine("</Object>");

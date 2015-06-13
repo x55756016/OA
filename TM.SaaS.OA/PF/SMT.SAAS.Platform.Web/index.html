@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>协同办公平台</title>
+    <title>提莫在线协同办公</title>
     <style type="text/css">
         html, body
         {
@@ -21,202 +21,9 @@
     </style>
     <script type="text/javascript" src="Silverlight.js"></script>
     <script type="text/javascript">
-        function onSilverlightError(sender, args) {
-            var appSource = "";
-            if (sender != null & sender != 0) {
-                appSource = sender.getHost().Source;
-            }
-
-            var errorType = args.ErrorType;
-            var iErrorCode = args.ErrorCode;
-
-            if (errorType == "ImageError" || errorType == "MediaError") {
-                return;
-            }
-
-            var errMsg = "Silverlight 应用程序中未处理的错误" + appSource + "\n";
-
-            errMsg += "代码: " + iErrorCode + "    \n";
-            errMsg += "类别: " + errorType + "       \n";
-            errMsg += "消息: " + args.ErrorMessage + "     \n";
-
-            if (errorType == "ParserError") {
-                errMsg += "文件: " + args.xamlFile + "     \n";
-                errMsg += "行: " + args.lineNumber + "     \n";
-                errMsg += "位置: " + args.charPosition + "     \n";
-            }
-            else if (errorType == "RuntimeError") {
-                if (args.lineNumber != 0) {
-                    errMsg += "行: " + args.lineNumber + "     \n";
-                    errMsg += "位置: " + args.charPosition + "     \n";
-                }
-                errMsg += "方法名称: " + args.methodName + "     \n";
-            }
-
-            throw new Error(errMsg);
-        }
-        function SetFocus() {
-            SilverlightHost.archive = focus;
-        }
-        function SetPortalUrl() {
-            //window.location.href = "http://portal.smt-online.net/";
-        }
-        var slNavigation = null;
-        function onSilverlightLoad(sender) {
-            slNavigation = sender.getHost();
-        }
-        function buttonClick() {
-            //获取SilverLight插件中 以创建的对象
-            var plugin = document.getElementById("SMTPlatTravelform");
-            //执行SilverLight项目中已经注册的可被Javascript调用的方法
-            var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>	<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter><ApplicationOrder>a096c077-6c54-4548-9ccb-684147956416</ApplicationOrder>	<FormTypes>Edit</FormTypes></System>";
-            //StartSilverlight(string strmoduleid, string stropttype, string strmessageid, string strconfig, string strUid, string strUserName)
-            var strUid = "7d0c00b3-68be-43a8-b053-40626f11f7e3";
-            var strUserName = "peixjl";
-            plugin.content.MvcToSl.StartSilverlight("709D9380-5405-4429-B047-20100401D237", "Module", "", "", strUid, strUserName);
-        }
-
-        function openDoTaskForm() {
-            //获取SilverLight插件中 以创建的对象
-            var plugin = document.getElementById("SMTPlatTravelform");
-            //执行SilverLight项目中已经注册的可被Javascript调用的方法
-
-            plugin.content.MvcToSl.OpenModuleWithMVC("", "Task", "3c6dbd23-3d8e-4fe9-b9b9-3726e93cc03b", "3c6dbd23-3d8e-4fe9-b9b9-3726e93cc03b");
-        }
-
-        function openMyRecord() {
-            //获取SilverLight插件中 以创建的对象
-            var plugin = document.getElementById("SMTPlatTravelform");
-            //执行SilverLight项目中已经注册的可被Javascript调用的方法
-            var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
-            strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
-            //t_sys_user sysuserid
-            // strConfig = "";
-            plugin.content.MvcToSl.OpenModuleWithMVC("4185C4FC-7FA0-424c-89D3-BA6C63A0D537", "TravelRECORD", strConfig, strConfig);
-        }
-
-
-        function OpenCreateForm() {i
-            //获取SilverLight插件中 以创建的对象
-            var plugin = document.getElementById("SMTPlatTravelform");
-            //执行SilverLight项目中已经注册的可被Javascript调用的方法
-            var strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
-            strConfig = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System><AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass><ProcessName>CreateFormFromMVC</ProcessName><PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder><FormTypes>Edit</FormTypes></System>";
-            //t_sys_user sysuserid
-            // strConfig = "";
-            //55623178-A187-421a-8556-067E6908207A 公司信息           
-            var  TaskType="SMT.FBAnalysis.UI.Form.BorrowAppForm,SMT.FBAnalysis.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
-            var strMessageid = TaskType;
-            plugin.content.MvcToSl.OpenModuleWithMVC(strMessageid, "CreateNewForm", strMessageid, strConfig);
-        }
-
-
-        function OpenMessageBox(options) {
-            var plugin = document.getElementById("SMTPlatform");
-            plugin.content.MvcToSl.OpenHostMessage();
-        }
-
-
-        function InitSilverlight() {
-
-            debugger;
-            var moduleid = "709D9380-5405-4429-B047-20100401D237";
-            var optType = "Module"
-            var config = "";
-            var messageid = "";
-            //var uid = $MainHome.UserID;
-            //var uName = $MainHome.UserName;
-
-            var obj = "  <object id=\"SMTPlatTravelform\" data=\"data:application/x-silverlight-2,\" type=\"application/x-silverlight-2\" width=\"100%\" height=\"100%\" name=\"SilverlightHost\">" +
-                                    "<param name=\"source\" value=\"ClientBin/SMT.SAAS.Loading.xap?var=201312091541\" />" +
-                                    "<param name=\"enableHtmlAccess\" value=\"true\" /> " +
-                                    "<param name=\"onerror\" value=\"onSilverlightError\" />" +
-                                    "<param name=\"background\" value=\"white\" />" +
-                                    "<param name=\"minRuntimeVersion\" value=\"4.0.50917.0\" />" +
-                                    "<param name=\"initparams\" value=\"p1=" + "www.oa12.com" + ",p2=.new.Services,PhoneDownloadUrl=http://l13g.smtsoft.net/download,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" + "\" />" +
-                                    "<param name=\"onload\" value=\"onTravelSilverlightLoad\" />" +
-                                    "<param name=\"autoUpgrade\" value=\"true\" />" +
-                                    "<a href=\"http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50917.0\" style=\"text-decoration: none\">" +
-                                    "<img src=\"http://go.microsoft.com/fwlink/?LinkId=161376\" alt=\"获取 Microsoft Silverlight\"style=\"border-style: none\" />" +
-                                    "</a>" +
-                                    "</object><div id='divSMTPlatform' style='display:none; height:100%;width:100%; background:white;'></div>";
-            // var tempa = $(obj);
-
-            // tempa.find("param[name='onload']").attr("value", "onTravelSilverlightLoad")
-
-            //    tempa.attr("id", "SMTPlatTravelform");
-            document.getElementById("silverlightControlHost").innerHTML = obj;
-            //$("#TravelCostDiv").append(tempa);
-        }
-        var slNavigationTra = null;
-        var isLoad = false;
-        function onTravelSilverlightLoad(sender) {
-            slNavigationTra = sender.getHost();
-            var uid = "844cb8c9-2817-4b28-adde-e7745cde5c70";
-            var uName = "yangx";
-            isLoad = true;
-            slNavigationTra.Content.MvcToSl.StartSilverlight("", "Module", "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0", "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0", uid, uName);
-
-        }
-        function loadCompletedSL(options) {
-            debugger;
-            var strOptType="TravelRECORD";
-            //var hostControl = $("#TravelCostDiv");
-            var configXml = "<?xml version=\"1.0\" encoding=\"utf-8\"?><System>" +
-                        	    "<AssemblyName>SMT.SaaS.OA.UI</AssemblyName>	" +
-                                "<PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>" +
-                                "<ProcessName>CreateFormFromMVC</ProcessName>" +
-                                "<PageParameter>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</PageParameter>	" +
-                                "<ApplicationOrder>113a24a8-1125-4209-be64-ce21915930a7</ApplicationOrder>" +
-                                "<FormTypes>Edit</FormTypes></System>";
-            var moduleid = "113a24a8-1125-4209-be64-ce21915930a7";
-
-            strOptType = "TASK";
-            if (strOptType.toUpperCase() == "TASK") {
-                configXml = "b3cbf51e-4dbd-4a36-88fc-fdf423c938a0";
-            }
-            if (isLoad) {
-                isLoad = false;
-                //slNavigationTra.Content.MvcToSl.OpenModuleWithMVC("709D9380-5405-4429-B047-20100401D237", "Module", "", "");
-                //slNavigationTra.Content.MvcToSl.OpenModuleWithMVC(moduleid, strOptType, configXml, configXml);
-            }
-        }
-
-
-        function OpenModel() {
-            //获取SilverLight插件中 以创建的对象
-            var plugin = document.getElementById("SMTPlatform");
-            //执行SilverLight项目中已经注册的可被Javascript调用的方法
-            var strConfig = "";
-            strConfig = "";
-            //t_sys_user sysuserid
-            // strConfig = "";
-            //55623178-A187-421a-8556-067E6908207A 公司信息           
-            var TaskType = "709D9380-5405-4429-B047-20100401D255";
-            var strMessageid = TaskType;
-            plugin.content.MvcToSl.OpenModuleWithMVC(strMessageid, "Module", strMessageid, strConfig);
-        }
-
     </script>
 </head>
 <body onload="">
-
-    <input type="button" onclick="InitSilverlight();" value="加载SL" />
-    <br /><br />
-    <input type="button" onclick="OpenCreateForm();" value="加载SL后打开新建单据" />
-      <br /><br />
-
-    <input type="button" onclick="buttonClick();" value="调用SilverLight初始化方法打开出差" />
-      <br /><br />
-  <!--  <input type="button" onclick="openDoTaskForm();" value="调用silverlight打开待办任务方法" />-->
-
-     <input type="button" onclick="openMyRecord();" value="MVC调用silverlight打开我的单据方法" />
-      <br /><br />
-     <input type="button" onclick="OpenMessageBox();" value="显示silverlight系统输出框" />
-      <br />
-    <input type="button" onclick="OpenModel();" value="打开模块" />
-    <br />
-
     <div id="silverlightControlHost" style="width:100%;">
         <object id="SMTPlatform" data="data:application/x-silverlight-2," type="application/x-silverlight-2"
             width="100%" height="100%" name="SilverlightHost">
@@ -226,16 +33,15 @@
             <param name="minRuntimeVersion" value="4.0.50917.0" />
             <param name="initparams"
                    value="p1=www.oa12.com,p2=Services
-            ,PhoneDownloadUrl=http://l13g.smtsoft.net/download
-            ,IMDownloadUrl=http://smtim.smtsoft.net/download/SMTIM.exe
-            ,UpdateVersionUrl=http://l1.smtsoft.net/imprint.html" />
+            ,PhoneDownloadUrl=http://www.oa12.com/download
+            ,IMDownloadUrl=http://www.oa12.com
+            ,UpdateVersionUrl=http://www.oa12.com/imprint.html" />
             <param name="autoUpgrade" value="true" />
             <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50917.0" style="text-decoration: none">
                 <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="获取 Microsoft Silverlight"
                     style="border-style: none" />
             </a>
         </object>
-        <iframe id="_sl_historyFrame" style='visibility: hidden; height: 0; width: 0; border: 0px' />
     </div>
 </body>
 </html>

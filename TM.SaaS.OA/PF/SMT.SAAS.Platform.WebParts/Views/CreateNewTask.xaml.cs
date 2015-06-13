@@ -42,7 +42,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             _services = new PlatformServicesClient();
             _services.GetTaskConfigInfoByUserCompleted += new EventHandler<Client.PlatformWS.GetTaskConfigInfoByUserCompletedEventArgs>(_services_GetTaskConfigInfoByUserCompleted);
             //_services.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:15739/PlatformServices.svc");
-            _services.GetTaskConfigInfoByUserAsync(Common.CurrentLoginUserInfo.SysUserID);
+            //_services.GetTaskConfigInfoByUserAsync(Common.CurrentLoginUserInfo.SysUserID);
         }
 
         void _services_GetTaskConfigInfoByUserCompleted(object sender, Client.PlatformWS.GetTaskConfigInfoByUserCompletedEventArgs e)

@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using SMT.SAAS.Platform.WebParts.NewsWS;
-using SMT.SAAS.Platform.WebParts.NewsCallBackWS;
 using SMT.SAAS.Platform.WebParts.Models;
 using SMT.SAAS.Controls.Toolkit.Windows;
 
@@ -34,8 +33,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
         private DispatcherTimer _refdateTimer;
         //非双工客户端
         PlatformServicesClient client = null;
-        //双工客户端
-        NewsCallBackClient callbackClient = null;
         //基础服务通讯
         BasicServices services = null;
         //测试变量
@@ -51,13 +48,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
                 services = new BasicServices();
 
             client = services.PlatformClient;
-            callbackClient = services.CallBackClient;
-            if (callbackClient != null)
-            {
-                callbackClient.ReceiveReceived += new EventHandler<ReceiveReceivedEventArgs>(CallBackClient_ReceiveReceived);
-                callbackClient.LoginCompleted += new EventHandler<System.ComponentModel.AsyncCompletedEventArgs>(CallBackClient_LoginCompleted);
-                callbackClient.LoginAsync();
-            }
         }
 
         private void InitDate()
@@ -114,30 +104,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
             //client.GetNewsListByEmployeeIDAsync(NewsType, topCount, "1",SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
         }
 
-        private void CheckServices()
-        {
-            if (callbackClient != null)
-            {
-                RefCount += 1;
-                switch (callbackClient.State)
-                {
-                    case System.ServiceModel.CommunicationState.Closed:
-                        RegiestServices();
-                        break;
-                    case System.ServiceModel.CommunicationState.Faulted:
-                        callbackClient.Abort();
-                        RegiestServices();
-                        break;
-                    case System.ServiceModel.CommunicationState.Opened:
-                        callbackClient.LoginAsync();
-                        break;
-                }
-            }
-
-            if (_refdateTimer != null)
-                _refdateTimer.Start();
-        }
-
         #region 事件处理 Event Hanlder
 
         private void _refdateTimer_Tick(object sender, EventArgs e)
@@ -147,7 +113,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
                 if (_refdateTimer != null)
                     _refdateTimer.Stop();
 
-                CheckServices();
             }
             catch (Exception ex)
             {
@@ -162,57 +127,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
             //    RegiestServices();
         }
 
-        private void CallBackClient_ReceiveReceived(object sender, ReceiveReceivedEventArgs e)
-        {
-            try
-            {
-                if (e.Error == null)
-                {
-                    if (!(e.news.NEWSSTATE == "ACTIVE"))
-                    {
-                        List<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS> list = (NewsList.ItemsSource as List<SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS>);
-                        var tnews = list.Where(news => news.NEWSID == e.news.NEWSID).FirstOrDefault();
-                        if (tnews != null)
-                            list.Remove(tnews);
-
-                        list.Add(new SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS()
-                        {
-                            COMMENTCOUNT = e.news.COMMENTCOUNT,
-                            CREATECOMPANYID = e.news.CREATECOMPANYID,
-                            CREATEDATE = e.news.CREATEDATE,
-                            CREATEDEPARTMENTID = e.news.CREATEDEPARTMENTID,
-                            CREATEPOSTID = e.news.CREATEPOSTID,
-                            CREATEUSERID = e.news.CREATEPOSTID,
-                            CREATEUSERNAME = e.news.CREATEUSERNAME,
-                            NEWSCONTENT = e.news.NEWSCONTENT,
-                            NEWSID = e.news.NEWSID,
-                            NEWSSTATE = e.news.NEWSSTATE,
-                            NEWSTITEL = e.news.NEWSTITEL,
-                            NEWSTYPEID = e.news.NEWSTYPEID,
-                            OWNERCOMPANYID = e.news.OWNERCOMPANYID,
-                            OWNERDEPARTMENTID = e.news.OWNERDEPARTMENTID,
-                            OWNERID = e.news.OWNERID,
-                            OWNERNAME = e.news.OWNERNAME,
-                            OWNERPOSTID = e.news.OWNERPOSTID,
-                            READCOUNT = e.news.READCOUNT,
-                            UPDATEDATE = e.news.UPDATEDATE,
-                            UPDATEUSERID = e.news.UPDATEUSERID,
-                            UPDATEUSERNAME = e.news.UPDATEUSERNAME
-                        });
-
-                        if (list.Count >= 20)
-                            btnMore.Visibility = Visibility.Visible;
-
-                        NewsList.ItemsSource = null;
-                        NewsList.ItemsSource = list.OrderByDescending(news => news.UPDATEDATE).ToList(); ;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                //throw;
-            }
-        }
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
@@ -318,8 +232,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
             _refdateTimer = null;
             //非双工客户端
             client = null;
-            //双工客户端
-            callbackClient = null;
             //基础服务通讯
             services = null;
         }
