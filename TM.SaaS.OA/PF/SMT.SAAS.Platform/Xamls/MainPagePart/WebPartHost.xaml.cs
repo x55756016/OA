@@ -12,7 +12,7 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
     /// <summary>
     /// 首页中的WEBPART容器，用于承载当前系统的WEBPART
     /// </summary>
-    public partial class WebPartHost : UserControl,IWebpart
+    public partial class WebPartHost : UserControl
     {
 
         DragDockPanelHost radtileview;
@@ -46,25 +46,6 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
             {
                 radtileview = new DragDockPanelHost();
 
-                //radtileview.MinimizedColumnWidth = new GridLength(310);
-
-                //RadTileViewItem item1 = new RadTileViewItem();
-                //item1.TileState = TileViewItemState.Minimized;
-                //item1.Header = "系统日志";
-                //item1.Content = new SystemLogger();
-                //radtileview.Items.Add(item1);
-                //object CONTENT = null;
-                //SMT.SaaS.Platform.IWebPart currentContent = CONTENT as SMT.SaaS.Platform.IWebPart;
-                //DragDockPanel d = new DragDockPanel()
-                //{
-                //    Style = Application.Current.Resources[styleName] as Style,
-                //    Content = CONTENT,
-                //    Header = program.Title,
-                //    Margin = new Thickness(4, 4, 2, 3)
-                //};
-             
-
-
                 DragDockPanel item2 = new DragDockPanel();
                 item2.Header = "待办任务";
                 item2.Content = new SMT.SAAS.Platform.WebParts.Views.PendingTask();
@@ -77,6 +58,7 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
                 {
                     currentContent.ShowMiniWebPart();
                 };
+                item2.PanelState = PanelState.Maximized;
                 //currentContent.OnMoreChanged += (obj3, arg3) =>
                 //{
                 //    item2.PanelState = PanelState.Maximized;
@@ -279,37 +261,37 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
 
         }
 
-        public int Top
-        {
-            get;
-            set;
-        }
+        //public int Top
+        //{
+        //    get;
+        //    set;
+        //}
 
-        public int RefDate
-        {
-            get;
-            set;
-        }
+        //public int RefDate
+        //{
+        //    get;
+        //    set;
+        //}
 
-        public string Titel
-        {
-            get;
-            set;
-        }
+        //public string Titel
+        //{
+        //    get;
+        //    set;
+        //}
 
-        public void LoadDate()
-        {
+        //public void LoadDate()
+        //{
             
-        }
+        //}
 
-        public void Initialize()
-        {
+        //public void Initialize()
+        //{
            
-        }
+        //}
 
-        public void Cleanup()
-        {
-            //this.Clear();
-        }
+        //public void Cleanup()
+        //{
+        //    //this.Clear();
+        //}
     }
 }

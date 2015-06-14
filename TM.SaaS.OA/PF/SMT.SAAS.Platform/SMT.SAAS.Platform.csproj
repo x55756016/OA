@@ -72,7 +72,8 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\SMT.SAAS.Platform.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <NoWarn>4</NoWarn>
   </PropertyGroup>
@@ -132,9 +133,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Saas.Tools, Version=1.1.1.1220, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Utility">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Utility.dll</HintPath>
     </Reference>
@@ -190,8 +188,9 @@
     <Compile Include="Xamls\Icons\EmployeeIcon.xaml.cs">
       <DependentUpon>EmployeeIcon.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\MainPagePart\CustomMenusSet.xaml.cs">
-      <DependentUpon>CustomMenusSet.xaml</DependentUpon>
+    <Compile Include="Xamls\MainPagePart\MenuPanel\MenusPanel_getMenus.cs" />
+    <Compile Include="Xamls\MainPagePart\MenuPanel\MenusPanel.xaml.cs">
+      <DependentUpon>MenusPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Xamls\MainPagePart\MVCCraeteNewForm.xaml.cs">
       <DependentUpon>MVCCraeteNewForm.xaml</DependentUpon>
@@ -223,14 +222,14 @@
     <Compile Include="Xamls\MainPagePart\WebPartHost.xaml.cs">
       <DependentUpon>WebPartHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\MVCCreateNewForm.cs" />
+    <Compile Include="Xamls\ForWeb\MVCCreateNewForm.cs" />
     <Compile Include="Xamls\ParentPanel.xaml.cs">
       <DependentUpon>ParentPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\MVCMainPage.xaml.cs">
+    <Compile Include="Xamls\ForWeb\MVCMainPage.xaml.cs">
       <DependentUpon>MVCMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\MVCLoadModule.cs" />
+    <Compile Include="Xamls\ForWeb\MVCLoadModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
@@ -288,7 +287,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xamls\MainPagePart\CustomMenusSet.xaml">
+    <Page Include="Xamls\MainPagePart\MenuPanel\MenusPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
@@ -360,7 +359,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xamls\MVCMainPage.xaml">
+    <Page Include="Xamls\ForWeb\MVCMainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -416,6 +415,10 @@
       <Project>{4B5991D6-D3C6-4BCF-B788-95AFC5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
+      <Name>SMT.Saas.Tools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
       <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
       <Name>SMT.SaaS.Window</Name>
@@ -425,7 +428,7 @@
       <Name>SMT.SAAS.Platform.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj">
-      <Project>{CC777E34-3BE7-4161-8C8D-A099179D87B9}</Project>
+      <Project>{cc777e34-3be7-4161-8c8d-a099179d87b9}</Project>
       <Name>SMT.SAAS.Platform.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Controls\SMT.SAAS.Platform.Controls.csproj">
@@ -471,7 +474,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\c3qq5eo2.sdv\2odtf01v.cm1\1\s\cealwod3yhowsmyzsw50usmf5yowbbejseyvfzh3wfb0oz30wtaaacda\f\SmtPortal\SMT.SAAS.Platform.xap;
-xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\c3qq5eo2.sdv\2odtf01v.cm1\1\s\cealwod3yhowsmyzsw50usmf5yowbbejseyvfzh3wfb0oz30wtaaacda\f\SmtPortal\</PostBuildEvent>
+    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\2rekwb3s.3to\bnimu0sn.lnd\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
+xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\2rekwb3s.3to\bnimu0sn.lnd\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
   </PropertyGroup>
 </Project>

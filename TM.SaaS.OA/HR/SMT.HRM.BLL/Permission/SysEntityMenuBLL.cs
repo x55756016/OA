@@ -1172,8 +1172,8 @@ namespace SMT.HRM.BLL.Permission
                 if (entspermission != null)
                 {
 
-
-                    foreach (var menuid in entspermission.ToList())
+                    var entsPermiss= entspermission.ToList();
+                    foreach (var menuid in entsPermiss)
                     {
 
                         menuids.Add(menuid.EntityMenu.ENTITYMENUID);

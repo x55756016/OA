@@ -14,6 +14,8 @@ using SMT.SAAS.Main.CurrentContext;
 using SMT.SAAS.Platform.EmployeeInfoWS;
 using SMT.SAAS.Platform.MainUIWS;
 using SMT.SaaS.LocalData;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SMT.SAAS.Platform.Xamls.LoginPart
 {
@@ -116,6 +118,16 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         {
             InitializeComponent();
             RegisterServices();
+
+            //ParticleMan.ParticleSize = 10;
+            //ParticleMan.ParticleSizeVariance = 50;
+            //ParticleMan.Life = 25;
+            //ParticleMan.LifeVariance = 25;
+            //ParticleMan.MaxParticleCount = 10;
+            //ParticleMan.Fuzziness = 1;
+
+            //ParticleMan.StartColor = Colors.White;
+            //ParticleMan.EndColor = Colors.White;
         }
 
         /// <summary>
@@ -778,5 +790,13 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                            });
         }
         #endregion
+
+
+        private void Grid_MouseMove(object sender, MouseEventArgs e)
+        {
+        //    Point p = e.GetPosition(this);
+        //    if (ParticleMan != null) ParticleMan.OffsetX = p.X;
+        //    if (ParticleMan != null) ParticleMan.OffsetY = p.Y;
+        }
     }
 }

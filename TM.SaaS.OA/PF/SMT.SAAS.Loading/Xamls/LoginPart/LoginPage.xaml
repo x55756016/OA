@@ -5,8 +5,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:LoginPart="clr-namespace:SMT.SAAS.Platform.Xamls.LoginPart"
+    xmlns:u="clr-namespace:AgParticles.UserControls"
     d:DesignHeight="768" d:DesignWidth="1024">
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" MouseMove="Grid_MouseMove">
         <Grid.Background>
             <ImageBrush ImageSource="/Images/map.png"/>
         </Grid.Background>
@@ -17,7 +18,11 @@
                     <GradientStop Color="#00008AE0" Offset="1"/>
                 </RadialGradientBrush>
             </Grid.Background>
-
+            <!--<u:ParticleControl x:Name="ParticleMan">
+                <u:ParticleControl.RenderTransform>
+                    <TranslateTransform x:Name="ParticleMover" X="0" Y="0" />
+                </u:ParticleControl.RenderTransform>
+            </u:ParticleControl>-->
         </Grid>
         <!--<Image  Source="/Images/map.png" Stretch="Fill"
                 VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0"/>-->

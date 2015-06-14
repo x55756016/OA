@@ -284,7 +284,8 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
                 //    _services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
                 //    _services.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
                 //}
-                if (!Application.Current.Resources.Contains("AllModule"))
+                List<ModuleInfo> moduleinfo = Application.Current.Resources["AllModule"] as List<ModuleInfo>;
+                if (moduleinfo == null || moduleinfo.Count==0)
                 {
                     //_services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
                     moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
@@ -299,14 +300,11 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
                         moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
                         return;
                     }
-
-                    List<ModuleInfo> moduleinfo = Application.Current.Resources["AllModule"] as List<ModuleInfo>;
                     InitMainContext(moduleinfo);
                     if (this.InitCompleted != null)
                     {
                         this.InitCompleted(this, EventArgs.Empty);
                     }
-                    //GetModulesByLocal(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
                 }
             }
         }
@@ -340,12 +338,11 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
                     {
                         Application.Current.Resources.Add("AllModule", moduleinfo);
                     }
-                    //SaveModuleByLocal(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, moduleinfo);
-                    if (this.InitCompleted != null)
-                    {
-                        this.InitCompleted(this, EventArgs.Empty);
-                    }
                 }
+            }
+            if (this.InitCompleted != null)
+            {
+                this.InitCompleted(this, EventArgs.Empty);
             }
         }
 

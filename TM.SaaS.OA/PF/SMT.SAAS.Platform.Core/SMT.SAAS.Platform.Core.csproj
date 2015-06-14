@@ -85,11 +85,9 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CollectionExtensions.cs" />
-    <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="Modularity\Analysis\IServiceLocator.cs" />
     <Compile Include="Modularity\Analysis\ServiceLocator.cs" />
     <Compile Include="ListDictionary.cs" />
-    <Compile Include="ListExtensions.Silverlight.cs" />
     <Compile Include="Modularity\Exceptions\CyclicDependencyFoundException.cs" />
     <Compile Include="Modularity\EventArgs\DownloadCompletedEventArgs.cs" />
     <Compile Include="Modularity\Exceptions\DuplicateModuleException.cs" />

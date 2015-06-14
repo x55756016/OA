@@ -49,13 +49,10 @@ namespace SMT.SAAS.Platform.WebParts
                 }
                 else
                 {
-                    //Deployment.Current.Dispatcher.BeginInvoke(delegate
-                    //{
                     if (InitAsyncCompleted != null)
                     {
                         this.InitAsyncCompleted(this, EventArgs.Empty);
                     }
-                    //}); 
                 }
             }
         }
@@ -117,10 +114,7 @@ namespace SMT.SAAS.Platform.WebParts
         {
             try
             {
-                //ThreadPool.QueueUserWorkItem(delegate(object o)
-                //    {
-                        Run();
-                    //});
+              Run();
             }
             catch (Exception e)
             {

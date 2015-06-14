@@ -3498,6 +3498,21 @@ namespace SMT.SaaS.Permission.Services
             }
         }
 
+        /// <summary>
+        /// 根据登录用户获取  获取其所拥有的系统 返回格式为 0,1,2
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <returns></returns>
+        [OperationContract]
+        public List<T_SYS_DICTIONARY> GetSystemTypeListByUserID(string StrUserId)
+        {
+
+            using (SysUserRoleBLL RoleBll = new SysUserRoleBLL())
+            {
+                return RoleBll.GetSystemTypeListByUserID(StrUserId);
+                //return null;
+            }
+        }
         #endregion
 
         #region 获取IP

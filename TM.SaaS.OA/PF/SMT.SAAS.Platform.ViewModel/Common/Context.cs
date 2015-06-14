@@ -25,7 +25,7 @@ namespace SMT.SAAS.Platform.ViewModel
         /// <summary>
         /// 主容器. 对登录面板、主面板等进行控制显示。
         /// </summary>
-        public static IHost Host;
+        //public static IHost Host;
 
         /// <summary>
         /// 主容器. 对登录面板、主面板等进行控制显示。

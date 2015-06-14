@@ -152,8 +152,8 @@
     <Compile Include="Views\News\NewsManager.xaml.cs">
       <DependentUpon>NewsManager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\News\News.xaml.cs">
-      <DependentUpon>News.xaml</DependentUpon>
+    <Compile Include="Views\News\NewsWebPart.xaml.cs">
+      <DependentUpon>NewsWebPart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\News\NewsMore.xaml.cs">
       <DependentUpon>NewsMore.xaml</DependentUpon>
@@ -216,7 +216,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\News\News.xaml">
+    <Page Include="Views\News\NewsWebPart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>

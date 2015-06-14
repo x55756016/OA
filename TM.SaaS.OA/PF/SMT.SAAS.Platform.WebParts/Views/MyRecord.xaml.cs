@@ -139,7 +139,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             strSortKey = " CREATEDATE DESC ";
             strfilterString = "";//过滤条件，严格按照标准SQL语句        
             //clientPerRd.GetPersonalRecordAsync(pageIndex, strSortKey, strCheckState, strfilterString, strCreateUserID, BeginDate, EndDate, pageCount);
-            loadbar.Start();
+            //loadbar.Start();
         }
 
 

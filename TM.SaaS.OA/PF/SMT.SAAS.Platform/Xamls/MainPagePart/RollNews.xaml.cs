@@ -150,12 +150,12 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
 
         private void Button_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            _SHOW.Pause();
+            //_SHOW.Pause();
         }
 
         private void Button_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            _SHOW.Resume();
+            //_SHOW.Resume();
         }
         #endregion
 

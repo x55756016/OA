@@ -536,7 +536,8 @@ namespace SMT.HRM.BLL.Permission
         public string GetSystemTypeByUserID(string StrUserId,ref string StrResult)
         {
             try
-            {
+            { 
+                List<string> systemTypeList=new List<string>();
                 string StrReturn = "";
                 var User = from ent in dal.GetObjects<T_SYS_USER>()
                            where ent.SYSUSERID == StrUserId
@@ -549,47 +550,25 @@ namespace SMT.HRM.BLL.Permission
 
                 if (ArrUserRole.Count() > 0)
                 {
-                    var entspermission = from p in dal.GetObjects<T_SYS_ROLEMENUPERMISSION>().Include("T_SYS_ROLEENTITYMENU")//.Include("T_SYS_ROLEENTITYMENU.T_SYS_ENTITYMENU")
-                                         join e in dal.GetObjects<T_SYS_ROLEENTITYMENU>() on p.T_SYS_ROLEENTITYMENU.ROLEENTITYMENUID equals e.ROLEENTITYMENUID
-                                         join n in dal.GetObjects<T_SYS_PERMISSION>() on p.T_SYS_PERMISSION.PERMISSIONID equals n.PERMISSIONID
-                                         join m in dal.GetObjects<T_SYS_ENTITYMENU>() on e.T_SYS_ENTITYMENU.ENTITYMENUID equals m.ENTITYMENUID
-                                         join r in dal.GetObjects<T_SYS_ROLE>() on e.T_SYS_ROLE.ROLEID equals r.ROLEID
-                                         join ur in GetObjects() on r.ROLEID equals ur.T_SYS_ROLE.ROLEID
-                                         where ur.T_SYS_USER.SYSUSERID == StrUserId && n.PERMISSIONVALUE == "3" && ArrUserRole.Contains(r.ROLEID)
-                                         select new V_Permission
-                                         {
-                                             RoleMenuPermission = p,
-                                             Permission = n,
-                                             EntityMenu = m
-                                         };
-                    List<string> menuids = new List<string>();
+                    var entspermission = (from p in dal.GetObjects<T_SYS_ROLEMENUPERMISSION>().Include("T_SYS_ROLEENTITYMENU")//.Include("T_SYS_ROLEENTITYMENU.T_SYS_ENTITYMENU")
+                                          join e in dal.GetObjects<T_SYS_ROLEENTITYMENU>() on p.T_SYS_ROLEENTITYMENU.ROLEENTITYMENUID equals e.ROLEENTITYMENUID
+                                          join n in dal.GetObjects<T_SYS_PERMISSION>() on p.T_SYS_PERMISSION.PERMISSIONID equals n.PERMISSIONID
+                                          join m in dal.GetObjects<T_SYS_ENTITYMENU>() on e.T_SYS_ENTITYMENU.ENTITYMENUID equals m.ENTITYMENUID
+                                          join r in dal.GetObjects<T_SYS_ROLE>() on e.T_SYS_ROLE.ROLEID equals r.ROLEID
+                                          join ur in GetObjects() on r.ROLEID equals ur.T_SYS_ROLE.ROLEID
+                                          where ur.T_SYS_USER.SYSUSERID == StrUserId && n.PERMISSIONVALUE == "3" && ArrUserRole.Contains(r.ROLEID)
+                                          select new
+                                          {
+                                              systemType = m.SYSTEMTYPE
+                                          }).Distinct().ToList();
+
                     if (entspermission != null && entspermission.Count() > 0)
                     {
-                        foreach (var menuid in entspermission.ToList())
-                        {
-                            menuids.Add(menuid.EntityMenu.ENTITYMENUID);
-                        }
+                        systemTypeList = (from ent in entspermission
+                                          select ent.systemType).ToList();
                     }
-                    var EntityList = from ent in dal.GetObjects<T_SYS_ENTITYMENU>()
-                                     where menuids.Contains(ent.ENTITYMENUID)
-                                     select ent.SYSTEMTYPE;
-                    EntityList = EntityList.Distinct();
-                    if (EntityList.Count() > 0)
-                    {
-                        foreach (var ent in EntityList)
-                        {
-                            StrReturn += ent + ",";
-                        }
-                        StrReturn = StrReturn.Substring(0, StrReturn.Length - 1);//去掉最后一个,
 
-
-                    }
                 }
-                else
-                {
-                    StrResult = "NOSETTINGROLE";
-                }
-
                 if (User.Count() > 0)
                 {
                     if (User.FirstOrDefault() != null)
@@ -599,50 +578,31 @@ namespace SMT.HRM.BLL.Permission
                             if (User.FirstOrDefault().ISMANGER.ToString() == "1")
                             {
                                 //是管理员 则加上权限的参数
-                                if (StrReturn != "")
-                                {
-                                    StrReturn += ",7";  // 7 为权限的systype
-                                }
-                                else
-                                {
-                                    StrReturn = "7";
-                                }
+                               systemTypeList.Add("7");
                             }
                         }
                         if (User.FirstOrDefault().ISFLOWMANAGER != null)
                         {
                             if (User.FirstOrDefault().ISFLOWMANAGER.ToString() == "1")
                             {
-                                //是管理员 则加上权限的参数
-                                if (StrReturn != "")
-                                {
-                                    StrReturn += ",8";  // 7 为权限的systype
-                                }
-                                else
-                                {
-                                    StrReturn = "8";
-                                }
+                                //是流程管理员 则加上权限的参数
+                              systemTypeList.Add("8");
                             }
                         }
                         if (User.FirstOrDefault().ISENGINEMANAGER != null)
                         {
                             if (User.FirstOrDefault().ISENGINEMANAGER.ToString() == "1")
                             {
-                                //是管理员 则加上权限的参数
-                                if (StrReturn != "")
-                                {
-                                    StrReturn += ",9";  // 7 为权限的systype
-                                }
-                                else
-                                {
-                                    StrReturn = "9";
-                                }
+                                //是引擎管理员 则加上权限的参数
+                               systemTypeList.Add("9");
                             }
                         }
 
                     }
-                    
-                    StrResult = ""; //如果是管理员 而没其它权限 则设置为正常
+                }
+                foreach (var strType in systemTypeList)
+                {
+                    StrReturn = StrReturn + "," + strType;
                 }
                 return StrReturn;
             }
@@ -650,7 +610,41 @@ namespace SMT.HRM.BLL.Permission
             {
                 Tracer.Debug("用户角色SysUserRoleBLL-GetSystemTypeByUserID" + System.DateTime.Now.ToString() + " " + ex.ToString());
                 return "ERROR";
-                //throw(ex);
+            }
+        }
+
+        /// <summary>
+        /// 返回用户所拥有的系统类型 2010-9-20
+        /// 不是管理员则不显示权限的信息
+        /// </summary>
+        /// <param name="StrUserId"></param>
+        /// <param name="StrResult">返回值 是否有设置角色、错误</param>
+        /// <returns></returns>
+        public List<T_SYS_DICTIONARY> GetSystemTypeListByUserID(string StrUserId)
+        {
+            List<T_SYS_DICTIONARY> Allsystem = new List<T_SYS_DICTIONARY>();
+            try
+            {
+                string StrReturn = "";
+                string refTempstr="";
+                StrReturn=GetSystemTypeByUserID(StrUserId,ref refTempstr);
+                var SystemType=(from ent in dal.GetObjects<T_SYS_DICTIONARY>()
+                                  where ent.DICTIONCATEGORY=="SYSTEMTYPE"
+                                   select ent).ToList();
+                foreach(var item in SystemType)
+                {
+                    if(StrReturn.Contains(item.DICTIONARYVALUE.ToString()))
+                    {
+                        Allsystem.Add(item);
+                    }
+                }
+                Allsystem = SystemType.ToList();
+                return Allsystem;
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug("用户角色SysUserRoleBLL-GetSystemTypeByUserID" + System.DateTime.Now.ToString() + " " + ex.ToString());
+                return Allsystem;
             }
         }
 

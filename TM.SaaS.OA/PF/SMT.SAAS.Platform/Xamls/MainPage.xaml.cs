@@ -45,7 +45,7 @@ namespace SMT.SAAS.Platform.Xamls
         private event EventHandler<OnSelectionBoxClosedArgs> OnSelectionBoxClosed;
 
         //主菜单
-        Xamls.MainPagePart.CustomMenusSet _mainMenu;
+        Xamls.MainPagePart.MenusPanel _mainMenu;
         SplashScreenViewModel vm;
 
         //延迟打开
@@ -188,7 +188,7 @@ namespace SMT.SAAS.Platform.Xamls
                             titel = "菜单列表";
                             if (_mainMenu == null)
                             {
-                                _mainMenu = new Xamls.MainPagePart.CustomMenusSet();
+                                _mainMenu = new Xamls.MainPagePart.MenusPanel();
                                 _mainMenu.MenuItemMouseDown += new EventHandler<MouseButtonEventArgs>(menu_MenuItemMouseDown);
                                 _mainMenu.ShortCutClick += new EventHandler<OnShortCutClickEventArgs>(menu_ShortCutClick);
                                 _mainMenu.MenuItemMouseMove += new EventHandler<MouseEventArgs>(menu_MenuItemMouseMove);
@@ -548,7 +548,7 @@ namespace SMT.SAAS.Platform.Xamls
                 _fromMenu = true;
                 if (_mainMenu != null)
                 {
-                    _mainMenu.Start();
+                    _mainMenu.showLoading();
                 }
 
                 dragShortCut.Visibility = System.Windows.Visibility.Collapsed;
@@ -722,7 +722,7 @@ namespace SMT.SAAS.Platform.Xamls
                 AppContext.ShowSystemMessageText();
                 if (_mainMenu != null)
                 {
-                    _mainMenu.Stop();
+                    _mainMenu.hideLoading();
                 }
                 Logging.Logger.Current.Log(
                     "10000",
@@ -742,7 +742,7 @@ namespace SMT.SAAS.Platform.Xamls
         {
             if (_mainMenu != null)
             {
-                _mainMenu.Stop();
+                _mainMenu.hideLoading();
             }
             if (e.ModuleInstance != null)
             {

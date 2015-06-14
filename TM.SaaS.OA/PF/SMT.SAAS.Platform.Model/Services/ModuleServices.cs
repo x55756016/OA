@@ -2,6 +2,9 @@
 using System.Collections.ObjectModel;
 using SMT.SAAS.Platform.Client;
 using System.Diagnostics;
+using SMT.SaaS.FrameworkUI.Common;
+using System.Reflection;
+using System.Linq;
 
 namespace SMT.SAAS.Platform.Model.Services
 {
@@ -36,12 +39,11 @@ namespace SMT.SAAS.Platform.Model.Services
 
         void _client_GetModuleCatalogByUserCompleted(object sender, Client.PlatformWS.GetModuleCatalogByUserCompletedEventArgs e)
         {
+            ObservableCollection<Model.ModuleInfo> result = new ObservableCollection<ModuleInfo>();
             if (e.Error == null)
             {
                 if (e.Result != null)
                 {
-
-                    ObservableCollection<Model.ModuleInfo> result = new ObservableCollection<ModuleInfo>();
                     foreach (var item in e.Result)
                     {
                         Model.ModuleInfo v = item.CloneObject<Model.ModuleInfo>(new Model.ModuleInfo());
@@ -51,17 +53,13 @@ namespace SMT.SAAS.Platform.Model.Services
                             {
                                 v.DependsOn.Add(dependsitem);
                             }
-
                         }
                         result.Add(v);
                     }
-
-                    if (OnGetModulesCompleted != null)
-                        OnGetModulesCompleted(this, new GetEntityListEventArgs<Model.ModuleInfo>(result, e.Error));
-
                 }
-
             }
+            if (OnGetModulesCompleted != null)
+                OnGetModulesCompleted(this, new GetEntityListEventArgs<Model.ModuleInfo>(result, e.Error));
         }
 
         void _client_GetModuleByCodesCompleted(object sender, Client.PlatformWS.GetModuleByCodesCompletedEventArgs e)
@@ -85,7 +83,6 @@ namespace SMT.SAAS.Platform.Model.Services
 
             }
         }
-
 
     }
 }

@@ -20,14 +20,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:15739/PlatformServices.svc/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:22222/PlatformServices.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c2454053-fec4-41aa-a597-6ae07ac7b0d6" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="b8389a82-1fd6-4b6f-87b5-dac37a36c00b" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="e93ad7e7-b853-489a-bfe9-512b92642520" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc/mex" />
-    <MetadataFile FileName="SMT.SAAS.Platform.Model.xsd" MetadataType="Schema" ID="53663161-e824-4344-ba49-cce593fcb5ee" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="9a9d81f5-dd99-44ae-a432-32f0c48fe1ee" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="1d0a1a1a-c304-4490-aaa6-a99236c7060a" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="0a593241-4c71-493c-8512-70ed0bf53164" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="ec19112e-bd4a-4d06-94f2-47ca6e6e5dc3" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc/mex" />
+    <MetadataFile FileName="SMT.SAAS.Platform.Model1.xsd" MetadataType="Schema" ID="8eca995a-0dbd-4066-bf69-645b74f2e03b" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc/mex" />
+    <MetadataFile FileName="Arrays1.xsd" MetadataType="Schema" ID="a991b3c5-c356-4b09-a31a-df11a9f1dc67" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

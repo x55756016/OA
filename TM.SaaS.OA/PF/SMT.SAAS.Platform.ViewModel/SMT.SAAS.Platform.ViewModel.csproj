@@ -81,14 +81,10 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\CommonEventArgs.cs" />
     <Compile Include="Common\Context.cs" />
     <Compile Include="Foundation\BasicViewModel.cs" />
     <Compile Include="Foundation\RelayCommand.cs" />
     <Compile Include="Foundation\ValidationErrorInfo.cs" />
-    <Compile Include="Login\ChangePWDFormViewModel.cs" />
-    <Compile Include="Login\LoginFormViewModel.cs" />
-    <Compile Include="MainPage\MainPageViewModel.cs" />
     <Compile Include="Common\Managed.cs" />
     <Compile Include="MainPage\ShortCutManagerViewModel.cs" />
     <Compile Include="MainPage\ShortCutViewModel.cs" />
@@ -101,7 +97,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SplashScreen\InitPart.cs" />
     <Compile Include="SplashScreen\SplashScreenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -88,6 +88,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.Platform.ViewModel", "PF\SMT.SAAS.Platform.ViewModel\SMT.SAAS.Platform.ViewModel.csproj", "{73FD83B7-6C49-480C-A244-C0805C06A141}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.Platform.Client", "PF\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj", "{CC777E34-3BE7-4161-8C8D-A099179D87B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BA877C1A-C032-40AA-878A-18629C09F9E3} = {BA877C1A-C032-40AA-878A-18629C09F9E3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SAAS.Platform.Application", "PF\SMT.SAAS.Platform.Application\SMT.SAAS.Platform.Application.csproj", "{B81C7425-5713-4CEA-A5B3-0F010C132984}"
 EndProject

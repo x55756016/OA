@@ -65,11 +65,8 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IApp.cs" />
     <Compile Include="ICleanup.cs" />
-    <Compile Include="IHost.cs" />
     <Compile Include="IModule.cs" />
-    <Compile Include="IPublicPart.cs" />
     <Compile Include="IMainPanel.cs" />
     <Compile Include="IWebpart.cs" />
     <Compile Include="Logging\Category.cs" />

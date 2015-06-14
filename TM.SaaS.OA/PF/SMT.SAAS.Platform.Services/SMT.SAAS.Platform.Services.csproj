@@ -114,14 +114,10 @@
     <Content Include="XapResource\SMT.TM.UI.xap" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlatformServices.cs" />
     <Compile Include="IPlatformSiServices.cs" />
     <Compile Include="PlatformServices.svc.cs">
       <DependentUpon>PlatformServices.svc</DependentUpon>
     </Compile>
-    <Compile Include="PlatformServices\ModuleServices.cs" />
-    <Compile Include="PlatformServices\ResourceServices.cs" />
-    <Compile Include="PlatformServices\ShortCutServices.cs" />
     <Compile Include="PlatformSiServices.svc.cs">
       <DependentUpon>PlatformSiServices.svc</DependentUpon>
     </Compile>
@@ -129,6 +125,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\HR\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
+      <Project>{0e45b937-670f-49e1-8ef1-a4bd312b94da}</Project>
+      <Name>SMT.HRM.CustomModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.BLL\SMT.SAAS.Platform.BLL.csproj">
       <Project>{9AEC90BE-490B-4E07-A472-169C29B89B47}</Project>
       <Name>SMT.SAAS.Platform.BLL</Name>
@@ -140,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\PF_Publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PlatformServices\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

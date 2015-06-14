@@ -466,57 +466,57 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlatformWS.IPlatformServices")]
-    public interface IPlatformServices {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlatformWS.PlatformServices")]
+    public interface PlatformServices {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/AddModule", ReplyAction="http://tempuri.org/IPlatformServices/AddModuleResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/AddModule", ReplyAction="http://tempuri.org/PlatformServices/AddModuleResponse")]
         System.IAsyncResult BeginAddModule(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, System.AsyncCallback callback, object asyncState);
         
         bool EndAddModule(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetModuleByCodes", ReplyAction="http://tempuri.org/IPlatformServices/GetModuleByCodesResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/GetModuleByCodes", ReplyAction="http://tempuri.org/PlatformServices/GetModuleByCodesResponse")]
         System.IAsyncResult BeginGetModuleByCodes(System.Collections.ObjectModel.ObservableCollection<string> moduleCodes, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetModuleByCodes(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetModuleFileStream", ReplyAction="http://tempuri.org/IPlatformServices/GetModuleFileStreamResponse")]
-        System.IAsyncResult BeginGetModuleFileStream(string fileName, System.AsyncCallback callback, object asyncState);
-        
-        byte[] EndGetModuleFileStream(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/AddModuleByFile", ReplyAction="http://tempuri.org/IPlatformServices/AddModuleByFileResponse")]
-        System.IAsyncResult BeginAddModuleByFile(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, byte[] xapFileStream, System.AsyncCallback callback, object asyncState);
-        
-        bool EndAddModuleByFile(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetModuleCatalogByUser", ReplyAction="http://tempuri.org/IPlatformServices/GetModuleCatalogByUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/GetModuleCatalogByUser", ReplyAction="http://tempuri.org/PlatformServices/GetModuleCatalogByUserResponse")]
         System.IAsyncResult BeginGetModuleCatalogByUser(string userSysID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetModuleCatalogByUser(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetShortCutByUser", ReplyAction="http://tempuri.org/IPlatformServices/GetShortCutByUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/GetModuleFileStream", ReplyAction="http://tempuri.org/PlatformServices/GetModuleFileStreamResponse")]
+        System.IAsyncResult BeginGetModuleFileStream(string fileName, System.AsyncCallback callback, object asyncState);
+        
+        byte[] EndGetModuleFileStream(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/AddModuleByFile", ReplyAction="http://tempuri.org/PlatformServices/AddModuleByFileResponse")]
+        System.IAsyncResult BeginAddModuleByFile(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, byte[] xapFileStream, System.AsyncCallback callback, object asyncState);
+        
+        bool EndAddModuleByFile(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/GetTaskConfigInfoByUser", ReplyAction="http://tempuri.org/PlatformServices/GetTaskConfigInfoByUserResponse")]
+        System.IAsyncResult BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetTaskConfigInfoByUser(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/GetShortCutByUser", ReplyAction="http://tempuri.org/PlatformServices/GetShortCutByUserResponse")]
         System.IAsyncResult BeginGetShortCutByUser(string userSysID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> EndGetShortCutByUser(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/AddShortCutByUser", ReplyAction="http://tempuri.org/IPlatformServices/AddShortCutByUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/AddShortCutByUser", ReplyAction="http://tempuri.org/PlatformServices/AddShortCutByUserResponse")]
         System.IAsyncResult BeginAddShortCutByUser(System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> models, string userID, System.AsyncCallback callback, object asyncState);
         
         bool EndAddShortCutByUser(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/RemoveShortCutByUser", ReplyAction="http://tempuri.org/IPlatformServices/RemoveShortCutByUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PlatformServices/RemoveShortCutByUser", ReplyAction="http://tempuri.org/PlatformServices/RemoveShortCutByUserResponse")]
         System.IAsyncResult BeginRemoveShortCutByUser(string shortCutID, string userID, System.AsyncCallback callback, object asyncState);
         
         bool EndRemoveShortCutByUser(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPlatformServices/GetTaskConfigInfoByUser", ReplyAction="http://tempuri.org/IPlatformServices/GetTaskConfigInfoByUserResponse")]
-        System.IAsyncResult BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetTaskConfigInfoByUser(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPlatformServicesChannel : SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices, System.ServiceModel.IClientChannel {
+    public interface PlatformServicesChannel : SMT.SAAS.Platform.Client.PlatformWS.PlatformServices, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -545,6 +545,25 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         private object[] results;
         
         public GetModuleByCodesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetModuleCatalogByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetModuleCatalogByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -597,11 +616,11 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetModuleCatalogByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class GetTaskConfigInfoByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        public GetModuleCatalogByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        public GetTaskConfigInfoByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -673,26 +692,7 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetTaskConfigInfoByUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetTaskConfigInfoByUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlatformServicesClient : System.ServiceModel.ClientBase<SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices>, SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices {
+    public partial class PlatformServicesClient : System.ServiceModel.ClientBase<SMT.SAAS.Platform.Client.PlatformWS.PlatformServices>, SMT.SAAS.Platform.Client.PlatformWS.PlatformServices {
         
         private BeginOperationDelegate onBeginAddModuleDelegate;
         
@@ -706,6 +706,12 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         
         private System.Threading.SendOrPostCallback onGetModuleByCodesCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetModuleCatalogByUserDelegate;
+        
+        private EndOperationDelegate onEndGetModuleCatalogByUserDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetModuleCatalogByUserCompletedDelegate;
+        
         private BeginOperationDelegate onBeginGetModuleFileStreamDelegate;
         
         private EndOperationDelegate onEndGetModuleFileStreamDelegate;
@@ -718,11 +724,11 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         
         private System.Threading.SendOrPostCallback onAddModuleByFileCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetModuleCatalogByUserDelegate;
+        private BeginOperationDelegate onBeginGetTaskConfigInfoByUserDelegate;
         
-        private EndOperationDelegate onEndGetModuleCatalogByUserDelegate;
+        private EndOperationDelegate onEndGetTaskConfigInfoByUserDelegate;
         
-        private System.Threading.SendOrPostCallback onGetModuleCatalogByUserCompletedDelegate;
+        private System.Threading.SendOrPostCallback onGetTaskConfigInfoByUserCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetShortCutByUserDelegate;
         
@@ -741,12 +747,6 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         private EndOperationDelegate onEndRemoveShortCutByUserDelegate;
         
         private System.Threading.SendOrPostCallback onRemoveShortCutByUserCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetTaskConfigInfoByUserDelegate;
-        
-        private EndOperationDelegate onEndGetTaskConfigInfoByUserDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetTaskConfigInfoByUserCompletedDelegate;
         
         private BeginOperationDelegate onBeginOpenDelegate;
         
@@ -804,11 +804,13 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         
         public event System.EventHandler<GetModuleByCodesCompletedEventArgs> GetModuleByCodesCompleted;
         
+        public event System.EventHandler<GetModuleCatalogByUserCompletedEventArgs> GetModuleCatalogByUserCompleted;
+        
         public event System.EventHandler<GetModuleFileStreamCompletedEventArgs> GetModuleFileStreamCompleted;
         
         public event System.EventHandler<AddModuleByFileCompletedEventArgs> AddModuleByFileCompleted;
         
-        public event System.EventHandler<GetModuleCatalogByUserCompletedEventArgs> GetModuleCatalogByUserCompleted;
+        public event System.EventHandler<GetTaskConfigInfoByUserCompletedEventArgs> GetTaskConfigInfoByUserCompleted;
         
         public event System.EventHandler<GetShortCutByUserCompletedEventArgs> GetShortCutByUserCompleted;
         
@@ -816,29 +818,27 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         
         public event System.EventHandler<RemoveShortCutByUserCompletedEventArgs> RemoveShortCutByUserCompleted;
         
-        public event System.EventHandler<GetTaskConfigInfoByUserCompletedEventArgs> GetTaskConfigInfoByUserCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginAddModule(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginAddModule(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginAddModule(model, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndAddModule(System.IAsyncResult result) {
+        bool SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndAddModule(System.IAsyncResult result) {
             return base.Channel.EndAddModule(result);
         }
         
         private System.IAsyncResult OnBeginAddModule(object[] inValues, System.AsyncCallback callback, object asyncState) {
             SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model = ((SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginAddModule(model, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginAddModule(model, callback, asyncState);
         }
         
         private object[] OnEndAddModule(System.IAsyncResult result) {
-            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndAddModule(result);
+            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndAddModule(result);
             return new object[] {
                     retVal};
         }
@@ -869,22 +869,22 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginGetModuleByCodes(System.Collections.ObjectModel.ObservableCollection<string> moduleCodes, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginGetModuleByCodes(System.Collections.ObjectModel.ObservableCollection<string> moduleCodes, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetModuleByCodes(moduleCodes, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndGetModuleByCodes(System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndGetModuleByCodes(System.IAsyncResult result) {
             return base.Channel.EndGetModuleByCodes(result);
         }
         
         private System.IAsyncResult OnBeginGetModuleByCodes(object[] inValues, System.AsyncCallback callback, object asyncState) {
             System.Collections.ObjectModel.ObservableCollection<string> moduleCodes = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginGetModuleByCodes(moduleCodes, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginGetModuleByCodes(moduleCodes, callback, asyncState);
         }
         
         private object[] OnEndGetModuleByCodes(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndGetModuleByCodes(result);
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndGetModuleByCodes(result);
             return new object[] {
                     retVal};
         }
@@ -915,22 +915,68 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginGetModuleFileStream(string fileName, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginGetModuleCatalogByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetModuleCatalogByUser(userSysID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndGetModuleCatalogByUser(System.IAsyncResult result) {
+            return base.Channel.EndGetModuleCatalogByUser(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetModuleCatalogByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userSysID = ((string)(inValues[0]));
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginGetModuleCatalogByUser(userSysID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetModuleCatalogByUser(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndGetModuleCatalogByUser(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetModuleCatalogByUserCompleted(object state) {
+            if ((this.GetModuleCatalogByUserCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetModuleCatalogByUserCompleted(this, new GetModuleCatalogByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetModuleCatalogByUserAsync(string userSysID) {
+            this.GetModuleCatalogByUserAsync(userSysID, null);
+        }
+        
+        public void GetModuleCatalogByUserAsync(string userSysID, object userState) {
+            if ((this.onBeginGetModuleCatalogByUserDelegate == null)) {
+                this.onBeginGetModuleCatalogByUserDelegate = new BeginOperationDelegate(this.OnBeginGetModuleCatalogByUser);
+            }
+            if ((this.onEndGetModuleCatalogByUserDelegate == null)) {
+                this.onEndGetModuleCatalogByUserDelegate = new EndOperationDelegate(this.OnEndGetModuleCatalogByUser);
+            }
+            if ((this.onGetModuleCatalogByUserCompletedDelegate == null)) {
+                this.onGetModuleCatalogByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetModuleCatalogByUserCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetModuleCatalogByUserDelegate, new object[] {
+                        userSysID}, this.onEndGetModuleCatalogByUserDelegate, this.onGetModuleCatalogByUserCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginGetModuleFileStream(string fileName, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetModuleFileStream(fileName, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        byte[] SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndGetModuleFileStream(System.IAsyncResult result) {
+        byte[] SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndGetModuleFileStream(System.IAsyncResult result) {
             return base.Channel.EndGetModuleFileStream(result);
         }
         
         private System.IAsyncResult OnBeginGetModuleFileStream(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string fileName = ((string)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginGetModuleFileStream(fileName, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginGetModuleFileStream(fileName, callback, asyncState);
         }
         
         private object[] OnEndGetModuleFileStream(System.IAsyncResult result) {
-            byte[] retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndGetModuleFileStream(result);
+            byte[] retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndGetModuleFileStream(result);
             return new object[] {
                     retVal};
         }
@@ -961,23 +1007,23 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginAddModuleByFile(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, byte[] xapFileStream, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginAddModuleByFile(SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model, byte[] xapFileStream, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginAddModuleByFile(model, xapFileStream, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndAddModuleByFile(System.IAsyncResult result) {
+        bool SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndAddModuleByFile(System.IAsyncResult result) {
             return base.Channel.EndAddModuleByFile(result);
         }
         
         private System.IAsyncResult OnBeginAddModuleByFile(object[] inValues, System.AsyncCallback callback, object asyncState) {
             SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo model = ((SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo)(inValues[0]));
             byte[] xapFileStream = ((byte[])(inValues[1]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginAddModuleByFile(model, xapFileStream, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginAddModuleByFile(model, xapFileStream, callback, asyncState);
         }
         
         private object[] OnEndAddModuleByFile(System.IAsyncResult result) {
-            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndAddModuleByFile(result);
+            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndAddModuleByFile(result);
             return new object[] {
                     retVal};
         }
@@ -1009,68 +1055,68 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginGetModuleCatalogByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetModuleCatalogByUser(userSysID, callback, asyncState);
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetTaskConfigInfoByUser(userID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndGetModuleCatalogByUser(System.IAsyncResult result) {
-            return base.Channel.EndGetModuleCatalogByUser(result);
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndGetTaskConfigInfoByUser(System.IAsyncResult result) {
+            return base.Channel.EndGetTaskConfigInfoByUser(result);
         }
         
-        private System.IAsyncResult OnBeginGetModuleCatalogByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userSysID = ((string)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginGetModuleCatalogByUser(userSysID, callback, asyncState);
+        private System.IAsyncResult OnBeginGetTaskConfigInfoByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string userID = ((string)(inValues[0]));
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginGetTaskConfigInfoByUser(userID, callback, asyncState);
         }
         
-        private object[] OnEndGetModuleCatalogByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndGetModuleCatalogByUser(result);
+        private object[] OnEndGetTaskConfigInfoByUser(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndGetTaskConfigInfoByUser(result);
             return new object[] {
                     retVal};
         }
         
-        private void OnGetModuleCatalogByUserCompleted(object state) {
-            if ((this.GetModuleCatalogByUserCompleted != null)) {
+        private void OnGetTaskConfigInfoByUserCompleted(object state) {
+            if ((this.GetTaskConfigInfoByUserCompleted != null)) {
                 InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetModuleCatalogByUserCompleted(this, new GetModuleCatalogByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+                this.GetTaskConfigInfoByUserCompleted(this, new GetTaskConfigInfoByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
             }
         }
         
-        public void GetModuleCatalogByUserAsync(string userSysID) {
-            this.GetModuleCatalogByUserAsync(userSysID, null);
+        public void GetTaskConfigInfoByUserAsync(string userID) {
+            this.GetTaskConfigInfoByUserAsync(userID, null);
         }
         
-        public void GetModuleCatalogByUserAsync(string userSysID, object userState) {
-            if ((this.onBeginGetModuleCatalogByUserDelegate == null)) {
-                this.onBeginGetModuleCatalogByUserDelegate = new BeginOperationDelegate(this.OnBeginGetModuleCatalogByUser);
+        public void GetTaskConfigInfoByUserAsync(string userID, object userState) {
+            if ((this.onBeginGetTaskConfigInfoByUserDelegate == null)) {
+                this.onBeginGetTaskConfigInfoByUserDelegate = new BeginOperationDelegate(this.OnBeginGetTaskConfigInfoByUser);
             }
-            if ((this.onEndGetModuleCatalogByUserDelegate == null)) {
-                this.onEndGetModuleCatalogByUserDelegate = new EndOperationDelegate(this.OnEndGetModuleCatalogByUser);
+            if ((this.onEndGetTaskConfigInfoByUserDelegate == null)) {
+                this.onEndGetTaskConfigInfoByUserDelegate = new EndOperationDelegate(this.OnEndGetTaskConfigInfoByUser);
             }
-            if ((this.onGetModuleCatalogByUserCompletedDelegate == null)) {
-                this.onGetModuleCatalogByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetModuleCatalogByUserCompleted);
+            if ((this.onGetTaskConfigInfoByUserCompletedDelegate == null)) {
+                this.onGetTaskConfigInfoByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetTaskConfigInfoByUserCompleted);
             }
-            base.InvokeAsync(this.onBeginGetModuleCatalogByUserDelegate, new object[] {
-                        userSysID}, this.onEndGetModuleCatalogByUserDelegate, this.onGetModuleCatalogByUserCompletedDelegate, userState);
+            base.InvokeAsync(this.onBeginGetTaskConfigInfoByUserDelegate, new object[] {
+                        userID}, this.onEndGetTaskConfigInfoByUserDelegate, this.onGetTaskConfigInfoByUserCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginGetShortCutByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginGetShortCutByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginGetShortCutByUser(userSysID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndGetShortCutByUser(System.IAsyncResult result) {
+        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndGetShortCutByUser(System.IAsyncResult result) {
             return base.Channel.EndGetShortCutByUser(result);
         }
         
         private System.IAsyncResult OnBeginGetShortCutByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string userSysID = ((string)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginGetShortCutByUser(userSysID, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginGetShortCutByUser(userSysID, callback, asyncState);
         }
         
         private object[] OnEndGetShortCutByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndGetShortCutByUser(result);
+            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndGetShortCutByUser(result);
             return new object[] {
                     retVal};
         }
@@ -1101,23 +1147,23 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginAddShortCutByUser(System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> models, string userID, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginAddShortCutByUser(System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> models, string userID, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginAddShortCutByUser(models, userID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndAddShortCutByUser(System.IAsyncResult result) {
+        bool SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndAddShortCutByUser(System.IAsyncResult result) {
             return base.Channel.EndAddShortCutByUser(result);
         }
         
         private System.IAsyncResult OnBeginAddShortCutByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
             System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut> models = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ShortCut>)(inValues[0]));
             string userID = ((string)(inValues[1]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginAddShortCutByUser(models, userID, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginAddShortCutByUser(models, userID, callback, asyncState);
         }
         
         private object[] OnEndAddShortCutByUser(System.IAsyncResult result) {
-            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndAddShortCutByUser(result);
+            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndAddShortCutByUser(result);
             return new object[] {
                     retVal};
         }
@@ -1149,23 +1195,23 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginRemoveShortCutByUser(string shortCutID, string userID, System.AsyncCallback callback, object asyncState) {
+        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.BeginRemoveShortCutByUser(string shortCutID, string userID, System.AsyncCallback callback, object asyncState) {
             return base.Channel.BeginRemoveShortCutByUser(shortCutID, userID, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndRemoveShortCutByUser(System.IAsyncResult result) {
+        bool SMT.SAAS.Platform.Client.PlatformWS.PlatformServices.EndRemoveShortCutByUser(System.IAsyncResult result) {
             return base.Channel.EndRemoveShortCutByUser(result);
         }
         
         private System.IAsyncResult OnBeginRemoveShortCutByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string shortCutID = ((string)(inValues[0]));
             string userID = ((string)(inValues[1]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginRemoveShortCutByUser(shortCutID, userID, callback, asyncState);
+            return ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).BeginRemoveShortCutByUser(shortCutID, userID, callback, asyncState);
         }
         
         private object[] OnEndRemoveShortCutByUser(System.IAsyncResult result) {
-            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndRemoveShortCutByUser(result);
+            bool retVal = ((SMT.SAAS.Platform.Client.PlatformWS.PlatformServices)(this)).EndRemoveShortCutByUser(result);
             return new object[] {
                     retVal};
         }
@@ -1194,52 +1240,6 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
             base.InvokeAsync(this.onBeginRemoveShortCutByUserDelegate, new object[] {
                         shortCutID,
                         userID}, this.onEndRemoveShortCutByUserDelegate, this.onRemoveShortCutByUserCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetTaskConfigInfoByUser(userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices.EndGetTaskConfigInfoByUser(System.IAsyncResult result) {
-            return base.Channel.EndGetTaskConfigInfoByUser(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetTaskConfigInfoByUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            return ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).BeginGetTaskConfigInfoByUser(userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetTaskConfigInfoByUser(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> retVal = ((SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices)(this)).EndGetTaskConfigInfoByUser(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetTaskConfigInfoByUserCompleted(object state) {
-            if ((this.GetTaskConfigInfoByUserCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetTaskConfigInfoByUserCompleted(this, new GetTaskConfigInfoByUserCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetTaskConfigInfoByUserAsync(string userID) {
-            this.GetTaskConfigInfoByUserAsync(userID, null);
-        }
-        
-        public void GetTaskConfigInfoByUserAsync(string userID, object userState) {
-            if ((this.onBeginGetTaskConfigInfoByUserDelegate == null)) {
-                this.onBeginGetTaskConfigInfoByUserDelegate = new BeginOperationDelegate(this.OnBeginGetTaskConfigInfoByUser);
-            }
-            if ((this.onEndGetTaskConfigInfoByUserDelegate == null)) {
-                this.onEndGetTaskConfigInfoByUserDelegate = new EndOperationDelegate(this.OnEndGetTaskConfigInfoByUser);
-            }
-            if ((this.onGetTaskConfigInfoByUserCompletedDelegate == null)) {
-                this.onGetTaskConfigInfoByUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetTaskConfigInfoByUserCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetTaskConfigInfoByUserDelegate, new object[] {
-                        userID}, this.onEndGetTaskConfigInfoByUserDelegate, this.onGetTaskConfigInfoByUserCompletedDelegate, userState);
         }
         
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
@@ -1308,13 +1308,13 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
             base.InvokeAsync(this.onBeginCloseDelegate, null, this.onEndCloseDelegate, this.onCloseCompletedDelegate, userState);
         }
         
-        protected override SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices CreateChannel() {
+        protected override SMT.SAAS.Platform.Client.PlatformWS.PlatformServices CreateChannel() {
             return new PlatformServicesClientChannel(this);
         }
         
-        private class PlatformServicesClientChannel : ChannelBase<SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices>, SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices {
+        private class PlatformServicesClientChannel : ChannelBase<SMT.SAAS.Platform.Client.PlatformWS.PlatformServices>, SMT.SAAS.Platform.Client.PlatformWS.PlatformServices {
             
-            public PlatformServicesClientChannel(System.ServiceModel.ClientBase<SMT.SAAS.Platform.Client.PlatformWS.IPlatformServices> client) : 
+            public PlatformServicesClientChannel(System.ServiceModel.ClientBase<SMT.SAAS.Platform.Client.PlatformWS.PlatformServices> client) : 
                     base(client) {
             }
             
@@ -1341,6 +1341,19 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
             public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetModuleByCodes(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(base.EndInvoke("GetModuleByCodes", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetModuleCatalogByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = userSysID;
+                System.IAsyncResult _result = base.BeginInvoke("GetModuleCatalogByUser", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetModuleCatalogByUser(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(base.EndInvoke("GetModuleCatalogByUser", _args, result)));
                 return _result;
             }
             
@@ -1371,16 +1384,16 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetModuleCatalogByUser(string userSysID, System.AsyncCallback callback, object asyncState) {
+            public System.IAsyncResult BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
-                _args[0] = userSysID;
-                System.IAsyncResult _result = base.BeginInvoke("GetModuleCatalogByUser", _args, callback, asyncState);
+                _args[0] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetTaskConfigInfoByUser", _args, callback, asyncState);
                 return _result;
             }
             
-            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetModuleCatalogByUser(System.IAsyncResult result) {
+            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetTaskConfigInfoByUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(base.EndInvoke("GetModuleCatalogByUser", _args, result)));
+                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(base.EndInvoke("GetTaskConfigInfoByUser", _args, result)));
                 return _result;
             }
             
@@ -1422,19 +1435,6 @@ namespace SMT.SAAS.Platform.Client.PlatformWS {
             public bool EndRemoveShortCutByUser(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("RemoveShortCutByUser", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetTaskConfigInfoByUser(string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetTaskConfigInfoByUser", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> EndGetTaskConfigInfoByUser(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo>)(base.EndInvoke("GetTaskConfigInfoByUser", _args, result)));
                 return _result;
             }
         }

@@ -131,11 +131,14 @@
       <DependentUpon>ItemBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Xamls\LoginPart\MainPagePartManager.cs" />
-    <Compile Include="Xamls\LoginPart\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="Xamls\LoginPart\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Xamls\LoginPart\LoginForm.xaml.cs">
       <DependentUpon>LoginForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Xamls\Particle\ParticleControl.xaml.cs">
+      <DependentUpon>ParticleControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +169,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xamls\LoginPart\Login.xaml">
+    <Page Include="Xamls\LoginPart\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +178,10 @@
     <Page Include="Xamls\LoginPart\LoginForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Xamls\Particle\ParticleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

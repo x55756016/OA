@@ -115,22 +115,28 @@
       <Link>Model\WebPart.cs</Link>
     </Compile>
     <Compile Include="CommonEventArgs.cs" />
-    <Compile Include="Interface\ILoginUser.cs" />
     <Compile Include="Model\UserLogin.cs" />
     <Compile Include="Model\UserMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CommonServices.cs" />
-    <Compile Include="Services\LoginUser.cs" />
     <Compile Include="Services\ModuleServices.cs" />
     <Compile Include="Services\ShortCutServices.cs" />
-    <Compile Include="Services\SystemInit.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
+      <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
+      <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj">
       <Project>{CC777E34-3BE7-4161-8C8D-A099179D87B9}</Project>
       <Name>SMT.SAAS.Platform.Client</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
