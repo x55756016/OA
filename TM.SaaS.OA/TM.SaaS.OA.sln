@@ -114,26 +114,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.FBAnalysis.ClientServic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TM_SaaS_OA_EFModel", "TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj", "{7571BCE6-3B80-41C1-AF97-9118E7F41845}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PDM", "PDM", "{1F2BB232-EBC5-4435-85B3-8E3AE6142A76}"
-	ProjectSection(SolutionItems) = preProject
-		TMOA_PDM\mysql.sql = TMOA_PDM\mysql.sql
-		TMOA_PDM\PF.pdb = TMOA_PDM\PF.pdb
-		TMOA_PDM\smtFB.pdm = TMOA_PDM\smtFB.pdm
-		TMOA_PDM\smtHR.pdm = TMOA_PDM\smtHR.pdm
-		TMOA_PDM\smtOA.pdm = TMOA_PDM\smtOA.pdm
-		TMOA_PDM\smtPF.pdm = TMOA_PDM\smtPF.pdm
-		TMOA_PDM\smtPM.pdm = TMOA_PDM\smtPM.pdm
-		TMOA_PDM\smtPortal.pdb = TMOA_PDM\smtPortal.pdb
-		TMOA_PDM\smtPortal.pdm = TMOA_PDM\smtPortal.pdm
-		TMOA_PDM\smtWF.pdm = TMOA_PDM\smtWF.pdm
-		TMOA_PDM\TM.SaaS.OA.pdb = TMOA_PDM\TM.SaaS.OA.pdb
-		TMOA_PDM\TM.SaaS.OA.pdm = TMOA_PDM\TM.SaaS.OA.pdm
-		TMOA_PDM\WF.pdb = TMOA_PDM\WF.pdb
-		TMOA_PDM\Workspace.sws = TMOA_PDM\Workspace.sws
-		TMOA_PDM\流程设计.pdb = TMOA_PDM\流程设计.pdb
-		TMOA_PDM\流程设计.pdm = TMOA_PDM\流程设计.pdm
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WF", "WF", "{7C1E0EED-B31A-4BD5-B1C9-4D98EA8A2CF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMT.SaaS.InterActiveDirectory", "PM\SMT.SaaS.InterActiveDirectory\SMT.SaaS.InterActiveDirectory.csproj", "{B555A23F-65CD-4483-9B80-07C1E32EA338}"
