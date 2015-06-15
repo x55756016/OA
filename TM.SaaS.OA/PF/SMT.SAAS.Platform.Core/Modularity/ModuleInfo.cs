@@ -6,7 +6,7 @@ namespace SMT.SAAS.Platform.Core.Modularity
     /// <summary>
     /// 定义描述模块信息的元数据
     /// </summary>
-    public partial class ModuleInfo : IModuleCatalogItem
+    public class ModuleInfo
     {
         /// <summary>
         /// 初始化一个空的<see cref="ModuleInfo"/>实例。
@@ -70,7 +70,7 @@ namespace SMT.SAAS.Platform.Core.Modularity
         /// <summary>
         /// 指定模块的初始化方式
         /// </summary>
-        public InitializationMode InitializationMode { get; set; }
+        public InitializationMode InitParams { get; set; }
 
         /// <summary>
         /// 模块程序集的位置
@@ -86,5 +86,56 @@ namespace SMT.SAAS.Platform.Core.Modularity
         /// 获取或设置<see cref="ModuleInfo"/>状态，在模块加载和初始化的时候访问。
         /// </summary>
         public ModuleState State { get; set; }
+
+        public string Description { get; set; }
+    }
+
+    /// <summary>
+    /// 模块的初始化方式
+    /// </summary>
+    public enum InitializationMode
+    {
+        /// <summary>
+        /// 此类型表示，当应用程序启动的时候将进行初始化，默认值。
+        /// </summary>
+        WhenAvailable,
+
+        /// <summary>
+        /// 此类型表示，当在需要请求此模块的时候进行初始化，而非项目启动阶段。
+        /// </summary>
+        OnDemand
+    }
+
+    /// <summary>
+    /// 定义<see cref="ModuleInfo"/>状态，可以在加载模块或初始化的时候访问。
+    /// </summary>
+    public enum ModuleState
+    {
+        /// <summary>
+        /// <see cref="ModuleInfo"/>初始状态。<see cref="ModuleInfo"/>已定义，但没有加载，初始化，检索。
+        /// </summary>
+        NotStarted,
+
+        /// <summary>
+        /// 包含当前模块的程序集正在使用<see cref="IModuleTypeLoader"/>进行加载。
+        /// <see cref="IModuleTypeLoader"/>. 
+        /// </summary>
+        LoadingTypes,
+
+        /// <summary>
+        /// 包含此模块的程序集已经存在。
+        /// 意思就是<see cref="IModule"/> 可以进行实例化或初始化。
+        /// </summary>
+        ReadyForInitialization,
+
+        /// <summary>
+        /// 模块正在使用<see cref="IModuleInitializer"/>初始化。
+        /// </summary>
+        Initializing,
+
+        /// <summary>
+        /// 模块已经初始化，可以使用。
+        /// </summary>
+        Initialized
     }
 }

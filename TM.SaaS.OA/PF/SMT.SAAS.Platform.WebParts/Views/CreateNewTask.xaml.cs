@@ -104,24 +104,24 @@ namespace SMT.SAAS.Platform.WebParts.Views
             }
         }
 
-        EventHandler<ViewModel.LoadModuleEventArgs> LoadTaskHandler = null;
+        //EventHandler<ViewModel.LoadModuleEventArgs> LoadTaskHandler = null;
 
         private void CheckeDepends(string moduleName)
         {
-            var module = ViewModel.Context.Managed.Catalog.FirstOrDefault(item => item.ModuleName == moduleName);
-            if (module != null)
-            {
-                ViewModel.Context.Managed.OnSystemLoadModuleCompleted += LoadTaskHandler = (o, e) =>
-                {
-                    ViewModel.Context.Managed.OnSystemLoadModuleCompleted -= LoadTaskHandler;
-                    if (e.Error == null)
-                    {
-                        OpenTask(_currentModule);
-                    }
-                };
+            //var module = ViewModel.Context.Managed.Catalog.FirstOrDefault(item => item.ModuleName == moduleName);
+            //if (module != null)
+            //{
+            //    ViewModel.Context.Managed.OnSystemLoadModuleCompleted += LoadTaskHandler = (o, e) =>
+            //    {
+            //        ViewModel.Context.Managed.OnSystemLoadModuleCompleted -= LoadTaskHandler;
+            //        if (e.Error == null)
+            //        {
+            //            OpenTask(_currentModule);
+            //        }
+            //    };
 
-                ViewModel.Context.Managed.LoadModule(moduleName);
-            }
+            //    ViewModel.Context.Managed.LoadModule(moduleName);
+            //}
         }
 
         private void OpenTask(ModuleInfo moduleInfo)

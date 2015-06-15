@@ -68,16 +68,27 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
 
             employee = new V_EMPLOYEEDETAIL();
             MainPageManeger = new MainPagePartManager();
-            MainPageManeger.Loginform = this;
+            MainPageManeger.NotifyUserMessageEvent += MainPageManeger_NotifyUserMessageEvent;
             MainPageManeger.isFirstUser = this.isFirstUser;
-            MainPageManeger.dllVersionFilePath = this.dllVersionFilePath;
+            MainPageManeger.LoadXapName = "SMT.SAAS.Platform.xap";
+            MainPageManeger.VertionFileName = "DllVersion.xml";
             MainPageManeger.LoadCompleted += new EventHandler(loadMainPage_LoadCompleted);
             MainPageManeger.UpdateDllCompleted += new EventHandler(MainPageManeger_UpdateDllCompleted);
+
 #if DEBUG
             this.txbUserName.Text = "smtwangl";
             this.txbUserPassword.Password = "smt123456";
 #endif
 
+        }
+
+        void MainPageManeger_NotifyUserMessageEvent(object sender, NotifyUserMessageArgs e)
+        {
+            NotifyUserMessage(e.Message);
+            if (e.Message == "系统检测更新完毕,请您登录系统")
+            {
+                setbtnLoginEnable(true);   
+            }
         }
 
         #region 页面控件事件

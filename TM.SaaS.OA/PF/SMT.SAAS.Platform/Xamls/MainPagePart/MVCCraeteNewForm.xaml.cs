@@ -45,11 +45,11 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
                 instance = Activator.CreateInstance(moduleType);
                 if (moduleInfo.InitParams != null && instance != null)
                 {
-                    foreach (var item in moduleInfo.InitParams)
-                    {
-                        PropertyInfo property = instance.GetType().GetProperty(item.Key);
-                        property.SetValue(instance, item.Value, null);
-                    }
+                    //foreach (var item in moduleInfo.InitParams)
+                    //{
+                    //    PropertyInfo property = instance.GetType().GetProperty(item.Key);
+                    //    property.SetValue(instance, item.Value, null);
+                    //}
                 }
                 if (moduleInfo != null && instance != null)
                 {

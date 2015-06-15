@@ -96,22 +96,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="XapResource\SMT.EDM.UI.xap" />
-    <Content Include="XapResource\SMT.EM.UI.xap" />
-    <Content Include="XapResource\SMT.FB.UI.xap" />
-    <Content Include="XapResource\SMT.FBAnalysis.UI.xap" />
-    <Content Include="XapResource\SMT.FlowDesigner.xap" />
-    <Content Include="XapResource\SMT.HRM.UI.xap" />
-    <Content Include="XapResource\SMT.RM.UI.xap" />
-    <Content Include="XapResource\SMT.SaaS.CommonAssemblys.xap" />
-    <Content Include="XapResource\SMT.SaaS.EG.xap" />
-    <Content Include="XapResource\SMT.SaaS.LM.UI.xap" />
-    <Content Include="XapResource\SMT.SAAS.OA.UI.XAP" />
-    <Content Include="XapResource\SMT.SaaS.OA.xap" />
-    <Content Include="XapResource\SMT.SaaS.Permission.UI.xap" />
-    <Content Include="XapResource\SMT.SAAS.Platform.Main.xap" />
-    <Content Include="XapResource\SMT.SaaS.SMS.xap" />
-    <Content Include="XapResource\SMT.TM.UI.xap" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPlatformSiServices.cs" />
@@ -143,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PlatformServices\" />
+    <Folder Include="XapResource\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

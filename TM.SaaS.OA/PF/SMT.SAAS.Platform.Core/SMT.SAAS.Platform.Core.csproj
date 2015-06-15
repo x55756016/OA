@@ -83,42 +83,12 @@
     <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CollectionExtensions.cs" />
-    <Compile Include="Modularity\Analysis\IServiceLocator.cs" />
-    <Compile Include="Modularity\Analysis\ServiceLocator.cs" />
-    <Compile Include="ListDictionary.cs" />
-    <Compile Include="Modularity\Exceptions\CyclicDependencyFoundException.cs" />
-    <Compile Include="Modularity\EventArgs\DownloadCompletedEventArgs.cs" />
-    <Compile Include="Modularity\Exceptions\DuplicateModuleException.cs" />
-    <Compile Include="Modularity\FileDownloader\FileDownloader.cs" />
-    <Compile Include="Modularity\FileDownloader\IFileDownloader.cs" />
-    <Compile Include="Modularity\IModuleCatalog.cs" />
-    <Compile Include="Modularity\IModuleCatalogItem.cs" />
-    <Compile Include="Modularity\IModuleInitializer.cs" />
-    <Compile Include="Modularity\IModuleManager.cs" />
-    <Compile Include="Modularity\IModuleTypeLoader.cs" />
-    <Compile Include="Modularity\InitializationMode.cs" />
-    <Compile Include="Modularity\EventArgs\LoadModuleCompletedEventArgs.cs" />
-    <Compile Include="Modularity\Exceptions\ModularityException.cs" />
-    <Compile Include="Modularity\ModuleCatalog.cs" />
-    <Compile Include="Modularity\ModuleDependencySolver.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleDownloadProgressChangedEventArgs.cs" />
-    <Compile Include="Modularity\ModuleInfo.cs" />
-    <Compile Include="Modularity\ModuleInfo.Partial.cs" />
-    <Compile Include="Modularity\ModuleInfoGroup.cs" />
-    <Compile Include="Modularity\ModuleInfoGroupExtensions.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleInitializeException.cs" />
-    <Compile Include="Modularity\ModuleInitializer.cs" />
-    <Compile Include="Modularity\ModuleManager.cs" />
-    <Compile Include="Modularity\ModuleManager.Silverlight.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleNotFoundException.cs" />
-    <Compile Include="Modularity\ModuleState.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleTypeLoaderNotFoundException.cs" />
-    <Compile Include="Modularity\Exceptions\ModuleTypeLoadingException.cs" />
-    <Compile Include="Modularity\XapModuleTypeLoader.cs" />
-    <Compile Include="Modularity\FileDownloader\WCFFileDownloader.cs" />
-    <Compile Include="Modularity\Analysis\XapAnalysis.cs" />
+    <Compile Include="Bootstrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modularity\ModuleInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>

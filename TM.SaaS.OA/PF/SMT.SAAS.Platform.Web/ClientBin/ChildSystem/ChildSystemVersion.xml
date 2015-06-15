@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SMT.SAAS.Platform" EntryPointType="SMT.SAAS.Platform.App" RuntimeVersion="4.0.50826.0">
+  <Deployment.Parts>    
+    <AssemblyPart systemType="" Source="SMT.SaaS.OA.xap" version="1.1.41" />
+    <AssemblyPart systemType="0" Source="SMT.HRM.UI.xap" version="1.1.41" />
+    <AssemblyPart systemType="" Source="SMT.FB.UI.xap" version="1.1.41" />
+    <AssemblyPart systemType="" Source="SMT.FBAnalysis.UI.xap" version="1.1.41" />
+    <AssemblyPart systemType="" Source="SMT.FlowDesigner.xap" version="1.1.41" />
+    <AssemblyPart systemType="" Source="SMT.SaaS.Permission.UI.xap" version="1.1.41" />
+  </Deployment.Parts>
+</Deployment>

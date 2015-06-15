@@ -1,5 +1,5 @@
 ﻿using System;
-using SMT.SAAS.Platform.ViewModel.Menu;
+using SMT.Saas.Tools.PermissionWS;
 
 // 内容摘要: 执行数据库操作完成事件参数
   
@@ -15,7 +15,7 @@ namespace SMT.SAAS.Platform
         /// </summary>
         /// <param name="result">返回的webpart集合</param>
         /// <param name="error">错误信息</param>
-        public OnShortCutClickEventArgs(MenuViewModel result, Exception error)
+        public OnShortCutClickEventArgs(V_UserMenuPermission result, Exception error)
         {
             this.Result = result;
             this.Error = error;
@@ -23,7 +23,7 @@ namespace SMT.SAAS.Platform
         /// <summary>
         /// 返回的结果集
         /// </summary>
-        public MenuViewModel Result { get; set; }
+        public V_UserMenuPermission Result { get; set; }
 
         /// <summary>
         /// 异常/错误信息

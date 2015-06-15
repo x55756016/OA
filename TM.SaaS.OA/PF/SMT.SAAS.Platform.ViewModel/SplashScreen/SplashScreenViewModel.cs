@@ -23,10 +23,7 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
         /// 实例化本地存储
         /// </summary>
         public static IsolatedStorageSettings AppSettings = IsolatedStorageSettings.ApplicationSettings;
-        /// <summary>
-        /// 平台服务类实例化
-        /// </summary>
-        private Model.Services.ModuleServices moduleServices = new Model.Services.ModuleServices();
+
         /// <summary>
         /// 部门实体集临时变量
         /// </summary>
@@ -55,7 +52,6 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
         /// </summary>
         public SplashScreenViewModel()
         {
-            moduleServices.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
             RegisterServers();
         }
 
@@ -277,197 +273,161 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
         /// </summary>
         public void GetModules()
         {
-            if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo != null)
-            {
-                //if (V_ModuleInfoVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID) == false)
-                //{
-                //    _services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
-                //    _services.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
-                //}
-                List<ModuleInfo> moduleinfo = Application.Current.Resources["AllModule"] as List<ModuleInfo>;
-                if (moduleinfo == null || moduleinfo.Count==0)
-                {
-                    //_services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
-                    moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
-                }
-                else
-                {
-                    //权限检查发现有变更时，权限需要重新从服务器获取
-                    if (SMT.SAAS.Main.CurrentContext.AppContext.IsPermUpdate)
-                    {
-                        Application.Current.Resources.Remove("AllModule");
-                        //_services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
-                        moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
-                        return;
-                    }
-                    InitMainContext(moduleinfo);
+            //if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo != null)
+            //{
+            //    //if (V_ModuleInfoVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID) == false)
+            //    //{
+            //    //    _services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
+            //    //    _services.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
+            //    //}
+            //    List<ModuleInfo> moduleinfo = Application.Current.Resources["AllModule"] as List<ModuleInfo>;
+            //    if (moduleinfo == null || moduleinfo.Count==0)
+            //    {
+            //        //_services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
+            //        moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
+            //    }
+            //    else
+            //    {
+            //        //权限检查发现有变更时，权限需要重新从服务器获取
+            //        if (SMT.SAAS.Main.CurrentContext.AppContext.IsPermUpdate)
+            //        {
+            //            Application.Current.Resources.Remove("AllModule");
+            //            //_services.OnGetModulesCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ModuleInfo>>(_services_OnGetModulesCompleted);
+            //            moduleServices.GetModuleCatalogByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
+            //            return;
+            //        }
+                    //InitMainContext(moduleinfo);
                     if (this.InitCompleted != null)
                     {
                         this.InitCompleted(this, EventArgs.Empty);
                     }
-                }
-            }
+                //}
+            //}
         }
 
-        /// <summary>
-        /// 获取分系统及其菜单完成事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void _services_OnGetModulesCompleted(object sender, Model.GetEntityListEventArgs<Model.ModuleInfo> e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    List<ModuleInfo> moduleinfo = new List<ModuleInfo>();
-                    foreach (var item in e.Result)
-                    {
-                        if (item.ModuleName != null)
-                        {
-                            ModuleInfo info = item.CloneObject<ModuleInfo>(new ModuleInfo());
-                            info.InitializationMode = item.UseState == "1" ? InitializationMode.OnDemand : InitializationMode.OnDemand;
-                            info.Ref = string.Empty;
-                            info.IsOnWeb = false;
-                            info.ModuleType = item.UseState == "1" ? string.Empty : item.ModuleType;
-                            moduleinfo.Add(info);
-                        }
-                    }
-                    InitMainContext(moduleinfo);
-                    if (!Application.Current.Resources.Contains("AllModule"))
-                    {
-                        Application.Current.Resources.Add("AllModule", moduleinfo);
-                    }
-                }
-            }
-            if (this.InitCompleted != null)
-            {
-                this.InitCompleted(this, EventArgs.Empty);
-            }
-        }
+ 
+        ///// <summary>
+        ///// 保存分系统及其菜单完成事件到本地数据库
+        ///// </summary>
+        ///// <param name="strUserID">用户ID</param>
+        ///// <param name="listModuleInfos">菜单实体集</param>
+        //private void SaveModuleByLocal(string strUserID, List<ModuleInfo> listModuleInfos)
+        //{
+        //    List<V_ModuleInfo> vLocalModules = new List<V_ModuleInfo>();
+        //    List<V_ModuleInfo_DependsOn> vLocalModuleDependsOns = new List<V_ModuleInfo_DependsOn>();
+        //    List<V_ModuleInfo_Params> vLocalModuleParams = new List<V_ModuleInfo_Params>();
 
-        /// <summary>
-        /// 保存分系统及其菜单完成事件到本地数据库
-        /// </summary>
-        /// <param name="strUserID">用户ID</param>
-        /// <param name="listModuleInfos">菜单实体集</param>
-        private void SaveModuleByLocal(string strUserID, List<ModuleInfo> listModuleInfos)
-        {
-            List<V_ModuleInfo> vLocalModules = new List<V_ModuleInfo>();
-            List<V_ModuleInfo_DependsOn> vLocalModuleDependsOns = new List<V_ModuleInfo_DependsOn>();
-            List<V_ModuleInfo_Params> vLocalModuleParams = new List<V_ModuleInfo_Params>();
+        //    foreach (var item in listModuleInfos)
+        //    {
+        //        if (item.ModuleName == null)
+        //        {
+        //            continue;
+        //        }
 
-            foreach (var item in listModuleInfos)
-            {
-                if (item.ModuleName == null)
-                {
-                    continue;
-                }
+        //        V_ModuleInfo info = item.CloneObject<V_ModuleInfo>(new V_ModuleInfo());
+        //        info.UserModuleID = System.Guid.NewGuid().ToString();
+        //        info.UserID = strUserID;
+        //        vLocalModules.Add(info);
 
-                V_ModuleInfo info = item.CloneObject<V_ModuleInfo>(new V_ModuleInfo());
-                info.UserModuleID = System.Guid.NewGuid().ToString();
-                info.UserID = strUserID;
-                vLocalModules.Add(info);
+        //        if (item.DependsOn != null)
+        //        {
+        //            if (item.DependsOn.Count > 0)
+        //            {
+        //                foreach (var p in item.DependsOn)
+        //                {
+        //                    V_ModuleInfo_DependsOn dependsOn = new V_ModuleInfo_DependsOn();
+        //                    dependsOn.UserModuleID = info.UserModuleID;
+        //                    dependsOn.UserID = strUserID;
+        //                    dependsOn.ModuleID = item.ModuleID;
+        //                    dependsOn.ModuleName = p;
 
-                if (item.DependsOn != null)
-                {
-                    if (item.DependsOn.Count > 0)
-                    {
-                        foreach (var p in item.DependsOn)
-                        {
-                            V_ModuleInfo_DependsOn dependsOn = new V_ModuleInfo_DependsOn();
-                            dependsOn.UserModuleID = info.UserModuleID;
-                            dependsOn.UserID = strUserID;
-                            dependsOn.ModuleID = item.ModuleID;
-                            dependsOn.ModuleName = p;
+        //                    vLocalModuleDependsOns.Add(dependsOn);
+        //                }
+        //            }
+        //        }
 
-                            vLocalModuleDependsOns.Add(dependsOn);
-                        }
-                    }
-                }
+        //        if (item.InitParams != null)
+        //        {
+        //            if (item.InitParams.Count > 0)
+        //            {
+        //                foreach (var d in item.InitParams)
+        //                {
+        //                    V_ModuleInfo_Params param = new V_ModuleInfo_Params();
+        //                    param.UserModuleID = info.UserModuleID;
+        //                    param.UserID = strUserID;
+        //                    param.ModuleID = item.ModuleID;
+        //                    param.ParamKey = d.Key;
+        //                    param.ParamValue = d.Value;
 
-                if (item.InitParams != null)
-                {
-                    if (item.InitParams.Count > 0)
-                    {
-                        foreach (var d in item.InitParams)
-                        {
-                            V_ModuleInfo_Params param = new V_ModuleInfo_Params();
-                            param.UserModuleID = info.UserModuleID;
-                            param.UserID = strUserID;
-                            param.ModuleID = item.ModuleID;
-                            param.ParamKey = d.Key;
-                            param.ParamValue = d.Value;
+        //                    vLocalModuleParams.Add(param);
+        //                }
+        //            }
+        //        }
+        //    }
 
-                            vLocalModuleParams.Add(param);
-                        }
-                    }
-                }
-            }
+        //    V_ModuleInfoVM.SaveV_ModuleInfo(strUserID, vLocalModules);
+        //    V_ModuleInfo_DependsOnVM.SaveV_ModuleInfo_DependsOn(strUserID, vLocalModuleDependsOns);
+        //    V_ModuleInfo_ParamsVM.SaveV_ModuleInfo_Params(strUserID, vLocalModuleParams);
+        //}
 
-            V_ModuleInfoVM.SaveV_ModuleInfo(strUserID, vLocalModules);
-            V_ModuleInfo_DependsOnVM.SaveV_ModuleInfo_DependsOn(strUserID, vLocalModuleDependsOns);
-            V_ModuleInfo_ParamsVM.SaveV_ModuleInfo_Params(strUserID, vLocalModuleParams);
-        }
+        ///// <summary>
+        ///// 获取分系统及其菜单完成事件到本地数据库
+        ///// </summary>
+        ///// <param name="strUserID"></param>
+        //public void GetModulesByLocal(string strUserID)
+        //{
+        //    List<ModuleInfo> moduleinfo = new List<ModuleInfo>();
 
-        /// <summary>
-        /// 获取分系统及其菜单完成事件到本地数据库
-        /// </summary>
-        /// <param name="strUserID"></param>
-        public void GetModulesByLocal(string strUserID)
-        {
-            List<ModuleInfo> moduleinfo = new List<ModuleInfo>();
+        //    List<V_ModuleInfo> vLocalModules = V_ModuleInfoVM.GetAllV_ModuleInfo(strUserID);
+        //    List<V_ModuleInfo_DependsOn> vLocalModuleDependsOns = V_ModuleInfo_DependsOnVM.GetAllV_ModuleInfo_DependsOn(strUserID);
+        //    List<V_ModuleInfo_Params> vLocalModuleParams = V_ModuleInfo_ParamsVM.GetAllV_ModuleInfo_Params(strUserID);
 
-            List<V_ModuleInfo> vLocalModules = V_ModuleInfoVM.GetAllV_ModuleInfo(strUserID);
-            List<V_ModuleInfo_DependsOn> vLocalModuleDependsOns = V_ModuleInfo_DependsOnVM.GetAllV_ModuleInfo_DependsOn(strUserID);
-            List<V_ModuleInfo_Params> vLocalModuleParams = V_ModuleInfo_ParamsVM.GetAllV_ModuleInfo_Params(strUserID);
+        //    foreach (var item in vLocalModules)
+        //    {
+        //        if (item.ModuleName != null)
+        //        {
+        //            ModuleInfo info = item.CloneObject<ModuleInfo>(new ModuleInfo());
+        //            info.InitializationMode = item.UseState == "1" ? InitializationMode.OnDemand : InitializationMode.OnDemand;
+        //            info.Ref = string.Empty;
+        //            info.IsOnWeb = false;
+        //            info.ModuleType = item.UseState == "1" ? string.Empty : item.ModuleType;
 
-            foreach (var item in vLocalModules)
-            {
-                if (item.ModuleName != null)
-                {
-                    ModuleInfo info = item.CloneObject<ModuleInfo>(new ModuleInfo());
-                    info.InitializationMode = item.UseState == "1" ? InitializationMode.OnDemand : InitializationMode.OnDemand;
-                    info.Ref = string.Empty;
-                    info.IsOnWeb = false;
-                    info.ModuleType = item.UseState == "1" ? string.Empty : item.ModuleType;
+        //            List<string> listDepends = new List<string>();
+        //            foreach (var p in vLocalModuleDependsOns)
+        //            {
+        //                if (p.UserModuleID != item.UserModuleID)
+        //                {
+        //                    continue;
+        //                }
 
-                    List<string> listDepends = new List<string>();
-                    foreach (var p in vLocalModuleDependsOns)
-                    {
-                        if (p.UserModuleID != item.UserModuleID)
-                        {
-                            continue;
-                        }
+        //                info.DependsOn.Add(p.ModuleName);
+        //            }
 
-                        info.DependsOn.Add(p.ModuleName);
-                    }
+        //            foreach (var d in vLocalModuleParams)
+        //            {
+        //                if (info.InitParams == null)
+        //                {
+        //                    info.InitParams = new Dictionary<string, string>();
+        //                }
 
-                    foreach (var d in vLocalModuleParams)
-                    {
-                        if (info.InitParams == null)
-                        {
-                            info.InitParams = new Dictionary<string, string>();
-                        }
+        //                if (d.UserModuleID != item.UserModuleID)
+        //                {
+        //                    continue;
+        //                }
 
-                        if (d.UserModuleID != item.UserModuleID)
-                        {
-                            continue;
-                        }
+        //                info.InitParams.Add(d.ParamKey, d.ParamValue);
+        //            }
 
-                        info.InitParams.Add(d.ParamKey, d.ParamValue);
-                    }
+        //            moduleinfo.Add(info);
+        //        }
+        //    }
 
-                    moduleinfo.Add(info);
-                }
-            }
-
-            InitMainContext(moduleinfo);
-            if (this.InitCompleted != null)
-            {
-                this.InitCompleted(this, EventArgs.Empty);
-            }
-        }
+        //    InitMainContext(moduleinfo);
+        //    if (this.InitCompleted != null)
+        //    {
+        //        this.InitCompleted(this, EventArgs.Empty);
+        //    }
+        //}
 
         /// <summary>
         /// 初始化平台上下文环境，并加载样式文件
@@ -498,14 +458,14 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
         /// <param name="moduleinfo"></param>
         private static void InitMainContext(List<ModuleInfo> moduleinfo)
         {
-            if (Context.Managed == null)
-            {
-                Context.Managed = new Managed();
-            }
+            //if (Context.Managed == null)
+            //{
+            //    Context.Managed = new Managed();
+            //}
 
-            Context.Managed.Catalog = moduleinfo;
+            //Context.Managed.Catalog = moduleinfo;
 
-            Context.Managed.Run(true);
+            //Context.Managed.Run(true);
         }
 
         /// <summary>
@@ -539,9 +499,9 @@ namespace SMT.SAAS.Platform.ViewModel.SplashScreen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void Managed_OnLoadModuleCompleted(object sender, LoadModuleEventArgs e)
-        {
-        }
+        //void Managed_OnLoadModuleCompleted(object sender, LoadModuleEventArgs e)
+        //{
+        //}
 
         /// <summary>
         /// 初始化用户定义的主题文件

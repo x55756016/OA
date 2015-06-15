@@ -14,8 +14,8 @@ namespace SMT.SAAS.Platform.Model.Services
     /// </summary>
     public class CommonServices
     {
-        public event EventHandler<GetEntityListEventArgs<Model.UserMenu>> OnGetUserMenuCompleted;
-        public event EventHandler<GetEntityEventArgs<Model.UserLogin>> OnGetUserInfoCompleted;
+        //public event EventHandler<GetEntityListEventArgs<Model.UserMenu>> OnGetUserMenuCompleted;
+        //public event EventHandler<GetEntityEventArgs<Model.UserLogin>> OnGetUserInfoCompleted;
         public event EventHandler OnGetMenuPermissionCompleted;
         public event EventHandler<ExecuteNoQueryEventArgs> OnUpdateUserInfoCompleted;
 
@@ -28,43 +28,22 @@ namespace SMT.SAAS.Platform.Model.Services
         public CommonServices()
         {
             _toolsClient = new Saas.Tools.PermissionWS.PermissionServiceClient();
-            _client.GetSysLeftMenuFilterPermissionToNewFrameCompleted += new System.EventHandler<GetSysLeftMenuFilterPermissionToNewFrameCompletedEventArgs>(_client_GetSysLeftMenuFilterPermissionToNewFrameCompleted);
+            //_client.GetSysLeftMenuFilterPermissionToNewFrameCompleted += new System.EventHandler<GetSysLeftMenuFilterPermissionToNewFrameCompletedEventArgs>(_client_GetSysLeftMenuFilterPermissionToNewFrameCompleted);
             _toolsClient.GetEntityPermissionByUserCompleted += new EventHandler<Saas.Tools.PermissionWS.GetEntityPermissionByUserCompletedEventArgs>(_toolsClient_GetEntityPermissionByUserCompleted);
-            _client.GetUserInfoCompleted += new EventHandler<GetUserInfoCompletedEventArgs>(_client_GetUserInfoCompleted);
             _client.SysUserInfoUpdateCompleted += new EventHandler<SysUserInfoUpdateCompletedEventArgs>(_client_SysUserInfoUpdateCompleted);
             _client.SysUserInfoUpdateByUserIdandUsernameCompleted += new EventHandler<SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs>(_client_SysUserInfoUpdateByUserIdandUsernameCompleted);
             _toolsClient.GetCustomerPermissionByUserIDAndEntityCodeCompleted += new EventHandler<Saas.Tools.PermissionWS.GetCustomerPermissionByUserIDAndEntityCodeCompletedEventArgs>(_toolsClient_GetCustomerPermissionByUserIDAndEntityCodeCompleted);
         }
 
         #region 用户菜单与菜单权限
-        public void GetUserMenu(string sysUserID)
-        {
-            _client.GetSysLeftMenuFilterPermissionToNewFrameAsync(sysUserID);
-        }
+        //public void GetUserMenu(string sysUserID)
+        //{
+        //    _client.GetSysLeftMenuFilterPermissionToNewFrameAsync(sysUserID);
+        //}
 
         public void GetUserMenuPermission(string sysUserID, string menuid)
         {
             _toolsClient.GetEntityPermissionByUserAsync(sysUserID, menuid);
-        }
-
-        void _client_GetSysLeftMenuFilterPermissionToNewFrameCompleted(object sender, GetSysLeftMenuFilterPermissionToNewFrameCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    ObservableCollection<Model.UserMenu> result = new ObservableCollection<UserMenu>();
-                    foreach (var item in e.Result)
-                    {
-                        Model.UserMenu v = item.CloneObject<Model.UserMenu>(new Model.UserMenu());
-                        result.Add(v);
-                    }
-
-                    if (OnGetUserMenuCompleted != null)
-                        OnGetUserMenuCompleted(this, new GetEntityListEventArgs<Model.UserMenu>(result, e.Error));
-                }
-
-            }
         }
 
         void _toolsClient_GetEntityPermissionByUserCompleted(object sender, Saas.Tools.PermissionWS.GetEntityPermissionByUserCompletedEventArgs e)
@@ -204,10 +183,10 @@ namespace SMT.SAAS.Platform.Model.Services
 
         #region 验证用户与修改密码
 
-        public void GetUserInfo(string userName)
-        {
-            _client.GetUserInfoAsync(userName);
-        }
+        //public void GetUserInfo(string userName)
+        //{
+        //    _client.GetUserInfoAsync(userName);
+        //}
 
         public void UpdateUserInfo(string userID, string userName, string userPassword)
         {
@@ -222,25 +201,6 @@ namespace SMT.SAAS.Platform.Model.Services
             _client.SysUserInfoUpdateByUserIdandUsernameAsync(userID, userName, Encrypt(userPassword));
         }
 
-        void _client_GetUserInfoCompleted(object sender, GetUserInfoCompletedEventArgs e)
-        {
-
-            Model.UserLogin userLogin = new UserLogin();
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    userLogin.SysUserID = e.Result.SYSUSERID;
-                    userLogin.EmployeeID = e.Result.EMPLOYEEID;
-                    userLogin.UserName = e.Result.USERNAME;
-                    userLogin.UserPassword = e.Result.PASSWORD;
-                }
-            }
-
-            if (OnGetUserInfoCompleted != null)
-                OnGetUserInfoCompleted(this, new GetEntityEventArgs<Model.UserLogin>(userLogin, e.Error));
-
-        }
         void _client_SysUserInfoUpdateByUserIdandUsernameCompleted(object sender, SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs e)
         {
             bool result = false;

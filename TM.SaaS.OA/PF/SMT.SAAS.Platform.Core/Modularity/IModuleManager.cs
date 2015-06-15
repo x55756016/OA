@@ -11,22 +11,22 @@ namespace SMT.SAAS.Platform.Core.Modularity
         /// <summary>
         /// 当 <see cref="ModuleCatalog"/>的<see cref="InitializationMode"/>为<see cref="InitializationMode.WhenAvailable"/>时初始化模块。
         /// </summary>
-        void Run();
+        //void Run();
 
         /// <summary>
         /// 使用模块名称加载、初始化 <see cref="ModuleCatalog"/>中的模块。
         /// </summary>
         /// <param name="moduleName">请求、实例化模块的名称.</param>
-        void LoadModule(string moduleName);       
+        //void LoadModule(string moduleName);       
 
         /// <summary>
         /// 模块下载中过程中触发的事件。
         /// </summary>
-        event EventHandler<ModuleDownloadProgressChangedEventArgs> ModuleDownloadProgressChanged;
+        //event EventHandler<ModuleDownloadProgressChangedEventArgs> ModuleDownloadProgressChanged;
 
         /// <summary>
         /// 模块加载完成或加载时候时触发的事件。
         /// </summary>
-        event EventHandler<LoadModuleCompletedEventArgs> LoadModuleCompleted;
+        //event EventHandler<LoadModuleCompletedEventArgs> LoadModuleCompleted;
     }
 }

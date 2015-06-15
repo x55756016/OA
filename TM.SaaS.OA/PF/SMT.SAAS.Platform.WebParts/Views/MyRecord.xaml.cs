@@ -410,26 +410,26 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
 
         //管理匿名事件
-        EventHandler<ViewModel.LoadModuleEventArgs> LoadRecordHandler = null;
+        //EventHandler<ViewModel.LoadModuleEventArgs> LoadRecordHandler = null;
         private void CheckeDepends(string moduleName)
         {
-            var module = ViewModel.Context.Managed.Catalog.FirstOrDefault(item => item.ModuleName == moduleName);
-            if (module != null)
-            {
-                ViewModel.Context.Managed.OnSystemLoadModuleCompleted += LoadRecordHandler = (o, e) =>
-                {
-                    ViewModel.Context.Managed.OnSystemLoadModuleCompleted -= LoadRecordHandler;
-                    if (e.Error == null)
-                    {
+            //var module = ViewModel.Context.Managed.Catalog.FirstOrDefault(item => item.ModuleName == moduleName);
+            //if (module != null)
+            //{
+            //    ViewModel.Context.Managed.OnSystemLoadModuleCompleted += LoadRecordHandler = (o, e) =>
+            //    {
+            //        ViewModel.Context.Managed.OnSystemLoadModuleCompleted -= LoadRecordHandler;
+            //        if (e.Error == null)
+            //        {
 
-                        ResolverRecord(_currentXmlObj);
+            //            ResolverRecord(_currentXmlObj);
 
-                    }
-                };
+            //        }
+            //    };
 
-                ViewModel.Context.Managed.LoadModule(moduleName);
+            //    ViewModel.Context.Managed.LoadModule(moduleName);
 
-            }
+            //}
         }
 
 

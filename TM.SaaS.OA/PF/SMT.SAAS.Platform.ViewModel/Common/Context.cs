@@ -3,7 +3,9 @@ using SMT.SAAS.Platform.Model;
 using System.Collections.Generic;
 using SMT.SAAS.Platform.Core.Modularity;
 using System.Collections.ObjectModel;
-using SMT.SAAS.Platform.ViewModel.Menu;
+using SMT.SAAS.Platform.Xamls.LoginPart;
+using SMT.Saas.Tools.PermissionWS;
+using System.Reflection;
 
 // 内容摘要: 上下文环境，存储平台中使用的共享数据。
       
@@ -17,10 +19,6 @@ namespace SMT.SAAS.Platform.ViewModel
     public class Context
     {
 
-        /// <summary>
-        /// 用于标识用户是否登录系统
-        /// </summary>
-        public static bool LoginFlag=false;
 
         /// <summary>
         /// 主容器. 对登录面板、主面板等进行控制显示。
@@ -35,41 +33,27 @@ namespace SMT.SAAS.Platform.ViewModel
         /// <summary>
         /// 托管程序. 对系统中的加载管理以及
         /// </summary>
-        public static Managed Managed;
+        public static ChildSystemManager childSystemManager=new ChildSystemManager();
 
-        /// <summary>
-        /// 暂存，登录用户数据 ，目前为平台级别的共享，将移植到 应用程序共享中。
-        /// </summary>
-        //public static UserLogin LoginUser;
+        ///// <summary>
+        ///// 缓存用户菜单数据。
+        ///// </summary>
+        public static List<V_UserMenuPermission> CacheMenuAll=new List<V_UserMenuPermission>();
 
-        /// <summary>
-        /// 暂存，系统信息，当前登录用户所具备的系统信息。
-        /// </summary>
-        public static Dictionary<string,SMT.SAAS.Platform.Core.Modularity.ModuleInfo> SystemInfo;
 
-        /// <summary>
-        /// 缓存用户菜单数据。
-        /// </summary>
-        public static ObservableCollection<MenuViewModel> CacheMenu;
+        public static Dictionary<string, Assembly> allChildSystemAssembly=new Dictionary<string,Assembly>();
 
-        /// 缓存用户菜单数据。
-        /// </summary>
-        public static ObservableCollection<MenuViewModel> CacheSystemMenu;
+        ///// 缓存用户菜单数据。
+        ///// </summary>
+        public static List<T_SYS_DICTIONARY> CacheSystemType=new List<T_SYS_DICTIONARY>();
 
-        /// 缓存用户菜单数据。
-        /// </summary>
-        public static ObservableCollection<MenuViewModel> CacheAllMenu;
-
-        public static List<string> CacheMenuPermissionList = new List<string>();
+        ///// 缓存用户Permission
+        public static List<string> CacheMenuPermissionList=new List<string>();
 
         public static void Clear()
         {
              
             MainPanel = null;
-            Managed = null;
-            //SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo = null;
-            SystemInfo = null;
-            CacheMenu = null;
             CacheMenuPermissionList = new List<string>();
         }
 

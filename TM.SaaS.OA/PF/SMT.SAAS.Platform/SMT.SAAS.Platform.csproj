@@ -222,14 +222,9 @@
     <Compile Include="Xamls\MainPagePart\WebPartHost.xaml.cs">
       <DependentUpon>WebPartHost.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\ForWeb\MVCCreateNewForm.cs" />
     <Compile Include="Xamls\ParentPanel.xaml.cs">
       <DependentUpon>ParentPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\ForWeb\MVCMainPage.xaml.cs">
-      <DependentUpon>MVCMainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Xamls\ForWeb\MVCLoadModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Properties\DesignTimeResources.xaml" Condition="'$(DesignTime)'=='true' OR ('$(SolutionPath)'!='' AND Exists('$(SolutionPath)') AND '$(BuildingInsideVisualStudio)'!='true' AND '$(BuildingInsideExpressionBlend)'!='true')">
@@ -359,12 +354,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Xamls\ForWeb\MVCMainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -448,7 +437,7 @@
       <Name>SMT.SAAS.Platform.ViewModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.WebParts\SMT.SAAS.Platform.WebParts.csproj">
-      <Project>{A153BABA-D71D-49F0-A78A-B47A4B3F7F83}</Project>
+      <Project>{a153baba-d71d-49f0-a78a-b47a4b3f7f83}</Project>
       <Name>SMT.SAAS.Platform.WebParts</Name>
     </ProjectReference>
   </ItemGroup>
@@ -474,7 +463,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\2rekwb3s.3to\bnimu0sn.lnd\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
-xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\2rekwb3s.3to\bnimu0sn.lnd\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
+    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\15mjkthl.j1v\zogr2emc.rnp\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
+xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\15mjkthl.j1v\zogr2emc.rnp\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
   </PropertyGroup>
 </Project>

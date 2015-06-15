@@ -18,6 +18,7 @@ using SMT.SAAS.Platform.ViewModel.SplashScreen;
 using SMT.SAAS.Main.CurrentContext;
 using SMT.SaaS.LocalData.ViewModel;
 using SMT.SaaS.LocalData.Tables;
+using SMT.Saas.Tools.PermissionWS;
 
 // 内容摘要: 主页面，用于承载主窗口相关元素
 
@@ -30,7 +31,7 @@ namespace SMT.SAAS.Platform.Xamls
     {
         #region 私有成员
         //当前请求的模块信息
-        private ModuleInfo _currentClickModule;
+        private V_UserMenuPermission _currentClickModule;
         //Model层的公共服务
         private CommonServices _services = null;
         //偏移量
@@ -80,7 +81,7 @@ namespace SMT.SAAS.Platform.Xamls
         {
             _services = new CommonServices();
             _services.OnGetMenuPermissionCompleted += new EventHandler(_services_OnGetMenuPermissionCompleted);
-            ViewModel.Context.Managed.OnLoadModuleCompleted += new EventHandler<ViewModel.LoadModuleEventArgs>(Managed_OnLoadModuleCompleted);
+            ViewModel.Context.childSystemManager.OnSystemLoadXapPacketCompleted += new EventHandler<ViewModel.LoadModuleEventArgs>(Managed_OnLoadModuleCompleted);
             vm.InitCompleted += new EventHandler(vm_InitCompleted);
             ayTools.BeginRun();
 
@@ -253,19 +254,19 @@ namespace SMT.SAAS.Platform.Xamls
                     SMT.SAAS.Platform.Xamls.MainPagePart.ShortCutManager customMenus = ShortCutManagers.FirstOrDefault() as SMT.SAAS.Platform.Xamls.MainPagePart.ShortCutManager;
                     if (customMenus != null)
                     {
-                        ViewModel.Menu.MenuViewModel menuvm = (dragShortCut.DataContext as ViewModel.Menu.MenuViewModel);
+                        //ViewModel.Menu.MenuViewModel menuvm = (dragShortCut.DataContext as ViewModel.Menu.MenuViewModel);
 
                         ViewModel.MainPage.ShortCutViewModel vm = new ViewModel.MainPage.ShortCutViewModel()
                         {
-                            AssemplyName = menuvm.Content.ModuleType == null ? "NULL" : menuvm.Content.ModuleType,
-                            FullName = menuvm.Content.ModuleType == null ? "NULL" : menuvm.Content.ModuleType,
-                            Titel = menuvm.MenuName,
-                            IconPath = menuvm.MenuIconPath,
-                            ModuleID = menuvm.MenuID,
-                            ShortCutID = menuvm.MenuID,
-                            IsSysNeed = "0",
-                            ModuleName = menuvm.Content.ModuleName,
-                            UserState = "1"
+                            //AssemplyName = menuvm.Content.ModuleType == null ? "NULL" : menuvm.Content.ModuleType,
+                            //FullName = menuvm.Content.ModuleType == null ? "NULL" : menuvm.Content.ModuleType,
+                            //Titel = menuvm.MenuName,
+                            //IconPath = menuvm.MenuIconPath,
+                            //ModuleID = menuvm.MenuID,
+                            //ShortCutID = menuvm.MenuID,
+                            //IsSysNeed = "0",
+                            //ModuleName = menuvm.Content.ModuleName,
+                            //UserState = "1"
                         };
 
                         customMenus.AddItem(vm);
@@ -334,16 +335,16 @@ namespace SMT.SAAS.Platform.Xamls
 
             else
             {
-                if (ViewModel.Context.Managed != null)
-                {
-                    if (ViewModel.Context.Managed.Catalog != null)
-                    {
-                        if (ViewModel.Context.Managed.Catalog.Count > 0)
-                        {
-                            bIsModuleLoaded = true;
-                        }
-                    }
-                }
+                //if (ViewModel.Context.Managed != null)
+                //{
+                //    if (ViewModel.Context.Managed.Catalog != null)
+                //    {
+                //        if (ViewModel.Context.Managed.Catalog.Count > 0)
+                //        {
+                //            bIsModuleLoaded = true;
+                //        }
+                //    }
+                //}
 
                 if (!bIsModuleLoaded)
                 {
@@ -370,47 +371,47 @@ namespace SMT.SAAS.Platform.Xamls
         /// </summary>
         private void ShowModule()
         {
-            ModuleInfo moduleinfo = ViewModel.Context.Managed.Catalog.FirstOrDefault(m => m.ModuleID == strCurModuleID);
+            V_UserMenuPermission moduleinfo = new V_UserMenuPermission();//ViewModel.Context.Managed.Catalog.FirstOrDefault(m => m.ModuleID == strCurModuleID);
             if (moduleinfo != null)
             {
-                if (moduleinfo.ModuleCode == "GiftApplyMaster" || moduleinfo.ModuleCode == "GiftPlan" || moduleinfo.ModuleCode == "SumGiftPlan")
+                if (moduleinfo.URLADDRESS.ToUpper().Contains("MVC"))
                 {
-                    string strUrl = string.Empty;
-                    try
-                    {
-                        HtmlWindow wd = HtmlPage.Window;
-                        strUrl = moduleinfo.ModuleType.Substring(moduleinfo.ModuleType.IndexOf("[mvc]")).Replace("[mvc]", "");
-                        strUrl = strUrl.Split(',')[0].Replace('.', '/');
-                        if (strUrl.IndexOf('?') > -1)
-                        {
-                            strUrl = strUrl + "&uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                        }
-                        else
-                        {
-                            strUrl = strUrl + "?uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-                        }
-                        string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
-                        strUrl = "http://" + strHost + "/" + strUrl;
-                        Uri uri = new Uri(strUrl);
-                        HtmlPopupWindowOptions options = new HtmlPopupWindowOptions();
-                        options.Directories = false;
-                        options.Location = false;
-                        options.Menubar = false;
-                        options.Status = false;
-                        options.Toolbar = false;
-                        options.Left = 280;
-                        options.Top = 100;
-                        options.Width = 800;
-                        options.Height = 600;
-                        //HtmlPage.PopupWindow(uri, moduleinfo.ModuleCode, options);
-                        //wd.Navigate(uri, "_bank");
-                        string strWindow = System.DateTime.Now.ToString("yyMMddHHmsssfff");
-                        wd.Navigate(uri, strWindow, "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("模块链接异常：" + moduleinfo.ModuleType);
-                    }
+                    //string strUrl = string.Empty;
+                    //try
+                    //{
+                    //    HtmlWindow wd = HtmlPage.Window;
+                    //    strUrl = moduleinfo.ModuleType.Substring(moduleinfo.ModuleType.IndexOf("[mvc]")).Replace("[mvc]", "");
+                    //    strUrl = strUrl.Split(',')[0].Replace('.', '/');
+                    //    if (strUrl.IndexOf('?') > -1)
+                    //    {
+                    //        strUrl = strUrl + "&uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    //    }
+                    //    else
+                    //    {
+                    //        strUrl = strUrl + "?uid=" + SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
+                    //    }
+                    //    string strHost = SMT.SAAS.Main.CurrentContext.Common.HostAddress.ToString().Split('/')[0];
+                    //    strUrl = "http://" + strHost + "/" + strUrl;
+                    //    Uri uri = new Uri(strUrl);
+                    //    HtmlPopupWindowOptions options = new HtmlPopupWindowOptions();
+                    //    options.Directories = false;
+                    //    options.Location = false;
+                    //    options.Menubar = false;
+                    //    options.Status = false;
+                    //    options.Toolbar = false;
+                    //    options.Left = 280;
+                    //    options.Top = 100;
+                    //    options.Width = 800;
+                    //    options.Height = 600;
+                    //    //HtmlPage.PopupWindow(uri, moduleinfo.ModuleCode, options);
+                    //    //wd.Navigate(uri, "_bank");
+                    //    string strWindow = System.DateTime.Now.ToString("yyMMddHHmsssfff");
+                    //    wd.Navigate(uri, strWindow, "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
+                    //}
+                    //catch
+                    //{
+                    //    MessageBox.Show("模块链接异常：" + moduleinfo.ModuleType);
+                    //}
                 }
                 else
                 {
@@ -501,14 +502,14 @@ namespace SMT.SAAS.Platform.Xamls
         private void menu_ShortCutClick(object sender, OnShortCutClickEventArgs e)
         {
             //礼品特殊处理
-            ModuleInfo info = e.Result.Content;
-            if (info.ModuleCode == "GiftApplyMaster" || info.ModuleCode == "GiftPlan" || info.ModuleCode == "SumGiftPlan")
+            V_UserMenuPermission info = e.Result;
+            if (info.URLADDRESS.ToUpper().Contains("MVC") )
             {
                 string strUrl = string.Empty;
                 try
                 {
                     HtmlWindow wd = HtmlPage.Window;
-                    strUrl = info.ModuleType.Substring(info.ModuleType.IndexOf("[mvc]")).Replace("[mvc]", "");
+                    strUrl = info.URLADDRESS.Substring(info.URLADDRESS.IndexOf("[mvc]")).Replace("[mvc]", "");
                     strUrl = strUrl.Split(',')[0].Replace('.', '/');
                     if (strUrl.IndexOf('?') > -1)
                     {
@@ -540,7 +541,7 @@ namespace SMT.SAAS.Platform.Xamls
                 }
                 catch
                 {
-                    MessageBox.Show("模块链接异常：" + info.ModuleType);
+                    MessageBox.Show("模块链接异常：" + info.MENUNAME);
                 }
             }
             else
@@ -553,14 +554,12 @@ namespace SMT.SAAS.Platform.Xamls
 
                 dragShortCut.Visibility = System.Windows.Visibility.Collapsed;
                 MainPage.isDrag = false;
-
-
                 //1. 检测菜单权限
-                CheckPermission(e.Result.Content);
+                CheckPermission(e.Result);
             }
         }
 
-        private void CheckPermission(ModuleInfo module)
+        private void CheckPermission(V_UserMenuPermission module)
         {
             _currentClickModule = module;
 
@@ -576,20 +575,20 @@ namespace SMT.SAAS.Platform.Xamls
         {
             if (V_UserPermUILocalVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID) == false)
             {
-                _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ModuleID);
+                _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
             }
             else
             {
                 //权限检查发现有变更时，权限需要重新从服务器获取
                 if (SMT.SAAS.Main.CurrentContext.AppContext.IsPermUpdate)
                 {
-                    _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ModuleID);
+                    _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
                     return;
                 }
 
-                if (V_UserPermUILocalVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, _currentClickModule.ModuleID) == false)
+                if (V_UserPermUILocalVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, _currentClickModule.ENTITYMENUID) == false)
                 {
-                    _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ModuleID);
+                    _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
                     return;
                 }
 
@@ -699,12 +698,12 @@ namespace SMT.SAAS.Platform.Xamls
                 }
             }
 
-            if (ViewModel.Context.CacheMenuPermissionList.Contains(_currentClickModule.ModuleID) == false)
+            if (ViewModel.Context.CacheMenuPermissionList.Contains(_currentClickModule.ENTITYMENUID) == false)
             {
-                ViewModel.Context.CacheMenuPermissionList.Add(_currentClickModule.ModuleID);
+                ViewModel.Context.CacheMenuPermissionList.Add(_currentClickModule.ENTITYMENUID);
             }
 
-            GetModuleContent(_currentClickModule.ModuleName, _currentClickModule.Description);
+            GetModuleContent(_currentClickModule.MENUCODE, _currentClickModule.MENUNAME);
         }
 
         /// <summary>
@@ -714,7 +713,7 @@ namespace SMT.SAAS.Platform.Xamls
         {
             try
             {
-                ViewModel.Context.Managed.LoadModule(ModuleName);
+                ViewModel.Context.childSystemManager.LoadChildSystemModule(ModuleName);
             }
             catch (Exception ex)
             {
@@ -755,14 +754,14 @@ namespace SMT.SAAS.Platform.Xamls
                         WebPartHost.Visibility = Visibility.Collapsed;
                         WebPartHost.Stop();
 
-                        WorkHost.Navigation(content, e.ModuleInfo.Description);
+                        WorkHost.Navigation(content, e.ModuleInfo.MENUNAME);
                         Common.AppContext.IsMenuOpen = _fromMenu;
                     }
                 }
             }
             else
             {
-                string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.Description);
+                string message = string.Format("打开模块'{0}'失败,请联系管理员！", e.ModuleInfo.MENUNAME);
                 AppContext.SystemMessage(message);
                 AppContext.ShowSystemMessageText();
                 MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);

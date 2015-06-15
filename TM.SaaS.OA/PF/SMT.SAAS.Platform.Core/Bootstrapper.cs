@@ -29,9 +29,9 @@ namespace SMT.SAAS.Platform.Core
         /// <value>
         /// 目录实例。<see cref="IModuleCatalog"/>
         /// </value>
-        protected IModuleCatalog ModuleCatalog { get; set; }
+        //protected IModuleCatalog ModuleCatalog { get; set; }
 
-        protected IModuleInitializer ModuleInitializer { get; set; }
+        //protected IModuleInitializer ModuleInitializer { get; set; }
 
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace SMT.SAAS.Platform.Core
         ///  <remarks>
         /// 返回一个<see cref="ModuleCatalog" />的默认新实例
         /// </remarks>
-        protected virtual IModuleCatalog CreateModuleCatalog()
-        {
-            return new ModuleCatalog();
-        }
+        //protected virtual IModuleCatalog CreateModuleCatalog()
+        //{
+        //    return new ModuleCatalog();
+        //}
 
         /// <summary>
         /// 配置系统模块目录，对目录数据进行初始化。
@@ -85,10 +85,10 @@ namespace SMT.SAAS.Platform.Core
         /// </summary>
         protected virtual void InitializeModules()
         {
-            IModuleManager manager=null;
+            //IModuleManager manager=null;
             //通过依赖注入容器返回一个实例
             //IModuleManager manager = ServiceLocator.Current.GetInstance<IModuleManager>();
-             manager.Run();
+            // manager.Run();
         }
 
         /// <summary>

@@ -26,16 +26,16 @@ namespace SMT.SAAS.Platform.WebParts
         /// </summary>
         private void Run()
         {
-            if (ViewModel.Context.Managed != null)
-            {
-                if (ViewModel.Context.Managed.Catalog != null)
-                {
-                    if (ViewModel.Context.Managed.Catalog.Count > 0)
-                    {
-                        bIsLoaded = true;
-                    }
-                }
-            }
+            //if (ViewModel.Context.Managed != null)
+            //{
+            //    if (ViewModel.Context.Managed.Catalog != null)
+            //    {
+            //        if (ViewModel.Context.Managed.Catalog.Count > 0)
+            //        {
+            //            bIsLoaded = true;
+            //        }
+            //    }
+            //}
 
             if (Application.Current.Resources["SYS_PostInfo"] == null)
             {

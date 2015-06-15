@@ -70,6 +70,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientBin\ChildSystem\ChildSystemVersion.xml" />
     <Content Include="ClientBin\Images\back-9.png" />
     <Content Include="ClientBin\Images\cp_ico.jpg" />
     <Content Include="ClientBin\Images\db.png" />
