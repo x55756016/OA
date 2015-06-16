@@ -30,25 +30,74 @@ namespace SMT.SAAS.Platform.ViewModel
         /// </summary>
         public static IMainPanel MainPanel;
 
+
+        private static ChildSystemManager childsystemM;
         /// <summary>
         /// 托管程序. 对系统中的加载管理以及
         /// </summary>
-        public static ChildSystemManager childSystemManager=new ChildSystemManager();
+        public static ChildSystemManager childSystemManager
+        {
+            get
+            {
+                if (childsystemM == null)
+                {
+                    childsystemM = new ChildSystemManager();
+                }
+                return childsystemM;
+            }
+        }
 
+        private static List<V_UserMenuPermission> MenuAll;
         ///// <summary>
         ///// 缓存用户菜单数据。
         ///// </summary>
-        public static List<V_UserMenuPermission> CacheMenuAll=new List<V_UserMenuPermission>();
+        public static List<V_UserMenuPermission> CacheMenuAll{
+            get
+            {
+                if (MenuAll == null)
+                {
+                    MenuAll = new List<V_UserMenuPermission>();
+                }
+                return MenuAll;
+            }
+            set
+            {
+                MenuAll = value;
+            }
+        }
 
+        private static Dictionary<string, Assembly> allChildAssembly;
+        public static Dictionary<string, Assembly> allChildSystemAssembly {
+            get
+            {
+                if (allChildAssembly == null)
+                {
+                    allChildAssembly = new  Dictionary<string,Assembly>();
+                }
+                return allChildAssembly;
+            }
+        }
 
-        public static Dictionary<string, Assembly> allChildSystemAssembly=new Dictionary<string,Assembly>();
-
+        private static List<T_SYS_DICTIONARY> CacheSystem;
         ///// 缓存用户菜单数据。
         ///// </summary>
-        public static List<T_SYS_DICTIONARY> CacheSystemType=new List<T_SYS_DICTIONARY>();
+        public static List<T_SYS_DICTIONARY> CacheSystemType {
+            get
+            {
+                if (CacheSystem == null)
+                {
+                    CacheSystem = new  List<T_SYS_DICTIONARY>();
+                }
+                return CacheSystem;
+            }
+            set
+            {
+                CacheSystem = value;
+            }
+        }
 
         ///// 缓存用户Permission
-        public static List<string> CacheMenuPermissionList=new List<string>();
+        public static List<string> CacheMenuPermissionList { get; set; }
 
         public static void Clear()
         {

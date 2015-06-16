@@ -400,14 +400,21 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 asmPart = new AssemblyPart();
                                 asmPart.Source = DllSourceName;
                                 streamInfo = Application.GetResourceStream(new StreamResourceInfo(XapfileStream, "application/binary"), new Uri(DllSourceName, UriKind.Relative));
-
-                                if (DllSourceName == "SMT.SAAS.Platform.dll")
+                                if (XapName.ToUpper().Contains("XAP") && !XapName.ToUpper().Contains("SMT.SAAS.PLATFORM"))
                                 {
                                     asmMain = asmPart.Load(streamInfo.Stream);
                                 }
                                 else
                                 {
-                                    var a = asmPart.Load(streamInfo.Stream);
+
+                                    if (DllSourceName == "SMT.SAAS.Platform.dll")
+                                    {
+                                        asmMain = asmPart.Load(streamInfo.Stream);
+                                    }
+                                    else
+                                    {
+                                        var a = asmPart.Load(streamInfo.Stream);
+                                    }
                                 }
                                 streamInfo.Stream.Close();
                             }
