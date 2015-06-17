@@ -10,7 +10,8 @@ using System.Collections;
 using System.Linq.Dynamic;
 using SMT.Foundation.Log;
 using SMT.HRM.CustomModel;
-using SMT.HRM.IMServices.IMServiceWS;//即时通讯服务
+using SMT.HRM.IMServices.IMServiceWS;
+using TM.SaaS.CommonBll;//即时通讯服务
 namespace SMT.HRM.BLL
 {
     public class CompanyBLL : BaseBll<T_HR_COMPANY>, ILookupEntity, IOperate

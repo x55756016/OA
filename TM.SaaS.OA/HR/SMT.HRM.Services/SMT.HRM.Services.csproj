@@ -101,7 +101,12 @@
   <ItemGroup>
     <Content Include="AttendanceService.svc" />
     <Content Include="BllCommonPermissionServices.svc" />
-    <Content Include="clientaccesspolicy.xml" />
+    <Content Include="clientaccesspolicy.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="crossdomain.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="CurrentContextPermision.svc" />
     <Content Include="EngineService.svc" />
     <Content Include="FileDownload.aspx" />

@@ -142,7 +142,6 @@
     </Compile>
     <Compile Include="BaseBll.cs" />
     <Compile Include="BlackListBLL.cs" />
-    <Compile Include="CacheManager.cs" />
     <Compile Include="CheckPointLevelSetBLL.cs" />
     <Compile Include="CheckPointSetBLL.cs" />
     <Compile Include="CheckProjectSetBLL.cs" />
@@ -309,9 +308,6 @@
       <Project>{113E2BE3-0473-4BE2-A065-293A73391331}</Project>
       <Name>SMT.HRM.IMServices</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -7,6 +7,7 @@ using SMT.HRM.DAL.Permission;
 using TM_SaaS_OA_EFModel;
 using SMT.Foundation.Log;
 using SMT.HRM.BLL;
+using TM.SaaS.CommonBll;
 
 namespace SMT.HRM.BLL.Permission
 {

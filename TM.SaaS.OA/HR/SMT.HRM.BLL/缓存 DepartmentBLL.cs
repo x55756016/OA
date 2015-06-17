@@ -16,6 +16,7 @@ using TM_SaaS_OA_EFModel;
 using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Linq.Dynamic;
+using TM.SaaS.CommonBll;
 
 namespace SMT.HRM.BLL
 {

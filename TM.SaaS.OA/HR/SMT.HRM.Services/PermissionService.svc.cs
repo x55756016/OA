@@ -44,7 +44,6 @@ namespace SMT.SaaS.Permission.Services
         {
             List<T_SYS_ENTITYMENU> menuList;
             string keyString = "GetSysLeftMenu" + sysType + userID;
-            //GetSysLeftMenuFilterPermissionToNewFrame(userID);
             if (WCFCache.Current[keyString] == null)
             {
                 using (SysEntityMenuBLL bll = new SysEntityMenuBLL())
@@ -91,48 +90,10 @@ namespace SMT.SaaS.Permission.Services
         [OperationContract]
         public List<V_UserMenuPermission> GetSysLeftMenuFilterPermissionToNewFrame(string userID)
         {
-            //using (SysUserBLL bll = new SysUserBLL())
-            //{
-            //    List<V_BllCommonUserPermission> plist;
-            //    string menuCode = "T_HR_COMPANY";
-            //    userID = "f89fb1ce-460f-4f53-8c45-04d8b5d45aca";
-            //    string keyString = "BllCommonUserMenuPermsstring" + menuCode + userID;
-            //    string Companykey = "BllOwnerCompanyIDs" + menuCode + userID;
-            //    string Departmentkey = "BllOwnerDepartmentIDs" + menuCode + userID;
-            //    string Positionkey = "BllOwnerPositionIDs" + menuCode + userID;
-            //    string OwnerCompanyIDs = "";
-            //    string OwnerDepartmentIDs = "";
-            //    string OwnerPositionIDs = "";
-            //    //if (WCFCache.Current[keyString] == null)
-            //    //{
-
-            //        IQueryable<V_BllCommonUserPermission> IQlist = bll.GetUserMenuPermsByUserPermisionBllCommon(menuCode, userID, ref OwnerCompanyIDs, ref OwnerDepartmentIDs, ref OwnerPositionIDs);
-            //        //if(IQlist != null)
-            //        plist = IQlist != null ? IQlist.ToList() : null;
-            //        WCFCache.Current.Insert(keyString, plist, DateTime.Now.AddMinutes(1));
-            //        WCFCache.Current.Insert(Companykey, OwnerCompanyIDs, DateTime.Now.AddMinutes(1));
-            //        WCFCache.Current.Insert(Departmentkey, OwnerDepartmentIDs, DateTime.Now.AddMinutes(1));
-            //        WCFCache.Current.Insert(Positionkey, OwnerPositionIDs, DateTime.Now.AddMinutes(1));
-
-
-            //    //}
-            //    //else
-            //    //{
-            //    //    plist = (List<V_BllCommonUserPermission>)WCFCache.Current[keyString];
-            //    //    OwnerCompanyIDs = (string)WCFCache.Current[Companykey];
-            //    //    OwnerDepartmentIDs = (string)WCFCache.Current[Departmentkey];
-            //    //    OwnerPositionIDs = (string)WCFCache.Current[Positionkey];
-
-            //    //}
-
-            //    return null;
-            //}
 
             using (SysEntityMenuBLL bll = new SysEntityMenuBLL())
             {
-
                 List<V_UserMenuPermission> menuList =  bll.GetSysLeftMenuFilterPermissionToNewFrame(userID);
-
                 return menuList != null ? menuList.ToList() : null;
             }
 

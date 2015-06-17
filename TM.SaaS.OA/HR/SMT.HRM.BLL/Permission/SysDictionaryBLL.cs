@@ -21,6 +21,7 @@ using SMT.Foundation.Log;
 using System.Data;
 using SMT.HRM.BLL;
 using SMT.HRM.CustomModel.Permission;
+using TM.SaaS.CommonBll;
 
 namespace SMT.HRM.BLL.Permission
 {

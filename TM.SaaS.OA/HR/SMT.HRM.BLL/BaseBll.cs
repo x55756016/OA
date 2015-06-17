@@ -17,6 +17,7 @@ using SMT.HRM.CustomModel;
 using SMT.SaaS.MobileXml;
 using SMT.HRM.BLL.Permission;
 using BLLCommonServices = SMT.SaaS.BLLCommonServices;
+using TM.SaaS.CommonBll;
 
 namespace SMT.HRM.BLL
 {

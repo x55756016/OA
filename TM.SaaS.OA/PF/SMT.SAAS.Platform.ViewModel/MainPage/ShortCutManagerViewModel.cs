@@ -42,7 +42,7 @@ namespace SMT.SAAS.Platform.ViewModel.MainPage
             _services.OnRemoveShortCutCompleted += new EventHandler<Model.ExecuteNoQueryEventArgs>(_services_OnRemoveShortCutCompleted);
             
             if(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo==null) return;
-            _services.GetShortCutByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
+            _services.GetNewsPublishMenuByUser(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID);
            
         }
 

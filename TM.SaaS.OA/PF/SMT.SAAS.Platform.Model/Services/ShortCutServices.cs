@@ -66,8 +66,8 @@ namespace SMT.SAAS.Platform.Model.Services
                         ModuleID = "SystemLog"
                     });
 
-                    if (CommonServices.HasNewsPublish)
-                    {
+                    //if (CommonServices.HasNewsPublish)
+                    //{
                         result.Add(new ShortCut
                         {
                             IconPath = "/SMT.SaaS.FrameworkUI;Component/Images/icon/News.png",
@@ -79,7 +79,7 @@ namespace SMT.SAAS.Platform.Model.Services
                             UserState = "1",
                             ModuleID = "NewsManager"
                         });
-                    }
+                    //}
 
 
                     foreach (var item in e.Result)
@@ -101,7 +101,7 @@ namespace SMT.SAAS.Platform.Model.Services
             }
         }
 
-        public void GetShortCutByUser(string userid)
+        public void GetNewsPublishMenuByUser(string userid)
         {
 
             commonSv.GetCustomPermission(userid, "NEWSPUBLISH");
