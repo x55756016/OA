@@ -14,6 +14,7 @@ using System.Threading;
 using SMT.HRM.CustomModel.Common;
 using SMT.HRM.CustomModel.Response;
 using SMT.HRM.CustomModel.Request;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
@@ -516,7 +517,12 @@ namespace SMT.HRM.BLL
         public static StringBuilder GetEmployeeLeaveRecordBody(List<V_EmpLeaveRdInfo> Collects)
         {
             StringBuilder s = new StringBuilder();
-            var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "CHECKSTATE" });
+            List<T_SYS_DICTIONARY> tmp=new List<T_SYS_DICTIONARY>();//= new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "CHECKSTATE" });
+            using (SysDictionaryBLL bll = new SysDictionaryBLL())
+            {
+                tmp = bll.GetSysDictionaryByCategory(new List<string>{ "CHECKSTATE" });
+            }
+            
             string checkStateName = string.Empty;
             s.Append("<body>\n\r");
             s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
@@ -4005,8 +4011,11 @@ namespace SMT.HRM.BLL
                 = sysDicbll.GetSysDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
             checkState = checkStateDict == null ? "" : checkStateDict;
 
-            SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST employee
-                = SMT.SaaS.BLLCommonServices.Utility.GetEmployeeOrgByid(Info.EMPLOYEEID);
+            V_EMPLOYEEPOST employee = new V_EMPLOYEEPOST();
+            using (EmployeeBLL bll = new EmployeeBLL())
+            {
+                employee = bll.GetEmployeeDetailByID(Info.EMPLOYEEID);
+            }
             decimal? postlevelValue = Convert.ToDecimal(employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString());
             string postLevelName = string.Empty;
             string postLevelDict

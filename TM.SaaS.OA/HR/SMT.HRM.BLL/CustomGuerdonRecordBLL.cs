@@ -19,7 +19,7 @@ namespace SMT.HRM.BLL
         protected int nsize = 2;
         protected bool IsComputer = false;
         protected string[] construe = new string[9];
-        protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
+        //protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
         /// <summary>
         /// 根据自定义薪资记录ID查询实体
         /// </summary>

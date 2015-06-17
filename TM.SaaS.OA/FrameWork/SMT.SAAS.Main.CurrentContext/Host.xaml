@@ -5,24 +5,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="768" d:DesignWidth="1024"
-    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows">
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1"/>
             <RowDefinition Height="auto"></RowDefinition>
             <!--<RowDefinition Height="*" MinHeight="100"></RowDefinition>-->
             
         </Grid.RowDefinitions>
         <Grid x:Name="Root" Grid.Row="0"></Grid>
-        <StackPanel x:Name="systemMessageArea"  Grid.Row="1">
+        <controlsToolkit:WrapPanel x:Name="systemMessageArea"  Grid.Row="2">
             <Grid>
-                <Button Content="点击隐藏系统信息栏" Width="120" Margin="0,0,200,0" Click="Button_Click"></Button>
-                <Button Content="点击显示系统信息栏" Width="120" Margin="100,0,0,0" Click="Button_Click_1"></Button>
-                <Button Content="检查系统文件工具" Width="120" Margin="400,0,0,0"  Click="Button_Click_2"></Button>
+                <Button Content="点击隐藏系统信息栏" Width="120" Margin="0,0,200,0" Click="Button_HideLog"></Button>
+                <Button Content="点击显示系统信息栏" Width="120" Margin="100,0,0,0" Click="Button_ShowLog"></Button>
+                <Button Content="清空系统信息" Width="120" Margin="400,0,0,0"  Click="Button_Clear"></Button>
             </Grid>
             <TextBox x:Name="txtSystemMessage"  Text="" VerticalScrollBarVisibility = "Auto"
              Visibility="Visible"        TextWrapping="Wrap" AcceptsReturn ="True"></TextBox>
-        </StackPanel>
+        </controlsToolkit:WrapPanel>
+        <controls:GridSplitter x:Name="logSplitter" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </UserControl>

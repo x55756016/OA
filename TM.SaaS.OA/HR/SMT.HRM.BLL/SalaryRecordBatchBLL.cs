@@ -1354,15 +1354,15 @@ namespace SMT.HRM.BLL
                         SMT.Foundation.Log.Tracer.Debug(strMsg);
                         return;
                     }
-                    using (SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient clientFB = new SaaS.BLLCommonServices.FBServiceWS.FBServiceClient())
-                    {
-                        string strAssignOwnerID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignOwner"];
-                        clientFB.CreatePersonMoneyAssignInfo(strCompanyID, strAssignOwnerID, CreateUserid);
-                        strMsg = "生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单成功"
-                            + " strAssignOwnerID:" + strAssignOwnerID
-                            + " CreateUserid:" + CreateUserid;
-                        SMT.Foundation.Log.Tracer.Debug(strMsg);
-                    }
+                    //using (SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient clientFB = new SaaS.BLLCommonServices.FBServiceWS.FBServiceClient())
+                    //{
+                    //    string strAssignOwnerID = System.Configuration.ConfigurationManager.AppSettings["PersonMoneyAssignOwner"];
+                    //    clientFB.CreatePersonMoneyAssignInfo(strCompanyID, strAssignOwnerID, CreateUserid);
+                    //    strMsg = "生成下拨公司(公司ID:" + strCompanyID + ")的活动经费下拨单成功"
+                    //        + " strAssignOwnerID:" + strAssignOwnerID
+                    //        + " CreateUserid:" + CreateUserid;
+                    //    SMT.Foundation.Log.Tracer.Debug(strMsg);
+                    //}
                 }
             }
             catch (Exception ex)

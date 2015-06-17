@@ -2366,22 +2366,7 @@ namespace SMT.SaaS.Permission.Services
         {
             using (SysUserRoleBLL bll = new SysUserRoleBLL())
             {
-                #region 
-                List<T_SYS_USERROLE> userRoleList;
-                string keyString = "GetSysUserRoleByUser" + UserID;
-                if (WCFCache.Current[keyString] == null)
-                {
-                    IQueryable<T_SYS_USERROLE> IQList = bll.GetSysUserRoleByUser(UserID);
-                    userRoleList = IQList == null ? null : IQList.ToList();
-                    //WCFCache.Current.Insert(keyString, userRoleList, DateTime.Now.AddMinutes(15));
-                    WCFCache.Current.Insert(keyString, userRoleList, DateTime.Now.AddSeconds(5));
-
-                }
-                else
-                {
-                    userRoleList = (List<T_SYS_USERROLE>)WCFCache.Current[keyString];
-                }
-                #endregion
+                List<T_SYS_USERROLE> userRoleList = bll.GetSysUserRoleByUser(UserID).ToList();
                 return userRoleList;
             }
         }
@@ -2573,26 +2558,8 @@ namespace SMT.SaaS.Permission.Services
 
             using (SysUserBLL bll = new SysUserBLL())
             {
-                #region 
-                T_SYS_USER plist;
-                string keyString = "GetUserByEmployeeID" + employeeID;
-                if (WCFCache.Current[keyString] == null)
-                {
-
-
-                    plist = bll.GetUserByEmployeeID(employeeID);
-                    WCFCache.Current.Insert(keyString, plist, DateTime.Now.AddMinutes(15));
-
-
-                }
-                else
-                {
-                    plist = (T_SYS_USER)WCFCache.Current[keyString];
-
-                }
-                #endregion
-
-                return plist;
+                T_SYS_USER user = bll.GetUserByEmployeeID(employeeID);
+                return user;
             }
         }
 
@@ -3096,12 +3063,6 @@ namespace SMT.SaaS.Permission.Services
             Tracer.Debug("修改了用户信息" + obj.USERNAME + obj.EMPLOYEENAME);
             using (SysUserBLL UserBll = new SysUserBLL())
             {
-                string keyString = "GetUserByEmployeeID" + obj.EMPLOYEEID;
-                WCFCache.Current[keyString] = null;
-                //清空即时通讯的缓存
-                string InstantkeyString = "ImInstantLoginUsers";
-                WCFCache.Current[InstantkeyString] = null;
-                //Tracer.Debug("修改了用户信息"+obj.USERNAME + obj.EMPLOYEENAME);
                 return UserBll.UpdateSysUserInfoForEmployeeLeftOffice(obj, StrOwnerCompanyid, StrPostid, IsMain);
             }
         }

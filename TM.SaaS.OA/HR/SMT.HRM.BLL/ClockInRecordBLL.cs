@@ -19,10 +19,10 @@ using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Data.OleDb;
 using System.Data;
-using SMT.SaaS.BLLCommonServices.PermissionWS;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using SMT.Foundation.Log;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
@@ -1178,12 +1178,15 @@ namespace SMT.HRM.BLL
 
         private void ImportClockInRdListByLoginData(List<T_HR_EMPLOYEE> entEmployees, DateTime dtStart, DateTime dtEnd, ref string strMsg)
         {
-            SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient PermClient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+            //SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient PermClient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
             foreach (T_HR_EMPLOYEE item in entEmployees)
             {
                 string employeeid = item.EMPLOYEEID;
-                SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USERLOGINRECORD[] entLoginRds = PermClient.GetUserLoginRecordByEmployeeIDAndDate(employeeid, dtStart, dtEnd);
-
+                List<T_SYS_USERLOGINRECORD> entLoginRds = new List<T_SYS_USERLOGINRECORD>();// PermClient.GetUserLoginRecordByEmployeeIDAndDate(employeeid, dtStart, dtEnd);
+                using (SysUserLoginRecordBll UserLoginBll = new SysUserLoginRecordBll())
+                {
+                    entLoginRds = UserLoginBll.GetUserLoginRecordByDate(employeeid, dtStart, dtEnd).ToList();
+                }
                 if (entLoginRds == null)
                 {
                     continue;
@@ -1194,7 +1197,7 @@ namespace SMT.HRM.BLL
                     continue;
                 }
 
-                foreach (SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USERLOGINRECORD entLoginRd in entLoginRds)
+                foreach (T_SYS_USERLOGINRECORD entLoginRd in entLoginRds)
                 {
                     T_HR_EMPLOYEECLOCKINRECORD entTemp = new T_HR_EMPLOYEECLOCKINRECORD();
                     entTemp.CLOCKINRECORDID = System.Guid.NewGuid().ToString().ToUpper();

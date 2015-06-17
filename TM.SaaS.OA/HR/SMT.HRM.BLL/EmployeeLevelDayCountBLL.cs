@@ -27,6 +27,7 @@ using SMT.HRM.CustomModel.Request;
 
 using SMT.SaaS.Services;
 using SMT.SaaS.Services.Model;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
@@ -1321,7 +1322,13 @@ namespace SMT.HRM.BLL
         private string GetEmployeeLeaveDayCountBody(List<T_HR_EMPLOYEELEVELDAYCOUNT> Collects)
         {
             StringBuilder s = new StringBuilder();
-            var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "LEAVETYPEVALUE" });
+            List<T_SYS_DICTIONARY> tmp = new List<T_SYS_DICTIONARY>();// new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "LEAVETYPEVALUE" });
+            using (SysDictionaryBLL bll = new SysDictionaryBLL())
+            {
+                tmp = bll.GetSysDictionaryByCategory(new List<string> { "LEAVETYPEVALUE" });
+            }
+            
+            
             s.Append("<body>\n\r");
             s.Append("<table border=1 cellspacing=0 CELLPADDING=3 width=100% align=center>");
             s.Append("<tr>");
@@ -1662,7 +1669,7 @@ namespace SMT.HRM.BLL
             {
                 DateTime dtCur = DateTime.Parse(DateTime.Now.ToString("yyyy-MM") + "-1");
                 string strCheckStates = Convert.ToInt32(CheckStates.Approved).ToString();
-                string strAssignObjectType = Convert.ToInt32(AssignObjectType.Company).ToString();
+                string strAssignObjectType = Convert.ToInt32(SMT.HRM.DAL.AssignObjectType.Company).ToString();
 
                 var ents = from n in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
                            where n.ASSIGNEDOBJECTTYPE == strAssignObjectType && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur
@@ -1703,7 +1710,7 @@ namespace SMT.HRM.BLL
             {
                 DateTime dtCur = DateTime.Parse(DateTime.Now.ToString("yyyy-MM") + "-1");
                 string strCheckStates = Convert.ToInt32(CheckStates.Approved).ToString();
-                string strAssignObjectType = Convert.ToInt32(AssignObjectType.Company).ToString();
+                string strAssignObjectType = Convert.ToInt32(SMT.HRM.DAL.AssignObjectType.Company).ToString();
 
                 var ents = from n in dal.GetObjects<T_HR_ATTENDANCESOLUTIONASIGN>().Include("T_HR_ATTENDANCESOLUTION")
                            where n.ASSIGNEDOBJECTTYPE == strAssignObjectType && n.CHECKSTATE == strCheckStates && n.ENDDATE > dtCur

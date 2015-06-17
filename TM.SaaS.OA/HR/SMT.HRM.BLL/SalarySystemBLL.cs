@@ -24,7 +24,7 @@ namespace SMT.HRM.BLL
             try
             {
                 dal.Add(obj);
-                BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSYSTEM>(obj);
+                SMT.SaaS.BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSYSTEM>(obj);
             }
             catch (Exception ex)
             {

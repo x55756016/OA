@@ -11,7 +11,6 @@ using System.Linq.Expressions;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using System.Data;
-using SMT.SaaS.BLLCommonServices;
 using System.Data.Objects;
 using System.Collections.ObjectModel;
 using SMT.HRM.IMServices.IMServiceWS;
@@ -20,6 +19,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using SMT.Foundation.Log;
 using SMT.HRM.BLL.Common;
+using SMT.HRM.BLL.Permission;
 
 
 
@@ -3893,10 +3893,15 @@ namespace SMT.HRM.BLL
             {
                 try
                 {
-                    var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "EMPLOYEESTATE", "TOPEDUCATION", "NATION", "SEX", "MARRIAGE" });
+                    List<T_SYS_DICTIONARY> tmp = new List<T_SYS_DICTIONARY>();//new PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] );
+                    using (SysDictionaryBLL bll = new SysDictionaryBLL())
+                    {
+                        List<T_SYS_DICTIONARY> dictlist = bll.GetSysDictionaryByCategory(new List<string>{ "EMPLOYEESTATE", "TOPEDUCATION", "NATION", "SEX", "MARRIAGE" });
+                    }
+                    
                     DataRow row = dt.NewRow();
                     decimal dicValue = -1;
-                    SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY tempDic = null;
+                    T_SYS_DICTIONARY tempDic = null;
                     #region 每行数据
                     for (int i = 0; i < dt.Columns.Count; i++)
                     {
@@ -4242,41 +4247,41 @@ namespace SMT.HRM.BLL
 
         public string GetEmailNameIsExistNameAddOne(string userName,string employeeId)
         {
-            SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient client =
-                new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+            //SMT.PermissionServiceClient client =
+            //    new PermissionServiceClient();
             
 
             string StrReturn = "";
-            try
-            {
-                bool hasReption = true;
-                int i = 1;
-                while (hasReption)
-                {
-                    var q = from ent in dal.GetTable()
-                            where ent.EMAIL == userName + "@sinomaster.com" && ent.EMPLOYEEID != employeeId
-                            select ent;
+            //try
+            //{
+            //    bool hasReption = true;
+            //    int i = 1;
+            //    while (hasReption)
+            //    {
+            //        var q = from ent in dal.GetTable()
+            //                where ent.EMAIL == userName + "@sinomaster.com" && ent.EMPLOYEEID != employeeId
+            //                select ent;
 
-                    string refUserName = client.GetUserNameIsExistNameAddOne(userName, employeeId);
+            //        string refUserName = client.GetUserNameIsExistNameAddOne(userName, employeeId);
 
-                    if (q.Count() <= 0 && refUserName == userName)
-                    {
-                        hasReption = false;
-                        StrReturn = userName;
-                    }
-                    else
-                    {
-                        StrReturn = userName + i.ToString();
-                        userName = StrReturn;
-                    }
-                    i = i + 1;
-                }
-            }
-            catch (Exception ex)
-            {
-                Tracer.Debug("GetEmailNameIsExistNameAddOne" + System.DateTime.Now.ToString() + " " + ex.ToString());
+            //        if (q.Count() <= 0 && refUserName == userName)
+            //        {
+            //            hasReption = false;
+            //            StrReturn = userName;
+            //        }
+            //        else
+            //        {
+            //            StrReturn = userName + i.ToString();
+            //            userName = StrReturn;
+            //        }
+            //        i = i + 1;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Tracer.Debug("GetEmailNameIsExistNameAddOne" + System.DateTime.Now.ToString() + " " + ex.ToString());
 
-            }
+            //}
             return StrReturn;
         }
 
@@ -6584,8 +6589,12 @@ namespace SMT.HRM.BLL
                     colName.Add("员工状态");
                     colName.Add("异动类型");
 
-                    var tmp = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "EMPLOYEESTATE", "TOPEDUCATION", "NATION" });
-
+                    //var tmp = new PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "EMPLOYEESTATE", "TOPEDUCATION", "NATION" });
+                    List<T_SYS_DICTIONARY> tmp = new List<T_SYS_DICTIONARY>();// new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "LEAVETYPEVALUE" });
+                    using (SysDictionaryBLL bll = new SysDictionaryBLL())
+                    {
+                        tmp = bll.GetSysDictionaryByCategory(new List<string> { "EMPLOYEESTATE", "TOPEDUCATION", "NATION" });
+                    }
                     //Dictionary<string, string> nations = new Dictionary<string, string>();
                     //nations.Add("0", "汉族");
                     //nations.Add("1", "苗族");
@@ -6622,9 +6631,9 @@ namespace SMT.HRM.BLL
                         decimal nationValue;
                         decimal employeeStateValue;
                         decimal educateValue;
-                        SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY nationDict = null;
-                        SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY employeeStateDict = null;
-                        SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY educateDict = null;
+                        T_SYS_DICTIONARY nationDict = null;
+                        T_SYS_DICTIONARY employeeStateDict = null;
+                        T_SYS_DICTIONARY educateDict = null;
                         if (decimal.TryParse(employeeinfo.Nation, out nationValue))
                         {
                             nationDict = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == nationValue).FirstOrDefault();

@@ -16,7 +16,6 @@ using System.Data.Metadata.Edm;
 using System.Data.Mapping;
 using System.Configuration;
 using System.Runtime.InteropServices;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using System.Linq.Dynamic;
 using SMT.HRM.DAL;
 using SMT.Foundation.Log;
@@ -521,174 +520,174 @@ namespace SMT.HRM.BLL
         /// <returns>保存结果</returns>
         public static string SaveTriggerData<T>(T oldObject, T newObject) where T : class
         {
-            Type etype = oldObject.GetType();
-            PropertyInfo[] infos = etype.GetProperties();
+            //Type etype = oldObject.GetType();
+            //PropertyInfo[] infos = etype.GetProperties();
 
-            EntityObject oldEnt = oldObject as EntityObject;
-            EntityObject newEnt = newObject as EntityObject;
+            //EntityObject oldEnt = oldObject as EntityObject;
+            //EntityObject newEnt = newObject as EntityObject;
 
-            XmlDocument xd = new XmlDocument();//表示XML文档
-            XmlDeclaration xde;//表示 XML 声明节点：<?xml version='1.0'...?>
-            xde = xd.CreateXmlDeclaration("1.0", null, null);
-            xde.Encoding = "gb2312";
-            xde.Standalone = "yes";
-            xd.AppendChild(xde);//<?xml version="1.0" encoding="UTF-8" standalone="yes"?>生成结束
+            //XmlDocument xd = new XmlDocument();//表示XML文档
+            //XmlDeclaration xde;//表示 XML 声明节点：<?xml version='1.0'...?>
+            //xde = xd.CreateXmlDeclaration("1.0", null, null);
+            //xde.Encoding = "gb2312";
+            //xde.Standalone = "yes";
+            //xd.AppendChild(xde);//<?xml version="1.0" encoding="UTF-8" standalone="yes"?>生成结束
 
-            XmlElement xe = xd.CreateElement("table");//创建一个table根元素
-            xd.AppendChild(xe);//table根元素创建完成
+            //XmlElement xe = xd.CreateElement("table");//创建一个table根元素
+            //xd.AppendChild(xe);//table根元素创建完成
 
-            //查找<table>
-            XmlNode table = xd.SelectSingleNode("table");
+            ////查找<table>
+            //XmlNode table = xd.SelectSingleNode("table");
 
-            //在<table>之下创建元素<ApplicationSystem>
-            XmlElement ApplicationSystem = xd.CreateElement("ApplicationSystem");
-            //人事系统
-            ApplicationSystem.AppendChild(xd.CreateTextNode("0"));
-            table.AppendChild(ApplicationSystem);
-
-
-            //在<table>之下创建元素<CompanyCode>
-            XmlElement CompanyCode = xd.CreateElement("CompanyCode");
-            PropertyInfo corpProp = infos.SingleOrDefault(p => p.Name == "UPDATEDEPARTMENTID");
-            if (corpProp != null)
-            {
-                object corp = corpProp.GetValue(newObject, null);
-                CompanyCode.AppendChild(xd.CreateTextNode(corp == null ? "" : corp.ToString()));
-                table.AppendChild(CompanyCode);
-            }
-
-            //在<table>之下创建元素<OperationUser>
-            XmlElement OperationUser = xd.CreateElement("OperationUser");
-            //获取修改人的信息
-            PropertyInfo userProp = infos.SingleOrDefault(p => p.Name == "UPDATEUSERID");
-            if (userProp != null)
-            {
-                object user = userProp.GetValue(newObject, null);
-                OperationUser.AppendChild(xd.CreateTextNode(user == null ? "" : user.ToString()));
-                table.AppendChild(CompanyCode);
-            }
-
-            //在<table>之下创建元素<TableName>
-            XmlElement TableName = xd.CreateElement("TableName");
-            TableName.AppendChild(xd.CreateTextNode(oldObject.GetType().Name));
-            table.AppendChild(TableName);
+            ////在<table>之下创建元素<ApplicationSystem>
+            //XmlElement ApplicationSystem = xd.CreateElement("ApplicationSystem");
+            ////人事系统
+            //ApplicationSystem.AppendChild(xd.CreateTextNode("0"));
+            //table.AppendChild(ApplicationSystem);
 
 
-            if (oldEnt == null || newEnt == null)
-            {
-                return "";
-            }
+            ////在<table>之下创建元素<CompanyCode>
+            //XmlElement CompanyCode = xd.CreateElement("CompanyCode");
+            //PropertyInfo corpProp = infos.SingleOrDefault(p => p.Name == "UPDATEDEPARTMENTID");
+            //if (corpProp != null)
+            //{
+            //    object corp = corpProp.GetValue(newObject, null);
+            //    CompanyCode.AppendChild(xd.CreateTextNode(corp == null ? "" : corp.ToString()));
+            //    table.AppendChild(CompanyCode);
+            //}
 
-            //添加<TableKey>
-            XmlElement TableKey = xd.CreateElement("TableKey");
-            table.AppendChild(TableKey);
+            ////在<table>之下创建元素<OperationUser>
+            //XmlElement OperationUser = xd.CreateElement("OperationUser");
+            ////获取修改人的信息
+            //PropertyInfo userProp = infos.SingleOrDefault(p => p.Name == "UPDATEUSERID");
+            //if (userProp != null)
+            //{
+            //    object user = userProp.GetValue(newObject, null);
+            //    OperationUser.AppendChild(xd.CreateTextNode(user == null ? "" : user.ToString()));
+            //    table.AppendChild(CompanyCode);
+            //}
 
-            if (oldEnt != null && oldEnt.EntityKey != null && oldEnt.EntityKey.EntityKeyValues != null && oldEnt.EntityKey.EntityKeyValues.Count() > 0)
-            {
-
-                foreach (var key in oldEnt.EntityKey.EntityKeyValues)
-                {
-                    //TableKeyName
-                    XmlElement TableKeyName = xd.CreateElement("TableKeyName");
-                    TableKeyName.AppendChild(xd.CreateTextNode(key.Key));
-                    TableKey.AppendChild(TableKeyName);
-
-                    XmlElement TableKeyValue = xd.CreateElement("TableKeyValue");
-                    TableKeyValue.AppendChild(xd.CreateTextNode((key.Value == null) ? "" : key.Value.ToString()));
-                    TableKey.AppendChild(TableKeyValue);
-                }
-
-            }
-
-            //添加<FieldString>	            
-            foreach (PropertyInfo prop in infos)
-            {
-                if (prop.PropertyType.BaseType == typeof(EntityReference)
-                    || prop.PropertyType.BaseType == typeof(RelatedEnd)
-                    || prop.PropertyType == typeof(System.Data.EntityState)
-                    || prop.PropertyType == typeof(System.Data.EntityKey)
-                    )
-                    continue;
+            ////在<table>之下创建元素<TableName>
+            //XmlElement TableName = xd.CreateElement("TableName");
+            //TableName.AppendChild(xd.CreateTextNode(oldObject.GetType().Name));
+            //table.AppendChild(TableName);
 
 
-                //关键字段跳过
-                if (oldEnt != null && oldEnt.EntityKey != null && oldEnt.EntityKey.EntityKeyValues != null && oldEnt.EntityKey.EntityKeyValues.Count() > 0)
-                {
-                    bool isKeyField = false;
-                    foreach (var key in oldEnt.EntityKey.EntityKeyValues)
-                    {
-                        if (key.Key == prop.Name)
-                        {
-                            isKeyField = true;
-                            break;
-                        }
-                    }
-                    if (isKeyField)
-                        continue;
-                }
+            //if (oldEnt == null || newEnt == null)
+            //{
+            //    return "";
+            //}
+
+            ////添加<TableKey>
+            //XmlElement TableKey = xd.CreateElement("TableKey");
+            //table.AppendChild(TableKey);
+
+            //if (oldEnt != null && oldEnt.EntityKey != null && oldEnt.EntityKey.EntityKeyValues != null && oldEnt.EntityKey.EntityKeyValues.Count() > 0)
+            //{
+
+            //    foreach (var key in oldEnt.EntityKey.EntityKeyValues)
+            //    {
+            //        //TableKeyName
+            //        XmlElement TableKeyName = xd.CreateElement("TableKeyName");
+            //        TableKeyName.AppendChild(xd.CreateTextNode(key.Key));
+            //        TableKey.AppendChild(TableKeyName);
+
+            //        XmlElement TableKeyValue = xd.CreateElement("TableKeyValue");
+            //        TableKeyValue.AppendChild(xd.CreateTextNode((key.Value == null) ? "" : key.Value.ToString()));
+            //        TableKey.AppendChild(TableKeyValue);
+            //    }
+
+            //}
+
+            ////添加<FieldString>	            
+            //foreach (PropertyInfo prop in infos)
+            //{
+            //    if (prop.PropertyType.BaseType == typeof(EntityReference)
+            //        || prop.PropertyType.BaseType == typeof(RelatedEnd)
+            //        || prop.PropertyType == typeof(System.Data.EntityState)
+            //        || prop.PropertyType == typeof(System.Data.EntityKey)
+            //        )
+            //        continue;
 
 
-                //生成外键的
-                if (prop.PropertyType.BaseType == typeof(System.Data.Objects.DataClasses.EntityObject))
-                {
-                    PropertyInfo refProp = infos.SingleOrDefault(p => p.Name == (prop.Name + "Reference"));
+            //    //关键字段跳过
+            //    if (oldEnt != null && oldEnt.EntityKey != null && oldEnt.EntityKey.EntityKeyValues != null && oldEnt.EntityKey.EntityKeyValues.Count() > 0)
+            //    {
+            //        bool isKeyField = false;
+            //        foreach (var key in oldEnt.EntityKey.EntityKeyValues)
+            //        {
+            //            if (key.Key == prop.Name)
+            //            {
+            //                isKeyField = true;
+            //                break;
+            //            }
+            //        }
+            //        if (isKeyField)
+            //            continue;
+            //    }
 
-                    EntityReference reference = refProp.GetValue(oldEnt, null) as EntityReference;
 
-                    if (!reference.IsLoaded)
-                        reference.Load();
+            //    //生成外键的
+            //    if (prop.PropertyType.BaseType == typeof(System.Data.Objects.DataClasses.EntityObject))
+            //    {
+            //        PropertyInfo refProp = infos.SingleOrDefault(p => p.Name == (prop.Name + "Reference"));
 
-                    EntityObject oldEntRef = prop.GetValue(oldEnt, null) as EntityObject;
-                    EntityObject newEntRef = prop.GetValue(newEnt, null) as EntityObject;
+            //        EntityReference reference = refProp.GetValue(oldEnt, null) as EntityReference;
 
-                    foreach (var key in oldEntRef.EntityKey.EntityKeyValues)
-                    {
-                        //在<table>之下创建元素<FieldString>
-                        XmlElement FieldString = xd.CreateElement("FieldString");
-                        table.AppendChild(FieldString);
+            //        if (!reference.IsLoaded)
+            //            reference.Load();
 
-                        XmlElement FieldName = xd.CreateElement("FieldName");
-                        FieldName.AppendChild(xd.CreateTextNode(key.Key));
-                        FieldString.AppendChild(FieldName);
+            //        EntityObject oldEntRef = prop.GetValue(oldEnt, null) as EntityObject;
+            //        EntityObject newEntRef = prop.GetValue(newEnt, null) as EntityObject;
 
-                        XmlElement Field_Old_Value = xd.CreateElement("Field_Old_Value");
-                        Field_Old_Value.AppendChild(xd.CreateTextNode((key.Value == null) ? "" : key.Value.ToString()));
-                        FieldString.AppendChild(Field_Old_Value);
+            //        foreach (var key in oldEntRef.EntityKey.EntityKeyValues)
+            //        {
+            //            //在<table>之下创建元素<FieldString>
+            //            XmlElement FieldString = xd.CreateElement("FieldString");
+            //            table.AppendChild(FieldString);
 
-                        XmlElement Field_New_Value = xd.CreateElement("Field_New_Value");
+            //            XmlElement FieldName = xd.CreateElement("FieldName");
+            //            FieldName.AppendChild(xd.CreateTextNode(key.Key));
+            //            FieldString.AppendChild(FieldName);
 
-                        PropertyInfo[] refinfos = prop.PropertyType.GetProperties();
-                        PropertyInfo refEntProp = refinfos.SingleOrDefault(p => p.Name == key.Key);
-                        object refEntPropValue = refEntProp.GetValue(newEntRef, null);
+            //            XmlElement Field_Old_Value = xd.CreateElement("Field_Old_Value");
+            //            Field_Old_Value.AppendChild(xd.CreateTextNode((key.Value == null) ? "" : key.Value.ToString()));
+            //            FieldString.AppendChild(Field_Old_Value);
 
-                        Field_New_Value.AppendChild(xd.CreateTextNode((refEntPropValue == null) ? "" : refEntPropValue.ToString()));
-                        FieldString.AppendChild(Field_New_Value);
-                    }
-                }
-                else
-                {
-                    //prop.Name
-                    //在<table>之下创建元素<FieldString>
-                    XmlElement FieldString = xd.CreateElement("FieldString");
-                    table.AppendChild(FieldString);
+            //            XmlElement Field_New_Value = xd.CreateElement("Field_New_Value");
 
-                    XmlElement FieldName = xd.CreateElement("FieldName");
-                    FieldName.AppendChild(xd.CreateTextNode(prop.Name));
-                    FieldString.AppendChild(FieldName);
+            //            PropertyInfo[] refinfos = prop.PropertyType.GetProperties();
+            //            PropertyInfo refEntProp = refinfos.SingleOrDefault(p => p.Name == key.Key);
+            //            object refEntPropValue = refEntProp.GetValue(newEntRef, null);
 
-                    XmlElement Field_Old_value = xd.CreateElement("Field_Old_Value");
-                    object oldvalue = prop.GetValue(oldEnt, null);
-                    Field_Old_value.AppendChild(xd.CreateTextNode((oldvalue == null) ? "" : oldvalue.ToString()));
-                    FieldString.AppendChild(Field_Old_value);
+            //            Field_New_Value.AppendChild(xd.CreateTextNode((refEntPropValue == null) ? "" : refEntPropValue.ToString()));
+            //            FieldString.AppendChild(Field_New_Value);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //prop.Name
+            //        //在<table>之下创建元素<FieldString>
+            //        XmlElement FieldString = xd.CreateElement("FieldString");
+            //        table.AppendChild(FieldString);
 
-                    XmlElement Field_New_value = xd.CreateElement("Field_New_Value");
-                    object newvalue = prop.GetValue(newEnt, null);
-                    Field_New_value.AppendChild(xd.CreateTextNode((newvalue == null) ? "" : newvalue.ToString()));
-                    FieldString.AppendChild(Field_New_value);
-                }
-            }
+            //        XmlElement FieldName = xd.CreateElement("FieldName");
+            //        FieldName.AppendChild(xd.CreateTextNode(prop.Name));
+            //        FieldString.AppendChild(FieldName);
 
-            EngineWS.EngineWcfGlobalFunctionClient engClient = new EngineWS.EngineWcfGlobalFunctionClient();
+            //        XmlElement Field_Old_value = xd.CreateElement("Field_Old_Value");
+            //        object oldvalue = prop.GetValue(oldEnt, null);
+            //        Field_Old_value.AppendChild(xd.CreateTextNode((oldvalue == null) ? "" : oldvalue.ToString()));
+            //        FieldString.AppendChild(Field_Old_value);
+
+            //        XmlElement Field_New_value = xd.CreateElement("Field_New_Value");
+            //        object newvalue = prop.GetValue(newEnt, null);
+            //        Field_New_value.AppendChild(xd.CreateTextNode((newvalue == null) ? "" : newvalue.ToString()));
+            //        FieldString.AppendChild(Field_New_value);
+            //    }
+            //}
+
+            //EngineWS.EngineWcfGlobalFunctionClient engClient = new EngineWS.EngineWcfGlobalFunctionClient();
             string rslt = string.Empty;// engClient.SaveTriggerData(xd.OuterXml);
 
             return rslt;
@@ -700,60 +699,60 @@ namespace SMT.HRM.BLL
         /// <param name="paras"></param>
         public static void SendEngineEventTriggerData(IList<object> paras)
         {
-            StringBuilder strRes = new StringBuilder();
-            EngineWS.T_WF_TIMINGTRIGGERACTIVITY trigger = new EngineWS.T_WF_TIMINGTRIGGERACTIVITY();
-            trigger.TRIGGERID = System.Guid.NewGuid().ToString();
-            trigger.COMPANYID = paras[0].ToString();
-            trigger.SYSTEMCODE = paras[1].ToString();
-            trigger.MODELCODE = paras[2].ToString();
-            trigger.BUSINESSID = paras[3].ToString();
-            trigger.TRIGGERACTIVITYTYPE = 2;
-            if (paras[4].ToString().IndexOf(':') < 0)
-                trigger.TRIGGERTIME = Convert.ToDateTime(paras[4].ToString() + " 8:00:00");
-            else
-                trigger.TRIGGERTIME = Convert.ToDateTime(paras[4].ToString());
-            trigger.TRIGGERROUND = 0;
-            trigger.MESSAGEBODY = paras[8].ToString();
-            trigger.WCFURL = "EngineTriggerService.svc";
-            trigger.FUNCTIONNAME = paras[11].ToString();
-            trigger.FUNCTIONPARAMTER = paras[12].ToString();
-            trigger.PAMETERSPLITCHAR = paras[13].ToString();
-            trigger.WCFBINDINGCONTRACT = "customBinding";
-            trigger.TRIGGERSTATUS = 0;
-            trigger.TRIGGERDESCRIPTION = "EventTrigger";
-            trigger.TRIGGERTYPE = "user";
+            //StringBuilder strRes = new StringBuilder();
+            //EngineWS.T_WF_TIMINGTRIGGERACTIVITY trigger = new EngineWS.T_WF_TIMINGTRIGGERACTIVITY();
+            //trigger.TRIGGERID = System.Guid.NewGuid().ToString();
+            //trigger.COMPANYID = paras[0].ToString();
+            //trigger.SYSTEMCODE = paras[1].ToString();
+            //trigger.MODELCODE = paras[2].ToString();
+            //trigger.BUSINESSID = paras[3].ToString();
+            //trigger.TRIGGERACTIVITYTYPE = 2;
+            //if (paras[4].ToString().IndexOf(':') < 0)
+            //    trigger.TRIGGERTIME = Convert.ToDateTime(paras[4].ToString() + " 8:00:00");
+            //else
+            //    trigger.TRIGGERTIME = Convert.ToDateTime(paras[4].ToString());
+            //trigger.TRIGGERROUND = 0;
+            //trigger.MESSAGEBODY = paras[8].ToString();
+            //trigger.WCFURL = "EngineTriggerService.svc";
+            //trigger.FUNCTIONNAME = paras[11].ToString();
+            //trigger.FUNCTIONPARAMTER = paras[12].ToString();
+            //trigger.PAMETERSPLITCHAR = paras[13].ToString();
+            //trigger.WCFBINDINGCONTRACT = "customBinding";
+            //trigger.TRIGGERSTATUS = 0;
+            //trigger.TRIGGERDESCRIPTION = "EventTrigger";
+            //trigger.TRIGGERTYPE = "user";
             
 
-            //strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
-            //strRes.Append("<System>");
-            //strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
-            //strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
-            //strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
-            //strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
-            ////strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            //if(paras[4].ToString().IndexOf(':')<0)
-            //    strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
-            //else
-            //    strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
-            ////strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
-            //strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
-            //strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
-            //strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
-            //strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
-            //strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
-            //strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
-            //strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
-            //strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
-            //strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
-            //strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
-            //strRes.Append("</System>");
+            ////strRes.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?>");
+            ////strRes.Append("<System>");
+            ////strRes.Append("<CompanyCode>" + paras[0].ToString() + "</CompanyCode>");
+            ////strRes.Append("<SystemCode>" + paras[1].ToString() + "</SystemCode>");
+            ////strRes.Append("<ModelCode>" + paras[2].ToString() + "</ModelCode>");
+            ////strRes.Append("<ApplicationOrderCode>" + paras[3].ToString() + "</ApplicationOrderCode>");
+            //////strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            ////if(paras[4].ToString().IndexOf(':')<0)
+            ////    strRes.Append("<TaskStartDate>" + paras[4].ToString()+" 8:00:00" + "</TaskStartDate>");
+            ////else
+            ////    strRes.Append("<TaskStartDate>" + paras[4].ToString() + "</TaskStartDate>");
+            //////strRes.Append("<TaskStartDate>" + Convert.ToDateTime("2012/12/6 16:40:26").ToString() + "</TaskStartDate>");
+            ////strRes.Append("<TaskStartTime>" + paras[5].ToString() + "</TaskStartTime>");
+            ////strRes.Append("<ProcessCycle>" + paras[6].ToString() + "</ProcessCycle>");
+            ////strRes.Append("<ReceiveUser>" + paras[7].ToString() + "</ReceiveUser>");
+            ////strRes.Append("<MessageBody>" + paras[8].ToString() + "</MessageBody>");
+            ////strRes.Append("<MsgLinkUrl>" + paras[9].ToString() + "</MsgLinkUrl>");
+            ////strRes.Append("<ProcessWcfUrl>" + "EngineTriggerService.svc" + "</ProcessWcfUrl>");
+            ////strRes.Append("<WcfFuncName>" + paras[11].ToString() + "</WcfFuncName>");
+            ////strRes.Append("<WcfFuncParamter>" + paras[12].ToString() + "</WcfFuncParamter>");
+            ////strRes.Append("<WcfParamSplitChar>" + paras[13].ToString() + "</WcfParamSplitChar>");
+            ////strRes.Append("<WcfBinding>" + paras[14].ToString() + "</WcfBinding>");
+            ////strRes.Append("</System>");
 
-            //return strRes.ToString();
-            SMT.Foundation.Log.Tracer.Debug("发出提醒定时触发数据:\r\n"+strRes.ToString());
-            EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
-            //EngineClient.SaveEventData(strRes.ToString());
-            EngineClient.WFAddTimingTrigger(trigger);
+            ////return strRes.ToString();
+            //SMT.Foundation.Log.Tracer.Debug("发出提醒定时触发数据:\r\n"+strRes.ToString());
+            //EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
+            ////EngineClient.SaveEventData(strRes.ToString());
             //EngineClient.WFAddTimingTrigger(trigger);
+            ////EngineClient.WFAddTimingTrigger(trigger);
         }
 
         /// <summary>
@@ -765,9 +764,9 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.Foundation.Log.Tracer.Debug("业务模块: " + entityName + " 主键ID: " + businessID + " 调用流程删除定时触发方法");
-                EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
-                EngineClient.DeleteTrigger(businessID);//没有返回值，就不判断了
+                //SMT.Foundation.Log.Tracer.Debug("业务模块: " + entityName + " 主键ID: " + businessID + " 调用流程删除定时触发方法");
+                //EngineWS.EngineWcfGlobalFunctionClient EngineClient = new EngineWS.EngineWcfGlobalFunctionClient();
+                //EngineClient.DeleteTrigger(businessID);//没有返回值，就不判断了
             }
             catch (Exception ex)
             {
@@ -927,8 +926,8 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                EngineWS.EngineWcfGlobalFunctionClient clientEngine = new EngineWS.EngineWcfGlobalFunctionClient();
-                clientEngine.ModelMsgClose(strModelCode, strEmployeeId);
+                //EngineWS.EngineWcfGlobalFunctionClient clientEngine = new EngineWS.EngineWcfGlobalFunctionClient();
+                //clientEngine.ModelMsgClose(strModelCode, strEmployeeId);
             }
             catch (Exception ex)
             {

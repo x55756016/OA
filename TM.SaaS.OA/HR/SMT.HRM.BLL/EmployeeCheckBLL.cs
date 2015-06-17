@@ -6,7 +6,6 @@ using System.Text;
 using SMT.HRM.DAL;
 using TM_SaaS_OA_EFModel;
 using System.Linq.Dynamic;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 namespace SMT.HRM.BLL
 {
     public class EmployeeCheckBLL : BaseBll<T_HR_EMPLOYEECHECK>, IOperate
@@ -203,34 +202,34 @@ namespace SMT.HRM.BLL
         /// <param name="employeeCheck"></param>
         public void EmployeeCheckAlarm(T_HR_EMPLOYEECHECK employeeCheck)
         {
-            try
-            {
-                SMT.Foundation.Log.Tracer.Debug("调用转正提醒:EmployeeCheckBLL类EmployeeCheckAlarm方法");
-                string submitName = "";
-                var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
-                           where a.EMPLOYEEID == employeeCheck.OWNERID
-                           select a;
-                string userId = employeeCheck.CREATEUSERID;
-                SalaryLoginBLL salaryBll = new SalaryLoginBLL();
-                var systemSetting = salaryBll.GetSystemSettingByCompanyId(employeeCheck.OWNERCOMPANYID);
-                if (systemSetting != null)
-                {
-                    userId = systemSetting.OWNERID;
-                }
-                EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-                EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-                userMsg.FormID = employeeCheck.BEREGULARID;
-                userMsg.UserID = userId;
-                EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-                List[0] = userMsg;
-                if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
-                Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Msg);
-                Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Task);
-            }
-            catch (Exception ex)
-            {
-                SMT.Foundation.Log.Tracer.Debug("调用EmployeeCheckBLL类EmployeeCheckAlarm方法错误：" + ex.Message);
-            }
+            //try
+            //{
+            //    SMT.Foundation.Log.Tracer.Debug("调用转正提醒:EmployeeCheckBLL类EmployeeCheckAlarm方法");
+            //    string submitName = "";
+            //    var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
+            //               where a.EMPLOYEEID == employeeCheck.OWNERID
+            //               select a;
+            //    string userId = employeeCheck.CREATEUSERID;
+            //    SalaryLoginBLL salaryBll = new SalaryLoginBLL();
+            //    var systemSetting = salaryBll.GetSystemSettingByCompanyId(employeeCheck.OWNERCOMPANYID);
+            //    if (systemSetting != null)
+            //    {
+            //        userId = systemSetting.OWNERID;
+            //    }
+            //    EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+            //    EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+            //    userMsg.FormID = employeeCheck.BEREGULARID;
+            //    userMsg.UserID = userId;
+            //    EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+            //    List[0] = userMsg;
+            //    if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
+            //    Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Msg);
+            //    Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECHECK", Utility.ObjListToXml(employeeCheck, "HR", submitName), EngineWS.MsgType.Task);
+            //}
+            //catch (Exception ex)
+            //{
+            //    SMT.Foundation.Log.Tracer.Debug("调用EmployeeCheckBLL类EmployeeCheckAlarm方法错误：" + ex.Message);
+            //}
 
         }
         /// <summary>

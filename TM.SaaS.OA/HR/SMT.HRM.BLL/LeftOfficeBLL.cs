@@ -8,7 +8,6 @@ using TM_SaaS_OA_EFModel;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 using SMT.HRM.IMServices.IMServiceWS;
-using SMT.SaaS.BLLCommonServices.PermissionWS;
 using SMT.HRM.BLL.Permission;
 namespace SMT.HRM.BLL
 {
@@ -365,10 +364,13 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+                //SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
                 string employeeId = entity.T_HR_EMPLOYEE.EMPLOYEEID;
-                var t_sys_user = perclient.GetUserByEmployeeID(employeeId);
-
+                T_SYS_USER sysuser = new T_SYS_USER();//perclient.GetUserByEmployeeID(employeeId);
+                using (SysUserBLL bll = new SysUserBLL())
+                {
+                    sysuser = bll.GetUserByEmployeeID(employeeId);
+                }
                 var tmp = from c in dal.GetObjects()
                           where c.T_HR_EMPLOYEE.EMPLOYEEID == entity.T_HR_EMPLOYEE.EMPLOYEEID && (c.CHECKSTATE == "0" || c.CHECKSTATE == "1")
                           && c.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID == entity.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID && c.DIMISSIONID != entity.DIMISSIONID
@@ -463,7 +465,12 @@ namespace SMT.HRM.BLL
                             sb.Append("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
                             sb.Append("<Root>");
                             //查出用户的所有角色
-                            var roleUserList = perclient.GetSysUserRoleByUser(t_sys_user.SYSUSERID).ToList();
+                            List<T_SYS_USERROLE> roleUserList = new List<T_SYS_USERROLE>(); //perclient.GetSysUserRoleByUser(sysuser.SYSUSERID).ToList();
+                            using (SysUserRoleBLL bll = new SysUserRoleBLL())
+                            {
+                                roleUserList = bll.GetSysUserRoleByUser(sysuser.SYSUSERID).ToList();
+                            }
+
                             if (roleUserList != null && roleUserList.Any())
                             {
                                 bool hasRole = false;
@@ -472,7 +479,12 @@ namespace SMT.HRM.BLL
                                 {
                                     //查出改用户所在的角色，还有没有其它用户，如果没有则调流程
                                     string roleId = roleUser.T_SYS_ROLE.ROLEID;
-                                    var roleUserIncludeSource = perclient.GetSysUserByRoleToEmployeeLeave(roleId);
+                                    List<T_SYS_USER> roleUserIncludeSource = new List<T_SYS_USER>();// perclient.GetSysUserByRoleToEmployeeLeave(roleId);
+
+                                    using (SysUserRoleBLL bll = new SysUserRoleBLL())
+                                    {
+                                        roleUserIncludeSource = bll.GetSysUserByRole(roleId).ToList();
+                                    }
                                     if (roleUserIncludeSource == null)
                                     {
                                         hasRole = true;
@@ -514,7 +526,11 @@ namespace SMT.HRM.BLL
                                     sb.Append(" <User UserID=\"" + entity.T_HR_EMPLOYEE.EMPLOYEEID + "\" UserName=\"" + entity.T_HR_EMPLOYEE.EMPLOYEECNAME + "\" CompanyID=\"" + entity.T_HR_EMPLOYEE.OWNERCOMPANYID + "\" CompanyName=\"" + companyName + "\" DeparmentID=\"" + entity.T_HR_EMPLOYEE.OWNERDEPARTMENTID + "\" DeparmentName=\"" + deptName + "\" PostID=\"" + entity.T_HR_EMPLOYEE.OWNERPOSTID + "\" PostName=\"" + postName + "\" />");
 
                                     bool hasManagerEmail = false;
-                                    var flowManagers = perclient.GetFlowManagers(new string[] { entity.T_HR_EMPLOYEE.OWNERCOMPANYID });
+                                    List<T_SYS_USER> flowManagers; //perclient.GetFlowManagers(new string[] { entity.T_HR_EMPLOYEE.OWNERCOMPANYID });
+                                    using (SysPermissionBLL bll = new SysPermissionBLL())
+                                    {
+                                      flowManagers = bll.GetFlowManagers(new List<string> { entity.T_HR_EMPLOYEE.OWNERCOMPANYID });
+                                    }
                                     if (flowManagers != null)
                                     {
                                         sb.Append("<Admins>");
@@ -539,9 +555,9 @@ namespace SMT.HRM.BLL
                                     sb.Append("</Root>");
                                     if (hasManagerEmail)
                                     {
-                                        SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "调用CheckFlowByRole:" + sb.ToString());
-                                        SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
-                                        outClient.CheckFlowByRole(sb.ToString());
+                                        //SMT.Foundation.Log.Tracer.Debug(System.DateTime.Now.ToString() + "调用CheckFlowByRole:" + sb.ToString());
+                                        //SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
+                                        //outClient.CheckFlowByRole(sb.ToString());
                                     }
                                     else
                                     {

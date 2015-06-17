@@ -61,9 +61,92 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="FLOW_CONSULTATION_T" nillable="true" type="tns:FLOW_CONSULTATION_T" />
-  <xs:complexType name="FLOW_FLOWRECORDMASTER_T">
+  <xs:complexType name="FLOW_FLOWDEFINE_T">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWDEFINEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_MODELFLOWRELATION_T" nillable="true" type="tns:ArrayOfFLOW_MODELFLOWRELATION_T" />
+          <xs:element minOccurs="0" name="LAYOUT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RULES" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="XOML" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_FLOWDEFINE_T" nillable="true" type="tns:FLOW_FLOWDEFINE_T" />
+  <xs:complexType name="ArrayOfFLOW_MODELFLOWRELATION_T">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_MODELFLOWRELATION_T" nillable="true" type="tns:FLOW_MODELFLOWRELATION_T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFLOW_MODELFLOWRELATION_T" nillable="true" type="tns:ArrayOfFLOW_MODELFLOWRELATION_T" />
+  <xs:complexType name="FLOW_MODELFLOWRELATION_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLAG" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_FLOWDEFINE_T" nillable="true" type="tns:FLOW_FLOWDEFINE_T" />
+          <xs:element minOccurs="0" name="FLOW_FLOWDEFINE_TReference" nillable="true" type="q4:EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK" />
+          <xs:element minOccurs="0" name="FLOW_MODELDEFINE_T" nillable="true" type="tns:FLOW_MODELDEFINE_T" />
+          <xs:element minOccurs="0" name="FLOW_MODELDEFINE_TReference" nillable="true" type="q4:EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK" />
+          <xs:element minOccurs="0" name="MODELFLOWRELATIONID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELFLOWRELATION_T" nillable="true" type="tns:FLOW_MODELFLOWRELATION_T" />
+  <xs:complexType name="FLOW_MODELDEFINE_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FLOW_MODELFLOWRELATION_T" nillable="true" type="tns:ArrayOfFLOW_MODELFLOWRELATION_T" />
+          <xs:element minOccurs="0" name="MODELCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MODELDEFINEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARENTMODELCODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SYSTEMCODE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FLOW_MODELDEFINE_T" nillable="true" type="tns:FLOW_MODELDEFINE_T" />
+  <xs:complexType name="FLOW_FLOWRECORDMASTER_T">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
         <xs:sequence>
           <xs:element minOccurs="0" name="ACTIVEROLE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="BUSINESSOBJECT" nillable="true" type="xs:string" />

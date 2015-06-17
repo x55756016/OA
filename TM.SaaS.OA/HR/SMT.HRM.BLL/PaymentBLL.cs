@@ -14,8 +14,6 @@ using System.IO;
 using System.Data;
 using System.Data.OleDb;
 using SMT.HRM.BLL.Common;
-using System.Text;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.Foundation.Log;
 using System.Threading;
 namespace SMT.HRM.BLL
@@ -23,7 +21,7 @@ namespace SMT.HRM.BLL
     public class PaymentBLL : BaseBll<V_PAYMENT>
     {
         private BaseBll<T_HR_EMPLOYEESALARYRECORD> dall = new BaseBll<T_HR_EMPLOYEESALARYRECORD>();
-        protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
+        //protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
         /// <summary>
         /// 更新薪资发放实体
         /// </summary>
@@ -164,62 +162,62 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-                //foreach (T_HR_EMPLOYEESALARYRECORD employeesalary in employeesalaryList)
+                //EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+                ////foreach (T_HR_EMPLOYEESALARYRECORD employeesalary in employeesalaryList)
+                ////{
+                ////    string submitName = string.Empty;
+                ////    EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+                ////    EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+                ////    userMsg.FormID = Guid.NewGuid().ToString();
+                ////    userMsg.UserID = employeesalary.EMPLOYEEID;
+                ////    List[0] = userMsg;
+                ////    Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESALARYRECORD", Utility.ObjListToXml(employeesalary, "HR", submitName),
+                ////        EngineWS.MsgType.Msg);
+                ////    Utility.SaveLog("向员工" + employeesalary.EMPLOYEENAME + "发送薪资发放确认提醒的消息及邮件成功！");
+                ////}
+                //List<EngineWS.CustomUserMsg> listUserMsg = new List<EngineWS.CustomUserMsg>();
+                //foreach (var item in employeesalaryList)
                 //{
-                //    string submitName = string.Empty;
-                //    EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
                 //    EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-                //    userMsg.FormID = Guid.NewGuid().ToString();
-                //    userMsg.UserID = employeesalary.EMPLOYEEID;
-                //    List[0] = userMsg;
-                //    Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESALARYRECORD", Utility.ObjListToXml(employeesalary, "HR", submitName),
-                //        EngineWS.MsgType.Msg);
-                //    Utility.SaveLog("向员工" + employeesalary.EMPLOYEENAME + "发送薪资发放确认提醒的消息及邮件成功！");
+                //    userMsg.UserID = item.EMPLOYEEID + "|" + Guid.NewGuid().ToString();
+                //    userMsg.FormID = Utility.ObjListToXml(item, "HR", string.Empty);
+                //    listUserMsg.Add(userMsg);
                 //}
-                List<EngineWS.CustomUserMsg> listUserMsg = new List<EngineWS.CustomUserMsg>();
-                foreach (var item in employeesalaryList)
-                {
-                    EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-                    userMsg.UserID = item.EMPLOYEEID + "|" + Guid.NewGuid().ToString();
-                    userMsg.FormID = Utility.ObjListToXml(item, "HR", string.Empty);
-                    listUserMsg.Add(userMsg);
-                }
-                #region 发送邮件处理，一次性传太多值，由于有xml文件，WCF会导致传不了那么多值，准备分段传，200人一次
-                int UserNum = listUserMsg.Count;//总人数
-                int tmp = UserNum % 200;//200的余数
-                int SentCount = (UserNum - tmp) / 200;//200次一段，发送几次
+                //#region 发送邮件处理，一次性传太多值，由于有xml文件，WCF会导致传不了那么多值，准备分段传，200人一次
+                //int UserNum = listUserMsg.Count;//总人数
+                //int tmp = UserNum % 200;//200的余数
+                //int SentCount = (UserNum - tmp) / 200;//200次一段，发送几次
 
-                Utility.SaveLog("发送薪资邮件的人数为： " + UserNum + " 人（200人为一段），要发送" + SentCount + 1 + " 次");
-                List<EngineWS.CustomUserMsg> first = listUserMsg.Take(tmp).ToList();//第一次发送数据
-                List<EngineWS.CustomUserMsg> last = listUserMsg.Skip(tmp).ToList();//其余发送数据
-                Utility.SaveLog("发送薪资邮件第一次的人数为： " + tmp + " 人");
+                //Utility.SaveLog("发送薪资邮件的人数为： " + UserNum + " 人（200人为一段），要发送" + SentCount + 1 + " 次");
+                //List<EngineWS.CustomUserMsg> first = listUserMsg.Take(tmp).ToList();//第一次发送数据
+                //List<EngineWS.CustomUserMsg> last = listUserMsg.Skip(tmp).ToList();//其余发送数据
+                //Utility.SaveLog("发送薪资邮件第一次的人数为： " + tmp + " 人");
 
-                string strMsg = Client.SendTaskMessage(first.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
-                if (strMsg == "1")
-                {
-                    Utility.SaveLog("发送薪资发放第 1 次确认提醒的消息及邮件成功！");
-                }
-                else
-                {
-                    Utility.SaveLog("发送薪资发放第 1 次确认提醒的消息及邮件失败！" + strMsg);
-                }
+                //string strMsg = Client.SendTaskMessage(first.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
+                //if (strMsg == "1")
+                //{
+                //    Utility.SaveLog("发送薪资发放第 1 次确认提醒的消息及邮件成功！");
+                //}
+                //else
+                //{
+                //    Utility.SaveLog("发送薪资发放第 1 次确认提醒的消息及邮件失败！" + strMsg);
+                //}
 
-                for (int i = 0; i < SentCount; i++)
-                {
-                    List<EngineWS.CustomUserMsg> temp = new List<EngineWS.CustomUserMsg>();
-                    temp = last.Skip(i * 200).Take(200).ToList();//temp就是这次要发送的人数信息
-                    string msg = Client.SendTaskMessage(temp.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
-                    if (msg == "1")
-                    {
-                        Utility.SaveLog("发送薪资发放第" + i + 2 + "次确认提醒的消息及邮件成功！");
-                    }
-                    else
-                    {
-                        Utility.SaveLog("发送薪资发放第" + i + 2 + "次确认提醒的消息及邮件失败！" + msg);
-                    }
-                }
-                #endregion
+                //for (int i = 0; i < SentCount; i++)
+                //{
+                //    List<EngineWS.CustomUserMsg> temp = new List<EngineWS.CustomUserMsg>();
+                //    temp = last.Skip(i * 200).Take(200).ToList();//temp就是这次要发送的人数信息
+                //    string msg = Client.SendTaskMessage(temp.ToArray(), "HR", "T_HR_EMPLOYEESALARYRECORD");//批量发送消息
+                //    if (msg == "1")
+                //    {
+                //        Utility.SaveLog("发送薪资发放第" + i + 2 + "次确认提醒的消息及邮件成功！");
+                //    }
+                //    else
+                //    {
+                //        Utility.SaveLog("发送薪资发放第" + i + 2 + "次确认提醒的消息及邮件失败！" + msg);
+                //    }
+                //}
+                //#endregion
 
             }
             catch (Exception ex)
@@ -1478,23 +1476,23 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public void ActuallyRepayment(List<T_HR_EMPLOYEESALARYRECORD> list, string year, string month)
         {
-            int i = 0;
-            SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[list.Count];
-            foreach (T_HR_EMPLOYEESALARYRECORD li in list)
-            {
-                EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
-                var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
-                           where a.EMPLOYEEID == li.EMPLOYEEID && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
-                           select a;
-                if (ents.Count() > 0)
-                {
-                    listDebt[i].OrderID = ents.FirstOrDefault().ADDSUMID;
-                }
-                i++;
-            }
-            //FB操作真实还款
-            if (i > 0)
-                FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Pass);
+            //int i = 0;
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[list.Count];
+            //foreach (T_HR_EMPLOYEESALARYRECORD li in list)
+            //{
+            //    EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
+            //    var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
+            //               where a.EMPLOYEEID == li.EMPLOYEEID && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
+            //               select a;
+            //    if (ents.Count() > 0)
+            //    {
+            //        listDebt[i].OrderID = ents.FirstOrDefault().ADDSUMID;
+            //    }
+            //    i++;
+            //}
+            ////FB操作真实还款
+            //if (i > 0)
+            //    FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Pass);
         }
 
         /// <summary>
@@ -1504,53 +1502,53 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public bool SalaryBudgetDeduct(List<T_HR_EMPLOYEESALARYRECORD> list, string year, string month)
         {
-            string filter = string.Empty;
-            List<object> queryParas = new List<object>();
-            string xml = @"<?xml version='1.0' encoding='utf-8' ?>";
-            var ents = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
-                       join e in dal.GetObjects<T_HR_EMPLOYEE>() on a.EMPLOYEEID equals e.EMPLOYEEID
-                       join f in dal.GetObjects<T_HR_EMPLOYEEPOST>() on e.EMPLOYEEID equals f.T_HR_EMPLOYEE.EMPLOYEEID
-                       join g in dal.GetObjects<T_HR_POST>() on f.T_HR_POST.POSTID equals g.POSTID
-                       join h in dal.GetObjects<T_HR_DEPARTMENT>() on g.T_HR_DEPARTMENT.DEPARTMENTID equals h.DEPARTMENTID
-                       where a.SALARYYEAR == year && a.SALARYMONTH == month
-                       select new
-                       {
-                           COMPANYID = h.T_HR_COMPANY.COMPANYID,
-                           DEPARTMENTID = h.DEPARTMENTID,
-                           EMPLOYEESALARYRECORDID = a.EMPLOYEESALARYRECORDID,
-                           ACTUALLYPAY = a.ACTUALLYPAY
-                       };
+            //string filter = string.Empty;
+            //List<object> queryParas = new List<object>();
+            //string xml = @"<?xml version='1.0' encoding='utf-8' ?>";
+            //var ents = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
+            //           join e in dal.GetObjects<T_HR_EMPLOYEE>() on a.EMPLOYEEID equals e.EMPLOYEEID
+            //           join f in dal.GetObjects<T_HR_EMPLOYEEPOST>() on e.EMPLOYEEID equals f.T_HR_EMPLOYEE.EMPLOYEEID
+            //           join g in dal.GetObjects<T_HR_POST>() on f.T_HR_POST.POSTID equals g.POSTID
+            //           join h in dal.GetObjects<T_HR_DEPARTMENT>() on g.T_HR_DEPARTMENT.DEPARTMENTID equals h.DEPARTMENTID
+            //           where a.SALARYYEAR == year && a.SALARYMONTH == month
+            //           select new
+            //           {
+            //               COMPANYID = h.T_HR_COMPANY.COMPANYID,
+            //               DEPARTMENTID = h.DEPARTMENTID,
+            //               EMPLOYEESALARYRECORDID = a.EMPLOYEESALARYRECORDID,
+            //               ACTUALLYPAY = a.ACTUALLYPAY
+            //           };
 
-            if (ents.Count() > 0)
-            {
-                foreach (var li in list)
-                {
-                    if (!string.IsNullOrEmpty(filter)) filter += "OR";
-                    filter += " EMPLOYEESALARYRECORDID == @" + queryParas.Count();
-                    queryParas.Add(li.EMPLOYEESALARYRECORDID);
-                }
-                ents = ents.Where(filter, queryParas.ToArray());
-                //ents = ents.Where(k => esid.Contains(k.EMPLOYEESALARYRECORDID));
-                //ents = from t in ents where esid.Any(p => p == t.EMPLOYEESALARYRECORDID) select t;
-                var ent = ents.GroupBy(x => x.COMPANYID).Select(gs => new { groups = gs.Key, groupcontents = gs });
-                xml += "<SalaryBudget Year='" + year + "' Month='" + month + "'>";
-                foreach (var t in ent)
-                {
-                    var en = t.groupcontents.GroupBy(y => y.DEPARTMENTID).Select(g => new { group = g.Key, groupcontent = g });
-                    xml += "<Company CompanyID='" + ents.FirstOrDefault().COMPANYID + "'>";
-                    foreach (var v in en)
-                    {
-                        decimal counts = 0;
-                        foreach (var vm in v.groupcontent)
-                        {
-                            counts += Convert.ToDecimal(vm.ACTUALLYPAY == null ? "0" : AES.AESDecrypt(vm.ACTUALLYPAY));
-                        }
-                        xml += "<Department DepartmentID='" + v.groupcontent.FirstOrDefault().DEPARTMENTID + "' Salary='" + counts + "' />";
-                    }
-                }
-                xml += "</Company></SalaryBudget>";
-                return FBSclient.UpdateSalaryBudget(xml);
-            }
+            //if (ents.Count() > 0)
+            //{
+            //    foreach (var li in list)
+            //    {
+            //        if (!string.IsNullOrEmpty(filter)) filter += "OR";
+            //        filter += " EMPLOYEESALARYRECORDID == @" + queryParas.Count();
+            //        queryParas.Add(li.EMPLOYEESALARYRECORDID);
+            //    }
+            //    ents = ents.Where(filter, queryParas.ToArray());
+            //    //ents = ents.Where(k => esid.Contains(k.EMPLOYEESALARYRECORDID));
+            //    //ents = from t in ents where esid.Any(p => p == t.EMPLOYEESALARYRECORDID) select t;
+            //    var ent = ents.GroupBy(x => x.COMPANYID).Select(gs => new { groups = gs.Key, groupcontents = gs });
+            //    xml += "<SalaryBudget Year='" + year + "' Month='" + month + "'>";
+            //    foreach (var t in ent)
+            //    {
+            //        var en = t.groupcontents.GroupBy(y => y.DEPARTMENTID).Select(g => new { group = g.Key, groupcontent = g });
+            //        xml += "<Company CompanyID='" + ents.FirstOrDefault().COMPANYID + "'>";
+            //        foreach (var v in en)
+            //        {
+            //            decimal counts = 0;
+            //            foreach (var vm in v.groupcontent)
+            //            {
+            //                counts += Convert.ToDecimal(vm.ACTUALLYPAY == null ? "0" : AES.AESDecrypt(vm.ACTUALLYPAY));
+            //            }
+            //            xml += "<Department DepartmentID='" + v.groupcontent.FirstOrDefault().DEPARTMENTID + "' Salary='" + counts + "' />";
+            //        }
+            //    }
+            //    xml += "</Company></SalaryBudget>";
+            //    return FBSclient.UpdateSalaryBudget(xml);
+            //}
             return false;
         }
 

@@ -23,13 +23,14 @@ using System.Linq.Expressions;
 using TM_SaaS_OA_EFModel;
 using SMT.HRM.CustomModel;
 using SMT.HRM.DAL;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
 
     public class AttendanceDeductMasterBLL : BaseBll<T_HR_ATTENDANCEDEDUCTMASTER>, ILookupEntity
     {
-        protected SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient permClient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+       // protected SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient permClient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
 
         public AttendanceDeductMasterBLL()
         { }
@@ -309,7 +310,14 @@ namespace SMT.HRM.BLL
             string strTemp = string.Empty;
             decimal dValue = 0;
             decimal.TryParse(strColValue, out dValue);
-            SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_DICTIONARY[] entDics = permClient.GetSysDictionaryByCategory(strSysCategory);
+            List<T_SYS_DICTIONARY> entDics = new List<T_SYS_DICTIONARY>();// permClient.GetSysDictionaryByCategory(strSysCategory);
+            using (SysDictionaryBLL bll = new SysDictionaryBLL())
+            {
+                //GetSysLeftMenuFilterPermissionToNewFrame("85b414ab-87b3-4740-aef4-1d89f3f380cc");
+                entDics = bll.GetSysDictionaryByCategory(strSysCategory).ToList();
+            }
+
+
             strTemp = entDics.Where(c => c.DICTIONARYVALUE == dValue).First().DICTIONARYNAME;
 
             strTemp = string.IsNullOrEmpty(strTemp) == true ? "-" : strTemp;

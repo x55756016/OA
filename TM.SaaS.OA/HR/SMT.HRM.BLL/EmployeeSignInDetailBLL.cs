@@ -9,6 +9,7 @@ using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Linq.Dynamic;
 using System.Data;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
@@ -580,8 +581,12 @@ namespace SMT.HRM.BLL
             {
                 try
                 {
-                    var dic = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
+                    List<T_SYS_DICTIONARY> dic = new List<T_SYS_DICTIONARY>();//new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
                     // nationDict = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == nationValue).FirstOrDefault();
+                    using (SysDictionaryBLL bll = new SysDictionaryBLL())
+                    {
+                        dic = bll.GetSysDictionaryByCategory(new List<string> { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });
+                    }
                     DataRow row = dt.NewRow();
                     #region 每行数据
                     for (int i = 0; i < dt.Columns.Count; i++)
@@ -645,7 +650,11 @@ namespace SMT.HRM.BLL
             {
                 try
                 {
-                    var dic = new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
+                    List<T_SYS_DICTIONARY> dic = new List<T_SYS_DICTIONARY>();//new SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient().GetSysDictionaryByCategoryList(new string[] { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });//获取字典值
+                    using (SysDictionaryBLL bll = new SysDictionaryBLL())
+                    {
+                        dic = bll.GetSysDictionaryByCategory(new List<string> { "ABNORMCATEGORY", "ATTENDPERIOD", "REASONCATEGORY" });
+                    }
                     // nationDict = tmp.Where(s => s.DICTIONCATEGORY == "NATION" && s.DICTIONARYVALUE == nationValue).FirstOrDefault();
                     DataRow row = dt.NewRow();
                     #region 每行数据

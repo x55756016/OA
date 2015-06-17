@@ -20,11 +20,10 @@ using System.Collections;
 using System.Linq.Dynamic;
 using System.Data;
 using SMT.HRM.CustomModel;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
-using SMT.HRM.CustomModel.Reports;
 using SMT.Foundation.Log;
 using SMT.HRM.BLL.Common;
 using System.Threading;
+using SMT.HRM.CustomModel.Reports;
 
 namespace SMT.HRM.BLL
 {
@@ -539,27 +538,27 @@ namespace SMT.HRM.BLL
         public void AbnormRecordCheckAlarm(string strEmployeeId)
         {
 
-            string submitName = string.Empty;
-            string strAttendState = (Convert.ToInt32(Common.AttendanceState.Abnormal) + 1).ToString();
-            var ents = from a in dal.GetObjects<T_HR_ATTENDANCERECORD>()
-                       where a.EMPLOYEEID == strEmployeeId && a.ATTENDANCESTATE == strAttendState
-                       select a;
+            //string submitName = string.Empty;
+            //string strAttendState = (Convert.ToInt32(Common.AttendanceState.Abnormal) + 1).ToString();
+            //var ents = from a in dal.GetObjects<T_HR_ATTENDANCERECORD>()
+            //           where a.EMPLOYEEID == strEmployeeId && a.ATTENDANCESTATE == strAttendState
+            //           select a;
 
-            if (ents.Count() == 0)
-            {
-                return;
-            }
+            //if (ents.Count() == 0)
+            //{
+            //    return;
+            //}
 
-            T_HR_ATTENDANCERECORD entTemp = ents.FirstOrDefault();
+            //T_HR_ATTENDANCERECORD entTemp = ents.FirstOrDefault();
 
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = Guid.NewGuid().ToString();
-            userMsg.UserID = entTemp.EMPLOYEEID;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEENAME;
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESIGNINRECORD", Utility.ObjListToXml(entTemp, "HR", submitName), EngineWS.MsgType.Msg);
+            //EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+            //EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+            //userMsg.FormID = Guid.NewGuid().ToString();
+            //userMsg.UserID = entTemp.EMPLOYEEID;
+            //EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+            //List[0] = userMsg;
+            //if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEENAME;
+            //Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESIGNINRECORD", Utility.ObjListToXml(entTemp, "HR", submitName), EngineWS.MsgType.Msg);
         }
         /// <summary>
         ///  考勤异常提醒xml

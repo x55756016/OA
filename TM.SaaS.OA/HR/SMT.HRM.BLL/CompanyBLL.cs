@@ -727,10 +727,10 @@ namespace SMT.HRM.BLL
                     EditVersion("公司");
                 #endregion
                     #region 审核通过调用初始化消息规则
-                    SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则：WFPlatformWS.OutInterfaceClient() > InitRule();公司ID:" + entity.COMPANYID);
-                    SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
-                    outClient.InitRule(entity.COMPANYID);
-                    SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则结束;公司ID:" + entity.COMPANYID);
+                    //SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则：WFPlatformWS.OutInterfaceClient() > InitRule();公司ID:" + entity.COMPANYID);
+                    //SMT.SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient outClient = new SaaS.BLLCommonServices.WFPlatformWS.OutInterfaceClient();
+                    //outClient.InitRule(entity.COMPANYID);
+                    //SMT.Foundation.Log.Tracer.Debug("公司终审通过调用调用初始化消息规则结束;公司ID:" + entity.COMPANYID);
                  
                     #endregion
                     #region 添加即时通讯接口
@@ -1162,14 +1162,14 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient FlowEngine = new SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[] msgs = new SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[1];
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg msg = new SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
-                msg.UserID = "d32ad3d3-bd42-4552-874c-484f595e4286";
-                msg.FormID = Guid.NewGuid().ToString();
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient FlowEngine = new SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[] msgs = new SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg[1];
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg msg = new SaaS.BLLCommonServices.EngineConfigWS.CustomUserMsg();
+                //msg.UserID = "d32ad3d3-bd42-4552-874c-484f595e4286";
+                //msg.FormID = Guid.NewGuid().ToString();
 
-                msgs[0] = msg;
-                FlowEngine.ApplicationNotesTrigger(msgs, "HR", "变更提醒");
+                //msgs[0] = msg;
+                //FlowEngine.ApplicationNotesTrigger(msgs, "HR", "变更提醒");
             }
             catch (Exception ex)
             {
@@ -1719,8 +1719,8 @@ namespace SMT.HRM.BLL
                         try
                         {
                             SMT.Foundation.Log.Tracer.Debug("公司终审通过调用上传控件开始，公司ID:" + company.COMPANYID);
-                            SMT.SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient uploadClient = new SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient();
-                            uploadClient.CreateCompanyDirectory(company.COMPANYID,company.CNAME,company.COMPANRYCODE);
+                            //SMT.SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient uploadClient = new SaaS.BLLCommonServices.FileUploadWS.UploadServiceClient();
+                            //uploadClient.CreateCompanyDirectory(company.COMPANYID,company.CNAME,company.COMPANRYCODE);
                         }
                         catch (Exception ex)
                         {

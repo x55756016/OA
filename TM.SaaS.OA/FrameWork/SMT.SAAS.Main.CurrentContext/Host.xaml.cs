@@ -77,16 +77,21 @@ namespace SMT.SAAS.Main.CurrentContext
             //ViewModel.Context.Host.SetRootVisual(new LoginPart.Login());
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_HideLog(object sender, System.Windows.RoutedEventArgs e)
         {
             systemMessageArea.Visibility = System.Windows.Visibility.Collapsed;
         }
 
-        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_ShowLog(object sender, System.Windows.RoutedEventArgs e)
         {
-            txtSystemMessage.Height = 100;
+            double x = (double)HtmlPage.Window.Eval("screen.width");//得到屏幕工作区域宽度
+            double y = (double)HtmlPage.Window.Eval("screen.height");//得到屏幕工作区域宽度
+            txtSystemMessage.Height = y;
+            txtSystemMessage.Width = x;
             txtSystemMessage.Visibility = System.Windows.Visibility.Visible;
-            systemMessageArea.Height = 100;
+
+            systemMessageArea.Height = y;
+            systemMessageArea.Width = x;
             systemMessageArea.Visibility = System.Windows.Visibility.Visible;
         }
 
@@ -102,9 +107,9 @@ namespace SMT.SAAS.Main.CurrentContext
             systemMessageArea.Visibility = System.Windows.Visibility.Visible;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Clear(object sender, RoutedEventArgs e)
         {
-
+            txtSystemMessage.Text = string.Empty;
         }
     }
 }

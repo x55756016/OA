@@ -14,7 +14,6 @@ using System.Text.RegularExpressions;
 using System.CodeDom.Compiler;
 using System.Reflection;
 using System.Data;
-using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using System.Data.OracleClient;
 using SMT.Foundation.Log;
 using System.Configuration;
@@ -42,7 +41,7 @@ namespace SMT.HRM.BLL
         protected List<T_HR_EMPLOYEESALARYRECORD> recordAdd = new List<T_HR_EMPLOYEESALARYRECORD>();
         protected List<T_HR_EMPLOYEESALARYRECORD> recordUpdate = new List<T_HR_EMPLOYEESALARYRECORD>();
         protected Dictionary<object, object> GetInfor = new Dictionary<object, object>();
-        protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
+        //protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
         private T_HR_SALARYARCHIVE archiveForAreaAllowrance;
 
         private OracleCommand myOraclecommad;
@@ -912,54 +911,54 @@ namespace SMT.HRM.BLL
         {
             string resultstr = string.Empty;//,string departmentID
             List<string> reslist = new List<string>();
-            //FBServiceBLLWS.T_FB_BUDGETACCOUNT fblist;
-            string strBalanceEmployeeID = string.Empty;
-            SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
-            V_RETURNFBI glist = GenerateSalaryRecord(10,string.Empty,string.Empty,strBalanceEmployeeID, 3, employeeID, year, month, true).FirstOrDefault();
-            if (glist != null)
-            {
-                try
-                {
-                    //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
-                    // fblist = FBSclient.FetchSalaryBudget(glist.COMPANYID, null).FirstOrDefault();
-                    //fblist = FBSclient.FetchSalaryBudget(glist.COMPANYID, glist.DEPARTMENTID).FirstOrDefault();
-                    fblist = FBSclient.FetchSalaryBudget(null, glist.DEPARTMENTID).FirstOrDefault();
-                    if (fblist != null)
-                    {
-                        //if (glist.SALARYSUM > fblist.USABLEMONEY)
-                        //{
-                        resultstr = glist.DEPARTMENTNAME;
-                        reslist.Add("false");
-                        //}
-                        //else
-                        //{
-                        //    reslist.Add("true");
-                        //}
-                        reslist.Add(fblist.USABLEMONEY.ToString());
-                        reslist.Add(glist.DEPARTMENTID);
-                        //reslist[1]=fblist.USABLEMONEY.ToString();
-                        //reslist[2]=glist.DEPARTMENTID;
-                    }
-                    else
-                    {
-                        reslist.Add("false");
-                        reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
-                        //reslist[1]="SYSTEMERRORPLEASELINKDADMIN";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
-                    reslist.Add("false");
-                    reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
-                    resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
-                }
-            }
-            else
-            {
-                reslist.Add("false");
-                reslist[1] = "NODATA";
-            }
+            ////FBServiceBLLWS.T_FB_BUDGETACCOUNT fblist;
+            //string strBalanceEmployeeID = string.Empty;
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
+            //V_RETURNFBI glist = GenerateSalaryRecord(10,string.Empty,string.Empty,strBalanceEmployeeID, 3, employeeID, year, month, true).FirstOrDefault();
+            //if (glist != null)
+            //{
+            //    try
+            //    {
+            //        //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
+            //        // fblist = FBSclient.FetchSalaryBudget(glist.COMPANYID, null).FirstOrDefault();
+            //        //fblist = FBSclient.FetchSalaryBudget(glist.COMPANYID, glist.DEPARTMENTID).FirstOrDefault();
+            //        fblist = FBSclient.FetchSalaryBudget(null, glist.DEPARTMENTID).FirstOrDefault();
+            //        if (fblist != null)
+            //        {
+            //            //if (glist.SALARYSUM > fblist.USABLEMONEY)
+            //            //{
+            //            resultstr = glist.DEPARTMENTNAME;
+            //            reslist.Add("false");
+            //            //}
+            //            //else
+            //            //{
+            //            //    reslist.Add("true");
+            //            //}
+            //            reslist.Add(fblist.USABLEMONEY.ToString());
+            //            reslist.Add(glist.DEPARTMENTID);
+            //            //reslist[1]=fblist.USABLEMONEY.ToString();
+            //            //reslist[2]=glist.DEPARTMENTID;
+            //        }
+            //        else
+            //        {
+            //            reslist.Add("false");
+            //            reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
+            //            //reslist[1]="SYSTEMERRORPLEASELINKDADMIN";
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
+            //        reslist.Add("false");
+            //        reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
+            //        resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
+            //    }
+            //}
+            //else
+            //{
+            //    reslist.Add("false");
+            //    reslist[1] = "NODATA";
+            //}
             return reslist;
         }
 
@@ -978,62 +977,62 @@ namespace SMT.HRM.BLL
         {
             string resultstr = string.Empty;
             List<string> reslist = new List<string>();
-            SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
-            SalaryRecordBatchBLL bll = new SalaryRecordBatchBLL();
-            V_RETURNFBI glist = bll.GetSalarySum(objectType, objectID, year, month, userID);
-            if (dSum <= 0 || glist == null)
-            {
-                reslist.Add("false");
-                reslist.Add("NODATA");
-                return reslist;
-            }
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
+            //SalaryRecordBatchBLL bll = new SalaryRecordBatchBLL();
+            //V_RETURNFBI glist = bll.GetSalarySum(objectType, objectID, year, month, userID);
+            //if (dSum <= 0 || glist == null)
+            //{
+            //    reslist.Add("false");
+            //    reslist.Add("NODATA");
+            //    return reslist;
+            //}
 
-            if (glist.SALARYSUM == null)
-            {
-                reslist.Add("false");
-                reslist.Add("NODATA");
-                return reslist;
-            }
+            //if (glist.SALARYSUM == null)
+            //{
+            //    reslist.Add("false");
+            //    reslist.Add("NODATA");
+            //    return reslist;
+            //}
 
-            if (glist.SALARYSUM <= 0)
-            {
-                reslist.Add("false");
-                reslist.Add("NODATA");
-                return reslist;
-            }
+            //if (glist.SALARYSUM <= 0)
+            //{
+            //    reslist.Add("false");
+            //    reslist.Add("NODATA");
+            //    return reslist;
+            //}
 
 
-            try
-            {
-                //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
-                fblist = FBSclient.FetchSalaryBudget(null, departmentID).FirstOrDefault();
-                if (fblist != null)
-                {
-                    if (dSum > fblist.USABLEMONEY)
-                    {
-                        resultstr = fblist.OWNERDEPARTMENTID;
-                        reslist.Add("false");
-                    }
-                    else
-                    {
-                        reslist.Add("true");
-                    }
-                    reslist.Add(fblist.USABLEMONEY.ToString());
-                    reslist.Add(fblist.OWNERDEPARTMENTID);
-                }
-                else
-                {
-                    reslist.Add("false");
-                    reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
-                }
-            }
-            catch (Exception ex)
-            {
-                SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
-                reslist.Add("false");
-                reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
-                resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
-            }
+            //try
+            //{
+            //    //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
+            //    fblist = FBSclient.FetchSalaryBudget(null, departmentID).FirstOrDefault();
+            //    if (fblist != null)
+            //    {
+            //        if (dSum > fblist.USABLEMONEY)
+            //        {
+            //            resultstr = fblist.OWNERDEPARTMENTID;
+            //            reslist.Add("false");
+            //        }
+            //        else
+            //        {
+            //            reslist.Add("true");
+            //        }
+            //        reslist.Add(fblist.USABLEMONEY.ToString());
+            //        reslist.Add(fblist.OWNERDEPARTMENTID);
+            //    }
+            //    else
+            //    {
+            //        reslist.Add("false");
+            //        reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
+            //    reslist.Add("false");
+            //    reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
+            //    resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
+            //}
 
             return reslist;
         }
@@ -1042,78 +1041,78 @@ namespace SMT.HRM.BLL
         {
             string resultstr = string.Empty;
             List<string> reslist = new List<string>();
-            SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
-            SalaryRecordBatchBLL bll = new SalaryRecordBatchBLL();
-            //List<V_RETURNFBI> glist = GenerateSalaryRecord(objectType, objectID, year, month, true);
-            V_RETURNFBI glist = bll.GetSalarySum(objectType, objectID, year, month, userID);
-            if (glist != null)
-            {
-                try
-                {
-                    //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
-                    fblist = FBSclient.FetchSalaryBudget(null, departmentID).FirstOrDefault();
-                    if (fblist != null)
-                    {
-                        if (glist.SALARYSUM > fblist.USABLEMONEY)
-                        {
-                            resultstr = fblist.OWNERDEPARTMENTID;
-                            reslist.Add("false");
-                        }
-                        else
-                        {
-                            reslist.Add("true");
-                        }
-                        reslist.Add(fblist.USABLEMONEY.ToString());
-                        reslist.Add(fblist.OWNERDEPARTMENTID);
-                        //reslist[1] = fblist.USABLEMONEY.ToString();
-                        //reslist[2] = fblist.OWNERDEPARTMENTID;
-                    }
-                    else
-                    {
-                        reslist.Add("false");
-                        reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
-                        //reslist[1]="SYSTEMERRORPLEASELINKDADMIN";
-                    }
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.T_FB_BUDGETACCOUNT fblist;
+            //SalaryRecordBatchBLL bll = new SalaryRecordBatchBLL();
+            ////List<V_RETURNFBI> glist = GenerateSalaryRecord(objectType, objectID, year, month, true);
+            //V_RETURNFBI glist = bll.GetSalarySum(objectType, objectID, year, month, userID);
+            //if (glist != null)
+            //{
+            //    try
+            //    {
+            //        //预算(现在只有人事的部门可以进行预算)传公司,反馈部门,公司ID
+            //        fblist = FBSclient.FetchSalaryBudget(null, departmentID).FirstOrDefault();
+            //        if (fblist != null)
+            //        {
+            //            if (glist.SALARYSUM > fblist.USABLEMONEY)
+            //            {
+            //                resultstr = fblist.OWNERDEPARTMENTID;
+            //                reslist.Add("false");
+            //            }
+            //            else
+            //            {
+            //                reslist.Add("true");
+            //            }
+            //            reslist.Add(fblist.USABLEMONEY.ToString());
+            //            reslist.Add(fblist.OWNERDEPARTMENTID);
+            //            //reslist[1] = fblist.USABLEMONEY.ToString();
+            //            //reslist[2] = fblist.OWNERDEPARTMENTID;
+            //        }
+            //        else
+            //        {
+            //            reslist.Add("false");
+            //            reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
+            //            //reslist[1]="SYSTEMERRORPLEASELINKDADMIN";
+            //        }
 
-                    #region ---
-                    //foreach (V_RETURNFBI v in glist)
-                    //{
-                    //    fblist = FBSclient.FetchSalaryBudget(v.COMPANYID, v.DEPARTMENTID).FirstOrDefault();
-                    //    if (fblist != null)
-                    //    {
-                    //        if (v.SALARYSUM > fblist.USABLEMONEY)
-                    //        {
-                    //            resultstr = v.DEPARTMENTNAME;
-                    //            reslist.Add("false");
-                    //        }
-                    //        else
-                    //        {
-                    //            reslist.Add("true");
-                    //        }
-                    //        reslist.Add(fblist.USABLEMONEY.ToString());
-                    //        reslist.Add(v.DEPARTMENTID);
-                    //    }
-                    //    else
-                    //    {
-                    //        reslist.Add("false");
-                    //        reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
-                    //    }
-                    //}
-                    #endregion
-                }
-                catch (Exception ex)
-                {
-                    SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
-                    reslist.Add("false");
-                    reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
-                    resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
-                }
-            }
-            else
-            {
-                reslist.Add("false");
-                reslist.Add("NODATA");
-            }
+            //        #region ---
+            //        //foreach (V_RETURNFBI v in glist)
+            //        //{
+            //        //    fblist = FBSclient.FetchSalaryBudget(v.COMPANYID, v.DEPARTMENTID).FirstOrDefault();
+            //        //    if (fblist != null)
+            //        //    {
+            //        //        if (v.SALARYSUM > fblist.USABLEMONEY)
+            //        //        {
+            //        //            resultstr = v.DEPARTMENTNAME;
+            //        //            reslist.Add("false");
+            //        //        }
+            //        //        else
+            //        //        {
+            //        //            reslist.Add("true");
+            //        //        }
+            //        //        reslist.Add(fblist.USABLEMONEY.ToString());
+            //        //        reslist.Add(v.DEPARTMENTID);
+            //        //    }
+            //        //    else
+            //        //    {
+            //        //        reslist.Add("false");
+            //        //        reslist.Add("SYSTEMERRORPLEASELINKDADMIN");
+            //        //    }
+            //        //}
+            //        #endregion
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        SMT.Foundation.Log.Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
+            //        reslist.Add("false");
+            //        reslist.Add(ex.Message + " InnerException: " + ex.StackTrace);
+            //        resultstr = ex.Message + " InnerException: " + ex.StackTrace.ToString();
+            //    }
+            //}
+            //else
+            //{
+            //    reslist.Add("false");
+            //    reslist.Add("NODATA");
+            //}
             return reslist;
         }
 
@@ -4309,88 +4308,88 @@ namespace SMT.HRM.BLL
         /// <returns>返回还款</returns>
         public void Repayment(int objectType, string objectID, int year, int month)
         {
-            SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] debtinfolist;
-            string strBalanceEmployeeID = string.Empty;
-            V_RETURNFBI glist = GenerateSalaryRecord(10,string.Empty,string.Empty,strBalanceEmployeeID, objectType, objectID, year, month, true).FirstOrDefault();
-            List<T_HR_EMPLOYEESALARYRECORD> salaryrecords = new List<T_HR_EMPLOYEESALARYRECORD>();
-            if (glist != null)
-            {//查询还款人,获取借款信息(eid,money)
-                try
-                {
-                    int i = 0;
-                    //debtinfolist = FBSclient.GetBorrowers(glist.COMPANYID, glist.DEPARTMENTID);
-                    debtinfolist = FBSclient.GetBorrowers(glist.COMPANYID, string.Empty); //有用方法
-                    SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[debtinfolist.Count()];
-                    SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebtRes = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[debtinfolist.Count()];
-                    foreach (var v in debtinfolist)                                      //打包实发工资
-                    {
-                        var ent = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
-                                  where a.EMPLOYEEID == v.EmployeeID
-                                  select a;
-                        try
-                        {
-                            if (ent.Count() > 0) salaryrecords.Add(ent.FirstOrDefault());
-                            listDebt[i].EmployeeID = v.EmployeeID;
-                            listDebt[i].UsableSalary = Convert.ToDecimal(ent.FirstOrDefault().ACTUALLYPAY == null ? "0" : ent.FirstOrDefault().ACTUALLYPAY);
-                        }
-                        catch (Exception ex)
-                        {
-                            Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
-                        }
-                        i++;
-                    }
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] debtinfolist;
+            //string strBalanceEmployeeID = string.Empty;
+            //V_RETURNFBI glist = GenerateSalaryRecord(10,string.Empty,string.Empty,strBalanceEmployeeID, objectType, objectID, year, month, true).FirstOrDefault();
+            //List<T_HR_EMPLOYEESALARYRECORD> salaryrecords = new List<T_HR_EMPLOYEESALARYRECORD>();
+            //if (glist != null)
+            //{//查询还款人,获取借款信息(eid,money)
+            //    try
+            //    {
+            //        int i = 0;
+            //        //debtinfolist = FBSclient.GetBorrowers(glist.COMPANYID, glist.DEPARTMENTID);
+            //        debtinfolist = FBSclient.GetBorrowers(glist.COMPANYID, string.Empty); //有用方法
+            //        SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[debtinfolist.Count()];
+            //        SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebtRes = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[debtinfolist.Count()];
+            //        foreach (var v in debtinfolist)                                      //打包实发工资
+            //        {
+            //            var ent = from a in dal.GetObjects<T_HR_EMPLOYEESALARYRECORD>()
+            //                      where a.EMPLOYEEID == v.EmployeeID
+            //                      select a;
+            //            try
+            //            {
+            //                if (ent.Count() > 0) salaryrecords.Add(ent.FirstOrDefault());
+            //                listDebt[i].EmployeeID = v.EmployeeID;
+            //                listDebt[i].UsableSalary = Convert.ToDecimal(ent.FirstOrDefault().ACTUALLYPAY == null ? "0" : ent.FirstOrDefault().ACTUALLYPAY);
+            //            }
+            //            catch (Exception ex)
+            //            {
+            //                Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
+            //            }
+            //            i++;
+            //        }
 
-                    listDebtRes = FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Plan);   //发送工资,获取预还款额
-                    EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();       //添加员工加扣款的还款
-                    foreach (var v in listDebtRes)
-                    {
-                        T_HR_EMPLOYEEADDSUM addsum = new T_HR_EMPLOYEEADDSUM();
-                        addsum.ADDSUMID = v.OrderID;                          //预算还款单号
-                        addsum.DEALMONTH = month.ToString();
-                        addsum.DEALYEAR = year.ToString();
-                        addsum.EMPLOYEEID = v.EmployeeID;
-                        addsum.PROJECTCODE = "-3";
-                        addsum.PROJECTMONEY = v.Debt;
-                        addsum.CHECKSTATE = "2";
-                        addsum.CREATEDATE = System.DateTime.Now;
-                        //权限字段
-                        try
-                        {
-                            addsum.CREATEUSERID = construe[0];
-                            addsum.CREATEPOSTID = construe[1];
-                            addsum.CREATEDEPARTMENTID = construe[2];
-                            addsum.CREATECOMPANYID = construe[3];
+            //        listDebtRes = FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Plan);   //发送工资,获取预还款额
+            //        EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();       //添加员工加扣款的还款
+            //        foreach (var v in listDebtRes)
+            //        {
+            //            T_HR_EMPLOYEEADDSUM addsum = new T_HR_EMPLOYEEADDSUM();
+            //            addsum.ADDSUMID = v.OrderID;                          //预算还款单号
+            //            addsum.DEALMONTH = month.ToString();
+            //            addsum.DEALYEAR = year.ToString();
+            //            addsum.EMPLOYEEID = v.EmployeeID;
+            //            addsum.PROJECTCODE = "-3";
+            //            addsum.PROJECTMONEY = v.Debt;
+            //            addsum.CHECKSTATE = "2";
+            //            addsum.CREATEDATE = System.DateTime.Now;
+            //            //权限字段
+            //            try
+            //            {
+            //                addsum.CREATEUSERID = construe[0];
+            //                addsum.CREATEPOSTID = construe[1];
+            //                addsum.CREATEDEPARTMENTID = construe[2];
+            //                addsum.CREATECOMPANYID = construe[3];
 
-                            addsum.OWNERID = construe[4];
-                            addsum.OWNERPOSTID = construe[5];
-                            addsum.OWNERDEPARTMENTID = construe[6];
-                            addsum.OWNERCOMPANYID = construe[7];
-                        }
-                        catch (Exception exx)
-                        {
-                            SMT.Foundation.Log.Tracer.Debug(exx.Message);
-                            exx.Message.ToString();
-                        }
-                        dal.AddToContext(addsum);
-                        //addbll.DataContext.AddObject("T_HR_EMPLOYEEADDSUM", addsum);
-                    }
-                    dal.SaveContextChanges();
-                    //addbll.DataContext.SaveChanges();
-                    for (int j = 0; j < listDebtRes.Length; j++)
-                    {
-                        salaryrecords[j].ACTUALLYPAY = (Convert.ToDecimal(salaryrecords[j].ACTUALLYPAY) - listDebtRes[j].Debt).ToString();
-                    }
-                    EmployeeSalaryRecordBLL salaryrecordbll = new EmployeeSalaryRecordBLL();//修改员工实发.
-                    foreach (T_HR_EMPLOYEESALARYRECORD sr in salaryrecords)
-                        salaryrecordbll.EmployeeSalaryRecordUpdate(sr);
+            //                addsum.OWNERID = construe[4];
+            //                addsum.OWNERPOSTID = construe[5];
+            //                addsum.OWNERDEPARTMENTID = construe[6];
+            //                addsum.OWNERCOMPANYID = construe[7];
+            //            }
+            //            catch (Exception exx)
+            //            {
+            //                SMT.Foundation.Log.Tracer.Debug(exx.Message);
+            //                exx.Message.ToString();
+            //            }
+            //            dal.AddToContext(addsum);
+            //            //addbll.DataContext.AddObject("T_HR_EMPLOYEEADDSUM", addsum);
+            //        }
+            //        dal.SaveContextChanges();
+            //        //addbll.DataContext.SaveChanges();
+            //        for (int j = 0; j < listDebtRes.Length; j++)
+            //        {
+            //            salaryrecords[j].ACTUALLYPAY = (Convert.ToDecimal(salaryrecords[j].ACTUALLYPAY) - listDebtRes[j].Debt).ToString();
+            //        }
+            //        EmployeeSalaryRecordBLL salaryrecordbll = new EmployeeSalaryRecordBLL();//修改员工实发.
+            //        foreach (T_HR_EMPLOYEESALARYRECORD sr in salaryrecords)
+            //            salaryrecordbll.EmployeeSalaryRecordUpdate(sr);
 
-                }
-                catch (Exception ex)
-                {
-                    Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
-                }
-                //发放时候真扣 
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Tracer.Debug(ex.Message + " InnerException: " + ex.StackTrace);
+            //    }
+            //    //发放时候真扣 
+            //}
         }
 
         /// <summary>
@@ -4399,20 +4398,20 @@ namespace SMT.HRM.BLL
         /// <returns>返回结果</returns>
         public bool UndoRepayment(string employeeid, string year, string month)
         {
-            SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[1];
-            EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
-            var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
-                       where a.EMPLOYEEID == employeeid && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
-                       select a;
-            if (ents.Count() > 0)
-            {
-                string[] sid = new string[1];
-                sid[0] = ents.FirstOrDefault().ADDSUMID;
-                //FB操作撤消还款
-                listDebt[0].OrderID = sid[0];
-                FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Canel);
-                addbll.EmployeeAddSumDelete(sid);
-            }
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[1];
+            //EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
+            //var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
+            //           where a.EMPLOYEEID == employeeid && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
+            //           select a;
+            //if (ents.Count() > 0)
+            //{
+            //    string[] sid = new string[1];
+            //    sid[0] = ents.FirstOrDefault().ADDSUMID;
+            //    //FB操作撤消还款
+            //    listDebt[0].OrderID = sid[0];
+            //    FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Canel);
+            //    addbll.EmployeeAddSumDelete(sid);
+            //}
             return false;
         }
         /// <summary>
@@ -4421,30 +4420,30 @@ namespace SMT.HRM.BLL
         /// <returns>返回结果</returns>
         public bool UndoRepayment(int objectType, string objectID, string year, string month)
         {
-            int i = 0;
-            List<string> sid = new List<string>();
-            EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
-            List<string> tempIDs = GetEmployeeIDs(objectType, objectID);
-            SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[tempIDs.Count];
-            foreach (string id in tempIDs)
-            {
-                var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
-                           where a.EMPLOYEEID == id && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
-                           select a;
-                if (ents.Count() > 0)
-                {
-                    listDebt[i].OrderID = ents.FirstOrDefault().ADDSUMID;
-                    sid.Add(listDebt[i].OrderID);
-                    i++;
-                }
-            }
-            if (listDebt.Count() > 0)
-            {
-                addbll.EmployeeAddSumDelete(sid.ToArray());
-                //FB操作撤消还款
-                FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Canel);
-                return true;
-            }
+            //int i = 0;
+            //List<string> sid = new List<string>();
+            //EmployeeAddSumBLL addbll = new EmployeeAddSumBLL();
+            //List<string> tempIDs = GetEmployeeIDs(objectType, objectID);
+            //SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[] listDebt = new SMT.SaaS.BLLCommonServices.FBServiceWS.DebtInfo[tempIDs.Count];
+            //foreach (string id in tempIDs)
+            //{
+            //    var ents = from a in dal.GetObjects<T_HR_EMPLOYEEADDSUM>()
+            //               where a.EMPLOYEEID == id && a.PROJECTCODE == "-3" && a.DEALYEAR == year && a.DEALMONTH == month
+            //               select a;
+            //    if (ents.Count() > 0)
+            //    {
+            //        listDebt[i].OrderID = ents.FirstOrDefault().ADDSUMID;
+            //        sid.Add(listDebt[i].OrderID);
+            //        i++;
+            //    }
+            //}
+            //if (listDebt.Count() > 0)
+            //{
+            //    addbll.EmployeeAddSumDelete(sid.ToArray());
+            //    //FB操作撤消还款
+            //    FBSclient.RepayBySalary(listDebt, SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceRepayType.Canel);
+            //    return true;
+            //}
             return false;
         }
 

@@ -26,7 +26,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         /// <summary>
         /// 加载dll完成事件
         /// </summary>
-        public event EventHandler LoadCompleted;
+        public event EventHandler LoadDLLCompleted;
         /// <summary>
         /// 更新完成事件
         /// </summary>
@@ -88,9 +88,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         }
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (this.LoadCompleted != null)
+            if (this.LoadDLLCompleted != null)
             {
-                LoadCompleted(this, null);
+                LoadDLLCompleted(this, null);
             }
         }
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)

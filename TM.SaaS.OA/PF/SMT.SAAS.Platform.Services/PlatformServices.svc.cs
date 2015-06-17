@@ -105,5 +105,19 @@ namespace SMT.SAAS.Platform.Services
         {
             return _bll.DeleteShortCutByUser(shortCutID, userID);
         }
+
+
+        #region 用户快捷菜单
+        [OperationContract]
+        public bool AddShortCut(Model.ShortCut model)
+        {
+            return _bll.Add(model);
+        }
+        [OperationContract]
+        public bool AddShortCutByList(List<Model.ShortCut> models)
+        {
+            return _bll.AddByList(models);
+        }
+        #endregion
     }
 }

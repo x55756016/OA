@@ -19,7 +19,7 @@ namespace SMT.HRM.BLL
         List<string> employeIDs = new List<string>();
         List<TM_SaaS_OA_EFModel.T_HR_EMPLOYEE> employes = new List<TM_SaaS_OA_EFModel.T_HR_EMPLOYEE>();
         protected string[] construe = new string[9];
-        protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
+        //protected SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient FBSclient = new SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
 
         /// <summary>
         /// 根据ID获取绩效
@@ -72,7 +72,7 @@ namespace SMT.HRM.BLL
                 if (ent != null)
                 {
                     dal.DeleteFromContext(ent);
-                    SMT.SaaS.BLLCommonServices.Utility.SubmitMyRecord<T_HR_PERFORMANCEREWARDRECORD>(ent);
+                   // SMT.SaaS.BLLCommonServices.Utility.SubmitMyRecord<T_HR_PERFORMANCEREWARDRECORD>(ent);
                 }
 
             }

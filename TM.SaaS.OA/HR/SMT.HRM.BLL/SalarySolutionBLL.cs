@@ -9,8 +9,6 @@ using System.Data.Objects.DataClasses;
 using System.Collections;
 using System.Linq.Expressions;
 using System.Linq.Dynamic;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
-using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 
 namespace SMT.HRM.BLL
 {
@@ -50,7 +48,7 @@ namespace SMT.HRM.BLL
                   //}
                 }
 
-                BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
+                SMT.SaaS.BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(ent);
             }
             catch (Exception ex)
             {
@@ -103,7 +101,7 @@ namespace SMT.HRM.BLL
 
                 }
                 dal.Update(obj);
-                BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(obj);
+                SMT.SaaS.BLLCommonServices.Utility.SubmitMyRecord<T_HR_SALARYSOLUTION>(obj);
             }
 
         }
@@ -257,18 +255,18 @@ namespace SMT.HRM.BLL
         /// <returns></returns>
         public void TimingPay(T_HR_SALARYSOLUTION salarysolution)
         {
-            string submitName = "";
-            var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
-                       where a.EMPLOYEEID == salarysolution.OWNERID
-                       select a;
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = Guid.NewGuid().ToString();
-            userMsg.UserID = salarysolution.CREATEUSERID;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_SALARYSOLUTION", Utility.ObjListToXml(salarysolution, "HR", submitName), EngineWS.MsgType.Msg);
+            //string submitName = "";
+            //var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
+            //           where a.EMPLOYEEID == salarysolution.OWNERID
+            //           select a;
+            //EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+            //EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+            //userMsg.FormID = Guid.NewGuid().ToString();
+            //userMsg.UserID = salarysolution.CREATEUSERID;
+            //EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+            //List[0] = userMsg;
+            //if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
+            //Client.ApplicationMsgTrigger(List, "HR", "T_HR_SALARYSOLUTION", Utility.ObjListToXml(salarysolution, "HR", submitName), EngineWS.MsgType.Msg);
         }
 
         /// <summary>

@@ -7,22 +7,16 @@ using TM_SaaS_OA_EFModel;
 using System.Linq.Dynamic;
 using System.Data.Objects;
 using System.Configuration;
-using SMT.SaaS.BLLCommonServices.FlowWFService;
 using System.Data.Objects.DataClasses;
-using PermissionWS = SMT.SaaS.BLLCommonServices.PermissionWS;
-using FlowServiceWS = SMT.SaaS.BLLCommonServices.FlowWFService;
 using System.ServiceModel.Description;
 using System.Reflection;
 using System.Resources;
-using BLLCommonServices = SMT.SaaS.BLLCommonServices;
-using SMT.SaaS.BLLCommonServices.PermissionWS;
 using SMT.HRM.DAL.Permission;
-using SMT.SaaS.BLLCommonServices.BllCommonUserPermissionWS;
 using SMT.Foundation.Log;
 using SMT.HRM.CustomModel;
 using SMT.SaaS.MobileXml;
-using SMT.SaaS.BLLCommonServices.PublicInterfaceWS;
 using SMT.HRM.BLL.Permission;
+using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 
 namespace SMT.HRM.BLL
 {
@@ -30,7 +24,7 @@ namespace SMT.HRM.BLL
     {
         #region 属性
         public static string qualifiedEntitySetName = ConfigurationManager.AppSettings["DBContextName"] + ".";
-        protected static PublicServiceClient PublicInterfaceClient;
+        //protected static PublicServiceClient PublicInterfaceClient;
         public static string isHuNanHangXingSalary = ConfigurationManager.AppSettings["isForHuNanHangXingSalary"];
         private CommDal<TEntity> dalCore;
         public CommDal<TEntity> dal
@@ -76,22 +70,22 @@ namespace SMT.HRM.BLL
             }
 
         }
-        protected static ServiceClient priFlowSeriviceClient;
-        public ServiceClient flowSeriviceClient
-        {
-            get
-            {
-                if (priFlowSeriviceClient == null)
-                {
-                    priFlowSeriviceClient = new ServiceClient();
-                    return priFlowSeriviceClient;
-                }else
-                {
-                    return priFlowSeriviceClient;
-                }
-            }
+        //protected static ServiceClient priFlowSeriviceClient;
+        //public ServiceClient flowSeriviceClient
+        //{
+        //    get
+        //    {
+        //        if (priFlowSeriviceClient == null)
+        //        {
+        //            priFlowSeriviceClient = new ServiceClient();
+        //            return priFlowSeriviceClient;
+        //        }else
+        //        {
+        //            return priFlowSeriviceClient;
+        //        }
+        //    }
 
-        }
+        //}
         #endregion
         public BaseBll()
         {
@@ -272,24 +266,24 @@ namespace SMT.HRM.BLL
         /// <param name="action"></param>
         public void MvcCacheClear(TEntity entity, string action)
         {
-            string strModelCode = entity.GetType().Name;
-            BLLCommonServices.MVCCacheSV.EntityAction act;
-            switch (action)
-            {
-                case "Add": act = BLLCommonServices.MVCCacheSV.EntityAction.Add; break;
-                case "Modify": act = BLLCommonServices.MVCCacheSV.EntityAction.Modify; break;
-                case "Delete": act = BLLCommonServices.MVCCacheSV.EntityAction.Delete; break;
-                default: act = BLLCommonServices.MVCCacheSV.EntityAction.None; break;
-            }
-            if (entity is System.Data.Objects.DataClasses.EntityObject)
-            {
-                System.Data.Objects.DataClasses.EntityObject ent = entity as System.Data.Objects.DataClasses.EntityObject;
-                string strFormId = entity.GetType().GetProperties().FirstOrDefault().GetValue(entity, null).ToString();
-                if (strFormId != "" || strFormId != null)
-                {
-                    BLLCommonServices.Utility.MvcCacheClearAsync(strModelCode, strFormId, act);
-                }
-            }
+            //string strModelCode = entity.GetType().Name;
+            //BLLCommonServices.MVCCacheSV.EntityAction act;
+            //switch (action)
+            //{
+            //    case "Add": act = BLLCommonServices.MVCCacheSV.EntityAction.Add; break;
+            //    case "Modify": act = BLLCommonServices.MVCCacheSV.EntityAction.Modify; break;
+            //    case "Delete": act = BLLCommonServices.MVCCacheSV.EntityAction.Delete; break;
+            //    default: act = BLLCommonServices.MVCCacheSV.EntityAction.None; break;
+            //}
+            //if (entity is System.Data.Objects.DataClasses.EntityObject)
+            //{
+            //    System.Data.Objects.DataClasses.EntityObject ent = entity as System.Data.Objects.DataClasses.EntityObject;
+            //    string strFormId = entity.GetType().GetProperties().FirstOrDefault().GetValue(entity, null).ToString();
+            //    if (strFormId != "" || strFormId != null)
+            //    {
+            //        BLLCommonServices.Utility.MvcCacheClearAsync(strModelCode, strFormId, act);
+            //    }
+            //}
         }
 
         /// <summary>
@@ -383,17 +377,17 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient clientEngine
-                    = new BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
-                clientEngine.CloseDoTask(strCloseSignInIds.ToArray(), strModelCode, strEmployeeID);
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient clientEngine
+                //    = new BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
+                //clientEngine.CloseDoTask(strCloseSignInIds.ToArray(), strModelCode, strEmployeeID);
 
-                string strid=string.Empty;
-                foreach(var q in strCloseSignInIds)
-                {
-                    strid = q + "," + strid;
-                }
-                Tracer.Debug("关闭引擎，接受参数：strModelCode：" + strModelCode + ", strEmployeeId:"
-                   + strEmployeeID + " formids:" + strid);
+                //string strid=string.Empty;
+                //foreach(var q in strCloseSignInIds)
+                //{
+                //    strid = q + "," + strid;
+                //}
+                //Tracer.Debug("关闭引擎，接受参数：strModelCode：" + strModelCode + ", strEmployeeId:"
+                //   + strEmployeeID + " formids:" + strid);
                 return true;
             }
             catch (Exception ex)
@@ -413,12 +407,12 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient clientEngine
-                    = new SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
-                clientEngine.ModelMsgClose(strModelCode, strEmployeeId);
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient clientEngine
+                //    = new SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
+                //clientEngine.ModelMsgClose(strModelCode, strEmployeeId);
 
-                Tracer.Debug("关闭引擎，接受参数：strModelCode：" + strModelCode + ", strEmployeeId:"
-                   + strEmployeeId );
+                //Tracer.Debug("关闭引擎，接受参数：strModelCode：" + strModelCode + ", strEmployeeId:"
+                //   + strEmployeeId );
                 return true;
             }
             catch (Exception ex)
@@ -1653,8 +1647,8 @@ namespace SMT.HRM.BLL
 
                 strCheckState = Convert.ToInt32(Common.CheckStates.Approving).ToString();   //待审核的转化为审核中
 
-                SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient clientFlow = new SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient();
-                SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDDETAIL_T[] flowList = clientFlow.GetFlowInfo("", "", strCheckState, "0", ModelCode, "", strUserID);
+                //SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient clientFlow = new SMT.SaaS.BLLCommonServices.FlowWFService.ServiceClient();
+                FLOW_FLOWRECORDDETAIL_T[] flowList = null;// clientFlow.GetFlowInfo("", "", strCheckState, "0", ModelCode, "", strUserID);
 
                 if (flowList == null)
                 {
@@ -1670,7 +1664,7 @@ namespace SMT.HRM.BLL
                     filterString += " AND ";
                 }
                 filterString += "( ";
-                foreach (SMT.SaaS.BLLCommonServices.FlowWFService.FLOW_FLOWRECORDDETAIL_T item in flowList)
+                foreach (FLOW_FLOWRECORDDETAIL_T item in flowList)
                 {
                     filterString += " " + strPrimaryKey + "=@" + queryParas.Count() + " or";
                     queryParas.Add(item.FLOW_FLOWRECORDMASTER_T.FORMID);
@@ -1735,11 +1729,11 @@ namespace SMT.HRM.BLL
 
         public string GetBusinessObject(string ModeCode)
         { 
-            if (PublicInterfaceClient == null)
-            {
-                PublicInterfaceClient = new PublicServiceClient();
-            }
-            string BusinessObject = PublicInterfaceClient.GetBusinessObject("HR", ModeCode);
+            //if (PublicInterfaceClient == null)
+            //{
+            //    PublicInterfaceClient = new PublicServiceClient();
+            //}
+            string BusinessObject = "PublicInterfaceClient.GetBusinessObject('HR', ModeCode)";
             return BusinessObject;
         }
         /// <summary>

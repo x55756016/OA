@@ -604,52 +604,52 @@ namespace SMT.HRM.BLL
                                     //更改员工的所属公司 部门 岗位信息
                                     dal.UpdateFromContext(employee);
                                     #region  主岗位异动，个人活动经费随行
-                                    SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient client = new SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
-                                    string message = "";
+                                    //SMT.SaaS.BLLCommonServices.FBServiceWS.FBServiceClient client = new SaaS.BLLCommonServices.FBServiceWS.FBServiceClient();
+                                    //string message = "";
                                     try
                                     {
-                                        SMT.SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEEPOSTCHANGE postChange = new SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEEPOSTCHANGE
-                                        {
-                                            POSTCHANGEID = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGEID,
-                                            POSTCHANGCATEGORY = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGCATEGORY,
-                                            POSTCHANGREASON = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGREASON,
-                                            FROMCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.FROMCOMPANYID,
-                                            TOCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.TOCOMPANYID,
-                                            FROMDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.FROMDEPARTMENTID,
-                                            TODEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.TODEPARTMENTID,
-                                            FROMPOSTID = tmp.EMPLOYEEPOSTCHANGE.FROMPOSTID,
-                                            TOPOSTID = tmp.EMPLOYEEPOSTCHANGE.TOPOSTID,
-                                            FROMPOSTLEVEL = tmp.EMPLOYEEPOSTCHANGE.FROMPOSTLEVEL,
-                                            TOPOSTLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOPOSTLEVEL,
-                                            FROMSALARYLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOSALARYLEVEL,
-                                            TOSALARYLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOSALARYLEVEL,
-                                            EMPLOYEEPOSTID = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEEPOSTID,
-                                            ISAGENCY = tmp.EMPLOYEEPOSTCHANGE.ISAGENCY,
-                                            EMPLOYEECODE = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEECODE,
-                                            EMPLOYEENAME = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEENAME,
-                                            CHANGEDATE = tmp.EMPLOYEEPOSTCHANGE.CHANGEDATE,
-                                            ENDDATE = tmp.EMPLOYEEPOSTCHANGE.ENDDATE,
-                                            ENDREASON = tmp.EMPLOYEEPOSTCHANGE.ENDREASON,
-                                            CHECKSTATE = tmp.EMPLOYEEPOSTCHANGE.CHECKSTATE,
-                                            REMARK = tmp.EMPLOYEEPOSTCHANGE.REMARK,
-                                            OWNERID = tmp.EMPLOYEEPOSTCHANGE.OWNERID,
-                                            OWNERPOSTID = tmp.EMPLOYEEPOSTCHANGE.OWNERPOSTID,
-                                            OWNERDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.OWNERDEPARTMENTID,
-                                            OWNERCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.OWNERCOMPANYID,
-                                            CREATEUSERID = tmp.EMPLOYEEPOSTCHANGE.CREATEUSERID,
-                                            CREATEPOSTID = tmp.EMPLOYEEPOSTCHANGE.CREATEPOSTID,
-                                            CREATEDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.CREATEDEPARTMENTID,
-                                            CREATECOMPANYID = tmp.EMPLOYEEPOSTCHANGE.CREATECOMPANYID,
-                                            CREATEDATE = tmp.EMPLOYEEPOSTCHANGE.CREATEDATE,
-                                            UPDATEUSERID = tmp.EMPLOYEEPOSTCHANGE.UPDATEUSERID,
-                                            UPDATEDATE = tmp.EMPLOYEEPOSTCHANGE.UPDATEDATE
-                                        };
-                                        postChange.T_HR_EMPLOYEE = new SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEE();
-                                        postChange.T_HR_EMPLOYEE.EMPLOYEEID = tmp.EMPLOYEEID;
+                                    //    SMT.SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEEPOSTCHANGE postChange = new SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEEPOSTCHANGE
+                                    //    {
+                                    //        POSTCHANGEID = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGEID,
+                                    //        POSTCHANGCATEGORY = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGCATEGORY,
+                                    //        POSTCHANGREASON = tmp.EMPLOYEEPOSTCHANGE.POSTCHANGREASON,
+                                    //        FROMCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.FROMCOMPANYID,
+                                    //        TOCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.TOCOMPANYID,
+                                    //        FROMDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.FROMDEPARTMENTID,
+                                    //        TODEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.TODEPARTMENTID,
+                                    //        FROMPOSTID = tmp.EMPLOYEEPOSTCHANGE.FROMPOSTID,
+                                    //        TOPOSTID = tmp.EMPLOYEEPOSTCHANGE.TOPOSTID,
+                                    //        FROMPOSTLEVEL = tmp.EMPLOYEEPOSTCHANGE.FROMPOSTLEVEL,
+                                    //        TOPOSTLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOPOSTLEVEL,
+                                    //        FROMSALARYLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOSALARYLEVEL,
+                                    //        TOSALARYLEVEL = tmp.EMPLOYEEPOSTCHANGE.TOSALARYLEVEL,
+                                    //        EMPLOYEEPOSTID = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEEPOSTID,
+                                    //        ISAGENCY = tmp.EMPLOYEEPOSTCHANGE.ISAGENCY,
+                                    //        EMPLOYEECODE = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEECODE,
+                                    //        EMPLOYEENAME = tmp.EMPLOYEEPOSTCHANGE.EMPLOYEENAME,
+                                    //        CHANGEDATE = tmp.EMPLOYEEPOSTCHANGE.CHANGEDATE,
+                                    //        ENDDATE = tmp.EMPLOYEEPOSTCHANGE.ENDDATE,
+                                    //        ENDREASON = tmp.EMPLOYEEPOSTCHANGE.ENDREASON,
+                                    //        CHECKSTATE = tmp.EMPLOYEEPOSTCHANGE.CHECKSTATE,
+                                    //        REMARK = tmp.EMPLOYEEPOSTCHANGE.REMARK,
+                                    //        OWNERID = tmp.EMPLOYEEPOSTCHANGE.OWNERID,
+                                    //        OWNERPOSTID = tmp.EMPLOYEEPOSTCHANGE.OWNERPOSTID,
+                                    //        OWNERDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.OWNERDEPARTMENTID,
+                                    //        OWNERCOMPANYID = tmp.EMPLOYEEPOSTCHANGE.OWNERCOMPANYID,
+                                    //        CREATEUSERID = tmp.EMPLOYEEPOSTCHANGE.CREATEUSERID,
+                                    //        CREATEPOSTID = tmp.EMPLOYEEPOSTCHANGE.CREATEPOSTID,
+                                    //        CREATEDEPARTMENTID = tmp.EMPLOYEEPOSTCHANGE.CREATEDEPARTMENTID,
+                                    //        CREATECOMPANYID = tmp.EMPLOYEEPOSTCHANGE.CREATECOMPANYID,
+                                    //        CREATEDATE = tmp.EMPLOYEEPOSTCHANGE.CREATEDATE,
+                                    //        UPDATEUSERID = tmp.EMPLOYEEPOSTCHANGE.UPDATEUSERID,
+                                    //        UPDATEDATE = tmp.EMPLOYEEPOSTCHANGE.UPDATEDATE
+                                    //    };
+                                    //    postChange.T_HR_EMPLOYEE = new SaaS.BLLCommonServices.FBServiceWS.T_HR_EMPLOYEE();
+                                    //    postChange.T_HR_EMPLOYEE.EMPLOYEEID = tmp.EMPLOYEEID;
 
-                                        //调用个人活动经费迁移接口
-                                        client.HRPersonPostChanged(postChange, ref message);
-                                        SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + "预算 返回结果:" + message);
+                                    //    //调用个人活动经费迁移接口
+                                    //    client.HRPersonPostChanged(postChange, ref message);
+                                    //    SMT.Foundation.Log.Tracer.Debug("FormID:" + EntityKeyValue + "预算 返回结果:" + message);
                                     }
                                     catch (Exception e)
                                     {
@@ -900,34 +900,34 @@ namespace SMT.HRM.BLL
                         #region 员工异动工作计划接口
                         try
                         {
-                            SMT.Foundation.Log.Tracer.Debug("员工异动开始调用工作计划接口:employeePostChange.postchangeid=" + employeePostChange.POSTCHANGEID + ",employeePostChange.ISAGENCY=" + employeePostChange.ISAGENCY);
-                            if (employeePostChange.ISAGENCY == "0" || employeePostChange.ISAGENCY == "3")
-                            {
-                                string StrEmployeePostID = employeePostChange.EMPLOYEEPOSTID;
-                                var entsEmployeePosts = from c in dal.GetObjects<T_HR_EMPLOYEEPOST>()
-                                                        where c.EMPLOYEEPOSTID == StrEmployeePostID
-                                                        select new V_EMPLOYEEPOSTBRIEF
-                                                        {
-                                                            EMPLOYEEPOSTID = c.EMPLOYEEPOSTID,
-                                                            POSTID = c.T_HR_POST.POSTID,
-                                                            PostName = c.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
-                                                            DepartmentID = c.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
-                                                            DepartmentName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                                                            CompanyID = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID,
-                                                            CompanyName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME
-                                                        };
-                                SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
-                                SMT.SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE vemployee = new SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE();
-                                vemployee.OWNERID = employeePostChange.OWNERID;
-                                vemployee.OWNERNAME = employeePostChange.EMPLOYEENAME;
-                                vemployee.OWNERPOSTID = entsEmployeePosts.FirstOrDefault().POSTID;
-                                vemployee.OWNERPOSTNAME = entsEmployeePosts.FirstOrDefault().PostName;
-                                vemployee.OWNERDEPARTMENTID = entsEmployeePosts.FirstOrDefault().DepartmentID;
-                                vemployee.OWNERDEPARTMENTNAME = entsEmployeePosts.FirstOrDefault().DepartmentName;
-                                vemployee.OWNERCOMPANYID = entsEmployeePosts.FirstOrDefault().CompanyID;
-                                vemployee.OWNERCOMPANYNAME = entsEmployeePosts.FirstOrDefault().CompanyName;
-                                client.EmployeePostChangeAuditPass(employeePostChange.FROMPOSTID, vemployee);
-                            }
+                            //SMT.Foundation.Log.Tracer.Debug("员工异动开始调用工作计划接口:employeePostChange.postchangeid=" + employeePostChange.POSTCHANGEID + ",employeePostChange.ISAGENCY=" + employeePostChange.ISAGENCY);
+                            //if (employeePostChange.ISAGENCY == "0" || employeePostChange.ISAGENCY == "3")
+                            //{
+                            //    string StrEmployeePostID = employeePostChange.EMPLOYEEPOSTID;
+                            //    var entsEmployeePosts = from c in dal.GetObjects<T_HR_EMPLOYEEPOST>()
+                            //                            where c.EMPLOYEEPOSTID == StrEmployeePostID
+                            //                            select new V_EMPLOYEEPOSTBRIEF
+                            //                            {
+                            //                                EMPLOYEEPOSTID = c.EMPLOYEEPOSTID,
+                            //                                POSTID = c.T_HR_POST.POSTID,
+                            //                                PostName = c.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
+                            //                                DepartmentID = c.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
+                            //                                DepartmentName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                            //                                CompanyID = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID,
+                            //                                CompanyName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME
+                            //                            };
+                            //    SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
+                            //    SMT.SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE vemployee = new SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE();
+                            //    vemployee.OWNERID = employeePostChange.OWNERID;
+                            //    vemployee.OWNERNAME = employeePostChange.EMPLOYEENAME;
+                            //    vemployee.OWNERPOSTID = entsEmployeePosts.FirstOrDefault().POSTID;
+                            //    vemployee.OWNERPOSTNAME = entsEmployeePosts.FirstOrDefault().PostName;
+                            //    vemployee.OWNERDEPARTMENTID = entsEmployeePosts.FirstOrDefault().DepartmentID;
+                            //    vemployee.OWNERDEPARTMENTNAME = entsEmployeePosts.FirstOrDefault().DepartmentName;
+                            //    vemployee.OWNERCOMPANYID = entsEmployeePosts.FirstOrDefault().CompanyID;
+                            //    vemployee.OWNERCOMPANYNAME = entsEmployeePosts.FirstOrDefault().CompanyName;
+                            //    client.EmployeePostChangeAuditPass(employeePostChange.FROMPOSTID, vemployee);
+                            //}
                         }
                         catch (Exception ex)
                         {
@@ -1226,24 +1226,24 @@ namespace SMT.HRM.BLL
         public Dictionary<string, string> CheckBusinesstrip(string employeeid)
         {
             Dictionary<string, string> ResultDiction = null;
-            try
-            {
-                if (!string.IsNullOrWhiteSpace(employeeid))
-                {
-                    SMT.SaaS.BLLCommonServices.OAPersonalWS.SmtOAPersonOfficeClient OaOffice = new SaaS.BLLCommonServices.OAPersonalWS.SmtOAPersonOfficeClient();
-                    ResultDiction = OaOffice.GetUnderwayTravelmanagement(employeeid);
-                    return ResultDiction;
-                }
-                else
-                {
-                    Tracer.Debug("EmployeePostChangeBLL-CheckBusinesstrip  未获取正确的用户ID");
-                }
-            }
-            catch (Exception ex)
-            {
-                Tracer.Debug("EmployeePostChangeBLL-CheckBusinesstrip  " + ex.ToString());
-                return null;
-            }
+            //try
+            //{
+            //    if (!string.IsNullOrWhiteSpace(employeeid))
+            //    {
+            //        SMT.SaaS.BLLCommonServices.OAPersonalWS.SmtOAPersonOfficeClient OaOffice = new SaaS.BLLCommonServices.OAPersonalWS.SmtOAPersonOfficeClient();
+            //        ResultDiction = OaOffice.GetUnderwayTravelmanagement(employeeid);
+            //        return ResultDiction;
+            //    }
+            //    else
+            //    {
+            //        Tracer.Debug("EmployeePostChangeBLL-CheckBusinesstrip  未获取正确的用户ID");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Tracer.Debug("EmployeePostChangeBLL-CheckBusinesstrip  " + ex.ToString());
+            //    return null;
+            //}
             return ResultDiction;
 
         }
@@ -1253,9 +1253,10 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.Foundation.Log.Tracer.Debug("员工异动开始调用工作计划接口");
-                SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
-                return client.EmployeeCanPostChange(employeeId, fromPostId);
+                //SMT.Foundation.Log.Tracer.Debug("员工异动开始调用工作计划接口");
+                //SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
+                //return client.EmployeeCanPostChange(employeeId, fromPostId);
+                return true;
             }
             catch (Exception ex)
             {

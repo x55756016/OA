@@ -11,6 +11,7 @@ using SMT.HRM.CustomModel;
 using System.Data;
 using SMT.HRM.BLL.Report;
 using SMT.Foundation.Log;
+using SMT.HRM.BLL.Permission;
 
 namespace SMT.HRM.BLL
 {
@@ -426,8 +427,12 @@ namespace SMT.HRM.BLL
                                 }
                                 #endregion
                                 #region 禁用系统用户
-                                SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
-                                SMT.SaaS.BLLCommonServices.PermissionWS.T_SYS_USER user = perclient.GetUserByEmployeeID(ent.EMPLOYEEID);
+                                //SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perclient = new SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient();
+                                T_SYS_USER user;
+                                using (SysUserBLL bll = new SysUserBLL())
+                                {
+                                    user = bll.GetUserByEmployeeID(ent.EMPLOYEEID);
+                                }
                                 if (user != null)
                                 {
                                     user.STATE = "0";
@@ -449,7 +454,12 @@ namespace SMT.HRM.BLL
                                         }
 
                                         //bool IsSuccess= perclient.SysUserInfoUpdateForEmployeeLeft(user, ent.T_HR_LEFTOFFICE.OWNERCOMPANYID,ent.T_HR_LEFTOFFICE.T_HR_EMPLOYEEPOST.EMPLOYEEPOSTID,IsMain);
-                                        bool IsSuccess = perclient.SysUserInfoUpdateForEmployeeLeft(user, ent.OWNERCOMPANYID, ent.EMPLOYEEPOSTID, IsMain);
+                                        bool IsSuccess = false;// perclient.SysUserInfoUpdateForEmployeeLeft(user, ent.OWNERCOMPANYID, ent.EMPLOYEEPOSTID, IsMain);
+                                        using (SysUserBLL UserBll = new SysUserBLL())
+                                        {
+                                            IsSuccess= UserBll.UpdateSysUserInfoForEmployeeLeftOffice(user, ent.OWNERCOMPANYID, ent.EMPLOYEEPOSTID, IsMain);
+                                        }
+                                        
                                         string StrResult = "";
                                         if (IsSuccess)
                                         {
@@ -643,9 +653,9 @@ namespace SMT.HRM.BLL
                     #region 调用工作计划接口
                     try
                     {
-                        SMT.Foundation.Log.Tracer.Debug("离职确认开始调用工作计划接口");
-                        SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
-                        client.DeleteEmployeePlanTimingTrigger(leftOfficeConfirm.EMPLOYEEID, leftOfficeConfirm.EMPLOYEEPOSTID);
+                        //SMT.Foundation.Log.Tracer.Debug("离职确认开始调用工作计划接口");
+                        //SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
+                        //client.DeleteEmployeePlanTimingTrigger(leftOfficeConfirm.EMPLOYEEID, leftOfficeConfirm.EMPLOYEEPOSTID);
                     }
                     catch (Exception ex)
                     {

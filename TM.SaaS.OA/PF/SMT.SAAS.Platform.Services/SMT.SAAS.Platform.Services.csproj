@@ -92,20 +92,14 @@
     </Content>
     <Content Include="crossdomain.xml" />
     <Content Include="PlatformServices.svc" />
-    <Content Include="PlatformSiServices.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlatformSiServices.cs" />
     <Compile Include="PlatformServices.svc.cs">
       <DependentUpon>PlatformServices.svc</DependentUpon>
     </Compile>
-    <Compile Include="PlatformSiServices.svc.cs">
-      <DependentUpon>PlatformSiServices.svc</DependentUpon>
-    </Compile>
-    <Compile Include="PlatformSiServices\ShortCutSiServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,10 +119,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\PF_Publish.pubxml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PlatformServices\" />
-    <Folder Include="XapResource\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

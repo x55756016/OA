@@ -7,7 +7,6 @@ using SMT.HRM.DAL;
 using TM_SaaS_OA_EFModel;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
-using SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.Foundation.Log;
 using SMT.HRM.CustomModel.Request;
 using SMT.HRM.CustomModel.Response;
@@ -1395,8 +1394,11 @@ namespace SMT.HRM.BLL
                     = sysDicbll.GetSysDictionaryByCategoryArray(new string[] { "CHECKSTATE" }).Where(p => p.DICTIONARYVALUE == stateValue).FirstOrDefault().DICTIONARYNAME;
                 checkState = checkStateDict == null ? "" : checkStateDict;
 
-                SMT.SaaS.BLLCommonServices.PersonnelWS.V_EMPLOYEEPOST employee
-                    = SMT.SaaS.BLLCommonServices.Utility.GetEmployeeOrgByid(Info.EMPLOYEEID);
+                V_EMPLOYEEPOST employee = new V_EMPLOYEEPOST();
+                using (EmployeeBLL bll = new EmployeeBLL())
+                {
+                    employee = bll.GetEmployeeDetailByID(Info.EMPLOYEEID);
+                }
                 decimal? postlevelValue = Convert.ToDecimal(employee.EMPLOYEEPOSTS[0].POSTLEVEL.ToString());
                 string postLevelName = string.Empty;
                 string postLevelDict

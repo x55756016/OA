@@ -72,7 +72,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             MainPageManeger.isFirstUser = this.isFirstUser;
             MainPageManeger.LoadXapName = "SMT.SAAS.Platform.xap";
             MainPageManeger.VertionFileName = "DllVersion.xml";
-            MainPageManeger.LoadCompleted += new EventHandler(loadMainPage_LoadCompleted);
+            MainPageManeger.LoadDLLCompleted += new EventHandler(loadMainPage_LoadCompleted);
             MainPageManeger.UpdateDllCompleted += new EventHandler(MainPageManeger_UpdateDllCompleted);
 
 #if DEBUG

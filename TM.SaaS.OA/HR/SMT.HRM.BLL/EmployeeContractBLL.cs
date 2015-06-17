@@ -6,7 +6,6 @@ using System.Text;
 using SMT.HRM.DAL;
 using TM_SaaS_OA_EFModel;
 using System.Linq.Dynamic;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.HRM.CustomModel;
 namespace SMT.HRM.BLL
 {
@@ -439,26 +438,26 @@ namespace SMT.HRM.BLL
         public void EmployeeContractAlarm(T_HR_EMPLOYEECONTRACT entity)
         {
 
-            string submitName = "";
-            var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
-                       where a.EMPLOYEEID == entity.OWNERID
-                       select a;
-            SalaryLoginBLL bll = new SalaryLoginBLL();
-            T_HR_SYSTEMSETTING systemSetting = bll.GetSystemSettingByCompanyId(entity.OWNERCOMPANYID);
-            string receiveUserId = entity.CREATEUSERID;
-            if (systemSetting != null && !string.IsNullOrEmpty(systemSetting.OWNERID))
-            {
-                receiveUserId = systemSetting.OWNERID;
-            }
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = entity.EMPLOYEECONTACTID;
-            userMsg.UserID = receiveUserId;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
-            SMT.Foundation.Log.Tracer.Debug("合同到期开始调用ApplicationMsgTrigger。ID:"+entity.EMPLOYEECONTACTID);
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECONTRACT", Utility.ObjListToXml(entity, "HR", submitName), EngineWS.MsgType.Task);
+            //string submitName = "";
+            //var ents = from a in dal.GetObjects<T_HR_EMPLOYEE>()
+            //           where a.EMPLOYEEID == entity.OWNERID
+            //           select a;
+            //SalaryLoginBLL bll = new SalaryLoginBLL();
+            //T_HR_SYSTEMSETTING systemSetting = bll.GetSystemSettingByCompanyId(entity.OWNERCOMPANYID);
+            //string receiveUserId = entity.CREATEUSERID;
+            //if (systemSetting != null && !string.IsNullOrEmpty(systemSetting.OWNERID))
+            //{
+            //    receiveUserId = systemSetting.OWNERID;
+            //}
+            //EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+            //EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+            //userMsg.FormID = entity.EMPLOYEECONTACTID;
+            //userMsg.UserID = receiveUserId;
+            //EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+            //List[0] = userMsg;
+            //if (ents.Count() > 0) submitName = ents.FirstOrDefault().EMPLOYEECNAME;
+            //SMT.Foundation.Log.Tracer.Debug("合同到期开始调用ApplicationMsgTrigger。ID:"+entity.EMPLOYEECONTACTID);
+            //Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEECONTRACT", Utility.ObjListToXml(entity, "HR", submitName), EngineWS.MsgType.Task);
 
         }
         /// <summary>

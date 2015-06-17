@@ -11,8 +11,6 @@ using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
 //添加即时通讯的服务引用
 using SMT.HRM.IMServices.IMServiceWS;
-using SMT.SaaS.BLLCommonServices.PermissionWS;
-using SMT.SaaS.BLLCommonServices.MailService;
 using SMT.HRM.BLL.Report;
 using SMT.SaaS.SmtOlineEn;
 using Enyim.Caching;
@@ -362,54 +360,54 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient Client = new SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
-                //获取运维组的员工
-                var employees = from c in dal.GetObjects<T_HR_EMPLOYEE>()
-                                where c.OWNERPOSTID == "b7c4f515-a0b8-42ff-a103-c178170a51f7" && c.EMPLOYEESTATE != "2"
-                                select c;
-                //获取员工组织架构信息
-                var employeeInfo = from a in dal.GetObjects<T_HR_COMPANY>()
-                                   join b in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_DEPARTMENTDICTIONARY") on a.COMPANYID equals b.T_HR_COMPANY.COMPANYID
-                                   join c in dal.GetObjects<T_HR_POST>().Include("T_HR_POSTDICTIONARY") on b.DEPARTMENTID equals c.T_HR_DEPARTMENT.DEPARTMENTID
-                                   where c.POSTID == employee.OWNERCOMPANYID
-                                   select new
-                                   {
-                                       ComanyName = a.CNAME,
-                                       DepartmentName = b.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                                       PostName = c.T_HR_POSTDICTIONARY.POSTNAME
-                                   };
-                string strOrgInfo = string.Empty;
-                if (employeeInfo.Count() > 0)
-                {
-                    var tmp = employeeInfo.FirstOrDefault();
-                    strOrgInfo = tmp.ComanyName + tmp.DepartmentName + tmp.PostName;
-                }
-                if (employees.Count() > 0)
-                {
-                    SMT.SaaS.BLLCommonServices.EngineConfigWS.MailParams[] paras = new SaaS.BLLCommonServices.EngineConfigWS.MailParams[employees.Count()];
-                    int i = 0;
-                    foreach (T_HR_EMPLOYEE ent in employees)
-                    {
-                        TM_SaaS_OA_EFModel.T_SYS_USER userInfo = GetUserInfo(employee.EMPLOYEEID);
-                        if (userInfo!=null && !string.IsNullOrEmpty(userInfo.USERNAME))
-                        {
-                            SMT.SaaS.SmtOlineEn.SmtOlineDES des = new SmtOlineDES();
-                            string TruePassword = des.getValue(userInfo.PASSWORD);
-                            SMT.SaaS.BLLCommonServices.EngineConfigWS.MailParams para = new SaaS.BLLCommonServices.EngineConfigWS.MailParams();
-                            para.MailContent = strOrgInfo + ":" + employee.EMPLOYEECNAME + " 已经入职，请创建邮箱。用户名:" + userInfo.USERNAME + "  密码：" + TruePassword;
-                            SMT.Foundation.Log.Tracer.Debug("建邮箱语句：" + para.MailContent);
-                            para.MailTitle = "请为" + employee.EMPLOYEECNAME + "创建邮箱";
-                            para.ReceiveUserMail = ent.EMAIL;
-                            paras[i] = para;
-                            i++;
-                        }
-                        else
-                        {
-                            SMT.Foundation.Log.Tracer.Debug("EmployeeEntry-sendMail:缺少用户名");
-                        }
-                    }
-                    Client.SendMail(paras);
-                }
+                //SMT.SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient Client = new SaaS.BLLCommonServices.EngineConfigWS.EngineWcfGlobalFunctionClient();
+                ////获取运维组的员工
+                //var employees = from c in dal.GetObjects<T_HR_EMPLOYEE>()
+                //                where c.OWNERPOSTID == "b7c4f515-a0b8-42ff-a103-c178170a51f7" && c.EMPLOYEESTATE != "2"
+                //                select c;
+                ////获取员工组织架构信息
+                //var employeeInfo = from a in dal.GetObjects<T_HR_COMPANY>()
+                //                   join b in dal.GetObjects<T_HR_DEPARTMENT>().Include("T_HR_DEPARTMENTDICTIONARY") on a.COMPANYID equals b.T_HR_COMPANY.COMPANYID
+                //                   join c in dal.GetObjects<T_HR_POST>().Include("T_HR_POSTDICTIONARY") on b.DEPARTMENTID equals c.T_HR_DEPARTMENT.DEPARTMENTID
+                //                   where c.POSTID == employee.OWNERCOMPANYID
+                //                   select new
+                //                   {
+                //                       ComanyName = a.CNAME,
+                //                       DepartmentName = b.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                //                       PostName = c.T_HR_POSTDICTIONARY.POSTNAME
+                //                   };
+                //string strOrgInfo = string.Empty;
+                //if (employeeInfo.Count() > 0)
+                //{
+                //    var tmp = employeeInfo.FirstOrDefault();
+                //    strOrgInfo = tmp.ComanyName + tmp.DepartmentName + tmp.PostName;
+                //}
+                //if (employees.Count() > 0)
+                //{
+                //    SMT.SaaS.BLLCommonServices.EngineConfigWS.MailParams[] paras = new SaaS.BLLCommonServices.EngineConfigWS.MailParams[employees.Count()];
+                //    int i = 0;
+                //    foreach (T_HR_EMPLOYEE ent in employees)
+                //    {
+                //        TM_SaaS_OA_EFModel.T_SYS_USER userInfo = GetUserInfo(employee.EMPLOYEEID);
+                //        if (userInfo!=null && !string.IsNullOrEmpty(userInfo.USERNAME))
+                //        {
+                //            SMT.SaaS.SmtOlineEn.SmtOlineDES des = new SmtOlineDES();
+                //            string TruePassword = des.getValue(userInfo.PASSWORD);
+                //            SMT.SaaS.BLLCommonServices.EngineConfigWS.MailParams para = new SaaS.BLLCommonServices.EngineConfigWS.MailParams();
+                //            para.MailContent = strOrgInfo + ":" + employee.EMPLOYEECNAME + " 已经入职，请创建邮箱。用户名:" + userInfo.USERNAME + "  密码：" + TruePassword;
+                //            SMT.Foundation.Log.Tracer.Debug("建邮箱语句：" + para.MailContent);
+                //            para.MailTitle = "请为" + employee.EMPLOYEECNAME + "创建邮箱";
+                //            para.ReceiveUserMail = ent.EMAIL;
+                //            paras[i] = para;
+                //            i++;
+                //        }
+                //        else
+                //        {
+                //            SMT.Foundation.Log.Tracer.Debug("EmployeeEntry-sendMail:缺少用户名");
+                //        }
+                //    }
+                //    Client.SendMail(paras);
+                //}
             }
             catch (Exception ex)
             {
@@ -1255,35 +1253,35 @@ namespace SMT.HRM.BLL
                         #region 员工入职调用工作计划接口 添加员工计划和总结
                         try
                         {
-                            SMT.Foundation.Log.Tracer.Debug("员工入职开始调用工作计划接口");
-                            SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
-                            SMT.SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE vemployee = new SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE();
+                            //SMT.Foundation.Log.Tracer.Debug("员工入职开始调用工作计划接口");
+                            //SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient client = new SaaS.BLLCommonServices.WPServicesWS.WPServicesClient();
+                            //SMT.SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE vemployee = new SaaS.BLLCommonServices.WPServicesWS.VIEW_EMPLOYEE();
 
-                            var ents = from c in dal.GetObjects<T_HR_EMPLOYEEPOST>()
-                                       where c.EMPLOYEEPOSTID == employeePost.EMPLOYEEPOSTID
-                                       select new V_EMPLOYEEPOSTBRIEF
-                                       {
-                                           EMPLOYEEPOSTID = c.EMPLOYEEPOSTID,
-                                           POSTID = c.T_HR_POST.POSTID,
-                                           PostName = c.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
-                                           DepartmentID = c.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
-                                           DepartmentName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
-                                           CompanyID = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID,
-                                           CompanyName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME,
-                                           POSTLEVEL = c.POSTLEVEL,
-                                           ISAGENCY = c.ISAGENCY
-                                       };
+                            //var ents = from c in dal.GetObjects<T_HR_EMPLOYEEPOST>()
+                            //           where c.EMPLOYEEPOSTID == employeePost.EMPLOYEEPOSTID
+                            //           select new V_EMPLOYEEPOSTBRIEF
+                            //           {
+                            //               EMPLOYEEPOSTID = c.EMPLOYEEPOSTID,
+                            //               POSTID = c.T_HR_POST.POSTID,
+                            //               PostName = c.T_HR_POST.T_HR_POSTDICTIONARY.POSTNAME,
+                            //               DepartmentID = c.T_HR_POST.T_HR_DEPARTMENT.DEPARTMENTID,
+                            //               DepartmentName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_DEPARTMENTDICTIONARY.DEPARTMENTNAME,
+                            //               CompanyID = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.COMPANYID,
+                            //               CompanyName = c.T_HR_POST.T_HR_DEPARTMENT.T_HR_COMPANY.CNAME,
+                            //               POSTLEVEL = c.POSTLEVEL,
+                            //               ISAGENCY = c.ISAGENCY
+                            //           };
 
-                            vemployee.OWNERID = employee.EMPLOYEEID;
-                            vemployee.OWNERNAME = employee.EMPLOYEECNAME;
-                            vemployee.OWNERPOSTID = employee.OWNERPOSTID;
-                            vemployee.OWNERPOSTNAME = ents.FirstOrDefault().PostName;
-                            vemployee.OWNERDEPARTMENTID = employee.OWNERDEPARTMENTID;
-                            vemployee.OWNERDEPARTMENTNAME = ents.FirstOrDefault().DepartmentName;
-                            vemployee.OWNERCOMPANYID = employee.OWNERCOMPANYID;
-                            vemployee.OWNERCOMPANYNAME = ents.FirstOrDefault().CompanyName;
-                            client.AddEmployeePlan(vemployee);
-                            SMT.Foundation.Log.Tracer.Debug("员工入职调用工作计划接口结束");
+                            //vemployee.OWNERID = employee.EMPLOYEEID;
+                            //vemployee.OWNERNAME = employee.EMPLOYEECNAME;
+                            //vemployee.OWNERPOSTID = employee.OWNERPOSTID;
+                            //vemployee.OWNERPOSTNAME = ents.FirstOrDefault().PostName;
+                            //vemployee.OWNERDEPARTMENTID = employee.OWNERDEPARTMENTID;
+                            //vemployee.OWNERDEPARTMENTNAME = ents.FirstOrDefault().DepartmentName;
+                            //vemployee.OWNERCOMPANYID = employee.OWNERCOMPANYID;
+                            //vemployee.OWNERCOMPANYNAME = ents.FirstOrDefault().CompanyName;
+                            //client.AddEmployeePlan(vemployee);
+                            //SMT.Foundation.Log.Tracer.Debug("员工入职调用工作计划接口结束");
                         }
                         catch(Exception ex)
                         {
@@ -1501,19 +1499,19 @@ namespace SMT.HRM.BLL
             string logger=string.Empty;
             try
             {
-                using (MailServiceClient msClient = new MailServiceClient())
-                {
-                    logger += "开始解冻邮箱：";
-                    if (employee != null)
-                    {
-                        msClient.Freeze(employee.EMPLOYEEID, "unfreeze");
-                        logger += "调用Freeze成功-";
-                    }
-                    else
-                    {
-                        logger += "员工实体为空-";
-                    }
-                }
+                //using (MailServiceClient msClient = new MailServiceClient())
+                //{
+                //    logger += "开始解冻邮箱：";
+                //    if (employee != null)
+                //    {
+                //        msClient.Freeze(employee.EMPLOYEEID, "unfreeze");
+                //        logger += "调用Freeze成功-";
+                //    }
+                //    else
+                //    {
+                //        logger += "员工实体为空-";
+                //    }
+                //}
             }
             catch
             {
@@ -2091,11 +2089,14 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                listEmpInfo.ForEach(it =>
-                    {
-                        SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perClient = new PermissionServiceClient();
-                        it.UserName = perClient.GetUserNameIsExistNameAddOne(it.UserName, "123abc");//这里员工ID用123abc代替，因为前面已经用员工身份证进行过判断，所以用户表里面的数据不会重复
-                    });
+                using (SysUserBLL UserBll = new SysUserBLL())
+                {
+                    listEmpInfo.ForEach(it =>
+                        {
+                            //SMT.SaaS.BLLCommonServices.PermissionWS.PermissionServiceClient perClient = new PermissionServiceClient();
+                            it.UserName =  UserBll.GetUserNameIsExistAddOne(it.UserName, "123abc");//这里员工ID用123abc代替，因为前面已经用员工身份证进行过判断，所以用户表里面的数据不会重复
+                        });
+                }
                 return listEmpInfo;
             }
             catch (Exception ex)

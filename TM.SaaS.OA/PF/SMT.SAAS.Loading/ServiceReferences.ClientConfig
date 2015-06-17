@@ -2,6 +2,12 @@
   <system.serviceModel>
     <bindings>
       <basicHttpBinding>
+        <!--平台新闻服务引用生成的-->
+        <binding name="BasicHttpBinding_IPlatformServices" maxBufferSize="2147483647"
+            maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <!--平台新闻服务引用生成的end-->
         <binding name="BasicHttpBinding_PlatformServices" maxBufferSize="2147483647"
                            maxReceivedMessageSize="2147483647">
           <security mode="None" />
@@ -55,11 +61,6 @@
         <binding name="BasicHttpBinding_FileUploadManager" closeTimeout="00:01:00"
           openTimeout="00:01:00" receiveTimeout="00:10:00" sendTimeout="00:10:00"
           maxBufferSize="4194304" maxReceivedMessageSize="4194304" textEncoding="utf-8">
-          <security mode="None" />
-        </binding>
-        <binding name="BasicHttpBinding_IPlatformServices" closeTimeout="00:10:00"
-          openTimeout="00:10:00" sendTimeout="00:10:00" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
         <binding name="BasicHttpBinding_TMCommonService" maxBufferSize="2147483647"
@@ -704,16 +705,14 @@
       <endpoint address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      <endpoint address="http://localhost:22222/PlatformSiServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
-        contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
-      <endpoint address="http://localhost:22222/PlatformServices.svc"
+      
+      <!--<endpoint address="http://localhost:22222/PlatformServices.svc"
                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-               contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
+               contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
 
-      <!--<endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
+      <endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
          binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-         contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
+         contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
       
       
       <endpoint address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc"
@@ -731,6 +730,13 @@ contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionServi
       <endpoint address="http://www.oa12.com/Services/HR/MainUIServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_MainUIServices"
         contract="MainUIWS.MainUIServices" name="BasicHttpBinding_MainUIServices" />
+
+
+      <endpoint address="http://localhost:12168/PlatformServices.svc"
+    binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
+    contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
+      
+      
     </client>
    
   </system.serviceModel>

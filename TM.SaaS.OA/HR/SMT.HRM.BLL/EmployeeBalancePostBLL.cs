@@ -9,7 +9,6 @@ using System.Collections;
 using System.Linq.Expressions;
 using System.Linq.Dynamic;
 using SMT.HRM.CustomModel;
-using BLLCommonServices = SMT.SaaS.BLLCommonServices;
 using System.Data;
 using System.Reflection;
 using SMT.Foundation.Log;

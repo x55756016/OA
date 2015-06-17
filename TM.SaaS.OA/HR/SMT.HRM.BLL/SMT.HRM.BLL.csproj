@@ -206,7 +206,6 @@
     <Compile Include="PerformanceRecordBll.cs" />
     <Compile Include="PerformanceRewardRecordBLL.cs" />
     <Compile Include="PerformanceRewardSetBLL.cs" />
-    <Compile Include="Permission\CacheManager.cs" />
     <Compile Include="Permission\EntityMenuCustomPermBLL.cs" />
     <Compile Include="Permission\EntityNames.cs" />
     <Compile Include="Permission\FbAdminBLL.cs" />
@@ -216,7 +215,8 @@
     <Compile Include="Permission\provinceBll.cs" />
     <Compile Include="Permission\RoleEntityMenuBLL.cs" />
     <Compile Include="Permission\SysDictionaryBLL.cs" />
-    <Compile Include="Permission\SysEntityMenuBLL.cs" />
+    <Compile Include="Permission\UserMenu\GetUserMenu.cs" />
+    <Compile Include="Permission\UserMenu\SysEntityMenuBLL.cs" />
     <Compile Include="Permission\SysPermissionBLL.cs" />
     <Compile Include="Permission\SysRoleBLL.cs" />
     <Compile Include="Permission\SysRoleMenuPermBLL.cs" />
@@ -288,6 +288,10 @@
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
       <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
       <Name>SMT.SAAS.BLLCommonServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\TM.SaaS.CommonBll\TM.SaaS.CommonBll.csproj">
+      <Project>{de9be954-ef76-41c2-a6b8-d62e3e2775a3}</Project>
+      <Name>TM.SaaS.CommonBll</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj">
       <Project>{7571bce6-3b80-41c1-af97-9118e7f41845}</Project>

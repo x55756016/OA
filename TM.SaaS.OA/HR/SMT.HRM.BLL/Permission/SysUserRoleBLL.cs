@@ -8,6 +8,7 @@ using SMT.Foundation.Log;
 using SMT.HRM.CustomModel;
 using SMT.HRM.BLL;
 using SMT.HRM.CustomModel.Permission;
+using TM.SaaS.CommonBll;
 
 namespace SMT.HRM.BLL.Permission
 {
@@ -71,14 +72,28 @@ namespace SMT.HRM.BLL.Permission
         public IQueryable<T_SYS_USERROLE> GetSysUserRoleByUser(string userID)
         {
             try
-            {
-                string str = "预算配置员";
-                var ents = from ent in GetObjects().Include("T_SYS_USER").Include("T_SYS_ROLE")
-                           where ent.T_SYS_USER.SYSUSERID == userID
-                           //&& !ent.T_SYS_ROLE.ROLENAME.Contains("预算配置员")
-                           //&& !str.Contains(ent.T_SYS_ROLE.ROLENAME)
-                           select ent;
-                return ents;
+            { 
+                List<T_SYS_USERROLE> userRoleList;
+                string keyString = "GetSysUserRoleByUser" + userID;
+                if (WCFCache.Current[keyString] == null)
+                {
+                    IQueryable<T_SYS_USERROLE> IQList ;
+
+                    string str = "预算配置员";
+                    IQList = from ent in GetObjects().Include("T_SYS_USER").Include("T_SYS_ROLE")
+                               where ent.T_SYS_USER.SYSUSERID == userID
+                               select ent;
+                    userRoleList = IQList == null ? null : IQList.ToList();
+                    //WCFCache.Current.Insert(keyString, userRoleList, DateTime.Now.AddMinutes(15));
+                    WCFCache.Current.Insert(keyString, userRoleList, DateTime.Now.AddSeconds(5));
+
+                }
+                else
+                {
+                    userRoleList = (List<T_SYS_USERROLE>)WCFCache.Current[keyString];
+                }
+
+                return userRoleList.AsQueryable();
             }
             catch (Exception ex)
             {

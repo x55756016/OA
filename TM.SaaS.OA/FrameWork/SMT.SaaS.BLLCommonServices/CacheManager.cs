@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 using System.Threading;
+using Enyim.Caching;
+using Enyim.Caching.Memcached;
 /*
  *缓存管理 
  * 
@@ -13,9 +15,34 @@ namespace SMT.SaaS.BLLCommonServices
 {
     public class CacheManager
     {
+        protected static MemcachedClient memCacheClient;
         //private static Hashtable SmtCache = Hashtable.Synchronized(new Hashtable());
+        public static MemcachedClient CacheClinet
+        {
+            get
+            {
+                if (memCacheClient == null)
+                {
+                    memCacheClient = new MemcachedClient();                    
+                }
+                return memCacheClient;
+            }
+        }
 
+        public void CachaeObj(string key,object obj)
+        {
+            CacheClinet.Store(StoreMode.Set, key, obj);
+        }
 
+        public object GetCacheObj(string key)
+        {
+            var obj = CacheClinet.Get(key);
+            if (obj == null)
+            {
+                return null;
+            }
+            return obj;
+        }
         //public static object GetCache(string CacheKey)
         //{
         //    return CacheManager.SmtCache[CacheKey];
@@ -27,10 +54,10 @@ namespace SMT.SaaS.BLLCommonServices
         //}
 
 
-        //public static void RemoveCache(string CacheKey)
-        //{
-        //    SmtCache.Remove(CacheKey);
-        //}
+        public static void RemoveCache(string CacheKey)
+        {
+            CacheClinet.Remove(CacheKey);
+        }
 
         private static CacheManager _current = new CacheManager();
 

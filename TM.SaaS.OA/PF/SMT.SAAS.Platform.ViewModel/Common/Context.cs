@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using SMT.SAAS.Platform.Xamls.LoginPart;
 using SMT.Saas.Tools.PermissionWS;
 using System.Reflection;
+using System.Windows;
 
 // 内容摘要: 上下文环境，存储平台中使用的共享数据。
       
@@ -75,6 +76,23 @@ namespace SMT.SAAS.Platform.ViewModel
                     allChildAssembly = new  Dictionary<string,Assembly>();
                 }
                 return allChildAssembly;
+            }
+        }
+
+
+        private static Dictionary<string, FrameworkElement> MenuUIElement;
+        /// <summary>
+        /// 缓存的所有已经初始化过的菜单页面
+        /// </summary>
+        public static Dictionary<string, FrameworkElement> CacheMenuUIElement
+        {
+            get
+            {
+                if (MenuUIElement == null)
+                {
+                    MenuUIElement = new Dictionary<string, FrameworkElement>();
+                }
+                return MenuUIElement;
             }
         }
 

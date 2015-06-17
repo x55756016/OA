@@ -103,6 +103,7 @@
     <Content Include="BllCommonPermissionServices.svc" />
     <Content Include="clientaccesspolicy.xml" />
     <Content Include="CurrentContextPermision.svc" />
+    <Content Include="EngineService.svc" />
     <Content Include="FileDownload.aspx" />
     <Content Include="FileUploadManager.svc" />
     <Content Include="HRUpdateCheckStateServices.svc" />
@@ -192,6 +193,7 @@
     </Compile>
     <Compile Include="EngineService.svc.cs">
       <DependentUpon>EngineService.svc</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="EngineTriggerService.svc.cs">
       <DependentUpon>EngineTriggerService.svc</DependentUpon>
@@ -301,7 +303,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EngineService.svc" />
     <Content Include="EngineTriggerService.svc" />
     <Content Include="HrCommonService.svc" />
     <Content Include="PerformanceService.svc" />

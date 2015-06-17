@@ -13,10 +13,9 @@ using System.Data.Objects;
 using SMT.HRM.CustomModel.Permission;
 using System.Threading;
 using SMT.SaaS.SmtOlineEn;
-using SMT.HRM.CustomModel.Permission;
 using SMT.HRM.CustomModel;
 using SMT.HRM.BLL;
-using SMT.SaaS.BLLCommonServices;
+using TM.SaaS.CommonBll;
 
 
 namespace SMT.HRM.BLL.Permission
@@ -78,11 +77,28 @@ namespace SMT.HRM.BLL.Permission
         {
             try
             {
-                var ents = from a in dal.GetTable()
-                           where a.EMPLOYEEID == employeeID
-                           select a;
+                string keyString = "GetUserByEmployeeID" + employeeID;
+                T_SYS_USER user;
+                if (WCFCache.Current[keyString] == null)
+                {
 
-                return ents.Count() > 0 ? ents.FirstOrDefault() : null;
+
+                    user = (from a in dal.GetTable()
+                           where a.EMPLOYEEID == employeeID
+                           select a).FirstOrDefault();
+                    WCFCache.Current.Insert(keyString, user, DateTime.Now.AddMinutes(15));
+
+
+                }
+                else
+                {
+                    user = (T_SYS_USER)WCFCache.Current[keyString];
+
+                }
+
+
+
+                return user;
             }
             catch (Exception ex)
             {
@@ -255,6 +271,13 @@ namespace SMT.HRM.BLL.Permission
 
             try
             {
+                string keyString = "GetUserByEmployeeID" + UserObj.EMPLOYEEID;
+                WCFCache.Current[keyString] = null;
+                //清空即时通讯的缓存
+                string InstantkeyString = "ImInstantLoginUsers";
+                WCFCache.Current[InstantkeyString] = null;
+
+
                 Tracer.Debug("离职确认调用UpdateSysUserInfoForEmployeeLeftOffice" + System.DateTime.Now.ToString() + " 系统用户ID:" + UserObj.SYSUSERID.ToString());
                 Tracer.Debug("离职确认调用UpdateSysUserInfoForEmployeeLeftOffice" + System.DateTime.Now.ToString() + " 公司ID:" + StrOwnerCompanyid);
                 Tracer.Debug("离职确认调用UpdateSysUserInfoForEmployeeLeftOffice" + System.DateTime.Now.ToString() + " 岗位ID:" + StrPostid);
@@ -3443,9 +3466,14 @@ namespace SMT.HRM.BLL.Permission
                 {
                     string[] ListEmployeeIDs = EmployeeRoles.Select(ent => ent.EMPLOYEEID).ToArray();
                     List<T_SYS_ROLE> roles = EmployeeRoles.Select(ent => ent.T_SYS_ROLE).ToList();
-                        SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
-                        SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[] ListEmployeePost = Personnel.GetFlowUserInfoPostBriefByEmployeeID(ListEmployeeIDs);
-                        //判断用户角色所在岗位，此功能暂时关闭
+                        //SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
+                    List<V_FlowUserInfo> ListEmployeePost = new List<V_FlowUserInfo>();// Personnel.GetFlowUserInfoPostBriefByEmployeeID(ListEmployeeIDs);
+                        using (EmployeePostBLL bll = new EmployeePostBLL())
+                        {
+                           // Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID：" + employeeids.Count().ToString());
+                           // ListEmployeePost= bll.GetFlowUserInfoPostBriefByEmployeeID(roles);
+                        }   
+                    //判断用户角色所在岗位，此功能暂时关闭
                         var q = from ent in ListEmployeePost
                                 select new FlowUserInfo
                                 {
@@ -3613,8 +3641,14 @@ namespace SMT.HRM.BLL.Permission
                     return ListUserInfos;
                 }
                 Tracer.Debug("开始调用HR中的服务，GetDepartmentHeadByDepartmentID "+ departmentID);
-                SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
-                SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[] ListEmployeePost = Personnel.GetDepartmentHeadByDepartmentID(departmentID);
+                //SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
+                List<V_FlowUserInfo> ListEmployeePost = new List<V_FlowUserInfo>();// Personnel.GetDepartmentHeadByDepartmentID(departmentID);
+                using (EmployeePostBLL bll = new EmployeePostBLL())
+                {
+                    Tracer.Debug("进入GetDepartmentHeadByDepartmentID：" + departmentID);
+                    ListEmployeePost= bll.GetDepartmentHeadByDepartmentID(departmentID);
+                }
+
                 if (ListEmployeePost.Count() > 0)
                 {
                     if (ListEmployeePost.Count() > 0)
@@ -3669,8 +3703,13 @@ namespace SMT.HRM.BLL.Permission
                     return ListUserInfos;
                 }
                 Tracer.Debug("开始调用HR中的服务，GetSuperiorByPostID " + postID);
-                SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
-                SMT.SaaS.BLLCommonServices.PersonnelWS.V_FlowUserInfo[] ListEmployeePost = Personnel.GetSuperiorByPostID(postID);
+                //SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient Personnel = new SMT.SaaS.BLLCommonServices.PersonnelWS.PersonnelServiceClient();
+                List<V_FlowUserInfo> ListEmployeePost = new List<V_FlowUserInfo>();// Personnel.GetSuperiorByPostID(postID);
+                using (EmployeePostBLL bll = new EmployeePostBLL())
+                {
+                    Tracer.Debug("进入GetSuperiorByPostID：" + postID);
+                    ListEmployeePost= bll.GetSuperiorByPostID(postID);
+                }
                 if (ListEmployeePost.Count() > 0)
                 {
                     if (ListEmployeePost.Count() > 0)

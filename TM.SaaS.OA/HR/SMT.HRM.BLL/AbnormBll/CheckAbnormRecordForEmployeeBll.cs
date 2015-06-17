@@ -11,7 +11,6 @@ using System.Collections;
 using System.Linq.Dynamic;
 using System.Data;
 using SMT.HRM.CustomModel;
-using EngineWS = SMT.SaaS.BLLCommonServices.EngineConfigWS;
 using SMT.HRM.CustomModel.Reports;
 using SMT.Foundation.Log;
 using SMT.HRM.BLL.Common;
@@ -943,14 +942,14 @@ namespace SMT.HRM.BLL
 
             string submitName = string.Empty;
 
-            EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
-            EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
-            userMsg.FormID = entSignInRd.SIGNINID;
-            userMsg.UserID = strEmployeeId;
-            EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
-            List[0] = userMsg;
-            submitName = entSignInRd.EMPLOYEENAME;
-            Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESIGNINRECORD", Utility.ObjListToXml(entSignInRd, "HR", submitName), EngineWS.MsgType.Task);
+            //EngineWS.EngineWcfGlobalFunctionClient Client = new EngineWS.EngineWcfGlobalFunctionClient();
+            //EngineWS.CustomUserMsg userMsg = new EngineWS.CustomUserMsg();
+            //userMsg.FormID = entSignInRd.SIGNINID;
+            //userMsg.UserID = strEmployeeId;
+            //EngineWS.CustomUserMsg[] List = new EngineWS.CustomUserMsg[1];
+            //List[0] = userMsg;
+            //submitName = entSignInRd.EMPLOYEENAME;
+            //Client.ApplicationMsgTrigger(List, "HR", "T_HR_EMPLOYEESIGNINRECORD", Utility.ObjListToXml(entSignInRd, "HR", submitName), EngineWS.MsgType.Task);
         }
 
         private void ClearWornSigleAndAbnormRecord(string strEmployeeId, DateTime dtStart, DateTime dtEnd)
