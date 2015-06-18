@@ -30,9 +30,9 @@ namespace SMT.HRM.BLL
             {
 
                 List<T_HR_COMPANY> lsdic;
-                if (CacheManager.GetCache("T_HR_COMPANY") != null)
+                if (CacheManagerMem.GetCache("T_HR_COMPANY") != null)
                 {
-                    lsdic = (List<T_HR_COMPANY>)CacheManager.GetCache("T_HR_COMPANY");
+                    lsdic = (List<T_HR_COMPANY>)CacheManagerMem.GetCache("T_HR_COMPANY");
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace SMT.HRM.BLL
                                select a;
 
                     lsdic = ents.ToList();
-                    CacheManager.AddCache("T_HR_COMPANY", lsdic);
+                    CacheManagerMem.AddCache("T_HR_COMPANY", lsdic);
                 }
 
                 return lsdic.Count() > 0 ? lsdic : null;
@@ -435,7 +435,7 @@ namespace SMT.HRM.BLL
                 dal.Add(ent);
 
                 WorkflowUtility.CallWorkflow("公司申请审核工作流", ent);
-                CacheManager.RemoveCache("T_HR_COMPANY");
+                CacheManagerMem.RemoveCache("T_HR_COMPANY");
             }
             catch (Exception ex)
             {
@@ -516,7 +516,7 @@ namespace SMT.HRM.BLL
                         GetCompanyForOutEngineXml(entity);//向引擎推送计算员工企业工龄的接口契约
                     }
                     dal.SaveContextChanges();
-                    CacheManager.RemoveCache("T_HR_COMPANY");
+                    CacheManagerMem.RemoveCache("T_HR_COMPANY");
                     //WorkflowUtility.CallWorkflow("公司审批审核工作流", ent);
                 }
             }
@@ -563,7 +563,7 @@ namespace SMT.HRM.BLL
                         ent.UPDATEDATE = entity.UPDATEDATE;
                         ent.UPDATEUSERID = entity.UPDATEUSERID;
                         dal.Update(ent);
-                        CacheManager.RemoveCache("T_HR_COMPANY");
+                        CacheManagerMem.RemoveCache("T_HR_COMPANY");
                         //WorkflowUtility.CallWorkflow("公司撤消审批工作流", entity);
                         return true;
                     }
@@ -604,7 +604,7 @@ namespace SMT.HRM.BLL
                         else
                         {
                             dal.Delete(entity);
-                            CacheManager.RemoveCache("T_HR_COMPANY");
+                            CacheManagerMem.RemoveCache("T_HR_COMPANY");
                         }
                     }
                 }

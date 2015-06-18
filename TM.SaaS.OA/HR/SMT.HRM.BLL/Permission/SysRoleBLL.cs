@@ -138,9 +138,9 @@ namespace SMT.HRM.BLL.Permission
             {
                 T_SYS_ROLE lsdic;
                 string keyString = "GetSysRoleByIDToCustomer" + roleID;
-                if (CacheManager.GetCache(keyString) != null)
+                if (CacheManagerMem.GetCache(keyString) != null)
                 {
-                    lsdic = (T_SYS_ROLE)CacheManager.GetCache(keyString);
+                    lsdic = (T_SYS_ROLE)CacheManagerMem.GetCache(keyString);
                 }
                 else
                 {
@@ -149,7 +149,7 @@ namespace SMT.HRM.BLL.Permission
                                select ent;
                     lsdic = ents.Count() > 0 ? ents.FirstOrDefault() : null;
                     
-                    CacheManager.AddCache(keyString, lsdic);
+                    CacheManagerMem.AddCache(keyString, lsdic);
                 }
 
 

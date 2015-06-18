@@ -30,9 +30,9 @@ namespace SMT.HRM.BLL
             {
 
                 List<T_HR_DEPARTMENT> lsdic;
-                if (CacheManager.GetCache("T_HR_DEPARTMENT") != null)
+                if (CacheManagerMem.GetCache("T_HR_DEPARTMENT") != null)
                 {
-                    lsdic = (List<T_HR_DEPARTMENT>)CacheManager.GetCache("T_HR_DEPARTMENT");
+                    lsdic = (List<T_HR_DEPARTMENT>)CacheManagerMem.GetCache("T_HR_DEPARTMENT");
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace SMT.HRM.BLL
                                select a;
 
                     lsdic = ents.ToList();
-                    CacheManager.AddCache("T_HR_DEPARTMENT", lsdic);
+                    CacheManagerMem.AddCache("T_HR_DEPARTMENT", lsdic);
                 }
 
                 return lsdic.Count() > 0 ? lsdic : null;
@@ -387,7 +387,7 @@ namespace SMT.HRM.BLL
                     new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_COMPANY", "COMPANYID", entity.T_HR_COMPANY.COMPANYID);
                 
                 dal.Add(ent);
-                CacheManager.RemoveCache("T_HR_DEPARTMENT");
+                CacheManagerMem.RemoveCache("T_HR_DEPARTMENT");
             }
             catch (Exception ex)
             {
@@ -457,7 +457,7 @@ namespace SMT.HRM.BLL
                     }
                     dal.SaveContextChanges();
                     //DataContext.SaveChanges();
-                    CacheManager.RemoveCache("T_HR_DEPARTMENT");
+                    CacheManagerMem.RemoveCache("T_HR_DEPARTMENT");
                     //WorkflowUtility.CallWorkflow("部门变更审核工作流", ent);
                 }
             }
@@ -511,7 +511,7 @@ namespace SMT.HRM.BLL
                     throw new Exception("此部门已关联岗位，不能删除！");
                 }
                 dal.Delete(entity);
-                CacheManager.RemoveCache("T_HR_DEPARTMENT");
+                CacheManagerMem.RemoveCache("T_HR_DEPARTMENT");
             }
             else
             {
@@ -543,7 +543,7 @@ namespace SMT.HRM.BLL
                 entity.UPDATEDATE = sourceEntity.UPDATEDATE;
                 dal.Update(entity);
                 WorkflowUtility.CallWorkflow("申请撤消工作流", entity);
-                CacheManager.RemoveCache("T_HR_DEPARTMENT");
+                CacheManagerMem.RemoveCache("T_HR_DEPARTMENT");
             }
             else
             {

@@ -1099,10 +1099,10 @@ namespace SMT.HRM.BLL.Permission
                 {
                     string UserPermision = "GetUserPermissionByUserToUI" + userID;
                     T_SYS_USER tmpUser = new T_SYS_USER();
-                    if (CacheManager.GetCache(UserPermision) != null)
+                    if (CacheManagerMem.GetCache(UserPermision) != null)
                     {
 
-                        tmpUser = (T_SYS_USER)CacheManager.GetCache(UserPermision);
+                        tmpUser = (T_SYS_USER)CacheManagerMem.GetCache(UserPermision);
                     }
                     else
                     {
@@ -1114,7 +1114,7 @@ namespace SMT.HRM.BLL.Permission
                             if (TmpUserEnts.Count() > 0)
                             {
                                 tmpUser = TmpUserEnts.FirstOrDefault();
-                                CacheManager.AddCache(UserPermision, tmpUser);
+                                CacheManagerMem.AddCache(UserPermision, tmpUser);
                             }
                         }
 
@@ -1331,10 +1331,10 @@ namespace SMT.HRM.BLL.Permission
                 {
                     string UserPermision = "GetUserPermissionByUserToUINotForFbAdmin" + userID;
                     T_SYS_USER tmpUser = new T_SYS_USER();
-                    if (CacheManager.GetCache(UserPermision) != null)
+                    if (CacheManagerMem.GetCache(UserPermision) != null)
                     {
 
-                        tmpUser = (T_SYS_USER)CacheManager.GetCache(UserPermision);
+                        tmpUser = (T_SYS_USER)CacheManagerMem.GetCache(UserPermision);
                     }
                     else
                     {
@@ -1346,7 +1346,7 @@ namespace SMT.HRM.BLL.Permission
                             if (TmpUserEnts.Count() > 0)
                             {
                                 tmpUser = TmpUserEnts.FirstOrDefault();
-                                CacheManager.AddCache(UserPermision, tmpUser);
+                                CacheManagerMem.AddCache(UserPermision, tmpUser);
                             }
                         }
 

@@ -27,5 +27,15 @@ namespace SMT.HRM.CustomModel.Permission
         public string SYSTEMTYPE { get; set; }
         //子系统名称
         public string CHILDSYSTEMNAME { get; set; }
+
+        /// <summary>
+        /// 是否菜单
+        /// </summary>
+        public string HASSYSTEMMENU { get; set; }
+
+        /// <summary>
+        /// 是否权限项
+        /// </summary>
+        public string ISAUTHORITY { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace SMT.HRM.BLL
         public T_HR_COMPANY GetCompanyByID(string strCompanyID)
         {
             T_HR_COMPANY ent = new T_HR_COMPANY();
-            object obj=CacheManager.GetCache("company" + strCompanyID);
+            object obj=CacheManagerMem.GetCache("company" + strCompanyID);
             if (obj != null)
             {
                 ent = obj as T_HR_COMPANY;
@@ -37,7 +37,7 @@ namespace SMT.HRM.BLL
                 if (ents.Count() > 0)
                 {
                     ent = ents.FirstOrDefault();
-                    CacheManager.AddCache("company" + ent.COMPANYID, ent);
+                    CacheManagerMem.AddCache("company" + ent.COMPANYID, ent);
                 }
                 else
                 {
@@ -575,7 +575,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                CacheManager.RemoveCache("company" + entity.COMPANYID);
+                CacheManagerMem.RemoveCache("company" + entity.COMPANYID);
                 #region
                 //var temp = dal.GetObjects().FirstOrDefault(s => (s.COMPANRYCODE == entity.COMPANRYCODE
                 //   || s.CNAME == entity.CNAME) && s.COMPANYID != entity.COMPANYID);
@@ -772,7 +772,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                CacheManager.RemoveCache("company" + entity.COMPANYID);
+                CacheManagerMem.RemoveCache("company" + entity.COMPANYID);
                 DepartmentBLL departBll = new DepartmentBLL();
 
                 if (GetChildOrgCount(entity.COMPANYID) > 0)
@@ -835,7 +835,7 @@ namespace SMT.HRM.BLL
         {
             try
             {
-                CacheManager.RemoveCache("company" + id);
+                CacheManagerMem.RemoveCache("company" + id);
                 string[] ids = id.Split(',');
                 foreach (var idItem in ids)
                 {

@@ -1549,7 +1549,7 @@ namespace SMT.HRM.BLL
         private List<string> GetCacheEmployeeForDepartmentIDs(string[] strCompanys, string employeeID)
         {
             string keyString = "GetCacheEmployeeForDepartmentIDs" + employeeID;
-            if (CacheManager.GetCache(keyString) == null)
+            if (CacheManagerMem.GetCache(keyString) == null)
             {
                 string companyFilter = "";
                 for (int i = 0; i < strCompanys.Count(); i++)
@@ -1575,11 +1575,11 @@ namespace SMT.HRM.BLL
                         LstDepartments.Add(strCompanys[i]);
                     }
                 }
-                CacheManager.AddCache(keyString, LstDepartments);
+                CacheManagerMem.AddCache(keyString, LstDepartments);
             }
             else
             {
-                LstDepartments = (List<string>)CacheManager.GetCache(keyString);
+                LstDepartments = (List<string>)CacheManagerMem.GetCache(keyString);
             }
             return LstDepartments;
         }
@@ -1589,7 +1589,7 @@ namespace SMT.HRM.BLL
         {
 
             string keyString = "GetCacheEmployeeForDepartmentIDsForPermission" + strDepartments[0] + employeeID;
-            if (CacheManager.GetCache(keyString) == null)
+            if (CacheManagerMem.GetCache(keyString) == null)
             {
                 string companyFilter = "";
                 for (int i = 0; i < strDepartments.Count(); i++)
@@ -1616,7 +1616,7 @@ namespace SMT.HRM.BLL
                         LstDepartments.Add(strDepartments[i]);
                     }
                 }
-                CacheManager.AddCache(keyString, LstDepartments);
+                CacheManagerMem.AddCache(keyString, LstDepartments);
             }
             return LstDepartments;
         }

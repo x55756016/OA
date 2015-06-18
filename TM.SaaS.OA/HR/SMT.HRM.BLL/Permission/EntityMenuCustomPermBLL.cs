@@ -269,9 +269,9 @@ namespace SMT.HRM.BLL.Permission
             {
                 IQueryable<T_SYS_ENTITYMENUCUSTOMPERM> lsdic;
                 string keyString = "GetCustomPermByRoleIDToCustomer" + Roleid;
-                if (CacheManager.GetCache(keyString) != null)
+                if (CacheManagerMem.GetCache(keyString) != null)
                 {
-                    lsdic = (IQueryable<T_SYS_ENTITYMENUCUSTOMPERM>)CacheManager.GetCache(keyString);
+                    lsdic = (IQueryable<T_SYS_ENTITYMENUCUSTOMPERM>)CacheManagerMem.GetCache(keyString);
                 }
                 else
                 {
@@ -280,7 +280,7 @@ namespace SMT.HRM.BLL.Permission
                                select ent;
                     lsdic = ents.Count() > 0 ? ents : null;
 
-                    CacheManager.AddCache(keyString, lsdic);
+                    CacheManagerMem.AddCache(keyString, lsdic);
                 }
 
                 return lsdic;

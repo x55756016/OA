@@ -35,9 +35,9 @@ namespace SMT.HRM.BLL.Permission
             {
 
                 List<T_SYS_DICTIONARY> lsdic;
-                if (CacheManager.GetCache("T_SYS_DICTIONARY") != null)
+                if (CacheManagerMem.GetCache("T_SYS_DICTIONARY") != null)
                 {
-                    lsdic = (List<T_SYS_DICTIONARY>)CacheManager.GetCache("T_SYS_DICTIONARY");
+                    lsdic = (List<T_SYS_DICTIONARY>)CacheManagerMem.GetCache("T_SYS_DICTIONARY");
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace SMT.HRM.BLL.Permission
                                select a;
 
                     lsdic = ents.ToList();
-                    CacheManager.AddCache("T_SYS_DICTIONARY", lsdic);
+                    CacheManagerMem.AddCache("T_SYS_DICTIONARY", lsdic);
                 }
 
                 return lsdic.Count() > 0 ? lsdic : null;
@@ -599,7 +599,7 @@ namespace SMT.HRM.BLL.Permission
 
 
                     dal.Update(ent);
-                    CacheManager.RemoveCache("T_SYS_DICTIONARY");
+                    CacheManagerMem.RemoveCache("T_SYS_DICTIONARY");
                     EditVersion("字典");
                 }
             }
@@ -648,7 +648,7 @@ namespace SMT.HRM.BLL.Permission
 
                 }
                 dal.Add(temp);
-                CacheManager.RemoveCache("T_SYS_DICTIONARY");
+                CacheManagerMem.RemoveCache("T_SYS_DICTIONARY");
                 EditVersion("字典");
 
             }
@@ -684,7 +684,7 @@ namespace SMT.HRM.BLL.Permission
                 if (dal.SaveContextChanges() > 0)
                 {
                     dal.CommitTransaction();
-                    CacheManager.RemoveCache("T_SYS_DICTIONARY");
+                    CacheManagerMem.RemoveCache("T_SYS_DICTIONARY");
                     EditVersion("字典");
                     return true;
                 }

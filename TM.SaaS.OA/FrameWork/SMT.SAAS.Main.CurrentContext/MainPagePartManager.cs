@@ -154,7 +154,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             {
                 if (e.Error != null)
                 {
-                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("下载版本文件"+this.VertionFileName+"出错，请联系管理员" + e.Error.ToString());
+                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("下载版本文件" + this.VertionFileName + "出错，请联系管理员" + e.Error.ToString());
                     SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
                     return;
                 }
@@ -215,7 +215,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                         List<string> needDownload = new List<string>();
                         foreach (var q in dllVersionglistlocal)
                         {
-                            string filepath = FilePath+@"/" + q.Attribute("Source").Value;
+                            string filepath = FilePath + @"/" + q.Attribute("Source").Value;
                             if (!IosManager.ExistsFile(filepath))
                             {
                                 NotifyMsg(@"silverlight本地存储异常，请右键点击silverlight
@@ -234,7 +234,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                             {
                                 UpdateDllCompleted(this, null);
                             }
-                        }                       
+                        }
                     }
                 }
                 else
@@ -254,12 +254,19 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             finally
             {
-                //存储versxml到本地
-                byte[] streambyte = new byte[e.Result.Length];
-                e.Result.Seek(0, SeekOrigin.Begin);
-                e.Result.Read(streambyte, 0, streambyte.Length);
-                e.Result.Close();
-                IosManager.CreateFile(FilePath, "DllVersion.xml", streambyte);
+                try
+                {
+                    //存储versxml到本地
+                    byte[] streambyte = new byte[e.Result.Length];
+                    e.Result.Seek(0, SeekOrigin.Begin);
+                    e.Result.Read(streambyte, 0, streambyte.Length);
+                    e.Result.Close();
+                    IosManager.CreateFile(FilePath, "DllVersion.xml", streambyte);
+                }
+                catch (Exception ex)
+                {
+                    SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
+                }
             }
 
 
@@ -434,15 +441,15 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 }
                             }
                             dtend = DateTime.Now;
-                            string strmsg = "加载成功：" + DllSourceName + " 加载耗时： " + (dtend - dtstart).Milliseconds.ToString() + " 毫秒";
-                            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
+                            NotifyMsg("正在加载" + DllSourceName);
+                            //string strmsg = "加载成功：" + DllSourceName + " 加载耗时： " + (dtend - dtstart).Milliseconds.ToString() + " 毫秒";
+                            //SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
                         }
                         catch (Exception ex)
                         {
                             string strmsg = "加载失败：" + DllSourceName + " 错误信息： " + ex.ToString();
-                            SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(strmsg);
-                            SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
-                            NotifyMsg("系统加载出错，请联系管理员");
+                            SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(strmsg);
+                            NotifyMsg("系统加载出错，请联系管理员"+System.Environment.NewLine+ex.ToString());
                             return;
                         }
                     }

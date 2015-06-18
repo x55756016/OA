@@ -21,9 +21,9 @@ namespace SMT.HRM.BLL
             {
 
                 List<T_HR_POST> lsdic;
-                if (CacheManager.GetCache("T_HR_POST") != null)
+                if (CacheManagerMem.GetCache("T_HR_POST") != null)
                 {
-                    lsdic = (List<T_HR_POST>)CacheManager.GetCache("T_HR_POST");
+                    lsdic = (List<T_HR_POST>)CacheManagerMem.GetCache("T_HR_POST");
                 }
                 else
                 {
@@ -32,7 +32,7 @@ namespace SMT.HRM.BLL
                                select a;
 
                     lsdic = ents.ToList();
-                    CacheManager.AddCache("T_HR_POST", lsdic);
+                    CacheManagerMem.AddCache("T_HR_POST", lsdic);
                 }
 
                 return lsdic.Count() > 0 ? lsdic : null;
@@ -318,7 +318,7 @@ namespace SMT.HRM.BLL
                     new System.Data.EntityKey(qualifiedEntitySetName + "T_HR_DEPARTMENT", "DEPARTMENTID", entity.T_HR_DEPARTMENT.DEPARTMENTID);
                 
                 dal.Add(ent);
-                CacheManager.RemoveCache("T_HR_POST");
+                CacheManagerMem.RemoveCache("T_HR_POST");
                // WorkflowUtility.CallWorkflow("岗位添加申请审核工作流", ent);
             }
             catch(Exception ex)
@@ -400,7 +400,7 @@ namespace SMT.HRM.BLL
                      }
                      dal.SaveContextChanges();
                      //DataContext.SaveChanges();
-                     CacheManager.RemoveCache("T_HR_POST");
+                     CacheManagerMem.RemoveCache("T_HR_POST");
                      //WorkflowUtility.CallWorkflow("岗位变更申请审核工作流", ent);
                  }
             }
@@ -475,7 +475,7 @@ namespace SMT.HRM.BLL
                     throw new Exception("此岗位下已关联员工，不能删除！");
                 }
                 dal.Delete(entity);
-                CacheManager.RemoveCache("T_HR_POST");
+                CacheManagerMem.RemoveCache("T_HR_POST");
             }
             else
             {
@@ -508,7 +508,7 @@ namespace SMT.HRM.BLL
                 dal.Update(entity);
 
                 WorkflowUtility.CallWorkflow("申请撤消工作流", entity);
-                CacheManager.RemoveCache("T_HR_POST");
+                CacheManagerMem.RemoveCache("T_HR_POST");
 
             }
             else

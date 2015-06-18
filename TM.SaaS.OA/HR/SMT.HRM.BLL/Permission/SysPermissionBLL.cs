@@ -357,15 +357,15 @@ namespace SMT.HRM.BLL.Permission
                 string keystring = "GetAttachSysPermissionByIDToCustomer" + strPermissionId;
 
 
-                if (CacheManager.GetCache(keystring) != null)
+                if (CacheManagerMem.GetCache(keystring) != null)
                 {
-                    ent = (T_SYS_PERMISSION)CacheManager.GetCache(keystring);
+                    ent = (T_SYS_PERMISSION)CacheManagerMem.GetCache(keystring);
                 }
                 else
                 {
                     ent = GetSysPermissionByID(strPermissionId);
 
-                    CacheManager.AddCache(keystring, ent);
+                    CacheManagerMem.AddCache(keystring, ent);
                 }
                 return ent;
             }
