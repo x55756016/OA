@@ -68,7 +68,6 @@ namespace SMT.SaaS.Permission.UI
             if (e.Error != null && e.Error.Message != "")
             {
                 //loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetCompanyActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -98,9 +97,6 @@ namespace SMT.SaaS.Permission.UI
         {
             if (e.Error != null && e.Error.Message != "")
             {
-
-                //loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetDepartmentActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -136,8 +132,6 @@ namespace SMT.SaaS.Permission.UI
         {
             if (e.Error != null && e.Error.Message != "")
             {
-                //loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetDepartmentActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;

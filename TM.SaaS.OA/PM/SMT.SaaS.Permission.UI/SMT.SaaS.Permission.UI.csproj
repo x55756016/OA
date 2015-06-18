@@ -86,9 +86,6 @@
     <Reference Include="SLVisifire.Charts">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SLVisifire.Charts.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Application">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Application.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
@@ -118,9 +115,6 @@
     </Reference>
     <Reference Include="SMT.SaaS.LocalData">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
@@ -820,6 +814,10 @@
     <Folder Include="Images\Tool\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{36E9D744-4747-4F92-8ABE-D747ADBC811A}</Project>
       <Name>SMT.Saas.Tools</Name>

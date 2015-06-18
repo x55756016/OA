@@ -76,8 +76,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             MainPageManeger.UpdateDllCompleted += new EventHandler(MainPageManeger_UpdateDllCompleted);
 
 #if DEBUG
-            this.txbUserName.Text = "smtwangl";
-            this.txbUserPassword.Password = "smt123456";
+            //this.txbUserName.Text = "smtwangl";
+            //this.txbUserPassword.Password = "smt123456";
 #endif
 
         }

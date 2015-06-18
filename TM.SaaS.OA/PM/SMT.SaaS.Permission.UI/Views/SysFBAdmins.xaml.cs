@@ -116,9 +116,7 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             catch (Exception ex)
             {
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "SysUserManagement", "Views/SysUserManagement", "SysUserManagement", ex);
-                //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
-                ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
+               ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
             }
@@ -284,7 +282,7 @@ namespace SMT.SaaS.Permission.UI.Views
             if (e.Error != null && e.Error.Message != "")
             {
                 loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetCompanyActived");
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysUserManagement--GetCompanyActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -316,7 +314,7 @@ namespace SMT.SaaS.Permission.UI.Views
             {
                 
                 loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetDepartmentActived");
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow( "Views/SysUserManagement--GetDepartmentActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -356,7 +354,7 @@ namespace SMT.SaaS.Permission.UI.Views
             if (e.Error != null && e.Error.Message != "")
             {
                 loadbar.Stop();//有错误停止转圈                
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--GetDepartmentActived");
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysUserManagement--GetDepartmentActived");
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -877,7 +875,7 @@ namespace SMT.SaaS.Permission.UI.Views
             if (e.Error != null && e.Error.Message != "")
             {
                 
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--EmployeeDelete"+e.Error.Message);
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysUserManagement--EmployeeDelete"+e.Error.Message);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;

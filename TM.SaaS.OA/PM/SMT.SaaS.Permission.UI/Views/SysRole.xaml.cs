@@ -308,9 +308,6 @@ namespace SMT.SaaS.Permission.UI.Views
                     }
                     catch (Exception ex)
                     {
-
-                        //ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
-                        SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "SysRole", "Views/SysRole.xaml", "SysRole", ex);
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),                            
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                         return;
@@ -318,8 +315,6 @@ namespace SMT.SaaS.Permission.UI.Views
                 }
                 else
                 {
-                    //Utility.ShowCustomMessage(MessageTypes.Message, Utility.GetResourceStr("ERROR"), e.Error.ToString());
-                    SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPagingByCompanyIDs");
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
@@ -351,8 +346,6 @@ namespace SMT.SaaS.Permission.UI.Views
                     }
                     catch (Exception ex)
                     {
-                        SMT.SAAS.Application.ExceptionManager.SendException("角色管理","SysRole","Views/SysRole.xaml","SysRole", ex);
-                     
                         ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                         return;
@@ -361,7 +354,7 @@ namespace SMT.SaaS.Permission.UI.Views
                 else
                 {
                     //Utility.ShowCustomMessage(MessageTypes.Message,Utility.GetResourceStr("ERROR"),e.Error.ToString());
-                    SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--GetSysRoleInfosPaging");
+                    SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysRole.xaml--GetSysRoleInfosPaging");
                     ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                     return;
@@ -390,7 +383,7 @@ namespace SMT.SaaS.Permission.UI.Views
         {
             if (e.Error != null && e.Error.Message != "")
             {
-                SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--SysRoleDelete"+e.Error.Message);
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysRole.xaml--SysRoleDelete"+e.Error.Message);
                 ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), e.Error.Message, Utility.GetResourceStr("CONFIRMBUTTON"));
                 return;
             }
@@ -581,7 +574,7 @@ namespace SMT.SaaS.Permission.UI.Views
                 {
                     if (e.Result == "error")
                     {
-                        SMT.SAAS.Application.ExceptionManager.SendException("角色管理", "Views/SysRole.xaml--SysRoleDelete" + e.Error.Message);
+                        SMT.SAAS.Main.CurrentContext.AppContext.logAndShow( "Views/SysRole.xaml--SysRoleDelete" + e.Error.Message);
                         ComfirmWindow.ConfirmationBox(Utility.GetResourceStr("CONFIRMINFO"), "系统出现错误，请与管理员联系!", Utility.GetResourceStr("CONFIRMBUTTON"));
                         return;
                     }

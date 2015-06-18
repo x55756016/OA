@@ -463,7 +463,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\15mjkthl.j1v\zogr2emc.rnp\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
-xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\15mjkthl.j1v\zogr2emc.rnp\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
+    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
+xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
   </PropertyGroup>
 </Project>

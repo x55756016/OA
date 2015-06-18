@@ -97,8 +97,6 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             catch (Exception ex)
             {
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "SysUserManagement", "Views/SysUserManagement", "SysUserManagement", ex);
-                //Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(ex.Message));
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;
@@ -363,7 +361,7 @@ namespace SMT.SaaS.Permission.UI.Views
             if (e.Error != null && e.Error.Message != "")
             {
                 
-                SMT.SAAS.Application.ExceptionManager.SendException("用户管理", "Views/SysUserManagement--EmployeeDelete"+e.Error.Message);
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("Views/SysUserManagement--EmployeeDelete"+e.Error.Message);
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), Utility.GetResourceStr("ERROR"),
                 Utility.GetResourceStr("CONFIRM"), MessageIcon.Error);
                 return;

@@ -138,7 +138,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/DllVersion.xml?dt=" + DateTime.Now.Millisecond;
             }else
             {
-                path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" + VertionFileName + "?dt=" + DateTime.Now.Millisecond;
+                path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" + dllVersionFilePath + "?dt=" + DateTime.Now.Millisecond;
             }
             webcDllVersion.OpenReadAsync(new Uri(path, UriKind.Absolute));
         }
@@ -261,7 +261,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     e.Result.Seek(0, SeekOrigin.Begin);
                     e.Result.Read(streambyte, 0, streambyte.Length);
                     e.Result.Close();
-                    IosManager.CreateFile(FilePath, "DllVersion.xml", streambyte);
+                    IosManager.CreateFile(FilePath, VertionFileName, streambyte);
                 }
                 catch (Exception ex)
                 {
@@ -288,7 +288,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 return;
             }
             downloadDllName = dllXElements.FirstOrDefault();
-            string path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" + downloadDllName + "?dt=" + DateTime.Now.Millisecond;
+            string path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" +FilePath+@"/"+ downloadDllName + "?dt=" + DateTime.Now.Millisecond;
 
             //SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("正在下载更新：" + path);
             DownloadDllClinet.OpenReadAsync(new Uri(path, UriKind.Absolute));
@@ -407,21 +407,15 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 asmPart = new AssemblyPart();
                                 asmPart.Source = DllSourceName;
                                 streamInfo = Application.GetResourceStream(new StreamResourceInfo(XapfileStream, "application/binary"), new Uri(DllSourceName, UriKind.Relative));
-                                if (XapName.ToUpper().Contains("XAP") && !XapName.ToUpper().Contains("SMT.SAAS.PLATFORM"))
+                                string xapshotName = LoadXapName.Replace(".xap", "");
+                                string dllshotName= DllSourceName.Replace(".dll", "");
+                                if (XapName.ToUpper().Contains("XAP") && xapshotName == dllshotName)
                                 {
                                     asmMain = asmPart.Load(streamInfo.Stream);
                                 }
                                 else
                                 {
-
-                                    if (DllSourceName == "SMT.SAAS.Platform.dll")
-                                    {
-                                        asmMain = asmPart.Load(streamInfo.Stream);
-                                    }
-                                    else
-                                    {
-                                        var a = asmPart.Load(streamInfo.Stream);
-                                    }
+                                   var a = asmPart.Load(streamInfo.Stream);                                    
                                 }
                                 streamInfo.Stream.Close();
                             }
