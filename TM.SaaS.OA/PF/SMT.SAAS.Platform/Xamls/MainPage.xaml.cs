@@ -736,7 +736,7 @@ namespace SMT.SAAS.Platform.Xamls
                     Logging.Category.Exception,
                     Logging.Priority.High);
 
-                string message = string.Format("打开模块'{0}'失败,请联系管理员！", description);
+                string message = string.Format("打开模块'{0}'产生异常,请联系管理员！", description);
                 MessageWindow.Show("提示", message, MessageIcon.Error, MessageWindowType.Default);
             }
         }
