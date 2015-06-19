@@ -100,13 +100,6 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         #endregion
         public MainPagePartManager()
         {
-            webcDllVersion = new WebClient();
-            webcDllVersion.OpenReadCompleted += new OpenReadCompletedEventHandler(webcDllVersion_OpenReadCompleted);
-
-            DownloadDllClinet = new WebClient();
-            DownloadDllClinet.OpenReadCompleted += new OpenReadCompletedEventHandler(webcDownloadDll_OpenReadCompleted);
-            DownloadDllClinet.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadDllClinet_DownloadProgressChanged);
-
             bkGroundWorker.WorkerReportsProgress = true;
             bkGroundWorker.WorkerSupportsCancellation = true;
             bkGroundWorker.DoWork += new DoWorkEventHandler(bw_DoWork);
@@ -140,6 +133,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             {
                 path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" + dllVersionFilePath + "?dt=" + DateTime.Now.Millisecond;
             }
+            webcDllVersion = new WebClient();
+            webcDllVersion.OpenReadCompleted += new OpenReadCompletedEventHandler(webcDllVersion_OpenReadCompleted);
             webcDllVersion.OpenReadAsync(new Uri(path, UriKind.Absolute));
         }
 
@@ -291,6 +286,9 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             string path = @"http://" + SMT.SAAS.Main.CurrentContext.Common.HostIP + @"/ClientBin/" +FilePath+@"/"+ downloadDllName + "?dt=" + DateTime.Now.Millisecond;
 
             //SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("正在下载更新：" + path);
+            DownloadDllClinet = new WebClient();
+            DownloadDllClinet.OpenReadCompleted += new OpenReadCompletedEventHandler(webcDownloadDll_OpenReadCompleted);
+            DownloadDllClinet.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadDllClinet_DownloadProgressChanged);
             DownloadDllClinet.OpenReadAsync(new Uri(path, UriKind.Absolute));
         }
 
