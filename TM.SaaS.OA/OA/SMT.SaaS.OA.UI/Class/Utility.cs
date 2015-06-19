@@ -692,45 +692,45 @@ namespace SMT.SaaS.OA.UI
         /// 显示DataGrid上面通用按钮
         /// </summary>
         /// <param name="toolBar">所属工具条</param>
-        /// <param name="entityName">表名称</param>
+        /// <param name="entityCode">表名称</param>
         /// <param name="displayAuditButton">是示有审核按钮</param>
-        public static void DisplayGridToolBarButton(FormToolBar toolBar, string entityName, bool displayAuditButton)
+        public static void DisplayGridToolBarButton(FormToolBar toolBar, string entityCode, bool displayAuditButton)
         {
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Browse) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Browse) < 0)
             {
                 MessageBox.Show(Utility.GetResourceStr("NOPERMISSION"));
-                Uri uri = new Uri("/Home", UriKind.Relative);
+                //Uri uri = new Uri("/Home", UriKind.Relative);
 
-                //取当前主页
-                //Grid grid = Application.Current.RootVisual as Grid;
-                SMT.SaaS.OA.UI.App.EntryPointPage MainPage = Application.Current.RootVisual as SMT.SaaS.OA.UI.App.EntryPointPage;
-                Grid grid = MainPage.Content as Grid;
+                ////取当前主页
+                ////Grid grid = Application.Current.RootVisual as Grid;
+                //SMT.SaaS.OA.UI.App.EntryPointPage MainPage = Application.Current.RootVisual as SMT.SaaS.OA.UI.App.EntryPointPage;
+                //Grid grid = MainPage.Content as Grid;
 
-                if (grid != null && grid.Children.Count > 0)
-                {
-                    MainPage page = grid.Children[0] as MainPage;
-                    if (page != null)
-                    {
-                        page.NavigateTo(uri);
-                    }
-                }
+                //if (grid != null && grid.Children.Count > 0)
+                //{
+                //    MainPage page = grid.Children[0] as MainPage;
+                //    if (page != null)
+                //    {
+                //        page.NavigateTo(uri);
+                //    }
+                //}
                 return;
 
             }
             //添加
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Add) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Add) < 0)
             {
                 toolBar.btnNew.Visibility = Visibility.Collapsed;
                 toolBar.retNew.Visibility = Visibility.Collapsed;
             }
             //修改
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Edit) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Edit) < 0)
             {
                 toolBar.btnEdit.Visibility = Visibility.Collapsed;
                 toolBar.retEdit.Visibility = Visibility.Collapsed;
             }
             //删除
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Delete) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Delete) < 0)
             {
                 toolBar.btnDelete.Visibility = Visibility.Collapsed;
             }
@@ -740,7 +740,7 @@ namespace SMT.SaaS.OA.UI
             if (displayAuditButton)
             {
                 //审核
-                if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Audit) < 0)
+                if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Audit) < 0)
                 {
                     toolBar.btnAudit.Visibility = Visibility.Collapsed;
                     toolBar.retAudit.Visibility = Visibility.Collapsed;
@@ -761,46 +761,46 @@ namespace SMT.SaaS.OA.UI
         /// 显示DataGrid上面通用按钮
         /// </summary>
         /// <param name="toolBar">所属工具条</param>
-        /// <param name="entityName">表名称</param>
+        /// <param name="entityCode">表名称</param>
         /// <param name="displayAuditButton">是示有审核按钮</param>
-        public static void DisplayGridToolBarButtonUI(FormToolBar toolBar, string entityName, bool displayAuditButton)
+        public static void DisplayGridToolBarButtonUI(FormToolBar toolBar, string entityCode, bool displayAuditButton)
         {
             //查看 去掉了=，因为集团的范围为0  2010-5-25 liujx
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Browse) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Browse) < 0)
             {
-                MessageBox.Show(Utility.GetResourceStr("NOPERMISSION"));
-                Uri uri = new Uri("/Home", UriKind.Relative);
+                MessageBox.Show(Utility.GetResourceStr("NOPERMISSION")+" "+entityCode);
+                //Uri uri = new Uri("/Home", UriKind.Relative);
 
-                //取当前主页
-                //Grid grid = Application.Current.RootVisual as Grid;
-                SMT.SaaS.OA.UI.App.EntryPointPage MainPage = Application.Current.RootVisual as SMT.SaaS.OA.UI.App.EntryPointPage;
-                Grid grid = MainPage.Content as Grid;
+                ////取当前主页
+                ////Grid grid = Application.Current.RootVisual as Grid;
+                //SMT.SaaS.OA.UI.App.EntryPointPage MainPage = Application.Current.RootVisual as SMT.SaaS.OA.UI.App.EntryPointPage;
+                //Grid grid = MainPage.Content as Grid;
 
-                if (grid != null && grid.Children.Count > 0)
-                {
-                    MainPage page = grid.Children[0] as MainPage;
-                    if (page != null)
-                    {
-                        page.NavigateTo(uri);
-                    }
-                }
+                //if (grid != null && grid.Children.Count > 0)
+                //{
+                //    MainPage page = grid.Children[0] as MainPage;
+                //    if (page != null)
+                //    {
+                //        page.NavigateTo(uri);
+                //    }
+                //}
                 return;
 
             }
             //添加
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Add) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Add) < 0)
             {
                 toolBar.btnNew.Visibility = Visibility.Collapsed;
                 toolBar.retNew.Visibility = Visibility.Collapsed;
             }
             //修改
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Edit) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Edit) < 0)
             {
                 toolBar.btnEdit.Visibility = Visibility.Collapsed;
                 toolBar.retEdit.Visibility = Visibility.Collapsed;
             }
             //删除
-            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Delete) < 0)
+            if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Delete) < 0)
             {
                 toolBar.btnDelete.Visibility = Visibility.Collapsed;
             }
@@ -808,7 +808,7 @@ namespace SMT.SaaS.OA.UI
             if (displayAuditButton)
             {
                 //审核
-                if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityName, SMT.SaaS.FrameworkUI.Common.Permissions.Audit) < 0)
+                if (SMT.SaaS.FrameworkUI.Common.PermissionHelper.GetPermissionValue(entityCode, SMT.SaaS.FrameworkUI.Common.Permissions.Audit) < 0)
                 {
                     toolBar.btnAudit.Visibility = Visibility.Collapsed;
                     toolBar.retAudit.Visibility = Visibility.Collapsed;

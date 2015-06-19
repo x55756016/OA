@@ -46,7 +46,7 @@ namespace SMT.SAAS.Platform.Xamls
         private event EventHandler<OnSelectionBoxClosedArgs> OnSelectionBoxClosed;
 
         //主菜单
-        Xamls.MainPagePart.MenusPanel _mainMenu;
+        Xamls.MainPagePart.MenusPanel MenuPanel;
         SplashScreenViewModel vm;
 
         //延迟打开
@@ -187,17 +187,17 @@ namespace SMT.SAAS.Platform.Xamls
                     case "CustomMenusSet":
                         {
                             titel = "菜单列表";
-                            if (_mainMenu == null)
+                            if (MenuPanel == null)
                             {
-                                _mainMenu = new Xamls.MainPagePart.MenusPanel();
-                                _mainMenu.MenuItemMouseDown += new EventHandler<MouseButtonEventArgs>(menu_MenuItemMouseDown);
-                                _mainMenu.ShortCutClick += new EventHandler<OnShortCutClickEventArgs>(menu_ShortCutClick);
-                                _mainMenu.MenuItemMouseMove += new EventHandler<MouseEventArgs>(menu_MenuItemMouseMove);
-                                workitem = _mainMenu;
+                                MenuPanel = new Xamls.MainPagePart.MenusPanel();
+                                MenuPanel.MenuItemMouseDown += new EventHandler<MouseButtonEventArgs>(menu_MenuItemMouseDown);
+                                MenuPanel.ShortCutClick += new EventHandler<OnShortCutClickEventArgs>(menu_ShortCutClick);
+                                MenuPanel.MenuItemMouseMove += new EventHandler<MouseEventArgs>(menu_MenuItemMouseMove);
+                                workitem = MenuPanel;
                             }
                             else
                             {
-                                workitem = _mainMenu;
+                                workitem = MenuPanel;
                             }
                             break;
                         }
@@ -547,9 +547,9 @@ namespace SMT.SAAS.Platform.Xamls
             else
             {
                 _fromMenu = true;
-                if (_mainMenu != null)
+                if (MenuPanel != null)
                 {
-                    _mainMenu.showLoading();
+                    MenuPanel.showLoading();
                 }
 
                 dragShortCut.Visibility = System.Windows.Visibility.Collapsed;
@@ -560,153 +560,6 @@ namespace SMT.SAAS.Platform.Xamls
                 OpenMenuContent(currentMenu);
             }
         }
-
-        //private void CheckPermission(V_UserMenuPermission module)
-        //{
-        //    _currentClickModule = module;
-
-        //    if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo == null)
-        //    {
-        //        return;
-        //    }
-
-        //    GetPermissionInfoUI();
-        //}
-
-        //private void GetPermissionInfoUI()
-        //{
-        //    if (V_UserPermUILocalVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID) == false)
-        //    {
-        //        _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
-        //    }
-        //    else
-        //    {
-        //        //权限检查发现有变更时，权限需要重新从服务器获取
-        //        if (SMT.SAAS.Main.CurrentContext.AppContext.IsPermUpdate)
-        //        {
-        //            _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
-        //            return;
-        //        }
-
-        //        if (V_UserPermUILocalVM.IsExists(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID, _currentClickModule.ENTITYMENUID) == false)
-        //        {
-        //            _services.GetUserMenuPermission(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID, _currentClickModule.ENTITYMENUID);
-        //            return;
-        //        }
-
-        //        GetPermissionInfoUIByLocal();
-        //    }
-        //}
-
-        //private void _services_OnGetMenuPermissionCompleted(object sender, EventArgs e)
-        //{
-        //    GetPermissionInfoUIByLocal();
-        //}
-
-        //private void GetPermissionInfoUIByLocal()
-        //{
-        //    string strEmployeeID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID;
-
-        //    List<SMT.SaaS.LocalData.V_UserPermissionUI> userPermissionUIs = new List<SMT.SaaS.LocalData.V_UserPermissionUI>();
-
-        //    List<V_UserPermUILocal> userPermUILocals = V_UserPermUILocalVM.GetAllV_UserPermUILocal(strEmployeeID);
-        //    List<V_CustomerPermission> customerPerms = V_CustomerPermissionVM.GetAllV_CustomerPermission(strEmployeeID);
-        //    List<V_PermissionValue> permissionValues = V_PermissionValueVM.GetAllV_PermissionValue(strEmployeeID);
-        //    List<V_OrgObject> v_OrgObjects = V_OrgObjectVM.GetAllV_OrgObject(strEmployeeID);
-
-        //    if (userPermUILocals == null)
-        //    {
-        //        return;
-        //    }
-
-        //    foreach (var item in userPermUILocals)
-        //    {
-        //        if (item.EntityMenuID != null)
-        //        {
-        //            if (ViewModel.Context.CacheMenuPermissionList == null)
-        //            {
-        //                ViewModel.Context.CacheMenuPermissionList = new List<string>();
-        //            }
-
-        //            SMT.SaaS.LocalData.V_UserPermissionUI userPermissionUI = item.CloneObject<SMT.SaaS.LocalData.V_UserPermissionUI>(new SMT.SaaS.LocalData.V_UserPermissionUI());
-
-        //            V_CustomerPermission v_cusPerm = null;
-        //            foreach (var p in customerPerms)
-        //            {
-        //                if (p.UserModuleID != item.UserModuleID)
-        //                {
-        //                    continue;
-        //                }
-
-        //                v_cusPerm = p;
-        //                break;
-        //            }
-
-        //            if (v_cusPerm == null)
-        //            {
-        //                userPermissionUIs.Add(userPermissionUI);
-        //                continue;
-        //            }
-
-        //            userPermissionUI.CustomerPermission = v_cusPerm.CloneObject<SMT.SaaS.LocalData.CustomerPermission>(new SMT.SaaS.LocalData.CustomerPermission());
-        //            List<SMT.SaaS.LocalData.PermissionValue> permValues = new List<SaaS.LocalData.PermissionValue>();
-        //            foreach (var d in permissionValues)
-        //            {
-        //                if (v_cusPerm == null)
-        //                {
-        //                    break;
-        //                }
-
-        //                if (d.UserModuleID != v_cusPerm.UserModuleID)
-        //                {
-        //                    continue;
-        //                }
-
-        //                SMT.SaaS.LocalData.PermissionValue permValue = d.CloneObject<SMT.SaaS.LocalData.PermissionValue>(new SaaS.LocalData.PermissionValue());
-        //                List<SMT.SaaS.LocalData.OrgObject> orgObjects = new List<SaaS.LocalData.OrgObject>();
-        //                foreach (var o in v_OrgObjects)
-        //                {
-        //                    if (v_cusPerm == null)
-        //                    {
-        //                        break;
-        //                    }
-
-        //                    if (o.UserModuleID != d.UserModuleID)
-        //                    {
-        //                        continue;
-        //                    }
-
-        //                    SMT.SaaS.LocalData.OrgObject orgObject = o.CloneObject<SMT.SaaS.LocalData.OrgObject>(new SaaS.LocalData.OrgObject());
-        //                    orgObjects.Add(orgObject);
-        //                }
-        //                permValue.OrgObjects.AddRange(orgObjects);
-        //                permValues.Add(permValue);
-        //            }
-
-        //            userPermissionUI.CustomerPermission.PermissionValue.AddRange(permValues);
-        //        }
-        //    }
-
-        //    foreach (var u in userPermissionUIs)
-        //    {
-        //        if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI == null)
-        //        {
-        //            SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
-        //        }
-
-        //        if (!SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Contains(u))
-        //        {
-        //            SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Add(u);
-        //        }
-        //    }
-
-        //    if (ViewModel.Context.CacheMenuPermissionList.Contains(_currentClickModule.ENTITYMENUID) == false)
-        //    {
-        //        ViewModel.Context.CacheMenuPermissionList.Add(_currentClickModule.ENTITYMENUID);
-        //    }
-
-        //    GetModuleContent(_currentClickModule.MENUCODE, _currentClickModule.MENUNAME);
-        //}
 
         /// <summary>
         /// 加载模块
@@ -723,9 +576,9 @@ namespace SMT.SAAS.Platform.Xamls
             {
                 AppContext.SystemMessage(string.Format("打开模块'{0}'产生异常！", description)+ex.ToString());
                 AppContext.ShowSystemMessageText();
-                if (_mainMenu != null)
+                if (MenuPanel != null)
                 {
-                    _mainMenu.hideLoading();
+                    MenuPanel.hideLoading();
                 }
                 Logging.Logger.Current.Log(
                     "10000",
@@ -743,9 +596,9 @@ namespace SMT.SAAS.Platform.Xamls
 
         private void Managed_OnLoadModuleCompleted(object sender, ViewModel.LoadModuleEventArgs e)
         {
-            if (_mainMenu != null)
+            if (MenuPanel != null)
             {
-                _mainMenu.hideLoading();
+                MenuPanel.hideLoading();
             }
             if (e.ModuleInstance != null)
             {

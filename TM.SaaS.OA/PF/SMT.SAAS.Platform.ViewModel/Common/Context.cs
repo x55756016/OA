@@ -32,17 +32,17 @@ namespace SMT.SAAS.Platform.ViewModel
         public static IMainPanel MainPanel;
 
 
-        private static ChildSystemManager childsystemM;
+        private static ChildSystemLoadManager childsystemM;
         /// <summary>
         /// 托管程序. 对系统中的加载管理以及
         /// </summary>
-        public static ChildSystemManager childSystemManager
+        public static ChildSystemLoadManager childSystemManager
         {
             get
             {
                 if (childsystemM == null)
                 {
-                    childsystemM = new ChildSystemManager();
+                    childsystemM = new ChildSystemLoadManager();
                 }
                 return childsystemM;
             }
