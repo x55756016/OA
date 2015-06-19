@@ -109,29 +109,35 @@ namespace SMT.SaaS.OA.UI
 
         void BaseForm_Loaded(object sender, RoutedEventArgs e)
         {
-            DictionaryManager dm = new DictionaryManager();
-            if (!UIDictionary.DictOfDict.ContainsKey(this.GetType()))
+            try
             {
-                if (this.Loaded != null)
+                DictionaryManager dm = new DictionaryManager();
+                if (!UIDictionary.DictOfDict.ContainsKey(this.GetType()))
                 {
-                    this.Loaded(this, new RoutedEventArgs());
+                    if (this.Loaded != null)
+                    {
+                        this.Loaded(this, new RoutedEventArgs());
+                    }
+                    return;
                 }
-                return;
-            }
-            dm.OnDictionaryLoadCompleted += (o, args) =>
-            {
-                if (this.Loaded != null)
+                dm.OnDictionaryLoadCompleted += (o, args) =>
                 {
-                    this.Loaded(o, new RoutedEventArgs());
-                }
-            };
-            dm.LoadDictionary(UIDictionary.DictOfDict[this.GetType()]);
+                    if (this.Loaded != null)
+                    {
+                        this.Loaded(o, new RoutedEventArgs());
+                    }
+                };
+                dm.LoadDictionary(UIDictionary.DictOfDict[this.GetType()]);
 
-            Grid PARENT = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<Grid>(this, "PARENT") as Grid;
-            if (PARENT != null)
+                Grid PARENT = SMT.SaaS.FrameworkUI.Common.Utility.FindChildControl<Grid>(this, "PARENT") as Grid;
+                if (PARENT != null)
+                {
+                    loadbar.Stop();
+                    PARENT.Children.Add(loadbar);//在父面板中加载loading控件
+                }
+            }catch(Exception ex)
             {
-                loadbar.Stop();
-                PARENT.Children.Add(loadbar);//在父面板中加载loading控件
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
             }
         }
 

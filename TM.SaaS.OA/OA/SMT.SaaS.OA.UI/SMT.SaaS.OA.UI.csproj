@@ -123,10 +123,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext, Version=1.1.1.1218, Culture=neutral, PublicKeyToken=7cc70637b746d9be, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContextLoadData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
@@ -3649,6 +3645,14 @@
       <Project>{7a6afd3c-4870-442c-9a77-d7f480ba8e26}</Project>
       <Name>SMT.SAAS.Behaviors</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
+      <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
+      <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
       <Name>SMT.Saas.Tools</Name>
@@ -3660,10 +3664,6 @@
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FileUpLoad\SMT.FileUpLoad\SMT.FileUpLoad.csproj">
       <Project>{3b32fb59-a762-4e76-880f-3bd4721a4d27}</Project>
       <Name>SMT.FileUpLoad</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
-      <Project>{9A42135A-11F2-4210-A41B-3AC06AC0D835}</Project>
-      <Name>SMT.SAAS.FrameworkUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
       <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>

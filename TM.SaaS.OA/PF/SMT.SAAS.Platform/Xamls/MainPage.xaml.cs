@@ -19,6 +19,7 @@ using SMT.SAAS.Main.CurrentContext;
 using SMT.SaaS.LocalData.ViewModel;
 using SMT.SaaS.LocalData.Tables;
 using SMT.Saas.Tools.PermissionWS;
+using SMT.SAAS.Platform.ViewModel.Common;
 
 // 内容摘要: 主页面，用于承载主窗口相关元素
 
@@ -508,6 +509,7 @@ namespace SMT.SAAS.Platform.Xamls
                 string strUrl = string.Empty;
                 try
                 {
+                    #region 打开外部Url链接
                     HtmlWindow wd = HtmlPage.Window;
                     strUrl = currentMenu.URLADDRESS.Substring(currentMenu.URLADDRESS.IndexOf("[mvc]")).Replace("[mvc]", "");
                     strUrl = strUrl.Split(',')[0].Replace('.', '/');
@@ -538,6 +540,7 @@ namespace SMT.SAAS.Platform.Xamls
                     //HtmlPage.PopupWindow(uri, info.ModuleCode, options);
                     string strWindow = System.DateTime.Now.ToString("yyMMddHHmsssfff");
                     wd.Navigate(uri, strWindow, "directories=no,fullscreen=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=no,toolbar=no");
+                    #endregion
                 }
                 catch
                 {
@@ -557,12 +560,15 @@ namespace SMT.SAAS.Platform.Xamls
                 //1. 检测菜单权限
                // CheckPermission(e.Result);
                 _currentClickModule = currentMenu;
-                OpenMenuContent(currentMenu);
+                //1. 获取用户菜单权限
+                UserPermissionHelper.OnGetUserMenuPermissionCompleted+=new EventHandler((obj, arg) => {
+                    OpenMenuContent(currentMenu);
+                });
+                UserPermissionHelper.GetUserMenuPermission(_currentClickModule);
             }
         }
-
         /// <summary>
-        /// 加载模块
+        /// 打开菜单
         /// </summary>
         private void OpenMenuContent(V_UserMenuPermission currentMenu)
         {

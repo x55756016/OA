@@ -82,6 +82,7 @@
     <Compile Include="Common\ChildSystemLoadManager.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\UserPermissionHelper.cs" />
     <Compile Include="Foundation\BasicViewModel.cs" />
     <Compile Include="Foundation\RelayCommand.cs" />
     <Compile Include="Foundation\ValidationErrorInfo.cs" />
