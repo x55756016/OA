@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/RepairReg/Details</PageParameter>
+    <ApplicationOrder>{RREGID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_REPAIRREG" Description="维修登记申请信息表" Key="RREGID" id="">
+    <Attribute Name="RREGID" LableResourceID="RREGID" Description="维修申登记键ID，GUID" DataType="string" DataValue="" DataText="维修申登记键ID，GUID" />
+    <Attribute Name="RAPPLYID" LableResourceID="RAPPLYID" Description="维修申请主键ID" DataType="string" DataValue="" DataText="维修申请主键ID" />
+    <Attribute Name="RAPPLYNO" LableResourceID="RAPPLYNO" Description="申请单号" DataType="string" DataValue="" DataText="申请单号" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="LEAVETIME" LableResourceID="LEAVETIME" Description="送修时间" DataType="datetime" DataValue="" DataText="送修时间" />
+    <Attribute Name="TAKEBACKTIME" LableResourceID="TAKEBACKTIME" Description="取回时间" DataType="datetime" DataValue="" DataText="取回时间" />
+    <Attribute Name="REPAIRUNITID" LableResourceID="REPAIRUNITID" Description="维修商ID" DataType="string" DataValue="" DataText="维修商ID" />
+    <Attribute Name="REPAIRUNIT" LableResourceID="REPAIRUNIT" Description="维修商名称" DataType="string" DataValue="" DataText="维修商名称" />
+    <Attribute Name="REPAIRADDRESS" LableResourceID="REPAIRADDRESS" Description="维修地点" DataType="string" DataValue="" DataText="维修地点" />
+    <Attribute Name="FAULTDISPOSE" LableResourceID="FAULTDISPOSE" Description="故障处理意见" DataType="string" DataValue="" DataText="故障处理意见" />
+    <Attribute Name="FAULTDISPOSENAME" LableResourceID="FAULTDISPOSENAME" Description="故障处理意见名称" DataType="string" DataValue="" DataText="故障处理意见名称" />
+    <Attribute Name="REPAIRTYPE" LableResourceID="REPAIRTYPE" Description="维修类型" DataType="string" DataValue="" DataText="维修类型" />
+    <Attribute Name="REPAIRTYPENAME" LableResourceID="REPAIRTYPENAME" Description="维修类型名称" DataType="string" DataValue="" DataText="维修类型名称" />
+    <Attribute Name="APPLYMANID" LableResourceID="APPLYMANID" Description="申请人ID" DataType="string" DataValue="" DataText="申请人ID" />
+    <Attribute Name="APPLYMAN" LableResourceID="APPLYMAN" Description="申请人" DataType="string" DataValue="" DataText="申请人" />
+    <Attribute Name="APPLYMOBILE" LableResourceID="APPLYMOBILE" Description="申请人手机" DataType="string" DataValue="" DataText="申请人手机" />
+    <Attribute Name="DRIVERID" LableResourceID="DRIVERID" Description="司机ID" DataType="string" DataValue="" DataText="司机ID" />
+    <Attribute Name="DRIVER" LableResourceID="DRIVER" Description="司机" DataType="string" DataValue="" DataText="司机" />
+    <Attribute Name="DRIVERMOBILE" LableResourceID="DRIVERMOBILE" Description="司机手机" DataType="string" DataValue="" DataText="司机手机" />
+    <Attribute Name="PARTSPRICE" LableResourceID="PARTSPRICE" Description="配件费(元)" DataType="decimal" DataValue="" DataText="配件费(元)" />
+    <Attribute Name="WORKPRICE" LableResourceID="WORKPRICE" Description="工时费(元)" DataType="decimal" DataValue="" DataText="工时费(元)" />
+    <Attribute Name="REPAIRMONEY" LableResourceID="REPAIRMONEY" Description="维修费用" DataType="decimal" DataValue="" DataText="维修费用" />
+    <Attribute Name="OTHERMONEY" LableResourceID="OTHERMONEY" Description="其他费用合计" DataType="decimal" DataValue="" DataText="其他费用合计" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

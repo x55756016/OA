@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTEMPSUMMARYPLAN" Description="岗位员工周期总结下期计划表" Key="PEMPPID" id="">
+    <Attribute  Name="PEMPPID" LableResourceID="PEMPPID" Description="员工费用计划主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PEMPID" LableResourceID="PEMPID" Description="员工费用主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTYEAR" LableResourceID="COSTYEAR" Description="费用年度
+本表中，费用年度、周期类别、周期编号、周期开始时间、周期结束时间，自动根据员工费用主键ID，结合周期设置表，自动获取，不需录入" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODTYPE" LableResourceID="PERIODTYPE" Description="周期类别
+选择字典表YearPlanEmpPeriodType（1季度2月度3周4日期区间）" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PERIODCODE" LableResourceID="PERIODCODE" Description="下周期编号
+根据周期类别，记录当前年度的周期类型编号，如类型为季度，则为1、2、3、4季度，类型为月度则为1、2.....12月份" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PSTARTDATE" LableResourceID="PSTARTDATE" Description="下周期开始时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PENDDATE" LableResourceID="PENDDATE" Description="下周期结束时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSNAME" LableResourceID="ITEMSNAME" Description="事项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISEVECTION" LableResourceID="ISEVECTION" Description="是否出差 (1是0否缺省0)" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="STARTDATE" LableResourceID="STARTDATE" Description="开始时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ENDDATE" LableResourceID="ENDDATE" Description="结束时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

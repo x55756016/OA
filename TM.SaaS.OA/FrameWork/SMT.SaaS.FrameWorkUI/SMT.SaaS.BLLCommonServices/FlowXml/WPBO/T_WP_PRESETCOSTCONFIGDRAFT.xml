@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_PRESETCOSTCONFIGDRAFT" Description="年度预留机动费用设置方案" Key="DCOSTID" id="">
+    <Attribute  Name="DCOSTID" LableResourceID="DCOSTID" Description="费用拟制主键ID,GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="使用公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="使用部门ID
+注：CostType为岗位员工时，保存员工所在部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="使用部门名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="APPLYDATE" LableResourceID="APPLYDATE" Description="申请日期" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="APPLYMAN" LableResourceID="APPLYMAN" Description="申请人" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态 CheckStates
+0 未提交 UnSubmit,
+1 审核中 Approving,
+2 审核通过 Approved,
+3 审核未通过 UnApproved
+4 待审核
+5 所有" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled
+" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISMAJORDATA" LableResourceID="ISMAJORDATA" Description="是否主数据(1是0否，缺省1)
+在审核未通过并返回重做时，点重新提交（重做），新增新的数据记录，并设置为主数据，原来的记录设置为非主数据；同时把主数据的主键ID，修改到前面版本的从数据字段‘附属的主数据ID‘" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="AUXIDCOSTID" LableResourceID="AUXIDCOSTID" Description="附属的主数据ID
+关联到本表中的主数据主键" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RECVERSION" LableResourceID="RECVERSION" Description="版本号
+当前记录的版本号
+版本号暂定为根据从数据的总数累加，比如V1，V2" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

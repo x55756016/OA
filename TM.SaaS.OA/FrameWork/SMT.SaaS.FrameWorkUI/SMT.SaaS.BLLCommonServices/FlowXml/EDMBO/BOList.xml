@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="EDM">
+  <ObjectList>
+    <Object Name="T_EDM_OTHERINSTOCKMASTER" Description="其他入库"></Object>
+    <Object Name="T_EDM_OTHEROUTSTOCKDETAIL" Description="其他出库"></Object>
+    <Object Name="T_EDM_FLITTINGMASTER" Description="调拨"></Object>
+    <Object Name="T_EDM_DISMOUNTINGMASTER" Description="拆装"></Object>
+    <Object Name="T_EDM_STOCKTAKINGMASTER" Description="盘点"></Object>
+    <Object Name="T_EDM_SALESMASTER" Description="销售订单"></Object>
+    <Object Name="T_EDM_XSCONTRACTMASTER" Description="销售合同"></Object>
+    <Object Name="T_EDM_INCOME" Description="销售收款"></Object>
+    <Object Name="T_EDM_OUTSTOCKMASTER" Description="销售出库"></Object>
+    <Object Name="T_EDM_XSRETURNSMASTER" Description="销售退货"></Object>
+    <Object Name="T_EDM_SELLADVANCE" Description="销售预收款"></Object>
+    <Object Name="T_EDM_INCOMEXS" Description="销售退款"></Object>
+    <Object Name="T_EDM_INCOMEHBOOK" Description="销售冲帐"></Object>
+    <Object Name="T_EDM_APPLYFORMASTER" Description="采购申请"></Object>
+    <Object Name="T_EDM_PROCUREMENTMASTER" Description="采购订单"></Object>
+    <Object Name="T_EDM_CGCONTRACTMASTER" Description="采购合同"></Object>
+    <Object Name="T_EDM_INSTOCKMASTER" Description="采购入库"></Object>
+    <Object Name="T_EDM_PAYMENT" Description="采购付款"></Object>
+    <Object Name="T_EDM_CGRETURNSMASTER" Description="采购退货"></Object>
+    <Object Name="T_EDM_BUYADVANCE" Description="采购预付款"></Object>
+    <Object Name="T_EDM_HEDGEPAYMENT" Description="采购付款冲帐"></Object>
+  </ObjectList>
+</System>
+

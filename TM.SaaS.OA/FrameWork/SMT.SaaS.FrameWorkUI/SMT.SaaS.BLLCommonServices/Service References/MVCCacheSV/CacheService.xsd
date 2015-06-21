@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd2" namespace="SMT.QueryObjects" />
+  <xs:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query" />
+  <xs:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model" />
+  <xs:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" />
+  <xs:element name="Query">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="SMT.QueryObjects" minOccurs="0" name="expression" nillable="true" type="q1:QueryExpression" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query" minOccurs="0" name="QueryResult" nillable="true" type="q2:QueryResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loginPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orgID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model" minOccurs="0" name="LoginResult" nillable="true" type="q3:LoginUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model" minOccurs="0" name="GetLoginUserResult" nillable="true" type="q4:LoginUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LogoutResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCacheData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entityName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="keyValue" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" minOccurs="0" name="action" type="q5:EntityAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCacheDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCacheDataResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

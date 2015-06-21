@@ -5,6 +5,7 @@ using System.Text;
 using TM_SaaS_OA_EFModel;
 namespace SMT.HRM.CustomModel.Permission
 {
+    [Serializable]
     public class V_UserPermission
     {
         public string RoleMenuPermissionValue { get; set; }

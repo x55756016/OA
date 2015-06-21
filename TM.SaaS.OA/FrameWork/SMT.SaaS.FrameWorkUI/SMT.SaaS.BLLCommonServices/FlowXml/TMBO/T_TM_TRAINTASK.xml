@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/TrainOrg/Index</PageParameter>
+    <ApplicationOrder>{TRAINID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_TRAIN" Description="培训执行" Key="COURSEID" id="">
+    <Attribute Name="COURSEID" LableResourceID="COURSEID" Description="课程ID" DataType="string" DataValue="" DataText="课程ID" />
+    <Attribute Name="EXEID" LableResourceID="EXEID" Description="执行ID" DataType="string" DataValue="" DataText="执行ID" />
+    <Attribute Name="TRAINID" LableResourceID="TRAINID" Description="培训ID" DataType="string" DataValue="" DataText="培训ID" />
+    <Attribute Name="TRAINNAME" LableResourceID="TRAINNAME" Description="培训名称" DataType="string" DataValue="" DataText="培训名称" />
+    <Attribute Name="TRAINFROMDATE" LableResourceID="TRAINFROMDATE" Description="培训开始时间" DataType="datetime" DataValue="" DataText="培训开始时间" />
+    <Attribute Name="TRAINFROMTO" LableResourceID="TRAINFROMTO" Description="培训结束时间" DataType="datetime" DataValue="" DataText="培训结束时间" />
+    <Attribute Name="LOCATION" LableResourceID="LOCATION" Description="培训地址" DataType="string" DataValue="" DataText="培训地址" />
+    <Attribute Name="COURSENAME" LableResourceID="COURSENAME" Description="课程名" DataType="string" DataValue="" DataText="课程名" />
+    <Attribute Name="DOCENTID" LableResourceID="DOCENTID" Description="讲师ID" DataType="string" DataValue="" DataText="讲师ID" />
+    <Attribute Name="DOCENTNAME" LableResourceID="DOCENTNAME" Description="建议讲师" DataType="string" DataValue="" DataText="建议讲师" />
+  </Object>
+</System>

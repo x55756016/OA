@@ -19,31 +19,11 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <binding name="BasicHttpBinding_IPersonalRecordService" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
         <binding name="BasicHttpBinding_FileUploadManager1" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
         <binding name="BasicHttpBinding_AttendanceService" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
-        <binding name="BasicHttpBinding_IApplicationService" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
-        <binding name="BasicHttpBinding_IEventTriggerProcess" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
-        <binding name="BasicHttpBinding_IWPServices" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
-        <binding name="BasicHttpBinding_PermissionService" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
@@ -58,10 +38,6 @@
         </binding>
         <binding name="WSHttpBinding_IService">
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
-        <binding name="CustomBinding_UseractLogService">
-          <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
         <binding name="CustomBinding_PerformanceService">
@@ -112,6 +88,14 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
+        <binding name="CustomBinding_PermissionService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_OrganizationService2">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
       </customBinding>
     </bindings>
     <client>
@@ -121,9 +105,6 @@
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/UseractLogService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
-        contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PerformanceService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PerformanceService"
         contract="PerformanceWS.PerformanceService" name="CustomBinding_PerformanceService" />
@@ -133,9 +114,6 @@
       <endpoint address="http://localhost:3938/TravrlPrintServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_TravrlPrintServices"
         contract="TravelPrintWS.TravrlPrintServices" name="CustomBinding_TravrlPrintServices" />
-      <endpoint address="http://localhost:12168/OrganizationService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
-        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService1" />
       <endpoint address="http://localhost:23938/FBService.svc" binding="basicHttpBinding"
         bindingConfiguration="BasicHttpBinding_FBService" contract="FBServiceWS.FBService"
         name="BasicHttpBinding_FBService" />
@@ -151,9 +129,6 @@
       <endpoint address="http://www.oa12.com/Services/System/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager1"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager1" />
-      <endpoint address="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
-        contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
       <endpoint address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
@@ -181,18 +156,15 @@
       <endpoint address="http://localhost:12168/AttendanceService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_AttendanceService"
         contract="AttendanceWS.AttendanceService" name="BasicHttpBinding_AttendanceService" />
-      <endpoint address="http://10.10.0.93:8030/Services/WP/WPServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IApplicationService"
-        contract="WpServiceWS.IApplicationService" name="BasicHttpBinding_IApplicationService" />
-      <endpoint address="http://10.10.0.93:8030/Services/WP/WPServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IEventTriggerProcess"
-        contract="WpServiceWS.IEventTriggerProcess" name="BasicHttpBinding_IEventTriggerProcess" />
-      <endpoint address="http://10.10.0.93:8030/Services/WP/WPServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWPServices"
-        contract="WpServiceWS.IWPServices" name="BasicHttpBinding_IWPServices" />
-      <endpoint address="http://localhost:12168/PermissionService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
-        contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />
+      <endpoint address="http://localhost:12168/HRSV/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService1" />
+      <endpoint address="http://localhost:12168/PMSV/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://localhost:12168/HRSV/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService2"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService2" />
     </client>
 
   </system.serviceModel>

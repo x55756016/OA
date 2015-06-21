@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.FB.DAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.FB.DAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="CurrentUserPost">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartmentName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmployeePostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAgency" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostLevel" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentUserPost" nillable="true" type="tns:CurrentUserPost" />
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTDRAFT" Description="年度计划机构调整岗位申请表" Key="POSTAID" id="">
+    <Attribute  Name="POSTAID" LableResourceID="POSTAID" Description="岗位调整主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTAID" LableResourceID="DEPARTMENTAID" Description="部门调整主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FICTIONID" LableResourceID="FICTIONID" Description="计划申请主键ID
+选择自计划拟制表主键" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="上级部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTSTATUS" LableResourceID="POSTSTATUS" Description="岗位调整状态:0未调整,1增加,2撤除" DataType="CHAR" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTFUNCTION" LableResourceID="POSTFUNCTION" Description="岗位需求描述" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SALARYLEVEL" LableResourceID="SALARYLEVEL" Description="薪资等级" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DRAFTFOUNDTIME" LableResourceID="DRAFTFOUNDTIME" Description="计划成立时间(月份)" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DRAFTDUTYTIME" LableResourceID="DRAFTDUTYTIME" Description="计划到岗时间(月份)" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DRAFTPEOPLES" LableResourceID="DRAFTPEOPLES" Description="需求人数" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled
+" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

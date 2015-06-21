@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FBASSEMBLY" xml:space="preserve">
+    <value>SMT.FB.UI</value>
+    <comment>FB系统命名空间</comment>
+  </data>
+  <data name="FBCLASS" xml:space="preserve">
+    <value>SMT.FB.UI.Common.CommonFunction</value>
+    <comment>FB系统UI打开Form的公共方法所在的命名空间</comment>
+  </data>
+  <data name="FBPROCESS" xml:space="preserve">
+    <value>ShowAuditForm</value>
+    <comment>FB系统UI打开Form的公共方法名</comment>
+  </data>
+  <data name="FB_EXCLUDETABLES" xml:space="preserve">
+    <value>T_FB_EXTENSIONALORDER;</value>
+    <comment>预算系统(FB)含有CheckState,但没有对应Form显示的表名</comment>
+  </data>
+  <data name="HRMASSEMBLY" xml:space="preserve">
+    <value>SMT.HRM.UI</value>
+    <comment>HR系统UI的命名空间</comment>
+  </data>
+  <data name="HRMCLASS" xml:space="preserve">
+    <value>SMT.HRM.UI.Utility</value>
+    <comment>HR系统UI打开Form的公共方法所在的命名空间</comment>
+  </data>
+  <data name="HRMPROCESS" xml:space="preserve">
+    <value>CreateFormFromEngine</value>
+    <comment>HR系统UI打开Form的公共方法名</comment>
+  </data>
+  <data name="HR_EXCLUDETABLES" xml:space="preserve">
+    <value>T_HR_ATTENDMONTHLYBALANCE;T_HR_EMPLOYEESALARYRECORD;</value>
+    <comment>人力资源系统(HR)含有CheckState,但没有对应Form显示的表名</comment>
+  </data>
+  <data name="OAASSEMBLY" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI</value>
+    <comment>OA系统命名空间</comment>
+  </data>
+  <data name="OACLASS" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.Utility</value>
+    <comment>OA系统UI打开Form的公共方法所在的命名空间</comment>
+  </data>
+  <data name="OAPROCESS" xml:space="preserve">
+    <value>CreateFormFromEngine</value>
+    <comment>OA系统UI打开Form的公共方法名</comment>
+  </data>
+  <data name="T_FB_BORROWAPPLYMASTER" xml:space="preserve">
+    <value>SMT.FBAnalysis.UI.Form.BorrowAppForm</value>
+    <comment>借款Form类名</comment>
+  </data>
+  <data name="T_FB_CHARGEAPPLYMASTER" xml:space="preserve">
+    <value>SMT.FBAnalysis.UI.Form.ChargeApplyForm</value>
+    <comment>费用报销Form类名</comment>
+  </data>
+  <data name="T_FB_REPAYAPPLYMASTER" xml:space="preserve">
+    <value>SMT.FBAnalysis.UI.Form.RepayApplyForm</value>
+    <comment>还款Form类名</comment>
+  </data>
+  <data name="T_HR_ATTENDANCESOLUTION" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.AttSolRdForm</value>
+    <comment>考勤方案Form类名</comment>
+  </data>
+  <data name="T_HR_ATTENDANCESOLUTIONASIGN" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.AttendanceSolutionAsignForm</value>
+    <comment>考勤方案定义Form类名</comment>
+  </data>
+  <data name="T_HR_ATTENDMONTHLYBATCHBALANCE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.AttendMonthlyBalanceAudit</value>
+    <comment>月度考勤结算批量审核Form类名</comment>
+  </data>
+  <data name="T_HR_COMPANY" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.CompanyForm</value>
+    <comment> 公司Form类名</comment>
+  </data>
+  <data name="T_HR_CUSTOMGUERDONSET" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.CustomSalaryForm</value>
+    <comment>自定义薪资项Form类名</comment>
+  </data>
+  <data name="T_HR_DEPARTMENT" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.DepartmentForm</value>
+    <comment>部门Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEECANCELLEAVE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.TerminateLeaveForm</value>
+    <comment>销假申请Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEECHECK" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.EmployeeCheckForm</value>
+    <comment>员工转正Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEECONTRACT" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.EmployeeContractForm</value>
+    <comment>合同Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEEENTRY" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.EmployeeEntryForm</value>
+    <comment>入职Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEEINSURANCE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.EmployeeInsuranceForm</value>
+    <comment>保险Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEELEAVERECORD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.EmployeeLeaveRecordForm</value>
+    <comment>请假申请Form类名</comment>
+  </data>
+  <data name="T_HR_OUTAPPLYRECORD" xml:space="preserve">
+    <value>HRM/OutApply/Details</value>
+    <comment>员工外出申请Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEEOVERTIMERECORD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.OverTimeForm</value>
+    <comment>加班申请Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEEPOSTCHANGE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.EmployeePostChangeForm</value>
+    <comment>异动Form类名</comment>
+  </data>
+  <data name="T_HR_EMPLOYEESIGNINRECORD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.SignInRdForm</value>
+    <comment>签卡申请Form类名</comment>
+  </data>
+  <data name="T_HR_LEFTOFFICE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.LeftOfficeForm</value>
+    <comment>离职Form类名</comment>
+  </data>
+  <data name="T_HR_LEFTOFFICECONFIRM" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.LeftOfficeConfirmForm</value>
+    <comment>离职确认Form类名</comment>
+  </data>
+  <data name="T_HR_PENSIONMASTER" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Personnel.PensionMasterForm</value>
+    <comment>社保Form类名</comment>
+  </data>
+  <data name="T_HR_PERFORMANCEREWARDRECORD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.PerformanceRewardRecordForm</value>
+    <comment>绩效记录Form类名</comment>
+  </data>
+  <data name="T_HR_POST" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.PostForm</value>
+    <comment>岗位Form类名</comment>
+  </data>
+  <data name="T_HR_SALARYARCHIVE" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.SalaryArchiveForm</value>
+    <comment>员工薪资信息Form类名</comment>
+  </data>
+  <data name="T_HR_SALARYSOLUTION" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.SalarySolutionForm</value>
+    <comment>薪资方案Form类名</comment>
+  </data>
+  <data name="T_HR_SALARYSTANDARD" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.SalaryStandardForm</value>
+    <comment>薪资标准Form类名</comment>
+  </data>
+  <data name="T_HR_SALARYSYSTEM" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.SalarySystemNameForm</value>
+    <comment>薪资体系Form类名</comment>
+  </data>
+  <data name="T_OA_APPROVALINFO" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.ApprovalForm_aud</value>
+    <comment>事项审批Form类名</comment>
+  </data>
+  <data name="T_OA_BUSINESSTRIP" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</value>
+    <comment>出差申请Form类名</comment>
+  </data>
+  <data name="T_OA_HIREAPP" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.HouseHireAppForm</value>
+    <comment>房源申请Form类名</comment>
+  </data>
+  <data name="T_OA_HOUSEINFOISSUANCE" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.HouseInfoIssuranceForm</value>
+    <comment>房源发布Form类名</comment>
+  </data>
+  <data name="T_OA_LENDARCHIVES" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.ArchivesLendingForm</value>
+    <comment>档案借阅Form类名</comment>
+  </data>
+  <data name="T_OA_LICENSEUSER" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.LicenseBorrowForm</value>
+    <comment>证照借阅Form类名</comment>
+  </data>
+  <data name="T_OA_MEETINGINFO" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.MeetingForm</value>
+    <comment>会议申请Form类名</comment>
+  </data>
+  <data name="T_OA_MEETINGROOMAPP" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.MeetingRoomAppForm</value>
+    <comment>会议室申请Form类名</comment>
+  </data>
+  <data name="T_OA_SENDDOC" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.CompanyDocForm</value>
+    <comment>公司发文Form类名</comment>
+  </data>
+  <data name="T_OA_TRAVELREIMBURSEMENT" xml:space="preserve">
+    <value>SMT.SaaS.OA.UI.UserControls.BusinessApplicationsForm</value>
+    <comment>出差报销Form类名</comment>
+  </data>
+  <data name="T_SYS_ROLE" xml:space="preserve">
+    <value>SMT.SaaS.Permission.UI.UserControls.UserRoleApplyForm</value>
+    <comment>个人权限申请Form类名</comment>
+  </data>
+  <data name="T_HR_NOATTENDCARDEMPLOYEES" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Attendance.NoAttendCardEmployeesForm</value>
+    <comment>员工免打卡设置申请Form类名</comment>
+  </data>
+  <data name="T_HR_OUTAPPLYCONFIRM" xml:space="preserve">
+    <value>HRM/OutApplyConfirm/Details</value>
+    <comment>外出申请确认</comment>
+  </data>
+  <data name="T_HR_EMPLOYEESALARYPOSTASIGN" xml:space="preserve">
+    <value>SMT.HRM.UI.Form.Salary.EmployeeBalancePostAddForm</value>
+    <comment>薪资结算岗位变更Form类名</comment>
+  </data>
+</root>

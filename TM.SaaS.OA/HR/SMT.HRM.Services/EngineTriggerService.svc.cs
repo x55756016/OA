@@ -256,7 +256,7 @@ namespace SMT.HRM.Services
                 }
             }
 
-            AttendanceService svcAttend = new AttendanceService();
+            OrganizationService svcAttend = new OrganizationService();
             //svcAttend.CalculateEmployeeAttendanceMonthly(strIsCurrentMonth, strAssignedObjectType, strAssignedObjectId);
         }
         /// <summary>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd63e697-7fde-4e98-8726-540d45cd3725" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1734/DailyManagementServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DailyManagementServices8.xsd" MetadataType="Schema" ID="e8fe80ce-c92a-4aee-8db3-16d134a678c4" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd8" />
+    <MetadataFile FileName="DailyManagementServices2.wsdl" MetadataType="Wsdl" ID="f4a7fe84-2edb-4400-bdd7-86acc16b94d9" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DailyManagementServices1.disco" MetadataType="Disco" ID="e3272051-bafa-43ee-a8c3-f760bd706478" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?disco" />
+    <MetadataFile FileName="DailyManagementServices9.xsd" MetadataType="Schema" ID="0af5be95-606c-4781-aa94-39b8ef64fa89" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="DailyManagementServices10.xsd" MetadataType="Schema" ID="94795786-824b-4946-b963-903543dfe89e" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="DailyManagementServices11.xsd" MetadataType="Schema" ID="6130de5f-39e5-4406-ba9d-aa9b0e976ac4" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DailyManagementServices12.xsd" MetadataType="Schema" ID="2890913c-6fa4-4fba-940e-74a0b05fee79" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DailyManagementServices3.wsdl" MetadataType="Wsdl" ID="32407704-5aac-4e8a-9b90-31ec5ec24043" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?wsdl" />
+    <MetadataFile FileName="DailyManagementServices13.xsd" MetadataType="Schema" ID="c42189d9-6158-4f3b-8049-2e1d646e835b" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="DailyManagementServices14.xsd" MetadataType="Schema" ID="ab25a13a-3c8d-472b-9155-09673b5c6e50" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="DailyManagementServices15.xsd" MetadataType="Schema" ID="dcc9a4f7-c1d2-4b11-9033-ad5d6b4543d9" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="DailyManagementServices16.xsd" MetadataType="Schema" ID="95e51e26-e376-46f2-90f5-796a5feca1db" SourceId="1" SourceUrl="http://localhost:1734/DailyManagementServices.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

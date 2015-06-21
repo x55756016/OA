@@ -1,6 +1,0 @@
-Debug  菜单SysEntityMenuBLL-GetSysMenuByTypeWithPaging2011/08/23 9:02:28 System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 SMT.SaaS.Permission.BLL.BaseBll`1.SetOrganizationFilter(String& filterString, List`1& queryParas, String employeeID, String entityName) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Portal\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\BaseBLL.cs:行号 114
-   在 SMT.SaaS.Permission.BLL.SysEntityMenuBLL.GetSysMenuByTypeWithPaging(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Portal\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\SysEntityMenuBLL.cs:行号 182  2011/08/23 9:02:28
-Debug  菜单SysEntityMenuBLL-GetSysMenuByTypeWithPaging2011/08/23 9:04:49 System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 SMT.SaaS.Permission.BLL.BaseBll`1.SetOrganizationFilter(String& filterString, List`1& queryParas, String employeeID, String entityName) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Portal\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\BaseBLL.cs:行号 114
-   在 SMT.SaaS.Permission.BLL.SysEntityMenuBLL.GetSysMenuByTypeWithPaging(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Portal\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\SysEntityMenuBLL.cs:行号 182  2011/08/23 9:04:49

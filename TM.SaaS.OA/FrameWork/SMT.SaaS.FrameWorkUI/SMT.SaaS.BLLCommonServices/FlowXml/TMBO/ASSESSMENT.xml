@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>TM</Name>
+  <System>
+    <Function Description="CompanyFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.TM.UI.Views.Summarizing.TraineeSummaryView</PageParameter>
+    <ApplicationOrder>{REGISTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="ASSESSMENT" Description="培训发起考核">
+    <Attribute Name="ONWERID" Description="所有者ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="OWNERNAME" Description="所有者" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute Name="OWNERCOMPANYNAME" Description="所属公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

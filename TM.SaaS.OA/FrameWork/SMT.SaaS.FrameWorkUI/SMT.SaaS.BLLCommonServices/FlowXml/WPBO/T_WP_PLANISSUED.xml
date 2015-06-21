@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PlanIssued/Create</PageParameter>
+    <ApplicationOrder>{ISSUEDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_PLANISSUED" Description=" 工作计划下达表" Key="ISSUEDID" id="">
+    <Attribute  Name="ISSUEDID" LableResourceID="ISSUEDID" Description="计划下达主键ID,GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FICTIONID" LableResourceID="FICTIONID" Description="计划申请主键ID
+关联公司计划申请主表" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FICTIONTITLE" LableResourceID="FICTIONTITLE" Description="计划申请主题" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISSUEDDATE" LableResourceID="ISSUEDDATE" Description="任务下达日期" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态 CheckStates
+0 未提交 UnSubmit,
+1 审核中 Approving,
+2 审核通过 Approved,
+3 审核未通过 UnApproved
+4 待审核
+5 所有" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled
+" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

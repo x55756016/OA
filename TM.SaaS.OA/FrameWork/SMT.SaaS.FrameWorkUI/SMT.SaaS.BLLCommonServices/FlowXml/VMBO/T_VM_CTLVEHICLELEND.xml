@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/CtlVehicleAssign/Details</PageParameter>
+    <ApplicationOrder>{CTLBILLSID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_CTLVEHICLELEND" Description="T_VM_CTLVEHICLELEND 调度派车单信息表" Key="CTLBILLSID" id="">
+    <Attribute Name="CTLBILLSID" LableResourceID="CTLBILLSID" Description="派车单主键ID" DataType="string" DataValue="" DataText="派车单主键ID" />
+    <Attribute Name="CTLBILLSNO" LableResourceID="CTLBILLSNO" Description="派车单号" DataType="string" DataValue="" DataText="派车单号" />
+    <Attribute Name="UVAPPLYID" LableResourceID="UVAPPLYID" Description="用车申请主键ID" DataType="string" DataValue="" DataText="用车申请主键ID" />
+    <Attribute Name="APPLYMANID" LableResourceID="APPLYMANID" Description="申请人ID" DataType="string" DataValue="" DataText="申请人ID" />
+    <Attribute Name="APPLYMAN" LableResourceID="APPLYMAN" Description="申请人" DataType="string" DataValue="" DataText="申请人" />
+    <Attribute Name="IFSELFDRIVER" LableResourceID="IFSELFDRIVER" Description="是否自驾" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="APPLYDATE" LableResourceID="APPLYDATE" Description="申请日期" DataType="datetime" DataValue="" DataText="申请日期" />
+    <Attribute Name="CTLDATE" LableResourceID="CTLDATE" Description="派车时间" DataType="datetime" DataValue="" DataText="派车时间" />
+    <Attribute Name="PUVSTARTDATE" LableResourceID="PUVSTARTDATE" Description="计划用车开始时间" DataType="datetime" DataValue="" DataText="计划用车开始时间" />
+    <Attribute Name="PUVENDDATE" LableResourceID="PUVENDDATE" Description="计划用车结束时间" DataType="datetime" DataValue="" DataText="计划用车结束时间" />
+    <Attribute Name="CTLMANID" LableResourceID="CTLMANID" Description="调度人ID" DataType="string" DataValue="" DataText="调度人ID" />
+    <Attribute Name="CTLMAN" LableResourceID="CTLMAN" Description="调度人" DataType="string" DataValue="" DataText="调度人" />
+    <Attribute Name="DISPATCHSTATE" LableResourceID="DISPATCHSTATE" Description="派车状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="CANCELMANID" LableResourceID="CANCELMANID" Description="撤消人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CANCELMAN" LableResourceID="CANCELMAN" Description="撤消人" DataType="string" DataValue="" DataText="撤消人" />
+    <Attribute Name="CANCELDATE" LableResourceID="CANCELDATE" Description="撤消日期" DataType="datetime" DataValue="" DataText="撤消日期" />
+    <Attribute Name="CANCELTYPE" LableResourceID="CANCELTYPE" Description="撤消用车类别" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CANCELCAUSE" LableResourceID="CANCELCAUSE" Description="撤消用车原因" DataType="string" DataValue="" DataText="" />
+  </Object>
+</System>

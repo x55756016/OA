@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_RECEIVEGOODSMASTER"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.SiteOperate</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.SiteOperate.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.SiteOperate.Form.ReceiveGoods.ReceiveGoodsForm</PageParameter>
+		<ApplicationOrder>{RECEIVEGOODSMASTERID}</ApplicationOrder>
+		<FormTypes>Edit</FormTypes>
+	</MsgOpen>
+  <Object Name="T_LM_RECEIVEGOODSMASTER" Description="明细收货">
+    <Attribute  Name="RECEIVEGOODSMASTERID" Description="收货主表ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORDERDETAILID" Description="订单id" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ISNORMAL" Description="异常收货" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RECEIVEDATE" Description="收货日期" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="RECIVEWAREHOUSEMASTERID" Description="仓库ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CONSIGNEEID" Description="收货人员ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="DELIVERYMANID" Description="送货人员ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BILLSTATE" Description="单据状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="RECEIVEGOODSMASTERCODE" Description="收货CODE" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CONSIGNEECODE" Description="收货人员CODE" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="DELIVERYMANNAME" Description="送货人员" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORDERDETAILCODE" Description="来源单号编号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORDERDETAILTYPE" Description="来源单据类型" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EDITSTATES" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RECEIVEWAREHOUSENAME" Description="收货仓库名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTOMERID" Description="客户ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTOMERNAME" Description="客户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CONSIGNEENAME" Description="收货人员" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="DELIVERYMANTEL" Description="机构" DataType="NVARCHAR2" DataValue=""></Attribute>
+</Object>
+
+
+
+</System>

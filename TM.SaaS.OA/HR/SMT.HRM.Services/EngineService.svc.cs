@@ -383,7 +383,7 @@ namespace SMT.HRM.Services
                 }
 
 
-                PersonnelService ser = new PersonnelService();
+                OrganizationService ser = new OrganizationService();
 
                 T_HR_EMPLOYEECONTRACT entity = new T_HR_EMPLOYEECONTRACT();
                 entity.EMPLOYEECONTACTID = Guid.NewGuid().ToString();
@@ -412,7 +412,7 @@ namespace SMT.HRM.Services
                     entity.OWNERPOSTID = emp.OWNERPOSTID;
                     entity.OWNERDEPARTMENTID = emp.OWNERDEPARTMENTID;
                     entity.OWNERCOMPANYID = emp.OWNERCOMPANYID;
-                    ser.EmployeeContractAdd(entity, ref strMsg);
+                    ps.EmployeeContractAdd(entity, ref strMsg);
                 }
                 else
                 {

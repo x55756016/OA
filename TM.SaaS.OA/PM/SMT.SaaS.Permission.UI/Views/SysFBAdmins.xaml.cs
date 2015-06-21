@@ -193,6 +193,7 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             else
             {
+                loadbar.Stop();
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "字典加载错误，请联系管理员",
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return;

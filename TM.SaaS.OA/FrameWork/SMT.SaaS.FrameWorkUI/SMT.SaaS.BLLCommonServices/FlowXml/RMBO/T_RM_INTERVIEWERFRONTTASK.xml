@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/Receiption/Index</PageParameter>
+    <ApplicationOrder>{VISITORID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_RECEIPTION" Description="前台接待" Key="VISITORID" id="">
+    <Attribute Name="VISITORID" LableResourceID="VISITORID" Description="来访人ID" DataType="string" DataValue="" DataText="来访人ID" />
+    <Attribute Name="VISITOR" LableResourceID="VISITOR" Description="来访人姓名" DataType="string" DataValue="" DataText="来访人姓名" />
+    <Attribute Name="IDCARDNUMBER" LableResourceID="IDCARDNUMBER" Description="身份证号码" DataType="string" DataValue="" DataText="身份证号码" />
+    <Attribute Name="SEX" LableResourceID="SEX" Description="性别" DataType="string" DataValue="" DataText="性别" />
+    <Attribute Name="COMPANY" LableResourceID="COMPANY" Description="来访人单位" DataType="string" DataValue="" DataText="来访人单位" />
+    <Attribute Name="CELLPHONE" LableResourceID="CELLPHONE" Description="手机号码" DataType="string" DataValue="" DataText="手机号码" />
+    <Attribute Name="DUTY" LableResourceID="DUTY" Description="来访人职务" DataType="string" DataValue="" DataText="来访人职务" />
+    <Attribute Name="VISITORREASON" LableResourceID="VISITORREASON" Description="来访事由:1.应聘 2.业务洽谈 3.私人来访 4.新人报道.5.维修施工.6.公务来访" DataType="string" DataValue="" DataText="来访事由:1.应聘 2.业务洽谈 3.私人来访 4.新人报道.5.维修施工.6.公务来访" />
+    <Attribute Name="PLANDATE" LableResourceID="PLANDATE" Description="计划来访时间" DataType="datetime" DataValue="" DataText="计划来访时间" />
+    <Attribute Name="STATUS" LableResourceID="STATUS" Description="接待状态1.正常接待.2.延时接待.3.接待人联系不上" DataType="string" DataValue="" DataText="接待状态1.正常接待.2.延时接待.3.接待人联系不上" />
+    <Attribute Name="COUNTDOWN" LableResourceID="COUNTDOWN" Description="倒计时时间(分钟)" DataType="decimal" DataValue="" DataText="倒计时时间(分钟)" />
+    <Attribute Name="FRECEPTERID" LableResourceID="FRECEPTERID" Description="第1接待人" DataType="string" DataValue="" DataText="第1接待人" />
+    <Attribute Name="SRECEPTERID" LableResourceID="SRECEPTERID" Description="第2接待人" DataType="string" DataValue="" DataText="第2接待人" />
+    <Attribute Name="NOTIFYREMARK" LableResourceID="NOTIFYREMARK" Description="通知状态" DataType="string" DataValue="" DataText="通知状态" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态： CheckStates&#xA;///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 待审核&#xA;///5 所有" DataType="string" DataValue="" DataText="审核状态： CheckStates&#xA;///0 未提交 UnSubmit,&#xA;///1 审核中 Approving,&#xA;/// 2 审核通过 Approved,&#xA;///3 审核未通过 UnApproved&#xA;///4 待审核&#xA;///5 所有" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" DataType="string" DataValue="" DataText="对象编辑状态///0 删除状态 Deleted&#xA;///1 已生效 Actived&#xA;///2 未生效 UnActived&#xA;///3 撤消中 PendingCancelled&#xA;///4 已撤消 Cancelled" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="ISVISITED" LableResourceID="ISVISITED" Description="是否已来访1.未处理 2.未来访.3.已来访" DataType="string" DataValue="" DataText="是否已来访1.未处理 2.未来访.3.已来访" />
+    <Attribute Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="简历应聘ID" DataType="string" DataValue="" DataText="简历应聘ID" />
+  </Object>
+</System>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>WP</Name>
+  <Version>1.0</Version>
+  <System>
+    <!--<Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+    -->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.WP.UI</AssemblyName>
+    <PublicClass>SMT.WP.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PlanIssued/Create</PageParameter>
+    <ApplicationOrder>{ISSUEDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_PLANISSUED" Description="年度计划下达代办" Key="ISSUEDID" id="">
+    <Attribute Name="ISSUEDID" LableResourceID="ISSUEDID" Description="计划下达主键ID,GUID" DataType="string" DataValue="" DataText="计划下达主键ID,GUID" />
+    <Attribute Name="FICTIONID" LableResourceID="FICTIONID" Description="计划申请主键ID" DataType="string" DataValue="" DataText="计划申请主键ID" />
+    <Attribute Name="FICTIONTITLE" LableResourceID="FICTIONTITLE" Description="计划申请主题" DataType="string" DataValue="" DataText="计划申请主题" />
+    <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="string" DataValue="" DataText="计划年度" />
+    <Attribute Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="ISSUEDDATE" LableResourceID="ISSUEDDATE" Description="任务下达日期" DataType="datetime" DataValue="" DataText="任务下达日期" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="公司名称" DataType="string" DataValue="" DataText="公司名称" />
+  </Object>
+</System>

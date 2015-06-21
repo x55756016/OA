@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Form FormID="" ModelCode="T_OA_REIMBURSEMENTDETAIL" MESSAGESTATUS="open" OrderType="" Text="" />
+  <Object Name="T_OA_REIMBURSEMENTDETAIL" Text="出差报销子表" LableResourceID="T_OA_REIMBURSEMENTDETAIL" Key="T_OA_REIMBURSEMENTDETAIL" id="T_OA_REIMBURSEMENTDETAIL" Description="出差报销子表" >
+    <Attribute Text="住宿天数" IsNull="True" Length="100" Name="THEintOFNIGHTS" DataType="string" LableResourceID="THEintOFNIGHTS" Description="住宿天数" DataValue="" DataText="" />
+    <Attribute Text="REIMBURSEMENTDETAILID" IsNull="False" Length="100" Name="REIMBURSEMENTDETAILID" DataType="string" LableResourceID="REIMBURSEMENTDETAILID" Description="REIMBURSEMENTDETAILID" DataValue="" DataText="" />
+    <Attribute Text="出差报销ID" IsNull="True" Length="100" Name="TRAVELREIMBURSEMENTID" DataType="string" LableResourceID="TRAVELREIMBURSEMENTID" Description="出差报销ID" DataValue="" DataText="" />
+    <Attribute Text="开始时间" IsNull="True" Length="7" Name="STARTdatatime" DataType="datatime" LableResourceID="STARTdatatime" Description="开始时间" DataValue="" DataText="" />
+    <Attribute Text="结束时间" IsNull="True" Length="7" Name="ENDdatatime" DataType="datatime" LableResourceID="ENDdatatime" Description="结束时间" DataValue="" DataText="" />
+    <Attribute Text="通过SYS_TYPEGROUP_T获取地区定义名" IsNull="False" Length="100" Name="DEPCITY" DataType="string" LableResourceID="DEPCITY" Description="通过SYS_TYPEGROUP_T获取地区定义名" DataValue="" DataText="" />
+    <Attribute Text="通过SYS_TYPEGROUP_T获取地区定义名" IsNull="False" Length="100" Name="DESTCITY" DataType="string" LableResourceID="DESTCITY" Description="通过SYS_TYPEGROUP_T获取地区定义名" DataValue="" DataText="" />
+    <Attribute Text="总计出差的时间" IsNull="True" Length="100" Name="BUSINESSDAYS" DataType="string" LableResourceID="BUSINESSDAYS" Description="总计出差的时间" DataValue="" DataText="" />
+    <Attribute Text="乘坐的交通工具类型" IsNull="True" Length="100" Name="TYPEOFTRAVELTOOLS" DataType="string" LableResourceID="TYPEOFTRAVELTOOLS" Description="乘坐的交通工具类型" DataValue="" DataText="" />
+    <Attribute Text="交通工具的级别(例如：飞机头等舱)" IsNull="True" Length="100" Name="TAKETHETOOLLEVEL" DataType="string" LableResourceID="TAKETHETOOLLEVEL" Description="交通工具的级别(例如：飞机头等舱)" DataValue="" DataText="" />
+    <Attribute Text="乘坐交通工具费用" IsNull="True" Length="22" Name="TRANSPORTCOSTS" DataType="int" LableResourceID="TRANSPORTCOSTS" Description="乘坐交通工具费用" DataValue="" DataText="" />
+    <Attribute Text="住宿补贴费用" IsNull="True" Length="22" Name="ACCOMMODATION" DataType="int" LableResourceID="ACCOMMODATION" Description="住宿补贴费用" DataValue="" DataText="" />
+    <Attribute Text="交通补贴费用" IsNull="True" Length="22" Name="TRANSPORTATIONSUBSIDIES" DataType="int" LableResourceID="TRANSPORTATIONSUBSIDIES" Description="交通补贴费用" DataValue="" DataText="" />
+    <Attribute Text="餐费补贴" IsNull="True" Length="22" Name="MEALSUBSIDIES" DataType="int" LableResourceID="MEALSUBSIDIES" Description="餐费补贴" DataValue="" DataText="" />
+    <Attribute Text="其他费用" IsNull="True" Length="22" Name="OTHERCOSTS" DataType="int" LableResourceID="OTHERCOSTS" Description="其他费用" DataValue="" DataText="" />
+    <Attribute Text="私事" IsNull="True" Length="2" Name="PRIVATEAFFAIR" DataType="string" LableResourceID="PRIVATEAFFAIR" Description="私事" DataValue="" DataText="" />
+    <Attribute Text="创建人名" IsNull="False" Length="100" Name="CREATEUSERNAME" DataType="string" LableResourceID="CREATEUSERNAME" Description="创建人名" DataValue="" DataText="" />
+    <Attribute Text="创建时间" IsNull="False" Length="7" Name="CREATEdatatime" DataType="datatime" LableResourceID="CREATEdatatime" Description="创建时间" DataValue="" DataText="" />
+    <Attribute Text="修改人" IsNull="True" Length="100" Name="UPdatatimeUSERID" DataType="string" LableResourceID="UPdatatimeUSERID" Description="修改人" DataValue="" DataText="" />
+    <Attribute Text="修改时间" IsNull="True" Length="7" Name="UPdatatimedatatime" DataType="datatime" LableResourceID="UPdatatimedatatime" Description="修改时间" DataValue="" DataText="" />
+    <Attribute Text="外出开会" IsNull="True" Length="2" Name="GOOUTTOMEET" DataType="string" LableResourceID="GOOUTTOMEET" Description="外出开会" DataValue="" DataText="" />
+    <Attribute Text="公司派车" IsNull="True" Length="2" Name="COMPANYCAR" DataType="string" LableResourceID="COMPANYCAR" Description="公司派车" DataValue="" DataText="" />
+  </Object>
+</System>

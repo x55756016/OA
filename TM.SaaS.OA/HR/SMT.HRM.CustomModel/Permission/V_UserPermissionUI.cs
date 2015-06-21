@@ -7,6 +7,7 @@ using SMT.HRM.CustomModel.Permission;
 
 namespace SMT.HRM.CustomModel.Permission
 {
+    [Serializable]
     /// <summary>
     /// 用来处理各个项目的UI中的权限的获取
     /// </summary>

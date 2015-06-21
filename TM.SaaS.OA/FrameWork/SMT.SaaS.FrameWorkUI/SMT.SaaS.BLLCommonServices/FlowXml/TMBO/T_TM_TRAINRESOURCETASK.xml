@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="培训组织待办" Address="TMServices.svc" FuncName="CallWaitAppService" Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_TM_TRAINPLAN" Name="EXEID" Description="培训执行ID" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/TrainOrg/Index</PageParameter>
+    <ApplicationOrder>{EXEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_TRAINRESOURCE" Description="T_TM_TRAINRESOURCE 培训资源,资源来源于系统字典,ID值为 TRAIN_SOURCE  1.投影仪 2.照像机" Key="RESOURCEID" id="">
+    <Attribute Name="RESOURCEID" LableResourceID="RESOURCEID" Description="资源ID" DataType="string" DataValue="" DataText="资源ID" />
+    <Attribute Name="EXEID" LableResourceID="EXEID" Description="执行ID" DataType="string" DataValue="" DataText="执行ID" />
+    <Attribute Name="TRAINID" LableResourceID="TRAINID" Description="培训ID" DataType="string" DataValue="" DataText="培训ID" />
+    <Attribute Name="TRAINNAME" LableResourceID="TRAINNAME" Description="培训名称" DataType="string" DataValue="" DataText="培训名称" />
+    <Attribute Name="LOCATION" LableResourceID="LOCATION" Description="培训地址" DataType="string" DataValue="" DataText="培训地址" />
+  </Object>
+</System>

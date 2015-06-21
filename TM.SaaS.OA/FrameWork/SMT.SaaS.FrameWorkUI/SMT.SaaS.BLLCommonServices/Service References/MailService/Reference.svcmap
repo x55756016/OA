@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd5d85ac-7f49-4510-b433-6f8ad2578f47" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://172.16.1.23/services/MailService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MailService.wsdl" MetadataType="Wsdl" ID="33e0571c-39f3-46d0-ba26-bf4229c7bb54" SourceId="1" SourceUrl="http://172.16.1.23/services/MailService.svc?wsdl" />
+    <MetadataFile FileName="MailService.xsd" MetadataType="Schema" ID="11ff09f0-e2f8-4327-b10e-d6f1fb730fac" SourceId="1" SourceUrl="http://172.16.1.23/services/MailService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MailService.disco" MetadataType="Disco" ID="7868d7b1-edc3-4713-8b14-80b442248fe8" SourceId="1" SourceUrl="http://172.16.1.23/services/MailService.svc?disco" />
+    <MetadataFile FileName="MailService1.xsd" MetadataType="Schema" ID="0afe5d0c-18cd-4989-be0b-184159898b7e" SourceId="1" SourceUrl="http://172.16.1.23/services/MailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MailService2.xsd" MetadataType="Schema" ID="32d455ac-a948-4c53-88be-6d5fe7f78ab1" SourceId="1" SourceUrl="http://172.16.1.23/services/MailService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

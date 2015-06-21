@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleInsureEnquiry/Edit</PageParameter>
+    <ApplicationOrder>{IENQUIRYID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLEINSUREENQUIRY" Description="车辆保险询价信息表" Key="IENQUIRYID" id="">
+    <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+	<Attribute Name="IAPPLYID" LableResourceID="IAPPLYID" Description="保险申请主键ID" DataType="string" DataValue="" DataText="保险申请主键ID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="INSURETYPE" LableResourceID="INSURETYPE" Description="保险类型" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="INSURETYPENAME" LableResourceID="INSURETYPENAME" Description="保险类型名称" DataType="string" DataValue="" DataText="保险类型名称" />
+    <Attribute Name="INSURECONTENT" LableResourceID="INSURECONTENT" Description="保险内容" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="BLAMECOST" LableResourceID="BLAMECOST" Description="责任金额" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="USETAX" LableResourceID="USETAX" Description="车船使用税（元）" DataType="decimal" DataValue="" DataText="车船使用税（元）" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <ObjectList Name="T_VM_VEHICLEINSUREEUNITList" LableResourceID="T_VM_VEHICLEINSUREEUNITList" Description="车辆保险询价保险公司表" DataText="">
+      <Object Name="T_VM_VEHICLEINSUREEUNIT" Description="车辆保险询价保险公司表" Key="EUNITID" id="">
+        <Attribute Name="EUNITID" LableResourceID="EUNITID" Description="保险公司主键ID" DataType="string" DataValue="" DataText="保险公司主键ID" />
+        <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+        <Attribute Name="INSURETYPE" LableResourceID="INSURETYPE" Description="保险类型" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="INSURECORPID" LableResourceID="INSURECORPID" Description="保险公司ID" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="INSURECORP" LableResourceID="INSURECORP" Description="保险公司" DataType="string" DataValue="" DataText="保险公司" />
+        <Attribute Name="INSURECOST" LableResourceID="INSURECOST" Description="保险费用（元）" DataType="decimal" DataValue="" DataText="保险费用（元）" />
+        <Attribute Name="REBATECOST" LableResourceID="REBATECOST" Description="折扣（元）" DataType="decimal" DataValue="" DataText="折扣（元）" />
+        <Attribute Name="AFTERCOST" LableResourceID="AFTERCOST" Description="折扣后费用（元）" DataType="decimal" DataValue="" DataText="折扣后费用（元）" />
+        <Attribute Name="OFFER" LableResourceID="OFFER" Description="报价人" DataType="string" DataValue="" DataText="报价人" />
+        <Attribute Name="OFFERPHONE" LableResourceID="OFFERPHONE" Description="报价人电话" DataType="string" DataValue="" DataText="报价人电话" />
+        <Attribute Name="IFSELECTED" LableResourceID="IFSELECTED" Description="是否选中公司" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+      </Object>
+    </ObjectList>
+    <ObjectList Name="T_VM_VEHICLEINSUREE_BIList" LableResourceID="T_VM_VEHICLEINSUREE_BIList" Description="车辆保险询价商业险项目从表" DataText="">
+      <Object Name="T_VM_VEHICLEINSUREE_BI" Description="车辆保险询价商业险项目从表" Key="BEITEMID" id="">
+        <Attribute Name="BEITEMID" LableResourceID="BEITEMID" Description="商业险项目主键ID,GUID" DataType="string" DataValue="" DataText="商业险项目主键ID,GUID" />
+        <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+        <Attribute Name="BINSURENO" LableResourceID="BINSURENO" Description="商业险项目编号" DataType="string" DataValue="" DataText="商业险项目编号" />
+        <Attribute Name="BINSURENAME" LableResourceID="BINSURENAME" Description="商业险项目名称" DataType="string" DataValue="" DataText="商业险项目名称" />
+        <Attribute Name="BLAMECOST" LableResourceID="BLAMECOST" Description="责任金额" DataType="string" DataValue="" DataText="责任金额" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+        <ObjectList Name="T_VM_VEHICLEINSUREE_BCOSTList" LableResourceID="T_VM_VEHICLEINSUREE_BCOSTList" Description="车辆保险询价商业险费用从表" DataText="">
+          <Object Name="T_VM_VEHICLEINSUREE_BCOST" Description="车辆保险询价商业险费用从表" Key="BECOSTID" id="">
+            <Attribute Name="BECOSTID" LableResourceID="BECOSTID" Description="商业险费用主键ID" DataType="string" DataValue="" DataText="商业险费用主键ID" />
+            <Attribute Name="BEITEMID" LableResourceID="BEITEMID" Description="商业险项目主键ID" DataType="string" DataValue="" DataText="商业险项目主键ID" />
+            <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+            <Attribute Name="BINSURENO" LableResourceID="BINSURENO" Description="商业险项目编号" DataType="string" DataValue="" DataText="" />
+            <Attribute Name="BINSURENAME" LableResourceID="BINSURENAME" Description="商业险项目名称" DataType="string" DataValue="" DataText="商业险项目名称" />
+            <Attribute Name="EUNITID" LableResourceID="EUNITID" Description="保险公司主键ID" DataType="string" DataValue="" DataText="保险公司主键ID" />
+            <Attribute Name="INSURECORPID" LableResourceID="INSURECORPID" Description="保险公司ID" DataType="string" DataValue="" DataText="" />
+            <Attribute Name="COST" LableResourceID="COST" Description="保险费用（元）" DataType="decimal" DataValue="" DataText="保险费用（元）" />
+            <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+            <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+            <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+            <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+            <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+            <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+          </Object>
+        </ObjectList>
+      </Object>
+    </ObjectList>
+    <ObjectList Name="T_VM_VEHICLEINSUREE_GAList" LableResourceID="T_VM_VEHICLEINSUREE_GAList" Description="车辆保险询价港澳商业险项目从表" DataText="">
+      <Object Name="T_VM_VEHICLEINSUREE_GA" Description="车辆保险询价港澳商业险项目从表" Key="BEITEMID" id="">
+        <Attribute Name="BEITEMID" LableResourceID="BEITEMID" Description="商业险项目主键ID,GUID" DataType="string" DataValue="" DataText="商业险项目主键ID,GUID" />
+        <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+        <Attribute Name="BINSURENO" LableResourceID="BINSURENO" Description="商业险项目编号" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="BINSURENAME" LableResourceID="BINSURENAME" Description="商业险项目名称" DataType="string" DataValue="" DataText="商业险项目名称" />
+        <Attribute Name="BLAMECOST" LableResourceID="BLAMECOST" Description="责任金额" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+        <ObjectList Name="T_VM_VEHICLEINSUREE_GACOSTList" LableResourceID="T_VM_VEHICLEINSUREE_GACOSTList" Description="车辆保险询价港澳商业险费用从表" DataText="">
+          <Object Name="T_VM_VEHICLEINSUREE_GACOST" Description="车辆保险询价港澳商业险费用从表" Key="BECOSTID" id="">
+            <Attribute Name="BECOSTID" LableResourceID="BECOSTID" Description="商业险费用主键ID" DataType="string" DataValue="" DataText="商业险费用主键ID" />
+            <Attribute Name="BEITEMID" LableResourceID="BEITEMID" Description="商业险项目主键ID" DataType="string" DataValue="" DataText="商业险项目主键ID" />
+            <Attribute Name="IENQUIRYID" LableResourceID="IENQUIRYID" Description="保险询价主键ID" DataType="string" DataValue="" DataText="保险询价主键ID" />
+            <Attribute Name="BINSURENO" LableResourceID="BINSURENO" Description="商业险项目编号" DataType="string" DataValue="" DataText="" />
+            <Attribute Name="BINSURENAME" LableResourceID="BINSURENAME" Description="商业险项目名称" DataType="string" DataValue="" DataText="商业险项目名称" />
+            <Attribute Name="EUNITID" LableResourceID="EUNITID" Description="保险公司主键ID,GUID" DataType="string" DataValue="" DataText="保险公司主键ID,GUID" />
+            <Attribute Name="INSURECORPID" LableResourceID="INSURECORPID" Description="保险公司ID" DataType="string" DataValue="" DataText="保险公司ID" />
+            <Attribute Name="COST" LableResourceID="COST" Description="保险费用（元）" DataType="decimal" DataValue="" DataText="保险费用（元）" />
+            <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+            <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+            <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+            <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+            <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+            <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+          </Object>
+        </ObjectList>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_APPEAL"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.Custom</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.Custom.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.Custom.UserControls.AppealDisposal.AppealControl</PageParameter>
+		<ApplicationOrder>{APPEALID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_APPEAL" Description="投诉处理">
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="DISPOSALRESULT" Description="处理结果" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RESPONSETIME" Description="响应时效" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="DISPOSALTIME" Description="处理时效" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="DISPOSALSTATE" Description="处理状态" DataType="NUMBER" DataValue=""></Attribute>
+    <Attribute  Name="DISPOSALDISCRIPTION" Description="处理描述" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BEWRITE" Description="详细描述" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPEALSTEP" Description="投诉/建议等级" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPEALTYPE" Description="投诉/建议类型" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="TITLE" Description="投诉/建议标题" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTOMERNAME" Description="客户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CUSTOMERID" Description="客户代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORDERMASTERID" Description="订单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPEALCODE" Description="投诉/建议单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPEALID" Description="投诉/建议单号ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="TYPE" Description="类别（0、建议 1、投诉）" DataType="NVARCHAR2" DataValue=""></Attribute>
+</Object>
+
+</System>

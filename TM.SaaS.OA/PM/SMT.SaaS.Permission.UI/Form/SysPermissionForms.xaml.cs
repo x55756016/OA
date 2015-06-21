@@ -42,55 +42,18 @@ namespace SMT.SaaS.Permission.UI.Form
 
         void SysPermissionForms_Loaded(object sender, RoutedEventArgs e)
         {
-            bool IsLoadDicts = false;
-            if (Application.Current.Resources["SYS_DICTIONARY"] == null)
-            {
-                IsLoadDicts = true;
-                LoadDicts();
-            }
             this.LayoutRoot.RowDefinitions[3].Height = new GridLength(0);
             this.LayoutRoot.RowDefinitions[4].Height = new GridLength(0);
             
             perm.PERMISSIONID = Guid.NewGuid().ToString();
             perm.CREATEDATE = DateTime.Now;
-            //perm.CREATEUSER = Common.CurrentConfig.;
-            //perm.CREATEUSER = Common.CurrentConfig.CurrentUser.SYSUSERID;
-            //perm.CREATEUSER = Common.CurrentLoginUserInfo.sysuserID;
             this.DataContext = perm;
             if (formType == FormTypes.New)
             {
                 rbtIsAutoyes.IsChecked = true;
             }
-            if (IsLoadDicts == false)
-            {
-                client.GetSysDictionaryByCategoryAsync("SYSTEMTYPE");
-            }
-        }
-        protected void LoadDicts()
-        {
-            client.GetSysDictionaryByCategoryCompleted += (o, e) =>
-            {
-                List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                var ents = from ent in Application.Current.Resources
-                           where ent.Key == "SYS_DICTIONARY"
-                           select ent;
-                if (ents != null)
-                {
-                    Application.Current.Resources.Remove("SYS_DICTIONARY");
-                    Application.Current.Resources.Add("SYS_DICTIONARY",dicts);
-                    
-                }
-                else
-                {
-
-                    Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
-                }
-
-                
-            };
-            //TODO: 按需取出字典值
-            client.GetSysDictionaryByCategoryAsync("");
+           client.GetSysDictionaryByCategoryAsync("SYSTEMTYPE");
+            
         }
         public SysPermissionForms(FormTypes formType,string strID)
         {

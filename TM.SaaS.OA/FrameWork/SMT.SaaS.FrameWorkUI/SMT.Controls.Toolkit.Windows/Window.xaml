@@ -1,0 +1,216 @@
+﻿<UserControl x:Class="SMT.SAAS.Controls.Toolkit.Windows.Window"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:this="clr-namespace:SMT.SAAS.Controls.Toolkit.Windows"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows"
+    mc:Ignorable="d" >
+    <Grid x:Name="window">
+        <Grid.Projection>
+            <PlaneProjection x:Name="WindowProjection" CenterOfRotationY="1"/>
+        </Grid.Projection>
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <Border BorderBrush="#CC000000" BorderThickness="2" CornerRadius="4"
+                VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Border.Effect>
+                <BlurEffect Radius="10"/>
+            </Border.Effect>
+            <Border HorizontalAlignment="Stretch" Width="Auto" BorderThickness="1,1,1,1"
+                    CornerRadius="4" Margin="0,0,0,0"  VerticalAlignment="Stretch" BorderBrush="#FFFFFF">
+            </Border>
+        </Border>
+        <Border  BorderThickness="1" CornerRadius="3"  Background="#FFFFFF" BorderBrush="#FF9B9797">
+            <Border BorderBrush="White" BorderThickness="1,1.3,1,1" CornerRadius="3" x:Name="Border_innerControl">
+                <Grid  x:Name="window1" RenderTransformOrigin="0.5,0.5"  Background="Transparent">
+                    <Grid.Resources>
+                        <!--窗体颜色-->
+                        <ControlTemplate x:Key="BarButton" TargetType="Button">
+                            <Grid >
+                                <vsm:VisualStateManager.VisualStateGroups>
+                                    <vsm:VisualStateGroup x:Name="CommonStates">
+                                        <vsm:VisualStateGroup.Transitions>
+                                            <vsm:VisualTransition GeneratedDuration="00:00:00.1"
+                                        To="MouseOver"/>
+                                            <vsm:VisualTransition GeneratedDuration="00:00:00.1"
+                                        To="Pressed"/>
+                                            <vsm:VisualTransition From="Normal"
+                                        GeneratedDuration="00:00:00.2000000"
+                                        To="MouseOver"/>
+                                            <vsm:VisualTransition From="MouseOver"
+                                        GeneratedDuration="00:00:00.3000000"
+                                        To="Normal"/>
+                                            <vsm:VisualTransition From="Pressed"
+                                        GeneratedDuration="00:00:00.3000000"
+                                        To="MouseOver"/>
+                                        </vsm:VisualStateGroup.Transitions>
+                                        <vsm:VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="MouseOver">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonBorderColor"
+                                                                               Storyboard.TargetProperty="Opacity">
+                                                    <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonBorderColor"
+                                                                               Storyboard.TargetProperty="Opacity">
+                                                    <SplineDoubleKeyFrame KeyTime="1" Value="1"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualState>
+                                        <vsm:VisualState x:Name="Disabled">
+
+                                        </vsm:VisualState>
+                                    </vsm:VisualStateGroup>
+                                    <vsm:VisualStateGroup x:Name="FocusStates">
+                                        <vsm:VisualStateGroup.Transitions>
+                                            <vsm:VisualTransition From="Focused"
+                                        GeneratedDuration="00:00:00.3000000"
+                                        To="Unfocused"/>
+                                            <vsm:VisualTransition From="Unfocused"
+                                        GeneratedDuration="00:00:00.2000000"
+                                        To="Focused"/>
+                                        </vsm:VisualStateGroup.Transitions>
+                                        <vsm:VisualState x:Name="Focused">
+                                            <Storyboard>
+                                                <ObjectAnimationUsingKeyFrames Duration="0"
+                                                   Storyboard.TargetName="ButtonBorderColor"
+                                                   Storyboard.TargetProperty="Opacity">
+                                                    <DiscreteObjectKeyFrame KeyTime="1"
+                                              Value="1" />
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </vsm:VisualState>
+                                        <vsm:VisualState x:Name="Unfocused"/>
+                                    </vsm:VisualStateGroup>
+                                </vsm:VisualStateManager.VisualStateGroups>
+                                <Border BorderBrush="#6292ac" BorderThickness="1" CornerRadius="2" x:Name="ButtonBorderColor" Opacity="0">
+                                    <Border x:Name="Background" Background="{TemplateBinding Background}" 
+                                            CornerRadius="2" BorderBrush="#FFFFFF" 
+                                            BorderThickness="0.8" Opacity="1" 
+                                            HorizontalAlignment="Stretch">
+                                        <Grid Background="{StaticResource WindowButtonOverBg}" >
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                                <ContentPresenter
+                              x:Name="contentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
+                            </Grid>
+                        </ControlTemplate>
+                        <Storyboard x:Name="CloseWindow">
+                            <DoubleAnimation Storyboard.TargetName="WindowProjection"
+                                                             Storyboard.TargetProperty="RotationX"  From="0" To="-25"
+                                                             Duration="0:0:0.3"></DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="WindowProjection"
+                                                             Storyboard.TargetProperty="GlobalOffsetZ " From="0" To="-100"
+                                                             Duration="0:0:0.3"></DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="window"
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                             From="1" To="0" Duration="0:0:0.3"></DoubleAnimation>
+                        </Storyboard>
+                        <Storyboard x:Name="HideWindow">
+                            <DoubleAnimation Storyboard.TargetName="WindowProjection"
+                                                             Storyboard.TargetProperty="GlobalOffsetZ " From="0" To="-200"
+                                                             Duration="0:0:0.3"></DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="window"
+                                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                                             From="1" To="0" Duration="0:0:0.3"></DoubleAnimation>
+                        </Storyboard>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" x:Name="captionBar"  VerticalAlignment="Stretch" Cursor="Hand"
+                            RenderTransformOrigin="0.5,0.5"  BorderThickness="0" CornerRadius="3 3 0 0" >
+                        <Grid Background="{StaticResource WindowHeaderBackground}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="7"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
+                                <Image x:Name="imgWindowIoc" Height="16"  Width="16"/>
+                                <TextBlock x:Name="captionText"  
+										Foreground="Black" 
+										FontSize="12" 
+										Margin="3,2,0,0" FontFamily="Arial,Microsoft YaHei"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <StackPanel Grid.Row="0" 
+                    Margin="0,0,6,0"
+                    HorizontalAlignment="Right"
+                    Height="auto"
+                    VerticalAlignment="Center"
+                    Width="Auto"
+                    Orientation="Horizontal"
+                          >
+                        <Button x:Name="minButton"
+                    Background="{StaticResource WindowButtonMin}"
+                    Template="{StaticResource BarButton}" Height="20" Width="20" >
+                            <Path Fill="White" Stretch="Fill" Stroke="#FF535666" Height="6"
+		                          VerticalAlignment="Bottom" Width="14.167" UseLayoutRounding="False" 
+                                  Data="M120,384 L240,384.2258 L240,440 L120,440 z" 
+		                          StrokeThickness=".5" Margin="0,3,0,0"/>
+                        </Button>
+                        <Button x:Name="maxButton" Background="{StaticResource WindowButtonMin}"
+                    Template="{StaticResource BarButton}" Height="20" Width="20" Margin="4,0,4,0">
+                            <Path Fill="White" Stroke="#FF535666" Stretch="None" 
+                                  Data="M0,0 L11,0 L11,9 L0,9 Z M3,3 L8,3 L8,6 L3,6 Z" 
+                                  StrokeThickness="0.5" Width="13" Height="10" />
+                        </Button>
+                        <Button x:Name="maxButton2" Background="{StaticResource WindowButtonMin}"
+                    Template="{StaticResource BarButton}" Height="20" Width="20" Margin="4,0,4,0">
+                            <Path Fill="White" Stroke="#FF535666" Stretch="None" 
+                                  Data="M0,0 L11,0 L11,9 L0,9 Z M3,3 L8,3 L8,6 L3,6 Z" 
+                                  StrokeThickness="0.5" Width="13" Height="10" />
+                        </Button>
+                        <Button x:Name="closeButton" Background="{StaticResource WindowButtonClose}"
+                    Template="{StaticResource BarButton}" Height="20" Width="20">
+                            <Path Fill="White" Stroke="#FF535666" 
+                                  Stretch="None" Data="M0,1L1,0L3,0L5,2L7,0L9,0L10,1L7,4L7,5L10,8L9,9L7,9L5,7L3,9L1,9L0,8L3,5L3,4Z"
+                                  StrokeThickness="0.5" Width="13" Height="10" Margin="2,0"/>
+                        </Button>
+                        <Path Fill="White" Stretch="Fill" Stroke="#FF535666" StrokeThickness="0.5" 
+                              Height="0.5" Margin="0,9.3,0,0" VerticalAlignment="Top" 
+                              Width="0.5" UseLayoutRounding="False" Data="M9.8000002,9.3000002"/>
+                    </StackPanel>
+                    <Grid x:Name="ToolBar" Grid.Row="1">
+                    </Grid>
+                    <Border BorderBrush="#FFE4E6E8" BorderThickness="1" Margin="1 0 1 1" Grid.Row="2">
+                        <Border BorderThickness="1" Background="{StaticResource WindowContentBackground}" 
+                         BorderBrush="{StaticResource WindowBorderColor3}">
+                            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Disabled">
+                                 <ContentPresenter  x:Name="scrollcontent">
+                                </ContentPresenter>
+                            </ScrollViewer>
+                        </Border>
+                    </Border>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</UserControl>
+<!--  <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{StaticResource ScrollViewerStyle}"> 
+    </ScrollViewer>
+    -->

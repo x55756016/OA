@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/CtlVehicleCtlInfo/Edit</PageParameter>
+    <ApplicationOrder>{RCTLINFOID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_CTLVEHICLECTLINFO" Description="T_VM_CtlVehicleCtlInfo 调度派车单调度信息表&#xA;&#xA;根据是否长途，判断是否出现两个司机列；长途可有两个司机，否则只能一个司机&#xA;1辆车可以选择1个以上司机，显示人员时，可多选。一个派车单，可以派出多辆车." Key="CTLINFOID" id="">
+    <Attribute Name="CTLINFOID" LableResourceID="CTLINFOID" Description="调度信息主键ID，GUID" DataType="string" DataValue="" DataText="调度信息主键ID，GUID" />
+    <Attribute Name="CTLBILLSID" LableResourceID="CTLBILLSID" Description="派车单主键ID" DataType="string" DataValue="" DataText="派车单主键ID" />
+    <Attribute Name="CTLBILLSNO" LableResourceID="CTLBILLSNO" Description="派车单号" DataType="string" DataValue="" DataText="派车单号" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="RIDENUMBER" LableResourceID="RIDENUMBER" Description="可搭乘人数" DataType="decimal" DataValue="" DataText="可搭乘人数" />
+    <Attribute Name="DRIVER1ID" LableResourceID="DRIVER1ID" Description="司机1ID" DataType="string" DataValue="" DataText="司机1ID" />
+    <Attribute Name="DRIVER1" LableResourceID="DRIVER1" Description="司机1" DataType="string" DataValue="" DataText="司机1" />
+    <Attribute Name="DRIVER1MOBILE" LableResourceID="DRIVER1MOBILE" Description="司机1手机" DataType="string" DataValue="" DataText="司机1手机" />
+    <Attribute Name="IFDRIVER1ONE" LableResourceID="IFDRIVER1ONE" Description="司机1首派车确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="司机1首派车确认（缺省0，0否1是）" />
+    <Attribute Name="IFDRIVER1OMODE" LableResourceID="IFDRIVER1OMODE" Description="司机1首确认方式（缺省0，0自确认1代确认）" DataType="string" DataValue="" DataText="司机1首确认方式（缺省0，0自确认1代确认）" />
+    <Attribute Name="DRIVER1OREPLID" LableResourceID="DRIVER1OREPLID" Description="司机1首代确认人ID" DataType="string" DataValue="" DataText="司机1首代确认人ID" />
+    <Attribute Name="DRIVER1OREPL" LableResourceID="DRIVER1OREPL" Description="司机1首代确认人" DataType="string" DataValue="" DataText="司机1首代确认人" />
+    <Attribute Name="DRIVER1OCFMDATE" LableResourceID="DRIVER1OCFMDATE" Description="司机1首确认时间" DataType="datetime" DataValue="" DataText="司机1首确认时间" />
+    <Attribute Name="IFDRIVER1SCD" LableResourceID="IFDRIVER1SCD" Description="司机1次派车确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="司机1次派车确认（缺省0，0否1是）" />
+    <Attribute Name="IFDRIVER1SMODE" LableResourceID="IFDRIVER1SMODE" Description="司机1次确认方式（缺省0，0自确认1代确认）" DataType="string" DataValue="" DataText="司机1次确认方式（缺省0，0自确认1代确认）" />
+    <Attribute Name="DRIVER1SREPLID" LableResourceID="DRIVER1SREPLID" Description="司机1次代确认人ID" DataType="string" DataValue="" DataText="司机1次代确认人ID" />
+    <Attribute Name="DRIVER1SREPL" LableResourceID="DRIVER1SREPL" Description="司机1次代确认人" DataType="string" DataValue="" DataText="司机1次代确认人" />
+    <Attribute Name="DRIVER1SCFMDATE" LableResourceID="DRIVER1SCFMDATE" Description="司机1次确认时间" DataType="datetime" DataValue="" DataText="司机1次确认时间" />
+    <Attribute Name="DRIVER2ID" LableResourceID="DRIVER2ID" Description="司机2ID" DataType="string" DataValue="" DataText="司机2ID" />
+    <Attribute Name="DRIVER2" LableResourceID="DRIVER2" Description="司机2" DataType="string" DataValue="" DataText="司机2" />
+    <Attribute Name="DRIVER2MOBILE" LableResourceID="DRIVER2MOBILE" Description="司机2手机" DataType="string" DataValue="" DataText="司机2手机" />
+    <Attribute Name="IFDRIVER2ONE" LableResourceID="IFDRIVER2ONE" Description="司机2首派车确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="司机2首派车确认（缺省0，0否1是）" />
+    <Attribute Name="IFDRIVER2OMODE" LableResourceID="IFDRIVER2OMODE" Description="司机2首确认方式（缺省0，0自确认1代确认）" DataType="string" DataValue="" DataText="司机2首确认方式（缺省0，0自确认1代确认）" />
+    <Attribute Name="DRIVER2OREPLID" LableResourceID="DRIVER2OREPLID" Description="司机2首代确认人ID" DataType="string" DataValue="" DataText="司机2首代确认人ID" />
+    <Attribute Name="DRIVER2OREPL" LableResourceID="DRIVER2OREPL" Description="司机2首代确认人" DataType="string" DataValue="" DataText="司机2首代确认人" />
+    <Attribute Name="DRIVER2OCFMDATE" LableResourceID="DRIVER2OCFMDATE" Description="司机2首确认时间" DataType="datetime" DataValue="" DataText="司机2首确认时间" />
+    <Attribute Name="IFDRIVER2SCD" LableResourceID="IFDRIVER2SCD" Description="司机2次派车确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="司机2次派车确认（缺省0，0否1是）" />
+    <Attribute Name="IFDRIVER2SMODE" LableResourceID="IFDRIVER2SMODE" Description="司机2次确认方式（缺省0，0自确认1代确认）" DataType="string" DataValue="" DataText="司机2次确认方式（缺省0，0自确认1代确认）" />
+    <Attribute Name="DRIVER2SREPLID" LableResourceID="DRIVER2SREPLID" Description="司机2次代确认人ID" DataType="string" DataValue="" DataText="司机2次代确认人ID" />
+    <Attribute Name="DRIVER2SREPL" LableResourceID="DRIVER2SREPL" Description="司机2次代确认人" DataType="string" DataValue="" DataText="司机2次代确认人" />
+    <Attribute Name="DRIVER2SCFMDATE" LableResourceID="DRIVER2SCFMDATE" Description="司机2次确认时间" DataType="datetime" DataValue="" DataText="司机2次确认时间" />
+    <Attribute Name="IFTASKCFM" LableResourceID="IFTASKCFM" Description="是否任务确认（缺省0，0否1是）&#xA;存储第一个确认人" DataType="string" DataValue="" DataText="是否任务确认（缺省0，0否1是）&#xA;存储第一个确认人" />
+    <Attribute Name="TASKCFMDATE" LableResourceID="TASKCFMDATE" Description="任务确认时间&#xA;存储第一个确认人" DataType="datetime" DataValue="" DataText="任务确认时间&#xA;存储第一个确认人" />
+    <Attribute Name="IFOUTCFM" LableResourceID="IFOUTCFM" Description="是否出车确认（缺省0，0否1是）&#xA;存储第一个确认人" DataType="string" DataValue="" DataText="是否出车确认（缺省0，0否1是）&#xA;存储第一个确认人" />
+    <Attribute Name="OUTCFMDATE" LableResourceID="OUTCFMDATE" Description="出车确认时间&#xA;存储第一个确认人时间" DataType="datetime" DataValue="" DataText="出车确认时间&#xA;存储第一个确认人时间" />
+    <Attribute Name="LEAVEMILEAGE" LableResourceID="LEAVEMILEAGE" Description="出发里程读数（公里）&#xA;缺省为调度的车辆最后里程数&#xA;存储第一个确认人的里程读数" DataType="decimal" DataValue="" DataText="出发里程读数（公里）&#xA;缺省为调度的车辆最后里程数&#xA;存储第一个确认人的里程读数" />
+    <Attribute Name="FACTOUTDATE" LableResourceID="FACTOUTDATE" Description="实际出车时间&#xA;存储第一个确认人的出车时间" DataType="datetime" DataValue="" DataText="实际出车时间&#xA;存储第一个确认人的出车时间" />
+    <Attribute Name="IFINCFM" LableResourceID="IFINCFM" Description="是否收车确认（缺省0，0否1是）&#xA;存储最后一个司机确认" DataType="string" DataValue="" DataText="是否收车确认（缺省0，0否1是）&#xA;存储最后一个司机确认" />
+    <Attribute Name="INCFMDATE" LableResourceID="INCFMDATE" Description="收车确认时间" DataType="datetime" DataValue="" DataText="收车确认时间" />
+    <Attribute Name="FACTINDATE" LableResourceID="FACTINDATE" Description="实际收车时间" DataType="datetime" DataValue="" DataText="实际收车时间" />
+    <Attribute Name="USETIMES" LableResourceID="USETIMES" Description="总用车时长（小时）&#xA;缺省为调度的车辆最后里程数" DataType="decimal" DataValue="" DataText="总用车时长（小时）&#xA;缺省为调度的车辆最后里程数" />
+    <Attribute Name="INMILEAGE" LableResourceID="INMILEAGE" Description="收车里程读数（公里）&#xA;缺省为调度的车辆最后里程数" DataType="decimal" DataValue="" DataText="收车里程读数（公里）&#xA;缺省为调度的车辆最后里程数" />
+    <Attribute Name="TOTALMILEAGE" LableResourceID="TOTALMILEAGE" Description="总里程数（公里）&#xA;缺省为调度的车辆最后里程数" DataType="decimal" DataValue="" DataText="总里程数（公里）&#xA;缺省为调度的车辆最后里程数" />
+    <Attribute Name="VEHICLESTATE" LableResourceID="VEHICLESTATE" Description="车况（正常、异常）" DataType="string" DataValue="" DataText="车况（正常、异常）" />
+    <Attribute Name="EXCEPTDESCR" LableResourceID="EXCEPTDESCR" Description="异常说明&#xA;车况为异常时填写" DataType="string" DataValue="" DataText="异常说明&#xA;车况为异常时填写" />
+    <Attribute Name="TASKCTLSTATE" LableResourceID="TASKCTLSTATE" Description="任务结束状态 VEHICLE_TASK_CONTROL_STATE&#xA;0 进行中&#xA;1 已结束&#xA;调度进行已出车的派车任务出车跟进，正常情况为0进行中，调度可提前结束（1任务结束）派车任务（需根据实际情况更改行车路线后，再任务结束），以便司机执行新的派车任务单。" DataType="string" DataValue="" DataText="任务结束状态 VEHICLE_TASK_CONTROL_STATE&#xA;0 进行中&#xA;1 已结束&#xA;调度进行已出车的派车任务出车跟进，正常情况为0进行中，调度可提前结束（1任务结束）派车任务（需根据实际情况更改行车路线后，再任务结束），以便司机执行新的派车任务单。" />
+    <Attribute Name="TASKCTLSTATENAME" LableResourceID="TASKCTLSTATENAME" Description="任务结束状态名称" DataType="string" DataValue="" DataText="任务结束状态名称" />
+    <Attribute Name="TASKCTLMANID" LableResourceID="TASKCTLMANID" Description="任务结束调度人ID" DataType="string" DataValue="" DataText="任务结束调度人ID" />
+    <Attribute Name="TASKCTLMAN" LableResourceID="TASKCTLMAN" Description="任务结束调度人" DataType="string" DataValue="" DataText="任务结束调度人" />
+    <Attribute Name="TASKCTLDATE" LableResourceID="TASKCTLDATE" Description="任务结束调度时间" DataType="datetime" DataValue="" DataText="任务结束调度时间" />
+    <Attribute Name="IFUSECFM" LableResourceID="IFUSECFM" Description="是否用车人行程确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="是否用车人行程确认（缺省0，0否1是）" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

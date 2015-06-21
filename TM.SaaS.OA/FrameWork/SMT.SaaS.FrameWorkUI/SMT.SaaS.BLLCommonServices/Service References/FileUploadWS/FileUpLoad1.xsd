@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
+  <xs:element name="GetCompanyFileSetInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyFileSetInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetCompanyFileSetInfoResult" nillable="true" type="q1:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyFileByCompanyCodeAndName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyFileByCompanyCodeAndNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetCompanyFileByCompanyCodeAndNameResult" nillable="true" type="q2:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUpLoadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMd5Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="BytesUploaded" type="xs:int" />
+        <xs:element minOccurs="0" name="dataLength" type="xs:int" />
+        <xs:element minOccurs="0" name="firstChunk" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lastChunk" type="xs:boolean" />
+        <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q3:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUpLoadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveUpLoadFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUploadFileForMvc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMd5Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q4:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUploadFileForMvcResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveUploadFileForMvcResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUpLoadFileIsExist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSystemCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strModelCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strFileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strMd5Name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="strGuid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="BytesUploaded" type="xs:int" />
+        <xs:element minOccurs="0" name="dataLength" type="xs:int" />
+        <xs:element minOccurs="0" name="firstChunk" type="xs:boolean" />
+        <xs:element minOccurs="0" name="lastChunk" type="xs:boolean" />
+        <xs:element minOccurs="0" name="strCreateUserID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q5:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUpLoadFileIsExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveUpLoadFileIsExistResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelUpload">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelUploadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFileExists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="model" nillable="true" type="q6:UserFile" />
+        <xs:element minOccurs="0" name="md5Name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckFileExistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="CheckFileExistsResult" nillable="true" type="q7:UserFile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByCompanyCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByCompanyCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByCompanyCodeResult" nillable="true" type="q8:CallBackResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListBySystemCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListBySystemCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListBySystemCodeResult" nillable="true" type="q9:CallBackResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByModelCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByModelCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByModelCodeResult" nillable="true" type="q10:CallBackResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByApplicationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="createname" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByApplicationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByApplicationIDResult" nillable="true" type="q11:CallBackResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByOnlyApplicationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileListByOnlyApplicationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" minOccurs="0" name="GetFileListByOnlyApplicationIDResult" nillable="true" type="q12:CallBackResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="smtfilelistid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="filepath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filepath" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByUrlResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByApplicationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByApplicationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByApplicationIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByModelCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="modelcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByModelCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByModelCodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileBySystemCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="systemcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileBySystemCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileBySystemCodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByCompanycode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companycode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByCompanycodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByCompanycodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByOnlyApplicationID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByOnlyApplicationIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByOnlyApplicationIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByApplicationIDAndFileName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applicationid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileByApplicationIDAndFileNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteFileByApplicationIDAndFileNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompanyDirectory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companyID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="companyCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCompanyDirectoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateCompanyDirectoryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

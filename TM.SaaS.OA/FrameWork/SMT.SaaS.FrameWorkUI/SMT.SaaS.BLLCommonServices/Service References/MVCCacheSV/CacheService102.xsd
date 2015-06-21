@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.1.57/New/Services/CommonServices/CacheService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" />
+  <xs:complexType name="QueryResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" base="q1:ResultBaseOfanyType">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QueryResult" nillable="true" type="tns:QueryResult" />
+</xs:schema>

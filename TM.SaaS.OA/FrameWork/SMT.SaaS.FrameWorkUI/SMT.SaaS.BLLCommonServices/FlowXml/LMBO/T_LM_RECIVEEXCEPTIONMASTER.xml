@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_RECIVEEXCEPTIONMASTER"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.SiteOperate</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.SiteOperate.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.SiteOperate.Form.ReceiveGoods.ExceptionManageForm</PageParameter>
+		<ApplicationOrder>{RECIVEEXCEPTIONMASTERID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_RECIVEEXCEPTIONMASTER" Description="收货异常">
+    <Attribute  Name="RECIVEEXCEPTIONMASTERID" Description="收货异常主表ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RECIVEEXCEPTIONMASTERCODE" Description="收货异常CODE" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="BILLID" Description="订单id" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RECIVETYPE" Description="收货类型" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SENDER" Description="SENDER" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="RECIVER" Description="RECIVER" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ATTACHID" Description="ATTACHID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="CREATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE2" Description="CREATEDATE2" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="REMARK" DataType="NVARCHAR2" DataValue=""></attribute>
+</Object>
+
+
+
+</System>

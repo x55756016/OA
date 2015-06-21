@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c58b0e05-97c1-45a9-858c-9ae25342779c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/HRUpdateCheckStateServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HRUpdateCheckStateServices2.wsdl" MetadataType="Wsdl" ID="45daa2e2-67f1-4b34-8b6b-319a0a06afaa" SourceId="1" SourceUrl="http://localhost:12168/HRUpdateCheckStateServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="HRUpdateCheckStateServices2.xsd" MetadataType="Schema" ID="9fd85157-ed03-44a0-8a23-6bced8ab3536" SourceId="1" SourceUrl="http://localhost:12168/HRUpdateCheckStateServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="HRUpdateCheckStateServices21.wsdl" MetadataType="Wsdl" ID="de42983c-9e4c-47f6-bc51-3a0a4094d86e" SourceId="1" SourceUrl="http://localhost:12168/HRUpdateCheckStateServices.svc?wsdl" />
+    <MetadataFile FileName="HRUpdateCheckStateServices21.xsd" MetadataType="Schema" ID="66079d26-561d-4a8e-9c8d-5add2cb0b852" SourceId="1" SourceUrl="http://localhost:12168/HRUpdateCheckStateServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="HRUpdateCheckStateServices1.disco" MetadataType="Disco" ID="6ecaf7c2-2258-48f2-b6be-e0d7d3f7bf2b" SourceId="1" SourceUrl="http://localhost:12168/HRUpdateCheckStateServices.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

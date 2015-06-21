@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CacheService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd2" namespace="SMT.QueryObjects" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Query" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common.Login" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.Entities.HR" />
+      <xsd:import schemaLocation="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICacheService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetLoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginUser" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_GetLoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_UpdateCacheData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCacheData" />
+  </wsdl:message>
+  <wsdl:message name="ICacheService_UpdateCacheData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCacheDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICacheService">
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/Query" message="tns:ICacheService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/QueryResponse" message="tns:ICacheService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/Login" message="tns:ICacheService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/LoginResponse" message="tns:ICacheService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/GetLoginUser" message="tns:ICacheService_GetLoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/GetLoginUserResponse" message="tns:ICacheService_GetLoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/Logout" message="tns:ICacheService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/LogoutResponse" message="tns:ICacheService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICacheService/UpdateCacheData" message="tns:ICacheService_UpdateCacheData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICacheService/UpdateCacheDataResponse" message="tns:ICacheService_UpdateCacheData_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CacheService" type="tns:ICacheService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/ICacheService/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ICacheService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginUser">
+      <soap:operation soapAction="http://tempuri.org/ICacheService/GetLoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://tempuri.org/ICacheService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCacheData">
+      <soap:operation soapAction="http://tempuri.org/ICacheService/UpdateCacheData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CacheService">
+    <wsdl:port name="CacheService" binding="tns:CacheService">
+      <soap:address location="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

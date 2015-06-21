@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="合理化建议课程整理待办" Address="TMServices.svc" FuncName="CallWaitAppService" Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_TM_COURSEMASTER" Name="SUGCOURSEID" Description="建议课程ID" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TM/CourseMaster/Index</PageParameter>
+    <ApplicationOrder>{SUGCOURSEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_COURSEMASTER" Description="课程库" Key="COURSEID" id="">
+    <Attribute Name="COURSEID" LableResourceID="COURSEID" Description="课程ID" DataType="string" DataValue="" DataText="课程ID" />
+    <Attribute Name="SUGCOURSEID" LableResourceID="SUGCOURSEID" Description="建议课程ID" DataType="string" DataValue="" DataText="建议课程ID" />
+    <Attribute Name="COURSENAME" LableResourceID="COURSENAME" Description="课程名" DataType="string" DataValue="" DataText="课程名" />
+    <Attribute Name="SUGCOURSEPATH" LableResourceID="SUGCOURSEPATH" Description="建议课件路径" DataType="string" DataValue="" DataText="建议课件路径" />
+    <Attribute Name="COURSEDESC" LableResourceID="COURSEDESC" Description="课程描述" DataType="string" DataValue="" DataText="课程描述" />
+    <Attribute Name="TRAINID" LableResourceID="TRAINID" Description="培训ID" DataType="string" DataValue="" DataText="培训ID" />
+    <Attribute Name="TRAINNAME" LableResourceID="TRAINNAME" Description="培训名称" DataType="string" DataValue="" DataText="培训名称" />
+    <Attribute Name="SUGREASON" LableResourceID="SUGREASON" Description="推荐理由" DataType="string" DataValue="" DataText="推荐理由" />
+    <Attribute Name="LAUFREQUENCE" LableResourceID="LAUFREQUENCE" Description="课件更新频率" DataType="string" DataValue="" DataText="课件更新频率" />
+    <Attribute Name="LAUNCHTIME" LableResourceID="LAUNCHTIME" Description="更新时间" DataType="datetime" DataValue="" DataText="更新时间" />
+    <Attribute Name="SUGUSERID" LableResourceID="SUGUSERID" Description="建议提出人ID" DataType="string" DataValue="" DataText="建议提出人ID" />
+    <Attribute Name="SUGUSER" LableResourceID="SUGUSER" Description="建议提出人" DataType="string" DataValue="" DataText="建议提出人" />
+    <Attribute Name="SUGPOSTID" LableResourceID="SUGPOSTID" Description="建议提出人岗位ID" DataType="string" DataValue="" DataText="建议提出人岗位ID" />
+    <Attribute Name="SUGPOST" LableResourceID="SUGPOST" Description="建议提出人岗位" DataType="string" DataValue="" DataText="建议提出人岗位" />
+    <Attribute Name="SUGDEPARTMENTID" LableResourceID="SUGDEPARTMENTID" Description="建议提出人部门ID" DataType="string" DataValue="" DataText="建议提出人部门ID" />
+    <Attribute Name="SUGDEPARTMENT" LableResourceID="SUGDEPARTMENT" Description="建议提出人部门" DataType="string" DataValue="" DataText="建议提出人部门" />
+    <Attribute Name="SUGCOMPANYID" LableResourceID="SUGCOMPANYID" Description="建议提出人公司ID" DataType="string" DataValue="" DataText="建议提出人公司ID" />
+    <Attribute Name="SUGCOMPANY" LableResourceID="SUGCOMPANY" Description="建议提出人公司" DataType="string" DataValue="" DataText="建议提出人公司" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText="创建人公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText="创建人部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText="创建人岗位ID" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+  </Object>
+</System>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc7a186d-f736-4e87-ba5c-848cd0d03123" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12168/HrCommonService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HrCommonService.disco" MetadataType="Disco" ID="fd2734ac-a588-4c17-b1a2-918975722609" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?disco" />
+    <MetadataFile FileName="HrCommonService.xsd" MetadataType="Schema" ID="696f3bbc-691b-48a9-99d1-33e36183fa8d" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HrCommonService.wsdl" MetadataType="Wsdl" ID="15240597-2a16-44a7-9c77-5c6ee953455c" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?wsdl" />
+    <MetadataFile FileName="HrCommonService1.xsd" MetadataType="Schema" ID="66451c01-698c-4577-86b5-3871a22c7962" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HrCommonService2.xsd" MetadataType="Schema" ID="a4d5c83d-dcb0-4947-80f9-74454364808b" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HrCommonService1.wsdl" MetadataType="Wsdl" ID="3a524c97-e4db-41ec-8290-81761dfcb32b" SourceId="1" SourceUrl="http://localhost:12168/HrCommonService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

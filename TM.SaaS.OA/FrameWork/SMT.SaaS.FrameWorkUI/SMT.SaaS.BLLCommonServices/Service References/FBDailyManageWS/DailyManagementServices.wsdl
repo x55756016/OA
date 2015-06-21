@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.FBAnalysis.CustomModel" />
+      <xsd:import schemaLocation="http://localhost:1734/DailyManagementServices.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.FBAnalysis.Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DailyManagementServices_PersonmoneyAssignSendTask_InputMessage">
+    <wsdl:part name="parameters" element="PersonmoneyAssignSendTask" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_PersonmoneyAssignSendTask_OutputMessage">
+    <wsdl:part name="parameters" element="PersonmoneyAssignSendTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyDetailByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyDetailByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyRepayDetailByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyRepayDetailByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyRepayDetailByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyRepayDetailByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyMasterListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyMasterListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeApplyMasterListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeApplyMasterListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddChargeApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddChargeApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddChargeApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddChargeApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelChargeApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="DelChargeApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelChargeApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DelChargeApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyCheckState_InputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyCheckState" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyCheckState_OutputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyCheckStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="GetChargeOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChargeOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetChargeOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_ExportChargeApplyMasterReports_InputMessage">
+    <wsdl:part name="parameters" element="ExportChargeApplyMasterReports" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_ExportChargeApplyMasterReports_OutputMessage">
+    <wsdl:part name="parameters" element="ExportChargeApplyMasterReportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_ImportAttendMonthlyBalanceFromCSV_InputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSV" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_ImportAttendMonthlyBalanceFromCSV_OutputMessage">
+    <wsdl:part name="parameters" element="ImportAttendMonthlyBalanceFromCSVResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyIsPayed_InputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyIsPayed" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptChargeApplyIsPayed_OutputMessage">
+    <wsdl:part name="parameters" element="UptChargeApplyIsPayedResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_SaveFile_InputMessage">
+    <wsdl:part name="parameters" element="SaveFile" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_SaveFile_OutputMessage">
+    <wsdl:part name="parameters" element="SaveFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetExtensionalOrderByID_InputMessage">
+    <wsdl:part name="parameters" element="GetExtensionalOrderByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetExtensionalOrderByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetExtensionalOrderByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailListByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailListByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailListByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailListByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyDetailListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyDetailListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyMasterListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyMasterListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayApplyMasterListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayApplyMasterListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddRepayApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddRepayApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddRepayApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddRepayApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptRepayApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="UptRepayApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptRepayApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UptRepayApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelRepayApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="DelRepayApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelRepayApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DelRepayApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptRepayApplyCheckState_InputMessage">
+    <wsdl:part name="parameters" element="UptRepayApplyCheckState" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptRepayApplyCheckState_OutputMessage">
+    <wsdl:part name="parameters" element="UptRepayApplyCheckStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="GetRepayOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetRepayOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetRepayOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetPersonAccountListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetPersonAccountListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetPersonAccountListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetPersonAccountListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetInfo_InputMessage">
+    <wsdl:part name="parameters" element="GetInfo" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetInfo_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterListForRepay_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterListForRepay" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterListForRepay_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterListForRepayResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApps_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApps" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApps_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowAppsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetInfoById_InputMessage">
+    <wsdl:part name="parameters" element="GetInfoById" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetInfoById_OutputMessage">
+    <wsdl:part name="parameters" element="GetInfoByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetMasterData_InputMessage">
+    <wsdl:part name="parameters" element="GetMasterData" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetMasterData_OutputMessage">
+    <wsdl:part name="parameters" element="GetMasterDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChildData_InputMessage">
+    <wsdl:part name="parameters" element="GetChildData" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetChildData_OutputMessage">
+    <wsdl:part name="parameters" element="GetChildDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddBorrowApply_InputMessage">
+    <wsdl:part name="parameters" element="AddBorrowApply" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddBorrowApply_OutputMessage">
+    <wsdl:part name="parameters" element="AddBorrowApplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UpdBorrowApply_InputMessage">
+    <wsdl:part name="parameters" element="UpdBorrowApply" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UpdBorrowApply_OutputMessage">
+    <wsdl:part name="parameters" element="UpdBorrowApplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelMasterDataById_InputMessage">
+    <wsdl:part name="parameters" element="DelMasterDataById" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelMasterDataById_OutputMessage">
+    <wsdl:part name="parameters" element="DelMasterDataByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailByID_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailByMasterID_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailByMasterID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailByMasterID_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailByMasterIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyDetailListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyDetailListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterByID_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowApplyMasterListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowApplyMasterListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddBorrowApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="AddBorrowApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_AddBorrowApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="AddBorrowApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptBorrowApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="UptBorrowApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptBorrowApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="UptBorrowApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelBorrowApplyMasterAndDetail_InputMessage">
+    <wsdl:part name="parameters" element="DelBorrowApplyMasterAndDetail" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_DelBorrowApplyMasterAndDetail_OutputMessage">
+    <wsdl:part name="parameters" element="DelBorrowApplyMasterAndDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptBorrowApplyCheckState_InputMessage">
+    <wsdl:part name="parameters" element="UptBorrowApplyCheckState" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_UptBorrowApplyCheckState_OutputMessage">
+    <wsdl:part name="parameters" element="UptBorrowApplyCheckStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowOrderCode_InputMessage">
+    <wsdl:part name="parameters" element="GetBorrowOrderCode" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBorrowOrderCode_OutputMessage">
+    <wsdl:part name="parameters" element="GetBorrowOrderCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountByID_InputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountByID" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountByPerson_InputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountByPerson" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountByPerson_OutputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountByPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountListByMultSearch_InputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountListByMultSearch" />
+  </wsdl:message>
+  <wsdl:message name="DailyManagementServices_GetBudgetAccountListByMultSearch_OutputMessage">
+    <wsdl:part name="parameters" element="GetBudgetAccountListByMultSearchResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DailyManagementServices">
+    <wsdl:operation name="PersonmoneyAssignSendTask">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/PersonmoneyAssignSendTask" message="DailyManagementServices_PersonmoneyAssignSendTask_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/PersonmoneyAssignSendTaskResponse" message="DailyManagementServices_PersonmoneyAssignSendTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyDetailByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailByID" message="DailyManagementServices_GetChargeApplyDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailByIDResponse" message="DailyManagementServices_GetChargeApplyDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyDetailListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailListByMultSearch" message="DailyManagementServices_GetChargeApplyDetailListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailListByMultSearchResponse" message="DailyManagementServices_GetChargeApplyDetailListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyMasterByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyMasterByID" message="DailyManagementServices_GetChargeApplyMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyMasterByIDResponse" message="DailyManagementServices_GetChargeApplyMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyDetailByMasterID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailByMasterID" message="DailyManagementServices_GetChargeApplyDetailByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyDetailByMasterIDResponse" message="DailyManagementServices_GetChargeApplyDetailByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyRepayDetailByMasterID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyRepayDetailByMasterID" message="DailyManagementServices_GetChargeApplyRepayDetailByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyRepayDetailByMasterIDResponse" message="DailyManagementServices_GetChargeApplyRepayDetailByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeApplyMasterListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeApplyMasterListByMultSearch" message="DailyManagementServices_GetChargeApplyMasterListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeApplyMasterListByMultSearchResponse" message="DailyManagementServices_GetChargeApplyMasterListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddChargeApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/AddChargeApplyMasterAndDetail" message="DailyManagementServices_AddChargeApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/AddChargeApplyMasterAndDetailResponse" message="DailyManagementServices_AddChargeApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptChargeApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptChargeApplyMasterAndDetail" message="DailyManagementServices_UptChargeApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptChargeApplyMasterAndDetailResponse" message="DailyManagementServices_UptChargeApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelChargeApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/DelChargeApplyMasterAndDetail" message="DailyManagementServices_DelChargeApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/DelChargeApplyMasterAndDetailResponse" message="DailyManagementServices_DelChargeApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptChargeApplyCheckState">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptChargeApplyCheckState" message="DailyManagementServices_UptChargeApplyCheckState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptChargeApplyCheckStateResponse" message="DailyManagementServices_UptChargeApplyCheckState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChargeOrderCode">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChargeOrderCode" message="DailyManagementServices_GetChargeOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChargeOrderCodeResponse" message="DailyManagementServices_GetChargeOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportChargeApplyMasterReports">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/ExportChargeApplyMasterReports" message="DailyManagementServices_ExportChargeApplyMasterReports_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/ExportChargeApplyMasterReportsResponse" message="DailyManagementServices_ExportChargeApplyMasterReports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportAttendMonthlyBalanceFromCSV">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/ImportAttendMonthlyBalanceFromCSV" message="DailyManagementServices_ImportAttendMonthlyBalanceFromCSV_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/ImportAttendMonthlyBalanceFromCSVResponse" message="DailyManagementServices_ImportAttendMonthlyBalanceFromCSV_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptChargeApplyIsPayed">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptChargeApplyIsPayed" message="DailyManagementServices_UptChargeApplyIsPayed_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptChargeApplyIsPayedResponse" message="DailyManagementServices_UptChargeApplyIsPayed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFile">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/SaveFile" message="DailyManagementServices_SaveFile_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/SaveFileResponse" message="DailyManagementServices_SaveFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExtensionalOrderByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetExtensionalOrderByID" message="DailyManagementServices_GetExtensionalOrderByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetExtensionalOrderByIDResponse" message="DailyManagementServices_GetExtensionalOrderByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayApplyDetailByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailByID" message="DailyManagementServices_GetRepayApplyDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailByIDResponse" message="DailyManagementServices_GetRepayApplyDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayApplyDetailListByMasterID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailListByMasterID" message="DailyManagementServices_GetRepayApplyDetailListByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailListByMasterIDResponse" message="DailyManagementServices_GetRepayApplyDetailListByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayApplyDetailListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailListByMultSearch" message="DailyManagementServices_GetRepayApplyDetailListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayApplyDetailListByMultSearchResponse" message="DailyManagementServices_GetRepayApplyDetailListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayApplyMasterByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayApplyMasterByID" message="DailyManagementServices_GetRepayApplyMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayApplyMasterByIDResponse" message="DailyManagementServices_GetRepayApplyMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayApplyMasterListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayApplyMasterListByMultSearch" message="DailyManagementServices_GetRepayApplyMasterListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayApplyMasterListByMultSearchResponse" message="DailyManagementServices_GetRepayApplyMasterListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRepayApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/AddRepayApplyMasterAndDetail" message="DailyManagementServices_AddRepayApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/AddRepayApplyMasterAndDetailResponse" message="DailyManagementServices_AddRepayApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptRepayApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptRepayApplyMasterAndDetail" message="DailyManagementServices_UptRepayApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptRepayApplyMasterAndDetailResponse" message="DailyManagementServices_UptRepayApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelRepayApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/DelRepayApplyMasterAndDetail" message="DailyManagementServices_DelRepayApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/DelRepayApplyMasterAndDetailResponse" message="DailyManagementServices_DelRepayApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptRepayApplyCheckState">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptRepayApplyCheckState" message="DailyManagementServices_UptRepayApplyCheckState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptRepayApplyCheckStateResponse" message="DailyManagementServices_UptRepayApplyCheckState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRepayOrderCode">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetRepayOrderCode" message="DailyManagementServices_GetRepayOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetRepayOrderCodeResponse" message="DailyManagementServices_GetRepayOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonAccountListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetPersonAccountListByMultSearch" message="DailyManagementServices_GetPersonAccountListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetPersonAccountListByMultSearchResponse" message="DailyManagementServices_GetPersonAccountListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfo">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetInfo" message="DailyManagementServices_GetInfo_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetInfoResponse" message="DailyManagementServices_GetInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyMasterListForRepay">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterListForRepay" message="DailyManagementServices_GetBorrowApplyMasterListForRepay_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterListForRepayResponse" message="DailyManagementServices_GetBorrowApplyMasterListForRepay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApps">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApps" message="DailyManagementServices_GetBorrowApps_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowAppsResponse" message="DailyManagementServices_GetBorrowApps_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoById">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetInfoById" message="DailyManagementServices_GetInfoById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetInfoByIdResponse" message="DailyManagementServices_GetInfoById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMasterData">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetMasterData" message="DailyManagementServices_GetMasterData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetMasterDataResponse" message="DailyManagementServices_GetMasterData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildData">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetChildData" message="DailyManagementServices_GetChildData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetChildDataResponse" message="DailyManagementServices_GetChildData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBorrowApply">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/AddBorrowApply" message="DailyManagementServices_AddBorrowApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/AddBorrowApplyResponse" message="DailyManagementServices_AddBorrowApply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdBorrowApply">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UpdBorrowApply" message="DailyManagementServices_UpdBorrowApply_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UpdBorrowApplyResponse" message="DailyManagementServices_UpdBorrowApply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelMasterDataById">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/DelMasterDataById" message="DailyManagementServices_DelMasterDataById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/DelMasterDataByIdResponse" message="DailyManagementServices_DelMasterDataById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyDetailByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailByID" message="DailyManagementServices_GetBorrowApplyDetailByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailByIDResponse" message="DailyManagementServices_GetBorrowApplyDetailByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyDetailByMasterID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailByMasterID" message="DailyManagementServices_GetBorrowApplyDetailByMasterID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailByMasterIDResponse" message="DailyManagementServices_GetBorrowApplyDetailByMasterID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyDetailListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailListByMultSearch" message="DailyManagementServices_GetBorrowApplyDetailListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyDetailListByMultSearchResponse" message="DailyManagementServices_GetBorrowApplyDetailListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyMasterByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterByID" message="DailyManagementServices_GetBorrowApplyMasterByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterByIDResponse" message="DailyManagementServices_GetBorrowApplyMasterByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowApplyMasterListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterListByMultSearch" message="DailyManagementServices_GetBorrowApplyMasterListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowApplyMasterListByMultSearchResponse" message="DailyManagementServices_GetBorrowApplyMasterListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBorrowApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/AddBorrowApplyMasterAndDetail" message="DailyManagementServices_AddBorrowApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/AddBorrowApplyMasterAndDetailResponse" message="DailyManagementServices_AddBorrowApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptBorrowApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptBorrowApplyMasterAndDetail" message="DailyManagementServices_UptBorrowApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptBorrowApplyMasterAndDetailResponse" message="DailyManagementServices_UptBorrowApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DelBorrowApplyMasterAndDetail">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/DelBorrowApplyMasterAndDetail" message="DailyManagementServices_DelBorrowApplyMasterAndDetail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/DelBorrowApplyMasterAndDetailResponse" message="DailyManagementServices_DelBorrowApplyMasterAndDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UptBorrowApplyCheckState">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/UptBorrowApplyCheckState" message="DailyManagementServices_UptBorrowApplyCheckState_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/UptBorrowApplyCheckStateResponse" message="DailyManagementServices_UptBorrowApplyCheckState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBorrowOrderCode">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBorrowOrderCode" message="DailyManagementServices_GetBorrowOrderCode_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBorrowOrderCodeResponse" message="DailyManagementServices_GetBorrowOrderCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBudgetAccountByID">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBudgetAccountByID" message="DailyManagementServices_GetBudgetAccountByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBudgetAccountByIDResponse" message="DailyManagementServices_GetBudgetAccountByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBudgetAccountByPerson">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBudgetAccountByPerson" message="DailyManagementServices_GetBudgetAccountByPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBudgetAccountByPersonResponse" message="DailyManagementServices_GetBudgetAccountByPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBudgetAccountListByMultSearch">
+      <wsdl:input wsaw:Action="urn:DailyManagementServices/GetBudgetAccountListByMultSearch" message="DailyManagementServices_GetBudgetAccountListByMultSearch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:DailyManagementServices/GetBudgetAccountListByMultSearchResponse" message="DailyManagementServices_GetBudgetAccountListByMultSearch_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

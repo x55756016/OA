@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="预留费用设置代办" Address="WPServices.svc" FuncName="CallWaitAppService"  Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_WP_PRESETCOSTCONFIG" Name="PLANYEAR" Description="计划年度" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PresetCostConfig/Create</PageParameter>
+    <ApplicationOrder>{PLANYEAR}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_PRESETCOSTCONFIG" Description="年度预留机动费用设置记录" Key="COSTID" id="">
+    <Attribute  Name="COSTID" LableResourceID="COSTID" Description="费用项主键ID,GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DCOSTID" LableResourceID="DCOSTID" Description="费用拟制主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTITEMID" LableResourceID="COSTITEMID" Description="费用项科目ID
+选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTITEMNAME" LableResourceID="COSTITEMNAME" Description="费用项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTTYPE" LableResourceID="COSTTYPE" Description="费用设置类别 (1公司2部门0岗位员工)
+注：部门包括子部门" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="使用公司ID
+注：CostType为岗位员工时，保存员工所在公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="使用部门ID
+注：CostType为岗位员工时，保存员工所在部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="使用部门名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPLANCOST" LableResourceID="LYPLANCOST" Description="上年计划费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPRESETCOST" LableResourceID="LYPRESETCOST" Description="上年预留费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPRESETRATIO" LableResourceID="LYPRESETRATIO" Description="上年预留比例" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANCOST" LableResourceID="PLANCOST" Description="本年计划费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PRESETCOST" LableResourceID="PRESETCOST" Description="预留费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PRESETRATIO" LableResourceID="PRESETRATIO" Description="预留比例" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PRESETUCOST" LableResourceID="PRESETUCOST" Description="可用预留费用
+
+剩余可用预留费用，增加设置预留费用时，与预留费用相等；
+    计划调整费用审核通过时，增加可用预留费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>TM</Name>
+  <System>
+    <Function Description="CompanyFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.TM.UI.Forms.Summarizing.ArchiveForm</PageParameter>
+    <ApplicationOrder>{REGISTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_PROJECTCERTIFICATE" Description="培训证书">
+      <Attribute Name="REGISTERNAME" Description="报名名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+	  <Attribute Name="PROJECTCERTIFICATENAME" Description="证书名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

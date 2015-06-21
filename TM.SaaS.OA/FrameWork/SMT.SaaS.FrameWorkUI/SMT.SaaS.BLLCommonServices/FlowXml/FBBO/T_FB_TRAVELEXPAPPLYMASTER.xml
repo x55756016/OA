@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+  <System>
+    <Function Description="T_FB_TRAVELEXPAPPLYMASTER" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_TRAVELEXPAPPLYMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_TRAVELEXPAPPLYMASTER</PageParameter>
+    <ApplicationOrder>{TRAVELEXPAPPLYMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_FB_TRAVELEXPAPPLYMASTER" Description="差旅报销申请单">
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="" />
+    <Attribute Name="TRAVELEXPAPPLYMASTERID" LableResourceID="TRAVELEXPAPPLYMASTERID" Description="单据ID" DataType="string" DataValue="" />
+    <Attribute Name="TRAVELEXPAPPLYMASTERCODE" LableResourceID="TRAVELEXPAPPLYMASTERCODE" Description="单据编号" DataType="string" DataValue="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="string" DataValue="" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" />
+    <Attribute Name="BUDGETARYMONTH" LableResourceID="BUDGETARYMONTH" Description="预算月份" DataType="string" DataValue="" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="申请公司" DataType="string" DataValue="" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="申请部门" DataType="string" DataValue="" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="申请人" DataType="string" DataValue="" />
+    <Attribute Name="PAYTYPE" LableResourceID="PAYTYPE" Description="付款类型" DataType="string" DataValue="" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" />
+    <Attribute Name="TOTALMONEY" LableResourceID="TOTALMONEY" Description="总金额" DataType="decimal" DataValue="" />
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL" Description="岗位级别" DataType="decimal" DataValue="" />
+    <Attribute Name="BorrowedMoney" LableResourceID="BorrowedMoney" Description="已借款金额" DataType="decimal" DataValue="" />
+    <Attribute Name="TravelMoney" LableResourceID="TravelMoney" Description="差旅费" DataType="decimal" DataValue="" />
+    <Attribute Name="EntertainmentMoney" LableResourceID="EntertainmentMoney" Description="招待费" DataType="decimal" DataValue="" />
+  </Object>
+</System>

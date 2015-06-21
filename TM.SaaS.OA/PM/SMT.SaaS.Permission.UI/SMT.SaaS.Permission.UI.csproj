@@ -31,10 +31,14 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <LinkedServerProject>
     </LinkedServerProject>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <FileUpgradeFlags>
@@ -187,9 +191,6 @@
     <Compile Include="Common\ServiceResult.cs" />
     <Compile Include="Common\Utility.cs" />
     <Compile Include="Common\BoolenConverter.cs" />
-    <Compile Include="Form\AddSysUser.xaml.cs">
-      <DependentUpon>AddSysUser.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Form\AssignUserByRole.xaml.cs">
       <DependentUpon>AssignUserByRole.xaml</DependentUpon>
     </Compile>
@@ -246,15 +247,6 @@
     <Compile Include="Form\SysUserForms.xaml.cs">
       <DependentUpon>SysUserForms.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Form\SysUserRoleForm.xaml.cs">
-      <DependentUpon>SysUserRoleForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Form\SysUserRoleSet.xaml.cs">
-      <DependentUpon>SysUserRoleSet.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Form\UserInfo.xaml.cs">
-      <DependentUpon>UserInfo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Form\UserRoleList.xaml.cs">
       <DependentUpon>UserRoleList.xaml</DependentUpon>
     </Compile>
@@ -309,6 +301,9 @@
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RoleEntityMenu.xaml.cs">
+      <DependentUpon>RoleEntityMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SysDictionary.xaml.cs">
       <DependentUpon>SysDictionary.xaml</DependentUpon>
     </Compile>
@@ -351,9 +346,6 @@
     </Compile>
     <Compile Include="Views\SysUserRole.xaml.cs">
       <DependentUpon>SysUserRole.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RoleEntityMenu.xaml.cs">
-      <DependentUpon>RoleEntityMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EntityMenuCustomPerm.xaml.cs">
       <DependentUpon>EntityMenuCustomPerm.xaml</DependentUpon>
@@ -401,14 +393,6 @@
     <Page Include="CommForm\OrganizationLookupForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Form\AddSysUser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -536,30 +520,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Form\SysUserRoleForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Form\SysUserRoleSet.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Form\UserInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Form\UserRoleList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -639,12 +599,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Home.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoleEntityMenu.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SysDictionary.xaml">
       <SubType>Designer</SubType>
@@ -752,14 +712,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\RoleEntityMenu.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Views\EntityMenuCustomPerm.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -819,7 +771,7 @@
       <Name>SMT.SAAS.Main.CurrentContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
-      <Project>{36E9D744-4747-4F92-8ABE-D747ADBC811A}</Project>
+      <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
       <Name>SMT.Saas.Tools</Name>
     </ProjectReference>
   </ItemGroup>

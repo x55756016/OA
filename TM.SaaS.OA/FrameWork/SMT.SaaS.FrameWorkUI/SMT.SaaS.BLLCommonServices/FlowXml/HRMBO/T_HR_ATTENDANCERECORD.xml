@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="员工考勤日历" Address="EngineService.svc" FuncName="CallApplicationService" Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_ATTENDANCERECORD" Name="ATTENDANCERECORDID" Description="考勤记录编号" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Attendance.SignInRdForm</PageParameter>
+    <ApplicationOrder>{SIGNINID}</ApplicationOrder>
+    <FormTypes>Add</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_ATTENDANCERECORD" Description="员工考勤记录日历" Key="ATTENDANCERECORDID" id="">
+    <Attribute Name="CURRENTEMPLOYEENAME" Description="提交者" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCERECORDID" Description="考勤记录编号" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" Description="员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECODE" Description="员工编号" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EMPLOYEENAME" Description="员工姓名" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCEDATE" Description="日期" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FIRSTSTARTTIME" Description="第一段上班开始时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FIRSTENDTIME" Description="第一段上班结束时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FIRSTSTARTSTATE" Description="第一段上班开始状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FIRSTENDSTATE" Description="第一段上班结束状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SECONDSTARTTIME" Description="第二段上班开始时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SECONDENDTIME" Description="第二段上班结束时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SECONDSTARTSTATE" Description="第二段上班开始状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SECONDENDSTATE" Description="第二段上班结束状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="THIRDSTARTTIME" Description="第三段上班开始时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="THIRDENDTIME" Description="第三段上班结束时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="THIRDSTARTSTATE" Description="第三段上班开始状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="THIRDENDSTATE" Description="第三段上班结束状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FOURTHENDTIME" Description="第四段上班结束时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FOURTHENDSTATE" Description="第四段上班结束状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FOURTHSTARTSTATE" Description="第四段上班开始状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCESTATE" Description="0,正常，1异常，2旷工，3出差，4休息，5请假" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="ATTENDANCESOLUTIONID" Description="考勤方案ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FOURTHSTARTTIME" Description="第四段上班开始时间" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>

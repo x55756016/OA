@@ -88,7 +88,7 @@ namespace SMT.HRM.BLL.Permission
                 int i = dal.Add(RoleObj);
                 if (i > 0)
                 {
-                    SaveMyRecord(RoleObj);//添加到我的单据中
+                    //SaveMyRecord(RoleObj);//添加到我的单据中
                     return true;
                 }
                 else

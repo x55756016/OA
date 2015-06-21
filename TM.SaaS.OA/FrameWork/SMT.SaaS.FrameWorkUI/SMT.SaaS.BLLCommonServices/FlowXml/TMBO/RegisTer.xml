@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>TM</Name>
+  <System>
+    <Function Description="CompanyFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TM.UI</AssemblyName>
+    <PublicClass>SMT.TM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.TM.UI.Forms.TrainingPlan.RegisTerForm</PageParameter>
+    <ApplicationOrder>{REGISTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TM_REGISTER" Description="培训报名">
+   <Attribute Name="REGISTERID" Description="报名ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="ONWERID" Description="所有者ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="OWNERNAME" Description="所有者" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="OWNERCOMPANYNAME" Description="所属公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="BEGINDATE" Description="开始时间" DataType="DATETIME" DataValue=""></Attribute>
+      <Attribute Name="ENDDATE" Description="结束时间" DataType="DATETIME" DataValue=""></Attribute>
+      <Attribute Name="PLANNUMBER" Description="计划人数" DataType="DECIMAL" DataValue=""></Attribute>
+      <Attribute Name="PLANMONEY" Description="计划费用" DataType="DECIMAL" DataValue=""></Attribute>
+      <Attribute Name="TRAINADDRESS" Description="培训地址" DataType="NVARCHAR2" DataValue=""></Attribute>
+      <Attribute Name="TRAININGPLANID" Description="计划ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

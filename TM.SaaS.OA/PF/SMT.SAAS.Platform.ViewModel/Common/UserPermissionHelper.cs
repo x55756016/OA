@@ -73,11 +73,6 @@ namespace SMT.SAAS.Platform.ViewModel.Common
                 if (e.Result != null)
                 {
                     SavePermissionByLocal(e.Result);
-
-                    if (OnGetUserMenuPermissionCompleted != null)
-                    {
-                        OnGetUserMenuPermissionCompleted(null, EventArgs.Empty);
-                    }
                 }
             }
         }
@@ -270,17 +265,19 @@ namespace SMT.SAAS.Platform.ViewModel.Common
                         userPermissionUI.CustomerPermission.PermissionValue.AddRange(permValues);
                     }
                 }
-
-                foreach (var u in userPermissionUIs)
+                if (userPermissionUIs != null)
                 {
-                    if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI == null)
+                    foreach (var u in userPermissionUIs)
                     {
-                        SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
-                    }
+                        if (SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI == null)
+                        {
+                            SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI = new List<SaaS.LocalData.V_UserPermissionUI>();
+                        }
 
-                    if (!SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Contains(u))
-                    {
-                        SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Add(u);
+                        if (!SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Contains(u))
+                        {
+                            SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.PermissionInfoUI.Add(u);
+                        }
                     }
                 }
 

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/CrPlanExe/Index</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_RESUME" Description="应聘者简历" Key="RESUMEID" id="">
+    <Attribute  Name="RESUMEID" LableResourceID="RESUMEID" Description="简历ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NAME" LableResourceID="NAME" Description="姓名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SEX" LableResourceID="SEX" Description="性别 Sex 1男0 女" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NATION" LableResourceID="NATION" Description="从字典中选择" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PROVINCE" LableResourceID="PROVINCE" Description="籍贯" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HEIGHT" LableResourceID="HEIGHT" Description="cm" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MARRIAGE" LableResourceID="MARRIAGE" Description="0 : 未婚, 1: 已婚" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="IDCARDNUMBER" LableResourceID="IDCARDNUMBER" Description="身份证号码" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WORKYEAR" LableResourceID="WORKYEAR" Description="工作年限" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDUCATIONLEVEL" LableResourceID="EDUCATIONLEVEL" Description="最高学历0:初中1:高中2:中技3: 中专4: 大专5: 本科6: 硕士7: 博士" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MAJOR" LableResourceID="MAJOR" Description="所学专业:从字典中选取" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CERTIFICATEDLEVEL" LableResourceID="CERTIFICATEDLEVEL" Description="0: 无1: 2 级2: 4 级3: 6 级4: 8级" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ENGLISHLEVEL" LableResourceID="ENGLISHLEVEL" Description="1: 一般2: 熟练3: 精通" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OTHERLANGUAGE" LableResourceID="OTHERLANGUAGE" Description="0: 汉语1: 英语" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OTHERLANGUAGELEVEL" LableResourceID="OTHERLANGUAGELEVEL" Description="1: 一般2: 熟练3: 精通" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PHOTOPATH" LableResourceID="PHOTOPATH" Description="相片路径" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EMAIL" LableResourceID="EMAIL" Description="电子邮件" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="MOBILE" LableResourceID="MOBILE" Description="手机号码" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PHONENUMBER" LableResourceID="PHONENUMBER" Description="联系电话" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REGRESIDENCE" LableResourceID="REGRESIDENCE" Description="户口所在地" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CURRENTADRESS" LableResourceID="CURRENTADRESS" Description="目前居住地" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CONTACTADRESS" LableResourceID="CONTACTADRESS" Description="通讯地址" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EXPECTATIONSALARY" LableResourceID="EXPECTATIONSALARY" Description="期望薪资" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WISHCOMPANY" LableResourceID="WISHCOMPANY" Description="意向公司" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WISHPOST" LableResourceID="WISHPOST" Description="意向岗位" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WISHAREA" LableResourceID="WISHAREA" Description="意向地区" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="HAVECOMRELATION" LableResourceID="HAVECOMRELATION" Description="是否有亲属0: 否1:是" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RELATIONNAME" LableResourceID="RELATIONNAME" Description="亲属姓名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RELATIONCOMPANY" LableResourceID="RELATIONCOMPANY" Description="1集团，2在线....从字段中读取" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SELFAPPRAISE" LableResourceID="SELFAPPRAISE" Description="技能特长" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATES" LableResourceID="EDITSTATES" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMESTATES" LableResourceID="RESUMESTATES" Description="1: 应聘中, 2: 人才储备, 3:在职, 4离职" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMEFROM" LableResourceID="RESUMEFROM" Description="简历来源" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RELATIONRESUMEID" LableResourceID="RELATIONRESUMEID" Description="亲属简历" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATECOMPANYIDID" LableResourceID="CREATECOMPANYIDID" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERNAME" LableResourceID="UPDATEUSERNAME" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人姓名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+  </Object>
+
+
+</System>

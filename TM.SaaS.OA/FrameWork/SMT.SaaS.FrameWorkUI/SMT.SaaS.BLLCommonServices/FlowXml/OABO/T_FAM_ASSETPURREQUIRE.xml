@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>FAM</Name>
+  <System>
+    <Function Description="固定资产申购" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_FAM_ASSETPURREQUIRE"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+		<AssemblyName>SMT.SaaS.OA</AssemblyName>
+		<PublicClass>SMT.SaaS.OA.Utility</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.OA.UserControls.AssetManagement.AssetPurchaseControl</PageParameter>
+		<ApplicationOrder>{REQUESTID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+ </MsgOpen>
+  <Object Name="T_FAM_ASSETPURREQUIRE" Description="固定资产申购">
+    <Attribute  Name="CREATEPOSTID" Description="创建岗位ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="创建部门ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="创建公司ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERNAME" Description="创建人名" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="所属岗位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="所属部门" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="所属用户ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATETIME" Description="修改时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="修改日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATETIME" Description="创建时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="创建日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="GUID" Description="GUID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CURRENTNODECODE" Description="当前节点代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EQUIPMENTSTATUS" Description="原有设备状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CAPACITYUTILIZATION" Description="设备使用率(%)" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EXPECTEDECONOMICBENEFIT" Description="预算经济效益" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="WORKERFLAG" Description="人员是否落实" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PURCHASECONDITION" Description="购置设备条件" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPLYREASON" Description="申购理由及用途" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EXPECTEDAMOUNT" Description="所需资金" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REQUESTQTY" Description="申购数量" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SPECIFICATION" Description="规格型号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UNITID" Description="单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="PRODUCTNAME" Description="设备名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="EXPECTEDDATE" Description="希望到位时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="APPLYUSER" Description="申购人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REQUESTDEPARTMENTID" Description="申购部门" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWNAME" Description="流程名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWID" Description="流程代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REQUESTNAME" Description="申购单名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REQUESTID" Description="申购单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+</System>

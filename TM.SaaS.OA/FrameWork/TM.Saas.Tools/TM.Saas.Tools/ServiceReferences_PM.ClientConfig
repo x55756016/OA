@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_PermissionService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:12168/PMSV/PermissionService.svc"
+                binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+                contract="SMT.Saas.Tools.PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+        </client>
+        <extensions />
+    </system.serviceModel>
+</configuration>

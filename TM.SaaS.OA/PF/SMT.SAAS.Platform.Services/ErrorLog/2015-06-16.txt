@@ -1,0 +1,40 @@
+Debug  --------------------------------异常--------------------------------
+来自文件  :SMT.SAAS.Platform.BLL.ShortCutBLL
+来自方法  :SyncInvokeGetShortCutByUser
+异常信息  :
+	基础提供程序在 Open 上失败。
+内部信息  :
+	Unable to connect to any of the specified MySQL hosts.
+产生时间  :  2015/6/16 21:00:46
+Debug  --------------------------------异常--------------------------------
+来自文件  :SMT.SAAS.Platform.BLL.ShortCutBLL
+来自方法  :SyncInvokeGetShortCutByUser
+异常信息  :
+	基础提供程序在 Open 上失败。
+内部信息  :
+	Unable to connect to any of the specified MySQL hosts.
+产生时间  :  2015/6/16 21:17:48
+Debug  --------------------------------异常--------------------------------
+来自文件  :SMT.SAAS.Platform.BLL.ShortCutBLL
+来自方法  :SyncInvokeGetShortCutByUser
+异常信息  :
+	基础提供程序在 Open 上失败。
+内部信息  :
+	Unable to connect to any of the specified MySQL hosts.
+产生时间  :  2015/6/16 21:40:50
+Debug  --------------------------------异常--------------------------------
+来自文件  :SMT.SAAS.Platform.BLL.ShortCutBLL
+来自方法  :SyncInvokeGetShortCutByUser
+异常信息  :
+	基础提供程序在 Open 上失败。
+内部信息  :
+	Unable to connect to any of the specified MySQL hosts.
+产生时间  :  2015/6/16 21:42:23
+Debug  --------------------------------异常--------------------------------
+来自文件  :SMT.SAAS.Platform.BLL.ShortCutBLL
+来自方法  :SyncInvokeGetShortCutByUser
+异常信息  :
+	基础提供程序在 Open 上失败。
+内部信息  :
+	Unable to connect to any of the specified MySQL hosts.
+产生时间  :  2015/6/16 21:47:34

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_POSTEMPCIRESOLVEPLAN" Description="岗位员工科目费用分解计划表" Key="EMPNIID" id="">
+    <Attribute  Name="EMPNIID" LableResourceID="EMPNIID" Description="员工指标项分解主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EMPCITEMID" LableResourceID="EMPCITEMID" Description="员工科目项主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="所属部门ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTID" LableResourceID="POSTID" Description="所属岗位ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EMPLOYEEID" LableResourceID="EMPLOYEEID" Description="所属员工ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMID" LableResourceID="NORMID" Description="指标定义ID，选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COSTYEAR" LableResourceID="COSTYEAR" Description="费用年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESOLVEMODEL" LableResourceID="RESOLVEMODEL" Description="计划分解模式 (1月度2无分解，缺省1)
+根据指标项选自本公司年度经营指标项配置管理" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESOLVEPERIOD" LableResourceID="RESOLVEPERIOD" Description="计划分解周期
+根据计划分解模式(1月度2季度3周4日5日期区间)，选自分解周期
+例：模式为月度，则选择1一月2二月....12十二月；模式为季度，则选自1一季度2二季度；模式为周，则选择1第一周2第二周" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="STARTDATE" LableResourceID="STARTDATE" Description="计划开始日期" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ENDDATE" LableResourceID="ENDDATE" Description="计划结束日期" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYBUSICOST" LableResourceID="CYBUSICOST" Description="本年指标费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="TPERIODCOST" LableResourceID="TPERIODCOST" Description="本年本期费用" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPLANCOST" LableResourceID="LYPLANCOST" Description="上年本期计划" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYFACTCOST" LableResourceID="LYFACTCOST" Description="上年本期实际" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

@@ -49,8 +49,7 @@ namespace SMT.SaaS.Permission.UI.UserControls
 
         public SysUserRoleSet(T_SYS_USER UserObj,T_SYS_USERROLE userRole)
         {
-            if (Application.Current.Resources["SYS_DICTIONARY"] == null)
-                LoadDicts();
+            ServiceClient.GetSysDictionaryByCategoryAsync("SYSTEMTYPE");
             tmpUser = UserObj;
             this.GetTitle();
             InitializeComponent();
@@ -62,19 +61,19 @@ namespace SMT.SaaS.Permission.UI.UserControls
             ViewInfosList.Clear();
         }
 
-        protected void LoadDicts()
-        {
-            ServiceClient.GetSysDictionaryByCategoryCompleted += (o, e) =>
-            {
-                List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
+        //protected void LoadDicts()
+        //{
+        //    ServiceClient.GetSysDictionaryByCategoryCompleted += (o, e) =>
+        //    {
+        //        List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
+        //        dicts = e.Result == null ? null : e.Result.ToList();
+        //        Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
 
                 
-            };
-            //TODO: 按需取出字典值
-            ServiceClient.GetSysDictionaryByCategoryAsync("");
-        }
+        //    };
+        //    //TODO: 按需取出字典值
+        //    //ServiceClient.GetSysDictionaryByCategoryAsync("");
+        //}
 
         void SysUserRoleSet_Loaded(object sender, RoutedEventArgs e)
         {

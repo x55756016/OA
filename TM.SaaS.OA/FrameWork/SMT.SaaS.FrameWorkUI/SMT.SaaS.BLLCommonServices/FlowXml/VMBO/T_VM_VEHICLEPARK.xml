@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+     <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleParkInfo/Edit</PageParameter>
+    <ApplicationOrder>{PARKCARDID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLEPARK" Description="T_VM_VehiclePark 车辆停车卡信息表" Key="PARKCARDID" id="">
+    <Attribute Name="PARKCARDID" LableResourceID="PARKCARDID" Description="停车卡主键ID,GUID" DataType="string" DataValue="" DataText="停车卡主键ID,GUID" />
+    <Attribute Name="PCAPPLYID" LableResourceID="PCAPPLYID" Description="停车卡申请主键ID" DataType="string" DataValue="" DataText="停车卡申请主键ID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="PARKNO" LableResourceID="PARKNO" Description="停车卡编号" DataType="string" DataValue="" DataText="停车卡编号" />
+    <Attribute Name="PARKNAME" LableResourceID="PARKNAME" Description="停车卡名称" DataType="string" DataValue="" DataText="停车卡名称" />
+    <Attribute Name="PUTORGANID" LableResourceID="PUTORGANID" Description="发卡机构ID" DataType="string" DataValue="" DataText="发卡机构ID" />
+    <Attribute Name="PUTORGAN" LableResourceID="PUTORGAN" Description="发卡机构" DataType="string" DataValue="" DataText="发卡机构" />
+    <Attribute Name="PCARDTYPE" LableResourceID="PCARDTYPE" Description="停车卡类型" DataType="string" DataValue="" DataText="停车卡类型" />
+    <Attribute Name="STATIONTYPE" LableResourceID="STATIONTYPE" Description="车位类型" DataType="string" DataValue="" DataText="车位类型" />
+    <Attribute Name="SERVICETEL" LableResourceID="SERVICETEL" Description="客服电话" DataType="string" DataValue="" DataText="客服电话" />
+    <Attribute Name="ADDRESSID" LableResourceID="ADDRESSID" Description="停车地点" DataType="string" DataValue="" DataText="停车地点" />
+    <Attribute Name="IFNEEDTAKE" LableResourceID="IFNEEDTAKE" Description="必须随车携带(1是0否，缺省0)" DataType="string" DataValue="" DataText="必须随车携带(1是0否，缺省0)" />
+    <Attribute Name="WARNDAY" LableResourceID="WARNDAY" Description="预警天数设置" DataType="decimal" DataValue="" DataText="预警天数设置" />
+    <Attribute Name="LASTCOST" LableResourceID="LASTCOST" Description="最后充值金额（元）" DataType="decimal" DataValue="" DataText="最后充值金额（元）" />
+    <Attribute Name="PRODCOST" LableResourceID="PRODCOST" Description="工本费（元）" DataType="decimal" DataValue="" DataText="工本费（元）" />
+    <Attribute Name="DEPOSIT" LableResourceID="DEPOSIT" Description="押金（元）" DataType="decimal" DataValue="" DataText="押金（元）" />
+    <Attribute Name="SENDDATE" LableResourceID="SENDDATE" Description="发卡日期" DataType="datetime" DataValue="" DataText="发卡日期" />
+    <Attribute Name="STARTDATE" LableResourceID="STARTDATE" Description="充值起始日" DataType="datetime" DataValue="" DataText="充值起始日&#xA;最后一次充值有效期开始日期" />
+    <Attribute Name="ENDDATE" LableResourceID="ENDDATE" Description="充值终止日" DataType="datetime" DataValue="" DataText="充值终止日&#xA;最后一次充值有效期截止日期" />
+    <Attribute Name="REFUNDID" LableResourceID="REFUNDID" Description="报销单主键ID" DataType="string" DataValue="" DataText="报销单主键ID" />
+    <Attribute Name="REFUNDNO" LableResourceID="REFUNDNO" Description="报销单号" DataType="string" DataValue="" DataText="报销单号" />
+    <Attribute Name="PAYITEMID" LableResourceID="PAYITEMID" Description="停车卡充值科目ID" DataType="string" DataValue="" DataText="停车卡充值科目ID" />
+    <Attribute Name="PAYITEMNAME" LableResourceID="PAYITEMNAME" Description="停车卡充值科目名称" DataType="string" DataValue="" DataText="停车卡充值科目名称" />
+    <Attribute Name="PRODITEMID" LableResourceID="PRODITEMID" Description="停车卡工本费科目ID" DataType="string" DataValue="" DataText="停车卡工本费科目ID" />
+    <Attribute Name="PRODITEMNAME" LableResourceID="PRODITEMNAME" Description="停车卡工本费科目名称" DataType="string" DataValue="" DataText="停车卡工本费科目名称" />
+    <Attribute Name="DEPOSITITEMID" LableResourceID="DEPOSITITEMID" Description="停车卡押金科目ID" DataType="string" DataValue="" DataText="停车卡押金科目ID" />
+    <Attribute Name="DEPOSITITEMNAME" LableResourceID="DEPOSITITEMNAME" Description="停车卡押金科目名称" DataType="string" DataValue="" DataText="停车卡押金科目名称" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted" DataType="string" DataValue="" DataText="对象编辑状态 " />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

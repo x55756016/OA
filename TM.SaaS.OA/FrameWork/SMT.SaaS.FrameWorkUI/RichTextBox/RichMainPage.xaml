@@ -1,0 +1,710 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad"
+             xmlns:lib="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad.InteractiveText"
+             xmlns:l="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+             xmlns:System_Windows_Controls_Primitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls"
+             xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+             xmlns:dataPrimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+             x:Class="SMT.SaaS.FrameworkUI.RichNotepad.RichMainPage"
+             xmlns:Globa="clr-namespace:SMT.SaaS.Globalization;assembly=SMT.SaaS.Globalization"
+             
+             >
+    <UserControl.Resources>
+        <Globa:ResourceConveter x:Key="ResourceConveter"/>
+        <local:BoolToFlowDirectionConverter x:Key="BoolToFlowDirectionConverter" />
+        <Globa:Localization x:Key="localizedStrings" />
+        <Style x:Key="MenuLabel"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Foreground"
+                    Value="#FF1D50A3" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalAlignment"
+                    Value="Bottom" />
+            <Setter Property="Margin"
+                    Value="0,0,0,1" />
+        </Style>
+
+        <LinearGradientBrush x:Key="MenuDividerBrush"  EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#d5e2f6" Offset="0" />
+            <GradientStop Color="#e3eefb" Offset="1" />
+
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="MenuDividerBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Gray" Offset="0" />
+            <GradientStop Color="Gray" Offset="1" />
+        </LinearGradientBrush>   
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" HorizontalAlignment="Stretch">
+        <!--  visual state manager-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="DragStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <CircleEase EasingMode="EaseIn" />
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="DragOver">
+                    <Storyboard>
+                        <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)"
+                                                      Storyboard.TargetName="rtb">
+                            <EasingColorKeyFrame KeyTime="0"
+                                                 Value="Transparent" />
+                        </ColorAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border MinWidth="450"
+                Margin="0,0,0,0"
+                Grid.RowSpan="2"
+                BorderThickness="1"
+                BorderBrush="#698ebf"
+                FlowDirection="{Binding IsRTL, Converter={StaticResource BoolToFlowDirectionConverter}}" x:Name="RichTextBoxBorder1">
+            <Grid Background="#afc5de" x:Name="RichTextBox2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1" x:Name="RichTextBox4">
+                    <Rectangle Fill="#afc5de"
+                               Margin="0,1,1,0" x:Name="RichTextBox3">
+                        <!--<Rectangle.Effect>
+                            <DropShadowEffect ShadowDepth="1"
+                                              Direction="371"
+                                              BlurRadius="7"
+                                              Opacity="0.345" />
+                        </Rectangle.Effect>-->
+                    </Rectangle>
+                    <!-- RichTextBoxControl -->
+                    <lib:InteractiveTextBox x:Name="rtb"
+                                            SelectionChanged="rtb_SelectionChanged"
+                                            KeyUp="rtb_KeyUp"
+                                            KeyDown="rtb_KeyDown"
+                                            VerticalScrollBarVisibility="Auto"
+                                            BorderBrush="{x:Null}"
+                                            Margin="3"
+                                            FontSize="12"
+                                            TextWrapping="Wrap"
+                                            MouseRightButtonDown="rtb_MouseRightButtonDown"
+                                            Drop="rtb_Drop"
+                                            AllowDrop="True"
+                                            MouseRightButtonUp="rtb_MouseRightButtonUp"
+                                            MouseMove="rtb_MouseMove"
+                                            DragEnter="rtb_DragEnter"
+                                            DragLeave="rtb_DragLeave" 
+                                            FontFamily="Arial,SimSun"/>
+
+                    <Canvas IsHitTestVisible="False"
+                            Margin="3"
+                            x:Name="highlightCanvas">
+                        <!-- CaretHand Image -->
+                        <Image x:Name="caretHand" />
+                    </Canvas>
+                    <TextBox IsTabStop="False"
+                             Style="{StaticResource TextBoxStyle}"
+                             FontSize="20"
+                             Margin="2"
+                             FontFamily="Lucida Console"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             x:Name="xamlTb"
+                             Visibility="Collapsed"/>
+                </Grid>
+               
+                <!-- TODO    Toolbar goes here -->
+                <Grid Grid.Row="0" Margin="3,3,3,1" x:Name="mainPanel">
+                    <Grid 
+                      MouseRightButtonDown="mainPanel_MouseRightButtonDown"
+                      MouseRightButtonUp="mainPanel_MouseRightButtonUp"  Height="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="27" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="196" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Height="60"  
+                           VerticalAlignment="Top"
+                           Stroke="#9cbcea"
+                           x:Name="mainPanel2">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                                <GradientStop Color="#d5e2f6"  Offset="0" />
+                                <GradientStop Color="#d5e4f6"  Offset="0.375" />
+                                <GradientStop Color="#d5e6f6"  Offset="0.675" />
+                                <GradientStop Color="#e4f4fd"  Offset="0.99" />
+                                <GradientStop Color="#dbf7fe"  Offset="0.99" />
+                                <GradientStop Color="#c9f3fa"  Offset="1" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Border Margin="0,-26,0,2"
+                               Grid.RowSpan="1"
+                               Background="{StaticResource MenuDividerBrush}"
+                               Grid.Row="1"
+                               CornerRadius="3"
+                               BorderThickness="1"
+                               BorderBrush="#92b9df" >
+                        <Border BorderBrush="{StaticResource MenuDividerBorderBrush}" 
+                                BorderThickness="1" CornerRadius="3"></Border>
+                    </Border>
+                    <Border Margin="2,-26,0,2"
+                               Background="{StaticResource MenuDividerBrush}"
+                               Grid.Column="1"
+                               Grid.Row="1"
+                                CornerRadius="3"
+                               BorderThickness="1"
+                               BorderBrush="#92b9df" >
+                        <Border BorderBrush="{StaticResource MenuDividerBorderBrush}" 
+                                BorderThickness="1"  CornerRadius="3"></Border>
+                    </Border>
+                    <Border Margin="2,-26,0,2"
+                               Background="{StaticResource MenuDividerBrush}"
+                               Grid.Column="2"
+                               Grid.Row="1"
+                                CornerRadius="3"
+                               BorderThickness="1"
+                               BorderBrush="#92b9df" >
+                        <Border BorderBrush="{StaticResource MenuDividerBorderBrush}" 
+                                BorderThickness="1"  CornerRadius="3"></Border>
+                    </Border>
+                    
+                    <Border Margin="2,-26,0,2"
+                               Background="{StaticResource MenuDividerBrush}"
+                               Grid.Column="3"
+                               Grid.Row="1"
+                                CornerRadius="3"
+                               BorderThickness="1"
+                               BorderBrush="#92b9df">
+                        <Border BorderBrush="{StaticResource MenuDividerBorderBrush}" 
+                                BorderThickness="1"
+                                 CornerRadius="3"></Border>
+                    </Border>
+
+
+                    <!-- TODO - Font Buttons-->
+                    <!--Fonts Face Combo-->
+                    <!--<ComboBox x:Name="cmbFonts"
+                              SelectionChanged="cmbFonts_SelectionChanged"
+                              FontFamily="{Binding SelectedItem.FontFamily,  RelativeSource={RelativeSource Self}}"
+                              FontSize="{Binding SelectedItem.FontSize, RelativeSource={RelativeSource Self}}"
+                              Grid.Column="1"
+                              Style="{StaticResource ComboBoxStyleNoColor}"
+                              Margin="6,1,60,0"
+                              Height="22"
+                              
+                              Width="130"
+                              VerticalAlignment="Bottom">
+                        
+                    </ComboBox>-->
+
+                        <!--Fonts Combo-->
+                        <ComboBox x:Name="cmbFonts"   Width="130" FontFamily="{Binding SelectedItem.FontFamily, RelativeSource={RelativeSource Self}}" FontSize="{Binding SelectedItem.FontSize, RelativeSource={RelativeSource Self}}" SelectionChanged="cmbFonts_SelectionChanged" Grid.Column="1" Margin="6,1,60,0" Height="22" VerticalAlignment="Bottom" >
+                            <ComboBoxItem Content="宋体"
+                                       IsSelected="True"
+                                      Tag="Arial"
+                                      FontFamily="Arial"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="黑体"
+                                      Tag="Arial Black"
+                                      FontFamily="Arial Black"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="Calibri"
+                                      Tag="Calibri"
+                                      FontFamily="Calibri"
+                                     
+                                      FontSize="14" />
+                            <ComboBoxItem Content="Comic Sans MS"
+                                      Tag="Comic Sans MS"
+                                      FontFamily="Comic Sans MS"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="新品速递"
+                                      Tag="Courier New"
+                                      FontFamily="Courier New"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="Georgia"
+                                      Tag="Georgia"
+                                      FontFamily="Georgia"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="青冈桑体"
+                                      Tag="Lucida Sans Unicode"
+                                      FontFamily="Lucida Sans Unicode"
+                                      FontSize="12" />
+
+                            <ComboBoxItem Content="仿宋体"
+                                      Tag="Times New Roman"
+                                      FontFamily="Times New Roman"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="Trebuchet MS"
+                                      Tag="Trebuchet MS"
+                                      FontFamily="Trebuchet MS"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="Verdana"
+                                      Tag="Verdana"
+                                      FontFamily="Verdana"
+                                      FontSize="12" />
+                            <ComboBoxItem Content="Webdings"
+                                      Tag="Webdings"
+                                      FontSize="12" />
+                        </ComboBox>
+                        <ComboBox x:Name="cmbFontSizes"
+                              SelectionChanged="cmbFontSizes_SelectionChanged"
+                              Width="54"
+                              Style="{StaticResource ComboBoxStyleNoColor}"
+                              FontSize="14"
+                              HorizontalAlignment="Right"
+                              Margin="0,0,7,0"
+                              Grid.Column="1"
+                              Height="22"
+                              VerticalAlignment="Bottom">
+                        <ComboBoxItem Content="8"
+                                      Tag="8" />
+                        <ComboBoxItem Content="9"
+                                      Tag="9" />
+                        <ComboBoxItem Content="10"
+                                      Tag="10" />
+                        <ComboBoxItem Content="11"
+                                      Tag="11" />
+                        <ComboBoxItem Content="12"
+                                      IsSelected="True" Tag="12" />
+                        <ComboBoxItem Content="14"
+                                      Tag="14" />
+                        <ComboBoxItem Content="16"
+                                      Tag="16"
+                                      />
+                        <ComboBoxItem Content="18"
+                                      Tag="18" />
+                        <ComboBoxItem Content="20"
+                                      Tag="20" />
+                        <ComboBoxItem Content="22"
+                                      Tag="22" />
+                        <ComboBoxItem Content="24"
+                                      Tag="24" />
+                        <ComboBoxItem Content="26"
+                                      Tag="26" />
+                        <ComboBoxItem Content="28"
+                                      Tag="28" />
+                        <ComboBoxItem Content="36"
+                                      Tag="36" />
+                        <ComboBoxItem Content="48"
+                                      Tag="48" />
+                        <ComboBoxItem Content="72"
+                                      Tag="72" />
+                    </ComboBox>
+
+
+
+                    <StackPanel Grid.Column="1"
+                                Height="22"
+                                Margin="6,5,0,0"
+                                Orientation="Horizontal"
+                                Grid.Row="1"
+                                VerticalAlignment="Top">
+
+                        <!--Font Formatting Buttons-->
+                        <Button x:Name="btnBold"
+                                Margin="0,0,1,0"
+                                Click="btnBold_Click"
+                                Style="{StaticResource ButtonToolBarStyle}" Width="22">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                         Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Bold}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Bold.png"
+                                   d:IsLocked="True" />
+                        </Button>
+
+                        <Button x:Name="btnItalic"
+                                Margin="0,0,1,0"
+                                Click="btnItalic_Click"
+                                Style="{StaticResource ButtonToolBarStyle}" Width="22">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                         Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Italic}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Italic.png" Stretch="Fill" Width="16" Height="16"/>
+                        </Button>
+                        <!--Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/18_addView.png"-->
+                        <Button x:Name="btnUnderline"
+                                Margin="0,0,13,0"
+                                Click="btnUnderline_Click"
+                                Style="{StaticResource ButtonToolBarStyle}" Width="22" >
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                         Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Underline}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Underline.png" />
+                        </Button>
+
+                        <ComboBox x:Name="cmbFontColors"
+                                  SelectedIndex="0"
+                                  Style="{StaticResource ComboBoxStyleNoColor}"
+                                  Margin="48,0,0,0"
+                                  SelectionChanged="cmbFontColors_SelectionChanged"
+                                  HorizontalAlignment="Right" Height="22" Width="54">
+                            <ComboBoxItem Tag="FFFF0000" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=color_Red}">
+                                <Rectangle Width="22"
+                                           Height="14"
+                                           Fill="Red"
+                                           Margin="2,0,0,0" />
+                            </ComboBoxItem>
+                            <ComboBoxItem Tag="FF008000" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=color_Green}">
+                                <Rectangle Width="22"
+                                           Height="14"
+                                           Fill="Green"
+                                           Margin="2,0,0,0" />
+                            </ComboBoxItem>
+                            <ComboBoxItem Tag="FF0000FF" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=color_Blue}">
+                                <Rectangle Width="22"
+                                           Height="14"
+                                           Fill="Blue"
+                                           Margin="2,0,0,0" />
+                            </ComboBoxItem>
+                            <ComboBoxItem Tag="FFFFFF00" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=color_Yellow}">
+                                <Rectangle Width="22"
+                                           Height="14"
+                                           Fill="Yellow"
+                                           Margin="2,0,0,0" />
+                            </ComboBoxItem>
+                            <ComboBoxItem Tag="FF000000"
+                                          IsSelected="True" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=color_Black}">
+                                <Rectangle Width="22"
+                                           Height="14"
+                                           Fill="Black"
+                                           Margin="2,0,0,0"
+                                           />
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                                                
+
+                    <!-- TODO - Clipboard Buttons-->
+                    <StackPanel Orientation="Horizontal">                      
+                   
+                    <Button x:Name="btnPaste"
+                            Click="btnPaste_Click"
+                            Grid.Row="1"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                            Width="auto"
+                            Height="22"
+                            Margin="3,5,0,0">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Paste}" />
+                        </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Paste_big.png"
+                               Height="16"
+                               Width="16" />
+
+                    </Button>
+                    <Button x:Name="btnCut"
+                            Click="btnCut_Click"
+                            Style="{StaticResource ButtonToolBarStyle}"  Width="auto" Height="22" Margin="3,5,0,0">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Cut}" />
+                        </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Cut.png"
+                               d:IsLocked="True" Height="16" />
+
+                    </Button>
+                    <Button x:Name="btnCopy"
+                            Click="btnCopy_Click"
+                            Grid.Row="1"
+                            Style="{StaticResource ButtonToolBarStyle}" Width="auto" Height="22" Margin="3,5,3,0">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Copy}" />
+                        </ToolTipService.ToolTip>              
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Copy.png"
+                               d:IsLocked="True"  Height="16" />
+                    </Button>
+                    </StackPanel>
+                    <!-- TODO - Open, Save, New Buttons-->
+                    <StackPanel Grid.Column="0"
+                            Margin="0,28,0,0"
+                            Orientation="Horizontal"
+                            Grid.Row="0"
+                            Height="25" Grid.RowSpan="2">
+
+                        <!--New Button-->
+                        <Button  x:Name="btnNew"
+                             Click="btnNew_Click"
+                              Height="22"
+                            Width="22"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           Margin="3,0,0,3"
+                           >
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_New}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/New.png" />
+                        </Button>
+                        <!--Open Existing Button -->
+                        <Button  x:Name="btnOpen"
+                             Click="btnOpen_Click"
+                            Height="22"
+                            Width="22"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           Margin="3,0,0,3">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Open}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Open.png" />
+                        </Button>
+                        <!--Save Existing Button -->
+                        <Button x:Name="btnSave"
+                            Click="btnSave_Click"
+                            Height="22"
+                            Width="22"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           Margin="3,0,0,3">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Save}" />
+                            </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Save.png" />
+                        </Button>
+                    </StackPanel>
+
+                    <!-- TODO - Insert Buttons-->
+                    <StackPanel Grid.Column="2"
+                            Margin="0,3,0,0"
+                            Orientation="Horizontal"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Height="28" Grid.RowSpan="2">
+                    <Button x:Name="btnImage"
+                            Click="btnImage_Click"
+                            Grid.Column="2"
+                            Margin="6,0,0,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                            Width="auto"
+                            Height="24">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Image}" />
+                        </ToolTipService.ToolTip>
+                         <Image Source="/SMT.SAAS.Images;Component/Images/Office/Image.png"
+                               Height="16"
+                               Width="16" />
+                          
+
+                    </Button>
+                    <Button x:Name="btnHyperlink"
+                            Click="btnHyperlink_Click"
+                            Margin="3,0,0,0"
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                            Width="auto"
+                            Height="24">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Hyperlink}" />
+                        </ToolTipService.ToolTip>
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/Hyperlink_big.png"
+                               Width="16"
+                               Height="16" />
+                    </Button>
+                    <!-- Print Button -->
+                    <Button x:Name="btnPrint"
+                            Click="btnPrint_Click"
+                            Margin="3,0,3,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                            Width="auto"
+                            Height="24">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_Print}" />
+                        </ToolTipService.ToolTip>
+                        <Image Source="/SMT.SAAS.Images;Component/Images/Office/Print_big.png"
+                               Width="16" />
+
+                    </Button>
+
+                    </StackPanel>
+
+                    <ToggleButton x:Name="btnHighlight"
+                                  Checked="btnHighlight_Checked"
+                                  Unchecked="btnHighlight_Checked"
+                                  Margin="6,-2,4,0"
+                                  Grid.Column="2"
+                                  Grid.Row="1"
+                                  HorizontalAlignment="Left"
+                                  Style="{StaticResource ToggleButtonStyle}"
+                            Width="auto"
+                            Height="22">
+                        <ToolTipService.ToolTip>
+                            <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source= Hightlight}" />
+                        </ToolTipService.ToolTip>
+
+                        <Image Source="/SMT.SAAS.Images;Component/Images/Office/Annotation_New.png" Width="16" Height="16" />
+                        
+
+                    </ToggleButton>
+
+                        <ToggleButton x:Name="btnRO"
+                                  Checked="btnRO_Checked"
+                                  Unchecked="btnRO_Checked"
+                                  Margin="31,-2,4,0"
+                                  Grid.Column="2"
+                                  Grid.Row="1"
+                                  HorizontalAlignment="Left"
+                                  Style="{StaticResource ToggleButtonStyle}"
+                            Width="auto"
+                            Height="22">
+                            <ToolTipService.ToolTip>
+                                <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source= EditView}" />
+                            </ToolTipService.ToolTip>
+
+                            <Image Source="/SMT.SAAS.Images;Component/Images/Office/edit.png" Width="16" Height="16" />
+
+
+                        </ToggleButton>
+
+
+                        <!-- TODO - Print Button-->
+                        <StackPanel Grid.Column="3"
+                            Margin="4,3,0,0"
+                            Orientation="Horizontal"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Height="28" Grid.RowSpan="2" Width="80" HorizontalAlignment="Left">
+
+                            <Button x:Name="btnbullets" 
+                            Click="btnbullets_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                            Margin="4,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=ProjectNumberCard}" />
+                                </ToolTipService.ToolTip>
+                                <Image  Source="/SMT.SAAS.Images;Component/Images/Office/bullets16.png" />
+                            </Button>
+
+                            <Button x:Name="btnnumbering"
+                            Click="btnnumbering_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                                Margin="2,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=NumberCard}" />
+                                </ToolTipService.ToolTip>
+                                <Image Source="/SMT.SAAS.Images;Component/Images/Office/numbering16.png" />
+                            </Button>
+
+                            <!--<Button x:Name="btnmultilevellist"
+                            Click="btnmultilevellist_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                                Margin="2,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_aligntextright16}" />
+                                </ToolTipService.ToolTip>
+                                <Image Source="/SMT.SAAS.Images;Component/Images/Office/multilevellist16.png" />
+                            </Button>-->
+
+                        </StackPanel>
+                        <StackPanel Grid.Column="3"
+                            Margin="4,29,0,0"
+                            Orientation="Horizontal"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Height="28" Grid.RowSpan="2" Width="80" HorizontalAlignment="Left">
+                            
+                            <Button x:Name="btnRleft" 
+                            Click="btnRleft_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                            Margin="4,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_aligntextleft16}" />
+                                </ToolTipService.ToolTip>
+                                <Image  Source="/SMT.SAAS.Images;Component/Images/Office/aligntextleft16.png" />
+                            </Button>
+
+                            <Button x:Name="btnRCenter"
+                            Click="btnRCenter_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                                Margin="2,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_aligntextcenter16}" />
+                                </ToolTipService.ToolTip>
+                                <Image Source="/SMT.SAAS.Images;Component/Images/Office/aligntextcenter16.png" />
+                            </Button>
+
+                            <Button x:Name="btnRRight"
+                            Click="btnRRight_Click"
+                            HorizontalAlignment="Left"
+                            Height="22"
+                            VerticalAlignment="Top"
+                            Width="22"
+                                Margin="2,3,1,0"
+                            Style="{StaticResource ButtonToolBarStyle}"
+                           >
+                                <ToolTipService.ToolTip>
+                                    <ToolTip FontSize="12"
+                                     Content="{Binding Converter={StaticResource ResourceConveter}, Source=tooltip_aligntextright16}" />
+                                </ToolTipService.ToolTip>
+                                <Image Source="/SMT.SAAS.Images;Component/Images/Office/aligntextright16.png" />
+                            </Button>
+
+                        </StackPanel>
+
+                        <!-- TODO - Display, Highlight, Xaml Buttons-->
+                    <!-- Highlight Button-->
+                  
+                   
+                </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+        <Button x:Name="aaaaaaaaa"    Visibility="Collapsed"  Click="aaaaaaaaa_Click" Width="20" Height="30" ></Button>
+    </Grid>
+</UserControl>

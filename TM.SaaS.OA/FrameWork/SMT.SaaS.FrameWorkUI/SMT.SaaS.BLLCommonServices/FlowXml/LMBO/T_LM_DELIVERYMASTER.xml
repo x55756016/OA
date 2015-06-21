@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Custom</Name>
+  <System>
+    <Function Description="" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_LM_DELIVERYMASTER"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.LM.UI.Custom</AssemblyName>
+		<PublicClass>SMT.SaaS.LM.UI.Custom.PortalUtil</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.LM.UI.Custom.Views.OrderformWrite.OrderDeliveryInfo</PageParameter>
+		<ApplicationOrder>{DELIVERYMASTERID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+<Object Name="T_LM_DELIVERYMASTER" Description="T_LM_DELIVERYMASTER">
+ <attribute  Name="DELIVERYMASTERID" Description="订单ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="DELIVERYCODE" Description="提货单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="CUSTOMERDICTATE" Description="客户指令" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="CUSTOMERID" Description="客户代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="CUSTOMERNAME" Description="客户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="CHARGEMODE" Description="收费方式" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="RECEIVEWAREHOUSEID" Description="收货仓库" DataType="NVARCHAR2" DataValue=""></Attribute>
+ <attribute  Name="AVAILLIMIT" Description="时效标准" DataType="NUMBER" DataValue=""></Attribute>
+<attribute  Name="AVAILLIMITALERT" Description="时效警戒线" DataType="NUMBER" DataValue=""></Attribute>
+<attribute  Name="AVAILTIME" Description="时效起始时间" DataType="DATE" DataValue=""></Attribute>
+<attribute  Name="RESERVATIONDATE" Description="预约时间" DataType="DATE" DataValue=""></Attribute>
+<attribute  Name="REFERENCECUSTOMERID" Description="货源客户编码" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<attribute  Name="REFERENCECUSTOMERNAME" Description="货源客户名称" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<attribute  Name="REFERENCEAREAID" Description="提货区域" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<attribute  Name="ZIPCODE" Description="邮政编码" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<attribute  Name="CONTACTUSERCODE" Description="联系人员" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<attribute  Name="CONTACTTEL" Description="联系电话" DataType="NVARCHAR2"  DataValue=""></Attribute>
+ <attribute  Name="REFERENCEADDR" Description="提货地址" DataType="NVARCHAR2"  DataValue=""></Attribute>
+ <attribute  Name="TOTALPIECE" Description="总件数" DataType="NUMBER"  DataValue=""></Attribute>
+<attribute  Name="TOTALQTY" Description="总件数" DataType="NUMBER"  DataValue=""></Attribute>
+<attribute  Name="TOTALWEIGHT" Description="总重量" DataType="NUMBER"  DataValue=""></Attribute>
+<Attribute  Name="TOTALAMOUNT" Description="总费用" DataType="NUMBER"  DataValue=""></Attribute>
+<attribute  Name="CREATEORDERDATE" Description="制单时间" DataType="DATE"  DataValue=""></Attribute>
+<Attribute  Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2"  DataValue=""></Attribute>
+<Attribute  Name="CREATEDATE" Description="CREATEDATE" DataType="DATE" DataValue=""></Attribute>  
+<Attribute  Name="UPDATEUSERID" Description="UPDATEUSERID" DataType="NVARCHAR2" DataValue=""></Attribute> 
+<Attribute  Name="UPDATEDATE" Description="UPDATEDATE" DataType="DATE" DataValue=""></Attribute> 
+<Attribute  Name="OWNERCOMPANYID" Description="OWNERCOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute> 
+<Attribute  Name="OWNERDEPARTMENTID" Description="OWNERDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute> 
+<Attribute  Name="OWNERPOSTID" Description="OWNERPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute> 
+<Attribute  Name="OWNERID" Description="OWNERID" DataType="NVARCHAR2" DataValue=""></Attribute>
+<Attribute  Name="CREATECOMPANYID" Description="CREATECOMPANYID" DataType="NVARCHAR2" DataValue=""></Attribute>
+<Attribute  Name="CREATEDEPARTMENTID" Description="CREATEDEPARTMENTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+<Attribute  Name="CREATEPOSTID" Description="CREATEPOSTID" DataType="NVARCHAR2" DataValue=""></Attribute>
+</object>
+
+</System>

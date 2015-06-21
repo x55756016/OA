@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/UpkeepRecord/Details</PageParameter>
+    <ApplicationOrder>{URECID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_UPKEEPRECORD" Description="T_VM_ UpkeepRecord 保养记录单&#xA;" Key="URECID" id="">
+    <Attribute Name="URECID" LableResourceID="URECID" Description="保养记录主键ID，GUID" DataType="string" DataValue="" DataText="保养记录主键ID，GUID" />
+    <Attribute Name="UAPPLYID" LableResourceID="UAPPLYID" Description="保养申请主键ID" DataType="string" DataValue="" DataText="保养申请主键ID" />
+    <Attribute Name="UAPPLYNO" LableResourceID="UAPPLYNO" Description="申请单号" DataType="string" DataValue="" DataText="申请单号" />
+    <Attribute Name="SERIALID" LableResourceID="SERIALID" Description="保养序号主键ID" DataType="string" DataValue="" DataText="保养序号主键ID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID&#xA;缺省为调度的车辆" DataType="string" DataValue="" DataText="车辆主键ID&#xA;缺省为调度的车辆" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="KEEPTYPE" LableResourceID="KEEPTYPE" Description="保养类别&#xA;字典表VEHICLE_KEEP_TYPE&#xA;1  常规保养第一次&#xA;2  一级保养&#xA;3  常规保养第二次&#xA;4  二级保养&#xA;5  常规保养第三次&#xA;6  三级保养&#xA;通过《T_VM_VehicleKeepSerial 车辆维修保养_类别顺序表》中，匹配当前车辆及最后保养时间，自动发送保养申请待办，且不可修改保养类别" DataType="string" DataValue="" DataText="保养类别&#xA;字典表VEHICLE_KEEP_TYPE&#xA;1  常规保养第一次&#xA;2  一级保养&#xA;3  常规保养第二次&#xA;4  二级保养&#xA;5  常规保养第三次&#xA;6  三级保养&#xA;通过《T_VM_VehicleKeepSerial 车辆维修保养_类别顺序表》中，匹配当前车辆及最后保养时间，自动发送保养申请待办，且不可修改保养类别" />
+    <Attribute Name="KEEPTYPENAME" LableResourceID="KEEPTYPENAME" Description="保养类别名称" DataType="string" DataValue="" DataText="保养类别名称" />
+    <Attribute Name="LEAVETIME" LableResourceID="LEAVETIME" Description="送修时间" DataType="datetime" DataValue="" DataText="送修时间" />
+    <Attribute Name="TAKEBACKTIME" LableResourceID="TAKEBACKTIME" Description="取回时间" DataType="datetime" DataValue="" DataText="取回时间" />
+    <Attribute Name="REPAIRUNITID" LableResourceID="REPAIRUNITID" Description="维修商ID&#xA;选择自表《T_PUB_SupplierInfo 供应商基本信息表》，供应商类别=16" DataType="string" DataValue="" DataText="维修商ID&#xA;选择自表《T_PUB_SupplierInfo 供应商基本信息表》，供应商类别=16" />
+    <Attribute Name="REPAIRUNIT" LableResourceID="REPAIRUNIT" Description="维修商名称" DataType="string" DataValue="" DataText="维修商名称" />
+    <Attribute Name="UPKEEPADDRESS" LableResourceID="UPKEEPADDRESS" Description="保养地点&#xA;维修商地址" DataType="string" DataValue="" DataText="保养地点&#xA;维修商地址" />
+    <Attribute Name="DRIVERID" LableResourceID="DRIVERID" Description="司机ID" DataType="string" DataValue="" DataText="司机ID" />
+    <Attribute Name="DRIVER" LableResourceID="DRIVER" Description="司机" DataType="string" DataValue="" DataText="司机" />
+    <Attribute Name="DRIVERMOBILE" LableResourceID="DRIVERMOBILE" Description="司机手机" DataType="string" DataValue="" DataText="司机手机" />
+    <Attribute Name="UPKEEPMONEY" LableResourceID="UPKEEPMONEY" Description="保养费用(元)&#xA;&#xA;子表中，已执行记录的材料报价+工时费报价的合计" DataType="decimal" DataValue="" DataText="保养费用(元)&#xA;&#xA;子表中，已执行记录的材料报价+工时费报价的合计" />
+    <Attribute Name="LASTKEEPDATE" LableResourceID="LASTKEEPDATE" Description="最后保养日期" DataType="datetime" DataValue="" DataText="最后保养日期" />
+    <Attribute Name="LASTKEEPRANGE" LableResourceID="LASTKEEPRANGE" Description="最后保养里程" DataType="decimal" DataValue="" DataText="最后保养里程" />
+    <Attribute Name="DIAGNOSERST" LableResourceID="DIAGNOSERST" Description="诊断结果&#xA;保养记录单填写时，如有需维修项目，则填写诊断结果，并填写维修明细项目" DataType="string" DataValue="" DataText="诊断结果&#xA;保养记录单填写时，如有需维修项目，则填写诊断结果，并填写维修明细项目" />
+    <Attribute Name="RAPPLYID" LableResourceID="RAPPLYID" Description="维修申请主键ID&#xA;&#xA;审核通过后，如果有维修项目的填报，那么根据维修项目生成维修申请单报批，并回写维修申请主键ID" DataType="string" DataValue="" DataText="维修申请主键ID&#xA;&#xA;审核通过后，如果有维修项目的填报，那么根据维修项目生成维修申请单报批，并回写维修申请主键ID" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" DataType="string" DataValue="" DataText="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

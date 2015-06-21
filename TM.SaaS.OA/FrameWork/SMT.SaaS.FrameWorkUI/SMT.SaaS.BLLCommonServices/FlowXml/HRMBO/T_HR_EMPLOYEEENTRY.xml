@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="员工入职" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEENTRY" Name="EMPLOYEEENTRYID" Description="入职表ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+    <Function Description="创建社保" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_PENSIONMASTER" Name="EMPLOYEEID" Description="员工ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+    <Function Description="创建合同" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEECONTRACT" Name="EMPLOYEEID" Description="员工ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+    <Function Description="创建薪资档案" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_SALARYARCHIVE" Name="EMPLOYEEID" Description="员工ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+<Function Description="RM员工入职" Address="EngineService.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_EMPLOYEEENTRY" Name="EMPLOYEEID" 		Description="员工ID" Value=""></Para>
+	<Para TableName="T_HR_EMPLOYEEENTRY" Name="ONWERID" 		Description="所有者ID" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="EMPLOYAPPLYID"   	Description="表单ID" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="OWNERID"       	Description="需要入职人员ID" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="IDCARDNUMBER"  	Description="身份证号码" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="NAME"          	Description="姓名" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="SEX"           	Description="性别" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="OWNERCOMPANYID" 	Description="申请人公司" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="OWNERDEPARTMENTID"   Description="申请人部门" Value=""></Para>
+    	<Para TableName="T_HR_EMPLOYEEENTRY" Name="OWNERPOSTID" 	Description="申请人岗位" Value=""></Para>
+	<Para TableName="T_HR_EMPLOYEEENTRY" Name="ISACCEPTEMPLOIED" 	Description="是否答应入职" Value=""></Para>
+	<Para TableName="T_HR_EMPLOYEEENTRY" Name="CREATEUSERID" 	Description="创建人ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.Personnel.EmployeeEntryForm</PageParameter>
+    <ApplicationOrder>{EMPLOYEEENTRYID}</ApplicationOrder>
+    <FormTypes>Edit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_EMPLOYEEENTRY" Description="员工入职" Key="EMPLOYEEENTRYID" id="">
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER" Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEECNAME" LableResourceID="EMPLOYEENAME" Description="员工中文名" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="POSTLEVEL" LableResourceID="POSTLEVEL"  Description="岗位级别" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEID" LableResourceID="EMPLOYEEID"  Description="员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEENTRYID" LableResourceID="EMPLOYEEENTRYID" Description="入职表ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="入职审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ENTRYDATE" LableResourceID="ENTRYDATE" Description="入职时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="ONPOSTDATE" LableResourceID="ONPOSTDATE" Description="到岗日期" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="PROBATIONPERIOD" LableResourceID="PROBATIONPERIOD" Description="试用期(月)" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="0 未生效 1生效 2 离职" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EMPLOYEEPOSTID" LableResourceID="ENTRYPOST" Description="员工岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <ObjectList Name="T_SYS_USERDetailList" LableResourceID="T_SYS_USERDetailList" Description="用户信息" DataText="">
+      <Object Name="T_SYS_USERDetail" LableResourceID="T_SYS_USERDetail" Description="用户信息" Key="ADDSUMID" id="">
+        <Attribute Name="SYSUSERID" LableResourceID="SYSUSERID" Description="用户ID" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="USERNAME" LableResourceID="USERNAME" Description="用户名" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="PASSWORD" LableResourceID="PASSWORD" Description="密码" DataType="string" DataValue="" DataText=""></Attribute>
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

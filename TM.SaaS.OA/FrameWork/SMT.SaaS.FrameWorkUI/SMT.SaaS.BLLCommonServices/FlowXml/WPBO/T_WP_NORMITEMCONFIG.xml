@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_NORMITEMCONFIG" Description="年度指标控制项配置管理记录" Key="NORMCTLID" id="">
+    <Attribute  Name="NORMCTLID" LableResourceID="NORMCTLID" Description="指标控制主键ID,GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMID" LableResourceID="NORMID" Description="年度指标主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPNORMID" LableResourceID="COMPNORMID" Description="公司指标主键ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="使用公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="所属公司名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMITEMID" LableResourceID="NORMITEMID" Description="指标项科目ID，字典表
+
+房租、税金、差旅费等，包含固定费用科目项和可变费用科目项
+
+选择字典表PresetCostItemType（可变费用项目，即招待费、差旅费、礼品费、市内交通费、邮寄费等）
+(字典OperateFixCostType)
+会计科目：1工资、2奖金、3福利、4社保、5租金、6管理费、7水电费、8电话费" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMITEMNAME" LableResourceID="NORMITEMNAME" Description="指标项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CONTROLDIRECTION" LableResourceID="CONTROLDIRECTION" Description="控制方向 (1向上2向下0未设置)" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESOLVEMODEL" LableResourceID="RESOLVEMODEL" Description="计划分解模式 (1按月均摊2指定开始使用月份3，缺省1)" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ASSIGNMOUTH" LableResourceID="ASSIGNMOUTH" Description="指定月份
+计划分解模式为2指定开始使用月份时填入，值为开始月份
+1，2，3，4，5.。。。12" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled
+" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

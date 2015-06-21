@@ -110,14 +110,10 @@
     <Compile Include="ViewModel\V_UserPermUILocalVM.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Dll\Sterling.snk" />
     <None Include="Dll\Wintellect.Sterling.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SMT.SaaS.LocalData.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Dll\Wintellect.Sterling.extmap.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

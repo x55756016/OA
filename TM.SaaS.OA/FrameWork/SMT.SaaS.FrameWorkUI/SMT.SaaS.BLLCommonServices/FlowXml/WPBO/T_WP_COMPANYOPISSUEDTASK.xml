@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>WP</Name>
+  <Version>1.0</Version>
+  <System>
+    <!--<Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+    -->
+  </System>
+  <MsgOpen>
+   <AssemblyName>SMT.WP.UI</AssemblyName>
+    <PublicClass>SMT.WP.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>WP/PlanDecomposition/Create</PageParameter>
+    <ApplicationOrder>{ISSUEDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_COMPANYOPISSUED" Description="年度经营计划分解表" Key="CPLANID" id="">
+    <Attribute Name="CPLANID" LableResourceID="CPLANID" Description="公司经营计划主键ID，GUID" DataType="string" DataValue="" DataText="公司经营计划主键ID，GUID" />
+    <Attribute Name="ISSUEDID" LableResourceID="ISSUEDID" Description="计划下达主键ID" DataType="string" DataValue="" DataText="计划下达主键ID" />
+    <Attribute Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度" DataType="string" DataValue="" DataText="计划年度" />
+    <Attribute Name="COMPNORMID" LableResourceID="COMPNORMID" Description="公司指标主键ID" DataType="string" DataValue="" DataText="公司指标主键ID" />
+    <Attribute Name="NORMCODE" LableResourceID="NORMCODE" Description="指标编号" DataType="string" DataValue="" DataText="指标编号" />
+    <Attribute Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="string" DataValue="" DataText="指标名称" />
+    <Attribute Name="LYFACTCOST" LableResourceID="LYFACTCOST" Description="上年实际费用" DataType="decimal" DataValue="" DataText="上年实际费用" />
+    <Attribute Name="CYNORMCOST" LableResourceID="CYNORMCOST" Description="本年指标费用" DataType="decimal" DataValue="" DataText="本年指标费用" />
+    <Attribute Name="CYUSABLE" LableResourceID="CYUSABLE" Description="已分解费用" DataType="decimal" DataValue="" DataText="已分解费用" />
+    <Attribute Name="PRESETRATIO" LableResourceID="PRESETRATIO" Description="预留比例" DataType="decimal" DataValue="" DataText="预留比例" />
+    <Attribute Name="ISSUEDSTATE" LableResourceID="ISSUEDSTATE" Description="是否已完成下达" DataType="string" DataValue="" DataText="是否已完成下达" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

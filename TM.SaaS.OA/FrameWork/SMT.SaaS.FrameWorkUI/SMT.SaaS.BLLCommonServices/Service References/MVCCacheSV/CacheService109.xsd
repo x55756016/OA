@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Entities.HR" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Entities.HR" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.16.1.57/New/Services/CommonServices/CacheService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model.Entities" />
+  <xs:complexType name="ArrayOfPostInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostInfo" nillable="true" type="tns:PostInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPostInfo" nillable="true" type="tns:ArrayOfPostInfo" />
+  <xs:complexType name="PostInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SMT.SaaS.Services.Model.Entities" base="q1:EntityBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DepartmentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ParentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PostName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PostInfo" nillable="true" type="tns:PostInfo" />
+</xs:schema>

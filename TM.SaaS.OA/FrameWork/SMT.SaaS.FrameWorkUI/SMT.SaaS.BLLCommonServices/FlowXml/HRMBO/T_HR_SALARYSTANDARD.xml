@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <System>
+    <Function Description="SalarystandardFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_SALARYSTANDARD" Name="SALARYSTANDARDID" Description="薪资标准ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+<MsgOpen>
+		<AssemblyName>SMT.HRM.UI</AssemblyName>
+	<PublicClass>SMT.HRM.UI.Utility</PublicClass>
+	<ProcessName>CreateFormFromEngine</ProcessName>
+	<PageParameter>SMT.HRM.UI.Form.Salary.SalaryStandardForm</PageParameter>
+		<ApplicationOrder>{SALARYSTANDARDID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+ </MsgOpen>
+  <Object Name="T_HR_SALARYSTANDARD" Description="SalarystandardFlow" Key="SALARYSTANDARDID" id="">
+    <Attribute Name="SALARYSTANDARDID" Description="薪资标准ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SALARYSOLUTIONID" Description="薪资方案ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="POSTSALARY" Description="岗位工资" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SECURITYALLOWANCE" Description="保密津贴" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="HOUSINGALLOWANCE" Description="住房津贴" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="AREADIFALLOWANCE" Description="地区差异补贴" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="FOODALLOWANCE" Description="餐费补贴" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OTHERADDDEDUCT" Description="其他加扣款" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OTHERADDDEDUCTDESC" Description="加扣款说明" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="HOUSINGALLOWANCEDEDUCT" Description="住房津贴扣款" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="PERSONALSIRATIO" Description="个人社保比" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="PERSONALINCOMERATIO" Description="个人所得税比" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OTHERSUBJOIN" Description="其它代扣款" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OTHERSUBJOINDESC" Description="代扣说明" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERID" Description="所属员工ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" Description="所属岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" Description="所属部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" Description="所属公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" Description="创建人岗位ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" Description="创建人公司ID" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" Description="创建时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="SALARYSTANDARDNAME" Description="薪资标准名称" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" Description="审核状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" Description="编辑状态" DataType="NVARCHAR2" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+    <Attribute Name="BASESALARY" Description="基本工资" DataType="NUMBER" DataValue=""  LableResourceID=""   DataText=""></Attribute>
+  </Object>
+</System>
+

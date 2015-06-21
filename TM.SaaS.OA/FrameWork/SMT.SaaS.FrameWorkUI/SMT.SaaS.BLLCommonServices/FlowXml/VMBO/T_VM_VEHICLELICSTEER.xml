@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleLicSteer/Edit</PageParameter>
+    <ApplicationOrder>{LICTAGID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLELICSTEER" Description="T_VM_VehicleLicSteer 车辆行驶证信息表&#xA;&#xA;审核通过后，写注册登记日期到车辆基本信息表" Key="LICTAGID" id="">
+    <Attribute Name="LICTAGID" LableResourceID="LICTAGID" Description="牌照主键ID,GUID" DataType="string" DataValue="" DataText="牌照主键ID,GUID" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="车辆主键ID" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="REGDATE" LableResourceID="REGDATE" Description="有效起始日&#xA;临时牌照必填" DataType="datetime" DataValue="" DataText="有效起始日&#xA;临时牌照必填" />
+    <Attribute Name="SENDDATE" LableResourceID="SENDDATE" Description="发证日期" DataType="datetime" DataValue="" DataText="发证日期" />
+    <Attribute Name="PERIOD_NYEAR" LableResourceID="PERIOD_NYEAR" Description="年检周期_N年" DataType="decimal" DataValue="" DataText="年检周期_N年" />
+    <Attribute Name="PERIOD_MYORDER" LableResourceID="PERIOD_MYORDER" Description="年检周期_M年次" DataType="decimal" DataValue="" DataText="年检周期_M年次" />
+    <Attribute Name="PERIOD_NYPORDER" LableResourceID="PERIOD_NYPORDER" Description="年检周期_N年以上P年次" DataType="decimal" DataValue="" DataText="年检周期_N年以上P年次" />
+    <Attribute Name="WARNDAY" LableResourceID="WARNDAY" Description="预警天数设置&#xA;终止日提前多少天发送续费待办任务" DataType="decimal" DataValue="" DataText="预警天数设置&#xA;终止日提前多少天发送续费待办任务" />
+    <Attribute Name="COST" LableResourceID="COST" Description="金额（元）" DataType="decimal" DataValue="" DataText="金额（元）" />
+    <Attribute Name="IFCARRYNEED" LableResourceID="IFCARRYNEED" Description="是否必带&#xA;（缺省1，0否1是）" DataType="string" DataValue="" DataText="是否必带&#xA;（缺省1，0否1是）" />
+    <Attribute Name="PRODITEMID" LableResourceID="PRODITEMID" Description="行驶证科目ID&#xA;存放科目的事项类别编号，具体的会计科目需从《T_Sys_ItemSubjectRelation 系统事项类别与会计科目关联表》中的关联科目中获取，行驶证类别编号LC02" DataType="string" DataValue="" DataText="行驶证科目ID&#xA;存放科目的事项类别编号，具体的会计科目需从《T_Sys_ItemSubjectRelation 系统事项类别与会计科目关联表》中的关联科目中获取，行驶证类别编号LC02" />
+    <Attribute Name="PRODITEMNAME" LableResourceID="PRODITEMNAME" Description="行驶证科目名称" DataType="string" DataValue="" DataText="行驶证科目名称" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" DataType="string" DataValue="" DataText="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

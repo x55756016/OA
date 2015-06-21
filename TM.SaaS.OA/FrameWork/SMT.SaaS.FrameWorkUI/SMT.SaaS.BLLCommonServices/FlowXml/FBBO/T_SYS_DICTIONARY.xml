@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Form FormID="" ModelCode="T_SYS_DICTIONARY" MESSAGESTATUS="open" OrderType="" Text="系统数据字典" />
+  <Object Name="T_SYS_DICTIONARY" Text="系统数据字典">
+    <Attribute Text="字典ID" IsNull="False" Length="100" Name="DICTIONARYID" DataType="string" />
+    <Attribute Text="字典类型" IsNull="True" Length="100" Name="DICTIONCATEGORY" DataType="string" />
+    <Attribute Text="字典名称" IsNull="True" Length="100" Name="DICTIONARYNAME" DataType="string" />
+    <Attribute Text="字典值" IsNull="True" Length="22" Name="DICTIONARYVALUE" DataType="decimal" />
+    <Attribute Text="创建人" IsNull="True" Length="100" Name="CREATEUSER" DataType="string" />
+    <Attribute Text="创建时间" IsNull="True" Length="7" Name="CREATEDATE" DataType="datetime" />
+    <Attribute Text="修改人" IsNull="True" Length="100" Name="UPDATEUSER" DataType="string" />
+    <Attribute Text="修改时间" IsNull="True" Length="7" Name="UPDATEDATE" DataType="datetime" />
+    <Attribute Text="字典类型名" IsNull="True" Length="100" Name="DICTIONCATEGORYNAME" DataType="string" />
+    <Attribute Text="备注" IsNull="True" Length="4000" Name="REMARK" DataType="string" />
+    <Attribute Text="父字典ID" IsNull="True" Length="100" Name="FATHERID" DataType="string" />
+    <Attribute Text="系统类型名:公共Common,人力资源管理:HR,办公自动化OA,物流LM" IsNull="True" Length="200" Name="SYSTEMNAME" DataType="string" />
+    <Attribute Text="系统类型编码" IsNull="True" Length="200" Name="SYSTEMCODE" DataType="string" />
+    <Attribute Text="排序号" IsNull="True" Length="22" Name="ORDERNUMBER" DataType="decimal" />
+    <Attribute Text="系统必须字典:用户不能修改" IsNull="True" Length="2" Name="SYSTEMNEED" DataType="string" />
+  </Object>
+</System>

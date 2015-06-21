@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="EntityKey">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfFLOW_FREEFLOWEMPLOYEE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="EntityContainerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EntityKeyValues" nillable="true" type="tns:ArrayOfEntityKeyMember" />
-      <xs:element minOccurs="0" name="EntitySetName" nillable="true" type="xs:string" />
-    </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="EntityKey" nillable="true" type="tns:EntityKey" />
-  <xs:complexType name="ArrayOfEntityKeyMember">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FLOW_FREEFLOWEMPLOYEE" nillable="true" type="tns:FLOW_FREEFLOWEMPLOYEE" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEntityKeyMember" nillable="true" type="tns:ArrayOfEntityKeyMember" />
-  <xs:complexType name="EntityKeyMember">
+  <xs:element name="ArrayOfFLOW_FREEFLOWEMPLOYEE" nillable="true" type="tns:ArrayOfFLOW_FREEFLOWEMPLOYEE" />
+  <xs:complexType name="FLOW_FREEFLOWEMPLOYEE">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="BATCH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COMPANYNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COUNTERSIGNTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CREATEDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DEPARTMENTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITCOMPANYID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITDEPARTMENTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITPOSTID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITUSERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EDITUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWRECORDMASTERID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FLOWTYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FORMID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FREEFLOWID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEXTEDITUSEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEXTEDITUSERNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSRATE" type="xs:decimal" />
+      <xs:element minOccurs="0" name="POSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ROLENAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEQUENCE" type="xs:int" />
+      <xs:element minOccurs="0" name="STATE" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+  <xs:element name="FLOW_FREEFLOWEMPLOYEE" nillable="true" type="tns:FLOW_FREEFLOWEMPLOYEE" />
 </xs:schema>

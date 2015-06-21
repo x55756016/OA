@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using SMT.Saas.Tools.PermissionWS;
 using System.Collections.Generic;
 using System.Linq;
+using SMT.SAAS.ClientUtility;
 
 namespace SMT.SaaS.Permission.UI.AppControl
 {
@@ -20,6 +21,7 @@ namespace SMT.SaaS.Permission.UI.AppControl
         public DependencyProperty SelectedValueProperty;
         public DependencyProperty CategoryProperty;
         public DependencyProperty IsShowNullProperty;
+        private static DictionaryManager DictionNaryclinet;
 
         public string SelectedValue
         {
@@ -60,6 +62,10 @@ namespace SMT.SaaS.Permission.UI.AppControl
         }
         public DictionaryComboBox()
         {
+            if (DictionNaryclinet == null)
+            {
+                DictionNaryclinet = new DictionaryManager();
+            }
             IsShowNullProperty = DependencyProperty.Register("IsShowNull", typeof(bool), typeof(DictionaryComboBox)
                 , new PropertyMetadata(true, new PropertyChangedCallback(DictionaryComboBox.OnIsShowNullChanged)));
 
@@ -104,10 +110,40 @@ namespace SMT.SaaS.Permission.UI.AppControl
                 IsShowNull = (bool)e.NewValue;
             }
         }
-        private void BindItems(string cate)
+        private void BindItems(string category)
         {
-            List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
-            BindComboBox(dicts, cate, SelectedValue);
+            List<T_SYS_DICTIONARY> dictss = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
+            var q = from ent in dictss
+                    where ent.DICTIONCATEGORY == category
+                    select ent;
+            if (q.Count() > 0)
+            {
+                List<T_SYS_DICTIONARY> dicts = q.ToList();
+                BindComboBox(dicts, category, SelectedValue);
+            }
+            else
+            {
+                //ThreadPool.QueueUserWorkItem(delegate(object o)
+                //{
+                DictionNaryclinet.OnDictionaryLoadCompleted += (obj, args) =>
+                {
+                    Deployment.Current.Dispatcher.BeginInvoke(delegate
+                    {
+                        var qBind = from ent in dictss
+                                    where ent.DICTIONCATEGORY == category
+                                    select ent;
+                        if (qBind.Count() > 0)
+                        {
+                            List<T_SYS_DICTIONARY> dicts = qBind.ToList();
+                            BindComboBox(dictss, category, SelectedValue);
+                        }
+                    });
+
+                };
+                DictionNaryclinet.LoadDictionary(category);
+                //EventAttention.WaitOne();
+                //});
+            }
         }
         /// <summary>
         /// 可用于动态加载字典

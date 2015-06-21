@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_CRUQUESTION" Description="背景调查问题项设定" Key="QUESTIONID" id="">
+    <Attribute  Name="QUESTIONID" LableResourceID="QUESTIONID" Description="问题ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="QUESTIONNAME" LableResourceID="QUESTIONNAME" Description="问题名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="QUESTIONVALUE" LableResourceID="QUESTIONVALUE" Description="问题值" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SORTNO" LableResourceID="SORTNO" Description="问题序号" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="QUESTIONTYPE" LableResourceID="QUESTIONTYPE" Description="问题类型:1选择题 2.问答题." DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RULE" LableResourceID="RULE" Description="否决原则:1.一票不利否决.2.3项中有一票不利否决.3.人力资源主官决定" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DISABLE" LableResourceID="DISABLE" Description="是否在使用中.0.使用中.1.未使用" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+  </Object>
+</System>

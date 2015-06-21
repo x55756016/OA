@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/CtlVehicleOutCfm/Edit</PageParameter>
+    <ApplicationOrder>{OUTCFMID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_CTLVEHICLEOUTCFM" Description="T_VM_CtlVehicleOutCfm 调度派车单出车确认表&#xA;&#xA;交接前司机和交接后司机不允许相同，间隔一个以上司机后，还可以由前面的司机进行任务交接&#xA;" Key="OUTCFMID" id="">
+    <Attribute Name="OUTCFMID" LableResourceID="OUTCFMID" Description="出车确认主键ID，GUID" DataType="string" DataValue="" DataText="出车确认主键ID，GUID" />
+    <Attribute Name="CTLINFOID" LableResourceID="CTLINFOID" Description="调度信息主键ID" DataType="string" DataValue="" DataText="调度信息主键ID" />
+    <Attribute Name="CTLBILLSID" LableResourceID="CTLBILLSID" Description="派车单主键ID" DataType="string" DataValue="" DataText="派车单主键ID" />
+    <Attribute Name="CTLBILLSNO" LableResourceID="CTLBILLSNO" Description="派车单号" DataType="string" DataValue="" DataText="派车单号" />
+    <Attribute Name="CFMSNO" LableResourceID="CFMSNO" Description="确认序号" DataType="decimal" DataValue="" DataText="确认序号" />
+    <Attribute Name="INCFMID" LableResourceID="INCFMID" Description="收车确认主键ID&#xA;当前出车确认为其他司机交接过来的确认时，保存交接的收车确认主键ID" DataType="string" DataValue="" DataText="收车确认主键ID&#xA;当前出车确认为其他司机交接过来的确认时，保存交接的收车确认主键ID" />
+    <Attribute Name="DRIVERID_PRE" LableResourceID="DRIVERID_PRE" Description="交接前_司机ID" DataType="string" DataValue="" DataText="交接前_司机ID" />
+    <Attribute Name="DRIVER_PRE" LableResourceID="DRIVER_PRE" Description="交接前_司机" DataType="string" DataValue="" DataText="交接前_司机" />
+    <Attribute Name="DRIVERMOBILE_PRE" LableResourceID="DRIVERMOBILE_PRE" Description="交接前_司机手机" DataType="string" DataValue="" DataText="交接前_司机手机" />
+    <Attribute Name="DRIVERCFM_AFTER" LableResourceID="DRIVERCFM_AFTER" Description="交接_司机确认&#xA;（0未确认1确认同意2确认不同意，缺省0）&#xA;对应上一个司机收车时的更换司机选项，如果不是更换司机，则该字段不起作用；&#xA;本表对交接的结果（只对出车的里程读数、出发时间确认，该二项数据来自前一个司机的收车数据，不可修改）司机确认后，把确认结果返回收车车辆行车记录表；如果本表中，交接_司机确认结果为2确认不同意，则暂停本次出车确认，返回上一个司机的收车更换司机的行车记录单，由上一个司机重新填写里程读数、收车时间后重新提交。" DataType="string" DataValue="" DataText="交接_司机确认&#xA;（0未确认1确认同意2确认不同意，缺省0）&#xA;对应上一个司机收车时的更换司机选项，如果不是更换司机，则该字段不起作用；&#xA;本表对交接的结果（只对出车的里程读数、出发时间确认，该二项数据来自前一个司机的收车数据，不可修改）司机确认后，把确认结果返回收车车辆行车记录表；如果本表中，交接_司机确认结果为2确认不同意，则暂停本次出车确认，返回上一个司机的收车更换司机的行车记录单，由上一个司机重新填写里程读数、收车时间后重新提交。" />
+    <Attribute Name="DRIVERID" LableResourceID="DRIVERID" Description="司机ID" DataType="string" DataValue="" DataText="司机ID" />
+    <Attribute Name="DRIVER" LableResourceID="DRIVER" Description="司机" DataType="string" DataValue="" DataText="司机" />
+    <Attribute Name="DRIVERMOBILE" LableResourceID="DRIVERMOBILE" Description="司机手机" DataType="string" DataValue="" DataText="司机手机" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID&#xA;缺省为调度的车辆" DataType="string" DataValue="" DataText="车辆主键ID&#xA;缺省为调度的车辆" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="车牌号" />
+    <Attribute Name="IFOUTCFM" LableResourceID="IFOUTCFM" Description="是否出车确认（缺省0，0否1是）" DataType="string" DataValue="" DataText="是否出车确认（缺省0，0否1是）" />
+    <Attribute Name="OUTCFMDATE" LableResourceID="OUTCFMDATE" Description="出车确认时间" DataType="datetime" DataValue="" DataText="出车确认时间" />
+    <Attribute Name="LEAVEMILEAGE" LableResourceID="LEAVEMILEAGE" Description="出发里程读数（公里）&#xA;缺省为调度的车辆最后里程数&#xA;如果是从上一个人交接过来，则默认填入上个人的收车里程数；如果实际里程读数与上个人默认填入的里程读数有差异，则同样需进行里程异常记录的登记确认" DataType="decimal" DataValue="" DataText="出发里程读数（公里）&#xA;缺省为调度的车辆最后里程数&#xA;如果是从上一个人交接过来，则默认填入上个人的收车里程数；如果实际里程读数与上个人默认填入的里程读数有差异，则同样需进行里程异常记录的登记确认" />
+    <Attribute Name="FACTOUTDATE" LableResourceID="FACTOUTDATE" Description="实际出车时间" DataType="datetime" DataValue="" DataText="实际出车时间" />
+    <Attribute Name="INCFMDATE" LableResourceID="INCFMDATE" Description="收车确认时间" DataType="datetime" DataValue="" DataText="收车确认时间" />
+    <Attribute Name="FACTINDATE" LableResourceID="FACTINDATE" Description="实际收车时间&#xA;&#xA;交接时收车时间，最后收车时填入最后那条记录的收车确认时间" DataType="datetime" DataValue="" DataText="实际收车时间&#xA;&#xA;交接时收车时间，最后收车时填入最后那条记录的收车确认时间" />
+    <Attribute Name="INMILEAGE" LableResourceID="INMILEAGE" Description="收车里程读数（公里）&#xA;交接时收车里程读数，最后收车时填入最后那条记录的收车里程读数" DataType="decimal" DataValue="" DataText="收车里程读数（公里）&#xA;交接时收车里程读数，最后收车时填入最后那条记录的收车里程读数" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" DataType="string" DataValue="" DataText="对象编辑状态 EditStates&#xA;0 删除状态 Deleted&#xA;1 已生效 Actived&#xA;2 未生效 UnActived&#xA;3 撤消中 PendingCancelled&#xA;4 已撤消 Cancelled&#xA;" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+  </Object>
+</System>

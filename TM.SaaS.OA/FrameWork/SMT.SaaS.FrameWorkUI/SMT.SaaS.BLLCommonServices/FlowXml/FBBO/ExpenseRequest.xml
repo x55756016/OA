@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>FM</Name>
+  <System>
+    <Function Description="个人预算" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="userName" Description="用户名" Value=""></Para>
+        <Para TableName="" Name="month" Description="预算月份" Value=""></Para>
+      </ParaStr>
+    </Function>
+    <Function Description="公司预算"   Address="Demo.svc"   FuncName="CallApplicationService" Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="companyName" Description="公司名称" Value=""></Para>
+        <Para TableName="" Name="year" Description="预算年份" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <Object Name="ExpenseRequest" Description="休假申请单">
+		<Attribute Name="EmployeeID" Description="员工号" DataType="string" DataValue=""></Attribute>
+		<Attribute  Name="EmployeeName" Description="员工姓名" DataType="decimal" DataValue=""></Attribute>
+		<Attribute  Name="ExpenseDate" Description="报销日期" DataType="datetime" DataValue=""></Attribute>
+		<Attribute  Name="ExpenseAmount" Description="报销总额" DataType="decimal" DataValue=""></Attribute>
+		<Attribute  Name="AdvanceLoadAmount" Description="已预支总额" DataType="decimal" DataValue=""></Attribute>
+
+    <Attribute Name="CompanyID" Description="公司ID" DataType="String" DataValue=""></Attribute>
+    <Attribute  Name="ModelCode" Description="模块代码" DataType="decimal" DataValue=""></Attribute>
+    <Attribute  Name="FormID" Description="表单ID" DataType="datetime" DataValue=""></Attribute>
+    <Attribute  Name="CheckState" Description="前表单的审核状态" DataType="decimal" DataValue=""></Attribute>
+    <Attribute Name="StateCode" Description="当前审批状态代码" DataType="String" DataValue=""></Attribute>
+    <Attribute  Name="AppUserID" Description="审批人ID" DataType="datetime" DataValue=""></Attribute>
+    <Attribute  Name="AppUserName" Description="审批人名" DataType="decimal" DataValue=""></Attribute>
+  </Object>
+</System>

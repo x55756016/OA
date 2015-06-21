@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>FB</Name>
+<Version>1.0</Version>
+  <System>
+    <Function Description="个人经费下拨申请" Address="FBExtensionalService.svc" FuncName="ProcessFuncName_ZeroParam" Binding="basicHttpBinding" SplitChar="Г" />
+    <ParaStr>
+      <Para TableName="" Name="OWNERID" Description="所有者ID" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYID" Description="所有者公司ID" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTID" Description="所有者部门ID" Value="" />
+      <Para TableName="" Name="OWNERPOSTID" Description="所有者岗位ID" Value="" />
+      <Para TableName="" Name="OWNERNAME" Description="所有者名称" Value="" />
+      <Para TableName="" Name="OWNERCOMPANYNAME" Description="所有者公司名称" Value="" />
+      <Para TableName="" Name="OWNERDEPARTMENTNAME" Description="所有者部门名称" Value="" />
+      <Para TableName="" Name="OWNERPOSTNAME" Description="所有者岗位名称" Value="" />
+      <Para TableName="" Name="OrderType" Description="单据类型" Value="T_FB_PERSONMONEYASSIGNMASTER" />
+    </ParaStr>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.FB.UI</AssemblyName>
+    <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+    <ProcessName>ShowAuditForm</ProcessName>
+    <PageParameter>T_FB_PERSONMONEYASSIGNMASTER</PageParameter>
+    <ApplicationOrder>{PERSONMONEYASSIGNMASTERID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>  
+  <Object Name="T_FB_PERSONMONEYASSIGNMASTER" Description="个人经费下拨申请" Key="PERSONMONEYASSIGNMASTERID" id="">
+    <Attribute Name="OrderTypeName" LableResourceID="OrderTypeName" Description="单据类型" DataType="string" DataValue="个人经费下拨申请"  DataText="个人经费下拨申请"/>
+    <Attribute Name="PERSONMONEYASSIGNMASTERID" LableResourceID="PERSONMONEYASSIGNMASTERID" Description="单据ID" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="PERSONMONEYASSIGNMASTERCODE" LableResourceID="PERSONMONEYASSIGNMASTERCODE" Description="单据编号" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="BUDGETARYMONTH" LableResourceID="BUDGETARYMONTH" Description="下拨月份" DataType="DateTime" DataValue="" DataText=""/>
+    <Attribute Name="ASSIGNCOMPANYNAME" LableResourceID="ASSIGNCOMPANYNAME" Description="下拨公司名称" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="状态" DataType="decimal" DataValue="" DataText=""/>
+    <Attribute Name="BUDGETMONEY" LableResourceID="BUDGETMONEY" Description="下拨总金额" DataType="decimal" DataValue="" DataText=""/>
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="申请部门" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="申请公司" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="申请人ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="申请人" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""/>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""/>
+    <Attribute Name="AttachMent" LableResourceID="AttachMent" Description="附件" DataType="attachmentlist" DataValue="" DataText="" />
+    <ObjectList Name="PERSONBUDGETAPPLYDETAILList" LableResourceID="PERSONBUDGETAPPLYDETAILList" Description="个人经费下拨申请明细" DataText="" >
+      <Object Name="T_FB_PERSONMONEYASSIGNDETAIL" LableResourceID="T_FB_PERSONMONEYASSIGNDETAIL" Description="个人经费下拨申请明细" Key="PERSONBUDGETAPPLYDETAILID" id="">
+        <Attribute Name="PERSONBUDGETAPPLYDETAILID" LableResourceID="PERSONBUDGETAPPLYDETAILID" Description="个人经费下拨申请ID" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="RowIndex" LableResourceID="RowIndex" Description="序列号" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="公司" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="部门" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="岗位" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="职员" DataType="string" DataValue="" DataText=""/>
+        <Attribute Name="BUDGETMONEY" LableResourceID="MONTHSTIRMONEY" Description="本月下拨经费" DataType="decimal" DataValue="" DataText=""/> 
+        <Attribute Name="SUGGESTBUDGETMONEY" LableResourceID="下拨额度参考" Description="下拨额度参考" DataType="decimal" DataValue="" DataText=""/>
+	      <Attribute Name="POSTINFO" LableResourceID="TIPS" Description="提示" DataType="decimal" DataValue="" DataText=""/>
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="摘要" DataType="string" DataValue="" DataText=""/>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

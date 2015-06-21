@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_OPERATENORMISSUED" Description="公司年度经营指标下达表" Key="OPENORMID" id="">
+    <Attribute  Name="OPENORMID" LableResourceID="OPENORMID" Description="经营指标主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISSUEDID" LableResourceID="ISSUEDID" Description="计划下达主键ID
+选择自计划拟制表主键" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMID" LableResourceID="NORMID" Description="年度指标主键ID,GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYID" LableResourceID="COMPANYID" Description="所属公司ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANYEAR" LableResourceID="PLANYEAR" Description="计划年度
+数据来自《工作计划下达表》保存数据，界面不处理" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMCODE" LableResourceID="NORMCODE" Description="指标编号
+指标编号、名称字段数据选自公司经营指标定义" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMNAME" LableResourceID="NORMNAME" Description="指标名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="NORMNO" LableResourceID="NORMNO" Description="指标排序号" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYFACT" LableResourceID="LYFACT" Description="上年实际
+
+上年实际、上年计划、本年指标、本年控制指标，根据指标类型不同，存放不同数值，如人数存放无小数位的整型值、费用存放带小数位数值" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="LYPLAN" LableResourceID="LYPLAN" Description="上年计划" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYNORM" LableResourceID="CYNORM" Description="本年指标" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CYCONTROLNORM" LableResourceID="CYCONTROLNORM" Description="本年控制指标" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WEIGHT" LableResourceID="WEIGHT" Description="权重" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SCORINGMODE" LableResourceID="SCORINGMODE" Description="计分方式说明" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

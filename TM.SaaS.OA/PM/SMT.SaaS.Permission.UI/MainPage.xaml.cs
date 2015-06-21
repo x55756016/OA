@@ -54,7 +54,7 @@ namespace SMT.SaaS.Permission.UI
             }
             else
             {
-                List<T_SYS_ENTITYMENU> list = new List<T_SYS_ENTITYMENU>();
+                List<V_UserMenuPermission> list = new List<V_UserMenuPermission>();
                 if (e.Result != null)
                 {
                     list = e.Result.ToList();
@@ -65,8 +65,8 @@ namespace SMT.SaaS.Permission.UI
                         
         }
 
-        
-        private void initLeftMenu(List<T_SYS_ENTITYMENU> menulist)
+
+        private void initLeftMenu(List<V_UserMenuPermission> menulist)
         {
             #region 源代码备份
             //StackPanel menuTemp = new StackPanel();
@@ -95,7 +95,7 @@ namespace SMT.SaaS.Permission.UI
 
             //生成分组
             var groupItems = from m in menulist
-                             where m.T_SYS_ENTITYMENU2Reference.EntityKey == null
+                             where m.EntityMenuFatherID == null
                              orderby m.ORDERNUMBER
                              select m;
 
@@ -120,8 +120,8 @@ namespace SMT.SaaS.Permission.UI
 
                 //生成菜单明细
                 var menuItems = from m in menulist
-                                where m.T_SYS_ENTITYMENU2Reference.EntityKey !=null
-                                && m.T_SYS_ENTITYMENU2Reference.EntityKey.EntityKeyValues[0].Value.ToString() == item.ENTITYMENUID
+                                where m.EntityMenuFatherID !=null
+                                && m.EntityMenuFatherID == item.ENTITYMENUID
                                 orderby m.ORDERNUMBER
                                 select m;
 
@@ -155,7 +155,7 @@ namespace SMT.SaaS.Permission.UI
 
         #region 创建左侧导航树
 
-        private TreeViewItem CreateTreeItem(T_SYS_ENTITYMENU menu)
+        private TreeViewItem CreateTreeItem(V_UserMenuPermission menu)
         {
             TreeViewItem treeItem = new TreeViewItem();
             treeItem.Header = menu;
@@ -176,7 +176,7 @@ namespace SMT.SaaS.Permission.UI
             if (treeItem == null)
                 return;
 
-            T_SYS_ENTITYMENU menu = treeItem.Tag as T_SYS_ENTITYMENU;
+            V_UserMenuPermission menu = treeItem.Tag as V_UserMenuPermission;
 
             if (menu == null)
                 return;
@@ -187,10 +187,10 @@ namespace SMT.SaaS.Permission.UI
             }
         }
 
-        private void AddSubMenu(List<T_SYS_ENTITYMENU> menulist, TreeViewItem parentItem, T_SYS_ENTITYMENU menu)
+        private void AddSubMenu(List<V_UserMenuPermission> menulist, TreeViewItem parentItem, V_UserMenuPermission menu)
         {
             var menuItems = from m in menulist
-                            where m.T_SYS_ENTITYMENU2 != null && m.T_SYS_ENTITYMENU2.ENTITYMENUID == menu.ENTITYMENUID
+                            where m.EntityMenuFatherID != null && m.EntityMenuFatherID == menu.ENTITYMENUID
                             orderby m.ORDERNUMBER
                             select m;
             if (menuItems == null || menuItems.Count() <= 0)
@@ -207,22 +207,22 @@ namespace SMT.SaaS.Permission.UI
             }
         }
 
-        void permClient_GetSysLeftMenuCompleted(object sender, GetSysLeftMenuCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
-            }
-            else
-            {
-                List<T_SYS_ENTITYMENU> list = new List<T_SYS_ENTITYMENU>();
-                if (e.Result != null)
-                {
-                    list = e.Result.ToList();
-                }
-                initLeftMenu(list);
-            }
-        }
+        //void permClient_GetSysLeftMenuCompleted(object sender, GetSysLeftMenuCompletedEventArgs e)
+        //{
+        //    if (e.Error != null)
+        //    {
+        //        Utility.ShowCustomMessage(MessageTypes.Error, Utility.GetResourceStr("ERROR"), Utility.GetResourceStr(e.Error.Message));
+        //    }
+        //    else
+        //    {
+        //        List<T_SYS_ENTITYMENU> list = new List<T_SYS_ENTITYMENU>();
+        //        if (e.Result != null)
+        //        {
+        //            list = e.Result.ToList();
+        //        }
+        //        initLeftMenu(list);
+        //    }
+        //}
 
         #endregion
 

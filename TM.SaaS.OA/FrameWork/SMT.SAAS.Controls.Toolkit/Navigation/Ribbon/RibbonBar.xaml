@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="SMT.SAAS.Controls.Toolkit.Navigation.Ribbon.RibbonBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <UserControl.Resources>
+        <Color x:Key="borderColor">#FFE8E8E8</Color>
+        <Color x:Key="tabSelectBorderColor">#FF000000</Color>
+
+        <SolidColorBrush x:Key="RibbonTabSelectedBorderBrush" Color="{StaticResource tabSelectBorderColor}"></SolidColorBrush>
+
+        <LinearGradientBrush x:Name="RibbonTabSelectedBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#CCFFFFFF" Offset="0.253"/>
+            <GradientStop Color="#4CFFFFFF" Offset="0.431"/>
+            <GradientStop Color="#7FEDF3FA" Offset="1"/>
+            <GradientStop Color="White"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Name="RibbonGroupsBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFFFFF" Offset="0.987"/>
+            <GradientStop Color="#FFEEF3F9"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="ButtonHotBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFFFBA3" Offset="1" />
+            <GradientStop Color="#FFFFFBDA" Offset="0" />
+            <GradientStop Color="#FFFFD25A" Offset="0.43" />
+            <GradientStop Color="#FFFEEBAE" Offset="0.42" />
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Canvas x:Name="LayoutRoot" Height="300">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Show">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="TabSelectedBackground" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="RibbonGroupParentPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="RibbonGroupParentPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.5"/>
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.2" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="TabSelectedBackground" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.5"/>
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.2" Value="1"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Hide">
+                    <Storyboard  >
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="TabSelectedBackground" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.5"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="RibbonGroupParentPanel" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0.5"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="TabSelectedBackground"  Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="RibbonGroupParentPanel"  Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+                            <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border x:Name="ribbonBarbackground"   
+                Height="36" 
+                 />
+        <Border x:Name="TabSelectedBackground" Height="31" MouseEnter="TabSelectedBackground_MouseEnter" MouseLeave="TabSelectedBackground_MouseLeave"
+                CornerRadius="2,2,0,0" 
+                BorderThickness="1" BorderBrush="{StaticResource ButtonHotBackgroundBrush}"
+                Width="56" RenderTransformOrigin="0.5,1"  Background="{StaticResource RibbonTabSelectedBackground}"
+                Canvas.Left="20" Canvas.Top="4"  Visibility="Visible">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.5" ScaleY="0"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+
+            <Path x:Name="path" Stretch="Fill" StrokeThickness="0"
+                      Fill="{StaticResource RibbonTabSelectedBackground}"
+                      Stroke="{StaticResource RibbonTabSelectedBorderBrush}"   
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Top"   
+				  Data="M0.5,3.5 C0.5,1.8431457 1.8431457,0.5 3.5,0.5 L60.5,0.5 C62.156853,0.5 63.5,2.2368958 63.5,3.89375 L63.382156,27.592754 C63.937809,31.931295 69.62796,32.118958 65,32 L-1.0294546,32.023266 C-5.9527559,32.024578 -0.080858633,32.658916 0.53677166,27.990402 z"
+                  UseLayoutRounding="False"    
+                  RenderTransformOrigin="0.5,0.5"    Visibility="Collapsed"                 
+                  />
+        </Border>
+        <Canvas x:Name="RibbonTabContent"  Height="36" MouseLeave="ribbonBarbackground_MouseLeave"/>
+        <Border Height="87"   x:Name="RibbonGroupParentPanel" 
+                BorderBrush="{StaticResource RibbonTabSelectedBorderBrush}" 
+                Background="{StaticResource RibbonGroupsBackground}"
+                BorderThickness="0" CornerRadius="0 0 2 2" 
+                RenderTransformOrigin="0.198,-0.005" Canvas.Top="36" 
+                Visibility="Collapsed" 
+                MouseLeave="RibbonGroupParentPanel_MouseLeave" 
+                MouseEnter="RibbonGroupParentPanel_MouseEnter">
+            <Border.Effect>
+                <DropShadowEffect Color="#FF505050" ShadowDepth="3"/>
+            </Border.Effect>
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Border x:Name="OutGrow" BorderThickness="1" CornerRadius="0 0 2 2" Margin="0,0,-0.7,-0.7">
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                        <GradientStop Color="#FFB7D9FB"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border x:Name="InnerGrow" BorderThickness="1" CornerRadius="0 0 2 2" Margin="0">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                            <GradientStop Color="#FFB7D9FB" Offset="1"/>
+                            <GradientStop Color="White"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <Canvas  x:Name="RibbonGroupPanel">
+                         
+                    </Canvas>
+                </Border>
+            </Border>
+
+        </Border>
+    </Canvas>
+</UserControl>

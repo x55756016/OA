@@ -1030,7 +1030,7 @@ namespace SMT.HRM.BLL.Permission
                 List<V_UserPermissionUI> rl = new List<V_UserPermissionUI>();
 
                 //如果是管理员 这直接返回一个数据
-
+                
 
                 if (string.IsNullOrEmpty(StrMenuID))
                 {
@@ -1050,7 +1050,6 @@ namespace SMT.HRM.BLL.Permission
                                EntityMenuID = m.ENTITYMENUID
 
                            };
-
                 }
                 else
                 {

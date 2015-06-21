@@ -529,11 +529,10 @@ namespace SMT.HRM.BLL.Permission
                 SysRoleBLL bll = new SysRoleBLL();
                 //权限申请  中每个用户有且只有一个角色名称
                 var ents = from ent in dal.GetObjects<T_SYS_ROLE>()
-                           where  ent.ISAUTHORY =="1" && ent.OWNERID == StrAddUser
+                           where ent.ROLEID == RoleInfo.ROLEID
                            select ent;
                 if (ents.Count() > 0)
                 {
-                    //IsReturn = bll.SysRoleUpdateByCheckForRoleApp(RoleInfo);
                     RoleInfo = ents.FirstOrDefault();
                 }
                 else
@@ -542,13 +541,9 @@ namespace SMT.HRM.BLL.Permission
                 }
                 if (IsReturn)
                 {
-                    string StrReturn = "";
                     SysRoleBLL RoleBll = new SysRoleBLL();
-                    //SysEntityPermBLL  EntityBll = new SysRoleEntityPermBLL();
                     SysEntityMenuBLL EntityBll = new SysEntityMenuBLL();
                     SysPermissionBLL PermissionBll = new SysPermissionBLL();
-                    //T_SYS_ROLE RoleT = new T_SYS_ROLE();
-                    //RoleT = RoleBll.GetSysRoleByID(RoleInfo.ROLEID);
                     IQueryable<T_SYS_ROLEENTITYMENU> QueryRoleEntity = GetRoleEntityIDListInfos(RoleInfo.ROLEID);
                     List<T_SYS_ROLEENTITYMENU> listRoleEntity = QueryRoleEntity.Count() > 0 ? QueryRoleEntity.ToList() : null;
                     // 如果T_Sys_RoleEntity表中存在某一角色的记录 则为修改
@@ -557,10 +552,10 @@ namespace SMT.HRM.BLL.Permission
                         IsReturn = RoleEntityMenuPermissionAdd(tmpString, RoleInfo.ROLEID, StrAddUser);
 
                     }// end 添加
-                    else  //修改状态
+                    else//修改状态
                     {                        
                         IsReturn = RoleEntityMenuPermissionUpdateNew(tmpString, RoleInfo.ROLEID, StrAddUser, listRoleEntity);
-                    }// end edit
+                    }//end edit
                 }
                 else
                 {
@@ -681,24 +676,30 @@ namespace SMT.HRM.BLL.Permission
 
                         int k =dal.Add(PermRole);
 
-                        #region 调用即时通讯接口
-                        
-                        if (k > 0)
-                        {
-                            //存在公司信息或部门信息菜单授权则调用
-                            //string MenuCompanyID = "55623178-A187-421a-8556-067E6908207A";//公司菜单ID
-                            //string MenuDepartmentID = "04F86C10-02E3-4874-A198-4EC986C288CC";//部门菜单ID
-                            //if (rolemenu.T_SYS_ENTITYMENU.ENTITYMENUID == MenuCompanyID) 
-                            //{
-                            //    AddUpdateUserDepart(rolemenu.T_SYS_ROLE.ROLEID, StrDataRange,SMT.HRM.BLL.Permission.Utility.IMOrganize.Company);
-                            //}
-                            //if (rolemenu.T_SYS_ENTITYMENU.ENTITYMENUID == MenuDepartmentID)
-                            //{
-                            //    AddUpdateUserDepart(rolemenu.T_SYS_ROLE.ROLEID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Deaprtment);
-                            //}
-                        }
-                        #endregion
+                        #region 冗余用户角色权限，以提高速度
+                         var rm = (from ent in dal.GetObjects<T_SYS_ROLEENTITYMENU>()
+                                   where ent.ROLEENTITYMENUID == rolemenu.ROLEENTITYMENUID
+                                         select new { ent.T_SYS_ROLE.ROLEID, ent.T_SYS_ENTITYMENU.MENUCODE }).FirstOrDefault();
+                         if (rm != null)
+                         {
+                             var users = (from ent in dal.GetObjects<T_SYS_USERROLE>()
+                                          where ent.T_SYS_ROLE.ROLEID == rm.ROLEID
+                                          select ent.T_SYS_USER.SYSUSERID);
 
+                             if (users.Count() > 0)
+                             {
+                                 foreach (var SYSUSERID in users)
+                                 {
+                                     T_SYS_USERMENUPERMISSION up = new T_SYS_USERMENUPERMISSION();
+                                     up.SYSUSERID = SYSUSERID;
+                                     up.MENUCODE = rm.MENUCODE;
+                                     up.PERMISSIONID = StrPermissionID;
+                                     up.DATARANGE = StrDataRange;
+                                     int j = dal.Add(up);
+                                 }
+                             }
+                         }
+                        #endregion
 
                     }
                 }
@@ -847,8 +848,7 @@ namespace SMT.HRM.BLL.Permission
         /// <param name="listRoleEntity"></param>
         /// <returns></returns>
         private bool RoleEntityMenuPermissionUpdateNew(string tmpString, string StrRoleID, string StrAddUser, List<T_SYS_ROLEENTITYMENU> listRoleEntity)
-        {
-            
+        {            
             string StrReturn = "";
             SysRoleBLL RoleBll = new SysRoleBLL();
             //SysEntityPermBLL  EntityBll = new SysRoleEntityPermBLL();
@@ -868,8 +868,7 @@ namespace SMT.HRM.BLL.Permission
                 RoleEntityList = listRoleEntity;
                //2011-05-14 修改
                 for (int i = 0; i < firstStr.Length; i++)
-                {
-                    
+                {                    
                     string[] EntityPermStr = firstStr[i].Split('@');//获取菜单ID,将菜单实体和权限菜单分开
                     if (EntityPermStr.Length <2)
                     {
@@ -929,21 +928,30 @@ namespace SMT.HRM.BLL.Permission
                                     StrReturn = "false";
                                 }
 
-                                #region 调用即时通讯接口
-                                if (k > 0)
+
+                                #region 冗余用户角色权限，以提高速度
+                                var rm = (from ent in dal.GetObjects<T_SYS_ROLEENTITYMENU>()
+                                         where ent.ROLEENTITYMENUID == Childrolemenu.ROLEENTITYMENUID
+                                         select new { ent.T_SYS_ROLE.ROLEID, ent.T_SYS_ENTITYMENU.MENUCODE }).FirstOrDefault();
+                                if (rm != null)
                                 {
-                                    //存在公司信息或部门信息菜单授权则调用
-                                    //string MenuCompanyID = "55623178-A187-421a-8556-067E6908207A";//公司菜单ID
-                                    //string MenuDepartmentID = "04F86C10-02E3-4874-A198-4EC986C288CC";//部门菜单ID
-                                    //if (EntityID == MenuCompanyID)
-                                    //{
-                                    //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Company);
-                                    //}
-                                    //if (EntityID == MenuDepartmentID)
-                                    //{
-                                    //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Deaprtment);
-                                    //}
-                                }                                
+                                    var users = (from ent in dal.GetObjects<T_SYS_USERROLE>()
+                                                 where ent.T_SYS_ROLE.ROLEID == rm.ROLEID
+                                                 select ent.T_SYS_USER.SYSUSERID);
+
+                                    if (users.Count() > 0)
+                                    {
+                                        foreach (var SYSUSERID in users)
+                                        {
+                                            T_SYS_USERMENUPERMISSION up = new T_SYS_USERMENUPERMISSION();
+                                            up.SYSUSERID = SYSUSERID;
+                                            up.MENUCODE = rm.MENUCODE;
+                                            up.PERMISSIONID = StrPermissionID;
+                                            up.DATARANGE = StrDataRange;
+                                            int j = dal.Add(up);
+                                        }
+                                    }
+                                }
                                 #endregion
                             }
                         }
@@ -1001,20 +1009,29 @@ namespace SMT.HRM.BLL.Permission
                                             StrReturn = "editfalse";
                                         }
 
-                                        #region 调用即时通讯接口
-                                        
-                                        //存在公司信息或部门信息菜单授权则调用
-                                        //string MenuCompanyID = "55623178-A187-421a-8556-067E6908207A";//公司菜单ID
-                                        //string MenuDepartmentID = "04F86C10-02E3-4874-A198-4EC986C288CC";//部门菜单ID
-                                        //if (EntityID == MenuCompanyID)
-                                        //{
-                                        //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Company);
-                                        //}
-                                        //if (EntityID == MenuDepartmentID)
-                                        //{
-                                        //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Deaprtment);
-                                        //}
-                                        
+                                        #region 冗余用户角色权限，以提高速度
+                                        var rm = (from ent in dal.GetObjects<T_SYS_ROLEENTITYMENU>()
+                                                  where ent.ROLEENTITYMENUID == ChildMenu.ROLEENTITYMENUID
+                                                  select new { ent.T_SYS_ROLE.ROLEID, ent.T_SYS_ENTITYMENU.MENUCODE }).FirstOrDefault();
+                                        if (rm != null)
+                                        {
+                                            var users = (from ent in dal.GetObjects<T_SYS_USERROLE>()
+                                                         where ent.T_SYS_ROLE.ROLEID == rm.ROLEID
+                                                         select ent.T_SYS_USER.SYSUSERID);
+
+                                            if (users.Count() > 0)
+                                            {
+                                                foreach (var SYSUSERID in users)
+                                                {
+                                                    T_SYS_USERMENUPERMISSION up = new T_SYS_USERMENUPERMISSION();
+                                                    up.SYSUSERID = SYSUSERID;
+                                                    up.MENUCODE = rm.MENUCODE;
+                                                    up.PERMISSIONID = StrPermissionID;
+                                                    up.DATARANGE = StrDataRange;
+                                                    int j = dal.Update(up);
+                                                }
+                                            }
+                                        }
                                         #endregion
 
                                     }
@@ -1074,19 +1091,34 @@ namespace SMT.HRM.BLL.Permission
                                     {
                                         StrReturn = "addfalse";
                                     }
+                                    #region 更新冗余用户角色权限，以提高速度
+                                    var rm = (from ent in dal.GetObjects<T_SYS_ROLEENTITYMENU>()
+                                              where ent.ROLEENTITYMENUID == ChildMenu.ROLEENTITYMENUID
+                                              select new { ent.T_SYS_ROLE.ROLEID, ent.T_SYS_ENTITYMENU.MENUCODE }).FirstOrDefault();
+                                    if (rm != null)
+                                    {
+                                        var users = (from ent in dal.GetObjects<T_SYS_USERROLE>()
+                                                     where ent.T_SYS_ROLE.ROLEID == rm.ROLEID
+                                                     select ent.T_SYS_USER.SYSUSERID);
 
-                                    //存在公司信息或部门信息菜单授权则调用
-                                    //string MenuCompanyID = "55623178-A187-421a-8556-067E6908207A";//公司菜单ID
-                                    //string MenuDepartmentID = "04F86C10-02E3-4874-A198-4EC986C288CC";//部门菜单ID
-                                    //if (EntityID == MenuCompanyID)
-                                    //{
-                                    //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Company);
-                                    //}
-                                    //if (EntityID == MenuDepartmentID)
-                                    //{
-                                    //    AddUpdateUserDepart(StrRoleID, StrDataRange, SMT.HRM.BLL.Permission.Utility.IMOrganize.Deaprtment);
-                                    //}
-                                    //dal.Add(PermRole);
+                                        if (users.Count() > 0)
+                                        {
+                                            foreach (var SYSUSERID in users)
+                                            {
+                                                var up = (from ent in dal.GetObjects<T_SYS_USERMENUPERMISSION>()
+                                                             where ent.SYSUSERID==SYSUSERID
+                                                             && ent.MENUCODE==rm.MENUCODE
+                                                             && ent.PERMISSIONID==StrPermissionID
+                                                             select ent).FirstOrDefault();
+                                                if (up != null)
+                                                {
+                                                    up.DATARANGE = StrDataRange;
+                                                    int j = dal.Add(up);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    #endregion
 
                                 }
                             }
@@ -1101,6 +1133,33 @@ namespace SMT.HRM.BLL.Permission
                         {
                             StrReturn = "RoleEntityMenuDeleteISERROR";
                         }
+
+                        #region 删除冗余用户角色权限，以提高速度
+                        var rm = (from ent in dal.GetObjects<T_SYS_ROLEENTITYMENU>()
+                                  where ent.ROLEENTITYMENUID == ChildMenu.ROLEENTITYMENUID
+                                  select new { ent.T_SYS_ROLE.ROLEID, ent.T_SYS_ENTITYMENU.MENUCODE }).FirstOrDefault();
+                        if (rm != null)
+                        {
+                            var users = (from ent in dal.GetObjects<T_SYS_USERROLE>()
+                                         where ent.T_SYS_ROLE.ROLEID == rm.ROLEID
+                                         select ent.T_SYS_USER.SYSUSERID);
+
+                            if (users.Count() > 0)
+                            {
+                                foreach (var SYSUSERID in users)
+                                {
+                                    var up = (from ent in dal.GetObjects<T_SYS_USERMENUPERMISSION>()
+                                              where ent.SYSUSERID == SYSUSERID
+                                              && ent.MENUCODE == rm.MENUCODE
+                                              select ent).FirstOrDefault();
+                                    if (up != null)
+                                    {
+                                        int j = dal.Delete(up);
+                                    }
+                                }
+                            }
+                        }
+                        #endregion
                     }
                     #endregion
 
@@ -1117,8 +1176,7 @@ namespace SMT.HRM.BLL.Permission
                     return false;
                 }
                 else
-                {
-                    
+                {                    
                     return true;
                 }
             }
@@ -1128,10 +1186,6 @@ namespace SMT.HRM.BLL.Permission
                 return false;
 
             }
-            
-
-            
-            return true;
         }
         #endregion
 

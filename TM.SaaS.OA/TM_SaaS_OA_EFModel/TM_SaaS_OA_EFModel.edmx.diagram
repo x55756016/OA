@@ -366,7 +366,6 @@
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_AREACITY" Width="1.5" PointX="0.75" PointY="57.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_AREADISTRICT" Width="1.5" PointX="37.75" PointY="40.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_AREAPROVINCE" Width="1.5" PointX="2.75" PointY="57.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_ENTITYMENUBAK" Width="1.5" PointX="75.75" PointY="37.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_ROLE_BAK" Width="1.5" PointX="75.75" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_WF_DEFAULTMESSAGE" Width="1.5" PointX="75.75" PointY="42.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_WF_DOTASKBAK0801" Width="1.5" PointX="40.75" PointY="77.875" IsExpanded="true" />
@@ -615,6 +614,8 @@
         <AssociationConnector Association="TM_SaaS_OA_EFModel.FK_T_SYS_RO_ROLEENTITYMENU" ManuallyRouted="false" />
         <AssociationConnector Association="TM_SaaS_OA_EFModel.FK_REFERENCE_162" ManuallyRouted="false" />
         <AssociationConnector Association="TM_SaaS_OA_EFModel.FK_T_WF_DOT_REFERENCE_T_WF_DOT" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION" Width="1.5" PointX="21.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

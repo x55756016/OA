@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/Receiption/EstforRecp</PageParameter>
+    <ApplicationOrder>{VISITORID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_ESTFORRECP" Description="招聘经理对前台接待的评价表" Key="RECPESTID" id="">
+    <Attribute Name="RECPESTID" LableResourceID="RECPESTID" Description="对前台的评价ID" DataType="string" DataValue="" DataText="对前台的评价ID" />
+    <Attribute Name="ESTERID" LableResourceID="ESTERID" Description="评价人ID" DataType="string" DataValue="" DataText="评价人ID" />
+    <Attribute Name="ESTER" LableResourceID="ESTER" Description="评价人" DataType="string" DataValue="" DataText="评价人" />
+    <Attribute Name="ESTERDEPARTMENTID" LableResourceID="ESTERDEPARTMENTID" Description="评价人单位部门" DataType="string" DataValue="" DataText="评价人单位部门" />
+    <Attribute Name="ESTERPOSTID" LableResourceID="ESTERPOSTID" Description="评价人岗位" DataType="string" DataValue="" DataText="评价人岗位" />
+    <Attribute Name="ESTERCOMPANYID" LableResourceID="ESTERCOMPANYID" Description="评价人公司ID" DataType="string" DataValue="" DataText="评价人公司ID" />
+    <Attribute Name="BYESTDEPARTMENTID" LableResourceID="BYESTDEPARTMENTID" Description="被评人部门" DataType="string" DataValue="" DataText="被评人部门" />
+    <Attribute Name="BYESTCOMPANYID" LableResourceID="BYESTCOMPANYID" Description="被评人公司ID" DataType="string" DataValue="" DataText="被评人公司ID" />
+    <Attribute Name="BYESTERID" LableResourceID="BYESTERID" Description="被评人ID" DataType="string" DataValue="" DataText="被评人ID" />
+    <Attribute Name="BYESTER" LableResourceID="BYESTER" Description="被评价人" DataType="string" DataValue="" DataText="被评价人" />
+    <Attribute Name="VISITORID" LableResourceID="VISITORID" Description="来访人ID" DataType="string" DataValue="" DataText="来访人ID" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="RECEPTIONITEM" LableResourceID="RECEPTIONITEM" Description="接待事项" DataType="string" DataValue="" DataText="接待事项" />
+    <Attribute Name="EDITSTATES" LableResourceID="EDITSTATES" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+  </Object>
+</System>

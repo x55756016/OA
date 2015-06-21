@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>WP</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_WP_TACTICNORMISSUED" Description="年度战略指标下达表" Key="TACNORMID" id="">
+    <Attribute  Name="TACNORMID" LableResourceID="TACNORMID" Description="战略指标主键ID，GUID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ISSUEDID" LableResourceID="ISSUEDID" Description="计划下达主键ID
+选择自计划拟制表主键" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSCODE" LableResourceID="ITEMSCODE" Description="事项编号" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSNAME" LableResourceID="ITEMSNAME" Description="事项名称" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSTYPE" LableResourceID="ITEMSTYPE" Description="事项类型 TacticNormItemsType
+1年度事项
+2固定事项
+3其他事项" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="ITEMSCONTENT" LableResourceID="ITEMSCONTENT" Description="事项内容" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANSTARTDATE" LableResourceID="PLANSTARTDATE" Description="计划开始时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="PLANENDDATE" LableResourceID="PLANENDDATE" Description="计划结束时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WEIGHT" LableResourceID="WEIGHT" Description="权重" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="FACTSCORE" LableResourceID="FACTSCORE" Description="实际得分" DataType="NUMBER" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态 EditStates
+0 删除状态 Deleted
+1 已生效 Actived
+2 未生效 UnActived
+3 撤消中 PendingCancelled
+4 已撤消 Cancelled" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+</Object>
+
+</System>

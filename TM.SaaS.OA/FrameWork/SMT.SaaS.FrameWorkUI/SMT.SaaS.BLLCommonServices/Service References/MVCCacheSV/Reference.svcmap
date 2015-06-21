@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7c016208-4f21-4e3b-9b29-1cfe727ecd2a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CacheService.xsd" MetadataType="Schema" ID="f98629e1-5fb7-42b5-a98c-e429f5d4814c" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CacheService1.xsd" MetadataType="Schema" ID="de3a5d40-69b0-4c53-b902-6df98b6c39fa" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CacheService.disco" MetadataType="Disco" ID="b2694046-df8a-452c-8e65-c31188f888f4" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?disco" />
+    <MetadataFile FileName="CacheService2.xsd" MetadataType="Schema" ID="561574e5-cde4-484d-9115-f791c03997de" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd9" />
+    <MetadataFile FileName="CacheService3.xsd" MetadataType="Schema" ID="42553f6d-79e0-4c0c-bd69-eb32244721b6" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CacheService4.xsd" MetadataType="Schema" ID="86328e2d-a006-46de-942c-9b6b4172296c" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CacheService5.xsd" MetadataType="Schema" ID="69fbb9de-9393-4dec-8dfb-e3e75abe1bea" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CacheService6.xsd" MetadataType="Schema" ID="c0a42730-fcce-4d64-b2ae-b7c44320941b" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd6" />
+    <MetadataFile FileName="CacheService.wsdl" MetadataType="Wsdl" ID="13771e47-0c32-4ad5-90ca-0ea237bc2c7d" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?wsdl" />
+    <MetadataFile FileName="CacheService7.xsd" MetadataType="Schema" ID="0e6f39a6-79ce-4937-92ce-be06f04842ee" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CacheService8.xsd" MetadataType="Schema" ID="ab24aa45-b37d-48ce-a4ca-a4ff8be0f310" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd7" />
+    <MetadataFile FileName="CacheService9.xsd" MetadataType="Schema" ID="74d60a96-4643-4ec4-aedc-91e06353b92c" SourceId="1" SourceUrl="http://smtdev.smt-online.net/New/Services/CommonServices/CacheService.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

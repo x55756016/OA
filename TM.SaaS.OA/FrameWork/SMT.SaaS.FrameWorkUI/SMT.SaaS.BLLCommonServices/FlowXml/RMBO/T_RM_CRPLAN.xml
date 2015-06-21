@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="计划" Address="RMServices.svc"   FuncName="CallWaitAppService"  Binding="BasicHttpBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_RM_CRPLANMASTER" Name="REQUIREAPPLYID" Description="需求ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/CrPlan/Create</PageParameter>
+    <ApplicationOrder>{REQUIREAPPLYID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_CRPLANMASTER" Description="招聘计划主表" Key="PLANID" id="">
+    <Attribute Name="PLANID" LableResourceID="PLANID" Description="计划ID" DataType="string" DataValue="" DataText="计划ID" />
+    <Attribute Name="REQUIREAPPLYID" LableResourceID="REQUIREAPPLYID" Description="需求ID" DataType="string" DataValue="" DataText="需求ID" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText="所属公司ID" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText="创建人公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText="创建人部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText="创建人岗位ID" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="INTENDDATE" LableResourceID="INTENDDATE" Description="预计到岗时间" DataType="datetime" DataValue="" DataText="预计到岗时间" />
+    <Attribute Name="REQUIREAPPLYCODE" LableResourceID="REQUIREAPPLYCODE" Description="申请编号" DataType="string" DataValue="" DataText="申请编号" />
+    <Attribute Name="ISEXE" LableResourceID="ISEXE" Description="招聘计划执行" DataType="string" DataValue="" DataText="招聘计划执行" />
+    <ObjectList Name="T_RM_CRPLAN" LableResourceID="T_RM_CRPLAN" Description="制定招聘计划子表" DataText="">
+      <Object Name="T_RM_CRPLAN" Description="制定招聘计划子表" Key="CRPLANID" id="">
+        <Attribute Name="PLANID" LableResourceID="PLANID" Description="计划ID" DataType="string" DataValue="" DataText="计划ID" />
+        <Attribute Name="REQUIREAPPLYID" LableResourceID="REQUIREAPPLYID" Description="需求ID" DataType="string" DataValue="" DataText="需求ID" />
+        <Attribute Name="PUBLISHID" LableResourceID="PUBLISHID" Description="渠道ID" DataType="string" DataValue="" DataText="渠道ID" />
+        <Attribute Name="REQQTY" LableResourceID="REQQTY" Description="需搜索简历份数" DataType="decimal" DataValue="" DataText="需搜索简历份数" />
+        <Attribute Name="EXPECTCOST" LableResourceID="EXPECTCOST" Description="预计费用" DataType="decimal" DataValue="" DataText="预计费用" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="说明" DataType="string" DataValue="" DataText="说明" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+        <Attribute Name="CRPLANID" LableResourceID="CRPLANID" Description="计划表虚拟ID" DataType="string" DataValue="" DataText="计划表虚拟ID" />
+        <Attribute Name="PUBLISHNAME" LableResourceID="PUBLISHNAME" Description="渠道名" DataType="string" DataValue="" DataText="渠道名" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

@@ -1069,7 +1069,7 @@ namespace SMT.HRM.BLL
         }
 
 
-        public byte[] ExportEmployeesIntime(string ownerId, string ownerCompanyId, string startDate, string endDate)
+        public byte[] ExportEmployeesAttendanceeEntity(string ownerId, string ownerCompanyId, string startDate, string endDate)
         {
             List<AbnormalAttendanceeEntity> abnormalAttendanceeEntity = ExportEmployees(ownerId, ownerCompanyId, startDate, endDate);
 

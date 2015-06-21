@@ -1,0 +1,20 @@
+﻿<System>
+    <Function Description="T_FB_PERSONBUDGETADDMASTER" Address="FBExtensionalService.svc"   FuncName="ProcessFuncName_ZeroParam"  Binding="basicHttpBinding" SplitChar="Г">
+        <ParaStr>
+            <Para TableName="" Name="ONWERID" Description="所有者ID" Value=""></Para>
+
+        </ParaStr>
+    </Function>
+    <MsgOpen>
+        <AssemblyName>SMT.FB.UI</AssemblyName>
+        <PublicClass>SMT.FB.UI.Common.CommonFunction</PublicClass>
+        <ProcessName>ShowAuditForm</ProcessName>
+        <PageParameter>T_FB_PERSONBUDGETADDMASTER</PageParameter>
+        <ApplicationOrder>{PERSONBUDGETADDMASTERID}</ApplicationOrder>
+        <FormTypes>Audit</FormTypes>
+    </MsgOpen>
+    <Object Name="T_FB_PERSONBUDGETADDMASTER" Description="T_FB_PERSONBUDGETADDMASTER">
+        <Attribute  Name="ONWERID" Description="所有者ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+        <Attribute  Name="PERSONBUDGETADDMASTERID" Description="表单ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    </Object>
+</System>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>FAM</Name>
+  <System>
+    <Function Description="固定资产调拨" Address="Demo.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_FAM_ASSETSADJUSTMENT"  Name="CREATEUSERNAME" Description="创建人名" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+	<MsgOpen>
+		<AssemblyName>SMT.SaaS.OA</AssemblyName>
+		<PublicClass>SMT.SaaS.OA.Utility</PublicClass>
+		<ProcessName>CreateFormFromEngine</ProcessName>
+		<PageParameter>SMT.SaaS.OA.UserControls.AssetManagement.AdJuestMentControl</PageParameter>
+		<ApplicationOrder>{ADJUSTMENTID}</ApplicationOrder>
+		<FormTypes>Audit</FormTypes>
+	</MsgOpen>
+  <Object Name="T_FAM_ASSETSADJUSTMENT" Description="固定资产调拨">
+    <Attribute  Name="CREATEPOSTID" Description="创建岗位ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDEPARTMENTID" Description="创建部门ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATECOMPANYID" Description="创建公司ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERNAME" Description="创建人名" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERPOSTID" Description="所属岗位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERDEPARTMENTID" Description="所属部门" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERCOMPANYID" Description="所属公司" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERNAME" Description="所属用户名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="OWNERID" Description="所属用户ID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATETIME" Description="修改时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEDATE" Description="修改日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UPDATEUSERID" Description="修改人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATETIME" Description="创建时间" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEDATE" Description="创建日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CREATEUSERID" Description="创建人" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="GUID" Description="GUID" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CHECKSTATE" Description="审批状态" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="CURRENTNODECODE" Description="当前节点代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="REMARK" Description="备注" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ADJUSTMENTDATE" Description="调拨日期" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ADJUSTMENTUNIT" Description="调拨单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ORIGINATEUNIT" Description="原使用单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="UNITID" Description="单位" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="SPECIFICATION" Description="规格型号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ASSETSNAME" Description="资产名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ASSETSID" Description="资产编号" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWNAME" Description="流程名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="FLOWID" Description="流程代码" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ADJUSTMENTNAME" Description="调拨单名称" DataType="NVARCHAR2" DataValue=""></Attribute>
+    <Attribute  Name="ADJUSTMENTID" Description="调拨单号" DataType="NVARCHAR2" DataValue=""></Attribute>
+  </Object>
+
+</System>

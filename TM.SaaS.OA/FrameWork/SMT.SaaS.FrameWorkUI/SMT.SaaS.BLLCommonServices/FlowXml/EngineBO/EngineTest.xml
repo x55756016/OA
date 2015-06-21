@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+	<Name>Engine</Name>
+  <System>
+    <Function Description="调用引擎（CallApplicationService）" Address="TestWcf.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+	<Para TableName="T_HR_ATTENDANCERECORD" Name="ATTENDANCERECORDID" Description="调用引擎CallApplicationService" Value=""></Para>
+        
+      </ParaStr>
+    </Function>
+
+     <Function Description="调用引擎接口（CallWaitAppService）" Address="TestWcf.svc"   FuncName="CallWaitAppService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+<Para TableName="T_HR_ATTENDANCERECORD" Name="ATTENDANCERECORDID" Description="调用引擎CallWaitAppService" Value=""></Para>
+        	
+      </ParaStr>
+    </Function>
+
+ 	<Function Description="调用定时（EventTriggerProcess）" Address="TestWcf.svc"   FuncName="EventTriggerProcess"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+<Para TableName="T_HR_ATTENDANCERECORD" Name="ATTENDANCERECORDID" Description="调用定时EventTriggerProcess" Value=""></Para>
+        	
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.SaaS.OA.UI</AssemblyName>
+    <PublicClass>SMT.SaaS.OA.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.SaaS.OA.UI.UserControls.MeetingForm</PageParameter>
+    <ApplicationOrder>{MEETINGINFOID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>  
+</MsgOpen>
+  <Object Name="T_OA_MEETINGINFO" Description="会议申请">
+   
+  </Object>
+</System>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="WP">
+  <ObjectList>
+    <Object Name="T_WP_ADJUSTDEPTPLAN" Description="部门年度经营指标计划调整表"></Object>
+ 
+    <Object Name="T_WP_ADJUSTDEPTPLANRESOLVE" Description="部门年度经营指标计划调整分解表可变费用计划分解"></Object>
+
+    <Object Name="T_WP_ADJUSTPLAN" Description="公司计划调整申请表"></Object>
+
+	   <Object Name="T_WP_ADJUSTDEPTPLAN" Description="部门计划调整申请表"></Object>
+
+	    <Object Name="T_WP_ADJUSTDEPTPLANTASK" Description="部门计划调整申请审核不通过代办"></Object>
+ 
+    <Object Name="T_WP_ADJUSTPLANNORM" Description="年度经营指标调整申报表"></Object>
+ 
+    <Object Name="T_WP_ADJUSTPOSTPLAN" Description="岗位员工年度计划调整表"></Object>
+ 
+    <Object Name="T_WP_ADJUSTPOSTPLANRESOLVE" Description="岗位员工年度计划调整分解表可变费用计划分解"></Object>
+ 
+    <Object Name="T_WP_APPOINTDIRECTEREMP" Description="外派董事年度经营指标派驻人员表"></Object>
+ 
+    <Object Name="T_WP_APPOINTDIRECTERISSUED" Description="外派董事年度经营指标下达表"></Object>
+ 
+    <Object Name="T_WP_COMPANYFIXCOSTISSUED" Description="年度固定费用分解下达表"></Object>
+ 
+    <Object Name="T_WP_COMPNORMDEFINE" Description="集团公司经营指标定义"></Object>
+ 
+    <Object Name="T_WP_DEPARTMENTDRAFT" Description="年度计划机构调整申请表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTDRAFTISSUED" Description="年度计划机构调整下达表"></Object>
+ 
+    <Object Name="T_WP_DEPARTMENTFIXCOSTISSUED" Description="部门年度固定费用分解下达表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTNORMRESOLVE" Description="部门年度经营总体指标分解表计划申请表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTNORMRESOLVEFIX" Description="部门年度经营指标分解固定费用表支出分解"></Object>
+
+    <Object Name="T_WP_DEPARTMENTNORMRESOLVEPLAN" Description="部门年度经营指标分解总体计划表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONISSUED" Description="部门年度经营指标下达表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONPLAN" Description="部门年度经营总体指标分解表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONPLANTASK" Description="部门年度经营计划表代办"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONPLANFAILE" Description="部门年度经营计划重提"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONRESOLVE" Description="部门年度经营指标费用分解表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTONRESOLVEEMP" Description="部门年度经营指标岗位员工费用分解表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTPLANISSUED" Description="部门年度计划下达表"></Object>
+
+    <Object Name="T_WP_DEPARTMENTYCOSTPLAN" Description="部门年度科目费用计划表"></Object>
+
+    <Object Name="T_WP_DEPTEMPYCOSTPLAN" Description="部门年度科目费用计划主表"></Object>
+
+    <Object Name="T_WP_DEPTEMPYCOSTPLANITEM" Description="员工年度科目费用计划科目项从表"></Object>
+
+    <Object Name="T_WP_DEPTNORMDEFINE" Description="部门经营指标定义"></Object>
+
+    <Object Name="T_WP_NORMITEMCONFIG" Description="年度指标控制项配置管理记录"></Object>
+
+    <Object Name="T_WP_OPERATENORMDRAFT" Description="年度经营指标申报表"></Object>
+
+    <Object Name="T_WP_OPERATENORMISSUED" Description="公司年度经营指标下达表"></Object>
+
+    <Object Name="T_WP_PLANDRAFT" Description="公司计划申请表"></Object>
+
+    <Object Name="T_WP_PLANDRAFTTASK" Description="公司计划申请代办"></Object>
+
+    <Object Name="T_WP_PLANDRAFTFAILE" Description="公司计划申请重提"></Object>
+
+    <Object Name="T_WP_PLANISSUED" Description="工作计划下达表"></Object>
+
+    <Object Name="T_WP_PLANISSUEDADJUSTEXECTASK" Description="年度计划机构调整下达执行代办"></Object>
+
+	<Object Name="T_WP_PLANISSUEDADJUSTEXECFAIL" Description="年度计划机构调整下达执行失败"></Object>
+
+	<Object Name="T_WP_PLANISSUEDTASK" Description="年度计划下达代办"></Object>
+
+    <Object Name="T_WP_POSTDRAFT" Description="年度计划机构调整岗位申请表"></Object>
+
+    <Object Name="T_WP_POSTDRAFTISSUED" Description="年度计划机构调整岗位下达表"></Object>
+
+    <Object Name="T_WP_POSTEMPCIRESOLVEPLAN" Description="岗位员工科目费用分解计划表"></Object>
+
+    <Object Name="T_WP_POSTEMPPLANPERIODCONFIG" Description="岗位员工计划总结上报周期设置表"></Object>
+
+    <Object Name="T_WP_POSTEMPPLANPERIODDETAIL" Description="岗位员工计划总结上报周期设置从表"></Object>
+
+    <Object Name="T_WP_POSTEMPSUMMARY" Description="岗位员工周期费用计划总结表"></Object>
+	<Object Name="T_WP_POSTEMPSUMMARYTASK" Description="岗位员工周期费用计划总结表评价代办"></Object>
+
+	<Object Name="T_WP_POSTEMPSUMMARYFAILE" Description="岗位员工周期费用计划重提"></Object>
+
+    <Object Name="T_WP_POSTEMPSUMMARYEXEC" Description="岗位员工周期计划执行表"></Object>
+
+    <Object Name="T_WP_POSTEMPSUMMARYEXECDETAIL" Description="岗位员工周期计划执行从表"></Object>
+
+    <Object Name="T_WP_POSTEMPSUMMARYPLAN" Description="岗位员工周期总结下期计划表"></Object>
+
+    <Object Name="T_WP_POSTEMPSUMMARYPLANDETAIL" Description="岗位员工周期总结下期计划从表"></Object>
+
+    <Object Name="T_WP_PRESETCOSTCONFIG" Description="年度预留机动费用设置记录"></Object>
+
+    <Object Name="T_WP_PRESETCOSTCONFIGDRAFT" Description="年度预留机动费用设置方案"></Object>
+
+    <Object Name="T_WP_TACTICNORMDRAFT" Description="年度战略指标申报及执行情况表"></Object>
+
+    <Object Name="T_WP_YEARNORMDEFINE" Description="公司年度经营指标定义记录"></Object>
+
+    <Object Name="T_WP_YEARNORMDRAFT" Description="公司年度经营指标方案"></Object>
+	<Object Name="T_WP_POSTEMPSUMCHG" Description="员工周期计划变更"></Object>
+	<Object Name="T_WP_COMPANYOPISSUEDTASK" Description="年度经营计划分解"></Object>
+  </ObjectList>
+ 
+</System>
+
+

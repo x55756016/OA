@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>TK</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.TK.UI</AssemblyName>
+    <PublicClass>SMT.TK.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>TK/RefundInfo/Details</PageParameter>
+    <ApplicationOrder>{REFUNDID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_TASK_REFUNDINFO" Description="T_TASK_RefundInfo 还款单信息表" Key="REFUNDID" id="">
+    <Attribute Name="REFUNDID" LableResourceID="REFUNDID" Description="还款申请ID" DataType="string" DataValue="" DataText="还款申请ID" />
+    <Attribute Name="REFUNDCODE" LableResourceID="REFUNDCODE" Description="还款单编号" DataType="string" DataValue="" DataText="还款单编号" />
+    <Attribute Name="REFUNDCAUSE" LableResourceID="REFUNDCAUSE" Description="还款说明" DataType="string" DataValue="" DataText="还款说明" />
+    <Attribute Name="PAYREMARK" LableResourceID="PAYREMARK" Description="支付信息" DataType="string" DataValue="" DataText="支付信息" />
+    <Attribute Name="REFUNDSUMMONEY" LableResourceID="REFUNDSUMMONEY" Description="还款合计(元)" DataType="decimal" DataValue="" DataText="还款合计(元)" />
+    <Attribute Name="REFUNDDATE" LableResourceID="REFUNDDATE" Description="还款日期&#xA;审核通过时，写入审核通过的日期" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="ATTACHEDFILE" LableResourceID="ATTACHEDFILE" Description="附档文件" DataType="string" DataValue="" DataText="附档文件" />
+    <Attribute Name="RECEIVER" LableResourceID="RECEIVER" Description="收款人" DataType="string" DataValue="" DataText="收款人" />
+    <Attribute Name="BANK" LableResourceID="BANK" Description="开户银行" DataType="string" DataValue="" DataText="开户银行" />
+    <Attribute Name="BANKACCOUT" LableResourceID="BANKACCOUT" Description="银行帐号" DataType="string" DataValue="" DataText="银行帐号" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人" DataType="string" DataValue="" DataText="所属人" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属人岗位" DataType="string" DataValue="" DataText="所属人岗位" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属人部门" DataType="string" DataValue="" DataText="所属人部门" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属人公司" DataType="string" DataValue="" DataText="所属人公司" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人名称" DataType="string" DataValue="" DataText="所属人名称" />
+    <Attribute Name="OWNERPOSTNAME" LableResourceID="OWNERPOSTNAME" Description="所属人岗位名称" DataType="string" DataValue="" DataText="所属人岗位名称" />
+    <Attribute Name="OWNERCOMPANYNAME" LableResourceID="OWNERCOMPANYNAME" Description="所属人公司名称" DataType="string" DataValue="" DataText="所属人公司名称" />
+    <Attribute Name="OWNERDEPARTMENTNAME" LableResourceID="OWNERDEPARTMENTNAME" Description="所属人部门名称" DataType="string" DataValue="" DataText="所属人部门名称" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人" DataType="string" DataValue="" DataText="创建人" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名称" DataType="string" DataValue="" DataText="创建人名称" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="公司ID" DataType="string" DataValue="" DataText="公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="部门ID" DataType="string" DataValue="" DataText="部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="岗位ID" DataType="string" DataValue="" DataText="岗位ID" />
+    <Attribute Name="CREATEPOSTNAME" LableResourceID="CREATEPOSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATECOMPANYNAME" LableResourceID="CREATECOMPANYNAME" Description="公司名称" DataType="string" DataValue="" DataText="公司名称" />
+    <Attribute Name="CREATEDEPARTMENTNAME" LableResourceID="CREATEDEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText="修改人" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="UPDATEUSERNAME" LableResourceID="UPDATEUSERNAME" Description="修改人名称" DataType="string" DataValue="" DataText="修改人名称" />
+  </Object>
+</System>

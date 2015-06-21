@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TM_SaaS_OA_EFModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+    <Schema Namespace="TM_SaaS_OA_EFModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityType Name="FLOW_CONSULTATION_T">
           <Key>
             <PropertyRef Name="CONSULTATIONID" />
@@ -2319,22 +2319,6 @@
           <Property Name="ATTENDANCESET" Type="varchar" MaxLength="1" />
           <Property Name="SALARYSET" Type="varchar" MaxLength="1" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“def.tmoa.T_HR_BASICTABLE”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_HR_BASICTABLE">
-          <Property Name="REMARK" Type="varchar" MaxLength="2000" />
-          <Property Name="OWNERID" Type="varchar" MaxLength="50" />
-          <Property Name="OWNERPOSTID" Type="varchar" MaxLength="50" />
-          <Property Name="OWNERDEPARTMENTID" Type="varchar" MaxLength="50" />
-          <Property Name="OWNERCOMPANYID" Type="varchar" MaxLength="50" />
-          <Property Name="CREATEPOSTID" Type="varchar" MaxLength="50" />
-          <Property Name="CREATEDEPARTMENTID" Type="varchar" MaxLength="50" />
-          <Property Name="CREATECOMPANYID" Type="varchar" MaxLength="50" />
-          <Property Name="CREATEUSERID" Type="varchar" MaxLength="50" />
-          <Property Name="CREATEDATE" Type="datetime" Precision="0" />
-          <Property Name="UPDATEUSERID" Type="varchar" MaxLength="50" />
-          <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
-        </EntityType>-->
         <EntityType Name="T_HR_BLACKLIST">
           <Key>
             <PropertyRef Name="BLACKLISTID" />
@@ -8558,7 +8542,7 @@
           <Property Name="SYSTEMNAME" Type="varchar" MaxLength="100" />
           <Property Name="SYSTEMCODE" Type="varchar" MaxLength="100" />
           <Property Name="ORDERNUMBER" Type="decimal" Precision="8" Scale="0" />
-          <Property Name="SYSTEMNEED" Type="varchar" MaxLength="1" />
+          <Property Name="SYSTEMNEED" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="T_SYS_ENTITYMENU">
           <Key>
@@ -8584,34 +8568,6 @@
           <Property Name="ISAUTHORITY" Type="varchar" MaxLength="1" />
           <Property Name="HELPTITLE" Type="varchar" MaxLength="100" />
           <Property Name="HELPFILEPATH" Type="varchar" MaxLength="500" />
-        </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“def.tmoa.T_SYS_ENTITYMENUBAK”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="T_SYS_ENTITYMENUBAK">
-          <Key>
-            <PropertyRef Name="ENTITYMENUID" />
-            <PropertyRef Name="SYSTEMTYPE" />
-            <PropertyRef Name="MENUCODE" />
-            <PropertyRef Name="ORDERNUMBER" />
-            <PropertyRef Name="MENUNAME" />
-          </Key>
-          <Property Name="ENTITYMENUID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="SYSTEMTYPE" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ENTITYNAME" Type="varchar" MaxLength="200" />
-          <Property Name="ENTITYCODE" Type="varchar" MaxLength="200" />
-          <Property Name="HASSYSTEMMENU" Type="varchar" MaxLength="1" />
-          <Property Name="SUPERIORID" Type="varchar" MaxLength="50" />
-          <Property Name="MENUCODE" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="ORDERNUMBER" Type="decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="MENUNAME" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="MENUICONPATH" Type="varchar" MaxLength="100" />
-          <Property Name="URLADDRESS" Type="varchar" MaxLength="500" />
-          <Property Name="REMARK" Type="varchar" MaxLength="2000" />
-          <Property Name="CREATEUSER" Type="varchar" MaxLength="50" />
-          <Property Name="CREATEDATE" Type="datetime" Precision="0" />
-          <Property Name="UPDATEUSER" Type="varchar" MaxLength="50" />
-          <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
-          <Property Name="CHILDSYSTEMNAME" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="T_SYS_ENTITYMENUCUSTOMPERM">
           <Key>
@@ -8971,6 +8927,27 @@
           <Property Name="LOGINIP" Type="varchar" MaxLength="50" />
           <Property Name="ONLINESTATE" Type="varchar" MaxLength="1" />
           <Property Name="REMARK" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="T_SYS_USERMENUORGPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SYSUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="MENUCODE" Type="varchar" MaxLength="50" />
+          <Property Name="PERMISSIONID" Type="varchar" MaxLength="50" />
+          <Property Name="ORGTYPE" Type="varchar" MaxLength="1" />
+          <Property Name="ORGID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_SYS_USERMENUPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SYSUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="MENUCODE" Type="varchar" MaxLength="50" />
+          <Property Name="PERMISSIONID" Type="varchar" MaxLength="50" />
+          <Property Name="DATARANGE" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="T_SYS_USERROLE">
           <Key>
@@ -9369,25 +9346,6 @@
           <Property Name="RECEIVERUSERNAME" Type="varchar" MaxLength="1000" />
           <Property Name="RECEIVETYPE" Type="decimal" Precision="8" Scale="0" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“def.tmoa.T_WF_MESSAGECONFIG”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WF_MESSAGECONFIG">
-          <Property Name="MESSAGEID" Type="varchar" MaxLength="50" />
-          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
-          <Property Name="SYSTEMNAME" Type="varchar" MaxLength="100" />
-          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
-          <Property Name="MODELNAME" Type="varchar" MaxLength="200" />
-          <Property Name="ISADMINPAGE" Type="decimal" Precision="38" Scale="0" />
-          <Property Name="MESSAGETYPE" Type="decimal" Precision="38" Scale="0" />
-        </EntityType>-->
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“def.tmoa.T_WF_MESSAGECONFIG_DETAIL”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WF_MESSAGECONFIG_DETAIL">
-          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
-          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
-          <Property Name="FIELDNAME" Type="varchar" MaxLength="50" />
-          <Property Name="FIELDTYPE" Type="decimal" Precision="38" Scale="0" />
-        </EntityType>-->
         <EntityType Name="T_WF_MESSAGEDEFINE">
           <Key>
             <PropertyRef Name="MESSAGEDEFINEID" />
@@ -9452,22 +9410,6 @@
           <Property Name="CREATEDATE" Type="datetime" Precision="0" />
           <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“def.tmoa.T_WF_PORTALSETTING”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WF_PORTALSETTING">
-          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
-          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
-          <Property Name="PORTALTYPE" Type="varchar" MaxLength="50" />
-        </EntityType>-->
-        <!--生成过程中发现错误:
-警告 6013: 表/视图“def.tmoa.T_WF_PROCEDUREEXCEPTION”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
-        <EntityType Name="T_WF_PROCEDUREEXCEPTION">
-          <Property Name="PCNAME" Type="varchar" MaxLength="100" />
-          <Property Name="SQLCODE" Type="varchar" MaxLength="100" />
-          <Property Name="SQLERRM" Type="varchar" MaxLength="500" />
-          <Property Name="CREATERDATA" Type="datetime" Precision="0" />
-          <Property Name="PCSQL" Type="varchar" MaxLength="2000" />
-        </EntityType>-->
         <EntityType Name="T_WF_SMSRECORD">
           <Key>
             <PropertyRef Name="SMSRECORD" />
@@ -12834,6 +12776,8 @@
           <EntitySet Name="T_SYS_USERDATALOG" EntityType="Self.T_SYS_USERDATALOG" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_USERLOGINRECORD" EntityType="Self.T_SYS_USERLOGINRECORD" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_USERLOGINRECORDHIS" EntityType="Self.T_SYS_USERLOGINRECORDHIS" Schema="tmoa" store:Type="Tables" />
+          <EntitySet Name="T_SYS_USERMENUORGPERMISSION" EntityType="Self.T_SYS_USERMENUORGPERMISSION" Schema="tmoa" store:Type="Tables" />
+          <EntitySet Name="T_SYS_USERMENUPERMISSION" EntityType="Self.T_SYS_USERMENUPERMISSION" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_USERROLE" EntityType="Self.T_SYS_USERROLE" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_WF_AUDITSCOPE" EntityType="Self.T_WF_AUDITSCOPE" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_WF_DOTASK" EntityType="Self.T_WF_DOTASK" Schema="tmoa" store:Type="Tables" />
@@ -13063,27 +13007,6 @@ FROM `T_SYS_AREADISTRICT` AS `T_SYS_AREADISTRICT`</DefiningQuery>
 `T_SYS_AREAPROVINCE`.`PROVINCENAME`, 
 `T_SYS_AREAPROVINCE`.`COUNTRYID`
 FROM `T_SYS_AREAPROVINCE` AS `T_SYS_AREAPROVINCE`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="T_SYS_ENTITYMENUBAK" EntityType="Self.T_SYS_ENTITYMENUBAK" store:Type="Tables" store:Schema="tmoa">
-            <DefiningQuery>SELECT
-`T_SYS_ENTITYMENUBAK`.`ENTITYMENUID`, 
-`T_SYS_ENTITYMENUBAK`.`SYSTEMTYPE`, 
-`T_SYS_ENTITYMENUBAK`.`ENTITYNAME`, 
-`T_SYS_ENTITYMENUBAK`.`ENTITYCODE`, 
-`T_SYS_ENTITYMENUBAK`.`HASSYSTEMMENU`, 
-`T_SYS_ENTITYMENUBAK`.`SUPERIORID`, 
-`T_SYS_ENTITYMENUBAK`.`MENUCODE`, 
-`T_SYS_ENTITYMENUBAK`.`ORDERNUMBER`, 
-`T_SYS_ENTITYMENUBAK`.`MENUNAME`, 
-`T_SYS_ENTITYMENUBAK`.`MENUICONPATH`, 
-`T_SYS_ENTITYMENUBAK`.`URLADDRESS`, 
-`T_SYS_ENTITYMENUBAK`.`REMARK`, 
-`T_SYS_ENTITYMENUBAK`.`CREATEUSER`, 
-`T_SYS_ENTITYMENUBAK`.`CREATEDATE`, 
-`T_SYS_ENTITYMENUBAK`.`UPDATEUSER`, 
-`T_SYS_ENTITYMENUBAK`.`UPDATEDATE`, 
-`T_SYS_ENTITYMENUBAK`.`CHILDSYSTEMNAME`
-FROM `T_SYS_ENTITYMENUBAK` AS `T_SYS_ENTITYMENUBAK`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="T_SYS_ROLE_BAK" EntityType="Self.T_SYS_ROLE_BAK" store:Type="Tables" store:Schema="tmoa">
             <DefiningQuery>SELECT
@@ -14208,8 +14131,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
             <End Role="T_OA_HIRERECORD" EntitySet="T_OA_HIRERECORD" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TM_SaaS_OA_EFModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
@@ -23757,32 +23679,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="PROVINCENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="COUNTRYID" Type="Decimal" />
         </EntityType>
-        <EntityType Name="T_SYS_ENTITYMENUBAK">
-          <Key>
-            <PropertyRef Name="ENTITYMENUID" />
-            <PropertyRef Name="SYSTEMTYPE" />
-            <PropertyRef Name="MENUCODE" />
-            <PropertyRef Name="ORDERNUMBER" />
-            <PropertyRef Name="MENUNAME" />
-          </Key>
-          <Property Name="ENTITYMENUID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SYSTEMTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ENTITYNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ENTITYCODE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="HASSYSTEMMENU" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="SUPERIORID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ORDERNUMBER" Type="Decimal" Nullable="false" />
-          <Property Name="MENUNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MENUICONPATH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="URLADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="REMARK" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="CREATEUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CREATEDATE" Type="DateTime" />
-          <Property Name="UPDATEUSER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UPDATEDATE" Type="DateTime" />
-          <Property Name="CHILDSYSTEMNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="T_SYS_ROLE_BAK">
           <Key>
             <PropertyRef Name="ROLEID" />
@@ -25310,7 +25206,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <EntitySet Name="T_SYS_AREACITY" EntityType="Self.T_SYS_AREACITY" />
           <EntitySet Name="T_SYS_AREADISTRICT" EntityType="Self.T_SYS_AREADISTRICT" />
           <EntitySet Name="T_SYS_AREAPROVINCE" EntityType="Self.T_SYS_AREAPROVINCE" />
-          <EntitySet Name="T_SYS_ENTITYMENUBAK" EntityType="Self.T_SYS_ENTITYMENUBAK" />
           <EntitySet Name="T_SYS_ROLE_BAK" EntityType="Self.T_SYS_ROLE_BAK" />
           <EntitySet Name="T_WF_DEFAULTMESSAGE" EntityType="Self.T_WF_DEFAULTMESSAGE" />
           <EntitySet Name="T_WF_DOTASKBAK0801" EntityType="Self.T_WF_DOTASKBAK0801" />
@@ -26279,7 +26174,30 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
             <End Role="T_WF_DOTASKRULE" EntitySet="T_WF_DOTASKRULE" />
             <End Role="T_WF_DOTASKRULEDETAIL" EntitySet="T_WF_DOTASKRULEDETAIL" />
           </AssociationSet>
+          <EntitySet Name="T_SYS_USERMENUPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION" />
+          <EntitySet Name="T_SYS_USERMENUORGPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION" />
         </EntityContainer>
+        <EntityType Name="T_SYS_USERMENUPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATARANGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_SYS_USERMENUORGPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORGTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ORGID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -35673,29 +35591,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T_SYS_ENTITYMENUBAK">
-            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_ENTITYMENUBAK">
-              <MappingFragment StoreEntitySet="T_SYS_ENTITYMENUBAK">
-                <ScalarProperty Name="ENTITYMENUID" ColumnName="ENTITYMENUID" />
-                <ScalarProperty Name="SYSTEMTYPE" ColumnName="SYSTEMTYPE" />
-                <ScalarProperty Name="ENTITYNAME" ColumnName="ENTITYNAME" />
-                <ScalarProperty Name="ENTITYCODE" ColumnName="ENTITYCODE" />
-                <ScalarProperty Name="HASSYSTEMMENU" ColumnName="HASSYSTEMMENU" />
-                <ScalarProperty Name="SUPERIORID" ColumnName="SUPERIORID" />
-                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
-                <ScalarProperty Name="ORDERNUMBER" ColumnName="ORDERNUMBER" />
-                <ScalarProperty Name="MENUNAME" ColumnName="MENUNAME" />
-                <ScalarProperty Name="MENUICONPATH" ColumnName="MENUICONPATH" />
-                <ScalarProperty Name="URLADDRESS" ColumnName="URLADDRESS" />
-                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-                <ScalarProperty Name="CREATEUSER" ColumnName="CREATEUSER" />
-                <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
-                <ScalarProperty Name="UPDATEUSER" ColumnName="UPDATEUSER" />
-                <ScalarProperty Name="UPDATEDATE" ColumnName="UPDATEDATE" />
-                <ScalarProperty Name="CHILDSYSTEMNAME" ColumnName="CHILDSYSTEMNAME" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="T_SYS_ROLE_BAK">
             <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_ROLE_BAK">
               <MappingFragment StoreEntitySet="T_SYS_ROLE_BAK">
@@ -37988,6 +37883,29 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
               <ScalarProperty Name="DOTASKRULEDETAILID" ColumnName="DOTASKRULEDETAILID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="T_SYS_USERMENUPERMISSION">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION">
+              <MappingFragment StoreEntitySet="T_SYS_USERMENUPERMISSION">
+                <ScalarProperty Name="DATARANGE" ColumnName="DATARANGE" />
+                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SYS_USERMENUORGPERMISSION">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION">
+              <MappingFragment StoreEntitySet="T_SYS_USERMENUORGPERMISSION">
+                <ScalarProperty Name="ORGID" ColumnName="ORGID" />
+                <ScalarProperty Name="ORGTYPE" ColumnName="ORGTYPE" />
+                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

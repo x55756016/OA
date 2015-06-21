@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ResultBaseOfanyType">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResultBaseOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Common" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="anyType" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InnerResult" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="IsChanged" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultBaseOfanyType" nillable="true" type="tns:ResultBaseOfanyType" />
+  <xs:simpleType name="EntityAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="Modify" />
+      <xs:enumeration value="Delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntityAction" nillable="true" type="tns:EntityAction" />
+</xs:schema>

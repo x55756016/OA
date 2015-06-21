@@ -82,7 +82,7 @@ namespace SMT.SaaS.Permission.UI.Form
             if (e.Result != null)
                 Permission = e.Result.ToList();
             var ents = from ent in Permission
-                       where ent.EntityMenuID == "ccf0b182-a339-4276-80ce-2b644e426a91"
+                       where ent.EntityMenuIDk__BackingField == "ccf0b182-a339-4276-80ce-2b644e426a91"
                        select ent;
         }
         

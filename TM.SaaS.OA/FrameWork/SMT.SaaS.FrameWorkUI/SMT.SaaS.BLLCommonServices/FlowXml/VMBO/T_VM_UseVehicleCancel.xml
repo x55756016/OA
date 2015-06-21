@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/UseVehicleCancel/Edit</PageParameter>
+    <ApplicationOrder>{UVCANCELID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_USEVEHICLECANCEL" Description="T_VM_UseVehicleCancel 用车申请撤消信息表&#xA;&#xA;不需要执行审核流程，只是在用车申请人撤消申请提交时，发送短信给司机、调度，发待办任务给调度确认（调度电话通知司机，并且确认撤销完成）。审核状态直接置为审核通过，页面不展示审核的相关数据项&#xA;&#xA;然后转调度确认界面" Key="UVCANCELID" id="">
+    <Attribute Name="UVCANCELID" LableResourceID="UVCANCELID" Description="撤消申请主键ID，GUID" DataType="string" DataValue="" DataText="撤消申请主键ID，GUID" />
+    <Attribute Name="UVAPPLYID" LableResourceID="UVAPPLYID" Description="用车申请主键ID" DataType="string" DataValue="" DataText="用车申请主键ID" />
+    <Attribute Name="APPLYMANID" LableResourceID="APPLYMANID" Description="撤消申请人ID" DataType="string" DataValue="" DataText="撤消申请人ID" />
+    <Attribute Name="APPLYMAN" LableResourceID="APPLYMAN" Description="撤消申请人" DataType="string" DataValue="" DataText="撤消申请人" />
+    <Attribute Name="APPLYDATE" LableResourceID="APPLYDATE" Description="撤消申请日期" DataType="datetime" DataValue="" DataText="撤消申请日期" />
+    <Attribute Name="CANCELCAUSE" LableResourceID="CANCELCAUSE" Description="撤消用车原因" DataType="string" DataValue="" DataText="撤消用车原因" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" DataType="string" DataValue="" DataText="审核状态 CheckStates&#xA;0 未提交 UnSubmit,&#xA;1 审核中 Approving,&#xA;2 审核通过 Approved,&#xA;3 审核未通过 UnApproved&#xA;4 待审核&#xA;5 所有" />
+   </Object>
+</System>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="SMT.FB.BLL" elementFormDefault="qualified" targetNamespace="SMT.FB.BLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+  <xs:import schemaLocation="" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+  <xs:complexType name="AuditResult">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" base="q1:SaveResult">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="DataResult" nillable="true" type="q2:DataResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuditResult" nillable="true" type="tns:AuditResult" />
+  <xs:complexType name="VirtualAudit">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" base="q3:VirtualEntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FlowSelectType" type="xs:int" />
+          <xs:element minOccurs="0" name="FormID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextStateCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Op" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Result" type="xs:int" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" minOccurs="0" name="SubmitData" nillable="true" type="q4:SubmitData" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VirtualAudit" nillable="true" type="tns:VirtualAudit" />
+</xs:schema>

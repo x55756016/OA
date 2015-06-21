@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>EM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.EM.UI</AssemblyName>
+    <PublicClass>SMT.EM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>EM/ExamPaper/Comment</PageParameter>
+    <ApplicationOrder>{ExamPaperID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_EM_EXAMPAPER" Description="试卷" Key="EXAMPAPERID" id="">
+    <Attribute Name="EXAMPAPERID" LableResourceID="EXAMPAPERID" Description="试卷ID" DataType="string" DataValue="" DataText="试卷ID" />
+    <Attribute Name="EXAMPAPERTYPE" LableResourceID="EXAMPAPERTYPE" Description="试卷分类" DataType="string" DataValue="" DataText="试卷分类 " />
+    <Attribute Name="EXAMPAPERTYPENAME" LableResourceID="EXAMPAPERTYPENAME" Description="分类名称" DataType="string" DataValue="" DataText="分类名称" />
+    <Attribute Name="EXAMPAPERNAME" LableResourceID="EXAMPAPERNAME" Description="试卷名称" DataType="string" DataValue="" DataText="试卷名称" />
+    <Attribute Name="SCORE" LableResourceID="SCORE" Description="总分" DataType="decimal" DataValue="" DataText="总分" />
+    <Attribute Name="TITLENUMBER" LableResourceID="TITLENUMBER" Description="题目数" DataType="decimal" DataValue="" DataText="题目数" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="SORTING" LableResourceID="SORTING" Description="排序号" DataType="decimal" DataValue="" DataText="排序号" />
+    <Attribute Name="AUDITSTATUS" LableResourceID="AUDITSTATUS" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="AUDITUSER" LableResourceID="AUDITUSER" Description="试卷审核人" DataType="string" DataValue="" DataText="试卷审核人" />
+    <Attribute Name="AUDITDATE" LableResourceID="AUDITDATE" Description="试卷审核时间" DataType="datetime" DataValue="" DataText="试卷审核时间" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属用户ID" DataType="string" DataValue="" DataText="所属用户ID" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属用户名称" DataType="string" DataValue="" DataText="所属用户名称" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue="" DataText="所属公司" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue="" DataText="所属部门" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue="" DataText="所属岗位" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建日期" DataType="datetime" DataValue="" DataText="创建日期" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改日期" DataType="datetime" DataValue="" DataText="修改日期" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <ObjectList Name="T_EM_EXAMQUESTION" LableResourceID="T_EM_EXAMQUESTION" Description="试卷试题" DataText="">
+      <Object Name="T_EM_EXAMQUESTION" Description="试卷试题" Key="QUESTIONID" id="">
+        <Attribute Name="QUESTIONID" LableResourceID="QUESTIONID" Description="试题ID" DataType="string" DataValue="" DataText="试题ID" />
+        <Attribute Name="EXAMPAPERID" LableResourceID="EXAMPAPERID" Description="试卷ID" DataType="string" DataValue="" DataText="试卷ID" />
+        <Attribute Name="QUESTIONTYPE" LableResourceID="QUESTIONTYPE" Description="试题类型ID" DataType="string" DataValue="" DataText="试题类型ID" />
+        <Attribute Name="QUESTIONTYPENAME" LableResourceID="QUESTIONTYPENAME" Description="试题类型名称" DataType="string" DataValue="" DataText="试题类型名称" />
+        <Attribute Name="CATEGORY" LableResourceID="CATEGORY" Description="类别" DataType="decimal" DataValue="" DataText="类别" />
+        <Attribute Name="SCORE" LableResourceID="SCORE" Description="试题分数" DataType="decimal" DataValue="" DataText="试题分数" />
+        <Attribute Name="TITLE" LableResourceID="TITLE" Description="试题内容" DataType="string" DataValue="" DataText="试题内容" />
+        <Attribute Name="SORTING" LableResourceID="SORTING" Description="试题序号" DataType="decimal" DataValue="" DataText="试题序号" />
+        <Attribute Name="ANSWER" LableResourceID="ANSWER" Description="答案编号" DataType="string" DataValue="" DataText="答案编号" />
+        <Attribute Name="REMARK" LableResourceID="REMARK" Description="试题备注" DataType="string" DataValue="" DataText="试题备注" />
+        <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属用户ID" DataType="string" DataValue="" DataText="所属用户ID" />
+        <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属用户名称" DataType="string" DataValue="" DataText="所属用户名称" />
+        <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue="" DataText="所属公司" />
+        <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue="" DataText="所属部门" />
+        <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue="" DataText="所属岗位" />
+        <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+        <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+        <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+        <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+        <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+        <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建日期" DataType="datetime" DataValue="" DataText="创建日期" />
+        <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改日期" DataType="datetime" DataValue="" DataText="修改日期" />
+        <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+        <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+        <ObjectList Name="T_EM_EXAMQUESTIONOPTION" LableResourceID="T_EM_EXAMQUESTIONOPTION" Description="试卷试题选项" DataText="">
+          <Object Name="T_EM_EXAMQUESTIONOPTION" Description="试卷试题选项" Key="EXAMQUESTIONOPTIONID" id="">
+            <Attribute Name="EXAMQUESTIONOPTIONID" LableResourceID="EXAMQUESTIONOPTIONID" Description="试题明细ID" DataType="string" DataValue="" DataText="试题明细ID" />
+            <Attribute Name="QUESTIONID" LableResourceID="QUESTIONID" Description="试题ID" DataType="string" DataValue="" DataText="试题ID" />
+            <Attribute Name="OPTIONNAME" LableResourceID="OPTIONNAME" Description="选项名称" DataType="string" DataValue="" DataText="选项名称" />
+            <Attribute Name="CONTENT" LableResourceID="CONTENT" Description="内容" DataType="string" DataValue="" DataText="内容" />
+            <Attribute Name="SORTING" LableResourceID="SORTING" Description="排序号" DataType="decimal" DataValue="" DataText="排序号" />
+            <Attribute Name="SCORE" LableResourceID="SCORE" Description="分数" DataType="decimal" DataValue="" DataText="分数" />
+            <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属用户ID" DataType="string" DataValue="" DataText="所属用户ID" />
+            <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属用户名称" DataType="string" DataValue="" DataText="所属用户名称" />
+            <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司" DataType="string" DataValue="" DataText="所属公司" />
+            <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门" DataType="string" DataValue="" DataText="所属部门" />
+            <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位" DataType="string" DataValue="" DataText="所属岗位" />
+            <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+            <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+            <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+            <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+            <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+            <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建日期" DataType="datetime" DataValue="" DataText="创建日期" />
+            <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改日期" DataType="datetime" DataValue="" DataText="修改日期" />
+            <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+            <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+          </Object>
+        </ObjectList>
+      </Object>
+    </ObjectList>
+  </Object>
+</System>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>RM</Name>
+  <System>
+    <!--<Function Description="RESUMEFlow" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_COMPANY" Name="COMPANYID" Description="公司ID" Value=""></Para>
+      </ParaStr>
+    </Function>-->
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.RM.UI.Form.Require.RequireApplicationForm</PageParameter>
+    <ApplicationOrder>{RESUMEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_DISMISSPAPER" Description="离职证明" Key="RESUMEDELIVERYID" id="">
+    <Attribute  Name="ENTERLISTID" LableResourceID="ENTERLISTID" Description="入职手续ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMEDELIVERYID" LableResourceID="RESUMEDELIVERYID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESUMENAME" LableResourceID="RESUMENAME" Description="应聘者姓名" DataType="NVARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="COMPANYCONFIRM" LableResourceID="COMPANYCONFIRM" Description="工作单位确认1.是.2,否" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DISMISSCONFIRM" LableResourceID="DISMISSCONFIRM" Description="是否已开离职证明1.是.2,否" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="WORKYEAECONFIRM" LableResourceID="WORKYEAECONFIRM" Description="工作年限误差是否超过1.5年以上1.是.2,否" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="DISMISSREASONCONFIRM" LableResourceID="DISMISSREASONCONFIRM" Description="离职原因是否属实1.是.2,否.3未回答" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="POSTCONFIMR" LableResourceID="POSTCONFIMR" Description="岗位是否符合1.属实,2.未回答.3.不属实.4.未回答" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="SALARYCONFIRM" LableResourceID="SALARYCONFIRM" Description="薪资是否属实1.属实,2.未回答.3.不属实.4.未回答" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="RESULT" LableResourceID="RESULT" Description="1.属实.2.不属实" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="EDITSTATES" LableResourceID="EDITSTATES" Description="对象编辑状态" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="DATE" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="VARCHAR2" DataValue="" DataText="" ></Attribute>
+    <Attribute  Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DATE" DataValue="" DataText="" ></Attribute>
+  </Object>
+
+</System>

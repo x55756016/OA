@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>RM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.RM.UI</AssemblyName>
+    <PublicClass>SMT.RM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>RM/NotifyStandard/Audit</PageParameter>
+    <ApplicationOrder>{MESSAGETEMPLATEID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_RM_MESSAGETEMPLATE" Description="消息模板" Key="MESSAGETEMPLATEID" id="">
+    <Attribute Name="MESSAGETEMPLATEID" LableResourceID="MESSAGETEMPLATEID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="MESSAGETEMPLATENAME" LableResourceID="MESSAGETEMPLATENAME" Description="模板名称" DataType="string" DataValue="" DataText="模板名称" />
+    <Attribute Name="CLASSNAME" LableResourceID="CLASSNAME" Description="类名" DataType="string" DataValue="" DataText="类名" />
+    <Attribute Name="MESSAGE" LableResourceID="MESSAGE" Description="模板内容" DataType="string" DataValue="" DataText="模板内容" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="" DataType="datetime" DataValue="" DataText="" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="MESSAGETEMPLATETYPE" LableResourceID="MESSAGETEMPLATETYPE" Description="模板类型" DataType="string" DataValue="" DataText="模板类型" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="审核状态" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="对象编辑状态" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText="所属岗位ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText="所属部门ID" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERNAME" LableResourceID="OWNERNAME" Description="所属人ID" DataType="string" DataValue="" DataText="所属人ID" />
+  </Object>
+</System>

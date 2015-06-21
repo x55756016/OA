@@ -44,6 +44,7 @@ namespace SMT.SaaS.Permission.UI.Views
             }
             else
             {
+                loadbar.Stop();
                 ComfirmWindow.ConfirmationBoxs(Utility.GetResourceStr("ERROR"), "字典加载错误，请联系管理员",
                     Utility.GetResourceStr("CONFIRM"), MessageIcon.Exclamation);
                 return;
@@ -82,14 +83,9 @@ namespace SMT.SaaS.Permission.UI.Views
             FormToolBar1.btnAudit.Visibility = Visibility.Collapsed;
             //FormToolBar1.btnAduitNoTPass.Visibility = Visibility.Collapsed;
             DtGrid.CurrentCellChanged += new EventHandler<EventArgs>(DataGrid_CurrentCellChanged);
-            if (Application.Current.Resources["SYS_DICTIONARY"] == null)
-            {
-                client.GetSysDictionaryByCategoryAsync("SYSTEMTYPE");
-            }
-            else
-            {
-                InitSysType();//如果字典加载了，则过滤了再帮定
-            }
+   
+            client.GetSysDictionaryByCategoryAsync("SYSTEMTYPE");
+            
             FormToolBar1.ShowRect();
             LoadData();
         }
@@ -151,19 +147,19 @@ namespace SMT.SaaS.Permission.UI.Views
             browser.Show<string>(DialogMode.Default, Common.ParentLayoutRoot, "", (result) =>{});
         }
 
-        protected void LoadDicts()
-        {
-            client.GetSysDictionaryByCategoryCompleted += (o, e) =>
-            {
-                List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
+        //protected void LoadDicts()
+        //{
+        //    client.GetSysDictionaryByCategoryCompleted += (o, e) =>
+        //    {
+        //        List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
+        //        dicts = e.Result == null ? null : e.Result.ToList();
+        //        Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
 
-                LoadData();
-            };
-            //TODO: 按需取出字典值
-            client.GetSysDictionaryByCategoryAsync("");
-        }
+        //        LoadData();
+        //    };
+        //    //TODO: 按需取出字典值
+        //    client.GetSysDictionaryByCategoryAsync("");
+        //}
 
         // 当用户导航到此页面时执行。
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -374,26 +370,6 @@ namespace SMT.SaaS.Permission.UI.Views
 
                 cbxSystemType.ItemsSource = dicts;
                 cbxSystemType.DisplayMemberPath = "DICTIONARYNAME";   
-            }
-        }
-
-        private void InitSysType()
-        {
-            if (Application.Current.Resources["SYS_DICTIONARY"] != null)
-            {
-                ComboBox cbxSystemType = Utility.FindChildControl<ComboBox>(expander, "cbxSystemType");
-                List<T_SYS_DICTIONARY> dicts = Application.Current.Resources["SYS_DICTIONARY"] as List<T_SYS_DICTIONARY>;
-                var ents = from ent in dicts
-                           where ent.DICTIONCATEGORY == "SYSTEMTYPE"
-                           select ent;
-                if (ents != null)
-                {
-                    if (ents.Count() > 0)
-                    {
-                        cbxSystemType.ItemsSource = ents.ToList();
-                        cbxSystemType.DisplayMemberPath = "DICTIONARYNAME";
-                    }
-                }
             }
         }
 

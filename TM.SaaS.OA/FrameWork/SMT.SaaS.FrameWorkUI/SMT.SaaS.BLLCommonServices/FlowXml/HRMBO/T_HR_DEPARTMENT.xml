@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System>
+  <Name>HR</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="创建部门" Address="EngineService.svc"   FuncName="CallApplicationService"  Binding="customBinding" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="T_HR_DEPARTMENT" Name="DEPARTMENTID" Description="部门ID" Value=""></Para>
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.HRM.UI</AssemblyName>
+    <PublicClass>SMT.HRM.UI.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>SMT.HRM.UI.Form.DepartmentForm</PageParameter>
+    <ApplicationOrder>{DEPARTMENTID}</ApplicationOrder>
+    <FormTypes>Audit</FormTypes>
+  </MsgOpen>
+  <Object Name="T_HR_DEPARTMENT" Description="部门信息" Key="DEPARTMENTID" id="">
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNER" LableResourceID="OWNER"  Description="所属人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTNAME"  LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTDICTIONARYID"  LableResourceID="DEPARTMENT" Description="部门" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENT"  LableResourceID="DEPARTMENT" Description="部门" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTTYPE"  LableResourceID="COMPANYTYPE" Description="所属行业" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CURRENTEMPLOYEENAME" LableResourceID="CURRENTEMPLOYEENAME" Description="提交者" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTID" LableResourceID="DEPARTMENTID" Description="部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTFUNCTION" LableResourceID="DEPARTMENTFUNCTION" Description="部门职责" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CHECKSTATE" LableResourceID="CHECKSTATE" Description="审核状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="编辑状态" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="DateTime" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="所属员工ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="所属岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="所属部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="所属公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建人岗位ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建人部门ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建人公司ID" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FATHERTYPE" LableResourceID="FATHERTYPE" Description="上级机构类型" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="FATHERID" LableResourceID="PARENTUNIT" Description="上级机构" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTBOSSHEAD" LableResourceID="DEPARTMENTHEAD" Description="部门负责人" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="SORTINDEX" LableResourceID="ORDERNUMBER" Description="排序号" DataType="decimal" DataValue="" DataText=""></Attribute>
+    <Attribute Name="COMPANYID" LableResourceID="BELONGCOMPANY" Description="所属公司" DataType="string" DataValue="" DataText=""></Attribute>
+    <Attribute Name="DEPARTMENTCODE" LableResourceID="DEPARTMENTCODE" Description="部门编号" DataType="string" DataValue="" DataText=""></Attribute>
+  </Object>
+</System>

@@ -1,6 +1,0 @@
-Debug  角色菜单RoleEntityMenuBLL-RoleEntityMenuPermissionUpdateNew2011/06/25 16:52:41 System.IndexOutOfRangeException: 索引超出了数组界限。
-   在 SMT.SaaS.Permission.BLL.RoleEntityMenuBLL.RoleEntityMenuPermissionUpdateNew(String tmpString, String StrRoleID, String StrAddUser, List`1 listRoleEntity) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\RoleEntityMenuBLL.cs:行号 815  2011/06/25 16:52:41
-Debug  角色菜单RoleEntityMenuBLL-RoleEntityMenuPermissionUpdateNew2011/06/25 16:54:16 System.IndexOutOfRangeException: 索引超出了数组界限。
-   在 SMT.SaaS.Permission.BLL.RoleEntityMenuBLL.RoleEntityMenuPermissionUpdateNew(String tmpString, String StrRoleID, String StrAddUser, List`1 listRoleEntity) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\RoleEntityMenuBLL.cs:行号 815  2011/06/25 16:54:16
-Debug  角色菜单RoleEntityMenuBLL-RoleEntityMenuPermissionUpdateNew2011/06/25 16:55:14 System.IndexOutOfRangeException: 索引超出了数组界限。
-   在 SMT.SaaS.Permission.BLL.RoleEntityMenuBLL.RoleEntityMenuPermissionUpdateNew(String tmpString, String StrRoleID, String StrAddUser, List`1 listRoleEntity) 位置 G:\smt\SMT.SaaS\SMT.SaaS.Permission\SMT.SaaS.Permission.BLL\RoleEntityMenuBLL.cs:行号 815  2011/06/25 16:55:14

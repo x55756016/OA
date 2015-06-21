@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<System>
+  <Name>VM</Name>
+  <Version>1.0</Version>
+  <System>
+    <Function Description="" Address="" FuncName="" Binding="" SplitChar="Г">
+      <ParaStr>
+        <Para TableName="" Name="" Description="" Value="" />
+      </ParaStr>
+    </Function>
+  </System>
+  <MsgOpen>
+    <AssemblyName>SMT.VM.UI</AssemblyName>
+    <PublicClass>SMT.VM.UI.Class.Utility</PublicClass>
+    <ProcessName>CreateFormFromEngine</ProcessName>
+    <PageParameter>VM/VehicleOilYearCfm/Details</PageParameter>
+    <ApplicationOrder>{YCFMID}</ApplicationOrder>
+    <FormTypes>Details</FormTypes>
+  </MsgOpen>
+  <Object Name="T_VM_VEHICLEOILYEARCFM" Description="车辆年度用油确认表" Key="YCFMID" id="">
+    <Attribute Name="YCFMID" LableResourceID="YCFMID" Description="确认主键ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="VEHICLEID" LableResourceID="VEHICLEID" Description="车辆主键ID" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="MARKNO" LableResourceID="MARKNO" Description="车牌号" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OILYEAR" LableResourceID="OILYEAR" Description="用油年度" DataType="string" DataValue="" DataText="用油年度" />
+    <Attribute Name="YEARMILEAGE" LableResourceID="YEARMILEAGE" Description="年总里程（公里）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="YEAROILMASS" LableResourceID="YEAROILMASS" Description="年总加油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="PERCENTOILMASS" LableResourceID="PERCENTOILMASS" Description="百公里均耗油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="THEORYOILMASS" LableResourceID="THEORYOILMASS" Description="理论耗油量（升）" DataType="decimal" DataValue="" DataText="" />
+    <Attribute Name="EVALUATEDRESULT" LableResourceID="EVALUATEDRESULT" Description="评估结果" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="EVALUATEDIDEA" LableResourceID="EVALUATEDIDEA" Description="评估意见说明" DataType="string" DataValue="" DataText="评估意见说明" />
+    <Attribute Name="EDITSTATE" LableResourceID="EDITSTATE" Description="对象编辑状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="CHECKSTATES" LableResourceID="CHECKSTATES" Description="审核状态" DataType="string" DataValue="" DataText="" />
+    <Attribute Name="OWNERCOMPANYID" LableResourceID="OWNERCOMPANYID" Description="记录所属公司ID" DataType="string" DataValue="" DataText="记录所属公司ID" />
+    <Attribute Name="OWNERDEPARTMENTID" LableResourceID="OWNERDEPARTMENTID" Description="记录所属部门ID" DataType="string" DataValue="" DataText="记录所属部门ID" />
+    <Attribute Name="OWNERPOSTID" LableResourceID="OWNERPOSTID" Description="记录所属岗位ID" DataType="string" DataValue="" DataText="记录所属岗位ID" />
+    <Attribute Name="OWNERID" LableResourceID="OWNERID" Description="记录所属用户ID" DataType="string" DataValue="" DataText="记录所属用户ID" />
+    <Attribute Name="COMPANYNAME" LableResourceID="COMPANYNAME" Description="使用公司名称" DataType="string" DataValue="" DataText="使用公司名称" />
+    <Attribute Name="DEPARTMENTNAME" LableResourceID="DEPARTMENTNAME" Description="部门名称" DataType="string" DataValue="" DataText="部门名称" />
+    <Attribute Name="EMPLOYEENAME" LableResourceID="EMPLOYEENAME" Description="员工名称" DataType="string" DataValue="" DataText="员工名称" />
+    <Attribute Name="POSTNAME" LableResourceID="POSTNAME" Description="岗位名称" DataType="string" DataValue="" DataText="岗位名称" />
+    <Attribute Name="CREATECOMPANYID" LableResourceID="CREATECOMPANYID" Description="创建公司ID" DataType="string" DataValue="" DataText="创建公司ID" />
+    <Attribute Name="CREATEDEPARTMENTID" LableResourceID="CREATEDEPARTMENTID" Description="创建部门ID" DataType="string" DataValue="" DataText="创建部门ID" />
+    <Attribute Name="CREATEPOSTID" LableResourceID="CREATEPOSTID" Description="创建岗位ID" DataType="string" DataValue="" DataText="创建岗位ID" />
+    <Attribute Name="CREATEUSERNAME" LableResourceID="CREATEUSERNAME" Description="创建人名" DataType="string" DataValue="" DataText="创建人名" />
+    <Attribute Name="CREATEUSERID" LableResourceID="CREATEUSERID" Description="创建人ID" DataType="string" DataValue="" DataText="创建人ID" />
+    <Attribute Name="CREATEDATE" LableResourceID="CREATEDATE" Description="创建时间" DataType="datetime" DataValue="" DataText="创建时间" />
+    <Attribute Name="UPDATEUSERID" LableResourceID="UPDATEUSERID" Description="修改人ID" DataType="string" DataValue="" DataText="修改人ID" />
+    <Attribute Name="UPDATEDATE" LableResourceID="UPDATEDATE" Description="修改时间" DataType="datetime" DataValue="" DataText="修改时间" />
+    <Attribute Name="REMARK" LableResourceID="REMARK" Description="备注" DataType="string" DataValue="" DataText="备注" />
+    <Attribute Name="CFMMANID" LableResourceID="CFMMANID" Description="确认人ID" DataType="string" DataValue="" DataText="确认人ID" />
+    <Attribute Name="CFMMAN" LableResourceID="CFMMAN" Description="确认人" DataType="string" DataValue="" DataText="确认人" />
+    <Attribute Name="CFMDATE" LableResourceID="CFMDATE" Description="确认日期" DataType="datetime" DataValue="" DataText="确认日期" />
+  </Object>
+</System>

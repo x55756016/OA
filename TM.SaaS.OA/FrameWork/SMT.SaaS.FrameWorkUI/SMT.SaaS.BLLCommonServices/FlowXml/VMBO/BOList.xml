@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="VM">
+  <ObjectList>
+    <Object Name="T_VM_VEHICLEACCIDENT" Description="车辆违章事故"></Object>
+    <Object Name="T_VM_USEVEHICLEAPPLY" Description="用车申请"></Object>
+    <Object Name="T_VM_CTLINOILEXCEPTREC" Description="收车加油异常记录"></Object>
+    <Object Name="T_VM_CTLINUSECOSTDISPOSE" Description="用车异常处理"></Object>
+    <Object Name="T_VM_CTLVEHICLE" Description="派车调度"></Object>
+    <Object Name="T_VM_CTLVEHICLECTLINFO" Description="派车单司机确认"></Object>
+    <Object Name="T_VM_CTLVEHICLEEXCEPTREC" Description="出车里程异常记录确认"></Object>
+    <Object Name="T_VM_CTLVEHICLEINCFM" Description="收车行车记录单"></Object>
+    <Object Name="T_VM_CTLVEHICLEOUTCFM" Description="出车确认"></Object>
+    <Object Name="T_VM_CTLVEHICLEOUTTASK" Description="出车任务单"></Object>
+    <Object Name="T_VM_CTLVEHICLEUSECFM" Description="用车人行车确认"></Object>
+    <Object Name="T_VM_USEVEHICLECANCEL" Description="用车申请撤消"></Object>
+    <Object Name="T_VM_VEHICLELICTAG" Description="车辆牌照申请"></Object>
+    <Object Name="T_VM_VEHICLELICSTEER" Description="车辆行驶证管理"></Object>
+    <Object Name="T_VM_VEHICLEPARK" Description="停车卡登记"></Object>
+    <Object Name="T_VM_VEHICLEPARKCPAYCFM" Description="车辆停车卡冲值确认"></Object>
+    <Object Name="T_VM_VEHICLEPARKCPAYLOAN" Description="车辆停车卡冲值借款申请"></Object>
+    <Object Name="T_VM_VEHICLEINSUREAPPLY" Description="车辆保险申请"></Object>
+    <Object Name="T_VM_VEHICLEINSURE" Description="车辆保险登记"></Object>
+    <Object Name="T_VM_VEHICLEINSUREENQUIRY" Description="车辆保险询价信息"></Object>
+    <Object Name="T_VM_VEHICLEYEARVAPPLY" Description="车辆年检申请"></Object>
+    <Object Name="T_VM_VEHICLEYEARCHECK" Description="车辆年检登记"></Object>
+    <Object Name="T_VM_VEHICLEYEARVPAYLOAN" Description="车辆年检借款申请"></Object>
+    <Object Name="T_VM_VEHICLEROADCPAYLOAN" Description="车辆路卡充值借款申请"></Object>
+    <Object Name="T_VM_VEHICLERCACCOUNT" Description="车辆路卡余额对账申请"></Object>
+    <Object Name="T_VM_VEHICLEROADOILCAPPLY" Description="车辆路卡办卡申请"></Object>
+    <Object Name="T_VM_VEHICLEROADCPAYCFM" Description="车辆路卡充值确认申请"></Object>
+    <Object Name="T_VM_VEHICLEPARKCARDPAY" Description="停车卡充值登记"></Object>
+    <Object Name="T_VM_VEHICLEPARKCAPPLY" Description="停车卡办卡申请"></Object>
+    <Object Name="T_VM_VEHICLEOFFENCE" Description="车辆违章"></Object>
+    <Object Name="T_VM_VEHICLEOCACCOUNT" Description="油卡余额对账单"></Object>
+    <Object Name="T_VM_VEHICLEOILYEARCFM" Description="车辆年度用油确认"></Object>
+    <Object Name="T_VM_VEHICLEOILMONTHALARM" Description="油耗超标月度报警"></Object>
+    <Object Name="T_VM_VEHICLEOILCPAYLOAN" Description="油卡充值借款申请"></Object>
+    <Object Name="T_VM_VEHICLEOILCPAYCFM" Description="油卡充值确认单"></Object>
+    <Object Name="T_VM_VEHICLEOILCARD" Description="加油卡管理"></Object>
+    <Object Name="T_VM_VEHICLEOILCAPPLY" Description="加油卡办卡申请"></Object>
+    <Object Name="T_VM_VEHICLEROADCARD" Description="路卡管理"></Object>
+    <!--车辆维修-->
+    <Object Name="T_VM_COSMETICAPPLY" Description="车辆美容"></Object>
+    <Object Name="T_VM_UPKEEPAPPLY_Cfm" Description="车辆保养申请确认"></Object>
+    <Object Name="T_VM_UPKEEPRECORD" Description="车辆保养记录"></Object>
+    <Object Name="T_VM_UPKEEPAPPLY" Description="车辆保养申请"></Object>
+    <Object Name="T_VM_REPAIRREG" Description="车辆维修记录"></Object>
+    <Object Name="T_VM_REPAIRAPPLY" Description="车辆维修申请"></Object>
+    <Object Name="T_VM_REPAIRFAULTRPT" Description="车辆故障报告"></Object>
+    <Object Name="T_VM_REPAIRENQUIRY" Description="车辆维修询价"></Object>
+    <Object Name="T_VM_REPAIRFAULTDIAGNOSE" Description="车辆故障诊断申请"></Object>
+    <Object Name="T_VM_CTLVEHICLEINEXCEPTREC" Description="车辆行车异常记录"></Object>
+    <Object Name="T_VM_REPAIRFAULTDIAGRPT"  Description="维修故障诊断报告"></Object>
+    <Object Name="T_VM_REPAIRRPT" Description="维修完成报告"></Object>
+    <Object Name="T_VM_REPAIRCONFIRM" Description="维修验收单"></Object>
+    <Object Name="T_VM_SPECIALLIC" Description="特殊证照"></Object>
+	<Object Name="T_VM_VEHICLELENDAPPLY" Description="借车申请" EntityName="T_VM_USEVEHICLEAPPLY"></Object>
+	<Object Name="T_VM_CTLVEHICLELEND" Description="外借派车" EntityName="T_VM_CTLVEHICLE"></Object>
+  </ObjectList>
+</System>
+
+

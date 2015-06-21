@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<System Name="TK">
+  <ObjectList>
+  <Object Name="T_TASK_ZHCARRYDOWN" Description="综合结转单"></Object>
+<Object Name="T_TASK_CARRYDOWN" Description="费用结转通知单(新)"></Object>
+<Object Name="T_TASK_CARRYDOWNDETAIL" Description="费用结转通知分摊机构(新)"></Object>
+    <Object Name="T_TASK_TASKMAINTASK" Description="配置表待办"></Object> 
+    <Object Name="T_TASK_TASKDETAILTASK" Description="任务表待办"></Object>
+    <Object Name="T_TASK_TASKDETAILTASKTASK" Description="任务表跟进待办"></Object> 
+    <Object Name="T_TASK_TASKDETAILTASKTASKTASK" Description="任务表变更待办"></Object> 
+    <Object Name="T_TASK_CHARGEAPPLYMASTER" Description="费用报销"></Object>  
+	<Object Name="T_TASK_CARRYDOWNCHARGETASK" Description="费用结转待办"></Object> 
+	<Object Name="T_TASK_CARRYDOWNCHARGEFAIL" Description="费用结转失败待办"></Object>
+    <Object Name="T_TASK_CARRYDOWNCHARGE" Description="费用结转"></Object> 
+    <Object Name="T_TASK_CARRYDOWNINCOMETASK" Description="收入结转待办"></Object> 
+	<Object Name="T_TASK_CARRYDOWNINCOME" Description="收入结转"></Object> 
+	<Object Name="T_TASK_CARRYDOWNINCOMEFAIL" Description="收入结转失败待办"></Object> 
+    <Object Name="T_TASK_CARRYDOWNCHARGEDETAIL" Description="费用结转确认"></Object> 
+    <Object Name="T_TASK_CARRYDOWNINCOMEDETAIL" Description="收入结转确认"></Object> 
+    <Object Name="T_TASK_CHARGEAPPLYMASTERTASK" Description="个人活动经费报销待办"></Object> 
+    <Object Name="T_TASK_CARRYDOWNFUNDSTASK" Description="活动经费预算分解待办"></Object> 
+    <Object Name="T_TASK_CARRYDOWNFUNDS" Description="活动经费预算分解"></Object>
+	<Object Name="T_TASK_LOANINFO" Description="借款管理"></Object>
+    <Object Name="T_TASK_REFUNDINFO" Description="还款管理"></Object>
+  </ObjectList>
+
+</System>
+

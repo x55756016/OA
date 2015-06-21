@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="SMT.SAAS.Controls.Toolkit.InfoPanel.InfoPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="clr-namespace:SMT.SAAS.Controls.Toolkit.InfoPanel" 
+    >
+    <UserControl.Resources>
+        <Storyboard x:Name="Show" AutoReverse="False">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="0.6"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="0.6"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="90"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="Hide">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5" Value=".6"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5" Value=".6"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="Content" 
+                                           Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5" Value="90"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="ShowMaskPanel">
+            <!--<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MaskPanel" 
+			Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>-->
+        </Storyboard>
+        <Storyboard x:Name="HideMaskPanel">
+            <!--<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MaskPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>-->
+        </Storyboard>
+    </UserControl.Resources>
+    <Border  Style="{StaticResource BorderStyle}" BorderThickness="1" Padding="1">
+        <Grid Background="{StaticResource LeftImageBGColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource BorderStyle}" BorderThickness="1" VerticalAlignment="Center" Width="287" Height="231"></Border>
+            <Grid x:Name="Content" RenderTransformOrigin="0.5,0.5" MouseEnter="Content_MouseEnter"  Cursor="Hand"
+                  MouseLeave="Content_MouseLeave" MouseLeftButtonDown="Content_MouseLeftButtonDown"  VerticalAlignment="Center">
+                <!--<Grid.Projection>
+                    <PlaneProjection/>
+                </Grid.Projection>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>-->
+
+                <Image  Source="{Binding ImageSource}" Stretch="Fill" VerticalAlignment="Bottom" Width="285" Height="229"/>
+
+                <Border Margin="6,0,6,9" VerticalAlignment="Bottom" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#994B4949" Offset="0"/>
+                            <GradientStop Color="#99393333" Offset="1"/>
+                            <GradientStop Color="#E5393636" Offset="0.336"/>
+                            <GradientStop Color="#E5272727" Offset="0.718"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center"  
+                                   TextAlignment="Center"
+                                Cursor="Hand"  
+                                Foreground="#FFAAAAAA" TextWrapping="Wrap" TextTrimming="WordEllipsis"
+                                FontFamily="SimSun" FontSize="14"  
+                                Text="{Binding Titel}" Margin="5"
+                            
+                            >
+                    </TextBlock>
+                </Border>
+            </Grid>
+            <Grid x:Name="Content_copy" RenderTransformOrigin="0.5,0.5" 
+                  MouseEnter="Content_MouseEnter" 
+                  MouseLeave="Content_MouseLeave"  Opacity="0.15"  VerticalAlignment="Center">
+                <Grid.Projection>
+                    <PlaneProjection/>
+                </Grid.Projection>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Image  Source="{Binding ImageSource}" Stretch="Fill" VerticalAlignment="Top" Width="285" Height="229"/>
+
+                <Border Margin="6,0,6,9" VerticalAlignment="Bottom" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                            <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                            <GradientStop Color="#4CFFFFFF" Offset="0.098"/>
+                            <GradientStop Color="#4CECECEC" Offset="0.932"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <TextBlock   VerticalAlignment="Center" HorizontalAlignment="Center"   Cursor="Hand"  
+                             Foreground="#FFAAAAAA" TextWrapping="Wrap"     TextAlignment="Center"
+                             FontFamily="SimSun" FontSize="14"  
+                             Text="{Binding Titel}" Margin="5"
+                            >
+                    </TextBlock>
+                </Border>
+              
+                <!-- Text="{Binding Title}"-->
+              
+            </Grid>
+            <Grid Height="20" HorizontalAlignment="Center" x:Name="ItemAdvanceContainer"  Margin="0 0 0 0"
+                  VerticalAlignment="Top" Width="Auto" Grid.Row="1">
+                <local:ItemAdvanceControl x:Name="ItemController" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

@@ -256,11 +256,48 @@ namespace SMT.HRM.BLL.Permission
             try
             {
 
+                List<V_Dictionary> listDict = new List<V_Dictionary>();
                 var ents = from a in ListTemp.AsQueryable()
                            
                            select a;
-                if (category.Count() == 0)
-                    return null;
+                if (category.Count() == 0) return null;
+
+                //if (category.Count() == 1)
+                //{
+                //    foreach (var item in ents)
+                //    {
+                //        Tracer.Debug(item.DICTIONCATEGORY);
+                //        if (item.DICTIONCATEGORY == category[0])
+                //        {
+                //            V_Dictionary ent = new V_Dictionary();
+                //            ent.DICTIONARYID = item.DICTIONARYID;
+                //            ent.DICTIONARYNAME = item.DICTIONARYNAME;
+                //            ent.DICTIONARYVALUE = (decimal)item.DICTIONARYVALUE;
+                //            ent.DICTIONCATEGORY = item.DICTIONCATEGORY;
+                //            ent.FATHERID = item.T_SYS_DICTIONARY2 == null ? "" : item.T_SYS_DICTIONARY2.DICTIONARYID;
+                //            ent.SYSTEMCODE = item.SYSTEMCODE;
+                //            ent.ORDERNUMBER = item.ORDERNUMBER;
+                //            listDict.Add(ent);
+                //        }
+                //    }
+                //    //var q = (from ent in ents
+                //    //         where ent.DICTIONCATEGORY == category[0]
+                //    //         select new V_Dictionary
+                //    //         {
+                //    //             DICTIONARYID = ent.DICTIONARYID,
+                //    //             DICTIONARYNAME = ent.DICTIONARYNAME,
+                //    //             DICTIONARYVALUE = (decimal)ent.DICTIONARYVALUE,
+                //    //             DICTIONCATEGORY = ent.DICTIONCATEGORY,
+                //    //             FATHERID = ent.T_SYS_DICTIONARY2 == null ? "" : ent.T_SYS_DICTIONARY2.DICTIONARYID,
+                //    //             SYSTEMCODE = ent.SYSTEMCODE,
+                //    //             ORDERNUMBER = ent.ORDERNUMBER
+                //    //         }).FirstOrDefault();
+                //    //if (q != null)
+                //    //{
+                //    //    listDict.Add(q);
+                //    //}
+                //    return listDict.AsQueryable();
+                //}
                 
                 string filterstring = "";
                 List<object> paras = new List<object>();
@@ -274,7 +311,7 @@ namespace SMT.HRM.BLL.Permission
                     }
                     else
                     {
-                        filterstring = "";
+                        //单独条件mysql未生效，原因未知
                         filterstring = " DICTIONCATEGORY ==@" + paras.Count().ToString();
                         paras.Add(category[i]);
                     }
@@ -285,7 +322,6 @@ namespace SMT.HRM.BLL.Permission
                 {
                     ents = ents.Where(filterstring, paras.ToArray());
                 }
-                List<V_Dictionary> listDict = new List<V_Dictionary>();
                 if (ents != null)
                 {
                     if (ents.Count() > 0)
