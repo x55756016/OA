@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="SMT.HRM.Services.OrganizationService" CodeBehind="OrganizationService.svc.cs" %>

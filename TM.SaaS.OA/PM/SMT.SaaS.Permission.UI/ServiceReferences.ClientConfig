@@ -94,17 +94,21 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <binding name="BasicHttpBinding_PermissionService" closeTimeout="00:10:00"
+        <!--<binding name="BasicHttpBinding_PermissionService" closeTimeout="00:10:00"
           openTimeout="00:10:00" sendTimeout="00:10:00" receiveTimeout="00:10:00"
           maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
           <security mode="None" />
-        </binding>
+        </binding>-->
         <binding name="BasicHttpBinding_MainUIServices" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
       </basicHttpBinding>
       <customBinding>
+        <binding name="CustomBinding_PermissionService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
         <binding name="CustomBinding_Common">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
@@ -717,9 +721,9 @@
          contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
 
 
-      <endpoint address="http://localhost:12168/PermissionService.svc"
-      binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
-      contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />
+      <endpoint address="http://localhost:12168/PMSV/PermissionService.svc"
+            binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+            contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <!--<endpoint address="http://www.oa12.com/Services/HR/PermissionService.svc"
 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
 contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />-->
