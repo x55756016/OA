@@ -738,50 +738,26 @@ namespace SMT.HRM.BLL.Permission
         {
             try
             {
-                var ents = from ent in CacheAllMenus.AsQueryable()
+                List<V_UserMenuPermission> AllMenus = CacheAllMenus;
+                var ents = from ent in AllMenus
                            where (string.IsNullOrEmpty(sysType) || ent.SYSTEMTYPE == sysType) && ent.HASSYSTEMMENU == "1"
                            orderby ent.ORDERNUMBER
                            select ent;
-                var entspermission = from p in dal.GetObjects<T_SYS_ROLEMENUPERMISSION>().Include("T_SYS_ROLEENTITYMENU")//.Include("T_SYS_ROLEENTITYMENU.T_SYS_ENTITYMENU")
-                                     join e in dal.GetObjects<T_SYS_ROLEENTITYMENU>() on p.T_SYS_ROLEENTITYMENU.ROLEENTITYMENUID equals e.ROLEENTITYMENUID
-                                     join n in dal.GetObjects<T_SYS_PERMISSION>() on p.T_SYS_PERMISSION.PERMISSIONID equals n.PERMISSIONID
-                                     join m in dal.GetObjects<T_SYS_ENTITYMENU>() on e.T_SYS_ENTITYMENU.ENTITYMENUID equals m.ENTITYMENUID
-                                     join r in dal.GetObjects<T_SYS_ROLE>() on e.T_SYS_ROLE.ROLEID equals r.ROLEID
-                                     join ur in dal.GetObjects<T_SYS_USERROLE>() on r.ROLEID equals ur.T_SYS_ROLE.ROLEID
-                                     where ur.T_SYS_USER.SYSUSERID == userID && n.PERMISSIONVALUE == "3" && m.SYSTEMTYPE == sysType
-                                     select new V_Permission
-                                     {
-                                         RoleMenuPermission = p,
-                                         Permission = n,
-                                         EntityMenu = m
-                                     };
-                if (entspermission != null)
-                {
-                    foreach (var menuid in entspermission.ToList())
-                    {
-                        menuids.Add(menuid.EntityMenu.ENTITYMENUID);
-                    }
+                #region 获取所有菜单，包括父级菜单
+                List<string> MenusFAtherResult = new List<string>();
+                menuids = ents.Select(c => c.ENTITYMENUID).Distinct().ToList();
 
-                }
-                if (menuids.Count() == 0)
-                {
-                    var UserEnt = from ent in dal.GetObjects<T_SYS_USER>()
-                                  where ent.SYSUSERID == userID
-                                  select ent;
-                    if (UserEnt.FirstOrDefault().ISMANGER == 1)
-                    {
-                        var SystemEnts = from a in CacheAllMenus.AsQueryable()
-                                         where (string.IsNullOrEmpty(sysType) || a.SYSTEMTYPE == "7") && a.HASSYSTEMMENU == "1"
-                                         orderby a.ORDERNUMBER
-                                         select a;
-                        foreach (var menuid in SystemEnts.ToList())
-                        {
-                            menuids.Add(menuid.ENTITYMENUID);
-                        }
+                MenusFAtherResult.AddRange(menuids);
 
-                    }
+                foreach (var menuid in menuids)
+                {
+                    getFatherId(menuid, AllMenus, ref MenusFAtherResult);
                 }
-                return ents;
+                var userMenus = (from ent in AllMenus
+                             where MenusFAtherResult.Contains(ent.ENTITYMENUID)
+                             select ent).ToList();
+                #endregion
+                return userMenus.AsQueryable();
             }
             catch (Exception ex)
             {

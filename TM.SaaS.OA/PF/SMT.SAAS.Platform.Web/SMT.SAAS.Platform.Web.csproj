@@ -97,7 +97,6 @@
     <Content Include="ClientBin\DllVersion.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ClientBin\SMT.SAAS.Loading.xap" />
     <Content Include="index.html" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config">

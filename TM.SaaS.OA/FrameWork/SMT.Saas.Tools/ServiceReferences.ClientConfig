@@ -27,6 +27,10 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
+        <binding name="BasicHttpBinding_PersonnelService1" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
       </basicHttpBinding>
       <customBinding>
         <binding name="CustomBinding_OrganizationService">
@@ -41,10 +45,6 @@
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
         <binding name="CustomBinding_PerformanceService">
-          <binaryMessageEncoding />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
-        <binding name="CustomBinding_PermissionService">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -88,11 +88,11 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="CustomBinding_PermissionService1">
+        <binding name="CustomBinding_OrganizationService2">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="CustomBinding_OrganizationService2">
+        <binding name="CustomBinding_PermissionService">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -159,12 +159,15 @@
       <endpoint address="http://localhost:12168/HRSV/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService1" />
-      <endpoint address="http://localhost:12168/PMSV/PermissionService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
-        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <endpoint address="http://localhost:12168/HRSV/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService2"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService2" />
+      <endpoint address="http://localhost:12168/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://localhost:12168/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService1"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService1" />
     </client>
 
   </system.serviceModel>

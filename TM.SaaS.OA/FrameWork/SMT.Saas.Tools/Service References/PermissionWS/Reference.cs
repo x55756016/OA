@@ -3695,6 +3695,7 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
@@ -3786,7 +3787,6 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;
@@ -3815,6 +3815,141 @@ namespace SMT.Saas.Tools.PermissionWS {
                 if ((object.ReferenceEquals(this.ValueField, value) != true)) {
                     this.ValueField = value;
                     this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LoginUserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services")]
+    public partial class LoginUserInfo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string companyIDField;
+        
+        private string companyNameField;
+        
+        private string departmentIDField;
+        
+        private string departmentNameField;
+        
+        private string postIDField;
+        
+        private string postNameField;
+        
+        private string userIDField;
+        
+        private string userNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string companyID {
+            get {
+                return this.companyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.companyIDField, value) != true)) {
+                    this.companyIDField = value;
+                    this.RaisePropertyChanged("companyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string companyName {
+            get {
+                return this.companyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.companyNameField, value) != true)) {
+                    this.companyNameField = value;
+                    this.RaisePropertyChanged("companyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string departmentID {
+            get {
+                return this.departmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.departmentIDField, value) != true)) {
+                    this.departmentIDField = value;
+                    this.RaisePropertyChanged("departmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string departmentName {
+            get {
+                return this.departmentNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.departmentNameField, value) != true)) {
+                    this.departmentNameField = value;
+                    this.RaisePropertyChanged("departmentName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string postID {
+            get {
+                return this.postIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.postIDField, value) != true)) {
+                    this.postIDField = value;
+                    this.RaisePropertyChanged("postID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string postName {
+            get {
+                return this.postNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.postNameField, value) != true)) {
+                    this.postNameField = value;
+                    this.RaisePropertyChanged("postName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userID {
+            get {
+                return this.userIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userIDField, value) != true)) {
+                    this.userIDField = value;
+                    this.RaisePropertyChanged("userID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
+                    this.userNameField = value;
+                    this.RaisePropertyChanged("userName");
                 }
             }
         }
@@ -6363,141 +6498,6 @@ namespace SMT.Saas.Tools.PermissionWS {
     public partial class EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw : SMT.Saas.Tools.PermissionWS.EntityReference {
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LoginUserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services")]
-    public partial class LoginUserInfo : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string companyIDField;
-        
-        private string companyNameField;
-        
-        private string departmentIDField;
-        
-        private string departmentNameField;
-        
-        private string postIDField;
-        
-        private string postNameField;
-        
-        private string userIDField;
-        
-        private string userNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string companyID {
-            get {
-                return this.companyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.companyIDField, value) != true)) {
-                    this.companyIDField = value;
-                    this.RaisePropertyChanged("companyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string companyName {
-            get {
-                return this.companyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.companyNameField, value) != true)) {
-                    this.companyNameField = value;
-                    this.RaisePropertyChanged("companyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string departmentID {
-            get {
-                return this.departmentIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.departmentIDField, value) != true)) {
-                    this.departmentIDField = value;
-                    this.RaisePropertyChanged("departmentID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string departmentName {
-            get {
-                return this.departmentNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.departmentNameField, value) != true)) {
-                    this.departmentNameField = value;
-                    this.RaisePropertyChanged("departmentName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string postID {
-            get {
-                return this.postIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.postIDField, value) != true)) {
-                    this.postIDField = value;
-                    this.RaisePropertyChanged("postID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string postName {
-            get {
-                return this.postNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.postNameField, value) != true)) {
-                    this.postNameField = value;
-                    this.RaisePropertyChanged("postName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userID {
-            get {
-                return this.userIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userIDField, value) != true)) {
-                    this.userIDField = value;
-                    this.RaisePropertyChanged("userID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("userName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PermissionWS.PermissionService")]
     public interface PermissionService {
@@ -6628,6 +6628,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         SMT.Saas.Tools.PermissionWS.T_SYS_USER EndUserLogin(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetOnLineUsers", ReplyAction="http://tempuri.org/PermissionService/GetOnLineUsersResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -6720,12 +6721,12 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetOnLineUsers(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_OnlineUser> EndGetOnLineUsers(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetLookupOjbects", ReplyAction="http://tempuri.org/PermissionService/GetLookupOjbectsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -6818,7 +6819,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.PermissionWS.EntityNames entityName, System.Collections.Generic.Dictionary<string, string> args, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
         
         string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result);
@@ -6875,6 +6875,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfos(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -6967,13 +6968,13 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysUserAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDs", ReplyAction="http://tempuri.org/PermissionService/GetSysUserAllInfosPagingByCompanyIDsResponse" +
             "")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7066,7 +7067,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysUserAllInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_USER> EndGetSysUserAllInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result);
@@ -7107,6 +7107,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         bool EndUserLoginOperation(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginRecordInfosPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7199,7 +7200,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysUserLoginRecordInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecord> EndGetSysUserLoginRecordInfosPaging(ref int pageCount, System.IAsyncResult result);
@@ -7233,6 +7233,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysUserLoginHistoryRecordAllInfosPagingRe" +
             "sponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7325,7 +7326,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysUserLoginHistoryRecordAllInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_UserLoginRecordHistory> EndGetSysUserLoginHistoryRecordAllInfosPaging(ref int pageCount, System.IAsyncResult result);
@@ -7396,6 +7396,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.V_Dictionary> EndGetDictionaryByCategoryArray(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetRoleInfosByUser", ReplyAction="http://tempuri.org/PermissionService/GetRoleInfosByUserResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7488,7 +7489,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetRoleInfosByUser(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string flagState, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetRoleInfosByUser(ref int pageCount, System.IAsyncResult result);
@@ -7647,6 +7647,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU> EndGetSysMenuByTypeToLookUpForFbAdmin(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysMenuByTypePaging", ReplyAction="http://tempuri.org/PermissionService/GetSysMenuByTypePagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7739,7 +7740,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysMenuByTypePaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ENTITYMENU> EndGetSysMenuByTypePaging(ref int pageCount, System.IAsyncResult result);
@@ -7879,6 +7879,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION> EndGetSysPermissionByEntityID(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysPermissionAllPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysPermissionAllPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -7971,7 +7972,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysPermissionAllPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_PERMISSION> EndGetSysPermissionAllPaging(ref int pageCount, System.IAsyncResult result);
@@ -8050,6 +8050,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosByCompanyIdAndDepartmentId(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysRoleInfosPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysRoleInfosPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -8142,12 +8143,12 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysRoleInfosPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosPaging(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDs", ReplyAction="http://tempuri.org/PermissionService/GetSysRoleInfosPagingByCompanyIDsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -8240,12 +8241,12 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysRoleInfosPagingByCompanyIDs(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE> EndGetSysRoleInfosPagingByCompanyIDs(ref int pageCount, System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetRoleView", ReplyAction="http://tempuri.org/PermissionService/GetRoleViewResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -8338,7 +8339,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetRoleView(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, SMT.Saas.Tools.PermissionWS.LoginUserInfo loginUserInfo, System.Collections.ObjectModel.ObservableCollection<string> CompanyIDs, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_ROLE_V> EndGetRoleView(ref int pageCount, System.IAsyncResult result);
@@ -8420,6 +8420,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY> EndGetSysDictionaryByFilter(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPaging", ReplyAction="http://tempuri.org/PermissionService/GetSysDictionaryByFilterPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityKeyMember))]
@@ -8512,7 +8513,6 @@ namespace SMT.Saas.Tools.PermissionWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_FBADMINNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.EntityReferenceOfT_SYS_DICTIONARYNb42Hbcw))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.PermissionWS.LoginUserInfo))]
         System.IAsyncResult BeginGetSysDictionaryByFilterPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY> EndGetSysDictionaryByFilterPaging(ref int pageCount, System.IAsyncResult result);

@@ -21,7 +21,7 @@ using SMT.SAAS.Main.CurrentContext;
 namespace SMT.SaaS.Permission.UI.UserControls
 {
     
-    public partial class SysRoleSetMenu2 : UserControl, IEntityEditor
+    public partial class SysRoleSetMenuPermisstion : UserControl, IEntityEditor
     {
         private Cache cache = Cache.Instance;
 
@@ -297,7 +297,7 @@ namespace SMT.SaaS.Permission.UI.UserControls
             FillPermissionDataRange(DaGrHR, "myChkBtnHR", "HRrating");            
         }
 
-        public SysRoleSetMenu2(T_SYS_ROLE obj)
+        public SysRoleSetMenuPermisstion(T_SYS_ROLE obj)
         {
             InitializeComponent();            
             tmprole = obj;

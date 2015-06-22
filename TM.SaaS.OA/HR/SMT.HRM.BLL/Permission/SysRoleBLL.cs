@@ -495,50 +495,10 @@ namespace SMT.HRM.BLL.Permission
             List<T_SYS_ROLE> listRoles = new List<T_SYS_ROLE>();
             try
             {
-                //SysUserBLL userbll = new SysUserBLL();
-                //string aa = "";
-                //string bb = "";
-                //string cc = "";
-                //userbll.GetUserMenuPermsByUserPermisionBllCommon("T_HR_SALARYARCHIVE", "d9b5aea7-e9fa-493b-8d1a-61539aeaceac", ref aa, ref bb, ref cc);
                 //2011年12月8日修改不包含预算配置员角色
                 var ents = from ent in dal.GetObjects<T_SYS_ROLE>()//DataContext.T_SYS_ROLE
                            where !ent.ROLENAME.Contains("预算配置员")
                            select ent;
-
-
-
-               
-
-                //BLLCommonServices.OrganizationWS.OrganizationServiceClient clinet = new BLLCommonServices.OrganizationWS.OrganizationServiceClient();
-
-                //var q = from cp in dal.GetObjects<T_SYS_ENTITYMENUCUSTOMPERM>()
-                //        join n in dal.GetObjects<T_SYS_PERMISSION>() on cp.T_SYS_PERMISSION.PERMISSIONID equals n.PERMISSIONID
-                //        join m in dal.GetObjects<T_SYS_ENTITYMENU>() on cp.T_SYS_ENTITYMENU.ENTITYMENUID equals m.ENTITYMENUID
-                //        join r in dal.GetObjects<T_SYS_ROLE>() on cp.T_SYS_ROLE.ROLEID equals r.ROLEID
-                //        join ur in dal.GetObjects<T_SYS_USERROLE>() on r.ROLEID equals ur.T_SYS_ROLE.ROLEID
-                //        where ur.T_SYS_USER.SYSUSERID == userID
-                //        && m.ENTITYCODE == "T_HR_DEPARTMENT"
-                //        && n.PERMISSIONVALUE == "3"//查看部门的权限
-                //        select cp;
-                //if (q.Count() > 0)
-                //{
-                //    foreach (var item in q.ToList())
-                //    {
-                //        ownerDepartmentids.Add(item.DEPARTMENTID);
-                //    }
-                //    foreach (var item in q.ToList())
-                //    {
-                //        SMT.SaaS.BLLCommonServices.OrganizationWS.T_HR_DEPARTMENT[] departMents = clinet.GetDepartmentActivedByCompanyID(item.COMPANYID);
-                //        if (departMents.Length > 0)
-                //        {
-                //            foreach (var dep in departMents)
-                //            {
-                //                ownerDepartmentids.Add(dep.DEPARTMENTID);
-                //            }
-                //        }
-                //    }
-                    
-                //}
                 List<string> ownerCompanyids = new List<string>();
                 V_EMPLOYEEPOST ep = employeeBll.GetEmployeeDetailByID(userID);
                 if (ep.EMPLOYEEPOSTS.Count() > 0)
@@ -554,23 +514,8 @@ namespace SMT.HRM.BLL.Permission
                 var entUserRoles = from ent in dal.GetObjects<T_SYS_USERROLE>().Include("T_SYS_USER")
                                    where ent.T_SYS_USER.STATE =="1"
                                    select ent;
-                //if (ownerCompanyids.Count() > 0)
-                //{
-                //    ents = from ent in ents
-                //           where ownerCompanyids.Contains(ent.OWNERCOMPANYID)
-                //           select ent;//增加员工所有岗位的部门id过滤条件-ken2013-11-1
-                //}
-                //if (CompanyIDs.Count() > 0)
-                //{
-                //    string ownerCompanyid = CompanyIDs[0];
-                //    ents = ents.Where(p => ownerCompanyid.Contains(p.OWNERCOMPANYID));//增加员工所有岗位的部门id过滤条件-ken2013-11-1
-                //}
                 List<object> queryParas = new List<object>();
                 queryParas.AddRange(paras);
-                //BLLCommonServices.Utility aa = new BLLCommonServices.Utility();
-                //aa.SetOrganizationFilter(ref filterString, ref queryParas, userID, "T_HR_DEPARTMENT");
-
-
                 if (queryParas.Count > 0)
                 {
                     if (!string.IsNullOrEmpty(filterString))
@@ -580,8 +525,8 @@ namespace SMT.HRM.BLL.Permission
 
                     }
                 }
-                ents = ents.OrderBy(sort);
-                foreach (var ent in ents)
+                var entsTemp = ents.OrderBy(sort).ToList();
+                foreach (var ent in entsTemp)
                 {
                     var rolesCounts = entUserRoles.Where(s => s.T_SYS_ROLE.ROLEID == ent.ROLEID);
                     int intCounts = rolesCounts.Count();

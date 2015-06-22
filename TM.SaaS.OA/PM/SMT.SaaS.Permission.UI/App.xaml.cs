@@ -85,11 +85,18 @@ namespace SMT.SaaS.Permission.UI
             PermissionServiceClient cliet = new PermissionServiceClient();
             cliet.GetSysDictionaryByCategoryCompleted += (o, e) =>
             {
-                List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
-                dicts = e.Result == null ? null : e.Result.ToList();
-                if(dicts != null)
-                    Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
-     
+                try
+                {
+                    List<T_SYS_DICTIONARY> dicts = new List<T_SYS_DICTIONARY>();
+                    dicts = e.Result == null ? null : e.Result.ToList();
+                    if (dicts != null)
+                        Application.Current.Resources.Add("SYS_DICTIONARY", dicts);
+                }
+                catch (Exception ex)
+                {
+                  MessageBox.Show(ex.ToString());
+                }
+
             };
             //TODO: 按需取出字典值
             cliet.GetSysDictionaryByCategoryAsync("");

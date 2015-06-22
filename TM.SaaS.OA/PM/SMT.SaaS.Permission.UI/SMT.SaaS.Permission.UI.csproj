@@ -281,13 +281,13 @@
     <Compile Include="UserControls\LookUpUserPosition.xaml.cs">
       <DependentUpon>LookUpUserPosition.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SysRoleSetMenu2.xaml.cs">
-      <DependentUpon>SysRoleSetMenu2.xaml</DependentUpon>
+    <Compile Include="UserControls\SysRoleSetMenuPermisstion.xaml.cs">
+      <DependentUpon>SysRoleSetMenuPermisstion.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\SysRoleSetMenu_HR.cs" />
     <Compile Include="UserControls\SysRoleSetMenu_PM.cs" />
     <Compile Include="UserControls\SysRoleSetMenu_Common.cs" />
-    <Compile Include="UserControls\SysUserRoleSet.xaml.cs">
+    <Compile Include="Form\SysUserRoleSet.xaml.cs">
       <DependentUpon>SysUserRoleSet.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -580,13 +580,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\SysRoleSetMenu2.xaml">
+    <Page Include="UserControls\SysRoleSetMenuPermisstion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControls\SysUserRoleSet.xaml">
+    <Page Include="Form\SysUserRoleSet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>

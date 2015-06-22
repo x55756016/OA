@@ -105,7 +105,8 @@
         </binding>
       </basicHttpBinding>
       <customBinding>
-        <binding name="CustomBinding_PermissionService1">
+        <binding name="CustomBinding_PermissionService"
+           openTimeout="00:10:00" receiveTimeout="00:10:00" sendTimeout="00:10:00" closeTimeout="00:10:00" >
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -324,9 +325,7 @@
       </customBinding>
     </bindings>
     <client>
-      <endpoint address="http://www.oa12.com/Services/HR/PersonnelService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
-        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
+    
       <endpoint address="http://www.oa12.com/Services/HR/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
@@ -721,13 +720,18 @@
          contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
 
 
-      <endpoint address="http://localhost:12168/PMSV/PermissionService.svc"
-            binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+      <endpoint address="http://localhost:12168/PermissionService.svc"
+            binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
             contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <!--<endpoint address="http://www.oa12.com/Services/HR/PermissionService.svc"
 binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
 contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />-->
-
+  <!--<endpoint address="http://www.oa12.com/Services/HR/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />-->
+        <endpoint address="http://localhost:12168/PersonnelService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
+        contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
 
       <endpoint address="http://www.oa12.com/Services/HR/MainUIServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_MainUIServices"

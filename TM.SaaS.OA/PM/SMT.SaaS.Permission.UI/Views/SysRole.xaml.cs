@@ -621,7 +621,7 @@ namespace SMT.SaaS.Permission.UI.Views
             Button AuthorBtn = sender as Button;
             T_SYS_ROLE AuthorRole = AuthorBtn.Tag as T_SYS_ROLE;            
             //SysRoleSetMenu UserInfo = new SysRoleSetMenu(AuthorRole);
-            SysRoleSetMenu2 UserInfo = new SysRoleSetMenu2(AuthorRole);//龙康才新增
+            SysRoleSetMenuPermisstion UserInfo = new SysRoleSetMenuPermisstion(AuthorRole);//龙康才新增
             EntityBrowser browser = new EntityBrowser(UserInfo);
             browser.MinWidth = 850;
             browser.MinHeight = 500;

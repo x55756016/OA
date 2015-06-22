@@ -21,7 +21,7 @@ using SMT.SAAS.Main.CurrentContext;
 namespace SMT.SaaS.Permission.UI.UserControls
 {
 
-    public partial class SysRoleSetMenu2 : UserControl, IEntityEditor
+    public partial class SysRoleSetMenuPermisstion : UserControl, IEntityEditor
     {
         /// <summary>
         /// 字典实体列表

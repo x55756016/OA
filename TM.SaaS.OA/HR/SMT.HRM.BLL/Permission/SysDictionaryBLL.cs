@@ -124,7 +124,8 @@ namespace SMT.HRM.BLL.Permission
                 }
                 else
                 {
-                    Tracer.Debug("权限系统SysDictionaryBLL-GetSysDictionaryByCategory:种类为空");
+                    //var ents = from a in ListTemp
+                    //           select a;
                     return null;
                 }
 

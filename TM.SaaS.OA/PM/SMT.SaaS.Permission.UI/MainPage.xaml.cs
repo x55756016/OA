@@ -95,7 +95,7 @@ namespace SMT.SaaS.Permission.UI
 
             //生成分组
             var groupItems = from m in menulist
-                             where m.EntityMenuFatherID == null
+                             where string.IsNullOrEmpty(m.EntityMenuFatherID)
                              orderby m.ORDERNUMBER
                              select m;
 

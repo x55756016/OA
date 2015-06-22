@@ -337,7 +337,7 @@ namespace SMT.SaaS.Permission.UI.Views
         {
             if (UserRole != null && UserRole.T_SYS_ROLE != null)
             {
-                SysRoleSetMenu2 UserInfo = new SysRoleSetMenu2(UserRole.T_SYS_ROLE);
+                SysRoleSetMenuPermisstion UserInfo = new SysRoleSetMenuPermisstion(UserRole.T_SYS_ROLE);
                 EntityBrowser browser = new EntityBrowser(UserInfo);
                 browser.MinWidth = 850;
                 browser.MinHeight = 500;

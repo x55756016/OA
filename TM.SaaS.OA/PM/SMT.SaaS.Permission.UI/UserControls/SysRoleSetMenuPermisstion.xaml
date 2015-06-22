@@ -10,7 +10,7 @@
     xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" 
 	xmlns:dataFormToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit"  
     xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
-    x:Class="SMT.SaaS.Permission.UI.UserControls.SysRoleSetMenu2" 
+    x:Class="SMT.SaaS.Permission.UI.UserControls.SysRoleSetMenuPermisstion" 
     x:Name="SysRoleSetMenu2Name"
     Loaded="SysRoleSetMenu2_Loaded" 
     >

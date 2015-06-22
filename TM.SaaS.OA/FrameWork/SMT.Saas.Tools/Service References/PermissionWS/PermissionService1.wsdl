@@ -10,15 +10,15 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL.Permission" />
-      <xsd:import schemaLocation="http://localhost:12168/PMSV/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL.Permission" />
+      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="PermissionService_GetEmployeeInfosByRoleID_InputMessage">
@@ -3240,9 +3240,9 @@
   </wsdl:binding>
   <wsdl:service name="PermissionService">
     <wsdl:port name="CustomBinding_PermissionService" binding="tns:CustomBinding_PermissionService">
-      <soap12:address location="http://localhost:12168/PMSV/PermissionService.svc" />
+      <soap12:address location="http://localhost:12168/PermissionService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:12168/PMSV/PermissionService.svc</wsa10:Address>
+        <wsa10:Address>http://localhost:12168/PermissionService.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

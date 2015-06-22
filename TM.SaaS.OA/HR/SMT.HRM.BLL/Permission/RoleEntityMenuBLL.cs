@@ -948,8 +948,9 @@ namespace SMT.HRM.BLL.Permission
                                             up.MENUCODE = rm.MENUCODE;
                                             up.PERMISSIONID = StrPermissionID;
                                             up.DATARANGE = StrDataRange;
-                                            int j = dal.Add(up);
+                                            dal.AddToContext(up);
                                         }
+                                        //int j = dal.SaveContextChanges();
                                     }
                                 }
                                 #endregion
