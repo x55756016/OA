@@ -22,15 +22,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:12168/EmployeeInfoService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EmployeeInfoService3.xsd" MetadataType="Schema" ID="9cfe47ee-ec06-4784-968e-1e6d8109ffc2" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?xsd=xsd2" />
-    <MetadataFile FileName="EmployeeInfoService1.disco" MetadataType="Disco" ID="8337d262-d48b-425d-89fd-1f40b9a38724" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?disco" />
-    <MetadataFile FileName="EmployeeInfoService31.xsd" MetadataType="Schema" ID="afb5e360-522a-4a48-8387-28df2e438887" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?xsd=xsd0" />
-    <MetadataFile FileName="EmployeeInfoService2.wsdl" MetadataType="Wsdl" ID="23c587d0-0b65-4ee8-94af-14cc90f6ddff" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="EmployeeInfoService21.wsdl" MetadataType="Wsdl" ID="c45a8c7d-2498-4c14-b83d-9d119b659969" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?wsdl" />
-    <MetadataFile FileName="EmployeeInfoService32.xsd" MetadataType="Schema" ID="f11ddc9e-299b-4f3e-95df-36750c270863" SourceId="1" SourceUrl="http://www.oa12.com/Services/HR/EmployeeInfoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmployeeInfoService.xsd" MetadataType="Schema" ID="5bc07e11-c930-4d10-98e5-407d670c5c7b" SourceId="1" SourceUrl="http://localhost:12168/EmployeeInfoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="EmployeeInfoService.wsdl" MetadataType="Wsdl" ID="0060ac4e-8fb2-4bc6-b673-79ac97400432" SourceId="1" SourceUrl="http://localhost:12168/EmployeeInfoService.svc?wsdl" />
+    <MetadataFile FileName="EmployeeInfoService.disco" MetadataType="Disco" ID="bcec4817-205d-4c9b-8c7b-09c220956533" SourceId="1" SourceUrl="http://localhost:12168/EmployeeInfoService.svc?disco" />
+    <MetadataFile FileName="EmployeeInfoService1.xsd" MetadataType="Schema" ID="0176f130-1c48-4009-8d24-7fa24adb1ea1" SourceId="1" SourceUrl="http://localhost:12168/EmployeeInfoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="EmployeeInfoService2.xsd" MetadataType="Schema" ID="9666e4b7-c89f-4f83-a174-16b9c606d432" SourceId="1" SourceUrl="http://localhost:12168/EmployeeInfoService.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

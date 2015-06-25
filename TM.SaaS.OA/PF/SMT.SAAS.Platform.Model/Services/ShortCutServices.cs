@@ -17,16 +17,16 @@ namespace SMT.SAAS.Platform.Model.Services
     {
         private Platform.Client.PlatformWS.PlatformServicesClient _client = new Client.PlatformWS.PlatformServicesClient();
 
-        public event EventHandler<GetEntityListEventArgs<Model.ShortCut>> OnGetShortCutCompleted;
+        public event EventHandler<CommonEventArgs<Model.ShortCut>> OnGetShortCutCompleted;
 
         public event EventHandler<ExecuteNoQueryEventArgs> OnRemoveShortCutCompleted;
 
-        private CommonServices commonSv;
+        private CustomPermissionServices customPermissionServices;
 
         public ShortCutServices()
         {
-            commonSv = new CommonServices();
-            commonSv.OnGetUserCustomerPermissionCompleted += new EventHandler<ExecuteNoQueryEventArgs>(commonSv_OnGetUserCustomerPermissionCompleted);
+            customPermissionServices = new CustomPermissionServices();
+            customPermissionServices.OnGetUserCustomerPermissionCompleted += new EventHandler<ExecuteNoQueryEventArgs>(commonSv_OnGetUserCustomerPermissionCompleted);
             _client.GetShortCutByUserCompleted += new EventHandler<Client.PlatformWS.GetShortCutByUserCompletedEventArgs>(_client_GetShortCutByUserCompleted);
             _client.RemoveShortCutByUserCompleted += new EventHandler<Client.PlatformWS.RemoveShortCutByUserCompletedEventArgs>(_client_RemoveShortCutByUserCompleted);
             _client.AddShortCutByUserCompleted += new EventHandler<Client.PlatformWS.AddShortCutByUserCompletedEventArgs>(_client_AddShortCutByUserCompleted);
@@ -47,64 +47,89 @@ namespace SMT.SAAS.Platform.Model.Services
 
         void _client_GetShortCutByUserCompleted(object sender, Client.PlatformWS.GetShortCutByUserCompletedEventArgs e)
         {
-            if (e.Error == null)
+            ObservableCollection<Model.ShortCut> result = new ObservableCollection<ShortCut>();
+            try
             {
-                if (e.Result != null)
+                if (e.Error == null)
                 {
-                    ObservableCollection<Model.ShortCut> result = new ObservableCollection<ShortCut>();
-
-
-                    result.Add(new ShortCut
+                    if (e.Result != null)
                     {
-                        IconPath = "/SMT.SAAS.Platform;Component/Images/icons/config.png",
-                        ShortCutID = "a2274a93-70e6-49cf-869f-6db192f806e8",
-                        Titel = "系统日志",
-                        AssemplyName = "SMT.SAAS.Platform",
-                        FullName = "SMT.SAAS.Platform.Xamls.SystemLogger, SMT.SAAS.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                        IsSysNeed = "1",
-                        UserState = "1",
-                        ModuleID = "SystemLog"
-                    });
 
-                    //if (CommonServices.HasNewsPublish)
-                    //{
-                        result.Add(new ShortCut
+
+                        //result.Add(new ShortCut
+                        //{
+                        //    IconPath = "/SMT.SAAS.Platform;Component/Images/icons/config.png",
+                        //    ShortCutID = "a2274a93-70e6-49cf-869f-6db192f806e8",
+                        //    Titel = "系统日志",
+                        //    AssemplyName = "SMT.SAAS.Platform",
+                        //    FullName = "SMT.SAAS.Platform.Xamls.SystemLogger, SMT.SAAS.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                        //    IsSysNeed = "1",
+                        //    UserState = "1",
+                        //    ModuleID = "SystemLog"
+                        //});
+
+                        if (CustomPermissionServices.HasNewsPublish)
                         {
-                            IconPath = "/SMT.SaaS.FrameworkUI;Component/Images/icon/News.png",
-                            ShortCutID = "a2274a93-70e6-49cf-869f-6db192f806e9",
-                            Titel = "新闻管理",
-                            AssemplyName = "SMT.SAAS.Platform.WebParts",
-                            FullName = "SMT.SAAS.Platform.WebParts.Views.NewsManager, SMT.SAAS.Platform.WebParts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                            IsSysNeed = "1",
-                            UserState = "1",
-                            ModuleID = "NewsManager"
-                        });
-                    //}
 
-
-                    foreach (var item in e.Result)
-                    {
-                        Model.ShortCut v = item.CloneObject<Model.ShortCut>(new Model.ShortCut());
-
-                        if (v.ModuleID != "NewsManager")
-                        {
-                            if (v.IconPath != "none")
+                            result.Add(new ShortCut
                             {
-                                result.Add(v);
+                                IconPath = "/SMT.SaaS.FrameworkUI;Component/Images/icon/News.png",
+                                ShortCutID = "a2274a93-70e6-49cf-869f-6db192f806e9",
+                                Titel = "新闻管理",
+                                AssemplyName = "SMT.SAAS.Platform.WebParts",
+                                FullName = "SMT.SAAS.Platform.WebParts.Views.NewsManager, SMT.SAAS.Platform.WebParts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                                IsSysNeed = "1",
+                                UserState = "1",
+                                ModuleID = "NewsManager"
+                            });
+                        }
+
+
+                        foreach (var item in e.Result)
+                        {
+                            Model.ShortCut v = item.CloneObject<Model.ShortCut>(new Model.ShortCut());
+
+                            if (v.ModuleID != "NewsManager")
+                            {
+                                if (v.IconPath != "none")
+                                {
+                                    result.Add(v);
+                                }
                             }
                         }
                     }
-                    if (OnGetShortCutCompleted != null)
-                        OnGetShortCutCompleted(this, new GetEntityListEventArgs<Model.ShortCut>(result, e.Error));
+
                 }
+            }catch(Exception ex)
+            {
+
+            }finally
+            {
+                if (OnGetShortCutCompleted != null)
+                    OnGetShortCutCompleted(this, new CommonEventArgs<Model.ShortCut>(result, e.Error));
 
             }
         }
 
         public void GetNewsPublishMenuByUser(string userid)
         {
-
-            commonSv.GetCustomPermission(userid, "NEWSPUBLISH");
+            //ken 暂时直接加载新闻，不做权限判断
+            ObservableCollection<Model.ShortCut> result = new ObservableCollection<ShortCut>();
+            result.Add(new ShortCut
+            {
+                IconPath = "/SMT.SaaS.FrameworkUI;Component/Images/icon/News.png",
+                ShortCutID = "a2274a93-70e6-49cf-869f-6db192f806e9",
+                Titel = "新闻管理",
+                AssemplyName = "SMT.SAAS.Platform.WebParts",
+                FullName = "SMT.SAAS.Platform.WebParts.Views.NewsManager, SMT.SAAS.Platform.WebParts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                IsSysNeed = "1",
+                UserState = "1",
+                ModuleID = "NewsManager"
+            });
+            if (OnGetShortCutCompleted != null)
+                OnGetShortCutCompleted(this, new CommonEventArgs<Model.ShortCut>(result,null));
+           
+            //customPermissionServices.GetCustomPermission(userid, "NEWSPUBLISH");
 
         }
 

@@ -14,10 +14,14 @@
     <AssemblyName>SMT.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightApplicationList>{FB2145AA-392E-4A16-978E-5132810FB549}|..\SMT.SAAS.Loading\SMT.SAAS.Loading.csproj|ClientBin|False</SilverlightApplicationList>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -97,6 +101,7 @@
     <Content Include="ClientBin\DllVersion.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ClientBin\SMT.SAAS.Loading.xap" />
     <Content Include="index.html" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config">

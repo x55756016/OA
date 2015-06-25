@@ -74,6 +74,13 @@ namespace SMT.SAAS.Platform.ViewModel.Common
                 {
                     SavePermissionByLocal(e.Result);
                 }
+            }else
+            {
+                MessageBox.Show("获取员工模块权限失败！");
+                if (OnGetUserMenuPermissionCompleted != null)
+                {
+                    OnGetUserMenuPermissionCompleted(null, EventArgs.Empty);
+                }
             }
         }
 

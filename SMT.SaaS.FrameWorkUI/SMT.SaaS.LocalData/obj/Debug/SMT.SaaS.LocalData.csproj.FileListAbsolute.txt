@@ -13,6 +13,6 @@ F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\obj\Debug\SM
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\Bin\Debug\SMT.SaaS.LocalData.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\Bin\Debug\SMT.SaaS.LocalData.pdb
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\Bin\Debug\Wintellect.Sterling.dll
-F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\obj\Debug\SMT.SaaS.LocalData.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\obj\Debug\SMT.SaaS.LocalData.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\obj\Debug\SMT.SaaS.LocalData.pdb
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SaaS.LocalData\obj\Debug\SMT.SaaS.LocalData.csprojResolveAssemblyReference.cache

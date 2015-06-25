@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SMT.HRM.CustomModel.Permission
@@ -11,10 +12,12 @@ namespace SMT.HRM.CustomModel.Permission
     /// </summary>
     ///     
     [Serializable]
+    [DataContract]
     public class CustomerPermission
     {
+         [DataMember]
         public string EntityMenuId;
-       
+        [DataMember]
         public List<PermissionValue> PermissionValue;
     }
 

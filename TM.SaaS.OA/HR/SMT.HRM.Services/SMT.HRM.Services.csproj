@@ -67,10 +67,6 @@
     <Reference Include="SMT.SaaS.Common">
       <HintPath>..\..\Common\Reference\SMT.SaaS.Common.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SaaS.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Common\Reference\SMT.SaaS.Services.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.Services.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Common\Reference\SMT.SaaS.Services.Model.dll</HintPath>
@@ -197,6 +193,7 @@
     <Compile Include="PersonnelService.svc.cs">
       <DependentUpon>PersonnelService.svc</DependentUpon>
     </Compile>
+    <Compile Include="PermissionService_Core.cs" />
     <Compile Include="SalaryService.svc.cs">
       <DependentUpon>SalaryService.svc</DependentUpon>
     </Compile>
@@ -302,7 +299,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HRSV\" />
-    <Folder Include="PMSV\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />

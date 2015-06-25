@@ -7,7 +7,7 @@
              xmlns:cvt="clr-namespace:SMT.SAAS.Platform.WebParts.Converters"
              xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
              xmlns:my="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload;assembly=SMT.SaaS.FrameworkUI"
-             xmlns:rich="clr-namespace:SMT.SaaS.PublicControls;assembly=SMT.SaaS.PublicControls"
+             xmlns:rich="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
              xmlns:upload="clr-namespace:SMT.FileUpLoad;assembly=SMT.FileUpLoad"
              mc:Ignorable="d"
              d:DesignHeight="300"
@@ -367,7 +367,7 @@
                    Text="*" />
         </Grid>
         <!--  第6行  -->
-        <rich:RichTextBox  x:Name="rtbContent"
+        <rich:RichMainPage  x:Name="rtbContent"
                            Grid.Row="6"
                            Grid.ColumnSpan="5"
                            Margin="5" />

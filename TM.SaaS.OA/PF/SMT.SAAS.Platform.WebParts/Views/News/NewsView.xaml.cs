@@ -112,7 +112,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                         //富文本框使用说明:
                         //加载\读取富文内容
                         //如果保存在数据库中的文档是html格式,直接将文档的字节数组赋值给富文本框的Document属性即可
-                        rtbContent.Document = value.NEWSCONTENT;
+                        rtbContent.RichTextBoxContext = value.NEWSCONTENT;
                         //如果是其他格式(目前支持的格式有:html,htm,pdf,docx,txt),有两种方式
                         //1.使用LoadDocument方法,第二个参数为文档扩展名.
                         // rtbContent.LoadDocument(value.NEWSCONTENT, "html");
@@ -121,7 +121,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                         //可以是HtmlFormatProvider\PdfFormatProvider\DocxFormatProvider\XamlFormatProvider\TxtFormatProvider之一.
                         //各自对应一种文档格式.然后富文本框的Document属性即可获得相应格式的字节数组
                         //rtbContent.IProvider = new PdfFormatProvider();
-                        //rtbContent.Document = value.NEWSCONTENT;
+                        //rtbContent.RichTextBoxContext = value.NEWSCONTENT;
 
                         //导出\保存富文本内容:
                         //与读取类似,使用富文本框的Document属性或者ExportDoctment()方法导出html格式字节数组.
@@ -323,7 +323,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                     //使用LoadDocument(byte[] bytes, string extension)方法加载内容
 
-                    rtbContent.Document = viewmodel.NEWSCONTENT;
+                    rtbContent.RichTextBoxContext = viewmodel.NEWSCONTENT;
 
                     //end modify.
                 }
@@ -391,7 +391,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         {
             var viewmodel = (this.DataContext as NewsViewModel);
 
-            viewmodel.NEWSCONTENT = rtbContent.Document;
+            viewmodel.NEWSCONTENT = rtbContent.RichTextBoxContext;
         }
         #endregion
 

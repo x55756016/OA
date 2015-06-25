@@ -88,30 +88,30 @@ namespace SMT.SAAS.Platform.Xamls.MainPagePart
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
-        {
-            try
-            {
-                _listnews = new List<NewsModel>();
-                if (e.Result != null)
-                {
-                    foreach (var item in e.Result)
-                    {
-                        _listnews.Add(new NewsModel()
-                        {
-                            Titel = item.NEWSTITEL,
-                            DataContent = item
-                        });
-                    }
-                    InitNewInfo();
-                }
-            }
-            catch (Exception ex)
-            {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
-                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
-            }
-        }
+        //void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        _listnews = new List<NewsModel>();
+        //        if (e.Result != null)
+        //        {
+        //            foreach (var item in e.Result)
+        //            {
+        //                _listnews.Add(new NewsModel()
+        //                {
+        //                    Titel = item.NEWSTITEL,
+        //                    DataContent = item
+        //                });
+        //            }
+        //            InitNewInfo();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+        //        SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+        //    }
+        //}
         void client_GetNewsListByParamsCompleted(object sender, GetNewsListByParamsCompletedEventArgs e)
         {
             _listnews = new List<NewsModel>();

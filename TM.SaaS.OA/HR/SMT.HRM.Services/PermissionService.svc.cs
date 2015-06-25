@@ -5,7 +5,6 @@ using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Collections.Generic;
 using System.Text;
-
 using SMT.HRM.BLL.Permission;
 using TM_SaaS_OA_EFModel;
 using System.Data.Objects.DataClasses;
@@ -14,10 +13,7 @@ using SMT.HRM.DAL.Permission;
 using SMT.HRM.CustomModel.Permission;
 using SMT.Foundation.Log;
 using InterActiveDirectory;
-//using SMT.SaaS.BLLCommonServices.FlowWFService;
 using SMT.HRM.CustomModel.Permission;
-
-
 
 namespace SMT.SaaS.Permission.Services
 {
@@ -26,7 +22,7 @@ namespace SMT.SaaS.Permission.Services
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [ServiceContract]
     // [ServiceContract(SessionMode = SessionMode.Allowed)]//
-    public class PermissionService
+    public partial class PermissionService
     {
         //private ClientStorage cache = ClientStorage.Instance;//
         private static int CallTime = 0;
@@ -79,25 +75,7 @@ namespace SMT.SaaS.Permission.Services
 
         }
 
-        /// <summary>
-        /// 根据用户与系统类型获取该用户拥有权限的菜单信息2011-5-19
-        /// </summary>
-        /// <param name="sysType">系统类型,为空时获取所有类型的系统菜单</param>
-        /// <param name="userID">用户ID</param>
-        /// <returns>菜单信息列表</returns>
-        /// <param name="menuids"></param>
-        /// <returns></returns>
-        [OperationContract]
-        public List<V_UserMenuPermission> GetSysLeftMenuFilterPermissionToNewFrame(string userID)
-        {
 
-            using (SysEntityMenuBLL bll = new SysEntityMenuBLL())
-            {
-                List<V_UserMenuPermission> menuList =  bll.GetSysLeftMenuFilterPermissionToNewFrame(userID);
-                return menuList != null ? menuList.ToList() : null;
-            }
-
-        }
 
         /// <summary>
         /// 根据用户ID获取用户的权限信息：加上了权限值的参数  2011-10-18
@@ -2197,18 +2175,7 @@ namespace SMT.SaaS.Permission.Services
             }
         }
 
-        /// <summary>
-        /// 判断登录用户在某一菜单中时候有自定义权限 2010-10-19
-        /// </summary>
-        /// <param name="menuID">系统自定义菜单权限编号</param>
-        [OperationContract]
-        public T_SYS_ENTITYMENUCUSTOMPERM GetCustomerPermissionByUserIDAndEntityCode(string StrUserId, string StrEntityCode)
-        {
-            using (EntityMenuCustomPermBLL bll = new EntityMenuCustomPermBLL())
-            {
-                return bll.GetCustomerPermissionByUserIDAndEntityCode(StrUserId, StrEntityCode);
-            }
-        }
+
 
         /// <summary>
         /// 获取岗位指定菜单权限
@@ -2581,7 +2548,7 @@ namespace SMT.SaaS.Permission.Services
         }
 
         /// <summary>
-        /// 根据用户名称得到用户所拥有的权限  简化版 2010-9-27 添加了预算管理员的判断 2011-12-15
+        /// 根据用户名称得到用户所拥有的权限  简化版 2010-9-27 添加了预算管理员的判断ken 平台打开菜单时判断权限
         /// 
         /// </summary>
         /// <param name="userName">用户名称</param>
@@ -2617,23 +2584,7 @@ namespace SMT.SaaS.Permission.Services
             }
         }
 
-        /// <summary>
-        /// 根据用户名称得到用户所拥有的权限  简化版 2010-9-27
-        /// 2010-11-10 添加菜单ID过滤
-        /// </summary>
-        /// <param name="userName">用户名称</param>
-        /// <returns>用户所拥有的权限列表</returns>
-        [OperationContract]
-        public List<V_UserPermissionUI> GetEntityPermissionByUser(string userID, string StrMenuId)
-        {
 
-            using (SysUserBLL bll = new SysUserBLL())
-            {
-                IQueryable<V_UserPermissionUI> plist;
-                plist = bll.GetUserPermissionByUserToUI(userID, StrMenuId);
-                return plist.Count() > 0 ? plist.ToList() : null;
-            }
-        }
 
         private static int GetUserMenuPermsTimes = 0;
         /// <summary>

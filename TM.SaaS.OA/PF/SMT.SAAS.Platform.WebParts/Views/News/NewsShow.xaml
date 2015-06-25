@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:rich="clr-namespace:SMT.SaaS.PublicControls;assembly=SMT.SaaS.PublicControls"
+             xmlns:rich="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
              xmlns:cvt="clr-namespace:SMT.SAAS.Platform.WebParts.Converters"
              mc:Ignorable="d"
              d:DesignHeight="300"
@@ -67,8 +67,7 @@
               Grid.Row="4"
               Margin="0 10 0 0">
 
-            <rich:RichTextBox  x:Name="rtbContent" Grid.Row="2" Grid.ColumnSpan="4" 
-                               ShowMenu="Collapsed" ShowStatusBar="Collapsed" IsReadOnly="True"/>
+            <rich:RichMainPage  x:Name="rtbContent" Grid.Row="2" Grid.ColumnSpan="4" />
             <!--
             xmlns:rich="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
             <rich:RichMainPage x:Name="rtbContent" Grid.Row="2" Grid.ColumnSpan="4"/>-->

@@ -2,7 +2,7 @@
 // 内容摘要: 主面板加载区域
 using System.Windows;
 using System.Windows.Controls;
-using SMT.SAAS.Platform.Xamls.Icons;
+//using SMT.SAAS.Platform.Xamls.Icons;
 using System;
 
 namespace SMT.SAAS.Platform.Xamls

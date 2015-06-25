@@ -38,7 +38,7 @@ namespace SMT.SAAS.Platform.ViewModel.MainPage
         private void InitItems()
         {
             _services = new Model.Services.ShortCutServices();
-            _services.OnGetShortCutCompleted += new EventHandler<Model.GetEntityListEventArgs<Model.ShortCut>>(_services_OnGetShortCutCompleted);
+            _services.OnGetShortCutCompleted += new EventHandler<Model.CommonEventArgs<Model.ShortCut>>(_services_OnGetShortCutCompleted);
             _services.OnRemoveShortCutCompleted += new EventHandler<Model.ExecuteNoQueryEventArgs>(_services_OnRemoveShortCutCompleted);
             
             if(SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo==null) return;
@@ -76,7 +76,7 @@ namespace SMT.SAAS.Platform.ViewModel.MainPage
                 Debug.WriteLine("ShortCut Removed!");
         }
 
-        void _services_OnGetShortCutCompleted(object sender, Model.GetEntityListEventArgs<Model.ShortCut> e)
+        void _services_OnGetShortCutCompleted(object sender, Model.CommonEventArgs<Model.ShortCut> e)
         {
             if (e.Error == null)
             {

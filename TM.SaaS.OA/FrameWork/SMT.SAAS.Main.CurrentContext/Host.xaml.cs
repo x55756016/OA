@@ -86,11 +86,11 @@ namespace SMT.SAAS.Main.CurrentContext
         {
             double x = (double)HtmlPage.Window.Eval("screen.width");//得到屏幕工作区域宽度
             double y = (double)HtmlPage.Window.Eval("screen.height");//得到屏幕工作区域宽度
-            txtSystemMessage.Height = y;
+            txtSystemMessage.Height = y-170;
             txtSystemMessage.Width = x;
             txtSystemMessage.Visibility = System.Windows.Visibility.Visible;
 
-            systemMessageArea.Height = y;
+            systemMessageArea.Height = y-150;
             systemMessageArea.Width = x;
             systemMessageArea.Visibility = System.Windows.Visibility.Visible;
         }

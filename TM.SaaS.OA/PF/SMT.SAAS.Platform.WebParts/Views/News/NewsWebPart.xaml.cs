@@ -73,33 +73,33 @@ namespace SMT.SAAS.Platform.WebParts.Views
            // loading.Start();
            // client.GetNewsListByParamsAsync(NewsType, topCount, "1");
 
-            client.GetNewsListByEmployeeIDCompleted += (obj, args) =>
-            {
-                try
-                {
-                    loading.Stop();
-                    if (args.Error == null)
-                    {
-                        if (args.Result != null)
-                        {
-                            if (args.Result.Count > 0)
-                            {
-                                if (args.Result.Count >= topCount)
-                                    btnMore.Visibility = Visibility.Visible;
+            //client.GetNewsListByEmployeeIDCompleted += (obj, args) =>
+            //{
+            //    try
+            //    {
+            //        loading.Stop();
+            //        if (args.Error == null)
+            //        {
+            //            if (args.Result != null)
+            //            {
+            //                if (args.Result.Count > 0)
+            //                {
+            //                    if (args.Result.Count >= topCount)
+            //                        btnMore.Visibility = Visibility.Visible;
 
-                                NewsList.ItemsSource = null;
-                                NewsList.ItemsSource = args.Result.ToList();
+            //                    NewsList.ItemsSource = null;
+            //                    NewsList.ItemsSource = args.Result.ToList();
 
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
-                    SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
-                }
-            };
+            //                }
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+            //        SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+            //    }
+            //};
             //loading.Start();
             //client.GetNewsListByEmployeeIDAsync(NewsType, topCount, "1",SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
         }

@@ -12,3 +12,15 @@ F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.SAA
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\obj\Debug\SMT.SAAS.ClientServices.pdb
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.Saas.Tools.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\System.Xml.Linq.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\SMT.Saas.Tools.pdb
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\de\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\es\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\fr\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\it\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\ja\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\ko\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\ru\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientServices\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll

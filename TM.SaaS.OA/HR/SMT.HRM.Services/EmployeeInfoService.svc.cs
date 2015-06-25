@@ -15,7 +15,7 @@ using System.Configuration;
 
 namespace SMT.HRM.Services
 {
-    [ServiceContract(Namespace = "")]
+    [ServiceContract]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class EmployeeInfoService
     {

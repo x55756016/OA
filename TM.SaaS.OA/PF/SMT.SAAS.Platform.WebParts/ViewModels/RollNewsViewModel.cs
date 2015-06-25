@@ -30,23 +30,23 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
             {
                 //client.GetNewsListByParamsCompleted += new EventHandler<GetNewsListByParamsCompletedEventArgs>(client_GetNewsListByParamsCompleted);
                 //client.GetNewsListByParamsAsync("0|1", 10, "1");
-                client.GetNewsListByEmployeeIDCompleted += new EventHandler<GetNewsListByEmployeeIDCompletedEventArgs>(client_GetNewsListByEmployeeIDCompleted);
+                //client.GetNewsListByEmployeeIDCompleted += new EventHandler<GetNewsListByEmployeeIDCompletedEventArgs>(client_GetNewsListByEmployeeIDCompleted);
                 //client.GetNewsListByEmployeeIDAsync("0|1", 10, "1", SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID);
             }
         }
 
-        void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
-        {
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
-                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
-            }
+        //void client_GetNewsListByEmployeeIDCompleted(object sender, GetNewsListByEmployeeIDCompletedEventArgs e)
+        //{
+        //    try
+        //    {
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+        //        SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
+        //    }
             
-        }
+        //}
 
         void client_GetNewsListByParamsCompleted(object sender, GetNewsListByParamsCompletedEventArgs e)
         {

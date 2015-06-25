@@ -4118,77 +4118,77 @@ namespace SMT.Saas.Tools.PermissionWS {
     [System.Runtime.Serialization.DataContractAttribute(Name="V_UserPermissionUI", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission")]
     public partial class V_UserPermissionUI : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermissionk__BackingFieldField;
+        private SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermissionField;
         
-        private string DataRangek__BackingFieldField;
+        private string DataRangeField;
         
-        private string EntityMenuIDk__BackingFieldField;
+        private string EntityMenuIDField;
         
-        private string MenuCodek__BackingFieldField;
+        private string MenuCodeField;
         
-        private string PermissionValuek__BackingFieldField;
+        private string PermissionValueField;
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="<CustomerPermission>k__BackingField", IsRequired=true)]
-        public SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermissionk__BackingField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.PermissionWS.CustomerPermission CustomerPermission {
             get {
-                return this.CustomerPermissionk__BackingFieldField;
+                return this.CustomerPermissionField;
             }
             set {
-                if ((object.ReferenceEquals(this.CustomerPermissionk__BackingFieldField, value) != true)) {
-                    this.CustomerPermissionk__BackingFieldField = value;
-                    this.RaisePropertyChanged("CustomerPermissionk__BackingField");
+                if ((object.ReferenceEquals(this.CustomerPermissionField, value) != true)) {
+                    this.CustomerPermissionField = value;
+                    this.RaisePropertyChanged("CustomerPermission");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="<DataRange>k__BackingField", IsRequired=true)]
-        public string DataRangek__BackingField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DataRange {
             get {
-                return this.DataRangek__BackingFieldField;
+                return this.DataRangeField;
             }
             set {
-                if ((object.ReferenceEquals(this.DataRangek__BackingFieldField, value) != true)) {
-                    this.DataRangek__BackingFieldField = value;
-                    this.RaisePropertyChanged("DataRangek__BackingField");
+                if ((object.ReferenceEquals(this.DataRangeField, value) != true)) {
+                    this.DataRangeField = value;
+                    this.RaisePropertyChanged("DataRange");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="<EntityMenuID>k__BackingField", IsRequired=true)]
-        public string EntityMenuIDk__BackingField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityMenuID {
             get {
-                return this.EntityMenuIDk__BackingFieldField;
+                return this.EntityMenuIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.EntityMenuIDk__BackingFieldField, value) != true)) {
-                    this.EntityMenuIDk__BackingFieldField = value;
-                    this.RaisePropertyChanged("EntityMenuIDk__BackingField");
+                if ((object.ReferenceEquals(this.EntityMenuIDField, value) != true)) {
+                    this.EntityMenuIDField = value;
+                    this.RaisePropertyChanged("EntityMenuID");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="<MenuCode>k__BackingField", IsRequired=true)]
-        public string MenuCodek__BackingField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MenuCode {
             get {
-                return this.MenuCodek__BackingFieldField;
+                return this.MenuCodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.MenuCodek__BackingFieldField, value) != true)) {
-                    this.MenuCodek__BackingFieldField = value;
-                    this.RaisePropertyChanged("MenuCodek__BackingField");
+                if ((object.ReferenceEquals(this.MenuCodeField, value) != true)) {
+                    this.MenuCodeField = value;
+                    this.RaisePropertyChanged("MenuCode");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="<PermissionValue>k__BackingField", IsRequired=true)]
-        public string PermissionValuek__BackingField {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PermissionValue {
             get {
-                return this.PermissionValuek__BackingFieldField;
+                return this.PermissionValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.PermissionValuek__BackingFieldField, value) != true)) {
-                    this.PermissionValuek__BackingFieldField = value;
-                    this.RaisePropertyChanged("PermissionValuek__BackingField");
+                if ((object.ReferenceEquals(this.PermissionValueField, value) != true)) {
+                    this.PermissionValueField = value;
+                    this.RaisePropertyChanged("PermissionValue");
                 }
             }
         }
@@ -4212,7 +4212,7 @@ namespace SMT.Saas.Tools.PermissionWS {
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValueField;
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string EntityMenuId {
             get {
                 return this.EntityMenuIdField;
@@ -4225,7 +4225,7 @@ namespace SMT.Saas.Tools.PermissionWS {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.PermissionWS.PermissionValue> PermissionValue {
             get {
                 return this.PermissionValueField;

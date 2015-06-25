@@ -61,18 +61,18 @@
   <xs:element name="ArrayOfV_UserPermissionUI" nillable="true" type="tns:ArrayOfV_UserPermissionUI" />
   <xs:complexType name="V_UserPermissionUI">
     <xs:sequence>
-      <xs:element name="_x003C_CustomerPermission_x003E_k__BackingField" nillable="true" type="tns:CustomerPermission" />
-      <xs:element name="_x003C_DataRange_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_EntityMenuID_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_MenuCode_x003E_k__BackingField" nillable="true" type="xs:string" />
-      <xs:element name="_x003C_PermissionValue_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerPermission" nillable="true" type="tns:CustomerPermission" />
+      <xs:element minOccurs="0" name="DataRange" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityMenuID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MenuCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionValue" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="V_UserPermissionUI" nillable="true" type="tns:V_UserPermissionUI" />
   <xs:complexType name="CustomerPermission">
     <xs:sequence>
-      <xs:element name="EntityMenuId" nillable="true" type="xs:string" />
-      <xs:element name="PermissionValue" nillable="true" type="tns:ArrayOfPermissionValue" />
+      <xs:element minOccurs="0" name="EntityMenuId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PermissionValue" nillable="true" type="tns:ArrayOfPermissionValue" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CustomerPermission" nillable="true" type="tns:CustomerPermission" />

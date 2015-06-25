@@ -2,14 +2,12 @@
   <system.serviceModel>
     <bindings>
       <basicHttpBinding>
-        <!--平台新闻服务引用生成的-->
         <binding name="BasicHttpBinding_IPlatformServices" maxBufferSize="2147483647"
-            maxReceivedMessageSize="2147483647">
+          maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <!--平台新闻服务引用生成的end-->
         <binding name="BasicHttpBinding_PlatformServices" maxBufferSize="2147483647"
-                           maxReceivedMessageSize="2147483647">
+          maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
         <binding name="BasicHttpBinding_Common" closeTimeout="00:30:00"
@@ -94,11 +92,6 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <binding name="BasicHttpBinding_PermissionService" closeTimeout="00:10:00"
-          openTimeout="00:10:00" sendTimeout="00:10:00" receiveTimeout="00:10:00"
-          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
         <binding name="BasicHttpBinding_MainUIServices" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
@@ -142,7 +135,6 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-  
         <binding name="CustomBinding_OrganizationService" closeTimeout="00:10:00"
           openTimeout="00:10:00" receiveTimeout="01:30:00" sendTimeout="01:30:00">
           <binaryMessageEncoding />
@@ -313,6 +305,10 @@
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
+        <binding name="CustomBinding_PermissionService">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
         <binding name="CustomBinding_EmployeeInfoService">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
@@ -347,7 +343,6 @@
       <endpoint address="http://www.oa12.com/Services/HR/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-
       <endpoint address="http://www.oa12.com/Services/OA/ContractManagementServiceFrom.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
         contract="ContractAppWS.ContractManagementServiceFrom" name="CustomBinding_ContractManagementServiceFrom" />
@@ -705,38 +700,25 @@
       <endpoint address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      
-      <!--<endpoint address="http://localhost:22222/PlatformServices.svc"
-               binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-               contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
+      <!--<endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
+      <!--<endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
+        contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />-->
 
-      <endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
-         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-         contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
-      
-      
-      <endpoint address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_EmployeeInfoService"
-        contract="EmployeeInfoWS.EmployeeInfoService" name="CustomBinding_EmployeeInfoService" />
-        <endpoint address="http://localhost:12168/PermissionService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
-        contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />
-
-      <!--<endpoint address="http://www.oa12.com/Services/HR/PermissionService.svc"
-binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
-contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />-->
-      
-      
+      <endpoint address="http://localhost:22222/PlatformServices.svc"
+             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+             contract="NewsWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
       <endpoint address="http://www.oa12.com/Services/HR/MainUIServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_MainUIServices"
         contract="MainUIWS.MainUIServices" name="BasicHttpBinding_MainUIServices" />
-
-<!--新闻用到的-->
-      <endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
-    binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
-    contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />
-      
-      
+      <endpoint address="http://www.oa12.com/Services/HR/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_EmployeeInfoService"
+        contract="EmployeeInfoWS.EmployeeInfoService" name="CustomBinding_EmployeeInfoService" />
     </client>
    
   </system.serviceModel>

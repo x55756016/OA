@@ -1,50 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-  <xs:import schemaLocation="http://localhost:15739/PlatformServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="EntityObject">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:StructuralObject">
-        <xs:sequence>
-          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q1:EntityKey" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.SAAS.Platform.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:22222/PlatformServices.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:22222/PlatformServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+  <xs:complexType name="ModuleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DependsOn" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnterAssembly" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HostAddress" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="InitParams" nillable="true" type="q2:ArrayOfKeyValueOfstringstring" />
+      <xs:element minOccurs="0" name="IsSave" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleIcon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParentModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="EntityObject" nillable="true" type="tns:EntityObject" />
-  <xs:complexType name="StructuralObject">
-    <xs:sequence />
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
+  <xs:element name="ModuleInfo" nillable="true" type="tns:ModuleInfo" />
+  <xs:complexType name="ArrayOfModuleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModuleInfo" nillable="true" type="tns:ModuleInfo" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
-  <xs:complexType name="EntityReferenceOfT_PF_PLATFORMCONFIGsUifyzDF">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_PF_PLATFORMCONFIG" Namespace="http://schemas.datacontract.org/2004/07/SMT_PF_EFModel" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
+  <xs:element name="ArrayOfModuleInfo" nillable="true" type="tns:ArrayOfModuleInfo" />
+  <xs:complexType name="ArrayOfShortCut">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShortCut" nillable="true" type="tns:ShortCut" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfT_PF_PLATFORMCONFIGsUifyzDF" nillable="true" type="tns:EntityReferenceOfT_PF_PLATFORMCONFIGsUifyzDF" />
-  <xs:complexType name="EntityReference">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:RelatedEnd">
-        <xs:sequence>
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q2:EntityKey" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
+  <xs:element name="ArrayOfShortCut" nillable="true" type="tns:ArrayOfShortCut" />
+  <xs:complexType name="ShortCut">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AssemplyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IconPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSysNeed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModuleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Params" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortCutID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserState" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="EntityReference" nillable="true" type="tns:EntityReference" />
-  <xs:complexType name="RelatedEnd">
-    <xs:sequence />
+  <xs:element name="ShortCut" nillable="true" type="tns:ShortCut" />
+  <xs:complexType name="T_PF_NEWSView">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="T_PF_DISTRIBUTEUSERS" nillable="true" type="q3:ArrayOfT_PF_DISTRIBUTEUSER" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="T_PF_NEWS" nillable="true" type="q4:T_PF_NEWS" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
+  <xs:element name="T_PF_NEWSView" nillable="true" type="tns:T_PF_NEWSView" />
+  <xs:complexType name="ArrayOfT_PF_NEWSListView">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_PF_NEWSListView" nillable="true" type="tns:T_PF_NEWSListView" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_PF_NEWSListView" nillable="true" type="tns:ArrayOfT_PF_NEWSListView" />
+  <xs:complexType name="T_PF_NEWSListView">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NEWSID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTITEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NEWSTYPEID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="T_PF_NEWSListView" nillable="true" type="tns:T_PF_NEWSListView" />
 </xs:schema>

@@ -188,15 +188,14 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService2.wsdl" />
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService21.wsdl" />
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService3.xsd">
+    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService.wsdl" />
+    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService31.xsd">
+    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService32.xsd">
+    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\EmployeeInfoWS\SMT.SAAS.Platform.EmployeeInfoWS.V_EMPLOYEEDETAIL.datasource">
@@ -263,8 +262,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\MainUIWS\MainUIServices.disco" />
-    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService1.disco" />
     <None Include="Service References\PermissionWS\PermissionService1.disco" />
+    <None Include="Service References\EmployeeInfoWS\EmployeeInfoService.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>

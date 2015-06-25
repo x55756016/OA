@@ -10,12 +10,10 @@ using SMT.SaaS.LocalData.ViewModel;
 namespace SMT.SAAS.Platform.Model.Services
 {
     /// <summary>
-    /// 提供公共服务的支持。比如：权限服务。
+    /// 自定义权限。
     /// </summary>
-    public class CommonServices
+    public class CustomPermissionServices
     {
-        //public event EventHandler<GetEntityListEventArgs<Model.UserMenu>> OnGetUserMenuCompleted;
-        //public event EventHandler<GetEntityEventArgs<Model.UserLogin>> OnGetUserInfoCompleted;
         public event EventHandler OnGetMenuPermissionCompleted;
         public event EventHandler<ExecuteNoQueryEventArgs> OnUpdateUserInfoCompleted;
 
@@ -25,13 +23,9 @@ namespace SMT.SAAS.Platform.Model.Services
         private SMT.Saas.Tools.PermissionWS.PermissionServiceClient _toolsClient = null;
         public static bool HasNewsPublish = false;
 
-        public CommonServices()
+        public CustomPermissionServices()
         {
             _toolsClient = new Saas.Tools.PermissionWS.PermissionServiceClient();
-            //_client.GetSysLeftMenuFilterPermissionToNewFrameCompleted += new System.EventHandler<GetSysLeftMenuFilterPermissionToNewFrameCompletedEventArgs>(_client_GetSysLeftMenuFilterPermissionToNewFrameCompleted);
-            //_toolsClient.GetEntityPermissionByUserCompleted += new EventHandler<Saas.Tools.PermissionWS.GetEntityPermissionByUserCompletedEventArgs>(_toolsClient_GetEntityPermissionByUserCompleted);
-            //_client.SysUserInfoUpdateCompleted += new EventHandler<SysUserInfoUpdateCompletedEventArgs>(_client_SysUserInfoUpdateCompleted);
-            //_client.SysUserInfoUpdateByUserIdandUsernameCompleted += new EventHandler<SysUserInfoUpdateByUserIdandUsernameCompletedEventArgs>(_client_SysUserInfoUpdateByUserIdandUsernameCompleted);
             _toolsClient.GetCustomerPermissionByUserIDAndEntityCodeCompleted += new EventHandler<Saas.Tools.PermissionWS.GetCustomerPermissionByUserIDAndEntityCodeCompletedEventArgs>(_toolsClient_GetCustomerPermissionByUserIDAndEntityCodeCompleted);
         }
 

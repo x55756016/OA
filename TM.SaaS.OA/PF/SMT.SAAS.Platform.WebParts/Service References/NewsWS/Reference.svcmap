@@ -20,18 +20,18 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:15739/PlatformServices.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:22222/PlatformServices.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PlatformServices7.xsd" MetadataType="Schema" ID="f6dd433f-74a6-49df-89fb-d26e9660d3cb" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd0" />
-    <MetadataFile FileName="PlatformServices8.xsd" MetadataType="Schema" ID="cc95920b-7637-4bdf-ba73-3e033626d280" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd5" />
-    <MetadataFile FileName="PlatformServices9.xsd" MetadataType="Schema" ID="715049bd-86e6-42d6-81d7-5ee5acd4b918" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="PlatformServices10.xsd" MetadataType="Schema" ID="9a121523-865b-4901-8936-89745031eee4" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd1" />
-    <MetadataFile FileName="PlatformServices1.wsdl" MetadataType="Wsdl" ID="fd36f141-eb34-4edd-b568-88a1a6ef1c19" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?wsdl" />
-    <MetadataFile FileName="PlatformServices1.disco" MetadataType="Disco" ID="30814fc2-93dd-4a04-8eed-f89f6751ddc9" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?disco" />
-    <MetadataFile FileName="PlatformServices11.xsd" MetadataType="Schema" ID="c1ee4966-5f65-4d4c-aadc-9fc626839af8" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd6" />
-    <MetadataFile FileName="PlatformServices12.xsd" MetadataType="Schema" ID="3f6749b4-c9fc-4a89-9757-34cec22e8fd2" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd4" />
-    <MetadataFile FileName="PlatformServices13.xsd" MetadataType="Schema" ID="e41b1e04-d406-4899-9f80-08cb00027564" SourceId="1" SourceUrl="http://localhost:15739/PlatformServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlatformServices.xsd" MetadataType="Schema" ID="ee86f138-a080-4418-b013-93f0e2a70cf1" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="PlatformServices7.xsd" MetadataType="Schema" ID="7117e3ca-02d6-4251-981a-bcc591e9c1a0" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="PlatformServices1.xsd" MetadataType="Schema" ID="4759a3ec-a73d-4c0e-845f-4a8f9139657e" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="PlatformServices8.xsd" MetadataType="Schema" ID="a7316e48-a4ef-4d32-b32b-4261e8e217e4" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="PlatformServices2.xsd" MetadataType="Schema" ID="923eec2b-6103-4668-b5d8-86e97b22e58a" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="PlatformServices1.wsdl" MetadataType="Wsdl" ID="10173065-77b4-4547-b1cc-fe0d914ce3ad" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?wsdl" />
+    <MetadataFile FileName="PlatformServices9.xsd" MetadataType="Schema" ID="54954504-249a-46aa-aabf-b92156380a69" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlatformServices1.disco" MetadataType="Disco" ID="9578ffe6-1016-4c99-8dbd-14324fdcbd30" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?disco" />
+    <MetadataFile FileName="PlatformServices10.xsd" MetadataType="Schema" ID="cf9d4ae7-8fc1-4e6f-9af6-7a933ac89139" SourceId="1" SourceUrl="http://localhost:22222/PlatformServices.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

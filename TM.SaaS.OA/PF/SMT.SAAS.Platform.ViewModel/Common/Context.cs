@@ -114,8 +114,22 @@ namespace SMT.SAAS.Platform.ViewModel
             }
         }
 
+        private static List<string> cacheMenuPermission;
         ///// 缓存用户Permission
-        public static List<string> CacheMenuPermissionList { get; set; }
+        public static List<string> CacheMenuPermissionList {
+            get
+            {
+                if (cacheMenuPermission == null)
+                {
+                    cacheMenuPermission =new List<string>();
+                }
+                return cacheMenuPermission;
+            }
+            set
+            {
+                cacheMenuPermission = value;
+            }
+        }
 
         public static void Clear()
         {

@@ -13,10 +13,14 @@
     <RootNamespace>SMT.SAAS.Platform.Services</RootNamespace>
     <AssemblyName>SMT.SAAS.Platform.Services</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
@@ -100,12 +104,13 @@
     <Compile Include="PlatformServices.svc.cs">
       <DependentUpon>PlatformServices.svc</DependentUpon>
     </Compile>
+    <Compile Include="PlatformServices_News.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HR\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
-      <Project>{0e45b937-670f-49e1-8ef1-a4bd312b94da}</Project>
-      <Name>SMT.HRM.CustomModel</Name>
+    <ProjectReference Include="..\..\TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj">
+      <Project>{7571bce6-3b80-41c1-af97-9118e7f41845}</Project>
+      <Name>TM_SaaS_OA_EFModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.BLL\SMT.SAAS.Platform.BLL.csproj">
       <Project>{9AEC90BE-490B-4E07-A472-169C29B89B47}</Project>

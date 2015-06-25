@@ -184,7 +184,7 @@ namespace SMT.SAAS.Platform.Xamls
                 switch (tag)
                 {
                     case "NewsManager": workitem = new WebParts.Views.NewsManager(); titel = "新闻管理"; break;
-                    case "SystemLog": workitem = new SMT.SAAS.Platform.Xamls.SystemLogger(); titel = " 系统日志"; break;
+                    //case "SystemLog": workitem = new SMT.SAAS.Platform.Xamls.SystemLogger(); titel = " 系统日志"; break;
                     case "CustomMenusSet":
                         {
                             titel = "菜单列表";

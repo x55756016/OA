@@ -763,16 +763,23 @@ namespace ReCheckUI
             }
             foreach (AcountCheckTemp.ERRORACCOUT_DOUBLERow dr in dt.Rows)
             {
-                switch (dr.ACCOUNTOBJECTTYPE.ToString())
+                try
                 {
-                    case "1"://公司
-                        break;
-                    case "2"://部门
-                        MergeDuplicateDepartFees(dr);
-                        break;
-                    case "3"://个人
-                        MergeDuplicatePersonFees(dr);
-                        break;
+                    switch (dr.ACCOUNTOBJECTTYPE.ToString())
+                    {
+                        case "1"://公司
+                            break;
+                        case "2"://部门
+                            MergeDuplicateDepartFees(dr);
+                            break;
+                        case "3"://个人
+                            MergeDuplicatePersonFees(dr);
+                            break;
+                    }
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    continue;
                 }
             }
 
@@ -852,7 +859,7 @@ namespace ReCheckUI
             string strFreshRecord = @"select ep.POSTID,d.DEPARTMENTID,c.COMPANYID from  smthrm.t_hr_employeepost ep  
                                         inner join smthrm.t_hr_post p on ep.postid = p.postid
                                          inner join smthrm.t_hr_department d on p.departmentid = d.departmentid
-                                         inner join smthrm.t_hr_company c on d.companyid = c.companyid where ep.OWNERID='" + dr.OWNERID + "'"
+                                         inner join smthrm.t_hr_company c on d.companyid = c.companyid where ep.employeeid='" + dr.OWNERID + "'"
                                         +@"and  ep.editstate=1  and ep.checkstate=2 and ep.isagency=0";
 
             DataTable dtFreshRecord = dal.GetDataTable(strFreshRecord);
@@ -1383,10 +1390,12 @@ namespace ReCheckUI
 
         private void btnBMJF_Click(object sender, EventArgs e)
         {
-            jinFeiId = "08c1d9c6-2396-43c3-99f9-227e4a7eb417";//部门经费
             ReCheck_BMJF bmjf = new ReCheck_BMJF();
+            bmjf.DepartMentId = "12bf769a-06d1-474d-a005-8f56f84a3cbe";
+            bmjf.SubjectId="08c1d9c6-2396-43c3-99f9-227e4a7eb417";//部门经费
             bmjf.checkBMJF();
         }
+        public bool ShowCheckProgreLog = true;
 
         /// <summary>
         /// 检查活动经费流水，调整额度
@@ -1615,10 +1624,13 @@ namespace ReCheckUI
                                 where b.T_FB_SUBJECT.SUBJECTID == item.T_FB_SUBJECT.SUBJECTID
                                 && b.OWNERID == item.OWNERID
                                 && a.CHECKSTATES == 2
+                                orderby a.UPDATEDATE
                                 select new
                                 {
+                                    a.PERSONMONEYASSIGNMASTERCODE,
                                     b.PERSONBUDGETAPPLYDETAILID,
                                     b.BUDGETMONEY,
+                                    a.UPDATEDATE,
                                     OwnerName=b.OWNERCOMPANYNAME+"-"+b.OWNERNAME
                                 }).ToList().Distinct();
                 if (YearMoney.Count() > 0)
@@ -1631,6 +1643,10 @@ namespace ReCheckUI
 
                         }
                         C2 = C2 + va.BUDGETMONEY.Value;
+                        if(ShowCheckProgreLog)
+                        {
+                            SetLog("单号:"+va.PERSONMONEYASSIGNMASTERCODE+",员工：" + va.OwnerName + "日期：" + va.UPDATEDATE + " 下拨经费额度：," + va.BUDGETMONEY);
+                        }
                     }
                 }
 
@@ -1647,12 +1663,17 @@ namespace ReCheckUI
                                          where b.T_FB_SUBJECT.SUBJECTID == item.T_FB_SUBJECT.SUBJECTID
                                          && a.OWNERID == item.OWNERID
                                          && a.CHECKSTATES == 2
-                                         select new { b.CHARGEAPPLYDETAILID, b.CHARGEMONEY }).ToList().Distinct();
+                                         orderby a.UPDATEDATE
+                                         select new {a.CHARGEAPPLYMASTERCODE,a.OWNERNAME,a.UPDATEDATE, b.CHARGEAPPLYDETAILID, b.CHARGEMONEY }).ToList().Distinct();
                 if (ChargeMoenyChecked.Count() > 0)
                 {
                     foreach (var va in ChargeMoenyChecked)
                     {
                         E = E + va.CHARGEMONEY;
+                        if (ShowCheckProgreLog)
+                        {
+                            SetLog("单号:" + va.CHARGEAPPLYMASTERCODE + ",员工：" + va.OWNERNAME + "日期：" + va.UPDATEDATE + " 报销活动经费额度：,-" + va.CHARGEMONEY);
+                        }
                     }
                 }
             }
@@ -1667,12 +1688,17 @@ namespace ReCheckUI
                                      where b.T_FB_SUBJECT.SUBJECTID == item.T_FB_SUBJECT.SUBJECTID
                                      && a.OWNERID == item.OWNERID
                                      && a.CHECKSTATES == 1
-                                     select  new { b.CHARGEAPPLYDETAILID, b.CHARGEMONEY }).ToList().Distinct();
+                                     orderby a.UPDATEDATE
+                                     select  new {a.CHARGEAPPLYMASTERCODE,a.OWNERNAME,a.UPDATEDATE, b.CHARGEAPPLYDETAILID, b.CHARGEMONEY }).ToList().Distinct();
                 if (ChargeingMoeny.Count() > 0)
                 {
                     foreach (var va in ChargeingMoeny)
                     {
                         F = F + va.CHARGEMONEY;
+                        if (ShowCheckProgreLog)
+                        {
+                            SetLog("单号:" + va.CHARGEAPPLYMASTERCODE + ",员工：" + va.OWNERNAME + "日期：" + va.UPDATEDATE + " 报销中活动经费额度：,-" + va.CHARGEMONEY);
+                        }
                     }
                 }
             }

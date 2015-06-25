@@ -3373,10 +3373,11 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                     {
                         this.ConsultationViewModel.REPLYUSERID = result.ObjectID;
                         this.ConsultationViewModel.REPLYUSERNAME = result.ObjectName;
-
+                        
                     }
                     else
                     {
+                        ComfirmWindow.ConfirmationBoxs("提示", "请选择有效的员工！此模式下只能勾选一个有效的员工", Utility.GetResourceStr("CONFIRM"), MessageIcon.Information);
                         this.ConsultationViewModel.REPLYUSERID = string.Empty;
                         this.ConsultationViewModel.REPLYUSERNAME = string.Empty;
                     }
@@ -3384,7 +3385,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
 
             };
-            lookup.MultiSelected = true;
+            lookup.MultiSelected = false;
             lookup.Show();
         }
         #endregion

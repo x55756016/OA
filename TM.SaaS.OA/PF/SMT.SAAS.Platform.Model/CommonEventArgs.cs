@@ -6,14 +6,14 @@ namespace SMT.SAAS.Platform.Model
     /// <summary>
     /// 实体集合完成事件的参数,参数中包含了获取后的实体集合
     /// </summary>
-    public class GetEntityListEventArgs<T> : EventArgs
+    public class CommonEventArgs<T> : EventArgs
     {
         /// <summary>
         /// 根据参数，创建一个GetEntityListEventArgs的新实例。
         /// </summary>
         /// <param name="result">参数，实体集合</param>
         /// <param name="error">参数，执行过程中是否存在异常</param>
-        public GetEntityListEventArgs(ObservableCollection<T> result, Exception error)
+        public CommonEventArgs(ObservableCollection<T> result, Exception error)
         {
             this.Result = result;
             this.Error = error;
@@ -24,7 +24,7 @@ namespace SMT.SAAS.Platform.Model
         /// </summary>
         /// <param name="result">返回的webpart集合</param>
         /// <param name="error">参数，执行过程中是否存在异常</param>
-        public GetEntityListEventArgs(ObservableCollection<T> result, Exception error, int pageCount)
+        public CommonEventArgs(ObservableCollection<T> result, Exception error, int pageCount)
             : this(result, error)
         {
             PageCount = pageCount;

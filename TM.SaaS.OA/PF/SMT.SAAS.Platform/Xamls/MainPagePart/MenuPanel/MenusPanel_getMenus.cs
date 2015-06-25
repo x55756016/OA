@@ -5,7 +5,7 @@ using System.Windows;
 using SMT.SAAS.Platform.Controls.CWrapPanel;
 using System.Collections.Generic;
 using System.Windows.Media;
-using SMT.SAAS.Platform.Xamls.Icons;
+//using SMT.SAAS.Platform.Xamls.Icons;
 using System.Collections.ObjectModel;
 using SMT.SAAS.Platform.ViewModel;
 using SMT.SAAS.Platform.Core.Modularity;

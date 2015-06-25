@@ -40,10 +40,8 @@ F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debu
 F:\MyWorkSpace\mysmtproject\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\obj\Debug\SMT.SAAS.ClientUtility.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.SAAS.ClientUtility.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.SAAS.ClientUtility.pdb
-F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.SAAS.ClientServices.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.Saas.Tools.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\System.Xml.Linq.dll
-F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.SAAS.ClientServices.pdb
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.Saas.Tools.xml
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\de\System.Xml.Linq.resources.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\es\System.Xml.Linq.resources.dll
@@ -57,3 +55,4 @@ F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\zh-Hant\
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\obj\Debug\SMT.SAAS.ClientUtility.csprojResolveAssemblyReference.cache
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\obj\Debug\SMT.SAAS.ClientUtility.dll
 F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\obj\Debug\SMT.SAAS.ClientUtility.pdb
+F:\MyWorkSpace\OA\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\Bin\Debug\SMT.Saas.Tools.pdb

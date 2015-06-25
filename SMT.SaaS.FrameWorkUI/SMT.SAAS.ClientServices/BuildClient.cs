@@ -4,14 +4,12 @@ using System.ServiceModel.Channels;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using PermissionWS=SMT.Saas.Tools.PermissionWS;
 namespace SMT.SAAS.ClientServices
 {
     public class BuildClient
     {
-        private static string serviceAddress = "http://portal.smt-online.net/new/Services";
-
-        private const string PERMISSION_SVC_NAME = "/System/PermissionService.svc";
-
+      
         private static BasicHttpBinding CreateBasicBinding()
         {
             return new BasicHttpBinding()
@@ -38,26 +36,6 @@ namespace SMT.SAAS.ClientServices
                 ReceiveTimeout = new System.TimeSpan(0, 30, 0)
 
             };
-        }
-
-        private static EndpointAddress CreateAddress(string svcName)
-        {
-            StringBuilder addressBuilder = new StringBuilder();
-            string strCurAddr = serviceAddress;
-            if (Application.Current.Resources.Contains("PlatformWShost"))
-            {
-                addressBuilder.Append("http://");
-                addressBuilder.Append(Application.Current.Resources["PlatformWShost"].ToString());
-                addressBuilder.Append(svcName);
-                strCurAddr = addressBuilder.ToString();
-            }
-
-            if (addressBuilder.Length == 0)
-            {
-                strCurAddr = serviceAddress + svcName;
-            }
-
-            return new EndpointAddress(strCurAddr);
         }
         private static PermissionWS.PermissionServiceClient CreatePermissionClient()
         {

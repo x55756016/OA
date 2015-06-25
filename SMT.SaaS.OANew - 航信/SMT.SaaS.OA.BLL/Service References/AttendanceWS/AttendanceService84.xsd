@@ -1,0 +1,1250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDMONTHLYBALANCE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBALANCE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+  <xs:complexType name="T_HR_ATTENDMONTHLYBALANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABSENTDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ABSENTMINUTES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AFFAIRLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ANNUALLEVELDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BALANCEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BALANCEMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BALANCEYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONTIME" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FORGETCARDTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FUNERALLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="INJURYLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LATEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LATEMINUTES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LATETIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEEARLYDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEEARLYTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEUSEDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MARRYDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MATERNITYLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MONTHLYBALANCEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDATTENDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NURSESDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OTHERLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OUTAPPLYTIME" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMESUMDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMESUMHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMETIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PRENATALCARELEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REALATTENDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REALNEEDATTENDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SICKLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TRIPDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBATCHBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBATCHBALANCEReference" nillable="true" type="q1:EntityReferenceOfT_HR_ATTENDMONTHLYBATCHBALANCELmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WORKSERVICEMONTHS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WORKTIMEPERDAY" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBALANCE" />
+  <xs:complexType name="T_HR_ATTENDMONTHLYBATCHBALANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BALANCEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BALANCEMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEOBJECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BALANCEYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MONTHLYBATCHID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDMONTHLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDMONTHLYBALANCE" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDMONTHLYBATCHBALANCE" nillable="true" type="tns:T_HR_ATTENDMONTHLYBATCHBALANCE" />
+  <xs:complexType name="T_HR_ATTENDYEARLYBALANCE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABSENTDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AFFAIRLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ANNUALLEAVESUMDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ANNUALLEAVEUSEDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ANNUALLEAVEVALIDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BALANCEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BALANCEYEAR" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONTIME" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LASTANNUALLEVELUNUSEDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LASTLEAVEVALIDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LATEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEEARLYDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVESUMDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEUSEDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEVALIDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NEEDATTENDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OTHERLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMESUMDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMESUMHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMETIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REALATTENDDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SICKLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YEARLYBALANCEID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDYEARLYBALANCE" nillable="true" type="tns:T_HR_ATTENDYEARLYBALANCE" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDYEARLYBALANCE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDYEARLYBALANCE" nillable="true" type="tns:T_HR_ATTENDYEARLYBALANCE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDYEARLYBALANCE" nillable="true" type="tns:ArrayOfT_HR_ATTENDYEARLYBALANCE" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEECANCELLEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEECANCELLEAVE" nillable="true" type="tns:T_HR_EMPLOYEECANCELLEAVE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEECANCELLEAVE" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEECANCELLEAVE" />
+  <xs:complexType name="T_HR_EMPLOYEECANCELLEAVE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CANCELLEAVEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TOTALHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:T_HR_EMPLOYEELEAVERECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEAVERECORDReference" nillable="true" type="q4:EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEECANCELLEAVE" nillable="true" type="tns:T_HR_EMPLOYEECANCELLEAVE" />
+  <xs:complexType name="T_HR_EMPLOYEELEAVERECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATTACHMENTPATH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVEHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LEAVERECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TOTALHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_ADJUSTLEAVE" nillable="true" type="tns:ArrayOfT_HR_ADJUSTLEAVE" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEECANCELLEAVE" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEECANCELLEAVE" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESET" nillable="true" type="tns:T_HR_LEAVETYPESET" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESETReference" nillable="true" type="q5:EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:T_HR_EMPLOYEELEAVERECORD" />
+  <xs:complexType name="ArrayOfT_HR_ADJUSTLEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ADJUSTLEAVE" nillable="true" type="tns:T_HR_ADJUSTLEAVE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ADJUSTLEAVE" nillable="true" type="tns:ArrayOfT_HR_ADJUSTLEAVE" />
+  <xs:complexType name="T_HR_ADJUSTLEAVE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ADJUSTLEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ADJUSTLEAVEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BEGINTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LEAVETYPESETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OFFSEOBJECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OFFSETDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:T_HR_EMPLOYEELEAVERECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEAVERECORDReference" nillable="true" type="q6:EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ADJUSTLEAVE" nillable="true" type="tns:T_HR_ADJUSTLEAVE" />
+  <xs:complexType name="T_HR_LEAVETYPESET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENTRYRESTRICT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FINETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISFREELEAVEDAY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEAVETYPENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEAVETYPESETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEAVETYPEVALUE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MAXDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OFFESTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="POSTLEVELRESTRICT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SEXRESTRICT" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDFREELEAVE" nillable="true" type="tns:ArrayOfT_HR_ATTENDFREELEAVE" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEELEAVERECORD" />
+          <xs:element minOccurs="0" name="T_HR_FREELEAVEDAYSET" nillable="true" type="tns:ArrayOfT_HR_FREELEAVEDAYSET" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_LEAVETYPESET" nillable="true" type="tns:T_HR_LEAVETYPESET" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDFREELEAVE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDFREELEAVE" nillable="true" type="tns:T_HR_ATTENDFREELEAVE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDFREELEAVE" nillable="true" type="tns:ArrayOfT_HR_ATTENDFREELEAVE" />
+  <xs:complexType name="T_HR_ATTENDFREELEAVE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATTENDFREELEAVEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:T_HR_ATTENDANCESOLUTION" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONReference" nillable="true" type="q8:EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESET" nillable="true" type="tns:T_HR_LEAVETYPESET" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESETReference" nillable="true" type="q8:EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDFREELEAVE" nillable="true" type="tns:T_HR_ATTENDFREELEAVE" />
+  <xs:complexType name="T_HR_ATTENDANCESOLUTION">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ADJUSTEXPIREDVALUE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ALARMDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ALLOWLATEMAXMINUTE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ALLOWLATEMAXTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ALLOWLOSTCARDTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ANNUALLEAVESET" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCESOLUTIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCESOLUTIONNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CARDTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EDITSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISAUTOIMPORTPUNCH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISCURRENTMONTH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISEXPIRED" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ONEDAYOVERTIMEHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMECHECK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEPAYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEVALID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SETTLEMENTDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONDEDUCT" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDFREELEAVE" nillable="true" type="tns:ArrayOfT_HR_ATTENDFREELEAVE" />
+          <xs:element minOccurs="0" name="T_HR_OVERTIMEREWARD" nillable="true" type="tns:T_HR_OVERTIMEREWARD" />
+          <xs:element minOccurs="0" name="T_HR_OVERTIMEREWARDReference" nillable="true" type="q9:EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEMASTER" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEMASTER" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEMASTERReference" nillable="true" type="q9:EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WORKDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WORKDAYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WORKMODE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WORKTIMEPERDAY" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="YEARLYBALANCEDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YEARLYBALANCETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YOUTHEXTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="YOUTHEXTENDVALUE" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:T_HR_ATTENDANCESOLUTION" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCESOLUTIONASIGN">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:T_HR_ATTENDANCESOLUTIONASIGN" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTIONASIGN" />
+  <xs:complexType name="T_HR_ATTENDANCESOLUTIONASIGN">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASSIGNEDOBJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ASSIGNEDOBJECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCESOLUTIONASIGNID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:T_HR_ATTENDANCESOLUTION" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONReference" nillable="true" type="q10:EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCESOLUTIONASIGN" nillable="true" type="tns:T_HR_ATTENDANCESOLUTIONASIGN" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCESOLUTIONDEDUCT" nillable="true" type="tns:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+  <xs:complexType name="T_HR_ATTENDANCESOLUTIONDEDUCT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SOLUTIONDEDUCTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTMASTER" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCEDEDUCTMASTERReference" nillable="true" type="q11:EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:T_HR_ATTENDANCESOLUTION" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONReference" nillable="true" type="q11:EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCESOLUTIONDEDUCT" nillable="true" type="tns:T_HR_ATTENDANCESOLUTIONDEDUCT" />
+  <xs:complexType name="T_HR_ATTENDANCEDEDUCTMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATTENDABNORMALNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDABNORMALTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEDUCTMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FINERATIO" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FINESUM" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FINETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISACCUMULATING" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISPERFECTATTENDANCEFACTOR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PARAMETERVALUE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCEDEDUCTDETAIL" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTIONDEDUCT" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTIONDEDUCT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTMASTER" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCEDEDUCTDETAIL" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCEDEDUCTDETAIL" />
+  <xs:complexType name="T_HR_ATTENDANCEDEDUCTDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DEDUCTDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FINERATIO" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FINESUM" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="FINETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HIGHESTTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LOWESTTIMES" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PARAMETERVALUE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTMASTER" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCEDEDUCTMASTERReference" nillable="true" type="q13:EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCEDEDUCTDETAIL" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTDETAIL" />
+  <xs:complexType name="T_HR_OVERTIMEREWARD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEREWARDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEREWARDNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTION" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="USUALOVERTIMEPAYRATE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="VACATIONPAYRATE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="WEEKENDPAYRATE" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_OVERTIMEREWARD" nillable="true" type="tns:T_HR_OVERTIMEREWARD" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCESOLUTION">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:T_HR_ATTENDANCESOLUTION" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCESOLUTION" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTION" />
+  <xs:complexType name="T_HR_SCHEDULINGTEMPLATEMASTER">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCHEDULINGCIRCLETYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEMPLATEMASTERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TEMPLATENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCESOLUTION" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCESOLUTION" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEDETAIL" nillable="true" type="tns:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_SCHEDULINGTEMPLATEMASTER" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEMASTER" />
+  <xs:complexType name="ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_SCHEDULINGTEMPLATEDETAIL" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" nillable="true" type="tns:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+  <xs:complexType name="T_HR_SCHEDULINGTEMPLATEDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCHEDULINGDATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SCHEDULINGINDEX" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TEMPLATEDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEMASTER" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEMASTER" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEMASTERReference" nillable="true" type="q16:EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_SHIFTDEFINE" nillable="true" type="tns:T_HR_SHIFTDEFINE" />
+          <xs:element minOccurs="0" name="T_HR_SHIFTDEFINEReference" nillable="true" type="q16:EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_SCHEDULINGTEMPLATEDETAIL" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEDETAIL" />
+  <xs:complexType name="T_HR_SHIFTDEFINE">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTOFFCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTOFFCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHOFFCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHOFFCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFIRSTCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFIRSTOFFCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFOURTHCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFOURTHOFFCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDSECONDCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDSECONDOFFCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDTHIRDCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDTHIRDOFFCARD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDOFFCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDOFFCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SHIFTDEFINEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SHIFTNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDOFFCARDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDOFFCARDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCERECORD" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCERECORD" />
+          <xs:element minOccurs="0" name="T_HR_SCHEDULINGTEMPLATEDETAIL" nillable="true" type="tns:ArrayOfT_HR_SCHEDULINGTEMPLATEDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="WORKTIME" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_SHIFTDEFINE" nillable="true" type="tns:T_HR_SHIFTDEFINE" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCERECORD" nillable="true" type="tns:T_HR_ATTENDANCERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCERECORD" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCERECORD" />
+  <xs:complexType name="T_HR_ATTENDANCERECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ATTENDANCEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ATTENDANCERECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCESOLUTIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDANCESTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTENDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTSTARTSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FIRSTSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHENDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHSTARTSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FOURTHSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFOURTHATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDFRISTATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDSECONDATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NEEDTHIRDATTEND" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDENDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDSTARTSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SECONDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDENDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDSTARTSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="THIRDSTARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEABNORMRECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEABNORMRECORD" />
+          <xs:element minOccurs="0" name="T_HR_SHIFTDEFINE" nillable="true" type="tns:T_HR_SHIFTDEFINE" />
+          <xs:element minOccurs="0" name="T_HR_SHIFTDEFINEReference" nillable="true" type="q18:EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDANCERECORD" nillable="true" type="tns:T_HR_ATTENDANCERECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEEABNORMRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEEABNORMRECORD" nillable="true" type="tns:T_HR_EMPLOYEEABNORMRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEEABNORMRECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEABNORMRECORD" />
+  <xs:complexType name="T_HR_EMPLOYEEABNORMRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABNORMALDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ABNORMALTIME" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ABNORMCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ABNORMRECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDPERIOD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SINGINSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCERECORD" nillable="true" type="tns:T_HR_ATTENDANCERECORD" />
+          <xs:element minOccurs="0" name="T_HR_ATTENDANCERECORDReference" nillable="true" type="q19:EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEESIGNINDETAIL" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEEABNORMRECORD" nillable="true" type="tns:T_HR_EMPLOYEEABNORMRECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEESIGNINDETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEESIGNINDETAIL" nillable="true" type="tns:T_HR_EMPLOYEESIGNINDETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEESIGNINDETAIL" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+  <xs:complexType name="T_HR_EMPLOYEESIGNINDETAIL">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABNORMALDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ABNORMALTIME" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ABNORMCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDPERIOD" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DETAILREASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REASONCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIGNINDETAILID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEABNORMRECORD" nillable="true" type="tns:T_HR_EMPLOYEEABNORMRECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEABNORMRECORDReference" nillable="true" type="q20:EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEESIGNINRECORD" nillable="true" type="tns:T_HR_EMPLOYEESIGNINRECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEESIGNINRECORDReference" nillable="true" type="q20:EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEESIGNINDETAIL" nillable="true" type="tns:T_HR_EMPLOYEESIGNINDETAIL" />
+  <xs:complexType name="T_HR_EMPLOYEESIGNINRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIGNINCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIGNINID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SIGNINTIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEESIGNINDETAIL" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEESIGNINDETAIL" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEESIGNINRECORD" nillable="true" type="tns:T_HR_EMPLOYEESIGNINRECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEELEAVERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:T_HR_EMPLOYEELEAVERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEELEAVERECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEELEAVERECORD" />
+  <xs:complexType name="ArrayOfT_HR_FREELEAVEDAYSET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_FREELEAVEDAYSET" nillable="true" type="tns:T_HR_FREELEAVEDAYSET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_FREELEAVEDAYSET" nillable="true" type="tns:ArrayOfT_HR_FREELEAVEDAYSET" />
+  <xs:complexType name="T_HR_FREELEAVEDAYSET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FREELEAVEDAYSETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISPERFECTATTENDANCEFACTOR" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEAVEDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MAXMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MINIMONTH" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OFFESTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESET" nillable="true" type="tns:T_HR_LEAVETYPESET" />
+          <xs:element minOccurs="0" name="T_HR_LEAVETYPESETReference" nillable="true" type="q22:EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_FREELEAVEDAYSET" nillable="true" type="tns:T_HR_FREELEAVEDAYSET" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDMACHINESET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDMACHINESET" nillable="true" type="tns:T_HR_ATTENDMACHINESET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDMACHINESET" nillable="true" type="tns:ArrayOfT_HR_ATTENDMACHINESET" />
+  <xs:complexType name="T_HR_ATTENDMACHINESET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AREA" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDMACHINECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDMACHINENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ATTENDMACHINESETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMNUMBER" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IPADDRESS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="READDATATYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_ATTENDMACHINESET" nillable="true" type="tns:T_HR_ATTENDMACHINESET" />
+  <xs:complexType name="T_HR_VACATIONSET">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASSIGNEDOBJECTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ASSIGNEDOBJECTTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="COUNTYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_OUTPLANDAYS" nillable="true" type="tns:ArrayOfT_HR_OUTPLANDAYS" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VACATIONID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VACATIONNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VACATIONYEAR" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_VACATIONSET" nillable="true" type="tns:T_HR_VACATIONSET" />
+  <xs:complexType name="ArrayOfT_HR_OUTPLANDAYS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_OUTPLANDAYS" nillable="true" type="tns:T_HR_OUTPLANDAYS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_OUTPLANDAYS" nillable="true" type="tns:ArrayOfT_HR_OUTPLANDAYS" />
+  <xs:complexType name="T_HR_OUTPLANDAYS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DAYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ISADJUSTLEAVE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISHALFDAY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OUTPLANDAYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OUTPLANNAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PEROID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_HR_VACATIONSET" nillable="true" type="tns:T_HR_VACATIONSET" />
+          <xs:element minOccurs="0" name="T_HR_VACATIONSETReference" nillable="true" type="q25:EntityReferenceOfT_HR_VACATIONSETLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_OUTPLANDAYS" nillable="true" type="tns:T_HR_OUTPLANDAYS" />
+  <xs:complexType name="ArrayOfT_HR_VACATIONSET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_VACATIONSET" nillable="true" type="tns:T_HR_VACATIONSET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_VACATIONSET" nillable="true" type="tns:ArrayOfT_HR_VACATIONSET" />
+  <xs:complexType name="ArrayOfT_HR_LEAVETYPESET">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_LEAVETYPESET" nillable="true" type="tns:T_HR_LEAVETYPESET" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_LEAVETYPESET" nillable="true" type="tns:ArrayOfT_HR_LEAVETYPESET" />
+  <xs:complexType name="ArrayOfT_HR_OVERTIMEREWARD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_OVERTIMEREWARD" nillable="true" type="tns:T_HR_OVERTIMEREWARD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_OVERTIMEREWARD" nillable="true" type="tns:ArrayOfT_HR_OVERTIMEREWARD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEEEVECTIONREPORT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEEEVECTIONREPORT" nillable="true" type="tns:T_HR_EMPLOYEEEVECTIONREPORT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEEEVECTIONREPORT" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEEVECTIONREPORT" />
+  <xs:complexType name="T_HR_EMPLOYEEEVECTIONREPORT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTINATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONREASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONRECORDCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONREPORTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPLACEPEOPLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBSIDYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBSIDYVALUE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEEVECTIONRECORD" nillable="true" type="tns:T_HR_EMPLOYEEEVECTIONRECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEEVECTIONRECORDReference" nillable="true" type="q26:EntityReferenceOfT_HR_EMPLOYEEEVECTIONRECORDLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEEEVECTIONREPORT" nillable="true" type="tns:T_HR_EMPLOYEEEVECTIONREPORT" />
+  <xs:complexType name="T_HR_EMPLOYEEEVECTIONRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DESTINATION" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ENDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONREASON" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONRECORDCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EVECTIONRECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REPLACEPEOPLE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STARTTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBSIDYTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SUBSIDYVALUE" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TOTALDAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEEVECTIONREPORT" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEEVECTIONREPORT" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEEEVECTIONRECORD" nillable="true" type="tns:T_HR_EMPLOYEEEVECTIONRECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEEEVECTIONRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEEEVECTIONRECORD" nillable="true" type="tns:T_HR_EMPLOYEEEVECTIONRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEEEVECTIONRECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEEVECTIONRECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEESIGNINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEESIGNINRECORD" nillable="true" type="tns:T_HR_EMPLOYEESIGNINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEESIGNINRECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEESIGNINRECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEELEVELDAYCOUNT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEELEVELDAYCOUNT" nillable="true" type="tns:T_HR_EMPLOYEELEVELDAYCOUNT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEELEVELDAYCOUNT" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEELEVELDAYCOUNT" />
+  <xs:complexType name="T_HR_EMPLOYEELEVELDAYCOUNT">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EFFICDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEAVETYPESETID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TERMINATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEVELDAYDETAILS" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEELEVELDAYDETAILS" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VACATIONTYPE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEELEVELDAYCOUNT" nillable="true" type="tns:T_HR_EMPLOYEELEVELDAYCOUNT" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEELEVELDAYDETAILS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEELEVELDAYDETAILS" nillable="true" type="tns:T_HR_EMPLOYEELEVELDAYDETAILS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEELEVELDAYDETAILS" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEELEVELDAYDETAILS" />
+  <xs:complexType name="T_HR_EMPLOYEELEVELDAYDETAILS">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DAYS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EFFICDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LEVELDAYDETAILSID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEVELDAYCOUNT" nillable="true" type="tns:T_HR_EMPLOYEELEVELDAYCOUNT" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEELEVELDAYCOUNTReference" nillable="true" type="q29:EntityReferenceOfT_HR_EMPLOYEELEVELDAYCOUNTLmi1kWPo" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VACATIONTYPE" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEELEVELDAYDETAILS" nillable="true" type="tns:T_HR_EMPLOYEELEVELDAYDETAILS" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEECLOCKINRECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEECLOCKINRECORD" nillable="true" type="tns:T_HR_EMPLOYEECLOCKINRECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEECLOCKINRECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEECLOCKINRECORD" />
+  <xs:complexType name="T_HR_EMPLOYEECLOCKINRECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q30="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q30:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CLOCKID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CLOCKINRECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FINGERPRINTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PUNCHDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PUNCHTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VERIFYCODE" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEECLOCKINRECORD" nillable="true" type="tns:T_HR_EMPLOYEECLOCKINRECORD" />
+  <xs:complexType name="ArrayOfT_HR_SCHEDULINGTEMPLATEMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_SCHEDULINGTEMPLATEMASTER" nillable="true" type="tns:T_HR_SCHEDULINGTEMPLATEMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_SCHEDULINGTEMPLATEMASTER" nillable="true" type="tns:ArrayOfT_HR_SCHEDULINGTEMPLATEMASTER" />
+  <xs:complexType name="ArrayOfT_HR_SHIFTDEFINE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_SHIFTDEFINE" nillable="true" type="tns:T_HR_SHIFTDEFINE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_SHIFTDEFINE" nillable="true" type="tns:ArrayOfT_HR_SHIFTDEFINE" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEEOVERTIMERECORD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEEOVERTIMERECORD" nillable="true" type="tns:T_HR_EMPLOYEEOVERTIMERECORD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEEOVERTIMERECORD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEOVERTIMERECORD" />
+  <xs:complexType name="T_HR_EMPLOYEEOVERTIMERECORD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q31:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BEGINCARDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BEGINCARDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BEGINCARDTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CHECKSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATECOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CREATEDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CREATEUSERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEECODE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEEID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EMPLOYEENAME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCARDSTATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCARDTIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDCARDTYPE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ENDDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ENDDATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ISCONVERTLEVEDAY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMECATE" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEHOURS" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="OVERTIMERECORDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERDEPARTMENTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OWNERPOSTID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PAYCATEGORY" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="STARTDATETIME" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEOVERTIMEDETAILRD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEOVERTIMEDETAILRD" />
+          <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="UPDATEUSERID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEEOVERTIMERECORD" nillable="true" type="tns:T_HR_EMPLOYEEOVERTIMERECORD" />
+  <xs:complexType name="ArrayOfT_HR_EMPLOYEEOVERTIMEDETAILRD">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_EMPLOYEEOVERTIMEDETAILRD" nillable="true" type="tns:T_HR_EMPLOYEEOVERTIMEDETAILRD" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_EMPLOYEEOVERTIMEDETAILRD" nillable="true" type="tns:ArrayOfT_HR_EMPLOYEEOVERTIMEDETAILRD" />
+  <xs:complexType name="T_HR_EMPLOYEEOVERTIMEDETAILRD">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q32="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q32:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ENDDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="OVERTIMEDETAILRDID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OVERTIMEHOURS" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="STARTDATETIME" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEOVERTIMERECORD" nillable="true" type="tns:T_HR_EMPLOYEEOVERTIMERECORD" />
+          <xs:element minOccurs="0" name="T_HR_EMPLOYEEOVERTIMERECORDReference" nillable="true" type="q32:EntityReferenceOfT_HR_EMPLOYEEOVERTIMERECORDLmi1kWPo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="T_HR_EMPLOYEEOVERTIMEDETAILRD" nillable="true" type="tns:T_HR_EMPLOYEEOVERTIMEDETAILRD" />
+  <xs:complexType name="ArrayOfT_HR_ATTENDANCEDEDUCTMASTER">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="T_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:T_HR_ATTENDANCEDEDUCTMASTER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfT_HR_ATTENDANCEDEDUCTMASTER" nillable="true" type="tns:ArrayOfT_HR_ATTENDANCEDEDUCTMASTER" />
+</xs:schema>

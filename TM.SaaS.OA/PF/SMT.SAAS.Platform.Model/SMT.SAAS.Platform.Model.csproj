@@ -17,10 +17,14 @@
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -94,10 +98,6 @@
     <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj">
-      <Project>{CC777E34-3BE7-4161-8C8D-A099179D87B9}</Project>
-      <Name>SMT.SAAS.Platform.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

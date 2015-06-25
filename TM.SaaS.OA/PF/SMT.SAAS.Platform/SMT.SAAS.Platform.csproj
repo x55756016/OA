@@ -31,10 +31,14 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <LinkedServerProject>
     </LinkedServerProject>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <SignAssembly>false</SignAssembly>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -176,12 +180,6 @@
     <Compile Include="Xamls\MainPagePart\Helper.xaml.cs">
       <DependentUpon>Helper.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Xamls\Icons\NavigationTemplate.xaml.cs">
-      <DependentUpon>NavigationTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Xamls\InfoPanel\SystemLogger.xaml.cs">
-      <DependentUpon>SystemLogger.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Xamls\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -253,18 +251,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Xamls\MainPagePart\Helper.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Xamls\Icons\NavigationTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Xamls\InfoPanel\SystemLogger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
@@ -416,10 +402,6 @@
       <Project>{B81C7425-5713-4CEA-A5B3-0F010C132984}</Project>
       <Name>SMT.SAAS.Platform.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj">
-      <Project>{cc777e34-3be7-4161-8c8d-a099179d87b9}</Project>
-      <Name>SMT.SAAS.Platform.Client</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Controls\SMT.SAAS.Platform.Controls.csproj">
       <Project>{8A1C42E9-E74A-4ED8-AEBF-951EA4ACE6FA}</Project>
       <Name>SMT.SAAS.Platform.Controls</Name>
@@ -446,6 +428,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\full_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Xamls\InfoPanel\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -496,15 +496,15 @@ namespace SMT.SAAS.Platform.EmployeeInfoWS {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="EmployeeInfoWS.EmployeeInfoService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeInfoWS.EmployeeInfoService")]
     public interface EmployeeInfoService {
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:EmployeeInfoService/getEmployeeInfobyLogin", ReplyAction="urn:EmployeeInfoService/getEmployeeInfobyLoginResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/EmployeeInfoService/getEmployeeInfobyLogin", ReplyAction="http://tempuri.org/EmployeeInfoService/getEmployeeInfobyLoginResponse")]
         System.IAsyncResult BegingetEmployeeInfobyLogin(string employeeid, System.AsyncCallback callback, object asyncState);
         
         SMT.SAAS.Platform.EmployeeInfoWS.V_EMPLOYEEDETAIL EndgetEmployeeInfobyLogin(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:EmployeeInfoService/RecordUILog", ReplyAction="urn:EmployeeInfoService/RecordUILogResponse")]
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/EmployeeInfoService/RecordUILog", ReplyAction="http://tempuri.org/EmployeeInfoService/RecordUILogResponse")]
         System.IAsyncResult BeginRecordUILog(string employee, string LogMsg, System.AsyncCallback callback, object asyncState);
         
         void EndRecordUILog(System.IAsyncResult result);

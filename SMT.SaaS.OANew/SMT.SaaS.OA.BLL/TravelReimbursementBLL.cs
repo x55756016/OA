@@ -429,6 +429,7 @@ namespace SMT.SaaS.OA.BLL
                             else
                             {
                                 Tracer.Debug("出差报销扣减工作计划费用失败：" + wpMsg);
+                                throw new Exception(wpMsg);                               
                             }
                           
 

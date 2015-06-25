@@ -258,6 +258,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 {
                     IosManager.CreatePath(strApplicationPath);
                     isFirstUser = true;
+                    txtUserMsg.Text="初次访问协同办公系统，请点击上方按钮--增加系统存储空间，以确保系统能正常运行";
                 }
 
                 btnAddSpace.Visibility = System.Windows.Visibility.Collapsed;
@@ -301,7 +302,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                 }
 
                 sysloginClinet.GetUserInfobyIDAsync(strUid);
-                txtUserMsg.Text = "系统正在加载，请稍等......";
+                //txtUserMsg.Text = "系统正在加载，请稍等......";
             }
             catch (Exception ex)
             {
@@ -386,7 +387,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     employee = e.Result;
                     employee.sysuser = sysUser;
                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("已获取到employee信息");
-                    txtUserMsg.Text = "获取员工信息成功，开始获取系统更新，请稍等......";
+                    //txtUserMsg.Text = "获取员工信息成功，开始获取系统更新，请稍等......";
                     bool isAdmin = employee.sysuser.ISMANAGER == "1" ? true : false;
                     var postlist
                         = from ent in employee.EMPLOYEEPOSTS
@@ -415,7 +416,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
 
                     if (isFirstUser == true)
                     {
-                        txtUserMsg.Text = "员工信息验证通过，开始获取系统更新，请稍等......";
+                        //txtUserMsg.Text = "员工信息验证通过，开始获取系统更新，请稍等......";
                         dllVersionUpdataCheck();
                     }
                     else
@@ -469,7 +470,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     HtmlPage.Window.Invoke("loadCompletedSL", new string[] { "false",txtUserMsg.Text });
                     return;
                 }
-                txtUserMsg.Text = "获取服务器更新列表成功，正在获取更新......";
+                //txtUserMsg.Text = "获取服务器更新列表成功，正在获取更新......";
                 //将读取服务器下载的Dll Version XML            
                 StreamResourceInfo sXapSri = new StreamResourceInfo(e.Result, "text/xml");
                 Stream manifestStream = sXapSri.Stream;
@@ -507,7 +508,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                          select a;
                     if (needUpdataDlls.Count() > 0)
                     {
-                        txtUserMsg.Text = "系统检查到更新，正在更新本地程序，请稍等......";
+                        //txtUserMsg.Text = "系统检查到更新，正在更新本地程序，请稍等......";
                         needDownDllNames = (from ent in needUpdataDlls
                                             select ent.Attribute("Source").Value).ToList();
 

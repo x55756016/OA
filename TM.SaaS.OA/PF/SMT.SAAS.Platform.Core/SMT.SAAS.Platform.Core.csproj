@@ -18,10 +18,14 @@
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <FileUpgradeFlags>
@@ -129,10 +133,6 @@
     <ProjectReference Include="..\SMT.SAAS.Platform.Application\SMT.SAAS.Platform.Application.csproj">
       <Project>{B81C7425-5713-4CEA-A5B3-0F010C132984}</Project>
       <Name>SMT.SAAS.Platform.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT.SAAS.Platform.Client\SMT.SAAS.Platform.Client.csproj">
-      <Project>{CC777E34-3BE7-4161-8C8D-A099179D87B9}</Project>
-      <Name>SMT.SAAS.Platform.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

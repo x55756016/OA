@@ -89,7 +89,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                     System.IO.Stream stream = null;
                     if (value != null)
                     {
-                        rtbContent.Document = value.NEWSCONTENT;
+                        rtbContent.RichTextBoxContext = value.NEWSCONTENT;
                     }
                 }
             }

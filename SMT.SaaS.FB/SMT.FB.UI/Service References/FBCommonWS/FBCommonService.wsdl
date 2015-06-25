@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FBCommonService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd8" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.BLL" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+      <xsd:import schemaLocation="http://localhost:23938/FBCommonService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FBCommonService_GetFBEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFBEntity" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_GetFBEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFBEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_QueryFBEntities_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFBEntities" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_QueryFBEntities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFBEntitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_Query_InputMessage">
+    <wsdl:part name="parameters" element="tns:Query" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_Query_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_Save_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_SaveList_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveList" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_SaveList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveListResponse" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_AuditFBEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuditFBEntity" />
+  </wsdl:message>
+  <wsdl:message name="FBCommonService_AuditFBEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuditFBEntityResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FBCommonService">
+    <wsdl:operation name="GetFBEntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/GetFBEntity" message="tns:FBCommonService_GetFBEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/GetFBEntityResponse" message="tns:FBCommonService_GetFBEntity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryFBEntities">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/QueryFBEntities" message="tns:FBCommonService_QueryFBEntities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/QueryFBEntitiesResponse" message="tns:FBCommonService_QueryFBEntities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/Query" message="tns:FBCommonService_Query_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/QueryResponse" message="tns:FBCommonService_Query_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/Save" message="tns:FBCommonService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/SaveResponse" message="tns:FBCommonService_Save_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveList">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/SaveList" message="tns:FBCommonService_SaveList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/SaveListResponse" message="tns:FBCommonService_SaveList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuditFBEntity">
+      <wsdl:input wsaw:Action="http://tempuri.org/FBCommonService/AuditFBEntity" message="tns:FBCommonService_AuditFBEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FBCommonService/AuditFBEntityResponse" message="tns:FBCommonService_AuditFBEntity_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_FBCommonService" type="tns:FBCommonService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFBEntity">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/GetFBEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryFBEntities">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/QueryFBEntities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Query">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/Query" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveList">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/SaveList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuditFBEntity">
+      <soap:operation soapAction="http://tempuri.org/FBCommonService/AuditFBEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FBCommonService">
+    <wsdl:port name="BasicHttpBinding_FBCommonService" binding="tns:BasicHttpBinding_FBCommonService">
+      <soap:address location="http://localhost:23938/FBCommonService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
