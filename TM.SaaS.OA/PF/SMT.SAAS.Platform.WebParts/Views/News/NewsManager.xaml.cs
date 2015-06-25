@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using SMT.SAAS.Platform.WebParts.ViewModels;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using SMT.SAAS.Platform.WebParts.Models;
 using SMT.SAAS.Controls.Toolkit.Windows;
 
@@ -28,7 +28,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             this.Loaded += new RoutedEventHandler(WebPartManage_Loaded);
             client = new BasicServices().PlatformClient;
         }
-        private void LoadDate()
+        private void LoadData()
         {
             viewModel = new NewsManagerViewModel();
             this.DataContext = viewModel;
@@ -36,7 +36,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
         private void WebPartManage_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadDate();
+            LoadData();
             this.Loaded -= new RoutedEventHandler(WebPartManage_Loaded);
         }
 
@@ -118,6 +118,11 @@ namespace SMT.SAAS.Platform.WebParts.Views
             {
                 tborder.Text = (e.Row.GetIndex() + 1).ToString();
             }
+        }
+
+        private void BtnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
         }
     }
 }

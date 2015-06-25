@@ -97,9 +97,9 @@
     <None Include="FileConfig.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SMT_FU_EFModel\SMT_FU_EFModel.csproj">
-      <Project>{157A0A06-1994-4331-A29B-BAC02F14EE33}</Project>
-      <Name>SMT_FU_EFModel</Name>
+    <ProjectReference Include="..\..\..\TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj">
+      <Project>{7571bce6-3b80-41c1-af97-9118e7f41845}</Project>
+      <Name>TM_SaaS_OA_EFModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

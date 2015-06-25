@@ -8,14 +8,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using SMT.SAAS.Platform.Client;
+using SMT.Saas.Tools.PlatformWS;
+using PlatformWS=SMT.Saas.Tools.PlatformWS;
 using System.Collections.ObjectModel;
 
 namespace SMT.SAAS.Platform.Model.Services
 {
     public class ShortCutServices
     {
-        private Platform.Client.PlatformWS.PlatformServicesClient _client = new Client.PlatformWS.PlatformServicesClient();
+        private PlatformServicesClient _client = new PlatformServicesClient();
 
         public event EventHandler<CommonEventArgs<Model.ShortCut>> OnGetShortCutCompleted;
 
@@ -27,25 +28,25 @@ namespace SMT.SAAS.Platform.Model.Services
         {
             customPermissionServices = new CustomPermissionServices();
             customPermissionServices.OnGetUserCustomerPermissionCompleted += new EventHandler<ExecuteNoQueryEventArgs>(commonSv_OnGetUserCustomerPermissionCompleted);
-            _client.GetShortCutByUserCompleted += new EventHandler<Client.PlatformWS.GetShortCutByUserCompletedEventArgs>(_client_GetShortCutByUserCompleted);
-            _client.RemoveShortCutByUserCompleted += new EventHandler<Client.PlatformWS.RemoveShortCutByUserCompletedEventArgs>(_client_RemoveShortCutByUserCompleted);
-            _client.AddShortCutByUserCompleted += new EventHandler<Client.PlatformWS.AddShortCutByUserCompletedEventArgs>(_client_AddShortCutByUserCompleted);
+            _client.GetShortCutByUserCompleted += new EventHandler<GetShortCutByUserCompletedEventArgs>(_client_GetShortCutByUserCompleted);
+            _client.RemoveShortCutByUserCompleted += new EventHandler<RemoveShortCutByUserCompletedEventArgs>(_client_RemoveShortCutByUserCompleted);
+            _client.AddShortCutByUserCompleted += new EventHandler<AddShortCutByUserCompletedEventArgs>(_client_AddShortCutByUserCompleted);
         }
 
-        void _client_AddShortCutByUserCompleted(object sender, Client.PlatformWS.AddShortCutByUserCompletedEventArgs e)
+        void _client_AddShortCutByUserCompleted(object sender, AddShortCutByUserCompletedEventArgs e)
         {
 
             var error = e.Error;
             var result = e.Result;
         }
 
-        void _client_RemoveShortCutByUserCompleted(object sender, Client.PlatformWS.RemoveShortCutByUserCompletedEventArgs e)
+        void _client_RemoveShortCutByUserCompleted(object sender, RemoveShortCutByUserCompletedEventArgs e)
         {
             if (OnRemoveShortCutCompleted != null)
                 OnRemoveShortCutCompleted(this, new ExecuteNoQueryEventArgs(e.Result, e.Error));
         }
 
-        void _client_GetShortCutByUserCompleted(object sender, Client.PlatformWS.GetShortCutByUserCompletedEventArgs e)
+        void _client_GetShortCutByUserCompleted(object sender, GetShortCutByUserCompletedEventArgs e)
         {
             ObservableCollection<Model.ShortCut> result = new ObservableCollection<ShortCut>();
             try
@@ -141,7 +142,7 @@ namespace SMT.SAAS.Platform.Model.Services
 
         public void AddShortCutByUser(ObservableCollection<ShortCut> items, string userid)
         {
-            ObservableCollection<Client.PlatformWS.ShortCut> result = new ObservableCollection<Client.PlatformWS.ShortCut>();
+            ObservableCollection<PlatformWS.ShortCut> result = new ObservableCollection<PlatformWS.ShortCut>();
             foreach (var item in items)
             {
                 if (item.ModuleID == "SystemLog" || item.ModuleID == "NewsManager")
@@ -150,7 +151,7 @@ namespace SMT.SAAS.Platform.Model.Services
                 }
                 else
                 {
-                    Client.PlatformWS.ShortCut v = item.CloneObject<Client.PlatformWS.ShortCut>(new Client.PlatformWS.ShortCut());
+                    PlatformWS.ShortCut v = item.CloneObject<PlatformWS.ShortCut>(new PlatformWS.ShortCut());
                     result.Add(v);
                 }
             }

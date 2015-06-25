@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using SMT.SAAS.Main.CurrentContext;
-using SMT.SAAS.Platform.Client.PlatformWS;
+using SMT.Saas.Tools.PlatformWS;
 using System.Reflection;
 using System.Globalization;
 using SMT.SAAS.Controls.Toolkit.Windows;
@@ -20,7 +20,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 {
     public partial class CreateNewTask : UserControl
     {
-        SMT.SAAS.Platform.Client.PlatformWS.PlatformServicesClient _services;
+        PlatformServicesClient _services;
         private ModuleInfo _currentModule ;
         AsyncTools ayTools = new AsyncTools();
         private SMTLoading loadbar = new SMTLoading();
@@ -40,12 +40,12 @@ namespace SMT.SAAS.Platform.WebParts.Views
         private void InitDate()
         {
             _services = new PlatformServicesClient();
-            _services.GetTaskConfigInfoByUserCompleted += new EventHandler<Client.PlatformWS.GetTaskConfigInfoByUserCompletedEventArgs>(_services_GetTaskConfigInfoByUserCompleted);
+            _services.GetTaskConfigInfoByUserCompleted += new EventHandler<GetTaskConfigInfoByUserCompletedEventArgs>(_services_GetTaskConfigInfoByUserCompleted);
             //_services.Endpoint.Address = new System.ServiceModel.EndpointAddress("http://localhost:15739/PlatformServices.svc");
             //_services.GetTaskConfigInfoByUserAsync(Common.CurrentLoginUserInfo.SysUserID);
         }
 
-        void _services_GetTaskConfigInfoByUserCompleted(object sender, Client.PlatformWS.GetTaskConfigInfoByUserCompletedEventArgs e)
+        void _services_GetTaskConfigInfoByUserCompleted(object sender, GetTaskConfigInfoByUserCompletedEventArgs e)
         {
             if (e.Error == null)
             {
@@ -180,13 +180,13 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
     }
 
-    public class NewTaskInfo : SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo
+    public class NewTaskInfo : SMT.Saas.Tools.PlatformWS.ModuleInfo
     {
         public NewTaskInfo()
         {
             Items = new List<ModuleInfo>();
         }
-        public List<SMT.SAAS.Platform.Client.PlatformWS.ModuleInfo> Items
+        public List<SMT.Saas.Tools.PlatformWS.ModuleInfo> Items
         { get; set; }
     }
 }

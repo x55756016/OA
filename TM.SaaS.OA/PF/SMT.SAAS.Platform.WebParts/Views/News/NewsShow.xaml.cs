@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using SMT.SAAS.Platform.WebParts.Models;
 
 namespace SMT.SAAS.Platform.WebParts.Views

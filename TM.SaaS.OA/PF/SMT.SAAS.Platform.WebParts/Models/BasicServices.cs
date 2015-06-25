@@ -1,5 +1,5 @@
 ﻿using System;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;

@@ -110,16 +110,16 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
             _items = new ObservableCollection<NewsViewModel>();
             _Services = new NewsServices();
             _Services.OnGetNewsListCompleted += new EventHandler<GetEntityListEventArgs<NewsModel>>(_Services_OnGetNewsListCompleted);
-            LoadDate();
+            LoadData();
         }
 
         public void Refresh()
         {
-            LoadDate();
+            LoadData();
         }
 
         private EventHandler<GetEntityListEventArgs<NewsModel>> hanlder;
-        private void LoadDate()
+        private void LoadData()
         {
             _Services.GetNewsListByPage(PageIndex, PageSize, "", newsTitle, PageCount);
         }
@@ -164,7 +164,7 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
 
         private void OnPageIndexChanged()
         {
-            LoadDate();
+            LoadData();
         }
     }
 }

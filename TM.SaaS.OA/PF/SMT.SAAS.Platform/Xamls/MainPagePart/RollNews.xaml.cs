@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using SMT.SAAS.AnimationEngine.Model;
 
 using SMT.SAAS.Platform.WebParts.Models;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using SMT.SAAS.Platform.WebParts.Views;
 
 namespace SMT.SAAS.Platform.Xamls.MainPagePart

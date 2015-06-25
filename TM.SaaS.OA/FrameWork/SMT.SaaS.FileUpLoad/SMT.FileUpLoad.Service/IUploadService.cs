@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-using SMT_FU_EFModel;
+using TM_SaaS_OA_EFModel;
 namespace SMT.FileUpLoad.Service
 {
     /// <summary>

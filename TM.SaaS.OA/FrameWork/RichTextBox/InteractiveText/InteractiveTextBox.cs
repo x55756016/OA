@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Packaging;
+//using System.ComponentModel.Composition.Packaging;
 using SMT.SaaS.FrameworkUI.RichNotepad.ActionLink.Contracts;
 using System.Text;
 using System.Xml.Linq;
@@ -34,10 +34,10 @@ namespace SMT.SaaS.FrameworkUI.RichNotepad.InteractiveText
         {
             try
             {
-                var catalog = new PackageCatalog();
-                catalog.AddPackage(Package.Current);
-                var container = new CompositionContainer(catalog);
-                container.ComposeParts(this);
+                //var catalog = new PackageCatalog();
+                //catalog.AddPackage(Package.Current);
+                //var container = new CompositionContainer(catalog);
+                //container.ComposeParts(this);
             }
             catch (Exception exc)
             {

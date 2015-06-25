@@ -66,6 +66,15 @@
                             <TextBlock Text="删除" Margin="3,0,0,0" x:Name="TBDelete" VerticalAlignment="Center"></TextBlock>
                         </StackPanel>
                     </Button>
+                    <Button Height="26" Margin="2,0,0,0" x:Name="BtnRefresh" Click="BtnRefresh_Click"
+                            Style="{StaticResource ButtonToolBarStyle}" 
+                            Foreground="{StaticResource TextBBlue1}" Width="50" >
+                        <StackPanel  Orientation="Horizontal">
+                            <Image Width="16" x:Name="FormToolRefresh" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/16_L_refresh.png"
+                                   Stretch="Fill" Height="16" Margin="0,0,0,0" />
+                            <TextBlock Text="刷新" Margin="3,0,0,0" VerticalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Border>
             <data:DataGrid x:Name="dgNewsList" AutoGenerateColumns="False" Margin="0 0 0 0" Grid.Row="2"

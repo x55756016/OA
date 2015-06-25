@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
  
 using SMT.SAAS.Platform.WebParts.Models;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
  
 namespace SMT.SAAS.Platform.WebParts.ViewModels
 {

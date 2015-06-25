@@ -160,6 +160,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PlatformWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PublicInterfaceWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1131,14 +1136,54 @@
     <None Include="Service References\PersonnelWS\SMT.Saas.Tools.PersonnelWS.V_PROJECTPOINT.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService1.wsdl" />
-    <None Include="Service References\PublicInterfaceWS\PublicService3.xsd">
+    <None Include="Service References\PlatformWS\PlatformServices.wsdl" />
+    <None Include="Service References\PlatformWS\PlatformServices.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService31.xsd">
+    <None Include="Service References\PlatformWS\PlatformServices1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PublicInterfaceWS\PublicService32.xsd">
+    <None Include="Service References\PlatformWS\PlatformServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.ModuleInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.ShortCut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_DISTRIBUTEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWSListView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWSView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService.wsdl" />
+    <None Include="Service References\PublicInterfaceWS\PublicService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SmtOACommonOfficeService\SMT.Saas.Tools.SmtOACommonOfficeService.T_OA_AGENTDATESET.datasource">
@@ -1298,7 +1343,6 @@
     <None Include="Service References\FBServiceWS\FBService1.disco" />
     <None Include="Service References\FlowWFService\SMT12.disco" />
     <None Include="Service References\FlowWFService\SMT.disco" />
-    <None Include="Service References\PublicInterfaceWS\PublicService1.disco" />
     <None Include="Service References\OACommonAdminWS\SmtOACommonAdmin.disco" />
     <None Include="Service References\OACommonAdminWS\configuration91.svcinfo" />
     <None Include="Service References\OACommonAdminWS\configuration.svcinfo" />
@@ -1358,6 +1402,14 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\PlatformWS\PlatformServices.disco" />
+    <None Include="Service References\PlatformWS\configuration91.svcinfo" />
+    <None Include="Service References\PlatformWS\configuration.svcinfo" />
+    <None Include="Service References\PlatformWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PublicInterfaceWS\PublicService.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
@@ -1376,6 +1428,7 @@
     <WCFMetadataStorage Include="Service References\OrganizationWS\" />
     <WCFMetadataStorage Include="Service References\PermissionWS\" />
     <WCFMetadataStorage Include="Service References\PersonnelWS\" />
+    <WCFMetadataStorage Include="Service References\PlatformWS\" />
     <WCFMetadataStorage Include="Service References\PublicInterfaceWS\" />
     <WCFMetadataStorage Include="Service References\SmtOACommonOfficeService\" />
     <WCFMetadataStorage Include="Service References\TravelPrintWS\" />

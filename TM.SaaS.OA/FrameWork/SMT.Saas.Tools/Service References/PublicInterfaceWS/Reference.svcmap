@@ -14,20 +14,20 @@
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.oa12.com/Services/PublicInterface/PublicService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://www.oa12.com/Services/Pub/PublicService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PublicService3.xsd" MetadataType="Schema" ID="544a0516-686b-41c1-b412-eab147472079" SourceId="1" SourceUrl="http://www.oa12.com/Services/PublicInterface/PublicService.svc?xsd=xsd1" />
-    <MetadataFile FileName="PublicService1.disco" MetadataType="Disco" ID="f559d99f-78f4-4167-a419-39877f3fb947" SourceId="1" SourceUrl="http://www.oa12.com/Services/PublicInterface/PublicService.svc?disco" />
-    <MetadataFile FileName="PublicService31.xsd" MetadataType="Schema" ID="9eefd567-381d-4653-9d45-4f4bbb33e5fe" SourceId="1" SourceUrl="http://www.oa12.com/Services/PublicInterface/PublicService.svc?xsd=xsd2" />
-    <MetadataFile FileName="PublicService1.wsdl" MetadataType="Wsdl" ID="02907dcc-18ab-4ab6-84a2-6e61939ba1b7" SourceId="1" SourceUrl="http://www.oa12.com/Services/PublicInterface/PublicService.svc?wsdl" />
-    <MetadataFile FileName="PublicService32.xsd" MetadataType="Schema" ID="70e7cd34-b095-4730-a545-8b2154a40730" SourceId="1" SourceUrl="http://www.oa12.com/Services/PublicInterface/PublicService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublicService.xsd" MetadataType="Schema" ID="0ed629ba-abc0-4a23-b8b5-d322af457c16" SourceId="1" SourceUrl="http://www.oa12.com/Services/Pub/PublicService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublicService1.xsd" MetadataType="Schema" ID="70505e56-6ad4-40af-bbbc-5fa30527ceba" SourceId="1" SourceUrl="http://www.oa12.com/Services/Pub/PublicService.svc?xsd=xsd1" />
+    <MetadataFile FileName="PublicService2.xsd" MetadataType="Schema" ID="128efa77-13c2-4ad7-a660-491d760b973e" SourceId="1" SourceUrl="http://www.oa12.com/Services/Pub/PublicService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublicService.disco" MetadataType="Disco" ID="95c4c261-c908-44c2-8d88-1be8e1de1b90" SourceId="1" SourceUrl="http://www.oa12.com/Services/Pub/PublicService.svc?disco" />
+    <MetadataFile FileName="PublicService.wsdl" MetadataType="Wsdl" ID="df4b7e79-6c8d-4685-a8c8-d24d6b6fb48c" SourceId="1" SourceUrl="http://www.oa12.com/Services/Pub/PublicService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

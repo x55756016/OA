@@ -562,9 +562,6 @@
       <endpoint address="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Common"
         contract="DailyManagementWS.DailyManagementServices" name="CustomBinding_DailyManagementServices" />
-      <endpoint address="http://www.oa12.com/Services/PublicInterface/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
       <endpoint address="http://www.oa12.com/Services/SMS/SMTSMSService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_Common"
         contract="SMTSMS.ISMS_Users" name="BasicHttpBinding_ISMS_Users" />
@@ -700,16 +697,19 @@
       <endpoint address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      <!--<endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
+      <!--<endpoint address="http://www.oa12.com/Services/PF/PlatformServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
         contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
-      <!--<endpoint address="http://www.oa12.com/pf/PlatformServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPlatformServices"
-        contract="NewsWS.IPlatformServices" name="BasicHttpBinding_IPlatformServices" />-->
-
+      <!--<endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />-->
+      
+      <endpoint address="http://localhost:33333/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
       <endpoint address="http://localhost:22222/PlatformServices.svc"
-             binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-             contract="NewsWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
       <endpoint address="http://www.oa12.com/Services/HR/MainUIServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_MainUIServices"
         contract="MainUIWS.MainUIServices" name="BasicHttpBinding_MainUIServices" />

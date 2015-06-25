@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using SMT.SAAS.Platform.WebParts.Models;
 using SMT.SAAS.Controls.Toolkit.Windows;
 
@@ -50,28 +50,28 @@ namespace SMT.SAAS.Platform.WebParts.Views
             client = services.PlatformClient;
         }
 
-        private void InitDate()
+        private void loadData()
         {
-           // client.GetNewsListByParamsCompleted += (obj, args) =>
-           //{
-           //    loading.Stop();
-           //    if (args.Error == null)
-           //    {
-           //        if (args.Result != null)
-           //        {
-           //            if (args.Result.Count > 0)
-           //            {
-           //                if (args.Result.Count >= topCount)
-           //                    btnMore.Visibility = Visibility.Visible;
+            client.GetNewsListByParamsCompleted += (obj, args) =>
+           {
+               loading.Stop();
+               if (args.Error == null)
+               {
+                   if (args.Result != null)
+                   {
+                       if (args.Result.Count > 0)
+                       {
+                           if (args.Result.Count >= topCount)
+                               btnMore.Visibility = Visibility.Visible;
 
-           //                NewsList.ItemsSource = null;
-           //                NewsList.ItemsSource = args.Result.ToList();
-           //            }
-           //        }
-           //    }
-           //};
-           // loading.Start();
-           // client.GetNewsListByParamsAsync(NewsType, topCount, "1");
+                           NewsList.ItemsSource = null;
+                           NewsList.ItemsSource = args.Result.ToList();
+                       }
+                   }
+               }
+           };
+            loading.Start();
+            client.GetNewsListByParamsAsync(NewsType, topCount, "1");
 
             //client.GetNewsListByEmployeeIDCompleted += (obj, args) =>
             //{
@@ -130,16 +130,16 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS source =
-                 (sender as HyperlinkButton).DataContext as SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS;
+            SMT.Saas.Tools.PlatformWS.T_PF_NEWS source =
+                 (sender as HyperlinkButton).DataContext as SMT.Saas.Tools.PlatformWS.T_PF_NEWS;
             ShowNewsInfo(source.NEWSID);
             //try
             //{
             //    HyperlinkButton bybutton = sender as HyperlinkButton;
             //    bybutton.Foreground = new SolidColorBrush(Color.FromArgb(255, 63, 40, 92));
 
-            //    SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS source =
-            //       (sender as HyperlinkButton).DataContext as SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS;
+            //    SMT.Saas.Tools.PlatformWS.T_PF_NEWS source =
+            //       (sender as HyperlinkButton).DataContext as SMT.Saas.Tools.PlatformWS.T_PF_NEWS;
             //    NewsShow newsview = new NewsShow();
             //    newsview.LoadNewsDetails(source.NEWSID);
             //    string titel = "";
@@ -222,7 +222,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             NewsType = "0|1";
             RegiestServices();
 
-            InitDate();
+            loadData();
         }
 
         public void Cleanup()

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1127d6bb-9532-4894-9410-49b80d9596a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PublicService3.xsd" MetadataType="Schema" ID="16860363-9530-4150-ba7d-fed1199462e4" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PublicService1.wsdl" MetadataType="Wsdl" ID="fba8bdb6-cf21-431b-99fb-d8cae1dd4913" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?wsdl" />
+    <MetadataFile FileName="PublicService1.disco" MetadataType="Disco" ID="c7751974-3ccb-4218-a37e-03b7c3f73335" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?disco" />
+    <MetadataFile FileName="PublicService31.xsd" MetadataType="Schema" ID="1b2f0365-c5c5-4297-a1b4-eaf950c40f74" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PublicService32.xsd" MetadataType="Schema" ID="a026dc97-df48-47cf-b3e9-0345a7b01080" SourceId="1" SourceUrl="http://10.10.0.57/New/Services/PublicInterface/PublicService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

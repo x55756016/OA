@@ -8809,16 +8809,16 @@
           <Property Name="OWNERCOMPANYID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="OWNERDEPARTMENTID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="OWNERPOSTID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEUSERID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEUSERNAME" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATECOMPANYID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEDEPARTMENTID" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CREATEPOSTID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CREATEUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEUSERNAME" Type="varchar" MaxLength="50" />
+          <Property Name="CREATECOMPANYID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDEPARTMENTID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEPOSTID" Type="varchar" MaxLength="50" />
           <Property Name="CREATEDATE" Type="datetime" Precision="0" Nullable="false" />
           <Property Name="UPDATEUSERID" Type="varchar" MaxLength="50" />
           <Property Name="UPDATEUSERNAME" Type="varchar" MaxLength="50" />
           <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
-          <Property Name="CONTENT" Type="longblob" />
+          <Property Name="CONTENT" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="T_SYS_USER">
           <Key>
@@ -22904,7 +22904,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="UPDATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UPDATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UPDATEDATE" Type="DateTime" />
-          <Property Name="CONTENT" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CONTENT" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="T_SYS_USER">
           <Key>

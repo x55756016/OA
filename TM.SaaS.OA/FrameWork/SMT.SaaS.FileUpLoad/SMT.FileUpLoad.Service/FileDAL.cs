@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.OracleClient;
 
 using SMT.SAAS.MP.DAL;
-using SMT_FU_EFModel;
+using TM_SaaS_OA_EFModel;
 using System.Web;
 using System.IO;
 using System.Configuration;
@@ -584,7 +584,7 @@ namespace SMT.FileUpLoad.Service
             int result = 0;
             #region 删除从表
             //EngineDataModel.EngineDataModelContext edc = new EngineDataModelContext();
-            SMT_FU_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
+            TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
             var entity = from det in edc.SMT_FILELIST
                           where det.FILEURL == url
                           select det;//找出原有的实体
@@ -616,7 +616,7 @@ namespace SMT.FileUpLoad.Service
                     //result = DataContext.SaveChanges();
                     //EngineDataModel.EngineDataModelContext edc = new EngineDataModelContext();
                     entity.CREATETIME = System.DateTime.Now;
-                    SMT_FU_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
+                    TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
                     edc.AddObject(entity.GetType().Name, entity);
                     result=edc.SaveChanges();
                 }

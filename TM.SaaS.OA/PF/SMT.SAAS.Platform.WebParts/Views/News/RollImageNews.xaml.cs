@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using SMT.SAAS.Platform.Controls.InfoPanel;
-using SMT.SAAS.Platform.WebParts.NewsWS;
+using SMT.Saas.Tools.PlatformWS;
 using SMT.SAAS.Platform.WebParts.Models;
 using System.Windows.Media.Imaging;
 using System.Windows.Browser;

@@ -1,17 +1,6 @@
 ﻿<configuration>
     <system.serviceModel>
-        <bindings>
-            <basicHttpBinding>
-                <binding name="BasicHttpBinding_PlatformServices" maxBufferSize="2147483647"
-                    maxReceivedMessageSize="2147483647">
-                    <security mode="None" />
-                </binding>
-            </basicHttpBinding>
-        </bindings>
-        <client>
-            <endpoint address="http://localhost:22222/PlatformServices.svc"
-                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-                contract="NewsWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
-        </client>
+        <bindings />
+        <client />
     </system.serviceModel>
 </configuration>

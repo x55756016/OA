@@ -19,11 +19,11 @@ namespace SMT.SAAS.MP.DAL
         //        return ecmd.ExecuteScalar();
         //    }
         //}
-        //public SMT_FU_EFModel.SMT_FILEUPLOAD_EFModelContext DataContext
+        //public TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext DataContext
         //{
         //    get
         //    {
-        //        return GetDataContext() as SMT_FU_EFModel.SMT_FILEUPLOAD_EFModelContext;
+        //        return GetDataContext() as TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext;
         //    }
         //}
 

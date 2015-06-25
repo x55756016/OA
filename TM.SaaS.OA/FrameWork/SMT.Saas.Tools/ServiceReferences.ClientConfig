@@ -15,10 +15,6 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
-        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
-          maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
         <binding name="BasicHttpBinding_FileUploadManager1" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
@@ -28,6 +24,14 @@
           <security mode="None" />
         </binding>
         <binding name="BasicHttpBinding_PersonnelService1" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_PlatformServices" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
@@ -120,9 +124,6 @@
       <endpoint address="http://www.oa12.com/Services/SMTFlowDesigner/Service.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_Service"
         contract="FlowDesignerWS.Service" name="CustomBinding_Service" />
-      <endpoint address="http://www.oa12.com/Services/PublicInterface/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
       <endpoint address="http://172.16.1.57/New/Services/OA/SmtOACommonAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
         contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
@@ -168,6 +169,12 @@
       <endpoint address="http://localhost:12168/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService1"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService1" />
+      <endpoint address="http://localhost:22222/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
+      <endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
     </client>
 
   </system.serviceModel>

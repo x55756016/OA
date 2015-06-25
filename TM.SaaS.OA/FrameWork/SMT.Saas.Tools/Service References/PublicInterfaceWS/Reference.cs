@@ -119,6 +119,11 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
         
         byte[] EndGetContent(System.IAsyncResult result);
         
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPublicService/GetContentFormatImgToUrl", ReplyAction="http://tempuri.org/IPublicService/GetContentFormatImgToUrlResponse")]
+        System.IAsyncResult BeginGetContentFormatImgToUrl(string FORMID, System.AsyncCallback callback, object asyncState);
+        
+        string EndGetContentFormatImgToUrl(System.IAsyncResult result);
+        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IPublicService/DeleteContent", ReplyAction="http://tempuri.org/IPublicService/DeleteContentResponse")]
         System.IAsyncResult BeginDeleteContent(string FORMID, System.AsyncCallback callback, object asyncState);
         
@@ -178,6 +183,25 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((byte[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetContentFormatImgToUrlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetContentFormatImgToUrlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }
@@ -274,6 +298,12 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
         
         private System.Threading.SendOrPostCallback onGetContentCompletedDelegate;
         
+        private BeginOperationDelegate onBeginGetContentFormatImgToUrlDelegate;
+        
+        private EndOperationDelegate onEndGetContentFormatImgToUrlDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetContentFormatImgToUrlCompletedDelegate;
+        
         private BeginOperationDelegate onBeginDeleteContentDelegate;
         
         private EndOperationDelegate onEndDeleteContentDelegate;
@@ -353,6 +383,8 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
         public event System.EventHandler<GetBusinessObjectCompletedEventArgs> GetBusinessObjectCompleted;
         
         public event System.EventHandler<GetContentCompletedEventArgs> GetContentCompleted;
+        
+        public event System.EventHandler<GetContentFormatImgToUrlCompletedEventArgs> GetContentFormatImgToUrlCompleted;
         
         public event System.EventHandler<DeleteContentCompletedEventArgs> DeleteContentCompleted;
         
@@ -458,6 +490,52 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
             }
             base.InvokeAsync(this.onBeginGetContentDelegate, new object[] {
                         FORMID}, this.onEndGetContentDelegate, this.onGetContentCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.PublicInterfaceWS.IPublicService.BeginGetContentFormatImgToUrl(string FORMID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetContentFormatImgToUrl(FORMID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.PublicInterfaceWS.IPublicService.EndGetContentFormatImgToUrl(System.IAsyncResult result) {
+            return base.Channel.EndGetContentFormatImgToUrl(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetContentFormatImgToUrl(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string FORMID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.PublicInterfaceWS.IPublicService)(this)).BeginGetContentFormatImgToUrl(FORMID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetContentFormatImgToUrl(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.PublicInterfaceWS.IPublicService)(this)).EndGetContentFormatImgToUrl(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetContentFormatImgToUrlCompleted(object state) {
+            if ((this.GetContentFormatImgToUrlCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetContentFormatImgToUrlCompleted(this, new GetContentFormatImgToUrlCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetContentFormatImgToUrlAsync(string FORMID) {
+            this.GetContentFormatImgToUrlAsync(FORMID, null);
+        }
+        
+        public void GetContentFormatImgToUrlAsync(string FORMID, object userState) {
+            if ((this.onBeginGetContentFormatImgToUrlDelegate == null)) {
+                this.onBeginGetContentFormatImgToUrlDelegate = new BeginOperationDelegate(this.OnBeginGetContentFormatImgToUrl);
+            }
+            if ((this.onEndGetContentFormatImgToUrlDelegate == null)) {
+                this.onEndGetContentFormatImgToUrlDelegate = new EndOperationDelegate(this.OnEndGetContentFormatImgToUrl);
+            }
+            if ((this.onGetContentFormatImgToUrlCompletedDelegate == null)) {
+                this.onGetContentFormatImgToUrlCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetContentFormatImgToUrlCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetContentFormatImgToUrlDelegate, new object[] {
+                        FORMID}, this.onEndGetContentFormatImgToUrlDelegate, this.onGetContentFormatImgToUrlCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -758,6 +836,19 @@ namespace SMT.Saas.Tools.PublicInterfaceWS {
             public byte[] EndGetContent(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 byte[] _result = ((byte[])(base.EndInvoke("GetContent", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetContentFormatImgToUrl(string FORMID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = FORMID;
+                System.IAsyncResult _result = base.BeginInvoke("GetContentFormatImgToUrl", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndGetContentFormatImgToUrl(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("GetContentFormatImgToUrl", _args, result)));
                 return _result;
             }
             

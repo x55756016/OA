@@ -92,9 +92,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.Saas.Tools">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.Saas.Tools.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SaaS.Window, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
@@ -123,14 +120,9 @@
     <Compile Include="Foundation\ValidationScope.cs" />
     <Compile Include="Models\BasicServices.cs" />
     <Compile Include="Models\NewsModel.cs" />
-    <Compile Include="Models\NewsServices.cs" />
+    <Compile Include="Views\News\NewsForm_Services.cs" />
     <Compile Include="Models\ServicesEventArgs.cs" />
     <Compile Include="PopupNews.cs" />
-    <Compile Include="Service References\NewsWS\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="SMTLoading.xaml.cs">
       <DependentUpon>SMTLoading.xaml</DependentUpon>
     </Compile>
@@ -162,8 +154,8 @@
     <Compile Include="Views\News\NewsShow.xaml.cs">
       <DependentUpon>NewsShow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\News\NewsView.xaml.cs">
-      <DependentUpon>NewsView.xaml</DependentUpon>
+    <Compile Include="Views\News\NewsForm.xaml.cs">
+      <DependentUpon>NewsForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\News\RollImageNews.xaml.cs">
       <DependentUpon>RollImageNews.xaml</DependentUpon>
@@ -235,7 +227,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\News\NewsView.xaml">
+    <Page Include="Views\News\NewsForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
@@ -283,6 +275,10 @@
       <Project>{52f76969-e7cd-414f-8e98-4ff90ee48b05}</Project>
       <Name>SMT.SaaS.FrameworkUI.RichNotepad</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
+      <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
+      <Name>SMT.Saas.Tools</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SAAS.Platform.Application\SMT.SAAS.Platform.Application.csproj">
       <Project>{b81c7425-5713-4cea-a5b3-0f010c132984}</Project>
       <Name>SMT.SAAS.Platform.Application</Name>
@@ -305,62 +301,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\NewsWS\configuration91.svcinfo" />
-    <None Include="Service References\NewsWS\configuration.svcinfo" />
-    <None Include="Service References\NewsWS\PlatformServices.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices1.wsdl" />
-    <None Include="Service References\NewsWS\PlatformServices1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices9.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\NewsWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\NewsWS\PlatformServices1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.ModuleInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.ShortCut.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.T_PF_DISTRIBUTEUSER.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSListView.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\NewsWS\SMT.SAAS.Platform.WebParts.NewsWS.T_PF_NEWSView.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\NewsWS\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
