@@ -8021,7 +8021,6 @@
           <Property Name="NEWSID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NEWSTYPEID" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="NEWSTITEL" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="NEWSCONTENT" Type="longblob" Nullable="false" />
           <Property Name="READCOUNT" Type="varchar" MaxLength="50" />
           <Property Name="COMMENTCOUNT" Type="varchar" MaxLength="50" />
           <Property Name="NEWSSTATE" Type="varchar" MaxLength="50" Nullable="false" />
@@ -8045,6 +8044,7 @@
           <Property Name="PUTDEPTNAME" Type="varchar" MaxLength="50" />
           <Property Name="PUTDEPTID" Type="varchar" MaxLength="50" />
           <Property Name="ISPARTY" Type="varchar" MaxLength="1" />
+          <Property Name="NEWSCONTENT" Type="longblob" />
         </EntityType>
         <EntityType Name="T_PF_NEWSCOMMENT">
           <Key>
@@ -8623,6 +8623,38 @@
           <Property Name="FBADMINID" Type="varchar" MaxLength="50" />
           <Property Name="ROLEID" Type="varchar" MaxLength="50" />
           <Property Name="ADDDATE" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“def.tmoa.T_SYS_FILELIST”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="T_SYS_FILELIST">
+          <Key>
+            <PropertyRef Name="SMTFILELISTID" />
+            <PropertyRef Name="FILENAME" />
+          </Key>
+          <Property Name="SMTFILELISTID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FILENAME" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="FILETYPE" Type="varchar" MaxLength="50" />
+          <Property Name="FILEURL" Type="varchar" MaxLength="1000" />
+          <Property Name="FILESIZE" Type="int" />
+          <Property Name="COMPANYCODE" Type="varchar" MaxLength="50" />
+          <Property Name="COMPANYNAME" Type="varchar" MaxLength="200" />
+          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
+          <Property Name="APPLICATIONID" Type="varchar" MaxLength="100" />
+          <Property Name="THUMBNAILURL" Type="varchar" MaxLength="1000" />
+          <Property Name="INDEXL" Type="int" />
+          <Property Name="REMARK" Type="varchar" MaxLength="500" />
+          <Property Name="CREATETIME" Type="date" />
+          <Property Name="CREATENAME" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATETIME" Type="date" />
+          <Property Name="UPDATENAME" Type="varchar" MaxLength="50" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="1000" />
+          <Property Name="OWNERID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERCOMPANYID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERDEPARTMENTID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERPOSTID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="FORMID" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="T_SYS_FILEUPLOAD">
           <Key>
@@ -13007,6 +13039,34 @@ FROM `T_SYS_AREADISTRICT` AS `T_SYS_AREADISTRICT`</DefiningQuery>
 `T_SYS_AREAPROVINCE`.`PROVINCENAME`, 
 `T_SYS_AREAPROVINCE`.`COUNTRYID`
 FROM `T_SYS_AREAPROVINCE` AS `T_SYS_AREAPROVINCE`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T_SYS_FILELIST" EntityType="Self.T_SYS_FILELIST" store:Type="Tables" store:Schema="tmoa">
+            <DefiningQuery>SELECT
+`T_SYS_FILELIST`.`SMTFILELISTID`, 
+`T_SYS_FILELIST`.`FILENAME`, 
+`T_SYS_FILELIST`.`FILETYPE`, 
+`T_SYS_FILELIST`.`FILEURL`, 
+`T_SYS_FILELIST`.`FILESIZE`, 
+`T_SYS_FILELIST`.`COMPANYCODE`, 
+`T_SYS_FILELIST`.`COMPANYNAME`, 
+`T_SYS_FILELIST`.`SYSTEMCODE`, 
+`T_SYS_FILELIST`.`MODELCODE`, 
+`T_SYS_FILELIST`.`APPLICATIONID`, 
+`T_SYS_FILELIST`.`THUMBNAILURL`, 
+`T_SYS_FILELIST`.`INDEXL`, 
+`T_SYS_FILELIST`.`REMARK`, 
+`T_SYS_FILELIST`.`CREATETIME`, 
+`T_SYS_FILELIST`.`CREATENAME`, 
+`T_SYS_FILELIST`.`UPDATETIME`, 
+`T_SYS_FILELIST`.`UPDATENAME`, 
+`T_SYS_FILELIST`.`PASSWORD`, 
+`T_SYS_FILELIST`.`OWNERID`, 
+`T_SYS_FILELIST`.`OWNERCOMPANYID`, 
+`T_SYS_FILELIST`.`OWNERDEPARTMENTID`, 
+`T_SYS_FILELIST`.`OWNERPOSTID`, 
+`T_SYS_FILELIST`.`CREATEUSERID`, 
+`T_SYS_FILELIST`.`FORMID`
+FROM `T_SYS_FILELIST` AS `T_SYS_FILELIST`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="T_SYS_ROLE_BAK" EntityType="Self.T_SYS_ROLE_BAK" store:Type="Tables" store:Schema="tmoa">
             <DefiningQuery>SELECT
@@ -26176,6 +26236,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="T_SYS_USERMENUPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION" />
           <EntitySet Name="T_SYS_USERMENUORGPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION" />
+          <EntitySet Name="T_SYS_FILELIST" EntityType="TM_SaaS_OA_EFModel.T_SYS_FILELIST" />
         </EntityContainer>
         <EntityType Name="T_SYS_USERMENUPERMISSION">
           <Key>
@@ -26197,6 +26258,36 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ORGTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ORGID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_SYS_FILELIST">
+          <Key>
+            <PropertyRef Name="SMTFILELISTID" />
+            <PropertyRef Name="FILENAME" />
+          </Key>
+          <Property Name="SMTFILELISTID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FILENAME" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FILETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILEURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FILESIZE" Type="Int32" />
+          <Property Name="COMPANYCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANYNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SYSTEMCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODELCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APPLICATIONID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="THUMBNAILURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="INDEXL" Type="Int32" />
+          <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" />
+          <Property Name="CREATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <Property Name="UPDATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FORMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -37903,6 +37994,36 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
                 <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
                 <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
                 <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SYS_FILELIST">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_FILELIST">
+              <MappingFragment StoreEntitySet="T_SYS_FILELIST">
+                <ScalarProperty Name="FORMID" ColumnName="FORMID" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+                <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+                <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="UPDATENAME" ColumnName="UPDATENAME" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="CREATENAME" ColumnName="CREATENAME" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="INDEXL" ColumnName="INDEXL" />
+                <ScalarProperty Name="THUMBNAILURL" ColumnName="THUMBNAILURL" />
+                <ScalarProperty Name="APPLICATIONID" ColumnName="APPLICATIONID" />
+                <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+                <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+                <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+                <ScalarProperty Name="COMPANYCODE" ColumnName="COMPANYCODE" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="FILEURL" ColumnName="FILEURL" />
+                <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="SMTFILELISTID" ColumnName="SMTFILELISTID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

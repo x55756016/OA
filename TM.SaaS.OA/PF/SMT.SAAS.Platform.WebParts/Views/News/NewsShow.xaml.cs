@@ -26,7 +26,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         public NewsShow()
         {
             InitializeComponent();
-
+            rtbContent.HideHeadToolbars();
             services = new BasicServices();
             publicWS = new Saas.Tools.PublicInterfaceWS.PublicServiceClient();
             client = services.PlatformClient;
@@ -48,6 +48,13 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                     CacheList.Add(CacheNews.NEWSID, CacheNews);
                 }
+                else
+                {
+                    MessageBox.Show("获取新闻内容为空，请联系管理员。");
+                }
+            }else
+            {
+                MessageBox.Show(e.Error.ToString());
             }
         }
 

@@ -24,7 +24,7 @@ namespace SMT.SAAS.Platform.DAL
 
         public List<ShortCut> GetShortCutListByUser(string userID)
         {
-            var shortcutids = from us in _commonDAL.GetTable<T_PF_USER_SHORTCUT>()
+            var shortcutids = from us in _commonDAL.GetObjects<T_PF_USER_SHORTCUT>()
                               where us.OWNERID == userID
                               select new
                               {

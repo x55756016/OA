@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+      <bindings >
+        <customBinding>
+          <binding name="CustomBinding_IUploadService">
+            <binaryMessageEncoding />
+            <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+          </binding>
+        </customBinding>
+      </bindings>
+      <client >
+        <endpoint address="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc"
+          binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+          contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
+      </client>
+    </system.serviceModel>
+</configuration>

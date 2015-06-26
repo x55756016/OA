@@ -23,7 +23,7 @@ namespace SMT.FileUpLoad.Service
         /// 返回给客户端的文件列表
         /// </summary>
         [DataMember]
-        public List<SMT_FILELIST> FileList { get; set; }
+        public List<T_SYS_FILELIST> FileList { get; set; }
         /// <summary>
         /// 下载地址
         /// </summary>
@@ -140,9 +140,9 @@ namespace SMT.FileUpLoad.Service
         string CreateCompanyDirectory(string companyID,string companyName,string companyCode);
         #endregion
         //[OperationContract]
-        //bool AddSMT_FILELIST(SMT_FILELIST model);
+        //bool AddT_SYS_FILELIST(T_SYS_FILELIST model);
         //[OperationContract]
-        //bool DeleteSMT_FILELIST(string serviceid);
+        //bool DeleteT_SYS_FILELIST(string serviceid);
         //[OperationContract]       
     }
 

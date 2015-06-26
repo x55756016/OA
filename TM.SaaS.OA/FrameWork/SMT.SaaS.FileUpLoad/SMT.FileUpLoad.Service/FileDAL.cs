@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace SMT.FileUpLoad.Service
 {
-    class FileDAL: CommonDAL<SMT_FILELIST>
+    class FileDAL: CommonDAL<T_SYS_FILELIST>
     {
         private string DownloadUrl = string.Concat(ConfigurationManager.AppSettings["DownLoadUrl"]);
         #region ADO 操作
@@ -22,7 +22,7 @@ namespace SMT.FileUpLoad.Service
         //public int Add(UserFile model)
         //{
            
-        //    string insSql = "INSERT INTO SMT_FILELIST (SMTFILELISTID,FILENAME,FILETYPE,FILEURL,COMPANYCODE,COMPANYNAME,SYSTEMCODE,MODELCODE,THUMBNAILURL,INDEXL,REMARK,CREATETIME,CREATENAME,UPDATETIME,UPDATENAME,FILESIZE,APPLICATIONID) VALUES (:SMTFILELISTID,:FILENAME,:FILETYPE,:FILEURL,:COMPANYCODE,:COMPANYNAME,:SYSTEMCODE,:MODELCODE,:THUMBNAILURL,:INDEXL,:REMARK,:CREATETIME,:CREATENAME,:UPDATETIME,:UPDATENAME,:FILESIZE,:APPLICATIONID)";
+        //    string insSql = "INSERT INTO T_SYS_FILELIST (SMTFILELISTID,FILENAME,FILETYPE,FILEURL,COMPANYCODE,COMPANYNAME,SYSTEMCODE,MODELCODE,THUMBNAILURL,INDEXL,REMARK,CREATETIME,CREATENAME,UPDATETIME,UPDATENAME,FILESIZE,APPLICATIONID) VALUES (:SMTFILELISTID,:FILENAME,:FILETYPE,:FILEURL,:COMPANYCODE,:COMPANYNAME,:SYSTEMCODE,:MODELCODE,:THUMBNAILURL,:INDEXL,:REMARK,:CREATETIME,:CREATENAME,:UPDATETIME,:UPDATENAME,:FILESIZE,:APPLICATIONID)";
         //    OracleParameter[] pageparm =
         //        {               
         //             new OracleParameter("SMTFILELISTID",OracleType.NVarChar,100), 
@@ -67,7 +67,7 @@ namespace SMT.FileUpLoad.Service
         ///// </summary>
         //public int Delete(string smtfilelistid)
         //{
-        //    string delSql = "DELETE FROM SMT_FILELIST  WHERE   SMTFILELISTID=:SMTFILELISTID";
+        //    string delSql = "DELETE FROM T_SYS_FILELIST  WHERE   SMTFILELISTID=:SMTFILELISTID";
         //    OracleParameter[] pageparm =
         //        {               
         //             new OracleParameter("SMTFILELISTID",OracleType.NVarChar,100) 
@@ -81,7 +81,7 @@ namespace SMT.FileUpLoad.Service
         ///// </summary>
         //public int DeleteByFileUrl(string fileurl)
         //{
-        //    string delSql = "DELETE FROM SMT_FILELIST  WHERE   FILEURL=:FILEURL";
+        //    string delSql = "DELETE FROM T_SYS_FILELIST  WHERE   FILEURL=:FILEURL";
         //    OracleParameter[] pageparm =
         //        {               
         //             new OracleParameter("FILEURL",OracleType.NVarChar,1000) 
@@ -107,17 +107,17 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                //var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                //var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                 //           where ent.COMPANYCODE == companycode
                 //           orderby ent.CREATETIME descending
                 //           select ent;
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                           where ent.COMPANYCODE == companycode
                           orderby ent.INDEXL
                           select ent;
                 if (ents.Count() > 0)
                 {
-                    //foreach (SMT_FILELIST file in ents)
+                    //foreach (T_SYS_FILELIST file in ents)
                     //{
                     //    string path = file.FILEURL;
                     //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -149,13 +149,13 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                            where ent.COMPANYCODE == companycode && ent.SYSTEMCODE == systemcode
                            orderby ent.INDEXL
                            select ent;
                 if (ents.Count() > 0)
                 {
-                    //foreach (SMT_FILELIST file in ents)
+                    //foreach (T_SYS_FILELIST file in ents)
                     //{
                     //    string path = file.FILEURL;
                     //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -187,13 +187,13 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                            where ent.COMPANYCODE == companycode && ent.SYSTEMCODE == systemcode && ent.MODELCODE == modelcode
                            orderby ent.INDEXL
                            select ent;
                 if (ents.Count() > 0)
                 {
-                    //foreach (SMT_FILELIST file in ents)
+                    //foreach (T_SYS_FILELIST file in ents)
                     //{
                     //    string path = file.FILEURL;
                     //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -227,7 +227,7 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                //var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                //var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                 //           where (string.IsNullOrEmpty(companycode)?true:(ent.COMPANYCODE == companycode)) 
                 //           && (string.IsNullOrEmpty(systemcode)?true:(ent.SYSTEMCODE == systemcode))
                 //           && (string.IsNullOrEmpty(modelcode) ? true :(ent.MODELCODE == modelcode))
@@ -235,7 +235,7 @@ namespace SMT.FileUpLoad.Service
                 //            && (string.IsNullOrEmpty(createname) ? true : (ent.CREATENAME == createname))
                 //           orderby ent.CREATETIME descending
                 //           select ent;
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                            where //(string.IsNullOrEmpty(companycode) ? true : (ent.COMPANYCODE == companycode))
                                //&& (string.IsNullOrEmpty(systemcode) ? true : (ent.SYSTEMCODE == systemcode))
                             (string.IsNullOrEmpty(modelcode) ? true : (ent.MODELCODE == modelcode))
@@ -245,7 +245,7 @@ namespace SMT.FileUpLoad.Service
                            select ent;
                 if (ents.Count() > 0)
                 {
-                    //foreach (SMT_FILELIST entity in ents)
+                    //foreach (T_SYS_FILELIST entity in ents)
                     //{
                     //    string path = entity.FILEURL;
                     //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -276,7 +276,7 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                            where ent.APPLICATIONID == applicationid
                            orderby ent.INDEXL,ent.CREATETIME
                            select ent;
@@ -309,7 +309,7 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                var ents = from ent in base.GetObjects<SMT_FILELIST>()
+                var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
                            where ent.APPLICATIONID == applicationid
                            //&& ent.FILEURL.Contains(FileName)
                            && FileName.Contains(ent.FILEURL)
@@ -344,10 +344,10 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<SMT_FILELIST>()
+            var list = from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode && det.MODELCODE == modelcode && det.APPLICATIONID==applicationid 
                        select det;//找出原有的实体
-            foreach (SMT_FILELIST file in list)
+            foreach (T_SYS_FILELIST file in list)
             {
                 string fileurl = file.FILEURL;
                 string fileaddress = string.Concat(savepath, fileurl);
@@ -375,18 +375,18 @@ namespace SMT.FileUpLoad.Service
         {
             try
             {
-                var list = from det in base.GetObjects<SMT_FILELIST>()
+                var list = from det in base.GetObjects<T_SYS_FILELIST>()
                            where det.APPLICATIONID == applicationid
                            && det.FILEURL == FileName
                            select det;//找出原有的实体
-                foreach (SMT_FILELIST file in list)
+                foreach (T_SYS_FILELIST file in list)
                 {
                     string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
                     string fileurl = file.FILEURL;
                     string fileaddress = string.Concat(savepath, fileurl);
                     if (DeleteEntity(file) > 0)
                     {
-                        var listExists = from det in base.GetObjects<SMT_FILELIST>()
+                        var listExists = from det in base.GetObjects<T_SYS_FILELIST>()
                                          where det.FILEURL == FileName
                                          select det;//找出原有的实体
                         //只有上传的文件不存在被其它文件使用则删除该文件
@@ -426,10 +426,10 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<SMT_FILELIST>()
+            var list = from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode && det.MODELCODE==modelcode
                        select det;//找出原有的实体
-            foreach (SMT_FILELIST file in list)
+            foreach (T_SYS_FILELIST file in list)
             {
                 string fileurl = file.FILEURL;
                 string fileaddress = string.Concat(savepath, fileurl);
@@ -454,10 +454,10 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<SMT_FILELIST>()
+            var list = from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode
                        select det;//找出原有的实体
-            foreach (SMT_FILELIST file in list)
+            foreach (T_SYS_FILELIST file in list)
             {
                 string fileurl = file.FILEURL;
                 string fileaddress = string.Concat(savepath, fileurl);
@@ -481,10 +481,10 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<SMT_FILELIST>()
+            var list = from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode
                        select det;//找出原有的实体
-            foreach (SMT_FILELIST file in list)
+            foreach (T_SYS_FILELIST file in list)
             {
                 string fileurl = file.FILEURL;
                 string fileaddress = string.Concat(savepath, fileurl);
@@ -508,10 +508,10 @@ namespace SMT.FileUpLoad.Service
         {
            
            // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<SMT_FILELIST>()
+            var list = from det in base.GetObjects<T_SYS_FILELIST>()
                           where det.APPLICATIONID == applicationid
                           select det;//找出原有的实体
-            foreach (SMT_FILELIST file in list)
+            foreach (T_SYS_FILELIST file in list)
             {
                 string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
                 string fileurl = file.FILEURL;
@@ -583,9 +583,8 @@ namespace SMT.FileUpLoad.Service
         {
             int result = 0;
             #region 删除从表
-            //EngineDataModel.EngineDataModelContext edc = new EngineDataModelContext();
-            TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
-            var entity = from det in edc.SMT_FILELIST
+            TM_SaaS_OA_EFModelContext edc = new TM_SaaS_OA_EFModelContext();
+            var entity = from det in edc.T_SYS_FILELIST
                           where det.FILEURL == url
                           select det;//找出原有的实体
             if (entity.Count() > 0)
@@ -604,7 +603,7 @@ namespace SMT.FileUpLoad.Service
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public int AddEntity(SMT_FILELIST entity)
+        public int AddEntity(T_SYS_FILELIST entity)
         {
             int result = 0;
             #region
@@ -616,7 +615,7 @@ namespace SMT.FileUpLoad.Service
                     //result = DataContext.SaveChanges();
                     //EngineDataModel.EngineDataModelContext edc = new EngineDataModelContext();
                     entity.CREATETIME = System.DateTime.Now;
-                    TM_SaaS_OA_EFModel.SMT_FILEUPLOAD_EFModelContext edc = new SMT_FILEUPLOAD_EFModelContext();
+                    TM_SaaS_OA_EFModel.TM_SaaS_OA_EFModelContext edc = new TM_SaaS_OA_EFModelContext();
                     edc.AddObject(entity.GetType().Name, entity);
                     result=edc.SaveChanges();
                 }
@@ -628,7 +627,7 @@ namespace SMT.FileUpLoad.Service
             return result > 0 ? 1 : 0;
             #endregion
         }
-        public int DeleteEntity(SMT_FILELIST entity)
+        public int DeleteEntity(T_SYS_FILELIST entity)
         {
             int result = 0;
             #region 删除从表
@@ -655,7 +654,7 @@ namespace SMT.FileUpLoad.Service
         {
             int result = 0;
             #region 删除从表
-            var details = from det in base.GetObjects<SMT_FILELIST>()
+            var details = from det in base.GetObjects<T_SYS_FILELIST>()
                           where det.SMTFILELISTID == smtfilelistid
                           select det;//找出原有的实体
             if (details.Count() > 0)
@@ -675,9 +674,9 @@ namespace SMT.FileUpLoad.Service
         ///// 返回[这是一个树状结构，包括产品名称和产品的内容（菜单）]所有列表
         ///// </summary>
         ///// <returns></returns>
-        //public IQueryable<SMT_FILELIST> GetTable()
+        //public IQueryable<T_SYS_FILELIST> GetTable()
         //{
-        //    return base.GetTable<SMT_FILELIST>();
+        //    return base.GetTable<T_SYS_FILELIST>();
         //}
         #endregion
 

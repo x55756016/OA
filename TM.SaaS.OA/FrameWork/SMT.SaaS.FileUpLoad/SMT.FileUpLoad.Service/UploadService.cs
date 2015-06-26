@@ -167,9 +167,9 @@ namespace SMT.FileUpLoad.Service
                     File.Move(NewPath, strTempName);
                     NewPath = strTempName;//最近返回已完成的路径      
 
-                    SMT_FILELIST entity = new SMT_FILELIST();
+                    T_SYS_FILELIST entity = new T_SYS_FILELIST();
                     entity.FILENAME = model.FileName;
-                    entity.FILESIZE = Convert.ToDecimal(model.FileSize);
+                    entity.FILESIZE = Convert.ToInt32(model.FileSize);
                     entity.REMARK = model.Remark;
                     entity.SMTFILELISTID = model.SmtFileListId;// uc.SmtFileListId;//主键ID              
                     entity.FILEURL = model.FileUrl;//文件地址
@@ -182,7 +182,7 @@ namespace SMT.FileUpLoad.Service
                     entity.APPLICATIONID = model.ApplicationID;//业务ID
                     entity.THUMBNAILURL = model.ThumbnailUrl;//缩略图地址
                     entity.FILETYPE = model.FileType;
-                    entity.INDEXL = model.INDEXL;//排序
+                    entity.INDEXL =  Convert.ToInt32(model.INDEXL);//排序
                     entity.REMARK = model.Remark;//备注
                     entity.CREATETIME = model.CreateTime;//创建时间
                     entity.CREATENAME = model.CreateName;//创建人
@@ -299,9 +299,9 @@ namespace SMT.FileUpLoad.Service
                 SMT.Foundation.Log.Tracer.Debug("开始添加上传文件的记录strTempName：" + strTempName);
                 
                 NewPath = strTempName;//最近返回已完成的路径
-                SMT_FILELIST entity = new SMT_FILELIST();
+                T_SYS_FILELIST entity = new T_SYS_FILELIST();
                 entity.FILENAME = model.FileName;
-                entity.FILESIZE = Convert.ToDecimal(model.FileSize);
+                entity.FILESIZE = Convert.ToInt32(model.FileSize);
                 entity.REMARK = model.Remark;
                 entity.SMTFILELISTID = model.SmtFileListId;// uc.SmtFileListId;//主键ID              
                 entity.FILEURL = model.FileUrl;//文件地址
@@ -314,7 +314,7 @@ namespace SMT.FileUpLoad.Service
                 entity.APPLICATIONID = model.ApplicationID;//业务ID
                 entity.THUMBNAILURL = model.ThumbnailUrl;//缩略图地址
                 entity.FILETYPE = model.FileType;
-                entity.INDEXL = model.INDEXL;//排序
+                entity.INDEXL =  Convert.ToInt32(model.INDEXL);//排序
                 entity.REMARK = model.Remark;//备注
                 entity.CREATETIME = model.CreateTime;//创建时间
                 entity.CREATENAME = model.CreateName;//创建人
@@ -395,9 +395,9 @@ namespace SMT.FileUpLoad.Service
                 //File.Move(NewPath, strTempName);
                 NewPath = strTempName;//最近返回已完成的路径      
 
-                SMT_FILELIST entity = new SMT_FILELIST();
+                T_SYS_FILELIST entity = new T_SYS_FILELIST();
                 entity.FILENAME = model.FileName;
-                entity.FILESIZE = Convert.ToDecimal(model.FileSize);
+                entity.FILESIZE = Convert.ToInt32(model.FileSize);
                 entity.REMARK = model.Remark;
                 entity.SMTFILELISTID = model.SmtFileListId;// uc.SmtFileListId;//主键ID              
                 entity.FILEURL = strTempName;//model.FileUrl;//文件地址
@@ -410,7 +410,7 @@ namespace SMT.FileUpLoad.Service
                 entity.APPLICATIONID = model.ApplicationID;//业务ID
                 entity.THUMBNAILURL = model.ThumbnailUrl;//缩略图地址
                 entity.FILETYPE = model.FileType;
-                entity.INDEXL = model.INDEXL;//排序
+                entity.INDEXL =  Convert.ToInt32(model.INDEXL);//排序
                 entity.REMARK = model.Remark;//备注
                 entity.CREATETIME = model.CreateTime;//创建时间
                 entity.CREATENAME = model.CreateName;//创建人
@@ -504,13 +504,13 @@ namespace SMT.FileUpLoad.Service
            return dal.GetFileListByCompanyCode(companycode);
             #region ado代码
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //List<SMT_FILELIST> li = new List<SMT_FILELIST>();
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "'  order by INDEXL, CREATETIME desc ";
+            //List<T_SYS_FILELIST> li = new List<T_SYS_FILELIST>();
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "'  order by INDEXL, CREATETIME desc ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
             //{
-            //    SMT_FILELIST file = new SMT_FILELIST();
+            //    T_SYS_FILELIST file = new T_SYS_FILELIST();
             //    string path = dt.Rows[i]["FILEURL"].ToString();
             //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
             //    //  string filepath = HttpUtility.UrlEncode(dt.Rows[i]["COMPANYCODE"].ToString() + "|" + dt.Rows[i]["SYSTEMCODE"].ToString() + "|" + dt.Rows[i]["MODELCODE"].ToString() + "|" + filename + "|" + dt.Rows[i]["FILENAME"].ToString());
@@ -547,13 +547,13 @@ namespace SMT.FileUpLoad.Service
             return dal.GetFileListBySystemCode( companycode,systemcode);
             #region 代码
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //List<SMT_FILELIST> li = new List<SMT_FILELIST>();
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "'  order by INDEXL, CREATETIME desc ";
+            //List<T_SYS_FILELIST> li = new List<T_SYS_FILELIST>();
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "'  order by INDEXL, CREATETIME desc ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
             //{
-            //    SMT_FILELIST file = new SMT_FILELIST();
+            //    T_SYS_FILELIST file = new T_SYS_FILELIST();
             //    string path = dt.Rows[i]["FILEURL"].ToString();
             //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
             //    //  string filepath = HttpUtility.UrlEncode(dt.Rows[i]["COMPANYCODE"].ToString() + "|" + dt.Rows[i]["SYSTEMCODE"].ToString() + "|" + dt.Rows[i]["MODELCODE"].ToString() + "|" + filename + "|" + dt.Rows[i]["FILENAME"].ToString());
@@ -591,13 +591,13 @@ namespace SMT.FileUpLoad.Service
             return dal.GetFileListByModelCode(companycode,systemcode,modelcode);
             #region ado代码
             ////string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //List<SMT_FILELIST> li = new List<SMT_FILELIST>();
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' order by INDEXL, CREATETIME desc ";
+            //List<T_SYS_FILELIST> li = new List<T_SYS_FILELIST>();
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' order by INDEXL, CREATETIME desc ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
             //{
-            //    SMT_FILELIST file = new SMT_FILELIST();
+            //    T_SYS_FILELIST file = new T_SYS_FILELIST();
             //    string path = dt.Rows[i]["FILEURL"].ToString();
             //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
             //    //  string filepath = HttpUtility.UrlEncode(dt.Rows[i]["COMPANYCODE"].ToString() + "|" + dt.Rows[i]["SYSTEMCODE"].ToString() + "|" + dt.Rows[i]["MODELCODE"].ToString() + "|" + filename + "|" + dt.Rows[i]["FILENAME"].ToString());
@@ -637,13 +637,13 @@ namespace SMT.FileUpLoad.Service
             return dal.GetFileListByApplicationID(companycode, systemcode, modelcode, applicationid, createname);
             #region 代码 
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //List<SMT_FILELIST> li = new List<SMT_FILELIST>();
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "'  order by INDEXL, CREATETIME desc ";
+            //List<T_SYS_FILELIST> li = new List<T_SYS_FILELIST>();
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "'  order by INDEXL, CREATETIME desc ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
             //{
-            //    SMT_FILELIST file = new SMT_FILELIST();
+            //    T_SYS_FILELIST file = new T_SYS_FILELIST();
             //    string path = dt.Rows[i]["FILEURL"].ToString();
             //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
             //    //  string filepath = HttpUtility.UrlEncode(dt.Rows[i]["COMPANYCODE"].ToString() + "|" + dt.Rows[i]["SYSTEMCODE"].ToString() + "|" + dt.Rows[i]["MODELCODE"].ToString() + "|" + filename + "|" + dt.Rows[i]["FILENAME"].ToString());
@@ -698,8 +698,8 @@ namespace SMT.FileUpLoad.Service
            
             //List<string> li = new List<string>();
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "' ";
-            //string delSql="DELETE SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "' ";
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "' ";
+            //string delSql="DELETE T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' and APPLICATIONID='" + applicationid + "' ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
@@ -751,8 +751,8 @@ namespace SMT.FileUpLoad.Service
           
             //List<string> li = new List<string>();
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "'  ";
-            //string delSql = "DELETE SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' ";
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "'  ";
+            //string delSql = "DELETE T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' and MODELCODE='" + modelcode + "' ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
@@ -790,8 +790,8 @@ namespace SMT.FileUpLoad.Service
             
             //List<string> li = new List<string>();
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' ";
-            //string delSql = "DELETE SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' ";
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' ";
+            //string delSql = "DELETE T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' and SYSTEMCODE='" + systemcode + "' ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
@@ -825,8 +825,8 @@ namespace SMT.FileUpLoad.Service
             
             //List<string> li = new List<string>();
             //string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
-            //string sql = "select * from SMT_FILELIST WHERE COMPANYCODE='" + companycode + "' ";
-            //string delSql = "DELETE SMT_FILELIST WHERE COMPANYCODE='" + companycode + "'  ";
+            //string sql = "select * from T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "' ";
+            //string delSql = "DELETE T_SYS_FILELIST WHERE COMPANYCODE='" + companycode + "'  ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
@@ -860,8 +860,8 @@ namespace SMT.FileUpLoad.Service
             
             //List<string> li = new List<string>();
             //string savepath = string.Format(FileConfig.GetCompanyItem(applicationid).SavePath, "", "", "");
-            //string sql = "select * from SMT_FILELIST WHERE APPLICATIONID='" + applicationid + "' ";
-            //string delSql = "DELETE SMT_FILELIST WHERE APPLICATIONID='" + applicationid + "'  ";
+            //string sql = "select * from T_SYS_FILELIST WHERE APPLICATIONID='" + applicationid + "' ";
+            //string delSql = "DELETE T_SYS_FILELIST WHERE APPLICATIONID='" + applicationid + "'  ";
             //System.Data.DataTable dt = SMT.MSOracle.GetDataTable(sql);
             //int n = dt.Rows.Count;
             //for (int i = 0; i < n; i++)
@@ -892,10 +892,10 @@ namespace SMT.FileUpLoad.Service
                 try
                 {
                     //如果存在一个文件被多个记录使用则不删除文件
-                    //var ents = from ent in dal.GetObjects<SMT_FILELIST>()
+                    //var ents = from ent in dal.GetObjects<T_SYS_FILELIST>()
                     //           where ent.FILEURL == filePath
                     //           select ent;
-                    var ents = from ent in dal.GetObjects<SMT_FILELIST>()
+                    var ents = from ent in dal.GetObjects<T_SYS_FILELIST>()
                                where ent.SMTFILELISTID == smtfilelistid
                                select ent;
                     if (ents.Count() == 1)

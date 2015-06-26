@@ -663,7 +663,7 @@ public string ToSBC(string input)
         #endregion      
 
         #region 管理标头控件是否显示
-        public void HideControls()
+        public void HideHeadToolbars()
         {
             mainPanel.Visibility = Visibility.Collapsed;
             rtb.IsReadOnly = true;
@@ -685,7 +685,7 @@ public string ToSBC(string input)
             RichTextBoxBorder1.BorderThickness = new Thickness(0);
         }
 
-        public void ShowControls()
+        public void ShowHeadToolbars()
         {
             mainPanel.Visibility = Visibility.Visible;
             rtb.IsReadOnly = false;

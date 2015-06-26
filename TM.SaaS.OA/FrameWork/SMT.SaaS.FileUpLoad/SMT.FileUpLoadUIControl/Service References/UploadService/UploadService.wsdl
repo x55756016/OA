@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UploadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IUploadService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.FileUpLoad.Service" />
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel" />
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:10918/FileUpLoad.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUploadService_GetCompanyFileSetInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyFileSetInfo" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetCompanyFileSetInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyFileSetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetCompanyFileByCompanyCodeAndName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyFileByCompanyCodeAndName" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetCompanyFileByCompanyCodeAndName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyFileByCompanyCodeAndNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUpLoadFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUpLoadFile" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUpLoadFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUpLoadFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUpLoadFileIsExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUpLoadFileIsExist" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_SaveUpLoadFileIsExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUpLoadFileIsExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_CancelUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelUpload" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_CancelUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_CheckFileExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFileExists" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_CheckFileExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckFileExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByCompanyCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByCompanyCode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByCompanyCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByCompanyCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListBySystemCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListBySystemCode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListBySystemCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListBySystemCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByModelCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByModelCode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByModelCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByModelCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByApplicationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByApplicationID" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByApplicationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByApplicationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByOnlyApplicationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByOnlyApplicationID" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_GetFileListByOnlyApplicationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFileListByOnlyApplicationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByUrl_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByUrl" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByUrl_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByApplicationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByApplicationID" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByApplicationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByApplicationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByModelCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByModelCode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByModelCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByModelCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileBySystemCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileBySystemCode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileBySystemCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileBySystemCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByCompanycode_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByCompanycode" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByCompanycode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByCompanycodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByOnlyApplicationID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByOnlyApplicationID" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByOnlyApplicationID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByOnlyApplicationIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByApplicationIDAndFileName_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByApplicationIDAndFileName" />
+  </wsdl:message>
+  <wsdl:message name="IUploadService_DeleteFileByApplicationIDAndFileName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFileByApplicationIDAndFileNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUploadService">
+    <wsdl:operation name="GetCompanyFileSetInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetCompanyFileSetInfo" message="tns:IUploadService_GetCompanyFileSetInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetCompanyFileSetInfoResponse" message="tns:IUploadService_GetCompanyFileSetInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyFileByCompanyCodeAndName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetCompanyFileByCompanyCodeAndName" message="tns:IUploadService_GetCompanyFileByCompanyCodeAndName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetCompanyFileByCompanyCodeAndNameResponse" message="tns:IUploadService_GetCompanyFileByCompanyCodeAndName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUpLoadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFile" message="tns:IUploadService_SaveUpLoadFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFileResponse" message="tns:IUploadService_SaveUpLoadFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUpLoadFileIsExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFileIsExist" message="tns:IUploadService_SaveUpLoadFileIsExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/SaveUpLoadFileIsExistResponse" message="tns:IUploadService_SaveUpLoadFileIsExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/CancelUpload" message="tns:IUploadService_CancelUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/CancelUploadResponse" message="tns:IUploadService_CancelUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckFileExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/CheckFileExists" message="tns:IUploadService_CheckFileExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/CheckFileExistsResponse" message="tns:IUploadService_CheckFileExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByCompanyCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetFileListByCompanyCode" message="tns:IUploadService_GetFileListByCompanyCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetFileListByCompanyCodeResponse" message="tns:IUploadService_GetFileListByCompanyCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListBySystemCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetFileListBySystemCode" message="tns:IUploadService_GetFileListBySystemCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetFileListBySystemCodeResponse" message="tns:IUploadService_GetFileListBySystemCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByModelCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetFileListByModelCode" message="tns:IUploadService_GetFileListByModelCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetFileListByModelCodeResponse" message="tns:IUploadService_GetFileListByModelCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByApplicationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetFileListByApplicationID" message="tns:IUploadService_GetFileListByApplicationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetFileListByApplicationIDResponse" message="tns:IUploadService_GetFileListByApplicationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByOnlyApplicationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/GetFileListByOnlyApplicationID" message="tns:IUploadService_GetFileListByOnlyApplicationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/GetFileListByOnlyApplicationIDResponse" message="tns:IUploadService_GetFileListByOnlyApplicationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFile" message="tns:IUploadService_DeleteFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileResponse" message="tns:IUploadService_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByUrl">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByUrl" message="tns:IUploadService_DeleteFileByUrl_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByUrlResponse" message="tns:IUploadService_DeleteFileByUrl_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByApplicationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationID" message="tns:IUploadService_DeleteFileByApplicationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationIDResponse" message="tns:IUploadService_DeleteFileByApplicationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByModelCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByModelCode" message="tns:IUploadService_DeleteFileByModelCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByModelCodeResponse" message="tns:IUploadService_DeleteFileByModelCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileBySystemCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileBySystemCode" message="tns:IUploadService_DeleteFileBySystemCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileBySystemCodeResponse" message="tns:IUploadService_DeleteFileBySystemCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByCompanycode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByCompanycode" message="tns:IUploadService_DeleteFileByCompanycode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByCompanycodeResponse" message="tns:IUploadService_DeleteFileByCompanycode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByOnlyApplicationID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByOnlyApplicationID" message="tns:IUploadService_DeleteFileByOnlyApplicationID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByOnlyApplicationIDResponse" message="tns:IUploadService_DeleteFileByOnlyApplicationID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByApplicationIDAndFileName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationIDAndFileName" message="tns:IUploadService_DeleteFileByApplicationIDAndFileName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUploadService/DeleteFileByApplicationIDAndFileNameResponse" message="tns:IUploadService_DeleteFileByApplicationIDAndFileName_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IUploadService" type="tns:IUploadService">
+    <wsp:PolicyReference URI="#CustomBinding_IUploadService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompanyFileSetInfo">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetCompanyFileSetInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyFileByCompanyCodeAndName">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetCompanyFileByCompanyCodeAndName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUpLoadFile">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/SaveUpLoadFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUpLoadFileIsExist">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/SaveUpLoadFileIsExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelUpload">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/CancelUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckFileExists">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/CheckFileExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByCompanyCode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetFileListByCompanyCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListBySystemCode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetFileListBySystemCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByModelCode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetFileListByModelCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByApplicationID">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetFileListByApplicationID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileListByOnlyApplicationID">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/GetFileListByOnlyApplicationID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByUrl">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByApplicationID">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByApplicationID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByModelCode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByModelCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileBySystemCode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileBySystemCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByCompanycode">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByCompanycode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByOnlyApplicationID">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByOnlyApplicationID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileByApplicationIDAndFileName">
+      <soap12:operation soapAction="http://tempuri.org/IUploadService/DeleteFileByApplicationIDAndFileName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UploadService">
+    <wsdl:port name="CustomBinding_IUploadService" binding="tns:CustomBinding_IUploadService">
+      <soap12:address location="http://localhost:10918/FileUpLoad.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:10918/FileUpLoad.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="SMT.FileUpLoad.FileRowControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+             xmlns:Classes="clr-namespace:SMT.FileUpLoad"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <UserControl.Resources>
+        <Classes:ByteConverter x:Key="ByteConverter" />
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Border BorderBrush="Black" BorderThickness="0, 0, 0, 1" Padding="1">   
+            <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Top"  Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <HyperlinkButton  x:Name="hbtn_url" Grid.Row="0"  HorizontalAlignment="Right" Content="{Binding FileName}" Click="hbtn_url_Click" Grid.Column="0" MinWidth="200" MaxWidth="300"></HyperlinkButton>                    
+                <TextBlock x:Name="FileSizeTextBlock" Text="{Binding FILESIZE, Converter={StaticResource ByteConverter}}" Width="80" TextAlignment="Right" Margin="0,0,5,0" Grid.Column="2"/>
+                <TextBlock Grid.Column="6" Text="{Binding CREATEDATE}" Width="20" TextAlignment="Right" Visibility="Collapsed" />
+                <TextBlock Grid.Column="6" Text="{Binding CREATEUSERID}" Width="20" TextAlignment="Right" Visibility="Collapsed" />
+                <Button Click="ButtonDelete_Click" Grid.Column="8"  Margin="6,0,0,0"  Width="30" Padding="0" x:Name="ButtonDelete"  HorizontalAlignment="Right" > 
+                    <!--<Image Width="16" Height="12"  x:Name="ToolDelete" Source="/SMT.SaaS.FrameworkUI;Component/Images/ToolBar/ico_16_delete.png" Stretch="Fill"  Margin="0,0,0,0" ToolTipService.ToolTip="{Binding Converter={StaticResource ResourceConveter}, Source=DELETE}"/>-->                      
+                </Button>
+                <TextBlock Foreground="Red" x:Name="ErrorMsgTextBlock" Visibility="Collapsed" Grid.Column="7" >Upload failed.</TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

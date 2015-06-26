@@ -1,0 +1,100 @@
+﻿<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+             x:Class="SMT.FileUpLoad.FileControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+    xmlns:local="clr-namespace:SMT.FileUpLoad"
+                 xmlns:localprimitives="clr-namespace:System.Windows.Controls.Primitives;assembly=System.Windows.Controls.Data"
+             mc:Ignorable="d">
+    <UserControl.Resources>      
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="grid" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Background="#01ffffff">
+                            <Image Source="Img/trash.png" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="localprimitives:DataGridColumnHeader" x:Key="DataGridColumnHeaderStyleUP">
+            <Setter Property="Foreground" Value="#FF000000" />
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Background="#f2f3f4" Loaded="LayoutRoot_Loaded">
+        <Grid.Resources>
+            <local:ByteConverter x:Key="ByteConverter"/>        
+            <local:DateConverter   x:Key="DateConverter"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+           
+            
+        </StackPanel>
+        <data:DataGrid x:Name="List" Grid.Row="1" Grid.ColumnSpan="2" AutoGenerateColumns="False"  
+                       HeadersVisibility="None" BorderThickness="0"
+                           ItemsSource="{Binding Collection,Mode=TwoWay}"  IsReadOnly="True" VerticalAlignment="Stretch"  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyleUP}" >
+            <data:DataGrid.Columns>
+                <data:DataGridTemplateColumn x:Name="filedown"    Header="文件名称"  Width="*" >
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <HyperlinkButton Content="{Binding FILENAME}"  NavigateUri="{Binding FILEURL}" Height="25" Margin="5,2"  TargetName="_blank" x:Name="lBtnDown" />
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <!--<data:DataGridTextColumn Header="文件大小" Binding="{Binding FILESIZE,Converter={StaticResource ByteConverter},Mode=OneWay}" />
+                <data:DataGridTextColumn Header="上传用户" Binding="{Binding CREATENAME}" />
+                <data:DataGridTextColumn Header="上传日期" Width="140" Binding="{Binding CREATETIME,Converter={StaticResource DateConverter}}" />-->
+                <!--<data:DataGridTextColumn Header="文件地址" Binding="{Binding FILEURL}" />-->
+                <data:DataGridTemplateColumn  Header="删除"  Width="50">
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="removeButton" Tag="{Binding FILEURL}"  Height="16" Width="16" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource ButtonStyle}"   Margin="3" Click="removeButton_Click" />
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>
+                <!--<data:DataGridTemplateColumn Header="选择">
+                    <data:DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="sdk:DataGridColumnHeader">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <CheckBox x:Name="checkAll" Click="checkAll_Click" />                                            
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </data:DataGridTemplateColumn.HeaderStyle>
+                    <data:DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox x:Name="singnCheck"></CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </data:DataGridTemplateColumn.CellTemplate>
+                </data:DataGridTemplateColumn>-->               
+            </data:DataGrid.Columns>
+        </data:DataGrid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" >
+        <!--<data:DataPager Grid.Row="2" Grid.ColumnSpan="2" x:Name="Pager" PageSize="8"  Margin="0 0 100 0" 
+                        DisplayMode="FirstLastPreviousNextNumeric"  Source="{Binding}" VerticalAlignment="Bottom"
+                        NumericButtonCount="{Binding Value, ElementName=numericButtonCount}"
+                        AutoEllipsis="{Binding IsChecked, ElementName=autoEllipsis}"
+                        IsTotalItemCountFixed="{Binding IsChecked, ElementName=totalItemCountFixed}" HorizontalAlignment="Stretch" />-->
+        <Button x:Name="btnUp" Content="上传" Width="60" HorizontalAlignment="Left" Margin="5,0,10,0"/>
+        </Grid>
+    </Grid>
+</UserControl>
