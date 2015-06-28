@@ -22,7 +22,7 @@ namespace SMT.FileUpLoad
     {
         public event EventHandler GetFileComplete;
 
-        ObservableCollection<SMT_FILELIST> itemSource;
+        ObservableCollection<T_SYS_FILELIST> itemSource;
         private string systemCode;
         /// <summary>
         /// 系统代号
@@ -246,7 +246,7 @@ namespace SMT.FileUpLoad
                    if (e.Result.FileList != null)
                    {
                        HasAccessory = true;
-                       foreach (SMT_FILELIST file in e.Result.FileList)
+                       foreach (T_SYS_FILELIST file in e.Result.FileList)
                        {
                            string path = file.FILEURL;
                            string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -273,7 +273,7 @@ namespace SMT.FileUpLoad
                    if (e.Result.FileList != null)
                    {
                        HasAccessory = true;
-                       foreach (SMT_FILELIST file in e.Result.FileList)
+                       foreach (T_SYS_FILELIST file in e.Result.FileList)
                        {
                            string path = file.FILEURL;
                            string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -304,7 +304,7 @@ namespace SMT.FileUpLoad
                    if (e.Result.FileList != null)
                    {
                        HasAccessory = true;
-                       foreach (SMT_FILELIST file in e.Result.FileList)
+                       foreach (T_SYS_FILELIST file in e.Result.FileList)
                        {
                            string path = file.FILEURL;
                            string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -335,7 +335,7 @@ namespace SMT.FileUpLoad
                    if (e.Result.FileList != null)
                    {
                        HasAccessory = true;
-                       foreach (SMT_FILELIST file in e.Result.FileList)
+                       foreach (T_SYS_FILELIST file in e.Result.FileList)
                        {
                            string path = file.FILEURL;
                            string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -373,7 +373,7 @@ namespace SMT.FileUpLoad
                        if (e.Result.FileList != null)
                        {
                            HasAccessory = true;
-                           foreach (SMT_FILELIST file in e.Result.FileList)
+                           foreach (T_SYS_FILELIST file in e.Result.FileList)
                            {
                                string path = file.FILEURL;
                                string filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -588,7 +588,7 @@ namespace SMT.FileUpLoad
         /// DataGrid数据绑定与分页
         /// </summary>
         /// <param name="prefixList"></param>
-       private void BindDataGrid(ObservableCollection<SMT_FILELIST> fileList)
+       private void BindDataGrid(ObservableCollection<T_SYS_FILELIST> fileList)
        {
           
            if (usc.NotAllowDownload)

@@ -639,7 +639,7 @@ namespace SMT.SAAS.Platform.Xamls
             WebParts.Views.RollImageNews w = new WebParts.Views.RollImageNews();
             if (w != null)
             {
-                ShowinfoPanel.Children.Add(w);
+                imageNewsPanel.Children.Add(w);
             }
         }
 

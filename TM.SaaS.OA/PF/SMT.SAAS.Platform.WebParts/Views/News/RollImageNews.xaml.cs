@@ -37,28 +37,36 @@ namespace SMT.SAAS.Platform.WebParts.Views
         {
             infoPanel = new InfoPanel();
             infoPanel.OnInfoClick += new EventHandler<OnInfoClickEventArgs>(infoPanel_OnInfoClick);
-            //GetNewsList();
+            GetNewsList();
             ShowinfoPanel.Children.Add(infoPanel);
 
         }
 
         void infoPanel_OnInfoClick(object sender, OnInfoClickEventArgs e)
         {
-            T_PF_NEWS news = e.Info.DataContext as T_PF_NEWS;
-
-            NewsShow newsview = new NewsShow();
-            newsview.LoadNewsDetails(news.NEWSID);
-            string titel = "";
-            switch (news.NEWSTYPEID)
+            if (e.Info == null) return;
+            try
             {
-                case "0": titel = "新    闻"; break;
-                case "1": titel = "动    态"; break;
-                case "2": titel = "公    告"; break;
-                case "3": titel = "通    知"; break;
-                default:
-                    break;
+                T_PF_NEWS news = e.Info.DataContext as T_PF_NEWS;
+
+                NewsShow newsview = new NewsShow();
+                newsview.LoadNewsDetails(news.NEWSID);
+                string titel = "";
+                switch (news.NEWSTYPEID)
+                {
+                    case "0": titel = "新    闻"; break;
+                    case "1": titel = "动    态"; break;
+                    case "2": titel = "公    告"; break;
+                    case "3": titel = "通    知"; break;
+                    default:
+                        break;
+                }
+                System.Windows.Controls.Window.Show(titel, "", news.NEWSID, true, true, newsview, null);
+            }catch(Exception ex)
+            {
+                SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage(ex.ToString());
+                SMT.SAAS.Main.CurrentContext.AppContext.ShowSystemMessageText();
             }
-            System.Windows.Controls.Window.Show(titel, "", news.NEWSID, true, true, newsview, null);
         }
         private List<T_PF_NEWS> ImageNews = new List<T_PF_NEWS>();
         private int listIndex = 0;

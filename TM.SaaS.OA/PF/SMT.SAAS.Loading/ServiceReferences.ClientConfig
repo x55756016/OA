@@ -297,10 +297,6 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="CustomBinding_IUploadService1">
-          <binaryMessageEncoding />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
         <binding name="WSHttpBinding_IEngineWcfGlobalFunction">
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
@@ -687,29 +683,12 @@
         contract="UserLoginWS.UserLoginService" name="CustomBinding_UserLoginService" />
       <endpoint address="http://www.oa12.com/Services/OA/SmtOACommonAdmin.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonAdmin"
-        contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />
-      <endpoint address="http://fileserver.smt-online.net:9000/FileUpLoad.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
-        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
-      <endpoint address="http://fileserver.smt-online.net:9000/FileUpLoad.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService1"
-        contract="UploadService.IUploadService" name="CustomBinding_IUploadService1" />
+        contract="OACommonAdminWS.SmtOACommonAdmin" name="CustomBinding_SmtOACommonAdmin" />      
       <endpoint address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      <!--<endpoint address="http://www.oa12.com/Services/PF/PlatformServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
-      <!--<endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />-->
       
-      <endpoint address="http://localhost:33333/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
-      <endpoint address="http://localhost:22222/PlatformServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
+   
       <endpoint address="http://www.oa12.com/Services/HR/MainUIServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_MainUIServices"
         contract="MainUIWS.MainUIServices" name="BasicHttpBinding_MainUIServices" />
@@ -719,6 +698,26 @@
       <endpoint address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_EmployeeInfoService"
         contract="EmployeeInfoWS.EmployeeInfoService" name="CustomBinding_EmployeeInfoService" />
+    
+      <!--<endpoint address="http://www.oa12.com/Services/File/FileUpLoad.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
+        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />-->     
+      <!--<endpoint address="http://www.oa12.com/Services/PF/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
+      <!--<endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />-->
+      
+        <endpoint address="http://localhost:44444/FileUpLoad.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService"
+        name="CustomBinding_IUploadService" />
+      <endpoint address="http://localhost:33333/PublicService.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      <endpoint address="http://localhost:22222/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
     </client>
    
   </system.serviceModel>

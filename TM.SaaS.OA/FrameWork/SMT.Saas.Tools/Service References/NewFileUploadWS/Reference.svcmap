@@ -14,23 +14,23 @@
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:44444/FileUpLoad.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FileUpLoad.disco" MetadataType="Disco" ID="ed649149-ced8-44e8-9005-17945706c764" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?disco" />
-    <MetadataFile FileName="FileUpLoad.xsd" MetadataType="Schema" ID="7306f870-68fd-445c-87bf-e5be32659df7" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd1" />
-    <MetadataFile FileName="FileUpLoad1.xsd" MetadataType="Schema" ID="d809df5c-119c-463b-8fc2-96be6ea04283" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd0" />
-    <MetadataFile FileName="FileUpLoad2.xsd" MetadataType="Schema" ID="a44d8524-4c5c-471d-800d-aa98e4717d5d" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd3" />
-    <MetadataFile FileName="FileUpLoad3.xsd" MetadataType="Schema" ID="63989724-1419-4ffa-897c-d035bdb29810" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd2" />
-    <MetadataFile FileName="FileUpLoad4.xsd" MetadataType="Schema" ID="5e9b0632-4110-445a-acfb-77030144ddc1" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd5" />
-    <MetadataFile FileName="FileUpLoad5.xsd" MetadataType="Schema" ID="6ef5c735-2891-4455-92af-9eeec12f161b" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?xsd=xsd4" />
-    <MetadataFile FileName="UploadService.wsdl" MetadataType="Wsdl" ID="f22cfbae-c712-4307-86e2-d965d64d58d6" SourceId="1" SourceUrl="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc?wsdl" />
+    <MetadataFile FileName="FileUpLoad1.disco" MetadataType="Disco" ID="d8d29952-135a-47d7-ae27-0c2400f85e31" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?disco" />
+    <MetadataFile FileName="FileUpLoad6.xsd" MetadataType="Schema" ID="cf8b6b47-0f6f-4671-8d30-a3797872ca46" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd0" />
+    <MetadataFile FileName="UploadService1.wsdl" MetadataType="Wsdl" ID="6db6674a-2de2-4238-893f-9cda4e9d4bd1" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?wsdl" />
+    <MetadataFile FileName="FileUpLoad61.xsd" MetadataType="Schema" ID="51a1b165-3b00-4ee8-9e52-94a0ef6f7b2d" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd2" />
+    <MetadataFile FileName="FileUpLoad62.xsd" MetadataType="Schema" ID="2dc0f744-d7e0-4da7-858b-787f82c636f8" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd3" />
+    <MetadataFile FileName="FileUpLoad63.xsd" MetadataType="Schema" ID="f5f56442-ba40-4acb-9ee0-3e7e69e7f9e9" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd4" />
+    <MetadataFile FileName="FileUpLoad64.xsd" MetadataType="Schema" ID="25f18f3c-434d-4cde-a647-3e95063144a2" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd5" />
+    <MetadataFile FileName="FileUpLoad65.xsd" MetadataType="Schema" ID="f7aa03c9-f994-40c2-9bf4-f58721eb8df5" SourceId="1" SourceUrl="http://localhost:44444/FileUpLoad.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

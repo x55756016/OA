@@ -60,9 +60,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="SMT.FileUpLoad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Behaviors">
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
@@ -274,6 +271,10 @@
     <ProjectReference Include="..\..\FrameWork\RichTextBox\SMT.SaaS.FrameworkUI.RichNotepad.csproj">
       <Project>{52f76969-e7cd-414f-8e98-4ff90ee48b05}</Project>
       <Name>SMT.SaaS.FrameworkUI.RichNotepad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FileUpLoad\SMT.FileUpLoadUIControl\SMT.FileUpLoad.csproj">
+      <Project>{3b32fb59-a762-4e76-880f-3bd4721a4d27}</Project>
+      <Name>SMT.FileUpLoad</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TM_SaaS_OA_EFModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+      <Schema Namespace="TM_SaaS_OA_EFModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityType Name="FLOW_CONSULTATION_T">
           <Key>
             <PropertyRef Name="CONSULTATIONID" />
@@ -2319,6 +2319,22 @@
           <Property Name="ATTENDANCESET" Type="varchar" MaxLength="1" />
           <Property Name="SALARYSET" Type="varchar" MaxLength="1" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“def.tmoa.T_HR_BASICTABLE”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_HR_BASICTABLE">
+          <Property Name="REMARK" Type="varchar" MaxLength="2000" />
+          <Property Name="OWNERID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERPOSTID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERDEPARTMENTID" Type="varchar" MaxLength="50" />
+          <Property Name="OWNERCOMPANYID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEPOSTID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDEPARTMENTID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATECOMPANYID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="CREATEDATE" Type="datetime" Precision="0" />
+          <Property Name="UPDATEUSERID" Type="varchar" MaxLength="50" />
+          <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
+        </EntityType>-->
         <EntityType Name="T_HR_BLACKLIST">
           <Key>
             <PropertyRef Name="BLACKLISTID" />
@@ -8624,12 +8640,9 @@
           <Property Name="ROLEID" Type="varchar" MaxLength="50" />
           <Property Name="ADDDATE" Type="datetime" Precision="0" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“def.tmoa.T_SYS_FILELIST”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="T_SYS_FILELIST">
           <Key>
             <PropertyRef Name="SMTFILELISTID" />
-            <PropertyRef Name="FILENAME" />
           </Key>
           <Property Name="SMTFILELISTID" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="FILENAME" Type="varchar" MaxLength="1000" Nullable="false" />
@@ -8648,7 +8661,7 @@
           <Property Name="CREATENAME" Type="varchar" MaxLength="50" />
           <Property Name="UPDATETIME" Type="date" />
           <Property Name="UPDATENAME" Type="varchar" MaxLength="50" />
-          <Property Name="PASSWORD" Type="varchar" MaxLength="1000" />
+          <Property Name="PASSWORDKEY" Type="varchar" MaxLength="1000" />
           <Property Name="OWNERID" Type="varchar" MaxLength="50" />
           <Property Name="OWNERCOMPANYID" Type="varchar" MaxLength="50" />
           <Property Name="OWNERDEPARTMENTID" Type="varchar" MaxLength="50" />
@@ -9378,6 +9391,25 @@
           <Property Name="RECEIVERUSERNAME" Type="varchar" MaxLength="1000" />
           <Property Name="RECEIVETYPE" Type="decimal" Precision="8" Scale="0" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“def.tmoa.T_WF_MESSAGECONFIG”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_WF_MESSAGECONFIG">
+          <Property Name="MESSAGEID" Type="varchar" MaxLength="50" />
+          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
+          <Property Name="SYSTEMNAME" Type="varchar" MaxLength="100" />
+          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODELNAME" Type="varchar" MaxLength="200" />
+          <Property Name="ISADMINPAGE" Type="decimal" Precision="38" Scale="0" />
+          <Property Name="MESSAGETYPE" Type="decimal" Precision="38" Scale="0" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“def.tmoa.T_WF_MESSAGECONFIG_DETAIL”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_WF_MESSAGECONFIG_DETAIL">
+          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
+          <Property Name="FIELDNAME" Type="varchar" MaxLength="50" />
+          <Property Name="FIELDTYPE" Type="decimal" Precision="38" Scale="0" />
+        </EntityType>-->
         <EntityType Name="T_WF_MESSAGEDEFINE">
           <Key>
             <PropertyRef Name="MESSAGEDEFINEID" />
@@ -9442,6 +9474,22 @@
           <Property Name="CREATEDATE" Type="datetime" Precision="0" />
           <Property Name="UPDATEDATE" Type="datetime" Precision="0" />
         </EntityType>
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“def.tmoa.T_WF_PORTALSETTING”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_WF_PORTALSETTING">
+          <Property Name="SYSTEMCODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODELCODE" Type="varchar" MaxLength="50" />
+          <Property Name="PORTALTYPE" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <!--生成过程中发现错误:
+警告 6013: 表/视图“def.tmoa.T_WF_PROCEDUREEXCEPTION”未定义主键，并且无法推断有效的主键。已排除了此表/视图。若要使用实体，将需要检查您的架构、添加正确的键并取消对实体的注释。
+        <EntityType Name="T_WF_PROCEDUREEXCEPTION">
+          <Property Name="PCNAME" Type="varchar" MaxLength="100" />
+          <Property Name="SQLCODE" Type="varchar" MaxLength="100" />
+          <Property Name="SQLERRM" Type="varchar" MaxLength="500" />
+          <Property Name="CREATERDATA" Type="datetime" Precision="0" />
+          <Property Name="PCSQL" Type="varchar" MaxLength="2000" />
+        </EntityType>-->
         <EntityType Name="T_WF_SMSRECORD">
           <Key>
             <PropertyRef Name="SMSRECORD" />
@@ -12793,6 +12841,7 @@
           <EntitySet Name="T_SYS_ENTITYMENUCUSTOMPERM" EntityType="Self.T_SYS_ENTITYMENUCUSTOMPERM" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_FBADMIN" EntityType="Self.T_SYS_FBADMIN" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_FBADMINROLE" EntityType="Self.T_SYS_FBADMINROLE" Schema="tmoa" store:Type="Tables" />
+          <EntitySet Name="T_SYS_FILELIST" EntityType="Self.T_SYS_FILELIST" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_FILEUPLOAD" EntityType="Self.T_SYS_FILEUPLOAD" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_PERMISSION" EntityType="Self.T_SYS_PERMISSION" Schema="tmoa" store:Type="Tables" />
           <EntitySet Name="T_SYS_PROVINCECITY" EntityType="Self.T_SYS_PROVINCECITY" Schema="tmoa" store:Type="Tables" />
@@ -13039,34 +13088,6 @@ FROM `T_SYS_AREADISTRICT` AS `T_SYS_AREADISTRICT`</DefiningQuery>
 `T_SYS_AREAPROVINCE`.`PROVINCENAME`, 
 `T_SYS_AREAPROVINCE`.`COUNTRYID`
 FROM `T_SYS_AREAPROVINCE` AS `T_SYS_AREAPROVINCE`</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="T_SYS_FILELIST" EntityType="Self.T_SYS_FILELIST" store:Type="Tables" store:Schema="tmoa">
-            <DefiningQuery>SELECT
-`T_SYS_FILELIST`.`SMTFILELISTID`, 
-`T_SYS_FILELIST`.`FILENAME`, 
-`T_SYS_FILELIST`.`FILETYPE`, 
-`T_SYS_FILELIST`.`FILEURL`, 
-`T_SYS_FILELIST`.`FILESIZE`, 
-`T_SYS_FILELIST`.`COMPANYCODE`, 
-`T_SYS_FILELIST`.`COMPANYNAME`, 
-`T_SYS_FILELIST`.`SYSTEMCODE`, 
-`T_SYS_FILELIST`.`MODELCODE`, 
-`T_SYS_FILELIST`.`APPLICATIONID`, 
-`T_SYS_FILELIST`.`THUMBNAILURL`, 
-`T_SYS_FILELIST`.`INDEXL`, 
-`T_SYS_FILELIST`.`REMARK`, 
-`T_SYS_FILELIST`.`CREATETIME`, 
-`T_SYS_FILELIST`.`CREATENAME`, 
-`T_SYS_FILELIST`.`UPDATETIME`, 
-`T_SYS_FILELIST`.`UPDATENAME`, 
-`T_SYS_FILELIST`.`PASSWORD`, 
-`T_SYS_FILELIST`.`OWNERID`, 
-`T_SYS_FILELIST`.`OWNERCOMPANYID`, 
-`T_SYS_FILELIST`.`OWNERDEPARTMENTID`, 
-`T_SYS_FILELIST`.`OWNERPOSTID`, 
-`T_SYS_FILELIST`.`CREATEUSERID`, 
-`T_SYS_FILELIST`.`FORMID`
-FROM `T_SYS_FILELIST` AS `T_SYS_FILELIST`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="T_SYS_ROLE_BAK" EntityType="Self.T_SYS_ROLE_BAK" store:Type="Tables" store:Schema="tmoa">
             <DefiningQuery>SELECT
@@ -14191,7 +14212,8 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
             <End Role="T_OA_HIRERECORD" EntitySet="T_OA_HIRERECORD" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TM_SaaS_OA_EFModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
@@ -22205,7 +22227,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="NEWSID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NEWSTYPEID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NEWSTITEL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NEWSCONTENT" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="READCOUNT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="COMMENTCOUNT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="NEWSSTATE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -22229,6 +22250,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="PUTDEPTNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PUTDEPTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ISPARTY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NEWSCONTENT" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="T_PF_NEWSCOMMENT">
           <Key>
@@ -22693,7 +22715,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="SYSTEMNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SYSTEMCODE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ORDERNUMBER" Type="Decimal" />
-          <Property Name="SYSTEMNEED" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SYSTEMNEED" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_SYS_DICTIONARY1" Relationship="Self.FK_REFERENCE_161" FromRole="T_SYS_DICTIONARY" ToRole="T_SYS_DICTIONARY1" />
           <NavigationProperty Name="T_SYS_DICTIONARY2" Relationship="Self.FK_REFERENCE_161" FromRole="T_SYS_DICTIONARY1" ToRole="T_SYS_DICTIONARY" />
         </EntityType>
@@ -22781,6 +22803,35 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="ROLEID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ADDDATE" Type="DateTime" />
           <NavigationProperty Name="T_SYS_FBADMIN" Relationship="Self.FK_REFERENCE_169" FromRole="T_SYS_FBADMINROLE" ToRole="T_SYS_FBADMIN" />
+        </EntityType>
+        <EntityType Name="T_SYS_FILELIST">
+          <Key>
+            <PropertyRef Name="SMTFILELISTID" />
+          </Key>
+          <Property Name="SMTFILELISTID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILENAME" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FILETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FILEURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FILESIZE" Type="Int32" />
+          <Property Name="COMPANYCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPANYNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SYSTEMCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODELCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APPLICATIONID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="THUMBNAILURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="INDEXL" Type="Int32" />
+          <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CREATETIME" Type="DateTime" />
+          <Property Name="CREATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATETIME" Type="DateTime" />
+          <Property Name="UPDATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORDKEY" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OWNERPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FORMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_SYS_FILEUPLOAD">
           <Key>
@@ -22955,16 +23006,16 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OWNERPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATECOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CREATEPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATECOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATEPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CREATEDATE" Type="DateTime" Nullable="false" />
           <Property Name="UPDATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UPDATEUSERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UPDATEDATE" Type="DateTime" />
-          <Property Name="CONTENT" Type="String" MaxLength="2000" Unicode="false" FixedLength="false" />
+          <Property Name="CONTENT" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_SYS_USER">
           <Key>
@@ -23074,6 +23125,27 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <Property Name="LOGINIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ONLINESTATE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="REMARK" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_SYS_USERMENUORGPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ORGTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ORGID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="T_SYS_USERMENUPERMISSION">
+          <Key>
+            <PropertyRef Name="ROLEMENUPERMID" />
+          </Key>
+          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATARANGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_SYS_USERROLE">
           <Key>
@@ -25224,6 +25296,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <EntitySet Name="T_SYS_ENTITYMENUCUSTOMPERM" EntityType="Self.T_SYS_ENTITYMENUCUSTOMPERM" />
           <EntitySet Name="T_SYS_FBADMIN" EntityType="Self.T_SYS_FBADMIN" />
           <EntitySet Name="T_SYS_FBADMINROLE" EntityType="Self.T_SYS_FBADMINROLE" />
+          <EntitySet Name="T_SYS_FILELIST" EntityType="Self.T_SYS_FILELIST" />
           <EntitySet Name="T_SYS_FILEUPLOAD" EntityType="Self.T_SYS_FILEUPLOAD" />
           <EntitySet Name="T_SYS_PERMISSION" EntityType="Self.T_SYS_PERMISSION" />
           <EntitySet Name="T_SYS_PROVINCECITY" EntityType="Self.T_SYS_PROVINCECITY" />
@@ -25239,6 +25312,8 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
           <EntitySet Name="T_SYS_USERDATALOG" EntityType="Self.T_SYS_USERDATALOG" />
           <EntitySet Name="T_SYS_USERLOGINRECORD" EntityType="Self.T_SYS_USERLOGINRECORD" />
           <EntitySet Name="T_SYS_USERLOGINRECORDHIS" EntityType="Self.T_SYS_USERLOGINRECORDHIS" />
+          <EntitySet Name="T_SYS_USERMENUORGPERMISSION" EntityType="Self.T_SYS_USERMENUORGPERMISSION" />
+          <EntitySet Name="T_SYS_USERMENUPERMISSION" EntityType="Self.T_SYS_USERMENUPERMISSION" />
           <EntitySet Name="T_SYS_USERROLE" EntityType="Self.T_SYS_USERROLE" />
           <EntitySet Name="T_WF_AUDITSCOPE" EntityType="Self.T_WF_AUDITSCOPE" />
           <EntitySet Name="T_WF_DOTASK" EntityType="Self.T_WF_DOTASK" />
@@ -26234,61 +26309,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
             <End Role="T_WF_DOTASKRULE" EntitySet="T_WF_DOTASKRULE" />
             <End Role="T_WF_DOTASKRULEDETAIL" EntitySet="T_WF_DOTASKRULEDETAIL" />
           </AssociationSet>
-          <EntitySet Name="T_SYS_USERMENUPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION" />
-          <EntitySet Name="T_SYS_USERMENUORGPERMISSION" EntityType="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION" />
-          <EntitySet Name="T_SYS_FILELIST" EntityType="TM_SaaS_OA_EFModel.T_SYS_FILELIST" />
         </EntityContainer>
-        <EntityType Name="T_SYS_USERMENUPERMISSION">
-          <Key>
-            <PropertyRef Name="ROLEMENUPERMID" />
-          </Key>
-          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DATARANGE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="T_SYS_USERMENUORGPERMISSION">
-          <Key>
-            <PropertyRef Name="ROLEMENUPERMID" />
-          </Key>
-          <Property Name="ROLEMENUPERMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SYSUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MENUCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PERMISSIONID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ORGTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="ORGID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="T_SYS_FILELIST">
-          <Key>
-            <PropertyRef Name="SMTFILELISTID" />
-            <PropertyRef Name="FILENAME" />
-          </Key>
-          <Property Name="SMTFILELISTID" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="FILENAME" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="FILETYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FILEURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="FILESIZE" Type="Int32" />
-          <Property Name="COMPANYCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="COMPANYNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="SYSTEMCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MODELCODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="APPLICATIONID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="THUMBNAILURL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="INDEXL" Type="Int32" />
-          <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="CREATETIME" Type="DateTime" />
-          <Property Name="CREATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UPDATETIME" Type="DateTime" />
-          <Property Name="UPDATENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="OWNERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OWNERCOMPANYID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OWNERDEPARTMENTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="OWNERPOSTID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CREATEUSERID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="FORMID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -34140,7 +34161,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
                 <ScalarProperty Name="NEWSID" ColumnName="NEWSID" />
                 <ScalarProperty Name="NEWSTYPEID" ColumnName="NEWSTYPEID" />
                 <ScalarProperty Name="NEWSTITEL" ColumnName="NEWSTITEL" />
-                <ScalarProperty Name="NEWSCONTENT" ColumnName="NEWSCONTENT" />
                 <ScalarProperty Name="READCOUNT" ColumnName="READCOUNT" />
                 <ScalarProperty Name="COMMENTCOUNT" ColumnName="COMMENTCOUNT" />
                 <ScalarProperty Name="NEWSSTATE" ColumnName="NEWSSTATE" />
@@ -34164,6 +34184,7 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
                 <ScalarProperty Name="PUTDEPTNAME" ColumnName="PUTDEPTNAME" />
                 <ScalarProperty Name="PUTDEPTID" ColumnName="PUTDEPTID" />
                 <ScalarProperty Name="ISPARTY" ColumnName="ISPARTY" />
+                <ScalarProperty Name="NEWSCONTENT" ColumnName="NEWSCONTENT" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -34729,6 +34750,36 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_SYS_FILELIST">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_FILELIST">
+              <MappingFragment StoreEntitySet="T_SYS_FILELIST">
+                <ScalarProperty Name="SMTFILELISTID" ColumnName="SMTFILELISTID" />
+                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+                <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
+                <ScalarProperty Name="FILEURL" ColumnName="FILEURL" />
+                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
+                <ScalarProperty Name="COMPANYCODE" ColumnName="COMPANYCODE" />
+                <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
+                <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
+                <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
+                <ScalarProperty Name="APPLICATIONID" ColumnName="APPLICATIONID" />
+                <ScalarProperty Name="THUMBNAILURL" ColumnName="THUMBNAILURL" />
+                <ScalarProperty Name="INDEXL" ColumnName="INDEXL" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
+                <ScalarProperty Name="CREATENAME" ColumnName="CREATENAME" />
+                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
+                <ScalarProperty Name="UPDATENAME" ColumnName="UPDATENAME" />
+                <ScalarProperty Name="PASSWORDKEY" ColumnName="PASSWORDKEY" />
+                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
+                <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
+                <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
+                <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
+                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
+                <ScalarProperty Name="FORMID" ColumnName="FORMID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="T_SYS_FILEUPLOAD">
             <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_FILEUPLOAD">
               <MappingFragment StoreEntitySet="T_SYS_FILEUPLOAD">
@@ -35020,6 +35071,29 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
                 <ScalarProperty Name="LOGINIP" ColumnName="LOGINIP" />
                 <ScalarProperty Name="ONLINESTATE" ColumnName="ONLINESTATE" />
                 <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SYS_USERMENUORGPERMISSION">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION">
+              <MappingFragment StoreEntitySet="T_SYS_USERMENUORGPERMISSION">
+                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+                <ScalarProperty Name="ORGTYPE" ColumnName="ORGTYPE" />
+                <ScalarProperty Name="ORGID" ColumnName="ORGID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_SYS_USERMENUPERMISSION">
+            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION">
+              <MappingFragment StoreEntitySet="T_SYS_USERMENUPERMISSION">
+                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
+                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
+                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
+                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
+                <ScalarProperty Name="DATARANGE" ColumnName="DATARANGE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -37974,59 +38048,6 @@ FROM `T_WF_PERSONALRECORD0801` AS `T_WF_PERSONALRECORD0801`</DefiningQuery>
               <ScalarProperty Name="DOTASKRULEDETAILID" ColumnName="DOTASKRULEDETAILID" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="T_SYS_USERMENUPERMISSION">
-            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUPERMISSION">
-              <MappingFragment StoreEntitySet="T_SYS_USERMENUPERMISSION">
-                <ScalarProperty Name="DATARANGE" ColumnName="DATARANGE" />
-                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
-                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
-                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
-                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_SYS_USERMENUORGPERMISSION">
-            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_USERMENUORGPERMISSION">
-              <MappingFragment StoreEntitySet="T_SYS_USERMENUORGPERMISSION">
-                <ScalarProperty Name="ORGID" ColumnName="ORGID" />
-                <ScalarProperty Name="ORGTYPE" ColumnName="ORGTYPE" />
-                <ScalarProperty Name="PERMISSIONID" ColumnName="PERMISSIONID" />
-                <ScalarProperty Name="MENUCODE" ColumnName="MENUCODE" />
-                <ScalarProperty Name="SYSUSERID" ColumnName="SYSUSERID" />
-                <ScalarProperty Name="ROLEMENUPERMID" ColumnName="ROLEMENUPERMID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_SYS_FILELIST">
-            <EntityTypeMapping TypeName="TM_SaaS_OA_EFModel.T_SYS_FILELIST">
-              <MappingFragment StoreEntitySet="T_SYS_FILELIST">
-                <ScalarProperty Name="FORMID" ColumnName="FORMID" />
-                <ScalarProperty Name="CREATEUSERID" ColumnName="CREATEUSERID" />
-                <ScalarProperty Name="OWNERPOSTID" ColumnName="OWNERPOSTID" />
-                <ScalarProperty Name="OWNERDEPARTMENTID" ColumnName="OWNERDEPARTMENTID" />
-                <ScalarProperty Name="OWNERCOMPANYID" ColumnName="OWNERCOMPANYID" />
-                <ScalarProperty Name="OWNERID" ColumnName="OWNERID" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-                <ScalarProperty Name="UPDATENAME" ColumnName="UPDATENAME" />
-                <ScalarProperty Name="UPDATETIME" ColumnName="UPDATETIME" />
-                <ScalarProperty Name="CREATENAME" ColumnName="CREATENAME" />
-                <ScalarProperty Name="CREATETIME" ColumnName="CREATETIME" />
-                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-                <ScalarProperty Name="INDEXL" ColumnName="INDEXL" />
-                <ScalarProperty Name="THUMBNAILURL" ColumnName="THUMBNAILURL" />
-                <ScalarProperty Name="APPLICATIONID" ColumnName="APPLICATIONID" />
-                <ScalarProperty Name="MODELCODE" ColumnName="MODELCODE" />
-                <ScalarProperty Name="SYSTEMCODE" ColumnName="SYSTEMCODE" />
-                <ScalarProperty Name="COMPANYNAME" ColumnName="COMPANYNAME" />
-                <ScalarProperty Name="COMPANYCODE" ColumnName="COMPANYCODE" />
-                <ScalarProperty Name="FILESIZE" ColumnName="FILESIZE" />
-                <ScalarProperty Name="FILEURL" ColumnName="FILEURL" />
-                <ScalarProperty Name="FILETYPE" ColumnName="FILETYPE" />
-                <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
-                <ScalarProperty Name="SMTFILELISTID" ColumnName="SMTFILELISTID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

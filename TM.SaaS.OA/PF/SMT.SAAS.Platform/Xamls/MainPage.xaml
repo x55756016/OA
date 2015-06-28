@@ -119,7 +119,7 @@
                                     -->
 
                                     <!--  图片新闻  -->
-                                    <Grid x:Name="ShowinfoPanel"
+                                    <Grid x:Name="imageNewsPanel"
                                           Width="240"
                                           Height="202"
                                           Margin="6,4,6,0" />

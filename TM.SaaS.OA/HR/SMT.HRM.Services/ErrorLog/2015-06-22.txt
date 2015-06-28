@@ -1,0 +1,1104 @@
+Debug  权限系统SysDictionaryBLL-GetSysDictionaryByCategory:种类为空  2015/6/22 11:59:25
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 11:59:44 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 11:59:44
+Debug  系统用户SysUserBLL-GetUserLoginInfo2015/6/22 11:59:44 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserBLL.AddUserLoginHis(String UserName, String Ip) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserBLL.cs:行号 2476  2015/6/22 11:59:44
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 12:04:03 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 12:04:03
+Debug  权限系统SysDictionaryBLL-GetSysDictionaryByCategory2015/6/22 12:04:47 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysDictionaryBLL.get_ListTemp() 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysDictionaryBLL.cs:行号 48
+   在 SMT.HRM.BLL.Permission.SysDictionaryBLL.GetSysDictionaryByCategory(String category) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysDictionaryBLL.cs:行号 127  2015/6/22 12:04:47
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 12:06:45 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: Table 'tmoa.t_sys_userrole' doesn't exist
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 12:06:45
+Debug  系统用户SysUserBLL-GetUserLoginInfo2015/6/22 12:07:28 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: Table 'tmoa.t_sys_user' doesn't exist
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserBLL.AddUserLoginHis(String UserName, String Ip) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserBLL.cs:行号 2476  2015/6/22 12:07:28
+Debug  开始调用员工基本信息  2015/6/22 12:08:39
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 12:08:39
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 12:08:39
+Debug  员工基本信息不为空  2015/6/22 12:08:39
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 12:08:39
+Debug  开始调用员工基本信息  2015/6/22 12:09:20
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 12:09:20
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 12:09:20
+Debug  员工基本信息不为空  2015/6/22 12:09:20
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 12:09:20
+Debug  系统用户SysUserBLL-GetUserPermissionByUserToUINotForFbAdmin2015/6/22 12:10:44 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: Timeout expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.TimeoutException: 无法从传输连接中读取数据: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。。 ---> System.IO.IOException: 无法从传输连接中读取数据: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。。 ---> System.Net.Sockets.SocketException: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   在 MySql.Data.Common.MyNetworkStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.Common.MyNetworkStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.TimedStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.IO.BufferedStream.Read(Byte[] array, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.MySqlStream.ReadFully(Stream stream, Byte[] buffer, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.MySqlStream.LoadPacket()
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   在 MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlConnection.HandleTimeoutOrThreadAbort(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserBLL.GetUserPermissionByUserToUINotForFbAdmin(String userID, String StrMenuID) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserBLL.cs:行号 1325  2015/6/22 12:10:44
+Debug  系统用户SysUserBLL-GetUserPermissionByUserToUINotForFbAdmin2015/6/22 12:10:54 System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 MySql.Data.Entity.EFMySqlDataReader.Dispose(Boolean disposing)
+   在 System.Data.Common.DbDataReader.Dispose()
+   在 System.Data.Common.Internal.Materialization.Shaper`1.Finally()
+   在 System.Data.Common.Internal.Materialization.Shaper`1.SimpleEnumerator.Dispose()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserBLL.GetUserPermissionByUserToUINotForFbAdmin(String userID, String StrMenuID) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserBLL.cs:行号 1325  2015/6/22 12:10:54
+Debug  开始调用员工基本信息  2015/6/22 12:12:27
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 12:12:27
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 12:12:27
+Debug  员工基本信息不为空  2015/6/22 12:12:27
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 12:12:27
+Debug  SMT.Foundation.Core.Error.TechException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。 ---> SMT.Foundation.Core.Error.TechException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。 ---> System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 12:14:36
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 12:14:36 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1181  2015/6/22 12:14:36
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   在 System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   在 System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 12:14:36
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 12:14:36 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1181  2015/6/22 12:14:36
+Debug  开始调用员工基本信息  2015/6/22 14:18:48
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 14:18:48
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 14:18:49
+Debug  员工基本信息不为空  2015/6/22 14:18:49
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 14:18:49
+Debug  SMT.Foundation.Core.Error.TechException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。 ---> SMT.Foundation.Core.Error.TechException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。 ---> System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 14:20:26
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   在 System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   在 System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 14:20:31
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 14:20:41 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 14:20:41
+Debug  开始调用员工基本信息  2015/6/22 14:22:03
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 14:22:03
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 14:22:03
+Debug  员工基本信息不为空  2015/6/22 14:22:03
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 14:22:03
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 14:22:29
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 14:22:29 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 14:22:29
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 14:22:29 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 14:22:29
+Debug  开始调用员工基本信息  2015/6/22 14:23:20
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 14:23:20
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 14:23:20
+Debug  员工基本信息不为空  2015/6/22 14:23:20
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 14:23:20
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 14:24:12
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 14:24:12 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 14:24:12
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 14:24:12 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 14:24:12
+Debug  开始调用员工基本信息  2015/6/22 15:07:46
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 15:07:46
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 15:07:46
+Debug  员工基本信息不为空  2015/6/22 15:07:46
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 15:07:46
+Debug  权限系统SysDictionaryBLL-GetSysDictionaryByFilterWithPaging2015/6/22 15:08:32 No property or field 'OWNERID' exists in type 'T_SYS_DICTIONARY' (at index 14)  2015/6/22 15:08:32
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:08:34
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:08:34
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:08:34 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:08:34
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:08:34 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:08:34
+Debug  开始调用员工基本信息  2015/6/22 15:17:28
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 15:17:28
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 15:17:28
+Debug  员工基本信息不为空  2015/6/22 15:17:28
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 15:17:28
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:17:54
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:17:54
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:17:54 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:17:54
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:17:54 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:17:54
+Debug  修改角色权限，传递的字符串：
+1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@54948D9A-0324-4fd3-9C81-E229896F2021,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@F7CD7ED7-754E-4c36-979C-5A2B3F8A017B,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@06D29714-46F1-4c49-9F71-27FBA0A74383,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@8C0C4F82-BDFD-424c-B652-ACAAA793F492,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@55623178-A187-421a-8556-067E6908207A,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@04F86C10-02E3-4874-A198-4EC986C288CC,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@E960F25C-E5D9-4cb7-AEDB-E856066B2269,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@8743CCA1-F7B4-45cd-B127-A564C24CEECE,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@0E7F436C-E03B-4b3d-B415-D9B0825ED666,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@DCA1A846-FC85-416d-BEC8-579182DCD028,  2015/6/22 15:24:30
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:33
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:33
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:33
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:33
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:33
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:34
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:35
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:36
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:37
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:38
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:39
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:40
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:41
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:42
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:43
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:44
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:45
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:46
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:47
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:47
+Debug  15:24 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:24:47
+Debug  修改角色权限，传递的字符串：
+1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@3617C82A-0F68-411f-BBBB-C2733B8C2321,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@8ba1dcda-142c-45b6-8aa5-d97a691e9a1f,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@9985f5a3-db56-423b-8d45-c747b62923ae,  2015/6/22 15:26:15
+Debug  15:28 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:28:50
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:16
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  15:30 Add Err:There is already an open DataReader associated with this Connection which must be closed first.  2015/6/22 15:30:22
+Debug  开始调用员工基本信息  2015/6/22 15:32:35
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 15:32:35
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 15:32:35
+Debug  员工基本信息不为空  2015/6/22 15:32:35
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 15:32:35
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:33:20
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:33:20
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:33:20 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:33:20
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:33:20 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:33:20
+Debug  修改角色权限，传递的字符串：
+1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D243,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@3098f0d6-e01e-483a-8d40-82396c9b921f,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D246,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D247,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@89fb4bc0-4560-462b-9601-b5e3c9676cef,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D248,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@11ebebb4-5bac-4e26-9b72-98140d411ff3,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@89fb4bc0-4560-462b-9601-b5e3c9676ce1,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D256,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@709D9380-5405-4429-B047-20100401D257,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@0c4acc87-f63b-4a27-b8bf-9e44e28b7611,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@50f1a98e-24ff-42fd-aa90-1c91a804f3cf,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@7B5E9022-E8C6-4cfd-9D11-99464346EAC2,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@b955ce0e-f1a9-45f6-a934-b116cbaf27a1,#1,06F4C664-CB63-4ea2-91C0-76F2ACCF008B;1,84178017-8912-4f2e-9162-0F2275832375;1,D37B8911-00A0-4c91-A25F-40FFA9D495F1;1,C3DEE881-C6E5-48e4-95A9-BBB8275A933D;1,edb4b85f-3e46-4cea-bc9a-56b0154d9ed2;@20dab9c4-d989-4ae0-bee2-ce9eb371b0d6,  2015/6/22 15:34:39
+Debug  角色SysRoleBLL-GetAllSysRoleInfosWithPagingByCompanyIDs2015/6/22 15:37:25 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   在 MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   在 MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysRoleBLL.GetAllSysRoleInfosWithPagingByCompanyIDs(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID, String[] CompanyIDs) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysRoleBLL.cs:行号 587  2015/6/22 15:37:25
+Debug  角色SysRoleBLL-GetAllSysRoleInfosWithPagingByCompanyIDs2015/6/22 15:37:30 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   在 MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   在 MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysRoleBLL.GetAllSysRoleInfosWithPagingByCompanyIDs(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID, String[] CompanyIDs) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysRoleBLL.cs:行号 587  2015/6/22 15:37:30
+Debug  开始调用员工基本信息  2015/6/22 15:44:42
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 15:44:42
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 15:44:42
+Debug  员工基本信息不为空  2015/6/22 15:44:42
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 15:44:42
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   在 System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   在 System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:45:28
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:45:28 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:45:28
+Debug  角色SysRoleBLL-GetAllSysRoleInfosWithPagingByCompanyIDs2015/6/22 15:45:29 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   在 MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   在 MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysRoleBLL.GetAllSysRoleInfosWithPagingByCompanyIDs(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID, String[] CompanyIDs) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysRoleBLL.cs:行号 587  2015/6/22 15:45:29
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.OracleClient.OracleException.Check(OciErrorHandle errorHandle, Int32 rc)
+   在 System.Data.OracleClient.OracleInternalConnection.OpenOnLocalTransaction(String userName, String password, String serverName, Boolean integratedSecurity, Boolean unicode, Boolean omitOracleConnectionName)
+   在 System.Data.OracleClient.OracleInternalConnection..ctor(OracleConnectionString connectionOptions)
+   在 System.Data.OracleClient.OracleConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 15:45:50
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 15:45:51 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 15:45:51
+Debug  角色SysRoleBLL-GetAllSysRoleInfosWithPagingByCompanyIDs2015/6/22 15:48:23 System.Data.EntityCommandExecutionException: 执行命令定义时出错。有关详细信息，请参阅内部异常。 ---> MySql.Data.MySqlClient.MySqlException: There is already an open DataReader associated with this Connection which must be closed first.
+   在 MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   在 MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   在 MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.Entity.EFMySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   在 System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.SysRoleBLL.GetAllSysRoleInfosWithPagingByCompanyIDs(Int32 pageIndex, Int32 pageSize, String sort, String filterString, IList`1 paras, Int32& pageCount, String userID, String[] CompanyIDs) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysRoleBLL.cs:行号 587  2015/6/22 15:48:23
+Debug  开始调用员工基本信息  2015/6/22 16:01:39
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 16:01:39
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 16:01:39
+Debug  员工基本信息不为空  2015/6/22 16:01:39
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 16:01:39
+Debug  开始调用员工基本信息  2015/6/22 16:01:47
+Debug  开始调用员工基本信息，开始时间：  2015/6/22 16:01:47
+Debug  开始调用员工基本信息，结束时间：  2015/6/22 16:01:47
+Debug  员工基本信息不为空  2015/6/22 16:01:47
+Debug  EmployeDetail.EMPLOYEEPOSTS[0]不为null  2015/6/22 16:01:47
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 16:02:36
+Debug  SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> SMT.Foundation.Core.Error.TechException: ORA-12170: TNS: 连接超时
+ ---> System.Data.OracleClient.OracleException: ORA-12170: TNS: 连接超时
+
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.OracleClient.OracleConnection.Open()
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.OpenConnection()
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type, ParameterCollection parameters)
+   在 SMT.Foundation.Core.OracleDAO.ExecuteScalar(String sql, CommandType type)
+   在 SMT.HRM.DAL.CommDal`1.ExecuteCustomerSql(String Sqlstring) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.DAL\CommDal.cs:行号 74  2015/6/22 16:02:36
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 16:02:37 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 16:02:37
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 16:02:37 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 16:02:37
+Debug  菜单SysEntityMenuBLL-GetEntityMenuByUser2015/6/22 16:02:37 System.ArgumentNullException: 值不能为 null。
+参数名: source
+   在 System.Data.DataTableExtensions.AsEnumerable(DataTable source)
+   在 SMT.HRM.BLL.Permission.SysEntityMenuBLL.GetEntityMenuByUser(String sysType, String userID, String& IsChanged) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\UserMenu\SysEntityMenuBLL.cs:行号 1157  2015/6/22 16:02:37
+Debug  用户登录SysUserLoginRecordBll-GetAllUserLoginRecordInfosWithPaging2015/6/22 16:08:15 No property or field 'OWNERID' exists in type 'V_UserLoginRecord' (at index 4)  2015/6/22 16:08:15
+Debug  用户登录历史SysUserLoginRecordHistoryBll-GetOnLineUsers2015/6/22 16:08:20 No property or field 'OWNERID' exists in type 'V_UserLoginRecordHistory' (at index 4)  2015/6/22 16:08:20
+Debug  用户角色SysUserRoleBLL-GetSysUserRoleByUser2015/6/22 17:21:19 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSysUserRoleByUser(String userID) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 86  2015/6/22 17:21:19
+Debug  自定义GetCustomerPermissionByUserIDAndEntityCode-struserid:39e1cd45-5b9f-4958-b0fd-0bec222d22b5StrEntityCode: NEWSPUBLISH  2015/6/22 17:21:19
+Debug  StrUserRole:  2015/6/22 17:21:19
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:21:23 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 17:21:23
+Debug  自定义EntityMenuCustomPermBLL-GetCustomerPermissionByUserIDAndEntityCode2015/6/22 17:21:34 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.EntityMenuCustomPermBLL.GetCustomerPermissionByUserIDAndEntityCode(String StrUserID, String StrEntityCode) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\EntityMenuCustomPermBLL.cs:行号 617  2015/6/22 17:21:34
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:21:40 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeListByUserID(String StrUserId) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 646  2015/6/22 17:21:40
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:22:37 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 17:22:37
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:22:53 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeListByUserID(String StrUserId) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 646  2015/6/22 17:22:53
+Debug  用户角色SysUserRoleBLL-GetSysUserRoleByUser2015/6/22 17:30:17 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSysUserRoleByUser(String userID) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 86  2015/6/22 17:30:17
+Debug  自定义GetCustomerPermissionByUserIDAndEntityCode-struserid:39e1cd45-5b9f-4958-b0fd-0bec222d22b5StrEntityCode: NEWSPUBLISH  2015/6/22 17:30:17
+Debug  StrUserRole:  2015/6/22 17:30:17
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:30:22 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 17:30:22
+Debug  自定义EntityMenuCustomPermBLL-GetCustomerPermissionByUserIDAndEntityCode2015/6/22 17:30:32 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   在 System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   在 System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   在 SMT.HRM.BLL.Permission.EntityMenuCustomPermBLL.GetCustomerPermissionByUserIDAndEntityCode(String StrUserID, String StrEntityCode) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\EntityMenuCustomPermBLL.cs:行号 617  2015/6/22 17:30:32
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:30:38 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeListByUserID(String StrUserId) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 646  2015/6/22 17:30:38
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:31:18 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   在 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeByUserID(String StrUserId, String& StrResult) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 564  2015/6/22 17:31:18
+Debug  用户角色SysUserRoleBLL-GetSystemTypeByUserID2015/6/22 17:31:34 System.Data.EntityException: 基础提供程序在 Open 上失败。 ---> MySql.Data.MySqlClient.MySqlException: Unable to connect to any of the specified MySQL hosts.
+   在 MySql.Data.MySqlClient.NativeDriver.Open()
+   在 MySql.Data.MySqlClient.Driver.Open()
+   在 MySql.Data.MySqlClient.Driver.Create(MySqlConnectionStringBuilder settings)
+   在 MySql.Data.MySqlClient.MySqlPool.CreateNewPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.GetPooledConnection()
+   在 MySql.Data.MySqlClient.MySqlPool.TryToGetDriver()
+   在 MySql.Data.MySqlClient.MySqlPool.GetConnection()
+   在 MySql.Data.MySqlClient.MySqlConnection.Open()
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Data.EntityClient.EntityConnection.OpenStoreConnectionIf(Boolean openCondition, DbConnection storeConnectionToOpen, DbConnection originalConnection, String exceptionCode, String attemptedOperation, Boolean& closeStoreConnectionOnFailure)
+   在 System.Data.EntityClient.EntityConnection.Open()
+   在 System.Data.Objects.ObjectContext.EnsureConnection()
+   在 System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   在 System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 SMT.HRM.BLL.Permission.SysUserRoleBLL.GetSystemTypeListByUserID(String StrUserId) 位置 f:\MyWorkSpace\OA\TM.SaaS.OA\HR\SMT.HRM.BLL\Permission\SysUserRoleBLL.cs:行号 646  2015/6/22 17:31:34
+Debug  自定义GetCustomerPermissionByUserIDAndEntityCode-struserid:39e1cd45-5b9f-4958-b0fd-0bec222d22b5StrEntityCode: NEWSPUBLISH  2015/6/22 17:33:21
+Debug  StrUserRole:f8f605a6-81d3-417b-afaf-d4d0b4237187,  2015/6/22 17:33:21
+Debug  非超级预算管理员,移除一下菜单：预算管理员设置，系统科目字典维护，公司科目分配。  2015/6/22 17:33:33
+Debug  系统用户SysUserBLL-GetUserPermissionByUserToUI调用我了2015/6/22 17:33:41 0  2015/6/22 17:33:56

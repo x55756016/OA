@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace SMT.FileUpLoad.Service
 {
-    class FileDAL: CommonDAL<T_SYS_FILELIST>
+    public class FileDAL: CommonDAL<T_SYS_FILELIST>
     {
         private string DownloadUrl = string.Concat(ConfigurationManager.AppSettings["DownLoadUrl"]);
         #region ADO 操作
@@ -227,31 +227,14 @@ namespace SMT.FileUpLoad.Service
             #region 代码
             try
             {
-                //var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
-                //           where (string.IsNullOrEmpty(companycode)?true:(ent.COMPANYCODE == companycode)) 
-                //           && (string.IsNullOrEmpty(systemcode)?true:(ent.SYSTEMCODE == systemcode))
-                //           && (string.IsNullOrEmpty(modelcode) ? true :(ent.MODELCODE == modelcode))
-                //           && (string.IsNullOrEmpty(applicationid) ? true :(ent.APPLICATIONID == applicationid))
-                //            && (string.IsNullOrEmpty(createname) ? true : (ent.CREATENAME == createname))
-                //           orderby ent.CREATETIME descending
-                //           select ent;
                 var ents = from ent in base.GetObjects<T_SYS_FILELIST>()
-                           where //(string.IsNullOrEmpty(companycode) ? true : (ent.COMPANYCODE == companycode))
-                               //&& (string.IsNullOrEmpty(systemcode) ? true : (ent.SYSTEMCODE == systemcode))
-                            (string.IsNullOrEmpty(modelcode) ? true : (ent.MODELCODE == modelcode))
-                           && (string.IsNullOrEmpty(applicationid) ? true : (ent.APPLICATIONID == applicationid))
-                           //&& (string.IsNullOrEmpty(createname) ? true : (ent.CREATENAME == createname))
+                           where ent.MODELCODE == modelcode
+                           && ent.APPLICATIONID == applicationid
                            orderby ent.INDEXL
                            select ent;
-                if (ents.Count() > 0)
+                int allcount = ents.Count();
+                if (allcount > 0)
                 {
-                    //foreach (T_SYS_FILELIST entity in ents)
-                    //{
-                    //    string path = entity.FILEURL;
-                    //    string filename = path.Substring(path.LastIndexOf('\\') + 1);
-                    //    string filepath = HttpUtility.UrlEncode(entity.FILEURL + "\\" + entity.FILENAME);
-                    //    entity.FILEURL = DownloadUrl + "?filename=" + filepath;//文件地址
-                    //}
                     result.FileList = ents.ToList();
                 }
                
@@ -611,12 +594,9 @@ namespace SMT.FileUpLoad.Service
             {
                 if (entity != null)
                 {
-                    //DataContext.AddObject(entity.GetType().Name, entity);
-                    //result = DataContext.SaveChanges();
-                    //EngineDataModel.EngineDataModelContext edc = new EngineDataModelContext();
                     entity.CREATETIME = System.DateTime.Now;
                     TM_SaaS_OA_EFModel.TM_SaaS_OA_EFModelContext edc = new TM_SaaS_OA_EFModelContext();
-                    edc.AddObject(entity.GetType().Name, entity);
+                    edc.AddToT_SYS_FILELIST(entity);
                     result=edc.SaveChanges();
                 }
             }

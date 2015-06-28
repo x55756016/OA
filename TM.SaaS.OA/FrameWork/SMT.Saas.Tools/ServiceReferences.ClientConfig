@@ -136,9 +136,6 @@
       <endpoint address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
         contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
-      <endpoint address="http://www.oa12.com/Services/FileUploadService/FileUpLoad.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
-        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
       <endpoint address="http://localhost:3938/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice"
         contract="OACommonWS.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice" />
@@ -175,6 +172,9 @@
       <endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
         contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      <endpoint address="http://localhost:44444/FileUpLoad.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService"
+        name="CustomBinding_IUploadService" />
     </client>
 
   </system.serviceModel>

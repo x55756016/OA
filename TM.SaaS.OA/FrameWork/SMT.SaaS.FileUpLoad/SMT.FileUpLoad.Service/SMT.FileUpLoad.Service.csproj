@@ -45,9 +45,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EFOracleProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL" />
-    <Reference Include="SMT.Foundation.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SMT.Foundation.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\SmtWorkSpace\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Core.dll</HintPath>
     </Reference>
     <Reference Include="SMT.Foundation.Log">
       <HintPath>..\..\..\..\SMT.SaaS.CommonDll\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.Foundation.Log.dll</HintPath>
@@ -79,14 +79,18 @@
     <Compile Include="EntityDAL\IDAL.cs" />
     <Compile Include="EntityDAL\Utility.cs" />
     <Compile Include="FileDAL.cs" />
+    <Compile Include="IUploadService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LogonImpersonate.cs" />
     <Compile Include="MakeImageThumb.cs" />
     <Compile Include="SMTCache.cs" />
     <Compile Include="FileConfig.cs" />
-    <Compile Include="IUploadService.cs" />
     <Compile Include="MSOracle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UploadService.cs" />
+    <Compile Include="UploadService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UserFile.cs" />
     <Compile Include="WNetHelper.cs" />
   </ItemGroup>
