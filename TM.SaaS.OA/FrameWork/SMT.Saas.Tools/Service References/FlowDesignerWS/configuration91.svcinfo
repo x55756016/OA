@@ -115,10 +115,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CustomBinding_Service" contract="FlowDesignerWS.Service" bindingType="customBinding" address="http://www.oa12.com/Services/SMTFlowDesigner/Service.svc" bindingConfiguration="CustomBinding_Service">
+    <endpoint name="CustomBinding_Service" contract="FlowDesignerWS.Service" bindingType="customBinding" address="http://portal.smt-online.net/New/Services/SMTFlowDesigner/Service.svc" bindingConfiguration="CustomBinding_Service">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.oa12.com/Services/SMTFlowDesigner/Service.svc</serializedValue>
+          <serializedValue>http://portal.smt-online.net/New/Services/SMTFlowDesigner/Service.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

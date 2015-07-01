@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CustomBinding_DailyManagementServices" contract="DailyManagementWS.DailyManagementServices" bindingType="customBinding" address="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc" bindingConfiguration="CustomBinding_DailyManagementServices">
+    <endpoint name="CustomBinding_DailyManagementServices" contract="DailyManagementWS.DailyManagementServices" bindingType="customBinding" address="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc" bindingConfiguration="CustomBinding_DailyManagementServices">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

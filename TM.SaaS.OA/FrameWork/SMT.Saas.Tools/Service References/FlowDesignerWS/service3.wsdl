@@ -295,9 +295,9 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="CustomBinding_Service" binding="tns:CustomBinding_Service">
-      <soap12:address location="http://www.oa12.com/Services/SMTFlowDesigner/Service.svc" />
+      <soap12:address location="http://portal.smt-online.net/New/Services/SMTFlowDesigner/Service.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://www.oa12.com/Services/SMTFlowDesigner/Service.svc</wsa10:Address>
+        <wsa10:Address>http://portal.smt-online.net/New/Services/SMTFlowDesigner/Service.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

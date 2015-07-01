@@ -12,7 +12,7 @@
       <xsd:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
       <xsd:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
       <xsd:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.Services" />
-      <xsd:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+      <xsd:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="FBService_FetchSalaryBudget_InputMessage">

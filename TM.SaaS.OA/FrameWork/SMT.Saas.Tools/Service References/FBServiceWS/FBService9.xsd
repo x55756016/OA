@@ -3,7 +3,7 @@
   <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/SMT_FB_EFModel" />
   <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.FB.Services" />
   <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+  <xs:import schemaLocation="http://localhost:23938/FBService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
   <xs:element name="FetchSalaryBudget">
     <xs:complexType>
       <xs:sequence>
@@ -209,7 +209,7 @@
   <xs:element name="HRPersonPostChanged">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="personChange" nillable="true" type="q18:T_HR_EMPLOYEEPOSTCHANGE" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="personChange" nillable="true" type="q18:T_HR_EMPLOYEEPOSTCHANGE" />
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://www.oa12.com/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
-  <xs:import schemaLocation="http://www.oa12.com/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
-  <xs:import schemaLocation="http://www.oa12.com/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="AddConsultation">
     <xs:complexType>
       <xs:sequence>

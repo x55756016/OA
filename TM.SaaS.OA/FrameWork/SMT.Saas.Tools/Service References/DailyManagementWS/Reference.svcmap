@@ -20,20 +20,20 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DailyManagementServices.wsdl" MetadataType="Wsdl" ID="843faba6-503a-4db6-8074-7258cd596944" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="DailyManagementServices.disco" MetadataType="Disco" ID="ebab9327-1070-47bd-b7a3-d4f5bf4f3490" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?disco" />
-    <MetadataFile FileName="DailyManagementServices1.wsdl" MetadataType="Wsdl" ID="dd47b17c-ebff-4183-bb4b-0c8efb9d15af" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?wsdl" />
-    <MetadataFile FileName="DailyManagementServices.xsd" MetadataType="Schema" ID="1b7f0dd7-7934-4671-a3ce-a08a20c6d57d" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd7" />
-    <MetadataFile FileName="DailyManagementServices1.xsd" MetadataType="Schema" ID="f89cf74b-7897-4cf3-ac15-9a63906ce7e5" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd6" />
-    <MetadataFile FileName="DailyManagementServices2.xsd" MetadataType="Schema" ID="00c3f0b0-498b-4d18-a2f5-0093b1a6d476" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd5" />
-    <MetadataFile FileName="DailyManagementServices3.xsd" MetadataType="Schema" ID="850c73ea-3730-472b-b710-c4db71ea9390" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd4" />
-    <MetadataFile FileName="DailyManagementServices4.xsd" MetadataType="Schema" ID="8dbf252b-bed0-4b23-8daa-d62c3ccaacf1" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd3" />
-    <MetadataFile FileName="DailyManagementServices5.xsd" MetadataType="Schema" ID="8e4d42e6-4ef1-4d12-bb57-6d92fc7d3119" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd2" />
-    <MetadataFile FileName="DailyManagementServices6.xsd" MetadataType="Schema" ID="a63d32e0-eb1a-467f-ae3f-ed4c05ced422" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd1" />
-    <MetadataFile FileName="DailyManagementServices7.xsd" MetadataType="Schema" ID="8c642141-ad96-4f67-8d37-99999b3c7409" SourceId="1" SourceUrl="http://www.oa12.com/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="DailyManagementServices.wsdl" MetadataType="Wsdl" ID="843faba6-503a-4db6-8074-7258cd596944" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DailyManagementServices.disco" MetadataType="Disco" ID="ebab9327-1070-47bd-b7a3-d4f5bf4f3490" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?disco" />
+    <MetadataFile FileName="DailyManagementServices1.wsdl" MetadataType="Wsdl" ID="dd47b17c-ebff-4183-bb4b-0c8efb9d15af" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?wsdl" />
+    <MetadataFile FileName="DailyManagementServices.xsd" MetadataType="Schema" ID="1b7f0dd7-7934-4671-a3ce-a08a20c6d57d" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd7" />
+    <MetadataFile FileName="DailyManagementServices1.xsd" MetadataType="Schema" ID="f89cf74b-7897-4cf3-ac15-9a63906ce7e5" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd6" />
+    <MetadataFile FileName="DailyManagementServices2.xsd" MetadataType="Schema" ID="00c3f0b0-498b-4d18-a2f5-0093b1a6d476" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="DailyManagementServices3.xsd" MetadataType="Schema" ID="850c73ea-3730-472b-b710-c4db71ea9390" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd4" />
+    <MetadataFile FileName="DailyManagementServices4.xsd" MetadataType="Schema" ID="8dbf252b-bed0-4b23-8daa-d62c3ccaacf1" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="DailyManagementServices5.xsd" MetadataType="Schema" ID="8e4d42e6-4ef1-4d12-bb57-6d92fc7d3119" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="DailyManagementServices6.xsd" MetadataType="Schema" ID="a63d32e0-eb1a-467f-ae3f-ed4c05ced422" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="DailyManagementServices7.xsd" MetadataType="Schema" ID="8c642141-ad96-4f67-8d37-99999b3c7409" SourceId="1" SourceUrl="http://10.10.0.93:8080/New/Services/SMTFBAService/DailyManagementServices.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

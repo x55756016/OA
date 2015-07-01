@@ -3480,10 +3480,6 @@
     <WCFMetadataStorage Include="Service References\TravelExpApplyMaster\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SmtWorkSpace\Tools\SMT.Saas.Tools.csproj">
-      <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
-      <Name>SMT.Saas.Tools</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\SMT.SaaS.FrameWorkUI\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
       <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
       <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>

@@ -9,13 +9,13 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEngineWcfGlobalFunction_AddTask_InputMessage">
@@ -914,9 +914,9 @@
   </wsdl:binding>
   <wsdl:service name="EngineWcfGlobalFunction">
     <wsdl:port name="WSHttpBinding_IEngineWcfGlobalFunction" binding="tns:WSHttpBinding_IEngineWcfGlobalFunction">
-      <soap12:address location="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc" />
+      <soap12:address location="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc</wsa10:Address>
+        <wsa10:Address>http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

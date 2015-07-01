@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+  <xs:import schemaLocation="http://localhost:12168/AttendanceService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
   <xs:complexType name="CalculateOTHoursResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="AttendSolution" nillable="true" type="xs:string" />
@@ -63,7 +63,7 @@
       <xs:element minOccurs="0" name="ThirdEndTime" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ThirdStartTime" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="WorkPerDay" type="xs:decimal" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="leaveReferOT" nillable="true" type="q2:ArrayOfT_HR_LEAVEREFEROT" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="leaveReferOT" nillable="true" type="q2:ArrayOfT_HR_LEAVEREFEROT" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CaculateLeaveHoursResponse" nillable="true" type="tns:CaculateLeaveHoursResponse" />

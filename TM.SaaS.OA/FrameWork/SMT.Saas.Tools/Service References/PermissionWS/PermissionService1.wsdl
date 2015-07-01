@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PermissionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PermissionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="CustomBinding_PermissionService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -10,15 +10,18 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL.Permission" />
-      <xsd:import schemaLocation="http://localhost:12168/PermissionService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.CustomerModel" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.DAL.views" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.BLL" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SMT.SaaS.Permission.Services" />
+      <xsd:import schemaLocation="http://localhost:1604/PermissionService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="PermissionService_GetEmployeeInfosByRoleID_InputMessage">
@@ -357,12 +360,6 @@
   <wsdl:message name="PermissionService_GetSystemTypeByUserID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetSystemTypeByUserIDResponse" />
   </wsdl:message>
-  <wsdl:message name="PermissionService_GetSystemTypeListByUserID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSystemTypeListByUserID" />
-  </wsdl:message>
-  <wsdl:message name="PermissionService_GetSystemTypeListByUserID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSystemTypeListByUserIDResponse" />
-  </wsdl:message>
   <wsdl:message name="PermissionService_ReturnIpAddress_InputMessage">
     <wsdl:part name="parameters" element="tns:ReturnIpAddress" />
   </wsdl:message>
@@ -524,6 +521,12 @@
   </wsdl:message>
   <wsdl:message name="PermissionService_GetManagers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetManagersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetFbMenuPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFbMenuPermissions" />
+  </wsdl:message>
+  <wsdl:message name="PermissionService_GetFbMenuPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFbMenuPermissionsResponse" />
   </wsdl:message>
   <wsdl:message name="PermissionService_GetSupperAdmins_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSupperAdmins" />
@@ -1260,10 +1263,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeByUserID" message="tns:PermissionService_GetSystemTypeByUserID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeByUserIDResponse" message="tns:PermissionService_GetSystemTypeByUserID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetSystemTypeListByUserID">
-      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeListByUserID" message="tns:PermissionService_GetSystemTypeListByUserID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetSystemTypeListByUserIDResponse" message="tns:PermissionService_GetSystemTypeListByUserID_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ReturnIpAddress">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/ReturnIpAddress" message="tns:PermissionService_ReturnIpAddress_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/ReturnIpAddressResponse" message="tns:PermissionService_ReturnIpAddress_OutputMessage" />
@@ -1371,6 +1370,10 @@
     <wsdl:operation name="GetManagers">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetManagers" message="tns:PermissionService_GetManagers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetManagersResponse" message="tns:PermissionService_GetManagers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFbMenuPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetFbMenuPermissions" message="tns:PermissionService_GetFbMenuPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PermissionService/GetFbMenuPermissionsResponse" message="tns:PermissionService_GetFbMenuPermissions_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSupperAdmins">
       <wsdl:input wsaw:Action="http://tempuri.org/PermissionService/GetSupperAdmins" message="tns:PermissionService_GetSupperAdmins_InputMessage" />
@@ -2220,15 +2223,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetSystemTypeListByUserID">
-      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetSystemTypeListByUserID" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ReturnIpAddress">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/ReturnIpAddress" style="document" />
       <wsdl:input>
@@ -2465,6 +2459,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetManagers">
       <soap12:operation soapAction="http://tempuri.org/PermissionService/GetManagers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFbMenuPermissions">
+      <soap12:operation soapAction="http://tempuri.org/PermissionService/GetFbMenuPermissions" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -3240,9 +3243,9 @@
   </wsdl:binding>
   <wsdl:service name="PermissionService">
     <wsdl:port name="CustomBinding_PermissionService" binding="tns:CustomBinding_PermissionService">
-      <soap12:address location="http://localhost:12168/PermissionService.svc" />
+      <soap12:address location="http://localhost:1604/PermissionService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:12168/PermissionService.svc</wsa10:Address>
+        <wsa10:Address>http://localhost:1604/PermissionService.svc</wsa10:Address>
       </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://www.oa12.com/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-  <xs:import schemaLocation="http://www.oa12.com/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+  <xs:import schemaLocation="http://portal.smt-online.net/New/Services/SMTEngine/PersonalRecordService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="EntityObject">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:StructuralObject">

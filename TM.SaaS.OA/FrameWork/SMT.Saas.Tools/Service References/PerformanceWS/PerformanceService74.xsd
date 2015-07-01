@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:12168/PerformanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+  <xs:import schemaLocation="http://localhost:12168/PerformanceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
   <xs:import schemaLocation="http://localhost:12168/PerformanceService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import schemaLocation="http://localhost:12168/PerformanceService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
   <xs:element name="AddPerformanceRecord">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q1:T_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q1:T_HR_PERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -18,7 +18,7 @@
   <xs:element name="AddPerformanceRecordList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entList" nillable="true" type="q2:ArrayOfT_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q2:ArrayOfT_HR_PERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -32,7 +32,7 @@
   <xs:element name="UpdatePerformanceRecord">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q3:T_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q3:T_HR_PERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -44,7 +44,7 @@
   <xs:element name="UpdatePerformanceRecordList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entList" nillable="true" type="q4:ArrayOfT_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q4:ArrayOfT_HR_PERFORMANCERECORD" />
         <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q5:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
@@ -129,7 +129,7 @@
   <xs:element name="KPISystemScoreByKPIPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q8:T_HR_KPIPOINT" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q8:T_HR_KPIPOINT" />
         <xs:element minOccurs="0" name="formCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="flowID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="stepID" nillable="true" type="xs:string" />
@@ -165,14 +165,14 @@
   <xs:element name="KPIManualScoreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="KPIManualScoreResult" nillable="true" type="q9:T_HR_KPIRECORD" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="KPIManualScoreResult" nillable="true" type="q9:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="KPIManualScoreByKPIPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q10:T_HR_KPIPOINT" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q10:T_HR_KPIPOINT" />
         <xs:element minOccurs="0" name="formCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="flowID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="lastStepCode" nillable="true" type="xs:string" />
@@ -185,7 +185,7 @@
   <xs:element name="KPIManualScoreByKPIPointResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="KPIManualScoreByKPIPointResult" nillable="true" type="q11:T_HR_KPIRECORD" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="KPIManualScoreByKPIPointResult" nillable="true" type="q11:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -208,14 +208,14 @@
   <xs:element name="KPIRandomScoreResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="KPIRandomScoreResult" nillable="true" type="q12:T_HR_KPIRECORD" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="KPIRandomScoreResult" nillable="true" type="q12:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="KPIRandomScoreByKPIPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q13:T_HR_KPIPOINT" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="kpiPoint" nillable="true" type="q13:T_HR_KPIPOINT" />
         <xs:element minOccurs="0" name="formCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="flowID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="lastStepCode" nillable="true" type="xs:string" />
@@ -228,7 +228,7 @@
   <xs:element name="KPIRandomScoreByKPIPointResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="KPIRandomScoreByKPIPointResult" nillable="true" type="q14:T_HR_KPIRECORD" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="KPIRandomScoreByKPIPointResult" nillable="true" type="q14:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -245,7 +245,7 @@
   <xs:element name="GetKPIPointResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIPointResult" nillable="true" type="q15:T_HR_KPIPOINT" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIPointResult" nillable="true" type="q15:T_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -263,7 +263,7 @@
   <xs:element name="GetKPIPointAndLastPointResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIPointAndLastPointResult" nillable="true" type="q16:ArrayOfT_HR_KPIPOINT" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIPointAndLastPointResult" nillable="true" type="q16:ArrayOfT_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -277,7 +277,7 @@
   <xs:element name="GetKPIPointListByBusinessCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIPointListByBusinessCodeResult" nillable="true" type="q17:ArrayOfT_HR_KPIPOINT" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIPointListByBusinessCodeResult" nillable="true" type="q17:ArrayOfT_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -291,7 +291,7 @@
   <xs:element name="GetKPIPointByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIPointByIDResult" nillable="true" type="q18:T_HR_KPIPOINT" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIPointByIDResult" nillable="true" type="q18:T_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -323,7 +323,7 @@
   <xs:element name="GetKPITypeByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPITypeByIDResult" nillable="true" type="q19:T_HR_KPITYPE" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPITypeByIDResult" nillable="true" type="q19:T_HR_KPITYPE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -335,7 +335,7 @@
   <xs:element name="GetKPITypeAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPITypeAllResult" nillable="true" type="q20:ArrayOfT_HR_KPITYPE" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPITypeAllResult" nillable="true" type="q20:ArrayOfT_HR_KPITYPE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,7 +351,7 @@
   <xs:element name="GetKPITypeWithPermissionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPITypeWithPermissionResult" nillable="true" type="q22:ArrayOfT_HR_KPITYPE" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPITypeWithPermissionResult" nillable="true" type="q22:ArrayOfT_HR_KPITYPE" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -383,7 +383,7 @@
   <xs:element name="GetKPIRecordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIRecordResult" nillable="true" type="q23:T_HR_KPIRECORD" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIRecordResult" nillable="true" type="q23:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -414,7 +414,7 @@
   <xs:element name="GetKPIRecordInterfaceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIRecordInterfaceResult" nillable="true" type="q24:T_HR_KPIRECORD" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIRecordInterfaceResult" nillable="true" type="q24:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -444,7 +444,7 @@
   <xs:element name="GetKPIRecordByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIRecordByIdResult" nillable="true" type="q25:T_HR_KPIRECORD" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIRecordByIdResult" nillable="true" type="q25:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -480,7 +480,7 @@
   <xs:element name="GetKPITypePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPITypePagingResult" nillable="true" type="q28:ArrayOfT_HR_KPITYPE" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPITypePagingResult" nillable="true" type="q28:ArrayOfT_HR_KPITYPE" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -488,7 +488,7 @@
   <xs:element name="AddKPIType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q29:T_HR_KPITYPE" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q29:T_HR_KPITYPE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -503,7 +503,7 @@
   <xs:element name="UpdateKPIType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q30:T_HR_KPITYPE" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q30:T_HR_KPITYPE" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -518,10 +518,10 @@
   <xs:element name="UpdateKPITypeAndRemind">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q31:T_HR_KPITYPE" />
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="addList" nillable="true" type="q32:ArrayOfT_HR_KPIREMIND" />
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="updateList" nillable="true" type="q33:ArrayOfT_HR_KPIREMIND" />
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="delList" nillable="true" type="q34:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q31:T_HR_KPITYPE" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="addList" nillable="true" type="q32:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="updateList" nillable="true" type="q33:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delList" nillable="true" type="q34:ArrayOfT_HR_KPIREMIND" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -566,7 +566,7 @@
   <xs:element name="AddKPIPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q36:T_HR_KPIPOINT" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q36:T_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -578,7 +578,7 @@
   <xs:element name="UpdateKPIPoint">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q37:T_HR_KPIPOINT" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q37:T_HR_KPIPOINT" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -590,10 +590,10 @@
   <xs:element name="UpdateKPIPointAndRemind">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q38:T_HR_KPIPOINT" />
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="addList" nillable="true" type="q39:ArrayOfT_HR_KPIREMIND" />
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="updateList" nillable="true" type="q40:ArrayOfT_HR_KPIREMIND" />
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="delList" nillable="true" type="q41:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q38:T_HR_KPIPOINT" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="addList" nillable="true" type="q39:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="updateList" nillable="true" type="q40:ArrayOfT_HR_KPIREMIND" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="delList" nillable="true" type="q41:ArrayOfT_HR_KPIREMIND" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -619,7 +619,7 @@
   <xs:element name="KPIRecordUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entity" nillable="true" type="q42:T_HR_KPIRECORD" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q42:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -645,7 +645,7 @@
   <xs:element name="SaveKPIRecordInterface">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="kpirecord" nillable="true" type="q44:T_HR_KPIRECORD" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="kpirecord" nillable="true" type="q44:T_HR_KPIRECORD" />
         <xs:element minOccurs="0" name="AppraiseeID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="AppraiserID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="score" type="xs:int" />
@@ -656,7 +656,7 @@
   <xs:element name="SaveKPIRecordInterfaceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="SaveKPIRecordInterfaceResult" nillable="true" type="q45:T_HR_KPIRECORD" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="SaveKPIRecordInterfaceResult" nillable="true" type="q45:T_HR_KPIRECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -670,7 +670,7 @@
   <xs:element name="GetKPIRecordComplainByRecordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIRecordComplainByRecordResult" nillable="true" type="q46:ArrayOfT_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIRecordComplainByRecordResult" nillable="true" type="q46:ArrayOfT_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -684,14 +684,14 @@
   <xs:element name="GetKPIRecordComplainByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetKPIRecordComplainByIDResult" nillable="true" type="q47:T_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetKPIRecordComplainByIDResult" nillable="true" type="q47:T_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddKPIRecordComplain">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q48:T_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q48:T_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -703,7 +703,7 @@
   <xs:element name="UpdateKPIRecordComplain">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q49:T_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q49:T_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -748,14 +748,14 @@
   <xs:element name="GetCompainRecordByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetCompainRecordByIDResult" nillable="true" type="q52:T_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetCompainRecordByIDResult" nillable="true" type="q52:T_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CompainRecordUpdate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entity" nillable="true" type="q53:T_HR_KPIRECORDCOMPLAIN" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entity" nillable="true" type="q53:T_HR_KPIRECORDCOMPLAIN" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -846,7 +846,7 @@
   <xs:element name="GetRandomGroupPagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupPagingResult" nillable="true" type="q58:ArrayOfT_HR_RANDOMGROUP" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupPagingResult" nillable="true" type="q58:ArrayOfT_HR_RANDOMGROUP" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -861,7 +861,7 @@
   <xs:element name="GetRandomGroupPersonAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupPersonAllResult" nillable="true" type="q59:ArrayOfT_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupPersonAllResult" nillable="true" type="q59:ArrayOfT_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -896,7 +896,7 @@
   <xs:element name="GetRandomGroupPersonByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupPersonByIDResult" nillable="true" type="q62:T_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupPersonByIDResult" nillable="true" type="q62:T_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -910,7 +910,7 @@
   <xs:element name="GetRandomGroupPersonByGroupIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupPersonByGroupIDResult" nillable="true" type="q63:ArrayOfT_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupPersonByGroupIDResult" nillable="true" type="q63:ArrayOfT_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -922,7 +922,7 @@
   <xs:element name="GetRandomGroupAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupAllResult" nillable="true" type="q64:ArrayOfT_HR_RANDOMGROUP" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupAllResult" nillable="true" type="q64:ArrayOfT_HR_RANDOMGROUP" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -936,14 +936,14 @@
   <xs:element name="GetRandomGroupByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetRandomGroupByIDResult" nillable="true" type="q65:T_HR_RANDOMGROUP" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetRandomGroupByIDResult" nillable="true" type="q65:T_HR_RANDOMGROUP" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddRandomGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q66:T_HR_RANDOMGROUP" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q66:T_HR_RANDOMGROUP" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -958,7 +958,7 @@
   <xs:element name="UpdateRandomGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q67:T_HR_RANDOMGROUP" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q67:T_HR_RANDOMGROUP" />
         <xs:element minOccurs="0" name="strMsg" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1001,7 +1001,7 @@
   <xs:element name="AddRandomGroupPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q69:T_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q69:T_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1013,7 +1013,7 @@
   <xs:element name="AddRandomGroupPersonList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entList" nillable="true" type="q70:ArrayOfT_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q70:ArrayOfT_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1027,7 +1027,7 @@
   <xs:element name="UpdateRandomGroupPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q71:T_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q71:T_HR_RAMDONGROUPPERSON" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1039,7 +1039,7 @@
   <xs:element name="UpdateRandomGroupPersonList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entList" nillable="true" type="q72:ArrayOfT_HR_RAMDONGROUPPERSON" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entList" nillable="true" type="q72:ArrayOfT_HR_RAMDONGROUPPERSON" />
         <xs:element xmlns:q73="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="employeeIDs" nillable="true" type="q73:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
@@ -1114,7 +1114,7 @@
   <xs:element name="GetSumPerformancePagingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetSumPerformancePagingResult" nillable="true" type="q78:ArrayOfT_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSumPerformancePagingResult" nillable="true" type="q78:ArrayOfT_HR_SUMPERFORMANCERECORD" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1140,7 +1140,7 @@
   <xs:element name="GetSumPerformancePagingByTimeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetSumPerformancePagingByTimeResult" nillable="true" type="q80:ArrayOfT_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSumPerformancePagingByTimeResult" nillable="true" type="q80:ArrayOfT_HR_SUMPERFORMANCERECORD" />
         <xs:element minOccurs="0" name="pageCount" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -1224,7 +1224,7 @@
   <xs:element name="GetPerformanceAllBySumIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetPerformanceAllBySumIDResult" nillable="true" type="q87:ArrayOfT_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPerformanceAllBySumIDResult" nillable="true" type="q87:ArrayOfT_HR_PERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1282,14 +1282,14 @@
   <xs:element name="GetPerformanceRecordByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetPerformanceRecordByIDResult" nillable="true" type="q92:T_HR_PERFORMANCERECORD" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetPerformanceRecordByIDResult" nillable="true" type="q92:T_HR_PERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddSumPerformance">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q93:T_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q93:T_HR_SUMPERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1308,14 +1308,14 @@
   <xs:element name="GetSumPerformanceRecordByIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="GetSumPerformanceRecordByIDResult" nillable="true" type="q94:T_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="GetSumPerformanceRecordByIDResult" nillable="true" type="q94:T_HR_SUMPERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateSumPerformance">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q95:T_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q95:T_HR_SUMPERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1327,7 +1327,7 @@
   <xs:element name="UpdateSumPerformanceAndSum">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" minOccurs="0" name="entType" nillable="true" type="q96:T_HR_SUMPERFORMANCERECORD" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" minOccurs="0" name="entType" nillable="true" type="q96:T_HR_SUMPERFORMANCERECORD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -444,7 +444,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         
         private string ErrorField;
         
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST> FileListField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST> FileListField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DownloadUrl {
@@ -473,7 +473,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST> FileList {
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST> FileList {
             get {
                 return this.FileListField;
             }
@@ -497,8 +497,8 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_FILELIST", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
-    public partial class T_SYS_FILELIST : SMT.Saas.Tools.NewFileUploadWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="SMT_FILELIST", Namespace="http://schemas.datacontract.org/2004/07/SMT_FU_EFModel", IsReference=true)]
+    public partial class SMT_FILELIST : SMT.Saas.Tools.NewFileUploadWS.EntityObject {
         
         private string APPLICATIONIDField;
         
@@ -514,7 +514,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         
         private string FILENAMEField;
         
-        private System.Nullable<int> FILESIZEField;
+        private System.Nullable<decimal> FILESIZEField;
         
         private string FILETYPEField;
         
@@ -522,7 +522,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         
         private string FORMIDField;
         
-        private System.Nullable<int> INDEXLField;
+        private System.Nullable<decimal> INDEXLField;
         
         private string MODELCODEField;
         
@@ -640,7 +640,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> FILESIZE {
+        public System.Nullable<decimal> FILESIZE {
             get {
                 return this.FILESIZEField;
             }
@@ -692,7 +692,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> INDEXL {
+        public System.Nullable<decimal> INDEXL {
             get {
                 return this.INDEXLField;
             }
@@ -865,7 +865,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST))]
     public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -881,7 +881,7 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST))]
     public partial class EntityObject : SMT.Saas.Tools.NewFileUploadWS.StructuralObject {
         
         private SMT.Saas.Tools.NewFileUploadWS.EntityKey EntityKeyField;
@@ -963,14 +963,14 @@ namespace SMT.Saas.Tools.NewFileUploadWS {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.SMT_FILELIST))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.UserFile))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.CallBackResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.T_SYS_FILELIST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.StructuralObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.NewFileUploadWS.EntityKeyMember>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.NewFileUploadWS.StructuralObject))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;

@@ -22,7 +22,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_SCORETYPE" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_SCORETYPE" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -51,7 +51,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_RANDOMGROUP" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_RANDOMGROUP" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -66,7 +66,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_KPIPOINT" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_KPIPOINT" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -81,7 +81,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_KPIRECORD" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_KPIRECORD" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -96,7 +96,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_PERFORMANCERECORD" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_PERFORMANCERECORD" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
@@ -111,7 +111,7 @@
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="T_HR_SUMPERFORMANCERECORD" Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
+          <GenericParameter Name="T_HR_SUMPERFORMANCERECORD" Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>

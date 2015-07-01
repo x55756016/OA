@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
+    <endpoint name="WSHttpBinding_IEngineWcfGlobalFunction" contract="EngineWS.IEngineWcfGlobalFunction" bindingType="customBinding" address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://www.oa12.com/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
+          <serializedValue>http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
