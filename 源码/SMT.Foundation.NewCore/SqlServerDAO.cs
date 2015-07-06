@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： SQLServer自定义数据访问接口
 */
@@ -13,6 +13,7 @@ using System.Data;
 using System.Data.SqlClient;
 using SMT.Foundation.Core.Error;
 using SMT.Foundation.Core.Utilities;
+using SMT.Foundation.Log;
 
 
 namespace SMT.Foundation.Core
@@ -66,22 +67,19 @@ namespace SMT.Foundation.Core
 		#region OpenConnection
 
 		// 返回打开的数据连接对象
-		private SqlConnection OpenConnection()
-		{
-            using (SqlConnection oleConn = new SqlConnection(_connection))
+        private SqlConnection OpenConnection()
+        {
+            SqlConnection oleConn = new SqlConnection(_connection);
+            try
             {
-                //SqlConnection oleConn = new SqlConnection(_connection);
-                try
-                {
-                    oleConn.Open();
-                }
-                catch (Exception ex)
-                {
-                    throw new TechException(ex.Message, _connection, ex);
-                }
-                return oleConn;
+                oleConn.Open();
             }
-		}
+            catch (Exception ex)
+            {
+                throw new TechException(ex.Message, _connection, ex);
+            }
+            return oleConn;
+        }
 
 		#endregion
 
@@ -720,5 +718,75 @@ namespace SMT.Foundation.Core
         }
 
         #endregion
+
+
+        public IDataReader ExecuteReader(string sql, CommandType type, ParameterCollection parameters)
+        {
+            SqlCommand oleCmd = new SqlCommand();
+            // 判断是否有事务
+            if (_transCount == 0)
+            {
+                _oleConn = OpenConnection();
+                oleCmd.Connection = _oleConn;
+            }
+            else
+            {
+                oleCmd.Connection = _oleConn;
+                oleCmd.Transaction = _oleTrans;
+            }
+            oleCmd.CommandText = WrapSql(sql, type);
+            oleCmd.CommandType = CommandType.Text;
+            // 设置参数
+            for (int i = 0; i < parameters.Count; i++)
+            {
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = parameters[i].ParameterName;
+                param.Value = parameters[i].ParameterValue;
+                if (parameters[i].ParameterValue is Guid)
+                {
+                    param.DbType = DbType.Guid;
+                }
+                oleCmd.Parameters.Add(param);
+            }
+
+            SqlDataReader dr = null;
+            try
+            {
+                dr = oleCmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
+            return (IDataReader)dr;
+        }
+
+
+
+        public int ExecuteNonQuery(string sql, CommandType type, Parameter[] pageparm)
+        {
+            ParameterCollection pras = new ParameterCollection();
+            foreach (var item in pageparm)
+            {
+                pras.Add(item);
+            }
+            return ExecuteNonQuery(sql, type, pras);
+        }
+
+
+        public IDataReader ExecuteReader(string sql)
+        {
+            ParameterCollection pras = new ParameterCollection();
+            return ExecuteReader(sql, CommandType.Text, pras);
+        }
+
+        public int ExecuteNonQuery(string sql, Parameter[] pageparm)
+        {
+            return ExecuteNonQuery(sql, CommandType.Text, pageparm);
+        }
+        public IDataReader ExecuteReader(string sql, ParameterCollection parameters)
+        {
+            return ExecuteReader(sql, CommandType.Text, parameters);
+        }
     }
 }

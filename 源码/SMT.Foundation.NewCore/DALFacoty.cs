@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： 数据访问工厂
 */
@@ -84,10 +84,10 @@ namespace SMT.Foundation.Core
                             className = DALAssemblyPath + "." + DBContextName;
                             break;
                         case "SQLServer":
-                            className = DALAssemblyPath + ".SqlEntityFrameworkContext";
+                            className = DALAssemblyPath + "." + DBContextName;;
                             break;
                         case "MySql":
-                            className = DALAssemblyPath + ".MySqlEntityFrameworkContext";
+                            className = DALAssemblyPath+ "." + DBContextName;;
                             break;
                         default:
                             className = DALAssemblyPath + "." + DBContextName;
@@ -112,17 +112,16 @@ namespace SMT.Foundation.Core
         public static IDAL CreateDataContextEveryTime(string DalID)
         {
             string typeName = string.Empty;
-            string dataBaseType = DataBaseType;
-            if (dataBaseType != null)
+            if (DataBaseType != null)
             {
-                if (!(dataBaseType == "Oracle"))
+                if (!(DataBaseType == "Oracle"))
                 {
-                    if (dataBaseType == "SQLServer")
+                    if (DataBaseType == "SQLServer")
                     {
                         typeName = DALAssemblyPath + ".SqlEntityFrameworkContext";
                         goto Label_0092;
                     }
-                    if (dataBaseType == "MySql")
+                    if (DataBaseType == "MySql")
                     {
                         typeName = DALAssemblyPath + ".MySqlEntityFrameworkContext";
                         goto Label_0092;
@@ -139,66 +138,36 @@ namespace SMT.Foundation.Core
             return (IDAL)Assembly.Load(DALAssemblyPath).CreateInstance(typeName);
         }
 
- 
+        /// <summary>
+        /// 创建传统数据库操作DAO
+        /// </summary>
+        /// <param name="connection"></param>
+        /// <returns></returns>
+        public static IDAO CreateDao(string connection)
+        {
+            IDAO dao;
+            switch (DataBaseType)
+            {
+                case "Oracle":
+                    dao = new OracleDAO(connection);
+                    break;
+                case "SQLServer":
+                    dao = new SqlServerDAO(connection);
+                    break;
+                case "MySql":
+                    dao = new MySqlServerDAO(connection);
+                    break;
+                default:
+                    dao = new MySqlServerDAO(connection);
+                    break;
+            }
+            return dao;
+        }
 
         public static void ClearCache(string threadName)
         {
             contenxtCache.Remove(threadName);
         }
-        //private static IDAL CreateSQLDal()
-        //{
-        //    string className = DALAssemblyPath + ".DALDataContext";
-        //    object dal = Assembly.Load(DALAssemblyPath).CreateInstance(className);
-        //    return (IDAL)dal;
-        //}
-
-
-        /// <summary>
-        /// 根据数据库类型创建不同datacontext用于linq操作(泛型类反射)
-        /// </summary>
-        /// <param name="DataBaseType"></param>
-        /// <returns></returns>
-        //public static IDAL<TEntity> CreateDataContext(string DataBaseType)
-        //{
-        //    string className = string.Empty;
-        //    switch (DataBaseType)
-        //    {
-        //        case "Oracle":
-        //            className = DALAssemblyPath + ".EntityFrameworkOracleContext";
-        //            break;
-        //        case "SQLServer":
-        //            className = DALAssemblyPath + ".SqlEntityFrameworkContext";
-        //            break;
-        //        case "MySql":
-        //            className = DALAssemblyPath + ".MySqlEntityFrameworkContext";
-        //            break;
-        //        default:
-        //            className = DALAssemblyPath + ".EntityFrameworkOracleContext";
-        //            break;
-        //    }
-
-        //    IDAL<TEntity> dalInstance = null;
-        //    Assembly asm = Assembly.Load(DALAssemblyPath);
-        //    //获取程序集中所有的类。 
-        //    Type[] types = asm.GetTypes();
-        //    //遍历类集合。 
-        //    foreach (Type typeX in types)
-        //    {
-        //        //若该类型为泛型类。 
-        //        if (typeX.IsGenericType)
-        //        {
-        //            //创建泛型类，其模版类以参数形式添加到该类型。 
-        //            Type t = typeX.MakeGenericType(typeof(TEntity));
-        //            //使用Activator类创建该类型的实例。 
-        //            dalInstance = (IDAL<TEntity>)Activator.CreateInstance(t);
-        //            //return dalInstance;
-        //            break;
-        //        }
-        //    }
-        //    //IDAL<TEntity> dalInstance= (IDAL<TEntity>)dal;
-        //    return dalInstance;
-
-        //}
     }
 
     public class SingleDALFacoty
@@ -241,10 +210,10 @@ namespace SMT.Foundation.Core
                     className = DALAssemblyPath + "." + DBContextName;
                     break;
                 case "SQLServer":
-                    className = DALAssemblyPath + ".SqlEntityFrameworkContext";
+                    className = DALAssemblyPath + "." + DBContextName;
                     break;
                 case "MySql":
-                    className = DALAssemblyPath + ".MySqlEntityFrameworkContext";
+                    className = DALAssemblyPath + "." + DBContextName;
                     break;
                 default:
                     className = DALAssemblyPath + "." + DBContextName;

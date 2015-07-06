@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： 自定义数据访问参数
 */
@@ -10,6 +10,26 @@ using System.Linq;
 using System.Text;
 namespace SMT.Foundation.Core
 {
+    public sealed class DBHelper
+    {
+
+        /// <summary>
+        /// 获取值，如果obj是null，近回DBNull.Value,否则返回obj
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static object GetValue(object obj)
+        {
+            if (obj == null || obj.ToString() == "")
+            {
+                return DBNull.Value;
+            }
+            else
+            {
+                return obj;
+            }
+        }
+    }
     /// <summary>
     /// 参数实体类
     /// </summary>
@@ -20,6 +40,8 @@ namespace SMT.Foundation.Core
         private string _paramName;
         // 参数值
         private object _paramValue;
+
+        private string _paramType;
 
         /// <summary>
         /// 构造器
@@ -57,6 +79,15 @@ namespace SMT.Foundation.Core
         {
             get { return _paramValue; }
             set { _paramValue = value; }
+        }
+
+        /// <summary>
+        /// 参数值
+        /// </summary>
+        public string ParameterType
+        {
+            get { return _paramType; }
+            set { _paramType = value; }
         }
     }
 }

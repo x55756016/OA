@@ -77,7 +77,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SMT.SAAS.Main.CurrentContext.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Runtime.Serialization" />
@@ -167,7 +168,6 @@
     <None Include="Service References\EmpInfoWS\SMT.SAAS.Main.CurrentContext.EmpInfoWS.V_EMPLOYEEDETAIL.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="SMT.SAAS.Main.CurrentContext.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">

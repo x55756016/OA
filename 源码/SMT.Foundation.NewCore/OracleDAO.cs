@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： Oracle自定义数据访问接口
 */
@@ -15,6 +15,7 @@ using SMT.Foundation.Core.Error;
 using SMT.Foundation.Core.Utilities;
 using System.Reflection;
 using System.Data.Objects.DataClasses;
+using SMT.Foundation.Log;
 //using WSL.Framework.Core.Error;
 //using WSL.Framework.Core.Utilities;
 
@@ -26,6 +27,8 @@ namespace SMT.Foundation.Core
     public sealed class OracleDAO : IDAO, IDisposable
     {
         #region Variable
+        // 域名
+        private static string _domain = "";
         // 数据库存连接字符串
         private string _connection;
         // 数据库连接对象
@@ -790,14 +793,117 @@ namespace SMT.Foundation.Core
             return entity;
         }
 
- 
+        public IDataReader ExecuteReader(string sql, CommandType type, ParameterCollection parameters)
+        {
+            OracleCommand oleCmd = new OracleCommand();
+            // 判断是否有事务
+            if (_transCount == 0)
+            {
+                _oleConn = OpenConnection();
+                oleCmd.Connection = _oleConn;
+            }
+            else
+            {
+                oleCmd.Connection = _oleConn;
+                oleCmd.Transaction = _oleTrans;
+            }
+            oleCmd.CommandText = WrapMySql(sql, type);
+            oleCmd.CommandType = CommandType.Text;
+            // 设置参数
+            for (int i = 0; i < parameters.Count; i++)
+            {
+                OracleParameter param = new OracleParameter();
+                param.ParameterName = parameters[i].ParameterName;
+                param.Value = parameters[i].ParameterValue;
+                if (parameters[i].ParameterValue is Guid)
+                {
+                    param.DbType = DbType.Guid;
+                }
+                oleCmd.Parameters.Add(param);
+            }
 
- 
+            OracleDataReader dr = null;
+            try
+            {
+                dr = oleCmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                Tracer.Debug(ex.ToString());
+            }
+            return (IDataReader)dr;
+        }
+
+        #region Private
+
+        private string GetImpersonatedDomainUser()
+        {
+            string sql = "select suser_sname();";
+
+            if (_domain.Length == 0)
+            {
+                OracleConnection sqlCon = OpenConnection();
+                OracleCommand oleCmd = new OracleCommand();
+
+                oleCmd.Connection = sqlCon;
+                oleCmd.CommandText = sql;
+                oleCmd.CommandType = CommandType.Text;
+
+                _domain = oleCmd.ExecuteScalar().ToString().Split('\\')[0];
+            }
+
+            string[] names = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\');
+
+            return _domain + "\\" + names[1];
+        }
+
+        private string WrapMySql(string srcMySql, CommandType type)
+        {
+            //return srcMySql;
+            string sql = srcMySql;
+
+            sql = "execute as user = '" + GetImpersonatedDomainUser() + "' " + srcMySql + " revert;";
+
+            //if (type == CommandType.Text)
+            //{
+            //    sql = "execute as user = '" + GetImpersonatedDomainUser() + "' " + srcMySql + " revert;";
+            //}
+            //else
+            //{
+            //    sql = "execute as user = '" + GetImpersonatedDomainUser() + "' " + srcMySql + " revert;";
+            //}
+
+            return sql;
+        }
+
+        #endregion
 
 
- 
+        public int ExecuteNonQuery(string sql, CommandType type, Parameter[] pageparm)
+        {
+            ParameterCollection pras = new ParameterCollection();
+            foreach (var item in pageparm)
+            {
+                pras.Add(item);
+            }
+            return ExecuteNonQuery(sql, type, pras);
+        }
 
- 
 
+        public IDataReader ExecuteReader(string sql)
+        {
+            ParameterCollection pras = new ParameterCollection();
+            return ExecuteReader(sql, CommandType.Text, pras);
+        }
+
+        public int ExecuteNonQuery(string sql, Parameter[] pageparm)
+        {
+            return ExecuteNonQuery(sql, CommandType.Text, pageparm);
+        }
+
+        public IDataReader ExecuteReader(string sql, ParameterCollection parameters)
+        {
+            return ExecuteReader(sql, CommandType.Text, parameters);
+        }
     }
 }

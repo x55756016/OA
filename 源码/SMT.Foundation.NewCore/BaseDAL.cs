@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： 数据访问基类
 */
@@ -24,7 +24,7 @@ using SMT.Foundation.Log;
 namespace SMT.Foundation.Core
 {
 
-    public class BaseDAL :IDisposable 
+    public class BaseDAL : IDisposable 
     {
         private IDAL lbc;
         public string DalID;
@@ -37,7 +37,6 @@ namespace SMT.Foundation.Core
             //lbc = DALFacoty.CreateDataContext();
             this.DalID = Guid.NewGuid().ToString();
             this.lbc = DALFacoty.CreateDataContextEveryTime(this.DalID);
-
         }
 
         /// <summary>

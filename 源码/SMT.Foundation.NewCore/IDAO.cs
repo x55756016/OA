@@ -1,6 +1,6 @@
 ﻿/*
-版权信息：SMT
-作    者：向寒咏
+版权信息：提莫科技
+作    者：提莫科技
 日    期：2009-09-22
 内容摘要： 自定义数据访问接口
 */
@@ -97,6 +97,10 @@ namespace SMT.Foundation.Core
         /// <returns>SQL语句所影响的记录数</returns>
         int ExecuteNonQuery(string sql, CommandType type, ParameterCollection parameters);
 
+
+        int ExecuteNonQuery(string sql, CommandType type, Parameter[] pageparm);
+
+        int ExecuteNonQuery(string sql,Parameter[] pageparm);
         #endregion
 
         #region ExecuteScalar
@@ -207,5 +211,14 @@ namespace SMT.Foundation.Core
         DataTable GetDataTable(string sql, CommandType type, int pageIndex, int pageSize, ParameterCollection parameters);
 
         #endregion
+
+        IDataReader ExecuteReader(string sql, CommandType type, ParameterCollection parameters);
+
+        IDataReader ExecuteReader(string sql, ParameterCollection parameters);
+        IDataReader ExecuteReader(string sql);
+
+        //virtual void Open();
+
+        //virtual void Close();
     }
 }

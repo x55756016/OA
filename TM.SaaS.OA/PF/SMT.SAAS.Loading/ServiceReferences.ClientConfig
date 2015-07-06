@@ -301,7 +301,8 @@
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="CustomBinding_PermissionService">
+        <binding name="CustomBinding_PermissionService" closeTimeout="00:10:00"
+            openTimeout="00:10:00" sendTimeout="00:10:00" receiveTimeout="00:10:00">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
