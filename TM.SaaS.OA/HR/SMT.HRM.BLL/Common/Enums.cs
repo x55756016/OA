@@ -24,6 +24,9 @@ namespace SMT.HRM.BLL.Common
         /// </summary>
         Audit
     }
+    /// <summary>
+    /// 审核状态
+    /// </summary>
     public enum CheckStates
     {
         /// <summary>
@@ -49,7 +52,16 @@ namespace SMT.HRM.BLL.Common
         /// <summary>
         /// 所有
         /// </summary>
-        All
+        All,
+        /// <summary>
+        /// 删除
+        /// </summary>
+        Delete = -1,
+        /// <summary>
+        /// 撤单
+        /// </summary>
+        Cancel = 9
+
     }
     public enum EditStates
     {

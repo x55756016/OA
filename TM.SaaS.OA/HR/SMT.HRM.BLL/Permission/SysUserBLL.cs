@@ -3470,7 +3470,7 @@ namespace SMT.HRM.BLL.Permission
                         using (EmployeePostBLL bll = new EmployeePostBLL())
                         {
                            // Tracer.Debug("进入GetFlowUserInfoPostBriefByEmployeeID：" + employeeids.Count().ToString());
-                           // ListEmployeePost= bll.GetFlowUserInfoPostBriefByEmployeeID(roles);
+                            ListEmployeePost = bll.GetFlowUserInfoPostBriefByEmployeeID(ListEmployeeIDs.ToList());
                         }   
                     //判断用户角色所在岗位，此功能暂时关闭
                         var q = from ent in ListEmployeePost

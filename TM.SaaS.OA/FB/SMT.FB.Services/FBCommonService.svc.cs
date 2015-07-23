@@ -19,7 +19,7 @@ using System.Xml.Linq;
 using System.IO;
 using SMT.Foundation.Log;
 using SMT.FB.DAL;
-using SMT.SAAS.BLLCommonServices;
+using SMT.SaaS.BLLCommonServices;
 
 
 namespace SMT.FB.Services
@@ -154,7 +154,7 @@ namespace SMT.FB.Services
         }
 
         [OperationContract]
-        public AuditResult AuditFBEntity(FBEntity fbEntity, CheckStates checkStates)
+        public AuditResult AuditFBEntity(FBEntity fbEntity, SMT.FB.BLL.CheckStates checkStates)
         {
             try
             {

@@ -309,7 +309,7 @@
       <Name>SMT.HRM.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.HRM.IMServices\SMT.HRM.IMServices.csproj">
-      <Project>{113E2BE3-0473-4BE2-A065-293A73391331}</Project>
+      <Project>{113e2be3-0473-4be2-a065-293a73391331}</Project>
       <Name>SMT.HRM.IMServices</Name>
     </ProjectReference>
   </ItemGroup>

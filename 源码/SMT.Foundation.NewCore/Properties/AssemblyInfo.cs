@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SMT.Foundation.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("神州通在线")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SMT.Foundation.Core")]
-[assembly: AssemblyCopyright("Copyright ©神州通在线 2009")]
+[assembly: AssemblyCopyright("Copyright ©ken 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

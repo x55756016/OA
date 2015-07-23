@@ -11,7 +11,7 @@ using System.Data.Objects.DataClasses;
 using System.Reflection;
 using System.Xml.Linq;
 using SMT.Foundation.Log;
-using SMT.SaaS.BLLCommonServices.PersonnelWS;
+using SMT.SaaS.BLLCommonServices;
 
 namespace SMT.FB.Services
 {
@@ -195,7 +195,7 @@ namespace SMT.FB.Services
             listDebt.ForEach(item =>
                 {
                     QueryExpression qeOwnerID = QueryExpression.Equal(FieldName.OwnerID, item.EmployeeID);
-                    QueryExpression qeCheckStates = QueryExpression.Equal(FieldName.CheckStates, ((int)CheckStates.Approved).ToString());
+                    QueryExpression qeCheckStates = QueryExpression.Equal(FieldName.CheckStates, ((int)SMT.FB.BLL.CheckStates.Approved).ToString());
                     QueryExpression qeISREPAIED = QueryExpression.Equal("ISREPAIED", "0");
                     QueryExpression qeOverDate = QueryExpression.Equal("PLANREPAYDATE", DateTime.Now.Date.ToString("yyyy-MM-dd"));
                     qeOverDate.Operation = QueryExpression.Operations.LessThan;
@@ -233,7 +233,7 @@ namespace SMT.FB.Services
         {
 
             QueryExpression qeOwnerID = QueryExpression.Equal(FieldName.OwnerID, employeeID);
-            QueryExpression qeCheckStates = QueryExpression.Equal(FieldName.CheckStates, ((int)CheckStates.Approved).ToString());
+            QueryExpression qeCheckStates = QueryExpression.Equal(FieldName.CheckStates, ((int)SMT.FB.BLL.CheckStates.Approved).ToString());
             QueryExpression qeISREPAIED = QueryExpression.Equal("ISREPAIED", "0");
 
             qeOwnerID.RelatedExpression = qeCheckStates;
@@ -295,7 +295,7 @@ namespace SMT.FB.Services
                     list.ForEach(entity =>
                     {
                         // 只能删除未提交的单据
-                        if (((int)entity.CHECKSTATES) != (int)CheckStates.UnSubmit)
+                        if (((int)entity.CHECKSTATES) != (int)SMT.FB.BLL.CheckStates.UnSubmit)
                         {
                             listResult.Add(item);
                         }
@@ -406,101 +406,10 @@ namespace SMT.FB.Services
             int i = -1;
             try
             {
-                SystemBLL.Debug("UpdateCheckState方法已被调用，参数：strModelCode: " + strModelCode + ", orderID: " + orderID + ", strCheckStates: " + strCheckStates);
-
-                // begin 用于出差报销、事项审批的手机提交
-                if (strModelCode == "Travel")
+                
+                using(FBCommonBLL bll=new FBCommonBLL())
                 {
-                    var tempResult = UpdateExtensionOrder(strModelCode, orderID, strCheckStates, ref strMsg);
-                    return (tempResult == null) ? -1 : 1;
-
-                }
-                // end 
-                FBCommonService fbCommonService = new FBCommonService();
-                List<EntityInfo> EntityInfoList = fbCommonService.GetEntityInfoList();
-                if (EntityInfoList == null)
-                {
-                    strMsg = "预算服务初始化异常，请重试。";
-                    return -1;
-                }
-
-                if (EntityInfoList.Count() == 0)
-                {
-                    strMsg = "预算服务初始化异常，请重试。";
-                    return -1;
-                }
-
-                string strTypeName = "";
-                string strKeyName = "";
-                CheckStates cs = CheckStates.UnSubmit;
-                switch (strCheckStates)
-                {
-                    case "1":
-                        cs = CheckStates.Approving;
-                        break;
-                    case "2":
-                        cs = CheckStates.Approved;
-                        break;
-                    case "3":
-                        cs = CheckStates.UnApproved;
-                        break;
-                    default:
-                        break;
-                }
-
-                var entityInfo = EntityInfoList.Where(t => t.Type == strModelCode).FirstOrDefault();
-                strTypeName = entityInfo.Type;
-                strKeyName = entityInfo.KeyName;
-                /////add 2012.12.12
-                /////传入报销月份为时间去和当前时间判断，如果不在同一年
-                /////说明该报销单是跨年的，则不能进行审核操作，即当年的报销单只能在当年进行报销
-                //if (dNewCheckStates == FBAEnums.CheckStates.Approved || dNewCheckStates == FBAEnums.CheckStates.Approving)
-                //{
-                //    if (IsOverYear(entity.BUDGETARYMONTH))
-                //    {
-                //        strMsg = "报销单跨年后只能终审不通过(财务规定)";
-                //        Tracer.Debug(strMsg);
-                //        return;
-                //    }
-                //}
-                using (FBCommonBLL bllCommon = new FBCommonBLL())
-                {
-                    bllCommon.BeginTransaction();
-                    SystemBLL.Debug("BeginTransaction "+ strModelCode + " 的单据[" + orderID + "]"); 
-                    try
-                    {
-                        QueryExpression qe = QueryExpression.Equal(strKeyName, orderID);
-                        qe.QueryType = strTypeName;
-
-                        var data = qe.Query(bllCommon);
-                        var order = data.FirstOrDefault();
-                        if (order == null)
-                        {
-                            strMsg = "没有可操作的数据";
-                            return -1;
-                        }
-
-                        bllCommon.AuditFBEntityWithoutFlow(order, cs, ref strMsg);
-                        i = 1;
-                        if (string.IsNullOrEmpty(strMsg))
-                        {
-                            bllCommon.CommitTransaction();
-                            SystemBLL.Debug("CommitTransaction " + strModelCode + " 的单据[" + orderID + "]");
-                        }
-                        else
-                        {
-                            bllCommon.RollbackTransaction();
-                            SystemBLL.Debug("RollbackTransaction 审核" + strModelCode + "的单据[" + orderID + "]失败，提示消息为：" + strMsg);
-                        
-                        }
-                     
-                    }
-                    catch (Exception ex)
-                    {
-                        bllCommon.RollbackTransaction();
-                        SystemBLL.Debug("RollbackTransaction 审核" + strModelCode + "的单据[" + orderID + "]失败，提示消息为：" + strMsg);
-                        throw ex;
-                    }
+                   i= bll.UpdateCheckState(strModelCode, orderID, strCheckStates, ref strMsg);
                 }
             }
             catch (Exception ex)

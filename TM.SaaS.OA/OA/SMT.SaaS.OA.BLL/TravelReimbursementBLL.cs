@@ -420,16 +420,16 @@ namespace SMT.SaaS.OA.BLL
                             Tracer.Debug("事务开始 工作计划出差报销引擎开始更新工作计划预算：出差报销id：" + busniessTripId + " 审核状态：" + StrCheckState);
                             SMT.SaaS.BLLCommonServices.WPServicesWS.WPServicesClient WpServiceClient = new BLLCommonServices.WPServicesWS.WPServicesClient();
                             string wpMsg = string.Empty;
-                            SMT.SaaS.BLLCommonServices.WPServicesWS.BussinessTripBudget[] listTripBudget = new BLLCommonServices.WPServicesWS.BussinessTripBudget[0];
-                            bool wpflag = WpServiceClient.TripSubjectPaid(busniessTripId, listTripBudget, ref wpMsg);
-                            if (wpflag)
-                            {
-                                Tracer.Debug("出差报销扣减工作计划费用成功！" + wpMsg);
-                            }
-                            else
-                            {
-                                Tracer.Debug("出差报销扣减工作计划费用失败：" + wpMsg);
-                            }
+                            //SMT.SaaS.BLLCommonServices.WPServicesWS.BussinessTripBudget[] listTripBudget = new BLLCommonServices.WPServicesWS.BussinessTripBudget[0];
+                            //bool wpflag = WpServiceClient.TripSubjectPaid(busniessTripId, listTripBudget, ref wpMsg);
+                            //if (wpflag)
+                            //{
+                            //    Tracer.Debug("出差报销扣减工作计划费用成功！" + wpMsg);
+                            //}
+                            //else
+                            //{
+                            //    Tracer.Debug("出差报销扣减工作计划费用失败：" + wpMsg);
+                            //}
                           
 
                         }

@@ -114,27 +114,8 @@ namespace SMT.Foundation.Core
             string typeName = string.Empty;
             if (DataBaseType != null)
             {
-                if (!(DataBaseType == "Oracle"))
-                {
-                    if (DataBaseType == "SQLServer")
-                    {
-                        typeName = DALAssemblyPath + ".SqlEntityFrameworkContext";
-                        goto Label_0092;
-                    }
-                    if (DataBaseType == "MySql")
-                    {
-                        typeName = DALAssemblyPath + ".MySqlEntityFrameworkContext";
-                        goto Label_0092;
-                    }
-                }
-                else
-                {
-                    typeName = DALAssemblyPath + "." + DBContextName;
-                    goto Label_0092;
-                }
+                typeName = DALAssemblyPath + "." + DBContextName;
             }
-            typeName = DALAssemblyPath + "." + DBContextName;
-        Label_0092:
             return (IDAL)Assembly.Load(DALAssemblyPath).CreateInstance(typeName);
         }
 

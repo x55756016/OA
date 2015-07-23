@@ -60,7 +60,9 @@
     <Compile Include="TM_SaaS_OA_EFModelContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="TM_SaaS_OA_EFModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>TM_SaaS_OA_EFModel.Designer.cs</LastGenOutput>

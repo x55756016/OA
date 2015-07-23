@@ -57,6 +57,16 @@ namespace SMT.Foundation.Core
         /// </summary>
         /// <param name="parameterName">参数名</param>
         /// <param name="parameterValue">参数值</param>
+        public Parameter(string parameterName)
+        {
+            _paramName = parameterName;
+        }
+
+        /// <summary>
+        /// 构造器
+        /// </summary>
+        /// <param name="parameterName">参数名</param>
+        /// <param name="parameterValue">参数值</param>
         public Parameter(string parameterName, object parameterValue)
         {
             _paramName = parameterName;

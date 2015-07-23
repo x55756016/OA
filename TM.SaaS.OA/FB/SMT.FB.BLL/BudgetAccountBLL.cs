@@ -5472,50 +5472,50 @@ namespace SMT.FB.BLL
                                 = new SaaS.BLLCommonServices.FBDailyManageWS.DailyManagementServicesClient();
 
                             //string strMsg = string.Empty;
-                            List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns> listFuns
-                                = new List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns>();
-                            List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns> listFunsFBA
-                             = new List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns>();
-                            foreach (var item in master.T_FB_PERSONMONEYASSIGNDETAIL)
-                            {
+                            //List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns> listFuns
+                            //    = new List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns>();
+                            //List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns> listFunsFBA
+                            // = new List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns>();
+                            //foreach (var item in master.T_FB_PERSONMONEYASSIGNDETAIL)
+                            //{
 
-                                listFuns.Add(new SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns
-                                {
-                                    EMPLOYEEID = item.OWNERID,
-                                    POSTID = item.OWNERPOSTID,
-                                    EMPLOYECNAME = item.OWNERNAME,
-                                    REALSUM = item.BUDGETMONEY
-                                });
+                            //    listFuns.Add(new SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns
+                            //    {
+                            //        EMPLOYEEID = item.OWNERID,
+                            //        POSTID = item.OWNERPOSTID,
+                            //        EMPLOYECNAME = item.OWNERNAME,
+                            //        REALSUM = item.BUDGETMONEY
+                            //    });
 
-                                listFunsFBA.Add(new SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns
-                                {
-                                    EMPLOYEEID = item.OWNERID,
-                                    EMPLOYECNAME = item.OWNERNAME,
-                                    POSTID = item.OWNERPOSTID,
-                                    POSTNAME=item.OWNERPOSTNAME,
-                                    DEPARTMENTID=item.OWNERDEPARTMENTID,
-                                    DEPARTMENTNAME=item.OWNERDEPARTMENTNAME,
-                                    COMPANYID=item.OWNERCOMPANYID,
-                                    COMPANYNAME=item.OWNERCOMPANYNAME,
-                                    REALSUM = item.BUDGETMONEY
-                                });
-                            }
-                            Tracer.Debug("终审开始调用工作计划接口FunsAllocated，开始。");
-                            bool flag = client.FunsAllocated(out strMsg, master.PERSONMONEYASSIGNMASTERID,
-                                master.ASSIGNCOMPANYID, false, listFuns.ToArray());
-                            if (!flag)
-                            {
-                                Tracer.Debug("终审调用FunsAllocated失败");
-                            }
-                            else
-                            {
+                            //    listFunsFBA.Add(new SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns
+                            //    {
+                            //        EMPLOYEEID = item.OWNERID,
+                            //        EMPLOYECNAME = item.OWNERNAME,
+                            //        POSTID = item.OWNERPOSTID,
+                            //        POSTNAME=item.OWNERPOSTNAME,
+                            //        DEPARTMENTID=item.OWNERDEPARTMENTID,
+                            //        DEPARTMENTNAME=item.OWNERDEPARTMENTNAME,
+                            //        COMPANYID=item.OWNERCOMPANYID,
+                            //        COMPANYNAME=item.OWNERCOMPANYNAME,
+                            //        REALSUM = item.BUDGETMONEY
+                            //    });
+                            //}
+                            //Tracer.Debug("终审开始调用工作计划接口FunsAllocated，开始。");
+                            //bool flag = client.FunsAllocated(out strMsg, master.PERSONMONEYASSIGNMASTERID,
+                            //    master.ASSIGNCOMPANYID, false, listFuns.ToArray());
+                            //if (!flag)
+                            //{
+                            //    Tracer.Debug("终审调用FunsAllocated失败");
+                            //}
+                            //else
+                            //{
 
-                                Tracer.Debug("终审开始调用FBA活动经费单据自动发送待办");
-                                string strmsg = FBAclient.BatchAddActivityFundsCharge(listFunsFBA.ToArray(), master.BUDGETARYMONTH);
-                                Tracer.Debug("终审调用FBA活动经费下拨，调用结果FBAclient.BatchAddActivityFundsCharge =" + strmsg);
+                            //    Tracer.Debug("终审开始调用FBA活动经费单据自动发送待办");
+                            //    string strmsg = FBAclient.BatchAddActivityFundsCharge(listFunsFBA.ToArray(), master.BUDGETARYMONTH);
+                            //    Tracer.Debug("终审调用FBA活动经费下拨，调用结果FBAclient.BatchAddActivityFundsCharge =" + strmsg);
 
-                            }
-                            Tracer.Debug("终审结束调用工作计划接口FunsAllocated，调用结果flag=" + flag);
+                            //}
+                            //Tracer.Debug("终审结束调用工作计划接口FunsAllocated，调用结果flag=" + flag);
                         }
                         catch (Exception ex)
                         {
@@ -6214,42 +6214,42 @@ namespace SMT.FB.BLL
                             = new SaaS.BLLCommonServices.FBDailyManageWS.DailyManagementServicesClient();
                         
                     //string strMsg = string.Empty;
-                    List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns> listFuns
-                        = new List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns>();
-                   List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns> listFunsFBA
-                    =new  List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns>();
-                    foreach (var item in master.T_FB_PERSONMONEYASSIGNDETAIL)
-                    {
+                   // List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns> listFuns
+                   //     = new List<SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns>();
+                   //List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns> listFunsFBA
+                   // =new  List<SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns>();
+                   // foreach (var item in master.T_FB_PERSONMONEYASSIGNDETAIL)
+                   // {
 
-                        listFuns.Add(new SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns
-                        {
-                            EMPLOYEEID = item.OWNERID,
-                            POSTID = item.OWNERPOSTID,
-                            EMPLOYECNAME = item.OWNERNAME,
-                            REALSUM = item.BUDGETMONEY
-                        });  
+                   //     listFuns.Add(new SMT.SaaS.BLLCommonServices.WPServicesWS.V_EmployeeFuns
+                   //     {
+                   //         EMPLOYEEID = item.OWNERID,
+                   //         POSTID = item.OWNERPOSTID,
+                   //         EMPLOYECNAME = item.OWNERNAME,
+                   //         REALSUM = item.BUDGETMONEY
+                   //     });  
                         
-                        listFunsFBA.Add(new SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns
-                        {
-                            EMPLOYEEID = item.OWNERID,
-                            POSTID = item.OWNERPOSTID,
-                            EMPLOYECNAME = item.OWNERNAME,
-                            REALSUM = item.BUDGETMONEY
-                        });
-                    }
+                   //     listFunsFBA.Add(new SMT.SaaS.BLLCommonServices.FBDailyManageWS.V_EmployeeFuns
+                   //     {
+                   //         EMPLOYEEID = item.OWNERID,
+                   //         POSTID = item.OWNERPOSTID,
+                   //         EMPLOYECNAME = item.OWNERNAME,
+                   //         REALSUM = item.BUDGETMONEY
+                   //     });
+                   // }
                     bool isSubmit = false;
                     if (newStates == CheckStates.Approved)
                     {
                         isSubmit = true;
                     }
                     Tracer.Debug("提交审核开始调用工作计划接口FunsAllocated，开始。");
-                    bool flag = client.FunsAllocated(out strMsg, master.PERSONMONEYASSIGNMASTERID,
-                        master.ASSIGNCOMPANYID, isSubmit, listFuns.ToArray());
-                    if (!flag)
-                    {
-                        result = false;
-                    }
-                    Tracer.Debug("提交审核结束调用工作计划接口FunsAllocated，调用结果flag=" + flag);
+                    //bool flag = client.FunsAllocated(out strMsg, master.PERSONMONEYASSIGNMASTERID,
+                    //    master.ASSIGNCOMPANYID, isSubmit, listFuns.ToArray());
+                    //if (!flag)
+                    //{
+                    //    result = false;
+                    //}
+                    //Tracer.Debug("提交审核结束调用工作计划接口FunsAllocated，调用结果flag=" + flag);
                 }
                 catch (Exception ex)
                 {

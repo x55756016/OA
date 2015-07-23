@@ -73,6 +73,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\SMT.SaaS.CommonDll\SMT\Server\SMT.Foundation.Log.dll</HintPath>
     </Reference>
+    <Reference Include="SMT.SaaS.BLLCommonServices, Version=1.0.0.1222, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SmtWorkSpace\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Server\SMT.SaaS.BLLCommonServices.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -508,9 +512,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.BLLCommonServices\SMT.SAAS.BLLCommonServices.csproj">
-      <Project>{6673751a-d03d-4d7a-acf3-f363469b73ae}</Project>
-      <Name>SMT.SAAS.BLLCommonServices</Name>
+    <ProjectReference Include="..\..\HR\SMT.HRM.BLL\SMT.HRM.BLL.csproj">
+      <Project>{b35234a0-7bf1-49b6-bdf2-4041d0763d9b}</Project>
+      <Name>SMT.HRM.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HR\SMT.HRM.CustomModel\SMT.HRM.CustomModel.csproj">
+      <Project>{0e45b937-670f-49e1-8ef1-a4bd312b94da}</Project>
+      <Name>SMT.HRM.CustomModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HR\SMT.HRM.DAL\SMT.HRM.DAL.csproj">
+      <Project>{d7d1b61b-cd35-46ea-8575-3cf42d8f4f9d}</Project>
+      <Name>SMT.HRM.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj">
       <Project>{7571bce6-3b80-41c1-af97-9118e7f41845}</Project>

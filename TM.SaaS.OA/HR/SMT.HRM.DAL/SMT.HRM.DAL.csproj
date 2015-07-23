@@ -118,9 +118,9 @@
     <Compile Include="VacationSetDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TM.SaaS.BLLCommonServices\TM.SaaS.BLLCommonServices.csproj">
-      <Project>{17598db5-9d1d-45f9-9ff8-77bd7d9f1b44}</Project>
-      <Name>TM.SaaS.BLLCommonServices</Name>
+    <ProjectReference Include="..\..\TM.SaaS.CommonBll\TM.SaaS.CommonBll.csproj">
+      <Project>{de9be954-ef76-41c2-a6b8-d62e3e2775a3}</Project>
+      <Name>TM.SaaS.CommonBll</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\TM_SaaS_OA_EFModel\TM_SaaS_OA_EFModel.csproj">
       <Project>{7571bce6-3b80-41c1-af97-9118e7f41845}</Project>
