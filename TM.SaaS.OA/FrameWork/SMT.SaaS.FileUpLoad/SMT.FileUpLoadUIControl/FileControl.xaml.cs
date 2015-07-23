@@ -14,7 +14,6 @@ using System.Windows.Data;
 using SMT.FileUpLoad.Classes;
 using System.Collections.ObjectModel;
 using System.Windows.Browser;
-using SMT.Saas.Tools.NewFileUploadWS;
 using System.ComponentModel;
 namespace SMT.FileUpLoad
 {

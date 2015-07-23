@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="dhUO0al1XfrChkRQ4Gbokp9/Wss=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Us9t1MdKneeVAdgIdx5swKufwtI=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="customBinding" name="CustomBinding_IUploadService">
+    <bindingConfiguration bindingType="customBinding" name="CustomBinding_IUploadService1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CustomBinding_IUploadService</serializedValue>
+          <serializedValue>CustomBinding_IUploadService1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService" bindingType="customBinding" address="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc" bindingConfiguration="CustomBinding_IUploadService">
+    <endpoint name="CustomBinding_IUploadService1" contract="NewFileUploadWS.IUploadService" bindingType="customBinding" address="http://localhost:44444/FileUpLoad.svc" bindingConfiguration="CustomBinding_IUploadService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc</serializedValue>
+          <serializedValue>http://localhost:44444/FileUpLoad.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -166,7 +166,7 @@
           <serializedValue>customBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CustomBinding_IUploadService</serializedValue>
+          <serializedValue>CustomBinding_IUploadService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>NewFileUploadWS.IUploadService</serializedValue>
@@ -229,7 +229,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>CustomBinding_IUploadService</serializedValue>
+          <serializedValue>CustomBinding_IUploadService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

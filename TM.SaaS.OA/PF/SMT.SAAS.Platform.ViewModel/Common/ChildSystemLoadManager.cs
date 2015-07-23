@@ -117,13 +117,15 @@ namespace SMT.SAAS.Platform.ViewModel
         void loadMainPage_LoadCompleted(object sender, EventArgs e)
         {
             FrameworkElement MenuUIElement=null;
+
+            string pageObjName = string.Empty;
             try
             {
                 MainPagePartManager loadmain = sender as MainPagePartManager;
                 asmMain = loadmain.asmMain;
 
 
-                string pageObjName = strSystemType.Replace(".xap", "") + ".Views" + menuInfo.URLADDRESS.Replace("/", ".");
+                pageObjName = strSystemType.Replace(".xap", "") + ".Views" + menuInfo.URLADDRESS.Replace("/", ".");
 
 
                 MenuUIElement = asmMain.CreateInstance(pageObjName) as FrameworkElement;
@@ -134,7 +136,7 @@ namespace SMT.SAAS.Platform.ViewModel
             }
             catch (Exception ex)
             {
-                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow("打开的菜单类为" + pageObjName + " 异常："+ex.ToString());
             }
             finally
             {

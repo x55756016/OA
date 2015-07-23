@@ -112,6 +112,10 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
+        <binding name="CustomBinding_IUploadService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
       </customBinding>
     </bindings>
     <client>
@@ -193,6 +197,9 @@
       <endpoint address="http://10.10.0.93:8030/Services/WP/WPServices.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWPServices"
         contract="WpServiceWS.IWPServices" name="BasicHttpBinding_IWPServices" />
+      <endpoint address="http://localhost:44444/FileUpLoad.svc" binding="customBinding"
+        bindingConfiguration="CustomBinding_IUploadService1" contract="NewFileUploadWS.IUploadService"
+        name="CustomBinding_IUploadService1" />
     </client>
 
   </system.serviceModel>

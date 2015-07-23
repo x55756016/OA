@@ -740,6 +740,24 @@
     <None Include="Service References\NewFileUploadWS\FileUpLoad5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad61.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad62.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad63.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad64.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad65.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\NewFileUploadWS\SMT.Saas.Tools.NewFileUploadWS.CallBackResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -747,6 +765,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\NewFileUploadWS\UploadService.wsdl" />
+    <None Include="Service References\NewFileUploadWS\UploadService1.wsdl" />
     <None Include="Service References\OACommonAdminWS\SMT.Saas.Tools.OACommonAdminWS.T_OA_ACCIDENTRECORD.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -1897,6 +1916,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\NewFileUploadWS\FileUpLoad1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
