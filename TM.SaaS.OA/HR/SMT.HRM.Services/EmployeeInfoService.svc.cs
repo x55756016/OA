@@ -3,7 +3,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
-using SMT.SaaS.BLLCommonServices;
 using SMT.HRM.CustomModel;
 using SMT.Foundation.Log;
 using System.Runtime.Serialization.Json;

@@ -43,6 +43,10 @@
           maxReceivedMessageSize="2147483647">
           <security mode="None" />
         </binding>
+        <binding name="BasicHttpBinding_PlatformServices" maxBufferSize="2147483647"
+          maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
       </basicHttpBinding>
       <customBinding>
         <binding name="CustomBinding_OrganizationService">
@@ -69,10 +73,6 @@
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
         <binding name="CustomBinding_FileUploadManager">
-          <binaryMessageEncoding />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
-        <binding name="CustomBinding_PermissionService1">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -113,6 +113,10 @@
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
         <binding name="CustomBinding_IUploadService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="CustomBinding_PermissionService1">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -173,9 +177,6 @@
       <endpoint address="http://localhost:3938/SmtOACommonOffice.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_SmtOACommonOffice1"
         contract="SmtOACommonOfficeService.SmtOACommonOffice" name="CustomBinding_SmtOACommonOffice1" />
-      <endpoint address="http://localhost:1604/PermissionService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService"
-        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/PersonnelService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PersonnelService"
         contract="PersonnelWS.PersonnelService" name="BasicHttpBinding_PersonnelService" />
@@ -200,6 +201,12 @@
       <endpoint address="http://localhost:44444/FileUpLoad.svc" binding="customBinding"
         bindingConfiguration="CustomBinding_IUploadService1" contract="NewFileUploadWS.IUploadService"
         name="CustomBinding_IUploadService1" />
+      <endpoint address="http://localhost:22222/PlatformServices.svc"
+        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />
+      <endpoint address="http://localhost:12168/PermissionService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+        contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
     </client>
 
   </system.serviceModel>

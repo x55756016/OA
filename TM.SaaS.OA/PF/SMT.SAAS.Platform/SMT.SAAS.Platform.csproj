@@ -92,6 +92,9 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Interactions">
       <HintPath>..\..\SMT.SaaS.CommonDll\MicroSoft Lib\Client\Microsoft.Expression.Interactions.dll</HintPath>
@@ -367,9 +370,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\SMT.SAAS.DictionaryUtility.csproj">
+    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.ClientUtility\SMT.SAAS.ClientUtility.csproj">
       <Project>{d7e796f2-24fc-456e-85e3-a980e1f46f7e}</Project>
-      <Name>SMT.SAAS.DictionaryUtility</Name>
+      <Name>SMT.SAAS.ClientUtility</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
       <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
@@ -449,7 +452,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>del C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com\SMT.SAAS.Platform.xap;
-xcopy SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
+    <PostBuildEvent>xcopy /y SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -126,9 +126,6 @@
     <Reference Include="SMT.SaaS.LocalData">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContext">
-      <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Main.CurrentContext.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
     </Reference>
@@ -3096,6 +3093,10 @@
     <ProjectReference Include="..\..\Framework\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>

@@ -270,7 +270,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
             }
             catch (Exception ex)
             {
-
+                AppContext.logAndShow(ex.ToString());
             }
         }
 

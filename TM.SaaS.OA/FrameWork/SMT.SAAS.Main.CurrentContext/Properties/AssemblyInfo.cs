@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 一组属性控制。更改这些属性值可修改
 // 与程序集相关的信息。
 [assembly: AssemblyTitle("SMT.SAAS.Main.CurrentContext")]
-[assembly: AssemblyDescription("用户信息及权限信息、子系统密码错误提示、岗位验证")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("深圳市科技有限公司")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SMT.SAAS.Main.CurrentContext")]
-[assembly: AssemblyCopyright("Copyright ©  2010")]
+[assembly: AssemblyCopyright("Copyright ©ken  20115")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

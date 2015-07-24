@@ -174,6 +174,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PlatformWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\PublicInterfaceWS\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1183,16 +1188,7 @@
     <None Include="Service References\PermissionWS\PermissionService18.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PermissionWS\PermissionService19.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\PermissionWS\PermissionService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PermissionWS\PermissionService20.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PermissionWS\PermissionService21.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PermissionWS\PermissionService3.xsd">
@@ -1216,13 +1212,38 @@
     <None Include="Service References\PermissionWS\PermissionService9.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\EngineWS\configuration91.svcinfo" />
+    <None Include="Service References\EngineWS\configuration.svcinfo" />
+    <None Include="Service References\EngineWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FlowDesignerWS\configuration91.svcinfo" />
+    <None Include="Service References\FlowDesignerWS\configuration.svcinfo" />
+    <None Include="Service References\FlowDesignerWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FBServiceWS\configuration91.svcinfo" />
+    <None Include="Service References\FBServiceWS\configuration.svcinfo" />
+    <None Include="Service References\FBServiceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AttendanceWS\AttendanceService.disco" />
+    <None Include="Service References\AttendanceWS\configuration91.svcinfo" />
+    <None Include="Service References\AttendanceWS\configuration.svcinfo" />
+    <None Include="Service References\AttendanceWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.CustomerPermission.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.FlowUserInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY1.datasource">
+    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_COUNTRY.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.T_SYS_DICTIONARY.datasource">
@@ -1282,10 +1303,16 @@
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_PermissionUpdateState.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_ProvinceCity1.datasource">
+    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_ProvinceCity.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_RoleEntity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_RoleUserInfo3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_SupperFbAdmin3.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_UserLoginRecord.datasource">
@@ -1305,31 +1332,6 @@
     </None>
     <None Include="Service References\PermissionWS\SMT.Saas.Tools.PermissionWS.V_UserPermissionUI.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\EngineWS\configuration91.svcinfo" />
-    <None Include="Service References\EngineWS\configuration.svcinfo" />
-    <None Include="Service References\EngineWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\FlowDesignerWS\configuration91.svcinfo" />
-    <None Include="Service References\FlowDesignerWS\configuration.svcinfo" />
-    <None Include="Service References\FlowDesignerWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\FBServiceWS\configuration91.svcinfo" />
-    <None Include="Service References\FBServiceWS\configuration.svcinfo" />
-    <None Include="Service References\FBServiceWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\AttendanceWS\AttendanceService.disco" />
-    <None Include="Service References\AttendanceWS\configuration91.svcinfo" />
-    <None Include="Service References\AttendanceWS\configuration.svcinfo" />
-    <None Include="Service References\AttendanceWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PersonalRecordWS\PersonalRecordService.wsdl" />
     <None Include="Service References\PersonalRecordWS\PersonalRecordService.xsd">
@@ -1550,6 +1552,46 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonnelWS\SMT.Saas.Tools.PersonnelWS.V_PROJECTPOINT.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices.wsdl" />
+    <None Include="Service References\PlatformWS\PlatformServices.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\PlatformServices6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.ModuleInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.ShortCut.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_DISTRIBUTEUSER.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWSListView.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PlatformWS\SMT.Saas.Tools.PlatformWS.T_PF_NEWSView.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PublicInterfaceWS\PublicService1.wsdl" />
@@ -1856,7 +1898,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <None Include="Service References\DailyManagementWS\DailyManagementServices1.disco" />
     <None Include="Service References\WpServiceWS\SMT.Saas.Tools.WpServiceWS.BussinessTripBudget.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -1917,6 +1958,14 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\NewFileUploadWS\FileUpLoad1.disco" />
+    <None Include="Service References\PlatformWS\PlatformServices.disco" />
+    <None Include="Service References\PlatformWS\configuration91.svcinfo" />
+    <None Include="Service References\PlatformWS\configuration.svcinfo" />
+    <None Include="Service References\PlatformWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PermissionWS\PermissionService1.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
@@ -2004,6 +2053,7 @@
     <WCFMetadataStorage Include="Service References\PermissionWS\" />
     <WCFMetadataStorage Include="Service References\PersonalRecordWS\" />
     <WCFMetadataStorage Include="Service References\PersonnelWS\" />
+    <WCFMetadataStorage Include="Service References\PlatformWS\" />
     <WCFMetadataStorage Include="Service References\PublicInterfaceWS\" />
     <WCFMetadataStorage Include="Service References\SalaryWS\" />
     <WCFMetadataStorage Include="Service References\SmtOACommonOfficeService\" />

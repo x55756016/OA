@@ -74,7 +74,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SMT.SAAS.Window.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SMT.SAAS.AnimationEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=82f241c0c887c443, processorArchitecture=MSIL">
@@ -126,9 +127,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SMT.SaaS.Window.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">

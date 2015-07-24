@@ -407,7 +407,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 streamInfo = Application.GetResourceStream(new StreamResourceInfo(XapfileStream, "application/binary"), new Uri(DllSourceName, UriKind.Relative));
                                 string xapshotName = LoadXapName.Replace(".xap", "");
                                 string dllshotName= DllSourceName.Replace(".dll", "");
-                                if (XapName.ToUpper().Contains("XAP") && xapshotName == dllshotName)
+                                if (XapName.ToUpper().Contains("XAP") && xapshotName.ToUpper() == dllshotName.ToUpper())
                                 {
                                     asmMain = asmPart.Load(streamInfo.Stream);
                                 }

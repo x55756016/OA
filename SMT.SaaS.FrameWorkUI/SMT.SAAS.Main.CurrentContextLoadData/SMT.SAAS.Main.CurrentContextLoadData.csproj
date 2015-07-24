@@ -62,6 +62,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="SMT.Saas.Tools, Version=1.1.1.1220, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SmtWorkSpace\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.Saas.Tools.dll</HintPath>
+    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -84,10 +88,6 @@
     <ProjectReference Include="..\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
       <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
       <Name>SMT.SAAS.Main.CurrentContext</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
-      <Project>{9484C541-B0A2-437A-8C6F-0BFD7E13934E}</Project>
-      <Name>SMT.Saas.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
       <Project>{0FE5E626-1839-47B9-9457-79D042153EE0}</Project>
