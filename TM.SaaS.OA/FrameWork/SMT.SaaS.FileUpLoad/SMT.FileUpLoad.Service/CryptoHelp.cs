@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.IO;
+using SMT.Foundation.Log;
 
 namespace SMT.FileUpLoad.Service
 {
@@ -127,7 +128,7 @@ namespace SMT.FileUpLoad.Service
         /// <param name="password">加密密码</param>
         public static void EncryptFileForMVC(string inFile, string outFile, string password)
         {
-            SMT.Foundation.Log.Tracer.Debug("MVC上传文件开始加密:");
+            Tracer.Debug("MVC上传文件开始加密:");
             using (FileStream fin = File.OpenRead(inFile))
             {
                 try
@@ -185,13 +186,13 @@ namespace SMT.FileUpLoad.Service
                         cout.Close();
                         fin.Close();
                         fin.Dispose();
-                        SMT.Foundation.Log.Tracer.Debug("MVC上传文件加密时开始删除文件:");
+                        Tracer.Debug("MVC上传文件加密时开始删除文件:");
                         File.Delete(inFile);
                     }
                 }
                 catch (Exception ex)
                 {
-                    SMT.Foundation.Log.Tracer.Debug("MVC上传文件加密时出现错误:" + ex.ToString());
+                    Tracer.Debug("MVC上传文件加密时出现错误:" + ex.ToString());
                 }
             }
         }

@@ -33,9 +33,6 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
                 if (_items != value)
                 {
                     this._items = value;
-                    //if (this._items.Count > 0)
-                    //    CurrentEntity = _items[0];
-
                     base.RaisePropertyChanged("Items");
                 }
             }

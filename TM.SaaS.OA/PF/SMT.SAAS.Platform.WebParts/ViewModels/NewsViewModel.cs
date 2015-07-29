@@ -34,7 +34,7 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
            new NewsState(){ID=1,Name="发  布"},
            new NewsState(){ID=2,Name="关  闭"}
         };
-        private string _newsid = Guid.NewGuid().ToString();
+        private string _newsid = string.Empty;
         private NewsType _newstype;
         private string _newstitel = string.Empty;
         private byte[] _newscontent = new byte[0];
@@ -364,16 +364,16 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
         {
             if (IsAdd)
             {
-                AddNews();
+                AddNewsContent();
             }
             else
             {
                 UpdateNews();
             }
         }
-        private void AddNews()
+        private void AddNewsContent()
         {
-            _Services.AddEntityByViewer(ConventToModel(this));
+            _Services.AddNewsContent(ConventToModel(this));
             _Services.OnExectNoQueryCompleted += (obj, args) =>
             {
                 if (args.Result)
@@ -511,7 +511,7 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
         #region 公有方法 Public Method
         public ICommand SaveEntity
         {
-            get { return new Foundation.RelayCommand(AddNews); }
+            get { return new Foundation.RelayCommand(AddNewsContent); }
         }
         public ICommand UpdateEntity
         {

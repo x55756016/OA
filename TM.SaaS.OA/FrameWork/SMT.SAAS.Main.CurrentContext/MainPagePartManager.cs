@@ -23,6 +23,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
 {
     public class MainPagePartManager
     {
+        //private static List<string> alreadyLoadedAssemblysList;
         /// <summary>
         /// 加载dll完成事件
         /// </summary>
@@ -100,6 +101,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         #endregion
         public MainPagePartManager()
         {
+            //if (alreadyLoadedAssemblysList == null) alreadyLoadedAssemblysList = new List<string>();
             bkGroundWorker.WorkerReportsProgress = true;
             bkGroundWorker.WorkerSupportsCancellation = true;
             bkGroundWorker.DoWork += new DoWorkEventHandler(bw_DoWork);
@@ -371,6 +373,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     List<string> dllDelete = new List<string>();
                     foreach (XElement xElement in deploymentParts)
                     {
+                        if (xElement.Name.LocalName != "AssemblyPart" &&
+                            xElement.Name.LocalName != "ExtensionPart") continue;
                         if (xElement.Attribute("Source").Value.Contains("zip")
                             && !IosManager.ExistsFile(FilePath + @"/" + xElement.Attribute("Source").Value))
                         {
@@ -390,17 +394,17 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                     {
                         try
                         {
+                            if (xElement.Name.LocalName != "AssemblyPart" &&
+                            xElement.Name.LocalName != "ExtensionPart") continue;
                             DllSourceName = xElement.Attribute("Source").Value;
                             if (DllSourceName.Contains("SMT.SaaS.FrameworkUI"))
                             {
-
-
-
                             }
                             dtstart = DateTime.Now;
                             //form.setLoadmingMessage( "正在加载：" + DllSourceName);
                             if (!DllSourceName.Contains("zip"))
                             {
+                                //if (alreadyLoadedAssemblysList.Contains(DllSourceName)) continue;
                                 //直接加载dll
                                 asmPart = new AssemblyPart();
                                 asmPart.Source = DllSourceName;
@@ -415,6 +419,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 {
                                    var a = asmPart.Load(streamInfo.Stream);                                    
                                 }
+                                //alreadyLoadedAssemblysList.Add(DllSourceName);
                                 streamInfo.Stream.Close();
                             }
                             else
@@ -422,6 +427,8 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                 //加载zip包                   
                                 if (DllSourceName.Contains("zip"))
                                 {
+                                    string dllName = DllSourceName.Replace("zip", "dll");
+                                    //if (alreadyLoadedAssemblysList.Contains(dllName)) continue;
                                     //打开本地zip包流                
                                     IsolatedStorageFileStream zipfileStream = IosManager.GetFileStream(FilePath + @"/" + DllSourceName);
                                     streamInfo = Application.GetResourceStream(new StreamResourceInfo(zipfileStream, "application/binary"), new Uri(DllSourceName.Replace("zip", "dll"), UriKind.Relative));
@@ -430,6 +437,7 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
                                     var a = asmPart.Load(streamInfo.Stream);
                                     streamInfo.Stream.Close();
                                     SMT.SAAS.Main.CurrentContext.AppContext.SystemMessage("从Zip文件中加载程序集： " + a.FullName);
+                                    //alreadyLoadedAssemblysList.Add(dllName);
                                 }
                             }
                             dtend = DateTime.Now;

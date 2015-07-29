@@ -20,7 +20,7 @@ namespace SMT.SaaS.PublicInterface.BLL
                 if (SystemCode == null || SystemCode == "" || BusinessObjectName == null || BusinessObjectName == "")
                     return null;
                 string Path = AppDomain.CurrentDomain.BaseDirectory;
-                Path = Path +@"BusinessObject\"+SystemCode+@"\" +BusinessObjectName + ".xml";
+                Path = Path +@"BusinessObjects\"+SystemCode+@"\" +BusinessObjectName + ".xml";
                 Tracer.Debug("GetBusinessObject,filePath" + Path);
                 if (!File.Exists(Path))
                     return null;

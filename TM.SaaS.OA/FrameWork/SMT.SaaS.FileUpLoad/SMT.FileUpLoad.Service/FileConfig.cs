@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.IO;
 using System.Configuration;
+using SMT.Foundation.Log;
 
 namespace SMT.FileUpLoad.Service
 {
@@ -188,7 +189,7 @@ namespace SMT.FileUpLoad.Service
                 }
                 catch(Exception ex)
                 {
-                    SMT.Foundation.Log.Tracer.Debug("添加配置文件出错：" + ex.ToString());
+                    Tracer.Debug("添加配置文件出错：" + ex.ToString());
                 }
 
 

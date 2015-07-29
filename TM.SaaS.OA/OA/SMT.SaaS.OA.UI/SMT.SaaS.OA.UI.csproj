@@ -3661,7 +3661,7 @@
       <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
       <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FileUpLoad\SMT.FileUpLoad\SMT.FileUpLoad.csproj">
+    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.FileUpLoad\SMT.FileUpLoadUIControl\SMT.FileUpLoad.csproj">
       <Project>{3b32fb59-a762-4e76-880f-3bd4721a4d27}</Project>
       <Name>SMT.FileUpLoad</Name>
     </ProjectReference>

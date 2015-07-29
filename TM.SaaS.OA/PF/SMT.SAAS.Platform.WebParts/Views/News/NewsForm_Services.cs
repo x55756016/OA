@@ -16,6 +16,7 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
     {
 
         SMT.Saas.Tools.PublicInterfaceWS.PublicServiceClient publicWS;
+        SMT.Saas.Tools.NewFileUploadWS.UploadServiceClient fileClient;
         /// <summary>
         /// 获取新闻列表完成事件
         /// </summary>
@@ -35,7 +36,7 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
             servers = new BasicServices();
             client = servers.PlatformClient;
             publicWS = new Saas.Tools.PublicInterfaceWS.PublicServiceClient();
-
+            fileClient = new Saas.Tools.NewFileUploadWS.UploadServiceClient();
             RegisterServices();
         }
         #endregion
@@ -108,16 +109,15 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
 
         void publicWS_GetContentCompleted(object sender, Saas.Tools.PublicInterfaceWS.GetContentCompletedEventArgs e)
         {
-
-            _currentGetDetailslist[0].NEWSCONTENT = e.Result;
-
+            try
+            {
+                _currentGetDetailslist[0].NEWSCONTENT = e.Result;
+            }catch(Exception ex)
+            {
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
+            }
             if (OnGetNewsListCompleted != null)
                 OnGetNewsListCompleted(this, new GetEntityListEventArgs<NewsModel>(_currentGetDetailslist, e.Error));
-        }
-
-        void publicWS_DeleteContentCompleted(object sender, Saas.Tools.PublicInterfaceWS.DeleteContentCompletedEventArgs e)
-        {
-            client.DeleteNewsAsync(_currentDeleteModel.NEWSID);
         }
 
         void publicWS_UpdateContentCompleted(object sender, Saas.Tools.PublicInterfaceWS.UpdateContentCompletedEventArgs e)
@@ -283,7 +283,7 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
 
                 UPDATEDATE = dt,
 
-                NEWSID = clientModel.NEWSID.Length > 0 ? clientModel.NEWSID : Guid.NewGuid().ToString(),
+                NEWSID = clientModel.NEWSID,
                 NEWSCONTENT = clientModel.NEWSCONTENT,
                 NEWSSTATE = clientModel.NEWSSTATE,
                 NEWSTITEL = clientModel.NEWSTITEL,
@@ -388,23 +388,23 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
         /// 新增数据到数据库
         /// </summary>
         /// <param name="clientModel">数据实体</param>
-        public void AddEntity(NewsModel clientModel)
-        {
-            _currentAddModel = clientModel;
-            SMT.Saas.Tools.PlatformWS.T_PF_NEWS _entity = ModelToEntity(clientModel);
-            //1.添加新闻富文本框内容
-            publicWS.AddContentAsync(_entity.NEWSID, _entity.NEWSCONTENT, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, "Platform", "News", new Saas.Tools.PublicInterfaceWS.UserInfo()
-            {
-                COMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID,
-                DEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID,
-                POSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID,
-                USERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID,
-                USERNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserName
-            });
+        //public void AddEntity(NewsModel clientModel)
+        //{
+        //    _currentAddModel = clientModel;
+        //    SMT.Saas.Tools.PlatformWS.T_PF_NEWS _entity = ModelToEntity(clientModel);
+        //    //1.添加新闻富文本框内容
+        //    publicWS.AddContentAsync(_entity.NEWSID, _entity.NEWSCONTENT, SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID, "Platform", "News", new Saas.Tools.PublicInterfaceWS.UserInfo()
+        //    {
+        //        COMPANYID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].CompanyID,
+        //        DEPARTMENTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].DepartmentID,
+        //        POSTID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserPosts[0].PostID,
+        //        USERID = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.SysUserID,
+        //        USERNAME = SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.UserName
+        //    });
 
-            //client.AddNewsAsync(_entity);
-        }
-        public void AddEntityByViewer(NewsModel clientModel)
+        //    //client.AddNewsAsync(_entity);
+        //}
+        public void AddNewsContent(NewsModel clientModel)
         {
             _currentAddModel = clientModel;
 
@@ -439,6 +439,10 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
         #endregion
 
         #region 事件函数 Event Hanlder
+        void publicWS_DeleteContentCompleted(object sender, Saas.Tools.PublicInterfaceWS.DeleteContentCompletedEventArgs e)
+        {
+            client.DeleteNewsAsync(_currentDeleteModel.NEWSID);
+        }
         private void client_DeleteNewsCompleted(object sender, DeleteNewsCompletedEventArgs e)
         {
             bool result = false;
@@ -446,6 +450,7 @@ namespace SMT.SAAS.Platform.WebParts.ClientServices
             {
                 result = e.Result;
             }
+            fileClient.DeleteFileByOnlyApplicationIDAsync(_currentDeleteModel.NEWSID);
             if (OnExectNoQueryCompleted != null)
                 OnExectNoQueryCompleted(this, new ExectNoQueryEventArgs(result, e.Error));
         }

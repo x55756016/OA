@@ -176,19 +176,17 @@ namespace SMT.SAAS.Platform.BLL
                 var ents = from e in dal.GetObjects()
                            where e.NEWSID == _newsID
                            select e;
-                var delete = from o in dal.GetObjects<T_PF_DISTRIBUTEUSER>()
+                var delete = (from o in dal.GetObjects<T_PF_DISTRIBUTEUSER>()
                              where o.FORMID == _newsID
-                             select o;
+                             select o).ToList();
 
                 //获取实体是否存在
-                if (delete.Count() > 0)
+                if (delete!=null)
                 {
                     foreach (var item in delete) //遍历实体
                     {
                         dal.DeleteFromContext(item);
                     }
-
-                    dal.SaveContextChanges();
                 }
 
                 //获取实体是否存在

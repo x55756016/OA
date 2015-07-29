@@ -29,9 +29,9 @@ namespace SMT.SaaS.PublicInterface
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            PublicService sv = new PublicService();
-            string str = sv.GetContentFormatImgToUrl("128ef005-4006-4d37-acc7-8e2bb05abfa6");
-            Response.Write(str);
+            //PublicService sv = new PublicService();
+            //string str = sv.GetContentFormatImgToUrl("128ef005-4006-4d37-acc7-8e2bb05abfa6");
+            //Response.Write(str);
         }
     }
 }

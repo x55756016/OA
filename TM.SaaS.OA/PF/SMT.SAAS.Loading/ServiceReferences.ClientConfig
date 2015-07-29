@@ -699,16 +699,16 @@
       <endpoint address="http://www.oa12.com/Services/HR/EmployeeInfoService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_EmployeeInfoService"
         contract="EmployeeInfoWS.EmployeeInfoService" name="CustomBinding_EmployeeInfoService" />
-    
-      <!--<endpoint address="http://www.oa12.com/Services/File/FileUpLoad.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
-        contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />-->     
+
+      <!--<endpoint address="http://www.oa12.com/Services/File/FileUpLoad.svc" binding="customBinding"
+             bindingConfiguration="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService"
+             name="CustomBinding_IUploadService" />--> 
       <!--<endpoint address="http://www.oa12.com/Services/PF/PlatformServices.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
-        contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
+  binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PlatformServices"
+  contract="PlatformWS.PlatformServices" name="BasicHttpBinding_PlatformServices" />-->
       <!--<endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />-->
+  binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+  contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />-->
       
         <endpoint address="http://localhost:44444/FileUpLoad.svc" binding="customBinding"
         bindingConfiguration="CustomBinding_IUploadService" contract="NewFileUploadWS.IUploadService"

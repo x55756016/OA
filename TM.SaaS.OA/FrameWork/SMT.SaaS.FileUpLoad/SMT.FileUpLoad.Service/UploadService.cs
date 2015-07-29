@@ -16,6 +16,7 @@ using TM_SaaS_OA_EFModel;
 using SMT.SAAS.MP.DAL;
 using System.ServiceModel;
 using System.Security.Cryptography;
+using SMT.Foundation.Log;
 
 namespace SMT.FileUpLoad.Service
 {
@@ -94,11 +95,11 @@ namespace SMT.FileUpLoad.Service
                         string OldPath = model.SavePath.Split('{')[0].TrimEnd('\\');
                         if (CreateDirectory(path, UserName, StrPwd, OldPath))
                         {
-                            SMT.Foundation.Log.Tracer.Debug("创建了驱动器映射");
+                            Tracer.Debug("创建了驱动器映射");
                         }
                         else
                         {
-                            SMT.Foundation.Log.Tracer.Debug("有问题");
+                            Tracer.Debug("有问题");
                         }
                         //Directory.CreateDirectory(@"Z:\" + model.CompanyCode + @"\" + model.SystemCode + @"\" + model.ModelCode);
                         //file1.SaveAs(@"Z:/newfolder/test.jpg");
@@ -225,11 +226,11 @@ namespace SMT.FileUpLoad.Service
                                 string OldPath = model.SavePath.Split('{')[0].TrimEnd('\\');
                                 if (CreateDirectory(path, UserName, StrPwd, OldPath))
                                 {
-                                    SMT.Foundation.Log.Tracer.Debug("创建了驱动器映射");
+                                    Tracer.Debug("创建了驱动器映射");
                                 }
                                 else
                                 {
-                                    SMT.Foundation.Log.Tracer.Debug("有问题");
+                                    Tracer.Debug("有问题");
                                 }
                                 //Directory.CreateDirectory(@"Z:\" + model.CompanyCode + @"\" + model.SystemCode + @"\" + model.ModelCode);
                                 //file1.SaveAs(@"Z:/newfolder/test.jpg");
@@ -267,11 +268,11 @@ namespace SMT.FileUpLoad.Service
             }
             catch (Exception ex)
             {                
-                SMT.Foundation.Log.Tracer.Debug("model.SavePath:" +model.SavePath);
-                SMT.Foundation.Log.Tracer.Debug("model.CompanyCode:" +model.CompanyCode);
-                SMT.Foundation.Log.Tracer.Debug("model.SystemCode:" +model.SystemCode);
-                SMT.Foundation.Log.Tracer.Debug("model.ModelCode:" +model.ModelCode);
-                SMT.Foundation.Log.Tracer.Debug("调用上传文件出错："+ex.ToString());
+                Tracer.Debug("model.SavePath:" +model.SavePath);
+                Tracer.Debug("model.CompanyCode:" +model.CompanyCode);
+                Tracer.Debug("model.SystemCode:" +model.SystemCode);
+                Tracer.Debug("model.ModelCode:" +model.ModelCode);
+                Tracer.Debug("调用上传文件出错："+ex.ToString());
             }
             return NewPath;
         }
@@ -281,7 +282,7 @@ namespace SMT.FileUpLoad.Service
             string NewPath = "";
             try
             {
-                SMT.Foundation.Log.Tracer.Debug("mvc2.0开始添加上传文件的记录");
+                Tracer.Debug("mvc2.0开始添加上传文件的记录");
                 string strPath = string.Format(model.SavePath, model.CompanyCode, model.SystemCode, model.ModelCode);
 
                 NewPath = Path.Combine(strPath, strMd5Name); //还未上传完成的路径
@@ -296,7 +297,7 @@ namespace SMT.FileUpLoad.Service
                     PassWordKey = "12345678";
                 }
                 string strTempName = Path.Combine(strPath, strMd5Name);//已经上传完成的路径
-                SMT.Foundation.Log.Tracer.Debug("开始添加上传文件的记录strTempName：" + strTempName);
+                Tracer.Debug("开始添加上传文件的记录strTempName：" + strTempName);
                 
                 NewPath = strTempName;//最近返回已完成的路径
                 T_SYS_FILELIST entity = new T_SYS_FILELIST();
@@ -344,24 +345,24 @@ namespace SMT.FileUpLoad.Service
                 int intResult = dal.AddEntity(entity);
                 if (intResult > 0)
                 {
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加成功:" + entity.APPLICATIONID);
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加FileUrl成功:" + entity.FILEURL);
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加FileName成功:" + entity.FILENAME);
+                    Tracer.Debug("SaveUploadFileForMvc添加成功:" + entity.APPLICATIONID);
+                    Tracer.Debug("SaveUploadFileForMvc添加FileUrl成功:" + entity.FILEURL);
+                    Tracer.Debug("SaveUploadFileForMvc添加FileName成功:" + entity.FILENAME);
                 }
                 else
                 {
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加失败:" + entity.APPLICATIONID);
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加FileUrl失败:" + entity.FILEURL);
-                    SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc添加FileName失败:" + entity.FILENAME);
+                    Tracer.Debug("SaveUploadFileForMvc添加失败:" + entity.APPLICATIONID);
+                    Tracer.Debug("SaveUploadFileForMvc添加FileUrl失败:" + entity.FILEURL);
+                    Tracer.Debug("SaveUploadFileForMvc添加FileName失败:" + entity.FILENAME);
                 }
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc操作model.SavePath:" + model.SavePath);
-                SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc操作model.CompanyCode:" + model.CompanyCode);
-                SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc操作.SystemCode:" + model.SystemCode);
-                SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc操作model.ModelCode:" + model.ModelCode);
-                SMT.Foundation.Log.Tracer.Debug("SaveUploadFileForMvc操作调用上传文件出错：" + ex.ToString());
+                Tracer.Debug("SaveUploadFileForMvc操作model.SavePath:" + model.SavePath);
+                Tracer.Debug("SaveUploadFileForMvc操作model.CompanyCode:" + model.CompanyCode);
+                Tracer.Debug("SaveUploadFileForMvc操作.SystemCode:" + model.SystemCode);
+                Tracer.Debug("SaveUploadFileForMvc操作model.ModelCode:" + model.ModelCode);
+                Tracer.Debug("SaveUploadFileForMvc操作调用上传文件出错：" + ex.ToString());
                 NewPath = "";
             }
             return NewPath;
@@ -443,11 +444,11 @@ namespace SMT.FileUpLoad.Service
             }
             catch (Exception ex)
             {                
-                SMT.Foundation.Log.Tracer.Debug("model.SavePath:" +model.SavePath);
-                SMT.Foundation.Log.Tracer.Debug("model.CompanyCode:" +model.CompanyCode);
-                SMT.Foundation.Log.Tracer.Debug("model.SystemCode:" +model.SystemCode);
-                SMT.Foundation.Log.Tracer.Debug("model.ModelCode:" +model.ModelCode);
-                SMT.Foundation.Log.Tracer.Debug("调用上传文件出错："+ex.ToString());
+                Tracer.Debug("model.SavePath:" +model.SavePath);
+                Tracer.Debug("model.CompanyCode:" +model.CompanyCode);
+                Tracer.Debug("model.SystemCode:" +model.SystemCode);
+                Tracer.Debug("model.ModelCode:" +model.ModelCode);
+                Tracer.Debug("调用上传文件出错："+ex.ToString());
             }
             return NewPath;
         }
@@ -671,7 +672,7 @@ namespace SMT.FileUpLoad.Service
         }
         public CallBackResult GetFileListByOnlyApplicationID(string applicationid)
         {
-            SMT.Foundation.Log.Tracer.Debug("开始获取文件");
+            Tracer.Debug("开始获取文件");
             return  dal.GetFileListByOnlyApplicationID(applicationid);
         }
 
@@ -985,8 +986,8 @@ namespace SMT.FileUpLoad.Service
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("文件加密出现错误" + ex.ToString());
-                SMT.Foundation.Log.Tracer.Debug("文件名："+ FileName +"加密字符串为：" +StrPwd);
+                Tracer.Debug("文件加密出现错误" + ex.ToString());
+                Tracer.Debug("文件名："+ FileName +"加密字符串为：" +StrPwd);
 
             }
         }
@@ -1051,13 +1052,13 @@ namespace SMT.FileUpLoad.Service
                 }
                 else
                 {
-                    SMT.Foundation.Log.Tracer.Debug("添加网络驱动器错误，错误号：" + state.ToString());
+                    Tracer.Debug("添加网络驱动器错误，错误号：" + state.ToString());
                     throw new Exception("添加网络驱动器错误，错误号：" + state.ToString());
                 }
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("添加网络驱动器错误，错误号：" + ex.ToString());
+                Tracer.Debug("添加网络驱动器错误，错误号：" + ex.ToString());
 
             }
             return IsReturn;
@@ -1072,7 +1073,7 @@ namespace SMT.FileUpLoad.Service
         /// <returns></returns>
         public string CreateCompanyDirectory(string companyID, string companyName, string companyCode)
         {
-            SMT.Foundation.Log.Tracer.Debug("公司:"+companyName+"开始创建文件夹："+companyID);
+            Tracer.Debug("公司:"+companyName+"开始创建文件夹："+companyID);
             return dal.CreateCompanyDirectory(companyID,companyName,companyCode);
         }
 

@@ -9,6 +9,7 @@ using TM_SaaS_OA_EFModel;
 using System.Web;
 using System.IO;
 using System.Configuration;
+using SMT.Foundation.Log;
 
 namespace SMT.FileUpLoad.Service
 {
@@ -266,7 +267,7 @@ namespace SMT.FileUpLoad.Service
                 if (ents.Count() > 0)
                 {                  
                     result.FileList = ents.ToList();
-                    SMT.Foundation.Log.Tracer.Debug("获取的数量" + result.FileList.ToList().Count());
+                    Tracer.Debug("获取的数量" + result.FileList.ToList().Count());
                 }
 
             }
@@ -327,21 +328,24 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<T_SYS_FILELIST>()
+            var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode && det.MODELCODE == modelcode && det.APPLICATIONID==applicationid 
-                       select det;//找出原有的实体
-            foreach (T_SYS_FILELIST file in list)
-            {
-                string fileurl = file.FILEURL;
-                string fileaddress = string.Concat(savepath, fileurl);
-                if (DeleteEntity(file) > 0)
+                       select det).ToList();//找出原有的实体
+            if (list != null)
+            {//找出原有的实体
+                foreach (T_SYS_FILELIST file in list)
                 {
-                    if (File.Exists(fileaddress))
+                    string fileurl = file.FILEURL;
+                    string fileaddress = string.Concat(savepath, fileurl);
+                    if (DeleteEntity(file) > 0)
                     {
-                        File.Delete(fileaddress);
+                        if (File.Exists(fileaddress))
+                        {
+                            File.Delete(fileaddress);
+                        }
                     }
+                    //  li.Add(fileaddress); 
                 }
-                //  li.Add(fileaddress); 
             }
             return applicationid;
         }
@@ -358,42 +362,45 @@ namespace SMT.FileUpLoad.Service
         {
             try
             {
-                var list = from det in base.GetObjects<T_SYS_FILELIST>()
+                var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                            where det.APPLICATIONID == applicationid
                            && det.FILEURL == FileName
-                           select det;//找出原有的实体
-                foreach (T_SYS_FILELIST file in list)
-                {
-                    string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
-                    string fileurl = file.FILEURL;
-                    string fileaddress = string.Concat(savepath, fileurl);
-                    if (DeleteEntity(file) > 0)
+                           select det).ToList();//找出原有的实体
+                if (list != null)
+                {//找出原有的实体
+                    foreach (T_SYS_FILELIST file in list)
                     {
-                        var listExists = from det in base.GetObjects<T_SYS_FILELIST>()
-                                         where det.FILEURL == FileName
-                                         select det;//找出原有的实体
-                        //只有上传的文件不存在被其它文件使用则删除该文件
-                        //即一个文件可能会已经上传
-                        if (listExists.Count() == 0)
+                        string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
+                        string fileurl = file.FILEURL;
+                        string fileaddress = string.Concat(savepath, fileurl);
+                        if (DeleteEntity(file) > 0)
                         {
-                            if (File.Exists(fileaddress))
+                            var listExists = from det in base.GetObjects<T_SYS_FILELIST>()
+                                             where det.FILEURL == FileName
+                                             select det;//找出原有的实体
+                            //只有上传的文件不存在被其它文件使用则删除该文件
+                            //即一个文件可能会已经上传
+                            if (listExists.Count() == 0)
                             {
-                                File.Delete(fileaddress);
+                                if (File.Exists(fileaddress))
+                                {
+                                    File.Delete(fileaddress);
+                                }
+                                else
+                                {
+                                    return "-1";
+                                }
                             }
-                            else
-                            {
-                                return "-1";
-                            }
+
                         }
 
                     }
-
                 }
                 return "1";
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("删除上传附件出现错误:删除ID为："+ applicationid+",错误信息为："+ex.ToString());
+                Tracer.Debug("删除上传附件出现错误:删除ID为："+ applicationid+",错误信息为："+ex.ToString());
                 return "0";
             }
             
@@ -409,21 +416,24 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<T_SYS_FILELIST>()
+            var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode && det.MODELCODE==modelcode
-                       select det;//找出原有的实体
-            foreach (T_SYS_FILELIST file in list)
+                       select det).ToList();//找出原有的实体
+            if (list != null)
             {
-                string fileurl = file.FILEURL;
-                string fileaddress = string.Concat(savepath, fileurl);
-                if (DeleteEntity(file) > 0)
+                foreach (T_SYS_FILELIST file in list)
                 {
-                    if (File.Exists(fileaddress))
+                    string fileurl = file.FILEURL;
+                    string fileaddress = string.Concat(savepath, fileurl);
+                    if (DeleteEntity(file) > 0)
                     {
-                        File.Delete(fileaddress);
+                        if (File.Exists(fileaddress))
+                        {
+                            File.Delete(fileaddress);
+                        }
                     }
+                    //  li.Add(fileaddress); 
                 }
-                //  li.Add(fileaddress); 
             }
             return modelcode;
         }
@@ -437,21 +447,24 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<T_SYS_FILELIST>()
+            var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode && det.SYSTEMCODE == systemcode
-                       select det;//找出原有的实体
-            foreach (T_SYS_FILELIST file in list)
+                       select det).ToList();//找出原有的实体
+            if (list != null)
             {
-                string fileurl = file.FILEURL;
-                string fileaddress = string.Concat(savepath, fileurl);
-                if (DeleteEntity(file) > 0)
+                foreach (T_SYS_FILELIST file in list)
                 {
-                    if (File.Exists(fileaddress))
+                    string fileurl = file.FILEURL;
+                    string fileaddress = string.Concat(savepath, fileurl);
+                    if (DeleteEntity(file) > 0)
                     {
-                        File.Delete(fileaddress);
+                        if (File.Exists(fileaddress))
+                        {
+                            File.Delete(fileaddress);
+                        }
                     }
+                    //  li.Add(fileaddress); 
                 }
-                //  li.Add(fileaddress); 
             }
             return systemcode;
         }
@@ -464,21 +477,24 @@ namespace SMT.FileUpLoad.Service
         {
             string savepath = string.Format(FileConfig.GetCompanyItem(companycode).SavePath, "", "", "");
             // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<T_SYS_FILELIST>()
+            var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                        where det.COMPANYCODE == companycode
-                       select det;//找出原有的实体
-            foreach (T_SYS_FILELIST file in list)
+                       select det).ToList();//找出原有的实体
+            if (list != null)
             {
-                string fileurl = file.FILEURL;
-                string fileaddress = string.Concat(savepath, fileurl);
-                if (DeleteEntity(file) > 0)
+                foreach (T_SYS_FILELIST file in list)
                 {
-                    if (File.Exists(fileaddress))
+                    string fileurl = file.FILEURL;
+                    string fileaddress = string.Concat(savepath, fileurl);
+                    if (DeleteEntity(file) > 0)
                     {
-                        File.Delete(fileaddress);
+                        if (File.Exists(fileaddress))
+                        {
+                            File.Delete(fileaddress);
+                        }
                     }
+                    //  li.Add(fileaddress); 
                 }
-                //  li.Add(fileaddress); 
             }
             return companycode;
         }
@@ -491,22 +507,32 @@ namespace SMT.FileUpLoad.Service
         {
            
            // List<string> li = new List<string>();//存放临时文件
-            var list = from det in base.GetObjects<T_SYS_FILELIST>()
+            var list = (from det in base.GetObjects<T_SYS_FILELIST>()
                           where det.APPLICATIONID == applicationid
-                          select det;//找出原有的实体
-            foreach (T_SYS_FILELIST file in list)
+                          select det).ToList();//找出原有的实体
+            if (list!= null)
             {
-                string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
-                string fileurl = file.FILEURL;
-                string fileaddress = string.Concat(savepath, fileurl);
-                if (DeleteEntity(file) > 0)
+                foreach (T_SYS_FILELIST file in list)
                 {
-                    if (File.Exists(fileaddress))
+                    string savepath = string.Format(FileConfig.GetCompanyItem(file.COMPANYCODE).SavePath, "", "", "");
+                    string fileurl = file.FILEURL;
+                    string fileaddress = string.Concat(savepath, fileurl);
+                    if (DeleteEntity(file) > 0)
                     {
-                        File.Delete(fileaddress);
-                    } 
+                        if (File.Exists(fileaddress))
+                        {
+                            File.Delete(fileaddress);
+                        }
+                        //删除新闻图片生成的缩略图
+                        string fileThumbAddress = string.Concat(savepath, file.THUMBNAILURL);
+                        if (File.Exists(fileThumbAddress))
+                        {
+                            File.Delete(fileThumbAddress);
+                        }
+
+                    }
+                    //  li.Add(fileaddress); 
                 }
-              //  li.Add(fileaddress); 
             }
             return applicationid;
         }
@@ -670,7 +696,7 @@ namespace SMT.FileUpLoad.Service
             }
             catch (Exception ex)
             {
-                SMT.Foundation.Log.Tracer.Debug("创建文件夹失败："+ ex.ToString());
+                Tracer.Debug("创建文件夹失败："+ ex.ToString());
                 string bb = ex.ToString();
             }
             return strReturn;

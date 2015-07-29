@@ -1,6 +1,0 @@
-Debug  --------------------------------EXCEPTION--------------------------------
-Exception FileName   :  SMT.SAAS.Platform.BLL.NewsBLL
-Exception MethodName :  GetNewsDetailsByID
-Exception Message    :  
-	非静态方法需要一个目标。
-Exception Datetime   :  2015/6/28 11:09:36

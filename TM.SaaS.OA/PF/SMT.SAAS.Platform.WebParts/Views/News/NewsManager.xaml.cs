@@ -65,6 +65,9 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                     return;
                 }
+
+                NewsViewModel item = (NewsViewModel)dgNewsList.SelectedItem;
+                viewModel.CurrentEntity = item;
                 viewModel.CurrentEntity.ParentVM = viewModel;
                 NewsView addView = new NewsView(viewModel.CurrentEntity, ViewState.UPDATE);
                 SMT.SAAS.Controls.Toolkit.Windows.Window host = ProgramManager.ShowProgram("修改新闻", "", UpdateFormID, addView, true, true, null);
@@ -93,6 +96,8 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
                 return;
             }
+            NewsViewModel item = (NewsViewModel)dgNewsList.SelectedItem;
+            viewModel.CurrentEntity = item;
             viewModel.CurrentEntity.ParentVM = viewModel;
             viewModel.CurrentEntity.DeleteEntity.Execute(null);
 

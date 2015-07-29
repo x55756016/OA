@@ -81,13 +81,13 @@
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\TM.SaaS.OA\FrameWork\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
+      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
+      <Name>SMT.SAAS.Main.CurrentContext</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
       <Project>{abe30de4-d5df-49a0-a0ff-e0e518dd7e10}</Project>
       <Name>SMT.SaaS.LocalData</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SMT.SAAS.Main.CurrentContext\SMT.SAAS.Main.CurrentContext.csproj">
-      <Project>{4b5991d6-d3c6-4bcf-b788-95afc5323523}</Project>
-      <Name>SMT.SAAS.Main.CurrentContext</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.LocalData\SMT.SaaS.LocalData.csproj">
       <Project>{0FE5E626-1839-47B9-9457-79D042153EE0}</Project>
