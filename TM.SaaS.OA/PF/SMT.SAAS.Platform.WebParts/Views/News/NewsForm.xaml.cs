@@ -60,7 +60,18 @@ namespace SMT.SAAS.Platform.WebParts.Views
             {
                 ViewModel = viewModel;
             };
-
+            viewModel.OnAddCompleted += (obj, args) =>
+                {
+                    loading.Stop();
+                };
+            viewModel.OnLoadDetailsCompleted += (obj, args) =>
+            {
+                loading.Stop();
+            };
+            viewModel.OnDataChangedCompleted += (obj, args) =>
+            {
+                loading.Stop();
+            };
             //  LoadImage(viewModel.NEWSID, state);
         }
         /// <summary>
@@ -263,6 +274,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         /// <param name="state"></param>
         public void GoToState(ViewState state)
         {
+            loading.Start();
             switch (state)
             {
                 case ViewState.ADD:
@@ -372,10 +384,12 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
         private void btnADD_Click(object sender, RoutedEventArgs e)
         {
+            loading.Start();
             GoToState(ViewState.ADD);
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            loading.Start();
             GoToState(ViewState.UPDATE);
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
@@ -389,6 +403,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            loading.Start();
             var viewmodel = (this.DataContext as NewsViewModel);
 
             viewmodel.NEWSCONTENT = rtbContent.RichTextBoxContext;

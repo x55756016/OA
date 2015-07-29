@@ -147,47 +147,37 @@ namespace SMT.SAAS.Platform.WebParts.Views
                                 {
                                     Main.CurrentContext.AppContext.SystemMessage("webpart RollImageNews err:"
                                         + ex.ToString() + " url=" + url);
+                                }finally
+                                {
+                                    if (listIndex < ImageNews.Count - 1)
+                                    {
+                                        listIndex++;
+                                        DownLoadNews(ImageNews[listIndex]);
+
+                                    }
+                                    else
+                                    {
+                                        if (infoPanel.InfoList.Count > 0)
+                                            infoPanel.Start();
+                                    }
                                 }
                             };
                         }
-
-                        if (listIndex < ImageNews.Count - 1)
-                        {
-                            listIndex++;
-
-                            DownLoadNews(ImageNews[listIndex]);
-
-                        }
-                        else
-                        {
-
-                            if (infoPanel.InfoList.Count > 0)
-                                infoPanel.Start();
-                        }
-
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        if (listIndex < ImageNews.Count - 1)
-                        {
-                            listIndex++;
+                        SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
+                        if (infoPanel.InfoList.Count > 0) infoPanel.Start();
 
-                            DownLoadNews(ImageNews[listIndex]);
-
-                        }
-                        else
-                        {
-
-                            if (infoPanel.InfoList.Count > 0)
-                                infoPanel.Start();
-                        }
                     }
 
                 };
                 bb.GetFileListByOnlyApplicationIDAsync(newsmodel.NEWSID);
             }
-            catch
+            catch (Exception ex)
             {
+                SMT.SAAS.Main.CurrentContext.AppContext.logAndShow(ex.ToString());
+                if (infoPanel.InfoList.Count > 0) infoPanel.Start();
 
             }
         }

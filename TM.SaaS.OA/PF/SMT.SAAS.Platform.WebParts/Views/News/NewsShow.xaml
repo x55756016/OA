@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400"
-                xmlns:loading="clr-namespace:SMT.SAAS.Platform.WebParts" >
+             xmlns:loading="clr-namespace:SMT.SAAS.Platform.WebParts" >
 
     <UserControl.Resources>
         <cvt:DataFormatConvert x:Key="DataFormat" />

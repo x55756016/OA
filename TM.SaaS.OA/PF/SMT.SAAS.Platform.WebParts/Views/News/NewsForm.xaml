@@ -9,6 +9,7 @@
              xmlns:my="clr-namespace:SMT.SaaS.FrameworkUI.FileUpload;assembly=SMT.SaaS.FrameworkUI"
              xmlns:rich="clr-namespace:SMT.SaaS.FrameworkUI.RichNotepad;assembly=SMT.SaaS.FrameworkUI.RichNotepad"
              xmlns:upload="clr-namespace:SMT.FileUpLoad;assembly=SMT.FileUpLoad"
+             xmlns:loading="clr-namespace:SMT.SAAS.Platform.WebParts"
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="400">
@@ -442,5 +443,8 @@
                     Tag="0" />
 
         </StackPanel>
+
+        <loading:SMTLoading x:Name="loading"  Grid.RowSpan="9"  Grid.ColumnSpan="5"/>
     </Grid>
+
 </UserControl>

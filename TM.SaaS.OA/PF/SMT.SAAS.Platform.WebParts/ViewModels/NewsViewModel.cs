@@ -377,9 +377,7 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
             _Services.OnExectNoQueryCompleted += (obj, args) =>
             {
                 if (args.Result)
-                {
-                    if (OnDataChangedCompleted != null)
-                        OnDataChangedCompleted(this, EventArgs.Empty);
+                {                 
                     MessageWindow.Show("", "新增新闻成功！", MessageIcon.Information, MessageWindowType.Flow);
                 }
                 else
@@ -387,6 +385,9 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
 
                 if (ParentVM != null)
                     ParentVM.Refresh();
+
+                if (OnDataChangedCompleted != null)
+                    OnDataChangedCompleted(this, EventArgs.Empty);
             };
         }
         private void UpdateNews()
@@ -396,8 +397,6 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
             {
                 if (args.Result)
                 {
-                    if (OnDataChangedCompleted != null)
-                        OnDataChangedCompleted(this, EventArgs.Empty);
                     MessageWindow.Show("", "修改新闻成功！", MessageIcon.Information, MessageWindowType.Flow);
                 }
                 else
@@ -405,6 +404,9 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
 
                 if (ParentVM != null)
                     ParentVM.Refresh();
+
+                if (OnDataChangedCompleted != null)
+                    OnDataChangedCompleted(this, EventArgs.Empty);
             };
         }
         private void DeleteNews()
@@ -414,16 +416,17 @@ namespace SMT.SAAS.Platform.WebParts.ViewModels
             {
                 if (args.Result)
                 {
-                    if (OnDataChangedCompleted != null)
-                        OnDataChangedCompleted(this, EventArgs.Empty);
                     MessageWindow.Show("", "删除新闻成功！", MessageIcon.Information, MessageWindowType.Flow);
                  
                 }
                 else
                     MessageWindow.Show("", "删除新闻失败！", MessageIcon.Error, MessageWindowType.Flow);
 
-                if (ParentVM != null)
-                    ParentVM.Refresh();
+                if (ParentVM != null)ParentVM.Refresh();
+
+
+                if (OnDataChangedCompleted != null)
+                    OnDataChangedCompleted(this, EventArgs.Empty);
             };
         }
         public void LoadDetails()
