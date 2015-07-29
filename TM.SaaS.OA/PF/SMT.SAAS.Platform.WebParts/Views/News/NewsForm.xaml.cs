@@ -274,7 +274,6 @@ namespace SMT.SAAS.Platform.WebParts.Views
         /// <param name="state"></param>
         public void GoToState(ViewState state)
         {
-            loading.Start();
             switch (state)
             {
                 case ViewState.ADD:

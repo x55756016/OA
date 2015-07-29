@@ -82,9 +82,6 @@
     <Reference Include="SMT.SaaS.Globalization">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SaaS.Globalization.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Images">
-      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Images.dll</HintPath>
-    </Reference>
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
     </Reference>
@@ -181,6 +178,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SMT.SaaS.FrameWorkUI\SMT.SAAS.Images\SMT.SAAS.Images.csproj">
+      <Project>{56b15e81-783c-4fb6-8548-8ae4bc80195f}</Project>
+      <Name>SMT.SAAS.Images</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMT.SaaS.FrameWorkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
       <Name>SMT.SAAS.FrameworkUI</Name>
