@@ -127,7 +127,7 @@
                               />
 
                 <Button x:Name="btnLogin"
-                        Canvas.Left="137"
+                        Canvas.Left="50"
                         Canvas.Top="171"
                         Width="68"
                         Height="22"
@@ -140,22 +140,33 @@
                         TabIndex="3" />
 
                 <Button x:Name="btnCPD" 
-                        Canvas.Left="211"
+                        Canvas.Left="131"
                         Canvas.Top="171"
                         Width="84"
                         Height="22"
                         Click="Button_Click"
                         TabIndex="4">
                     <StackPanel Orientation="Horizontal">
-                        <Image Width="16"
-                               Height="16"
-                               Source="/Images/cp_ico.jpg"
-                               ToolTipService.ToolTip="修改密码" />
+                        <TextBlock FontFamily="SimSun"
+                                   FontSize="12"
+                                   Foreground="#707070"
+                                   Text="修改密码" />
+                    </StackPanel>
+                </Button>
+
+                <Button x:Name="btnshow" 
+                        Canvas.Left="231"
+                        Canvas.Top="171"
+                        Width="84"
+                        Height="22"
+                        Click="btnshow_Click"
+                        TabIndex="4">
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Margin="2,2"
                                    FontFamily="SimSun"
                                    FontSize="12"
                                    Foreground="#707070"
-                                   Text="修改密码" />
+                                   Text="演示登录" />
                     </StackPanel>
                 </Button>
 

@@ -546,5 +546,12 @@ namespace SMT.SAAS.Platform.Xamls.LoginPart
         }
         #endregion
 
+        private void btnshow_Click(object sender, RoutedEventArgs e)
+        {
+            this.txbUserName.Text = "smtwangl";
+            this.txbUserPassword.Password = "smt123456";
+            userloading();
+        }
+
     }
 }

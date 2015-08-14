@@ -738,7 +738,7 @@ namespace SMT.HRM.BLL
                     else
                     {
                         ents = from ent in ents
-                               where ent.UserID.Contains(IDs)
+                               where IDs.Contains(ent.UserID)
                                select ent;
                     }
 

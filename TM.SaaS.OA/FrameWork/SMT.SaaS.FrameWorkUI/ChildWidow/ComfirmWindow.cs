@@ -27,8 +27,9 @@ namespace SMT.SaaS.FrameworkUI.ChildWidow
         public static void ConfirmationBox(string tilte,string message,string ButtonName)
         {
             
-            string _text="";
-            MessageWindow.Show<string>(tilte, message, MessageIcon.Exclamation,result => _text = result, "Default", ButtonName);
+            //string _text="";
+            //MessageWindow.Show<string>(tilte, message, MessageIcon.Exclamation,result => _text = result, "Default", ButtonName);
+            MessageBox.Show(message, tilte, MessageBoxButton.OK);
         }
         /// <summary>
         /// 重载 确认框
@@ -65,8 +66,16 @@ namespace SMT.SaaS.FrameworkUI.ChildWidow
         /// <param name="ButtonName">按钮名称组</param>
         public void SelectionBox(string tilte, string message, string[] ButtonName, string Result)
         {
-            MessageWindow.Show<string>(tilte, message, MessageIcon.Question,
-                GetResult, "Default", ButtonName);
+            //MessageWindow.Show<string>(tilte, message, MessageIcon.Question,
+            //    GetResult, "Default", ButtonName);
+
+            MessageBoxResult mbr = MessageBox.Show(message, tilte, MessageBoxButton.OKCancel);
+            if (mbr == MessageBoxResult.OK)
+            {
+                //点击了确定
+                string result = mbr.ToString();
+                OnSelectionBoxClosed(this, new OnSelectionBoxClosedArgs(result));
+            }
 
         }
 
