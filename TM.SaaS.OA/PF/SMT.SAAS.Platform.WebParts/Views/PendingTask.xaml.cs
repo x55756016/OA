@@ -77,7 +77,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
                     Resulted.Visibility = Visibility.Visible;
                 }
 
-                LoadDate(_state, false);
+                LoadData(_state, false);
             }
         }
 
@@ -171,21 +171,21 @@ namespace SMT.SAAS.Platform.WebParts.Views
             }
         }
 
-        private void LoadDate(string state, bool IsAutofresh)
+        private void LoadData(string state, bool IsAutofresh)
         {
             if (client.State == CommunicationState.Opened || client.State == CommunicationState.Created)
             {
                 _params.Status = state;
                 //bool haveNewTask = false;
                 //_startTime = DateTime.Now;
-                //client.PendingCacheMainTasksParmsAsync(_params, IsAutofresh, false);
+                client.PendingCacheMainTasksParmsAsync(_params, IsAutofresh, false);
             }
         }
 
         private void _refdateTimer_Tick(object sender, EventArgs e)
         {
             _refdateTimer.Stop();
-            LoadDate(_state, true);
+            LoadData(_state, true);
         }
 
         private void client_PendingMainTasksParmsCompleted(object sender, PendingCacheMainTasksParmsCompletedEventArgs e)
@@ -193,7 +193,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
             try
             {
                 if (loading != null)
-                    // loading.Stop();
+                     loading.Stop();
 
                 // IsAutofresh ：是否是自动刷新，如果是自动刷新值为true,手动刷新为false
                 // HaveNewTask:该参数是返回给门户的字段，是自动刷新，
@@ -353,7 +353,7 @@ namespace SMT.SAAS.Platform.WebParts.Views
 
         public void LoadDate()
         {
-            LoadDate(_state, false);
+            LoadData(_state, false);
         }
 
         /// <summary>

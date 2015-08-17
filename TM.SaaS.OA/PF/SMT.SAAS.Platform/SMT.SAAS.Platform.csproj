@@ -452,6 +452,6 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\necvvqq1.jbe\codkc23f.wex\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
+    <PostBuildEvent>xcopy /y SMT.SAAS.Platform.xap C:\Users\ken\AppData\LocalLow\Microsoft\Silverlight\is\cnqlecgg.0fk\rrwpbyrl.qjr\1\s\5t1yok1xsqaquywhtdgea1jbnzj0aa4b1vvivdwdasu2pvjgclaaafha\f\wwwoa12com</PostBuildEvent>
   </PropertyGroup>
 </Project>
