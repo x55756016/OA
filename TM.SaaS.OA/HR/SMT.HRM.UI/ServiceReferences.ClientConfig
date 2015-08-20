@@ -2,11 +2,7 @@
   <system.serviceModel>
     <bindings>
       <basicHttpBinding>
-        <binding name="BasicHttpBinding_PermissionService" closeTimeout="00:50:20"
-          openTimeout="00:50:05" receiveTimeout="00:50:00" sendTimeout="00:50:20"
-          maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
-          <security mode="None" />
-        </binding>
+
         
         <binding name="BasicHttpBinding_IPublicService" maxBufferSize="2147483647"
           maxReceivedMessageSize="2147483647">
@@ -52,7 +48,11 @@
         </binding>
       </basicHttpBinding>
       <customBinding>
-        <binding name="WSHttpBinding_IService">
+        <binding name="CustomBinding_PermissionService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService" receiveTimeout="1:0:0" closeTimeout="1:0:0">
           <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -97,9 +97,12 @@
    binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
    contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />-->
 
-      <endpoint address="http://localhost:12168/PermissionService.svc"
+      <!--<endpoint address="http://localhost:12168/PermissionService.svc"
   binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_PermissionService"
-  contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />
+  contract="PermissionWS.PermissionService" name="BasicHttpBinding_PermissionService" />-->
+      <endpoint address="http://localhost:12168/PermissionService.svc"
+       binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
+       contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
 
 
       <endpoint address="http://localhost:12168/AttendanceService.svc"
@@ -117,9 +120,27 @@
       <endpoint address="http://localhost:12168/OrganizationService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
         contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
-      <endpoint address="http://localhost:12168/Services/smtflow/SMT.FlowWFService.Service.svc"
+      
+      
+      
+      
+      <endpoint address="http://localhost:8008/SMT.FlowWFService.Service.svc"
         binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
         contract="FlowWFService.IService" name="WSHttpBinding_IService" />
+      <endpoint address="http://localhost:4441/EngineWcfGlobalFunction.svc"
+  binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
+  contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+
+      <endpoint address="http://www.oa12.com/Services/Pub/PublicService.svc"
+  binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
+  contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      
+      
+      
+      
+      
+      
+      
 
       <endpoint address="http://localhost:12168/Services/OA/ContractManagementServiceFrom.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_ContractManagementServiceFrom"
@@ -139,15 +160,15 @@
       <endpoint address="http://localhost:12168/Services/FB/FBService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FBService"
         contract="FBServiceWS.FBService" name="BasicHttpBinding_FBService" />
-      <endpoint address="http://localhost:12168/Services/SMTEngine/EngineWcfGlobalFunction.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
-        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+      
+
+      
       <endpoint address="http://localhost:12168/Services/SMTEngine/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://localhost:12168/Services/PublicInterface/PublicService.svc"
-        binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPublicService"
-        contract="PublicInterfaceWS.IPublicService" name="BasicHttpBinding_IPublicService" />
+      
+    
+      
       <endpoint address="http://localhost:12168/Report/ChartReportService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_ChartReportService"
         contract="ChartReportsServiceWS.ChartReportService" name="BasicHttpBinding_ChartReportService" />

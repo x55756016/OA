@@ -17,770 +17,6 @@ namespace SMT.Saas.Tools.EngineWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_WF_DOTASK", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
-    public partial class T_WF_DOTASK : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string APPFIELDVALUEField;
-        
-        private string APPLICATIONURLField;
-        
-        private string APPXMLField;
-        
-        private System.Nullable<System.DateTime> BEFOREPROCESSDATEField;
-        
-        private System.Nullable<System.DateTime> CLOSEDDATEField;
-        
-        private string COMPANYIDField;
-        
-        private System.DateTime CREATEDATETIMEField;
-        
-        private string DOTASKIDField;
-        
-        private decimal DOTASKSTATUSField;
-        
-        private decimal DOTASKTYPEField;
-        
-        private string ENGINECODEField;
-        
-        private string FLOWXMLField;
-        
-        private decimal ISALARMField;
-        
-        private decimal MAILSTATUSField;
-        
-        private string MESSAGEBODYField;
-        
-        private string MODELCODEField;
-        
-        private string MODELNAMEField;
-        
-        private string ORDERIDField;
-        
-        private decimal ORDERSTATUSField;
-        
-        private string ORDERUSERIDField;
-        
-        private string ORDERUSERNAMEField;
-        
-        private string RECEIVEUSERIDField;
-        
-        private string REMARKField;
-        
-        private decimal RTXSTATUSField;
-        
-        private string SYSTEMCODEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPFIELDVALUE {
-            get {
-                return this.APPFIELDVALUEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPFIELDVALUEField, value) != true)) {
-                    this.APPFIELDVALUEField = value;
-                    this.RaisePropertyChanged("APPFIELDVALUE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPLICATIONURL {
-            get {
-                return this.APPLICATIONURLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPLICATIONURLField, value) != true)) {
-                    this.APPLICATIONURLField = value;
-                    this.RaisePropertyChanged("APPLICATIONURL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPXML {
-            get {
-                return this.APPXMLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPXMLField, value) != true)) {
-                    this.APPXMLField = value;
-                    this.RaisePropertyChanged("APPXML");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> BEFOREPROCESSDATE {
-            get {
-                return this.BEFOREPROCESSDATEField;
-            }
-            set {
-                if ((this.BEFOREPROCESSDATEField.Equals(value) != true)) {
-                    this.BEFOREPROCESSDATEField = value;
-                    this.RaisePropertyChanged("BEFOREPROCESSDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CLOSEDDATE {
-            get {
-                return this.CLOSEDDATEField;
-            }
-            set {
-                if ((this.CLOSEDDATEField.Equals(value) != true)) {
-                    this.CLOSEDDATEField = value;
-                    this.RaisePropertyChanged("CLOSEDDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATETIME {
-            get {
-                return this.CREATEDATETIMEField;
-            }
-            set {
-                if ((this.CREATEDATETIMEField.Equals(value) != true)) {
-                    this.CREATEDATETIMEField = value;
-                    this.RaisePropertyChanged("CREATEDATETIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DOTASKID {
-            get {
-                return this.DOTASKIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DOTASKIDField, value) != true)) {
-                    this.DOTASKIDField = value;
-                    this.RaisePropertyChanged("DOTASKID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DOTASKSTATUS {
-            get {
-                return this.DOTASKSTATUSField;
-            }
-            set {
-                if ((this.DOTASKSTATUSField.Equals(value) != true)) {
-                    this.DOTASKSTATUSField = value;
-                    this.RaisePropertyChanged("DOTASKSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DOTASKTYPE {
-            get {
-                return this.DOTASKTYPEField;
-            }
-            set {
-                if ((this.DOTASKTYPEField.Equals(value) != true)) {
-                    this.DOTASKTYPEField = value;
-                    this.RaisePropertyChanged("DOTASKTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENGINECODE {
-            get {
-                return this.ENGINECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ENGINECODEField, value) != true)) {
-                    this.ENGINECODEField = value;
-                    this.RaisePropertyChanged("ENGINECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FLOWXML {
-            get {
-                return this.FLOWXMLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOWXMLField, value) != true)) {
-                    this.FLOWXMLField = value;
-                    this.RaisePropertyChanged("FLOWXML");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ISALARM {
-            get {
-                return this.ISALARMField;
-            }
-            set {
-                if ((this.ISALARMField.Equals(value) != true)) {
-                    this.ISALARMField = value;
-                    this.RaisePropertyChanged("ISALARM");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal MAILSTATUS {
-            get {
-                return this.MAILSTATUSField;
-            }
-            set {
-                if ((this.MAILSTATUSField.Equals(value) != true)) {
-                    this.MAILSTATUSField = value;
-                    this.RaisePropertyChanged("MAILSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MESSAGEBODY {
-            get {
-                return this.MESSAGEBODYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MESSAGEBODYField, value) != true)) {
-                    this.MESSAGEBODYField = value;
-                    this.RaisePropertyChanged("MESSAGEBODY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELCODE {
-            get {
-                return this.MODELCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
-                    this.MODELCODEField = value;
-                    this.RaisePropertyChanged("MODELCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELNAME {
-            get {
-                return this.MODELNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELNAMEField, value) != true)) {
-                    this.MODELNAMEField = value;
-                    this.RaisePropertyChanged("MODELNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERID {
-            get {
-                return this.ORDERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERIDField, value) != true)) {
-                    this.ORDERIDField = value;
-                    this.RaisePropertyChanged("ORDERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ORDERSTATUS {
-            get {
-                return this.ORDERSTATUSField;
-            }
-            set {
-                if ((this.ORDERSTATUSField.Equals(value) != true)) {
-                    this.ORDERSTATUSField = value;
-                    this.RaisePropertyChanged("ORDERSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERUSERID {
-            get {
-                return this.ORDERUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERUSERIDField, value) != true)) {
-                    this.ORDERUSERIDField = value;
-                    this.RaisePropertyChanged("ORDERUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERUSERNAME {
-            get {
-                return this.ORDERUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERUSERNAMEField, value) != true)) {
-                    this.ORDERUSERNAMEField = value;
-                    this.RaisePropertyChanged("ORDERUSERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RECEIVEUSERID {
-            get {
-                return this.RECEIVEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RECEIVEUSERIDField, value) != true)) {
-                    this.RECEIVEUSERIDField = value;
-                    this.RaisePropertyChanged("RECEIVEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal RTXSTATUS {
-            get {
-                return this.RTXSTATUSField;
-            }
-            set {
-                if ((this.RTXSTATUSField.Equals(value) != true)) {
-                    this.RTXSTATUSField = value;
-                    this.RaisePropertyChanged("RTXSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SYSTEMCODE {
-            get {
-                return this.SYSTEMCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SYSTEMCODEField, value) != true)) {
-                    this.SYSTEMCODEField = value;
-                    this.RaisePropertyChanged("SYSTEMCODE");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MsgType", Namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract")]
-    public enum MsgType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Msg = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Task = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Cancel = 2,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL")]
-    public partial class UserInfo : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string CompanyIDField;
-        
-        private string CompanyNameField;
-        
-        private string DepartmentIDField;
-        
-        private string DepartmentNameField;
-        
-        private string PostIDField;
-        
-        private string PostNameField;
-        
-        private string UserIDField;
-        
-        private string UserNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyID {
-            get {
-                return this.CompanyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyIDField, value) != true)) {
-                    this.CompanyIDField = value;
-                    this.RaisePropertyChanged("CompanyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyName {
-            get {
-                return this.CompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
-                    this.CompanyNameField = value;
-                    this.RaisePropertyChanged("CompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentID {
-            get {
-                return this.DepartmentIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DepartmentIDField, value) != true)) {
-                    this.DepartmentIDField = value;
-                    this.RaisePropertyChanged("DepartmentID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentName {
-            get {
-                return this.DepartmentNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DepartmentNameField, value) != true)) {
-                    this.DepartmentNameField = value;
-                    this.RaisePropertyChanged("DepartmentName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostID {
-            get {
-                return this.PostIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostIDField, value) != true)) {
-                    this.PostIDField = value;
-                    this.RaisePropertyChanged("PostID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostName {
-            get {
-                return this.PostNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
-                    this.PostNameField = value;
-                    this.RaisePropertyChanged("PostName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CustomUserMsg", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
-    public partial class CustomUserMsg : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string FormIDField;
-        
-        private string UserIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FormID {
-            get {
-                return this.FormIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FormIDField, value) != true)) {
-                    this.FormIDField = value;
-                    this.RaisePropertyChanged("FormID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_WF_FORWARDHISTORY", Namespace="http://schemas.datacontract.org/2004/07/EngineDataModel")]
-    public partial class T_WF_FORWARDHISTORY : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string FORWARDHISTORYIDField;
-        
-        private string FROMOWNERIDField;
-        
-        private string FROMOWNERNAMEField;
-        
-        private string MODELCODEField;
-        
-        private string MODELIDField;
-        
-        private string PERSONALRECORDIDField;
-        
-        private string REMARKField;
-        
-        private string TOOWNERIDField;
-        
-        private string TOOWNERNAMEField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FORWARDHISTORYID {
-            get {
-                return this.FORWARDHISTORYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FORWARDHISTORYIDField, value) != true)) {
-                    this.FORWARDHISTORYIDField = value;
-                    this.RaisePropertyChanged("FORWARDHISTORYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FROMOWNERID {
-            get {
-                return this.FROMOWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FROMOWNERIDField, value) != true)) {
-                    this.FROMOWNERIDField = value;
-                    this.RaisePropertyChanged("FROMOWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FROMOWNERNAME {
-            get {
-                return this.FROMOWNERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FROMOWNERNAMEField, value) != true)) {
-                    this.FROMOWNERNAMEField = value;
-                    this.RaisePropertyChanged("FROMOWNERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELCODE {
-            get {
-                return this.MODELCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
-                    this.MODELCODEField = value;
-                    this.RaisePropertyChanged("MODELCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELID {
-            get {
-                return this.MODELIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELIDField, value) != true)) {
-                    this.MODELIDField = value;
-                    this.RaisePropertyChanged("MODELID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PERSONALRECORDID {
-            get {
-                return this.PERSONALRECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PERSONALRECORDIDField, value) != true)) {
-                    this.PERSONALRECORDIDField = value;
-                    this.RaisePropertyChanged("PERSONALRECORDID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TOOWNERID {
-            get {
-                return this.TOOWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TOOWNERIDField, value) != true)) {
-                    this.TOOWNERIDField = value;
-                    this.RaisePropertyChanged("TOOWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TOOWNERNAME {
-            get {
-                return this.TOOWNERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TOOWNERNAMEField, value) != true)) {
-                    this.TOOWNERNAMEField = value;
-                    this.RaisePropertyChanged("TOOWNERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="MsgParms", Namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract")]
     public partial class MsgParms : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -1741,6 +977,200 @@ namespace SMT.Saas.Tools.EngineWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomUserMsg", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
+    public partial class CustomUserMsg : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string FormIDField;
+        
+        private string UserIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FormID {
+            get {
+                return this.FormIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FormIDField, value) != true)) {
+                    this.FormIDField = value;
+                    this.RaisePropertyChanged("FormID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MsgType", Namespace="http://schemas.datacontract.org/2004/07/SMT.Global.IEngineContract")]
+    public enum MsgType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Msg = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Task = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cancel = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Engine.Services.BLL")]
+    public partial class UserInfo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CompanyIDField;
+        
+        private string CompanyNameField;
+        
+        private string DepartmentIDField;
+        
+        private string DepartmentNameField;
+        
+        private string PostIDField;
+        
+        private string PostNameField;
+        
+        private string UserIDField;
+        
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyID {
+            get {
+                return this.CompanyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyIDField, value) != true)) {
+                    this.CompanyIDField = value;
+                    this.RaisePropertyChanged("CompanyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentID {
+            get {
+                return this.DepartmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentIDField, value) != true)) {
+                    this.DepartmentIDField = value;
+                    this.RaisePropertyChanged("DepartmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentName {
+            get {
+                return this.DepartmentNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentNameField, value) != true)) {
+                    this.DepartmentNameField = value;
+                    this.RaisePropertyChanged("DepartmentName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostID {
+            get {
+                return this.PostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostIDField, value) != true)) {
+                    this.PostIDField = value;
+                    this.RaisePropertyChanged("PostID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostName {
+            get {
+                return this.PostNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
+                    this.PostNameField = value;
+                    this.RaisePropertyChanged("PostName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="T_FLOW_CUSTOMFLOWDEFINE", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
     public partial class T_FLOW_CUSTOMFLOWDEFINE : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -2669,79 +2099,404 @@ namespace SMT.Saas.Tools.EngineWS {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_WF_DOTASK", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
+    public partial class T_WF_DOTASK : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string APPFIELDVALUEField;
+        
+        private string APPLICATIONURLField;
+        
+        private string APPXMLField;
+        
+        private System.Nullable<System.DateTime> BEFOREPROCESSDATEField;
+        
+        private System.Nullable<System.DateTime> CLOSEDDATEField;
+        
+        private string COMPANYIDField;
+        
+        private System.DateTime CREATEDATETIMEField;
+        
+        private string DOTASKIDField;
+        
+        private decimal DOTASKSTATUSField;
+        
+        private decimal DOTASKTYPEField;
+        
+        private string ENGINECODEField;
+        
+        private string FLOWXMLField;
+        
+        private decimal ISALARMField;
+        
+        private decimal MAILSTATUSField;
+        
+        private string MESSAGEBODYField;
+        
+        private string MODELCODEField;
+        
+        private string MODELNAMEField;
+        
+        private string ORDERIDField;
+        
+        private decimal ORDERSTATUSField;
+        
+        private string ORDERUSERIDField;
+        
+        private string ORDERUSERNAMEField;
+        
+        private string RECEIVEUSERIDField;
+        
+        private string REMARKField;
+        
+        private decimal RTXSTATUSField;
+        
+        private string SYSTEMCODEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string APPFIELDVALUE {
+            get {
+                return this.APPFIELDVALUEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.APPFIELDVALUEField, value) != true)) {
+                    this.APPFIELDVALUEField = value;
+                    this.RaisePropertyChanged("APPFIELDVALUE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string APPLICATIONURL {
+            get {
+                return this.APPLICATIONURLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.APPLICATIONURLField, value) != true)) {
+                    this.APPLICATIONURLField = value;
+                    this.RaisePropertyChanged("APPLICATIONURL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string APPXML {
+            get {
+                return this.APPXMLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.APPXMLField, value) != true)) {
+                    this.APPXMLField = value;
+                    this.RaisePropertyChanged("APPXML");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> BEFOREPROCESSDATE {
+            get {
+                return this.BEFOREPROCESSDATEField;
+            }
+            set {
+                if ((this.BEFOREPROCESSDATEField.Equals(value) != true)) {
+                    this.BEFOREPROCESSDATEField = value;
+                    this.RaisePropertyChanged("BEFOREPROCESSDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CLOSEDDATE {
+            get {
+                return this.CLOSEDDATEField;
+            }
+            set {
+                if ((this.CLOSEDDATEField.Equals(value) != true)) {
+                    this.CLOSEDDATEField = value;
+                    this.RaisePropertyChanged("CLOSEDDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CREATEDATETIME {
+            get {
+                return this.CREATEDATETIMEField;
+            }
+            set {
+                if ((this.CREATEDATETIMEField.Equals(value) != true)) {
+                    this.CREATEDATETIMEField = value;
+                    this.RaisePropertyChanged("CREATEDATETIME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DOTASKID {
+            get {
+                return this.DOTASKIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DOTASKIDField, value) != true)) {
+                    this.DOTASKIDField = value;
+                    this.RaisePropertyChanged("DOTASKID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DOTASKSTATUS {
+            get {
+                return this.DOTASKSTATUSField;
+            }
+            set {
+                if ((this.DOTASKSTATUSField.Equals(value) != true)) {
+                    this.DOTASKSTATUSField = value;
+                    this.RaisePropertyChanged("DOTASKSTATUS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal DOTASKTYPE {
+            get {
+                return this.DOTASKTYPEField;
+            }
+            set {
+                if ((this.DOTASKTYPEField.Equals(value) != true)) {
+                    this.DOTASKTYPEField = value;
+                    this.RaisePropertyChanged("DOTASKTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ENGINECODE {
+            get {
+                return this.ENGINECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ENGINECODEField, value) != true)) {
+                    this.ENGINECODEField = value;
+                    this.RaisePropertyChanged("ENGINECODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLOWXML {
+            get {
+                return this.FLOWXMLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOWXMLField, value) != true)) {
+                    this.FLOWXMLField = value;
+                    this.RaisePropertyChanged("FLOWXML");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ISALARM {
+            get {
+                return this.ISALARMField;
+            }
+            set {
+                if ((this.ISALARMField.Equals(value) != true)) {
+                    this.ISALARMField = value;
+                    this.RaisePropertyChanged("ISALARM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal MAILSTATUS {
+            get {
+                return this.MAILSTATUSField;
+            }
+            set {
+                if ((this.MAILSTATUSField.Equals(value) != true)) {
+                    this.MAILSTATUSField = value;
+                    this.RaisePropertyChanged("MAILSTATUS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MESSAGEBODY {
+            get {
+                return this.MESSAGEBODYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MESSAGEBODYField, value) != true)) {
+                    this.MESSAGEBODYField = value;
+                    this.RaisePropertyChanged("MESSAGEBODY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MODELCODE {
+            get {
+                return this.MODELCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
+                    this.MODELCODEField = value;
+                    this.RaisePropertyChanged("MODELCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MODELNAME {
+            get {
+                return this.MODELNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MODELNAMEField, value) != true)) {
+                    this.MODELNAMEField = value;
+                    this.RaisePropertyChanged("MODELNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ORDERID {
+            get {
+                return this.ORDERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ORDERIDField, value) != true)) {
+                    this.ORDERIDField = value;
+                    this.RaisePropertyChanged("ORDERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal ORDERSTATUS {
+            get {
+                return this.ORDERSTATUSField;
+            }
+            set {
+                if ((this.ORDERSTATUSField.Equals(value) != true)) {
+                    this.ORDERSTATUSField = value;
+                    this.RaisePropertyChanged("ORDERSTATUS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ORDERUSERID {
+            get {
+                return this.ORDERUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ORDERUSERIDField, value) != true)) {
+                    this.ORDERUSERIDField = value;
+                    this.RaisePropertyChanged("ORDERUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ORDERUSERNAME {
+            get {
+                return this.ORDERUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ORDERUSERNAMEField, value) != true)) {
+                    this.ORDERUSERNAMEField = value;
+                    this.RaisePropertyChanged("ORDERUSERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECEIVEUSERID {
+            get {
+                return this.RECEIVEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECEIVEUSERIDField, value) != true)) {
+                    this.RECEIVEUSERIDField = value;
+                    this.RaisePropertyChanged("RECEIVEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal RTXSTATUS {
+            get {
+                return this.RTXSTATUSField;
+            }
+            set {
+                if ((this.RTXSTATUSField.Equals(value) != true)) {
+                    this.RTXSTATUSField = value;
+                    this.RaisePropertyChanged("RTXSTATUS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SYSTEMCODE {
+            get {
+                return this.SYSTEMCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SYSTEMCODEField, value) != true)) {
+                    this.SYSTEMCODEField = value;
+                    this.RaisePropertyChanged("SYSTEMCODE");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EngineWS.IEngineWcfGlobalFunction")]
     public interface IEngineWcfGlobalFunction {
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddTask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddTaskResponse")]
-        System.IAsyncResult BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState);
-        
-        string EndAddTask(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntity", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntityResponse")]
-        System.IAsyncResult BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.EngineWS.T_WF_DOTASK EndGetDoTaskEntity(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTriggerResponse")]
-        System.IAsyncResult BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState);
-        
-        void EndDeleteTrigger(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDaskResponse")]
-        System.IAsyncResult BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
-        
-        void EndAddDoDask(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDaskResponse")]
-        System.IAsyncResult BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> EndReturnUserInfoDask(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew")]
-        System.IAsyncResult BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
-        
-        void EndApplicationMsgTriggerNew(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumber", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberResponse")]
-        System.IAsyncResult BeginGetDoTaskNumber(string userid, System.AsyncCallback callback, object asyncState);
-        
-        int EndGetDoTaskNumber(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberByIM", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskNumberByIMResponse")]
-        System.IAsyncResult BeginGetDoTaskNumberByIM(string userid, System.AsyncCallback callback, object asyncState);
-        
-        int EndGetDoTaskNumberByIM(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntity", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoTaskEntityResponse")]
-        System.IAsyncResult BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState);
-        
-        string EndAddDoTaskEntity(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitle", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetPersonFromDoTaskByTitleResponse")]
-        System.IAsyncResult BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<string> EndGetPersonFromDoTaskByTitle(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistory", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetForwardHistoryResponse")]
-        System.IAsyncResult BeginGetForwardHistory(string modelCode, string formID, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> EndGetForwardHistory(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/TaskCacheReflesh", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/TaskCacheRefleshResponse")]
         System.IAsyncResult BeginTaskCacheReflesh(string userID, System.AsyncCallback callback, object asyncState);
         
         void EndTaskCacheReflesh(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/CacheReflesh", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/CacheRefleshResponse")]
-        System.IAsyncResult BeginCacheReflesh(string userID, bool isHasNewBill, bool isHasNewTask, string remark, System.AsyncCallback callback, object asyncState);
-        
-        void EndCacheReflesh(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/RemoveCachUser", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/RemoveCachUserResponse")]
-        System.IAsyncResult BeginRemoveCachUser(string userId, System.AsyncCallback callback, object asyncState);
-        
-        void EndRemoveCachUser(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/RemoveCache", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/RemoveCacheResponse")]
         System.IAsyncResult BeginRemoveCache(string userID, System.AsyncCallback callback, object asyncState);
@@ -2888,32 +2643,29 @@ namespace SMT.Saas.Tools.EngineWS {
         void EndApplicationNotesTrigger(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineList", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/CustomFlowDefineListResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.UserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_DOTASK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.CustomUserMsg))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.CustomUserMsg))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.MailParams>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.MailParams))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_TIMINGTRIGGERACTIVITY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.MsgType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_WF_DOTASK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.MsgParms))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.ReceiveUserAndContent>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.ReceiveUserAndContent))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.ReceiveUserForm>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.ReceiveUserForm))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.MsgType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST))]
         System.IAsyncResult BeginCustomFlowDefineList(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string strCompanyID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE> EndCustomFlowDefineList(ref int pageCount, System.IAsyncResult result);
@@ -2967,162 +2719,40 @@ namespace SMT.Saas.Tools.EngineWS {
         System.IAsyncResult BeginWFAddTimingTrigger(SMT.Saas.Tools.EngineWS.T_WF_TIMINGTRIGGERACTIVITY entity, System.AsyncCallback callback, object asyncState);
         
         string EndWFAddTimingTrigger(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddTask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddTaskResponse")]
+        System.IAsyncResult BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState);
+        
+        string EndAddTask(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntity", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/GetDoTaskEntityResponse")]
+        System.IAsyncResult BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.EngineWS.T_WF_DOTASK EndGetDoTaskEntity(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTrigger", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/DeleteTriggerResponse")]
+        System.IAsyncResult BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState);
+        
+        void EndDeleteTrigger(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/AddDoDaskResponse")]
+        System.IAsyncResult BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
+        
+        void EndAddDoDask(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDask", ReplyAction="http://tempuri.org/IEngineWcfGlobalFunction/ReturnUserInfoDaskResponse")]
+        System.IAsyncResult BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> EndReturnUserInfoDask(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IEngineWcfGlobalFunction/ApplicationMsgTriggerNew")]
+        System.IAsyncResult BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState);
+        
+        void EndApplicationMsgTriggerNew(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IEngineWcfGlobalFunctionChannel : SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction, System.ServiceModel.IClientChannel {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddTaskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public AddTaskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDoTaskEntityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDoTaskEntityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.EngineWS.T_WF_DOTASK Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReturnUserInfoDaskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public ReturnUserInfoDaskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDoTaskNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDoTaskNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDoTaskNumberByIMCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDoTaskNumberByIMCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AddDoTaskEntityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public AddDoTaskEntityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPersonFromDoTaskByTitleCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPersonFromDoTaskByTitleCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<string> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<string>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetForwardHistoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetForwardHistoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY>)(this.results[0]));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3584,91 +3214,70 @@ namespace SMT.Saas.Tools.EngineWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AddTaskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public AddTaskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetDoTaskEntityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetDoTaskEntityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.EngineWS.T_WF_DOTASK Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ReturnUserInfoDaskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public ReturnUserInfoDaskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class EngineWcfGlobalFunctionClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction>, SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction {
-        
-        private BeginOperationDelegate onBeginAddTaskDelegate;
-        
-        private EndOperationDelegate onEndAddTaskDelegate;
-        
-        private System.Threading.SendOrPostCallback onAddTaskCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetDoTaskEntityDelegate;
-        
-        private EndOperationDelegate onEndGetDoTaskEntityDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDoTaskEntityCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginDeleteTriggerDelegate;
-        
-        private EndOperationDelegate onEndDeleteTriggerDelegate;
-        
-        private System.Threading.SendOrPostCallback onDeleteTriggerCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginAddDoDaskDelegate;
-        
-        private EndOperationDelegate onEndAddDoDaskDelegate;
-        
-        private System.Threading.SendOrPostCallback onAddDoDaskCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginReturnUserInfoDaskDelegate;
-        
-        private EndOperationDelegate onEndReturnUserInfoDaskDelegate;
-        
-        private System.Threading.SendOrPostCallback onReturnUserInfoDaskCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginApplicationMsgTriggerNewDelegate;
-        
-        private EndOperationDelegate onEndApplicationMsgTriggerNewDelegate;
-        
-        private System.Threading.SendOrPostCallback onApplicationMsgTriggerNewCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetDoTaskNumberDelegate;
-        
-        private EndOperationDelegate onEndGetDoTaskNumberDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDoTaskNumberCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetDoTaskNumberByIMDelegate;
-        
-        private EndOperationDelegate onEndGetDoTaskNumberByIMDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDoTaskNumberByIMCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginAddDoTaskEntityDelegate;
-        
-        private EndOperationDelegate onEndAddDoTaskEntityDelegate;
-        
-        private System.Threading.SendOrPostCallback onAddDoTaskEntityCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetPersonFromDoTaskByTitleDelegate;
-        
-        private EndOperationDelegate onEndGetPersonFromDoTaskByTitleDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPersonFromDoTaskByTitleCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetForwardHistoryDelegate;
-        
-        private EndOperationDelegate onEndGetForwardHistoryDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetForwardHistoryCompletedDelegate;
         
         private BeginOperationDelegate onBeginTaskCacheRefleshDelegate;
         
         private EndOperationDelegate onEndTaskCacheRefleshDelegate;
         
         private System.Threading.SendOrPostCallback onTaskCacheRefleshCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCacheRefleshDelegate;
-        
-        private EndOperationDelegate onEndCacheRefleshDelegate;
-        
-        private System.Threading.SendOrPostCallback onCacheRefleshCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRemoveCachUserDelegate;
-        
-        private EndOperationDelegate onEndRemoveCachUserDelegate;
-        
-        private System.Threading.SendOrPostCallback onRemoveCachUserCompletedDelegate;
         
         private BeginOperationDelegate onBeginRemoveCacheDelegate;
         
@@ -3904,6 +3513,42 @@ namespace SMT.Saas.Tools.EngineWS {
         
         private System.Threading.SendOrPostCallback onWFAddTimingTriggerCompletedDelegate;
         
+        private BeginOperationDelegate onBeginAddTaskDelegate;
+        
+        private EndOperationDelegate onEndAddTaskDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddTaskCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetDoTaskEntityDelegate;
+        
+        private EndOperationDelegate onEndGetDoTaskEntityDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetDoTaskEntityCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginDeleteTriggerDelegate;
+        
+        private EndOperationDelegate onEndDeleteTriggerDelegate;
+        
+        private System.Threading.SendOrPostCallback onDeleteTriggerCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginAddDoDaskDelegate;
+        
+        private EndOperationDelegate onEndAddDoDaskDelegate;
+        
+        private System.Threading.SendOrPostCallback onAddDoDaskCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginReturnUserInfoDaskDelegate;
+        
+        private EndOperationDelegate onEndReturnUserInfoDaskDelegate;
+        
+        private System.Threading.SendOrPostCallback onReturnUserInfoDaskCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginApplicationMsgTriggerNewDelegate;
+        
+        private EndOperationDelegate onEndApplicationMsgTriggerNewDelegate;
+        
+        private System.Threading.SendOrPostCallback onApplicationMsgTriggerNewCompletedDelegate;
+        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -3956,33 +3601,7 @@ namespace SMT.Saas.Tools.EngineWS {
             }
         }
         
-        public event System.EventHandler<AddTaskCompletedEventArgs> AddTaskCompleted;
-        
-        public event System.EventHandler<GetDoTaskEntityCompletedEventArgs> GetDoTaskEntityCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteTriggerCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddDoDaskCompleted;
-        
-        public event System.EventHandler<ReturnUserInfoDaskCompletedEventArgs> ReturnUserInfoDaskCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ApplicationMsgTriggerNewCompleted;
-        
-        public event System.EventHandler<GetDoTaskNumberCompletedEventArgs> GetDoTaskNumberCompleted;
-        
-        public event System.EventHandler<GetDoTaskNumberByIMCompletedEventArgs> GetDoTaskNumberByIMCompleted;
-        
-        public event System.EventHandler<AddDoTaskEntityCompletedEventArgs> AddDoTaskEntityCompleted;
-        
-        public event System.EventHandler<GetPersonFromDoTaskByTitleCompletedEventArgs> GetPersonFromDoTaskByTitleCompleted;
-        
-        public event System.EventHandler<GetForwardHistoryCompletedEventArgs> GetForwardHistoryCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> TaskCacheRefleshCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CacheRefleshCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RemoveCachUserCompleted;
         
         public event System.EventHandler<RemoveCacheCompletedEventArgs> RemoveCacheCompleted;
         
@@ -4062,552 +3681,21 @@ namespace SMT.Saas.Tools.EngineWS {
         
         public event System.EventHandler<WFAddTimingTriggerCompletedEventArgs> WFAddTimingTriggerCompleted;
         
+        public event System.EventHandler<AddTaskCompletedEventArgs> AddTaskCompleted;
+        
+        public event System.EventHandler<GetDoTaskEntityCompletedEventArgs> GetDoTaskEntityCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DeleteTriggerCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> AddDoDaskCompleted;
+        
+        public event System.EventHandler<ReturnUserInfoDaskCompletedEventArgs> ReturnUserInfoDaskCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> ApplicationMsgTriggerNewCompleted;
+        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginAddTask(dask, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddTask(System.IAsyncResult result) {
-            return base.Channel.EndAddTask(result);
-        }
-        
-        private System.IAsyncResult OnBeginAddTask(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask = ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddTask(dask, callback, asyncState);
-        }
-        
-        private object[] OnEndAddTask(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddTask(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnAddTaskCompleted(object state) {
-            if ((this.AddTaskCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AddTaskCompleted(this, new AddTaskCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void AddTaskAsync(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask) {
-            this.AddTaskAsync(dask, null);
-        }
-        
-        public void AddTaskAsync(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, object userState) {
-            if ((this.onBeginAddTaskDelegate == null)) {
-                this.onBeginAddTaskDelegate = new BeginOperationDelegate(this.OnBeginAddTask);
-            }
-            if ((this.onEndAddTaskDelegate == null)) {
-                this.onEndAddTaskDelegate = new EndOperationDelegate(this.OnEndAddTask);
-            }
-            if ((this.onAddTaskCompletedDelegate == null)) {
-                this.onAddTaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddTaskCompleted);
-            }
-            base.InvokeAsync(this.onBeginAddTaskDelegate, new object[] {
-                        dask}, this.onEndAddTaskDelegate, this.onAddTaskCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDoTaskEntity(orderID, receiveUserID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.EngineWS.T_WF_DOTASK SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetDoTaskEntity(System.IAsyncResult result) {
-            return base.Channel.EndGetDoTaskEntity(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDoTaskEntity(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string orderID = ((string)(inValues[0]));
-            string receiveUserID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetDoTaskEntity(orderID, receiveUserID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDoTaskEntity(System.IAsyncResult result) {
-            SMT.Saas.Tools.EngineWS.T_WF_DOTASK retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetDoTaskEntity(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDoTaskEntityCompleted(object state) {
-            if ((this.GetDoTaskEntityCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDoTaskEntityCompleted(this, new GetDoTaskEntityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDoTaskEntityAsync(string orderID, string receiveUserID) {
-            this.GetDoTaskEntityAsync(orderID, receiveUserID, null);
-        }
-        
-        public void GetDoTaskEntityAsync(string orderID, string receiveUserID, object userState) {
-            if ((this.onBeginGetDoTaskEntityDelegate == null)) {
-                this.onBeginGetDoTaskEntityDelegate = new BeginOperationDelegate(this.OnBeginGetDoTaskEntity);
-            }
-            if ((this.onEndGetDoTaskEntityDelegate == null)) {
-                this.onEndGetDoTaskEntityDelegate = new EndOperationDelegate(this.OnEndGetDoTaskEntity);
-            }
-            if ((this.onGetDoTaskEntityCompletedDelegate == null)) {
-                this.onGetDoTaskEntityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDoTaskEntityCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDoTaskEntityDelegate, new object[] {
-                        orderID,
-                        receiveUserID}, this.onEndGetDoTaskEntityDelegate, this.onGetDoTaskEntityCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginDeleteTrigger(orderID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndDeleteTrigger(System.IAsyncResult result) {
-            base.Channel.EndDeleteTrigger(result);
-        }
-        
-        private System.IAsyncResult OnBeginDeleteTrigger(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string orderID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginDeleteTrigger(orderID, callback, asyncState);
-        }
-        
-        private object[] OnEndDeleteTrigger(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndDeleteTrigger(result);
-            return null;
-        }
-        
-        private void OnDeleteTriggerCompleted(object state) {
-            if ((this.DeleteTriggerCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.DeleteTriggerCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void DeleteTriggerAsync(string orderID) {
-            this.DeleteTriggerAsync(orderID, null);
-        }
-        
-        public void DeleteTriggerAsync(string orderID, object userState) {
-            if ((this.onBeginDeleteTriggerDelegate == null)) {
-                this.onBeginDeleteTriggerDelegate = new BeginOperationDelegate(this.OnBeginDeleteTrigger);
-            }
-            if ((this.onEndDeleteTriggerDelegate == null)) {
-                this.onEndDeleteTriggerDelegate = new EndOperationDelegate(this.OnEndDeleteTrigger);
-            }
-            if ((this.onDeleteTriggerCompletedDelegate == null)) {
-                this.onDeleteTriggerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteTriggerCompleted);
-            }
-            base.InvokeAsync(this.onBeginDeleteTriggerDelegate, new object[] {
-                        orderID}, this.onEndDeleteTriggerDelegate, this.onDeleteTriggerCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginAddDoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddDoDask(System.IAsyncResult result) {
-            base.Channel.EndAddDoDask(result);
-        }
-        
-        private System.IAsyncResult OnBeginAddDoDask(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string companyID = ((string)(inValues[0]));
-            string orderID = ((string)(inValues[1]));
-            string systemCode = ((string)(inValues[2]));
-            string modelCode = ((string)(inValues[3]));
-            string modelName = ((string)(inValues[4]));
-            string strXML = ((string)(inValues[5]));
-            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[6]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddDoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
-        }
-        
-        private object[] OnEndAddDoDask(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddDoDask(result);
-            return null;
-        }
-        
-        private void OnAddDoDaskCompleted(object state) {
-            if ((this.AddDoDaskCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AddDoDaskCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void AddDoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType) {
-            this.AddDoDaskAsync(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, null);
-        }
-        
-        public void AddDoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
-            if ((this.onBeginAddDoDaskDelegate == null)) {
-                this.onBeginAddDoDaskDelegate = new BeginOperationDelegate(this.OnBeginAddDoDask);
-            }
-            if ((this.onEndAddDoDaskDelegate == null)) {
-                this.onEndAddDoDaskDelegate = new EndOperationDelegate(this.OnEndAddDoDask);
-            }
-            if ((this.onAddDoDaskCompletedDelegate == null)) {
-                this.onAddDoDaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddDoDaskCompleted);
-            }
-            base.InvokeAsync(this.onBeginAddDoDaskDelegate, new object[] {
-                        companyID,
-                        orderID,
-                        systemCode,
-                        modelCode,
-                        modelName,
-                        strXML,
-                        msgType}, this.onEndAddDoDaskDelegate, this.onAddDoDaskCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginReturnUserInfoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndReturnUserInfoDask(System.IAsyncResult result) {
-            return base.Channel.EndReturnUserInfoDask(result);
-        }
-        
-        private System.IAsyncResult OnBeginReturnUserInfoDask(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string companyID = ((string)(inValues[0]));
-            string orderID = ((string)(inValues[1]));
-            string systemCode = ((string)(inValues[2]));
-            string modelCode = ((string)(inValues[3]));
-            string modelName = ((string)(inValues[4]));
-            string strXML = ((string)(inValues[5]));
-            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[6]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginReturnUserInfoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
-        }
-        
-        private object[] OnEndReturnUserInfoDask(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndReturnUserInfoDask(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnReturnUserInfoDaskCompleted(object state) {
-            if ((this.ReturnUserInfoDaskCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ReturnUserInfoDaskCompleted(this, new ReturnUserInfoDaskCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ReturnUserInfoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType) {
-            this.ReturnUserInfoDaskAsync(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, null);
-        }
-        
-        public void ReturnUserInfoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
-            if ((this.onBeginReturnUserInfoDaskDelegate == null)) {
-                this.onBeginReturnUserInfoDaskDelegate = new BeginOperationDelegate(this.OnBeginReturnUserInfoDask);
-            }
-            if ((this.onEndReturnUserInfoDaskDelegate == null)) {
-                this.onEndReturnUserInfoDaskDelegate = new EndOperationDelegate(this.OnEndReturnUserInfoDask);
-            }
-            if ((this.onReturnUserInfoDaskCompletedDelegate == null)) {
-                this.onReturnUserInfoDaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReturnUserInfoDaskCompleted);
-            }
-            base.InvokeAsync(this.onBeginReturnUserInfoDaskDelegate, new object[] {
-                        companyID,
-                        orderID,
-                        systemCode,
-                        modelCode,
-                        modelName,
-                        strXML,
-                        msgType}, this.onEndReturnUserInfoDaskDelegate, this.onReturnUserInfoDaskCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginApplicationMsgTriggerNew(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndApplicationMsgTriggerNew(System.IAsyncResult result) {
-            base.Channel.EndApplicationMsgTriggerNew(result);
-        }
-        
-        private System.IAsyncResult OnBeginApplicationMsgTriggerNew(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg>)(inValues[0]));
-            string companyID = ((string)(inValues[1]));
-            string SystemCode = ((string)(inValues[2]));
-            string ModelCode = ((string)(inValues[3]));
-            string strXml = ((string)(inValues[4]));
-            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[5]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginApplicationMsgTriggerNew(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, callback, asyncState);
-        }
-        
-        private object[] OnEndApplicationMsgTriggerNew(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndApplicationMsgTriggerNew(result);
-            return null;
-        }
-        
-        private void OnApplicationMsgTriggerNewCompleted(object state) {
-            if ((this.ApplicationMsgTriggerNewCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.ApplicationMsgTriggerNewCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void ApplicationMsgTriggerNewAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType) {
-            this.ApplicationMsgTriggerNewAsync(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, null);
-        }
-        
-        public void ApplicationMsgTriggerNewAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
-            if ((this.onBeginApplicationMsgTriggerNewDelegate == null)) {
-                this.onBeginApplicationMsgTriggerNewDelegate = new BeginOperationDelegate(this.OnBeginApplicationMsgTriggerNew);
-            }
-            if ((this.onEndApplicationMsgTriggerNewDelegate == null)) {
-                this.onEndApplicationMsgTriggerNewDelegate = new EndOperationDelegate(this.OnEndApplicationMsgTriggerNew);
-            }
-            if ((this.onApplicationMsgTriggerNewCompletedDelegate == null)) {
-                this.onApplicationMsgTriggerNewCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnApplicationMsgTriggerNewCompleted);
-            }
-            base.InvokeAsync(this.onBeginApplicationMsgTriggerNewDelegate, new object[] {
-                        UserAndForm,
-                        companyID,
-                        SystemCode,
-                        ModelCode,
-                        strXml,
-                        msgType}, this.onEndApplicationMsgTriggerNewDelegate, this.onApplicationMsgTriggerNewCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetDoTaskNumber(string userid, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDoTaskNumber(userid, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        int SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetDoTaskNumber(System.IAsyncResult result) {
-            return base.Channel.EndGetDoTaskNumber(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDoTaskNumber(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userid = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetDoTaskNumber(userid, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDoTaskNumber(System.IAsyncResult result) {
-            int retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetDoTaskNumber(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDoTaskNumberCompleted(object state) {
-            if ((this.GetDoTaskNumberCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDoTaskNumberCompleted(this, new GetDoTaskNumberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDoTaskNumberAsync(string userid) {
-            this.GetDoTaskNumberAsync(userid, null);
-        }
-        
-        public void GetDoTaskNumberAsync(string userid, object userState) {
-            if ((this.onBeginGetDoTaskNumberDelegate == null)) {
-                this.onBeginGetDoTaskNumberDelegate = new BeginOperationDelegate(this.OnBeginGetDoTaskNumber);
-            }
-            if ((this.onEndGetDoTaskNumberDelegate == null)) {
-                this.onEndGetDoTaskNumberDelegate = new EndOperationDelegate(this.OnEndGetDoTaskNumber);
-            }
-            if ((this.onGetDoTaskNumberCompletedDelegate == null)) {
-                this.onGetDoTaskNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDoTaskNumberCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDoTaskNumberDelegate, new object[] {
-                        userid}, this.onEndGetDoTaskNumberDelegate, this.onGetDoTaskNumberCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetDoTaskNumberByIM(string userid, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDoTaskNumberByIM(userid, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        int SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetDoTaskNumberByIM(System.IAsyncResult result) {
-            return base.Channel.EndGetDoTaskNumberByIM(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDoTaskNumberByIM(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userid = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetDoTaskNumberByIM(userid, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDoTaskNumberByIM(System.IAsyncResult result) {
-            int retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetDoTaskNumberByIM(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDoTaskNumberByIMCompleted(object state) {
-            if ((this.GetDoTaskNumberByIMCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDoTaskNumberByIMCompleted(this, new GetDoTaskNumberByIMCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDoTaskNumberByIMAsync(string userid) {
-            this.GetDoTaskNumberByIMAsync(userid, null);
-        }
-        
-        public void GetDoTaskNumberByIMAsync(string userid, object userState) {
-            if ((this.onBeginGetDoTaskNumberByIMDelegate == null)) {
-                this.onBeginGetDoTaskNumberByIMDelegate = new BeginOperationDelegate(this.OnBeginGetDoTaskNumberByIM);
-            }
-            if ((this.onEndGetDoTaskNumberByIMDelegate == null)) {
-                this.onEndGetDoTaskNumberByIMDelegate = new EndOperationDelegate(this.OnEndGetDoTaskNumberByIM);
-            }
-            if ((this.onGetDoTaskNumberByIMCompletedDelegate == null)) {
-                this.onGetDoTaskNumberByIMCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDoTaskNumberByIMCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDoTaskNumberByIMDelegate, new object[] {
-                        userid}, this.onEndGetDoTaskNumberByIMDelegate, this.onGetDoTaskNumberByIMCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginAddDoTaskEntity(dotaskList, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddDoTaskEntity(System.IAsyncResult result) {
-            return base.Channel.EndAddDoTaskEntity(result);
-        }
-        
-        private System.IAsyncResult OnBeginAddDoTaskEntity(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK>)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddDoTaskEntity(dotaskList, callback, asyncState);
-        }
-        
-        private object[] OnEndAddDoTaskEntity(System.IAsyncResult result) {
-            string retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddDoTaskEntity(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnAddDoTaskEntityCompleted(object state) {
-            if ((this.AddDoTaskEntityCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.AddDoTaskEntityCompleted(this, new AddDoTaskEntityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void AddDoTaskEntityAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList) {
-            this.AddDoTaskEntityAsync(dotaskList, null);
-        }
-        
-        public void AddDoTaskEntityAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, object userState) {
-            if ((this.onBeginAddDoTaskEntityDelegate == null)) {
-                this.onBeginAddDoTaskEntityDelegate = new BeginOperationDelegate(this.OnBeginAddDoTaskEntity);
-            }
-            if ((this.onEndAddDoTaskEntityDelegate == null)) {
-                this.onEndAddDoTaskEntityDelegate = new EndOperationDelegate(this.OnEndAddDoTaskEntity);
-            }
-            if ((this.onAddDoTaskEntityCompletedDelegate == null)) {
-                this.onAddDoTaskEntityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddDoTaskEntityCompleted);
-            }
-            base.InvokeAsync(this.onBeginAddDoTaskEntityDelegate, new object[] {
-                        dotaskList}, this.onEndAddDoTaskEntityDelegate, this.onAddDoTaskEntityCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPersonFromDoTaskByTitle(receiveuserids, messagebody, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<string> SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
-            return base.Channel.EndGetPersonFromDoTaskByTitle(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPersonFromDoTaskByTitle(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<string> receiveuserids = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            string messagebody = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetPersonFromDoTaskByTitle(receiveuserids, messagebody, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<string> retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetPersonFromDoTaskByTitle(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPersonFromDoTaskByTitleCompleted(object state) {
-            if ((this.GetPersonFromDoTaskByTitleCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPersonFromDoTaskByTitleCompleted(this, new GetPersonFromDoTaskByTitleCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPersonFromDoTaskByTitleAsync(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody) {
-            this.GetPersonFromDoTaskByTitleAsync(receiveuserids, messagebody, null);
-        }
-        
-        public void GetPersonFromDoTaskByTitleAsync(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, object userState) {
-            if ((this.onBeginGetPersonFromDoTaskByTitleDelegate == null)) {
-                this.onBeginGetPersonFromDoTaskByTitleDelegate = new BeginOperationDelegate(this.OnBeginGetPersonFromDoTaskByTitle);
-            }
-            if ((this.onEndGetPersonFromDoTaskByTitleDelegate == null)) {
-                this.onEndGetPersonFromDoTaskByTitleDelegate = new EndOperationDelegate(this.OnEndGetPersonFromDoTaskByTitle);
-            }
-            if ((this.onGetPersonFromDoTaskByTitleCompletedDelegate == null)) {
-                this.onGetPersonFromDoTaskByTitleCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPersonFromDoTaskByTitleCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPersonFromDoTaskByTitleDelegate, new object[] {
-                        receiveuserids,
-                        messagebody}, this.onEndGetPersonFromDoTaskByTitleDelegate, this.onGetPersonFromDoTaskByTitleCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetForwardHistory(string modelCode, string formID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetForwardHistory(modelCode, formID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetForwardHistory(System.IAsyncResult result) {
-            return base.Channel.EndGetForwardHistory(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetForwardHistory(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string modelCode = ((string)(inValues[0]));
-            string formID = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetForwardHistory(modelCode, formID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetForwardHistory(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetForwardHistory(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetForwardHistoryCompleted(object state) {
-            if ((this.GetForwardHistoryCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetForwardHistoryCompleted(this, new GetForwardHistoryCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetForwardHistoryAsync(string modelCode, string formID) {
-            this.GetForwardHistoryAsync(modelCode, formID, null);
-        }
-        
-        public void GetForwardHistoryAsync(string modelCode, string formID, object userState) {
-            if ((this.onBeginGetForwardHistoryDelegate == null)) {
-                this.onBeginGetForwardHistoryDelegate = new BeginOperationDelegate(this.OnBeginGetForwardHistory);
-            }
-            if ((this.onEndGetForwardHistoryDelegate == null)) {
-                this.onEndGetForwardHistoryDelegate = new EndOperationDelegate(this.OnEndGetForwardHistory);
-            }
-            if ((this.onGetForwardHistoryCompletedDelegate == null)) {
-                this.onGetForwardHistoryCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetForwardHistoryCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetForwardHistoryDelegate, new object[] {
-                        modelCode,
-                        formID}, this.onEndGetForwardHistoryDelegate, this.onGetForwardHistoryCompletedDelegate, userState);
-        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginTaskCacheReflesh(string userID, System.AsyncCallback callback, object asyncState) {
@@ -4652,102 +3740,6 @@ namespace SMT.Saas.Tools.EngineWS {
             }
             base.InvokeAsync(this.onBeginTaskCacheRefleshDelegate, new object[] {
                         userID}, this.onEndTaskCacheRefleshDelegate, this.onTaskCacheRefleshCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginCacheReflesh(string userID, bool isHasNewBill, bool isHasNewTask, string remark, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCacheReflesh(userID, isHasNewBill, isHasNewTask, remark, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndCacheReflesh(System.IAsyncResult result) {
-            base.Channel.EndCacheReflesh(result);
-        }
-        
-        private System.IAsyncResult OnBeginCacheReflesh(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userID = ((string)(inValues[0]));
-            bool isHasNewBill = ((bool)(inValues[1]));
-            bool isHasNewTask = ((bool)(inValues[2]));
-            string remark = ((string)(inValues[3]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginCacheReflesh(userID, isHasNewBill, isHasNewTask, remark, callback, asyncState);
-        }
-        
-        private object[] OnEndCacheReflesh(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndCacheReflesh(result);
-            return null;
-        }
-        
-        private void OnCacheRefleshCompleted(object state) {
-            if ((this.CacheRefleshCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CacheRefleshCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CacheRefleshAsync(string userID, bool isHasNewBill, bool isHasNewTask, string remark) {
-            this.CacheRefleshAsync(userID, isHasNewBill, isHasNewTask, remark, null);
-        }
-        
-        public void CacheRefleshAsync(string userID, bool isHasNewBill, bool isHasNewTask, string remark, object userState) {
-            if ((this.onBeginCacheRefleshDelegate == null)) {
-                this.onBeginCacheRefleshDelegate = new BeginOperationDelegate(this.OnBeginCacheReflesh);
-            }
-            if ((this.onEndCacheRefleshDelegate == null)) {
-                this.onEndCacheRefleshDelegate = new EndOperationDelegate(this.OnEndCacheReflesh);
-            }
-            if ((this.onCacheRefleshCompletedDelegate == null)) {
-                this.onCacheRefleshCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCacheRefleshCompleted);
-            }
-            base.InvokeAsync(this.onBeginCacheRefleshDelegate, new object[] {
-                        userID,
-                        isHasNewBill,
-                        isHasNewTask,
-                        remark}, this.onEndCacheRefleshDelegate, this.onCacheRefleshCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginRemoveCachUser(string userId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRemoveCachUser(userId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndRemoveCachUser(System.IAsyncResult result) {
-            base.Channel.EndRemoveCachUser(result);
-        }
-        
-        private System.IAsyncResult OnBeginRemoveCachUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string userId = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginRemoveCachUser(userId, callback, asyncState);
-        }
-        
-        private object[] OnEndRemoveCachUser(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndRemoveCachUser(result);
-            return null;
-        }
-        
-        private void OnRemoveCachUserCompleted(object state) {
-            if ((this.RemoveCachUserCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RemoveCachUserCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RemoveCachUserAsync(string userId) {
-            this.RemoveCachUserAsync(userId, null);
-        }
-        
-        public void RemoveCachUserAsync(string userId, object userState) {
-            if ((this.onBeginRemoveCachUserDelegate == null)) {
-                this.onBeginRemoveCachUserDelegate = new BeginOperationDelegate(this.OnBeginRemoveCachUser);
-            }
-            if ((this.onEndRemoveCachUserDelegate == null)) {
-                this.onEndRemoveCachUserDelegate = new EndOperationDelegate(this.OnEndRemoveCachUser);
-            }
-            if ((this.onRemoveCachUserCompletedDelegate == null)) {
-                this.onRemoveCachUserCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRemoveCachUserCompleted);
-            }
-            base.InvokeAsync(this.onBeginRemoveCachUserDelegate, new object[] {
-                        userId}, this.onEndRemoveCachUserDelegate, this.onRemoveCachUserCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6681,6 +5673,315 @@ namespace SMT.Saas.Tools.EngineWS {
                         entity}, this.onEndWFAddTimingTriggerDelegate, this.onWFAddTimingTriggerCompletedDelegate, userState);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddTask(dask, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddTask(System.IAsyncResult result) {
+            return base.Channel.EndAddTask(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddTask(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask = ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(inValues[0]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddTask(dask, callback, asyncState);
+        }
+        
+        private object[] OnEndAddTask(System.IAsyncResult result) {
+            string retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddTask(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnAddTaskCompleted(object state) {
+            if ((this.AddTaskCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddTaskCompleted(this, new AddTaskCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddTaskAsync(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask) {
+            this.AddTaskAsync(dask, null);
+        }
+        
+        public void AddTaskAsync(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, object userState) {
+            if ((this.onBeginAddTaskDelegate == null)) {
+                this.onBeginAddTaskDelegate = new BeginOperationDelegate(this.OnBeginAddTask);
+            }
+            if ((this.onEndAddTaskDelegate == null)) {
+                this.onEndAddTaskDelegate = new EndOperationDelegate(this.OnEndAddTask);
+            }
+            if ((this.onAddTaskCompletedDelegate == null)) {
+                this.onAddTaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddTaskCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddTaskDelegate, new object[] {
+                        dask}, this.onEndAddTaskDelegate, this.onAddTaskCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetDoTaskEntity(orderID, receiveUserID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.EngineWS.T_WF_DOTASK SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndGetDoTaskEntity(System.IAsyncResult result) {
+            return base.Channel.EndGetDoTaskEntity(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetDoTaskEntity(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string orderID = ((string)(inValues[0]));
+            string receiveUserID = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginGetDoTaskEntity(orderID, receiveUserID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetDoTaskEntity(System.IAsyncResult result) {
+            SMT.Saas.Tools.EngineWS.T_WF_DOTASK retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndGetDoTaskEntity(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetDoTaskEntityCompleted(object state) {
+            if ((this.GetDoTaskEntityCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetDoTaskEntityCompleted(this, new GetDoTaskEntityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetDoTaskEntityAsync(string orderID, string receiveUserID) {
+            this.GetDoTaskEntityAsync(orderID, receiveUserID, null);
+        }
+        
+        public void GetDoTaskEntityAsync(string orderID, string receiveUserID, object userState) {
+            if ((this.onBeginGetDoTaskEntityDelegate == null)) {
+                this.onBeginGetDoTaskEntityDelegate = new BeginOperationDelegate(this.OnBeginGetDoTaskEntity);
+            }
+            if ((this.onEndGetDoTaskEntityDelegate == null)) {
+                this.onEndGetDoTaskEntityDelegate = new EndOperationDelegate(this.OnEndGetDoTaskEntity);
+            }
+            if ((this.onGetDoTaskEntityCompletedDelegate == null)) {
+                this.onGetDoTaskEntityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDoTaskEntityCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetDoTaskEntityDelegate, new object[] {
+                        orderID,
+                        receiveUserID}, this.onEndGetDoTaskEntityDelegate, this.onGetDoTaskEntityCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginDeleteTrigger(orderID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndDeleteTrigger(System.IAsyncResult result) {
+            base.Channel.EndDeleteTrigger(result);
+        }
+        
+        private System.IAsyncResult OnBeginDeleteTrigger(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string orderID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginDeleteTrigger(orderID, callback, asyncState);
+        }
+        
+        private object[] OnEndDeleteTrigger(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndDeleteTrigger(result);
+            return null;
+        }
+        
+        private void OnDeleteTriggerCompleted(object state) {
+            if ((this.DeleteTriggerCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.DeleteTriggerCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void DeleteTriggerAsync(string orderID) {
+            this.DeleteTriggerAsync(orderID, null);
+        }
+        
+        public void DeleteTriggerAsync(string orderID, object userState) {
+            if ((this.onBeginDeleteTriggerDelegate == null)) {
+                this.onBeginDeleteTriggerDelegate = new BeginOperationDelegate(this.OnBeginDeleteTrigger);
+            }
+            if ((this.onEndDeleteTriggerDelegate == null)) {
+                this.onEndDeleteTriggerDelegate = new EndOperationDelegate(this.OnEndDeleteTrigger);
+            }
+            if ((this.onDeleteTriggerCompletedDelegate == null)) {
+                this.onDeleteTriggerCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDeleteTriggerCompleted);
+            }
+            base.InvokeAsync(this.onBeginDeleteTriggerDelegate, new object[] {
+                        orderID}, this.onEndDeleteTriggerDelegate, this.onDeleteTriggerCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginAddDoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndAddDoDask(System.IAsyncResult result) {
+            base.Channel.EndAddDoDask(result);
+        }
+        
+        private System.IAsyncResult OnBeginAddDoDask(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string companyID = ((string)(inValues[0]));
+            string orderID = ((string)(inValues[1]));
+            string systemCode = ((string)(inValues[2]));
+            string modelCode = ((string)(inValues[3]));
+            string modelName = ((string)(inValues[4]));
+            string strXML = ((string)(inValues[5]));
+            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[6]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginAddDoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
+        }
+        
+        private object[] OnEndAddDoDask(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndAddDoDask(result);
+            return null;
+        }
+        
+        private void OnAddDoDaskCompleted(object state) {
+            if ((this.AddDoDaskCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.AddDoDaskCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void AddDoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType) {
+            this.AddDoDaskAsync(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, null);
+        }
+        
+        public void AddDoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
+            if ((this.onBeginAddDoDaskDelegate == null)) {
+                this.onBeginAddDoDaskDelegate = new BeginOperationDelegate(this.OnBeginAddDoDask);
+            }
+            if ((this.onEndAddDoDaskDelegate == null)) {
+                this.onEndAddDoDaskDelegate = new EndOperationDelegate(this.OnEndAddDoDask);
+            }
+            if ((this.onAddDoDaskCompletedDelegate == null)) {
+                this.onAddDoDaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnAddDoDaskCompleted);
+            }
+            base.InvokeAsync(this.onBeginAddDoDaskDelegate, new object[] {
+                        companyID,
+                        orderID,
+                        systemCode,
+                        modelCode,
+                        modelName,
+                        strXML,
+                        msgType}, this.onEndAddDoDaskDelegate, this.onAddDoDaskCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginReturnUserInfoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndReturnUserInfoDask(System.IAsyncResult result) {
+            return base.Channel.EndReturnUserInfoDask(result);
+        }
+        
+        private System.IAsyncResult OnBeginReturnUserInfoDask(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string companyID = ((string)(inValues[0]));
+            string orderID = ((string)(inValues[1]));
+            string systemCode = ((string)(inValues[2]));
+            string modelCode = ((string)(inValues[3]));
+            string modelName = ((string)(inValues[4]));
+            string strXML = ((string)(inValues[5]));
+            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[6]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginReturnUserInfoDask(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, callback, asyncState);
+        }
+        
+        private object[] OnEndReturnUserInfoDask(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> retVal = ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndReturnUserInfoDask(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnReturnUserInfoDaskCompleted(object state) {
+            if ((this.ReturnUserInfoDaskCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ReturnUserInfoDaskCompleted(this, new ReturnUserInfoDaskCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ReturnUserInfoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType) {
+            this.ReturnUserInfoDaskAsync(companyID, orderID, systemCode, modelCode, modelName, strXML, msgType, null);
+        }
+        
+        public void ReturnUserInfoDaskAsync(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
+            if ((this.onBeginReturnUserInfoDaskDelegate == null)) {
+                this.onBeginReturnUserInfoDaskDelegate = new BeginOperationDelegate(this.OnBeginReturnUserInfoDask);
+            }
+            if ((this.onEndReturnUserInfoDaskDelegate == null)) {
+                this.onEndReturnUserInfoDaskDelegate = new EndOperationDelegate(this.OnEndReturnUserInfoDask);
+            }
+            if ((this.onReturnUserInfoDaskCompletedDelegate == null)) {
+                this.onReturnUserInfoDaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnReturnUserInfoDaskCompleted);
+            }
+            base.InvokeAsync(this.onBeginReturnUserInfoDaskDelegate, new object[] {
+                        companyID,
+                        orderID,
+                        systemCode,
+                        modelCode,
+                        modelName,
+                        strXML,
+                        msgType}, this.onEndReturnUserInfoDaskDelegate, this.onReturnUserInfoDaskCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginApplicationMsgTriggerNew(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction.EndApplicationMsgTriggerNew(System.IAsyncResult result) {
+            base.Channel.EndApplicationMsgTriggerNew(result);
+        }
+        
+        private System.IAsyncResult OnBeginApplicationMsgTriggerNew(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg>)(inValues[0]));
+            string companyID = ((string)(inValues[1]));
+            string SystemCode = ((string)(inValues[2]));
+            string ModelCode = ((string)(inValues[3]));
+            string strXml = ((string)(inValues[4]));
+            SMT.Saas.Tools.EngineWS.MsgType msgType = ((SMT.Saas.Tools.EngineWS.MsgType)(inValues[5]));
+            return ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).BeginApplicationMsgTriggerNew(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, callback, asyncState);
+        }
+        
+        private object[] OnEndApplicationMsgTriggerNew(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.EngineWS.IEngineWcfGlobalFunction)(this)).EndApplicationMsgTriggerNew(result);
+            return null;
+        }
+        
+        private void OnApplicationMsgTriggerNewCompleted(object state) {
+            if ((this.ApplicationMsgTriggerNewCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.ApplicationMsgTriggerNewCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void ApplicationMsgTriggerNewAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType) {
+            this.ApplicationMsgTriggerNewAsync(UserAndForm, companyID, SystemCode, ModelCode, strXml, msgType, null);
+        }
+        
+        public void ApplicationMsgTriggerNewAsync(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, object userState) {
+            if ((this.onBeginApplicationMsgTriggerNewDelegate == null)) {
+                this.onBeginApplicationMsgTriggerNewDelegate = new BeginOperationDelegate(this.OnBeginApplicationMsgTriggerNew);
+            }
+            if ((this.onEndApplicationMsgTriggerNewDelegate == null)) {
+                this.onEndApplicationMsgTriggerNewDelegate = new EndOperationDelegate(this.OnEndApplicationMsgTriggerNew);
+            }
+            if ((this.onApplicationMsgTriggerNewCompletedDelegate == null)) {
+                this.onApplicationMsgTriggerNewCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnApplicationMsgTriggerNewCompleted);
+            }
+            base.InvokeAsync(this.onBeginApplicationMsgTriggerNewDelegate, new object[] {
+                        UserAndForm,
+                        companyID,
+                        SystemCode,
+                        ModelCode,
+                        strXml,
+                        msgType}, this.onEndApplicationMsgTriggerNewDelegate, this.onApplicationMsgTriggerNewCompletedDelegate, userState);
+        }
+        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -6757,166 +6058,6 @@ namespace SMT.Saas.Tools.EngineWS {
                     base(client) {
             }
             
-            public System.IAsyncResult BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = dask;
-                System.IAsyncResult _result = base.BeginInvoke("AddTask", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndAddTask(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("AddTask", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = orderID;
-                _args[1] = receiveUserID;
-                System.IAsyncResult _result = base.BeginInvoke("GetDoTaskEntity", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.EngineWS.T_WF_DOTASK EndGetDoTaskEntity(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.EngineWS.T_WF_DOTASK _result = ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(base.EndInvoke("GetDoTaskEntity", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = orderID;
-                System.IAsyncResult _result = base.BeginInvoke("DeleteTrigger", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndDeleteTrigger(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("DeleteTrigger", _args, result);
-            }
-            
-            public System.IAsyncResult BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[7];
-                _args[0] = companyID;
-                _args[1] = orderID;
-                _args[2] = systemCode;
-                _args[3] = modelCode;
-                _args[4] = modelName;
-                _args[5] = strXML;
-                _args[6] = msgType;
-                System.IAsyncResult _result = base.BeginInvoke("AddDoDask", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndAddDoDask(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("AddDoDask", _args, result);
-            }
-            
-            public System.IAsyncResult BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[7];
-                _args[0] = companyID;
-                _args[1] = orderID;
-                _args[2] = systemCode;
-                _args[3] = modelCode;
-                _args[4] = modelName;
-                _args[5] = strXML;
-                _args[6] = msgType;
-                System.IAsyncResult _result = base.BeginInvoke("ReturnUserInfoDask", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> EndReturnUserInfoDask(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>)(base.EndInvoke("ReturnUserInfoDask", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[6];
-                _args[0] = UserAndForm;
-                _args[1] = companyID;
-                _args[2] = SystemCode;
-                _args[3] = ModelCode;
-                _args[4] = strXml;
-                _args[5] = msgType;
-                System.IAsyncResult _result = base.BeginInvoke("ApplicationMsgTriggerNew", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndApplicationMsgTriggerNew(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("ApplicationMsgTriggerNew", _args, result);
-            }
-            
-            public System.IAsyncResult BeginGetDoTaskNumber(string userid, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userid;
-                System.IAsyncResult _result = base.BeginInvoke("GetDoTaskNumber", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public int EndGetDoTaskNumber(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                int _result = ((int)(base.EndInvoke("GetDoTaskNumber", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetDoTaskNumberByIM(string userid, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userid;
-                System.IAsyncResult _result = base.BeginInvoke("GetDoTaskNumberByIM", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public int EndGetDoTaskNumberByIM(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                int _result = ((int)(base.EndInvoke("GetDoTaskNumberByIM", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginAddDoTaskEntity(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_DOTASK> dotaskList, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = dotaskList;
-                System.IAsyncResult _result = base.BeginInvoke("AddDoTaskEntity", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public string EndAddDoTaskEntity(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                string _result = ((string)(base.EndInvoke("AddDoTaskEntity", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetPersonFromDoTaskByTitle(System.Collections.ObjectModel.ObservableCollection<string> receiveuserids, string messagebody, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = receiveuserids;
-                _args[1] = messagebody;
-                System.IAsyncResult _result = base.BeginInvoke("GetPersonFromDoTaskByTitle", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<string> EndGetPersonFromDoTaskByTitle(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<string> _result = ((System.Collections.ObjectModel.ObservableCollection<string>)(base.EndInvoke("GetPersonFromDoTaskByTitle", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetForwardHistory(string modelCode, string formID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = modelCode;
-                _args[1] = formID;
-                System.IAsyncResult _result = base.BeginInvoke("GetForwardHistory", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> EndGetForwardHistory(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY>)(base.EndInvoke("GetForwardHistory", _args, result)));
-                return _result;
-            }
-            
             public System.IAsyncResult BeginTaskCacheReflesh(string userID, System.AsyncCallback callback, object asyncState) {
                 object[] _args = new object[1];
                 _args[0] = userID;
@@ -6927,33 +6068,6 @@ namespace SMT.Saas.Tools.EngineWS {
             public void EndTaskCacheReflesh(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 base.EndInvoke("TaskCacheReflesh", _args, result);
-            }
-            
-            public System.IAsyncResult BeginCacheReflesh(string userID, bool isHasNewBill, bool isHasNewTask, string remark, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[4];
-                _args[0] = userID;
-                _args[1] = isHasNewBill;
-                _args[2] = isHasNewTask;
-                _args[3] = remark;
-                System.IAsyncResult _result = base.BeginInvoke("CacheReflesh", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndCacheReflesh(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("CacheReflesh", _args, result);
-            }
-            
-            public System.IAsyncResult BeginRemoveCachUser(string userId, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = userId;
-                System.IAsyncResult _result = base.BeginInvoke("RemoveCachUser", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndRemoveCachUser(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("RemoveCachUser", _args, result);
             }
             
             public System.IAsyncResult BeginRemoveCache(string userID, System.AsyncCallback callback, object asyncState) {
@@ -7542,6 +6656,99 @@ namespace SMT.Saas.Tools.EngineWS {
                 object[] _args = new object[0];
                 string _result = ((string)(base.EndInvoke("WFAddTimingTrigger", _args, result)));
                 return _result;
+            }
+            
+            public System.IAsyncResult BeginAddTask(SMT.Saas.Tools.EngineWS.T_WF_DOTASK dask, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = dask;
+                System.IAsyncResult _result = base.BeginInvoke("AddTask", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public string EndAddTask(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                string _result = ((string)(base.EndInvoke("AddTask", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetDoTaskEntity(string orderID, string receiveUserID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = orderID;
+                _args[1] = receiveUserID;
+                System.IAsyncResult _result = base.BeginInvoke("GetDoTaskEntity", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.EngineWS.T_WF_DOTASK EndGetDoTaskEntity(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.EngineWS.T_WF_DOTASK _result = ((SMT.Saas.Tools.EngineWS.T_WF_DOTASK)(base.EndInvoke("GetDoTaskEntity", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginDeleteTrigger(string orderID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = orderID;
+                System.IAsyncResult _result = base.BeginInvoke("DeleteTrigger", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndDeleteTrigger(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("DeleteTrigger", _args, result);
+            }
+            
+            public System.IAsyncResult BeginAddDoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = companyID;
+                _args[1] = orderID;
+                _args[2] = systemCode;
+                _args[3] = modelCode;
+                _args[4] = modelName;
+                _args[5] = strXML;
+                _args[6] = msgType;
+                System.IAsyncResult _result = base.BeginInvoke("AddDoDask", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndAddDoDask(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("AddDoDask", _args, result);
+            }
+            
+            public System.IAsyncResult BeginReturnUserInfoDask(string companyID, string orderID, string systemCode, string modelCode, string modelName, string strXML, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[7];
+                _args[0] = companyID;
+                _args[1] = orderID;
+                _args[2] = systemCode;
+                _args[3] = modelCode;
+                _args[4] = modelName;
+                _args[5] = strXML;
+                _args[6] = msgType;
+                System.IAsyncResult _result = base.BeginInvoke("ReturnUserInfoDask", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> EndReturnUserInfoDask(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.UserInfo>)(base.EndInvoke("ReturnUserInfoDask", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginApplicationMsgTriggerNew(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.EngineWS.CustomUserMsg> UserAndForm, string companyID, string SystemCode, string ModelCode, string strXml, SMT.Saas.Tools.EngineWS.MsgType msgType, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[6];
+                _args[0] = UserAndForm;
+                _args[1] = companyID;
+                _args[2] = SystemCode;
+                _args[3] = ModelCode;
+                _args[4] = strXml;
+                _args[5] = msgType;
+                System.IAsyncResult _result = base.BeginInvoke("ApplicationMsgTriggerNew", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndApplicationMsgTriggerNew(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("ApplicationMsgTriggerNew", _args, result);
             }
         }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="h1X3g0SEe7cJRgnZH3Yhcgm/EtA=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="FqplaVyJYiV7cuxavpBewXs4kGY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="customBinding" name="WSHttpBinding_IService">
       <properties>
@@ -154,10 +154,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IService" contract="FlowWFService.IService" bindingType="customBinding" address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" bindingConfiguration="WSHttpBinding_IService">
+    <endpoint name="WSHttpBinding_IService" contract="FlowWFService.IService" bindingType="customBinding" address="http://localhost:8008/SMT.FlowWFService.Service.svc" bindingConfiguration="WSHttpBinding_IService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc</serializedValue>
+          <serializedValue>http://localhost:8008/SMT.FlowWFService.Service.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

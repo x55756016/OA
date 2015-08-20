@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
   <xs:complexType name="ArrayOfT_SYS_ROLE">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="T_SYS_ROLE" nillable="true" type="tns:T_SYS_ROLE" />
@@ -61,11 +61,11 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="STARTDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENU" nillable="true" type="tns:T_SYS_ENTITYMENU" />
-          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q2:EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q2:EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_PERMISSION" nillable="true" type="tns:T_SYS_PERMISSION" />
-          <xs:element minOccurs="0" name="T_SYS_PERMISSIONReference" nillable="true" type="q2:EntityReferenceOfT_SYS_PERMISSIONCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_PERMISSIONReference" nillable="true" type="q2:EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_ROLE" nillable="true" type="tns:T_SYS_ROLE" />
-          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q2:EntityReferenceOfT_SYS_ROLECIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q2:EntityReferenceOfT_SYS_ROLENb42Hbcw" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -84,6 +84,8 @@
           <xs:element minOccurs="0" name="ENTITYMENUID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ENTITYNAME" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="HASSYSTEMMENU" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HELPFILEPATH" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HELPTITLE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ISAUTHORITY" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="MENUCODE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="MENUICONPATH" nillable="true" type="xs:string" />
@@ -93,7 +95,7 @@
           <xs:element minOccurs="0" name="SYSTEMTYPE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENU1" nillable="true" type="tns:ArrayOfT_SYS_ENTITYMENU" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENU2" nillable="true" type="tns:T_SYS_ENTITYMENU" />
-          <xs:element minOccurs="0" name="T_SYS_ENTITYMENU2Reference" nillable="true" type="q3:EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ENTITYMENU2Reference" nillable="true" type="q3:EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENUCUSTOMPERM" nillable="true" type="tns:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
           <xs:element minOccurs="0" name="T_SYS_PERMISSION" nillable="true" type="tns:ArrayOfT_SYS_PERMISSION" />
           <xs:element minOccurs="0" name="T_SYS_ROLEENTITYMENU" nillable="true" type="tns:ArrayOfT_SYS_ROLEENTITYMENU" />
@@ -131,7 +133,7 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENU" nillable="true" type="tns:T_SYS_ENTITYMENU" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENUCUSTOMPERM" nillable="true" type="tns:ArrayOfT_SYS_ENTITYMENUCUSTOMPERM" />
-          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q4:EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q4:EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_ROLEMENUPERMISSION" nillable="true" type="tns:ArrayOfT_SYS_ROLEMENUPERMISSION" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
@@ -156,9 +158,9 @@
           <xs:element minOccurs="0" name="EXTENDVALUE" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ROLEMENUPERMID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_PERMISSION" nillable="true" type="tns:T_SYS_PERMISSION" />
-          <xs:element minOccurs="0" name="T_SYS_PERMISSIONReference" nillable="true" type="q5:EntityReferenceOfT_SYS_PERMISSIONCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_PERMISSIONReference" nillable="true" type="q5:EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_ROLEENTITYMENU" nillable="true" type="tns:T_SYS_ROLEENTITYMENU" />
-          <xs:element minOccurs="0" name="T_SYS_ROLEENTITYMENUReference" nillable="true" type="q5:EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ROLEENTITYMENUReference" nillable="true" type="q5:EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -175,10 +177,10 @@
           <xs:element minOccurs="0" name="REMARK" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ROLEENTITYMENUID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_ENTITYMENU" nillable="true" type="tns:T_SYS_ENTITYMENU" />
-          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q6:EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ENTITYMENUReference" nillable="true" type="q6:EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_ROLE" nillable="true" type="tns:T_SYS_ROLE" />
           <xs:element minOccurs="0" name="T_SYS_ROLEMENUPERMISSION" nillable="true" type="tns:ArrayOfT_SYS_ROLEMENUPERMISSION" />
-          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q6:EntityReferenceOfT_SYS_ROLECIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q6:EntityReferenceOfT_SYS_ROLENb42Hbcw" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -208,9 +210,9 @@
           <xs:element minOccurs="0" name="OWNERCOMPANYID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="POSTID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="T_SYS_ROLE" nillable="true" type="tns:T_SYS_ROLE" />
-          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q7:EntityReferenceOfT_SYS_ROLECIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_ROLEReference" nillable="true" type="q7:EntityReferenceOfT_SYS_ROLENb42Hbcw" />
           <xs:element minOccurs="0" name="T_SYS_USER" nillable="true" type="tns:T_SYS_USER" />
-          <xs:element minOccurs="0" name="T_SYS_USERReference" nillable="true" type="q7:EntityReferenceOfT_SYS_USERCIR1sILv" />
+          <xs:element minOccurs="0" name="T_SYS_USERReference" nillable="true" type="q7:EntityReferenceOfT_SYS_USERNb42Hbcw" />
           <xs:element minOccurs="0" name="UPDATEDATE" nillable="true" type="xs:dateTime" />
           <xs:element minOccurs="0" name="UPDATEUSER" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="USERROLEID" nillable="true" type="xs:string" />

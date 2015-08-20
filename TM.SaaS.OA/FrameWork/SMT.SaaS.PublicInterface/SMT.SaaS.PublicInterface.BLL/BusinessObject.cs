@@ -20,10 +20,13 @@ namespace SMT.SaaS.PublicInterface.BLL
                 if (SystemCode == null || SystemCode == "" || BusinessObjectName == null || BusinessObjectName == "")
                     return null;
                 string Path = AppDomain.CurrentDomain.BaseDirectory;
-                Path = Path +@"BusinessObjects\"+SystemCode+@"\" +BusinessObjectName + ".xml";
-                Tracer.Debug("GetBusinessObject,filePath" + Path);
+                Path = ConfigurationManager.AppSettings["BoXMLPath"];
+                Path = Path +@"\"+SystemCode+@"BO\" +BusinessObjectName + ".xml";
                 if (!File.Exists(Path))
+                {
+                    Tracer.Debug("GetBusinessObject获取的文件为空,filePath" + Path);
                     return null;
+                }
                 StreamReader file = new StreamReader(Path);
                 text = file.ReadToEnd();
                 file.Close();

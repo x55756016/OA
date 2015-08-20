@@ -1323,10 +1323,15 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
                                            "", "");
             // 获取转发列表
-            EngineService.GetForwardHistoryAsync(this.AuditEntity.ModelCode, this.AuditEntity.FormID);
+            //EngineService.GetForwardHistoryAsync(this.AuditEntity.ModelCode, this.AuditEntity.FormID);
         }
         void auditService_GetFlowInfoCompleted(object sender, GetFlowInfoCompletedEventArgs e)
         {
+            if(e.Error!=null)
+            {
+                MessageBox.Show(e.Error.ToString());
+                return;
+            }
             ////beyond
             //if (this.tbTest.Text != "")
             //{
@@ -1454,16 +1459,17 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                     this.AuditListBox.ItemsSource = list; */
                     //}
                     //修改后代码
-                    var auditResults = from t in e.Result
-                                       group t by t.FLOW_FLOWRECORDMASTER_T
-                                           into g
-                                           orderby g.Key.CREATEDATE
-                                           select g.Key;
-                    foreach (var item in auditResults)
-                    {
+                    //var auditResults = from t in e.Result
+                    //                   group t by t.FLOW_FLOWRECORDMASTER_T
+                    //                       into g
+                    //                       orderby g.Key.CREATEDATE
+                    //                       select g.Key;
+                    var auditResults=e.Result;
+                    //foreach (var item in auditResults)
+                    //{
                         //排除流程起始的默认数据
-                        FLOW_FLOWRECORDDETAIL_T sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.STATECODE.ToUpper() == "STARTFLOW");
-                        item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);
+                        FLOW_FLOWRECORDDETAIL_T sub = auditResults.FirstOrDefault(p => p.STATECODE.ToUpper() == "STARTFLOW");
+                       auditResults.Remove(sub);
                         //暂时屏蔽,不确定是否需要.2011年5月24日
                         //sub = item.FLOW_FLOWRECORDDETAIL_T.FirstOrDefault(p => p.EDITUSERID == SMT.SAAS.Main.CurrentContext.Common.CurrentLoginUserInfo.EmployeeID && p.CHECKSTATE == "2");
                         //item.FLOW_FLOWRECORDDETAIL_T.Remove(sub);//排出当前审核人是自己的数据
@@ -1477,33 +1483,33 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
 
 
 
-                        List<FLOW_FLOWRECORDDETAIL_T> source = item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG == "1").OrderBy(d => d.EDITDATE).ToList();
-                        source.AddRange(item.FLOW_FLOWRECORDDETAIL_T.Where(d => d.FLAG != "1").OrderBy(d => d.EDITDATE).ToList());
+                        List<FLOW_FLOWRECORDDETAIL_T> source = auditResults.Where(d => d.FLAG == "1").OrderBy(d => d.EDITDATE).ToList();
+                        source.AddRange(auditResults.Where(d => d.FLAG != "1").OrderBy(d => d.EDITDATE).ToList());
 
                         foreach (var detail in source)
                         {
                             details.Add(detail);
                         }
-                        item.FLOW_FLOWRECORDDETAIL_T = details;
+                        auditResults = details;
                         //foreach (var detail in details)
                         //{
                         //    item.FLOW_FLOWRECORDDETAIL_T.Add(detail);
                         //}
-                    }
+                    //}
                     if (auditResults.Count() > 0)
                     {
                         //显示代理人beyond
-                        auditResults.ForEach(master =>
+                        auditResults.ForEach(detail =>
                         {
-                            if (master.FLOW_FLOWRECORDDETAIL_T != null)
+                            if (detail != null)
                             {
-                                master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
+                                //master.FLOW_FLOWRECORDDETAIL_T.ForEach(detail =>
+                                //{
+                                if (!string.IsNullOrEmpty(detail.AGENTERNAME))
                                 {
-                                    if (!string.IsNullOrEmpty(detail.AGENTERNAME))
-                                    {
-                                        detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
-                                    }
-                                });
+                                    detail.EDITUSERNAME = detail.EDITUSERNAME + "(" + detail.AGENTERNAME + ")";
+                                }
+                                //});
                             }
                         });
                         this.AuditListPnl.ItemsSource = auditResults;
@@ -1949,24 +1955,24 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //登录人发起新咨询
             if (this.currentFLOWRECORDDETAIL != null)
             {
-                if (listSend.FirstOrDefault(v => v.FlowConsultation.FLOW_FLOWRECORDDETAIL_T.FLOWRECORDDETAILID == this.currentFLOWRECORDDETAIL.FLOWRECORDDETAILID) == null)
-                {
-                    FLOW_CONSULTATION_T consultation = new FLOW_CONSULTATION_T();
-                    consultation.CONSULTATIONID = Guid.NewGuid().ToString();
-                    consultation.CONSULTATIONUSERID = loginUserID;
-                    consultation.CONSULTATIONUSERNAME = loginUserName;
-                    consultation.FLAG = "0";
-                    consultation.FLOW_FLOWRECORDDETAIL_T = this.currentFLOWRECORDDETAIL;
-                    if (this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T == null)
-                    {
-                        this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T = new ObservableCollection<FLOW_CONSULTATION_T>();
-                    }
-                    this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T.Add(consultation);
-                    ConsultationViewModel viewModel = new ConsultationViewModel(consultation, loginUserID, submmitData);
-                    viewModel.WaitingHandler += new EventHandler(viewModel_WaitingHandler);
-                    viewModel.CompletedHandler += new EventHandler(viewModel_CompletedHandler);
-                    listSend.Add(viewModel);
-                }
+                //if (listSend.FirstOrDefault(v => v.FlowConsultation.FLOW_FLOWRECORDDETAIL_T.FLOWRECORDDETAILID == this.currentFLOWRECORDDETAIL.FLOWRECORDDETAILID) == null)
+                //{
+                //    FLOW_CONSULTATION_T consultation = new FLOW_CONSULTATION_T();
+                //    consultation.CONSULTATIONID = Guid.NewGuid().ToString();
+                //    consultation.CONSULTATIONUSERID = loginUserID;
+                //    consultation.CONSULTATIONUSERNAME = loginUserName;
+                //    consultation.FLAG = "0";
+                //    consultation.FLOW_FLOWRECORDDETAIL_T = this.currentFLOWRECORDDETAIL;
+                //    if (this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T == null)
+                //    {
+                //        this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T = new ObservableCollection<FLOW_CONSULTATION_T>();
+                //    }
+                //    this.currentFLOWRECORDDETAIL.FLOW_CONSULTATION_T.Add(consultation);
+                //    ConsultationViewModel viewModel = new ConsultationViewModel(consultation, loginUserID, submmitData);
+                //    viewModel.WaitingHandler += new EventHandler(viewModel_WaitingHandler);
+                //    viewModel.CompletedHandler += new EventHandler(viewModel_CompletedHandler);
+                //    listSend.Add(viewModel);
+                //}
 
 
             }
@@ -2179,7 +2185,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             //this.HandIn(AuditOperation.ReSubmit, AuditAction.ReSubmit);
 
         }
-        private Dictionary<Role_UserType, ObservableCollection<UserInfo>> DictCounterUser;
+        private Dictionary<FlowRole, ObservableCollection<UserInfo>> DictCounterUser;
         private void CounterAction(DataResult result)
         {
             this.isSelect = false;
@@ -2275,7 +2281,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 #region
 
                 #region Check
-                this.DictCounterUser = new Dictionary<Role_UserType, ObservableCollection<UserInfo>>();
+                this.DictCounterUser = new Dictionary<FlowRole, ObservableCollection<UserInfo>>();
                 if (result.CountersignType == "0")
                 {
                     foreach (var viewModel in listviewmodel)
@@ -2373,7 +2379,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         #region 转发列表
 
         public List<string> AuditPersonList { get; set; }
-        public List<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> AllForwardHistoryList { get; set; }
+        //public List<SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY> AllForwardHistoryList { get; set; }
 
         private SMT.Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient engineService = null;
         private SMT.Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient EngineService
@@ -2383,27 +2389,27 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
                 if (engineService == null)
                 {
                     engineService = new Saas.Tools.EngineWS.EngineWcfGlobalFunctionClient();
-                    engineService.GetForwardHistoryCompleted += new EventHandler<Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs>(engineService_GetForwardHistoryCompleted);
+                    //engineService.GetForwardHistoryCompleted += new EventHandler<Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs>(engineService_GetForwardHistoryCompleted);
                 }
                 return engineService;
             }
         }
 
-        void engineService_GetForwardHistoryCompleted(object sender, Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs e)
-        {
-            if (e.Error == null)
-            {
-                if (e.Result != null)
-                {
-                    this.AllForwardHistoryList = e.Result.ToList();
-                    if (this.AllForwardHistoryList.Count > 0)
-                    {
-                        this.ForwardHistoryListIC.ItemsSource = AllForwardHistoryList;
-                        this.ForwardHistoryListPnl.Visibility = System.Windows.Visibility.Visible;
-                    }
-                }
-            }
-        }
+        //void engineService_GetForwardHistoryCompleted(object sender, Saas.Tools.EngineWS.GetForwardHistoryCompletedEventArgs e)
+        //{
+        //    if (e.Error == null)
+        //    {
+        //        if (e.Result != null)
+        //        {
+        //            this.AllForwardHistoryList = e.Result.ToList();
+        //            if (this.AllForwardHistoryList.Count > 0)
+        //            {
+        //                this.ForwardHistoryListIC.ItemsSource = AllForwardHistoryList;
+        //                this.ForwardHistoryListPnl.Visibility = System.Windows.Visibility.Visible;
+        //            }
+        //        }
+        //    }
+        //}
         #endregion
 
 
@@ -3468,7 +3474,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
         }
         #endregion
 
-        public Rule_UserInfoViewModel(Role_UserType Role_UserType, List<UserInfo> listUserInfo)
+        public Rule_UserInfoViewModel(FlowRole Role_UserType, List<UserInfo> listUserInfo)
         {
             this.Role_UserType = Role_UserType;
             this.ListUserInfo = new List<UserInfoViewModel>();
@@ -3478,7 +3484,7 @@ namespace SMT.SaaS.FrameworkUI.AuditControl
             });
         }
 
-        public Role_UserType Role_UserType
+        public FlowRole Role_UserType
         {
             get;
             set;

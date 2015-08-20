@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
-  <xs:complexType name="ArrayOfstring">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+  <xs:import schemaLocation="http://localhost:4441/EngineWcfGlobalFunction.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EngineDataModel" />
   <xs:complexType name="ArrayOfKeyValueOfstringT_FLOW_ENGINEMSGLISTN9HQXtD5">
     <xs:annotation>
       <xs:appinfo>
@@ -25,6 +19,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfKeyValueOfstringT_FLOW_ENGINEMSGLISTN9HQXtD5" nillable="true" type="tns:ArrayOfKeyValueOfstringT_FLOW_ENGINEMSGLISTN9HQXtD5" />
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
   <xs:complexType name="ArrayOfanyType">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />

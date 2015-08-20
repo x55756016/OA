@@ -4,15 +4,135 @@
     <xsd:schema targetNamespace="/Imports">
       <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd0" />
       <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel" />
+      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel" />
       <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
       <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
-      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services" />
-      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd7" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" />
+      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel" />
+      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL" />
+      <xsd:import schemaLocation="http://localhost:12168/OrganizationService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="OrganizationService_GetPostWithSpecifiedTime_InputMessage">
+    <wsdl:part name="parameters" element="GetPostWithSpecifiedTime" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetPostWithSpecifiedTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostWithSpecifiedTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetPostById_InputMessage">
+    <wsdl:part name="parameters" element="GetPostById" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetPostById_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostAdd_InputMessage">
+    <wsdl:part name="parameters" element="PostAdd" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostAdd_OutputMessage">
+    <wsdl:part name="parameters" element="PostAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostUpdate_InputMessage">
+    <wsdl:part name="parameters" element="PostUpdate" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="PostUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostDelete_InputMessage">
+    <wsdl:part name="parameters" element="PostDelete" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostDelete_OutputMessage">
+    <wsdl:part name="parameters" element="PostDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostCancel_InputMessage">
+    <wsdl:part name="parameters" element="PostCancel" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_PostCancel_OutputMessage">
+    <wsdl:part name="parameters" element="PostCancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetPostNumber_InputMessage">
+    <wsdl:part name="parameters" element="GetPostNumber" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetPostNumber_OutputMessage">
+    <wsdl:part name="parameters" element="GetPostNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_IsFatherPost_InputMessage">
+    <wsdl:part name="parameters" element="IsFatherPost" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_IsFatherPost_OutputMessage">
+    <wsdl:part name="parameters" element="IsFatherPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetAllPostByDepartId_InputMessage">
+    <wsdl:part name="parameters" element="GetAllPostByDepartId" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetAllPostByDepartId_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllPostByDepartIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetLackPostEmployeeCount_InputMessage">
+    <wsdl:part name="parameters" element="GetLackPostEmployeeCount" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetLackPostEmployeeCount_OutputMessage">
+    <wsdl:part name="parameters" element="GetLackPostEmployeeCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetOnPostEmployeeCount_InputMessage">
+    <wsdl:part name="parameters" element="GetOnPostEmployeeCount" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetOnPostEmployeeCount_OutputMessage">
+    <wsdl:part name="parameters" element="GetOnPostEmployeeCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostPaging_InputMessage">
+    <wsdl:part name="parameters" element="RelationPostPaging" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostPaging_OutputMessage">
+    <wsdl:part name="parameters" element="RelationPostPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostAdd_InputMessage">
+    <wsdl:part name="parameters" element="RelationPostAdd" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostAdd_OutputMessage">
+    <wsdl:part name="parameters" element="RelationPostAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostUpdate_InputMessage">
+    <wsdl:part name="parameters" element="RelationPostUpdate" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="RelationPostUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostDelete_InputMessage">
+    <wsdl:part name="parameters" element="RelationPostDelete" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_RelationPostDelete_OutputMessage">
+    <wsdl:part name="parameters" element="RelationPostDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetRelationPostByID_InputMessage">
+    <wsdl:part name="parameters" element="GetRelationPostByID" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetRelationPostByID_OutputMessage">
+    <wsdl:part name="parameters" element="GetRelationPostByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetLookupOjbects_InputMessage">
+    <wsdl:part name="parameters" element="GetLookupOjbects" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetLookupOjbects_OutputMessage">
+    <wsdl:part name="parameters" element="GetLookupOjbectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetCompanyHistory_InputMessage">
+    <wsdl:part name="parameters" element="GetCompanyHistory" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetCompanyHistory_OutputMessage">
+    <wsdl:part name="parameters" element="GetCompanyHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_CompanyHistoryAdd_InputMessage">
+    <wsdl:part name="parameters" element="CompanyHistoryAdd" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_CompanyHistoryAdd_OutputMessage">
+    <wsdl:part name="parameters" element="CompanyHistoryAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetCompanyHistoryDate_InputMessage">
+    <wsdl:part name="parameters" element="GetCompanyHistoryDate" />
+  </wsdl:message>
+  <wsdl:message name="OrganizationService_GetCompanyHistoryDate_OutputMessage">
+    <wsdl:part name="parameters" element="GetCompanyHistoryDateResponse" />
+  </wsdl:message>
   <wsdl:message name="OrganizationService_GetDepartmentHistory_InputMessage">
     <wsdl:part name="parameters" element="GetDepartmentHistory" />
   </wsdl:message>
@@ -84,18 +204,6 @@
   </wsdl:message>
   <wsdl:message name="OrganizationService_GetDepartmentBossHeadList_OutputMessage">
     <wsdl:part name="parameters" element="GetDepartmentBossHeadListResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetDepartmentFatherIsForWP_InputMessage">
-    <wsdl:part name="parameters" element="GetDepartmentFatherIsForWP" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetDepartmentFatherIsForWP_OutputMessage">
-    <wsdl:part name="parameters" element="GetDepartmentFatherIsForWPResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_DoWork_InputMessage">
-    <wsdl:part name="parameters" element="DoWork" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_DoWork_OutputMessage">
-    <wsdl:part name="parameters" element="DoWorkResponse" />
   </wsdl:message>
   <wsdl:message name="OrganizationService_DoDrive_InputMessage">
     <wsdl:part name="parameters" element="DoDrive" />
@@ -481,127 +589,87 @@
   <wsdl:message name="OrganizationService_PostPaging_OutputMessage">
     <wsdl:part name="parameters" element="PostPagingResponse" />
   </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostWithSpecifiedTime_InputMessage">
-    <wsdl:part name="parameters" element="GetPostWithSpecifiedTime" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostWithSpecifiedTime_OutputMessage">
-    <wsdl:part name="parameters" element="GetPostWithSpecifiedTimeResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostById_InputMessage">
-    <wsdl:part name="parameters" element="GetPostById" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostById_OutputMessage">
-    <wsdl:part name="parameters" element="GetPostByIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostAdd_InputMessage">
-    <wsdl:part name="parameters" element="PostAdd" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostAdd_OutputMessage">
-    <wsdl:part name="parameters" element="PostAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostUpdate_InputMessage">
-    <wsdl:part name="parameters" element="PostUpdate" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="PostUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostDelete_InputMessage">
-    <wsdl:part name="parameters" element="PostDelete" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostDelete_OutputMessage">
-    <wsdl:part name="parameters" element="PostDeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostCancel_InputMessage">
-    <wsdl:part name="parameters" element="PostCancel" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_PostCancel_OutputMessage">
-    <wsdl:part name="parameters" element="PostCancelResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostNumber_InputMessage">
-    <wsdl:part name="parameters" element="GetPostNumber" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetPostNumber_OutputMessage">
-    <wsdl:part name="parameters" element="GetPostNumberResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_IsFatherPost_InputMessage">
-    <wsdl:part name="parameters" element="IsFatherPost" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_IsFatherPost_OutputMessage">
-    <wsdl:part name="parameters" element="IsFatherPostResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetAllPostByDepartId_InputMessage">
-    <wsdl:part name="parameters" element="GetAllPostByDepartId" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetAllPostByDepartId_OutputMessage">
-    <wsdl:part name="parameters" element="GetAllPostByDepartIdResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetLackPostEmployeeCount_InputMessage">
-    <wsdl:part name="parameters" element="GetLackPostEmployeeCount" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetLackPostEmployeeCount_OutputMessage">
-    <wsdl:part name="parameters" element="GetLackPostEmployeeCountResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetOnPostEmployeeCount_InputMessage">
-    <wsdl:part name="parameters" element="GetOnPostEmployeeCount" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetOnPostEmployeeCount_OutputMessage">
-    <wsdl:part name="parameters" element="GetOnPostEmployeeCountResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostPaging_InputMessage">
-    <wsdl:part name="parameters" element="RelationPostPaging" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostPaging_OutputMessage">
-    <wsdl:part name="parameters" element="RelationPostPagingResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostAdd_InputMessage">
-    <wsdl:part name="parameters" element="RelationPostAdd" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostAdd_OutputMessage">
-    <wsdl:part name="parameters" element="RelationPostAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostUpdate_InputMessage">
-    <wsdl:part name="parameters" element="RelationPostUpdate" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostUpdate_OutputMessage">
-    <wsdl:part name="parameters" element="RelationPostUpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostDelete_InputMessage">
-    <wsdl:part name="parameters" element="RelationPostDelete" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_RelationPostDelete_OutputMessage">
-    <wsdl:part name="parameters" element="RelationPostDeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetRelationPostByID_InputMessage">
-    <wsdl:part name="parameters" element="GetRelationPostByID" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetRelationPostByID_OutputMessage">
-    <wsdl:part name="parameters" element="GetRelationPostByIDResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetLookupOjbects_InputMessage">
-    <wsdl:part name="parameters" element="GetLookupOjbects" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetLookupOjbects_OutputMessage">
-    <wsdl:part name="parameters" element="GetLookupOjbectsResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetCompanyHistory_InputMessage">
-    <wsdl:part name="parameters" element="GetCompanyHistory" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetCompanyHistory_OutputMessage">
-    <wsdl:part name="parameters" element="GetCompanyHistoryResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_CompanyHistoryAdd_InputMessage">
-    <wsdl:part name="parameters" element="CompanyHistoryAdd" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_CompanyHistoryAdd_OutputMessage">
-    <wsdl:part name="parameters" element="CompanyHistoryAddResponse" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetCompanyHistoryDate_InputMessage">
-    <wsdl:part name="parameters" element="GetCompanyHistoryDate" />
-  </wsdl:message>
-  <wsdl:message name="OrganizationService_GetCompanyHistoryDate_OutputMessage">
-    <wsdl:part name="parameters" element="GetCompanyHistoryDateResponse" />
-  </wsdl:message>
   <wsdl:portType name="OrganizationService">
+    <wsdl:operation name="GetPostWithSpecifiedTime">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostWithSpecifiedTime" message="OrganizationService_GetPostWithSpecifiedTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostWithSpecifiedTimeResponse" message="OrganizationService_GetPostWithSpecifiedTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostById">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostById" message="OrganizationService_GetPostById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostByIdResponse" message="OrganizationService_GetPostById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostAdd">
+      <wsdl:input wsaw:Action="urn:OrganizationService/PostAdd" message="OrganizationService_PostAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/PostAddResponse" message="OrganizationService_PostAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostUpdate">
+      <wsdl:input wsaw:Action="urn:OrganizationService/PostUpdate" message="OrganizationService_PostUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/PostUpdateResponse" message="OrganizationService_PostUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostDelete">
+      <wsdl:input wsaw:Action="urn:OrganizationService/PostDelete" message="OrganizationService_PostDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/PostDeleteResponse" message="OrganizationService_PostDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCancel">
+      <wsdl:input wsaw:Action="urn:OrganizationService/PostCancel" message="OrganizationService_PostCancel_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/PostCancelResponse" message="OrganizationService_PostCancel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPostNumber">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostNumber" message="OrganizationService_GetPostNumber_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostNumberResponse" message="OrganizationService_GetPostNumber_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFatherPost">
+      <wsdl:input wsaw:Action="urn:OrganizationService/IsFatherPost" message="OrganizationService_IsFatherPost_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/IsFatherPostResponse" message="OrganizationService_IsFatherPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPostByDepartId">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetAllPostByDepartId" message="OrganizationService_GetAllPostByDepartId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetAllPostByDepartIdResponse" message="OrganizationService_GetAllPostByDepartId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLackPostEmployeeCount">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetLackPostEmployeeCount" message="OrganizationService_GetLackPostEmployeeCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetLackPostEmployeeCountResponse" message="OrganizationService_GetLackPostEmployeeCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnPostEmployeeCount">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetOnPostEmployeeCount" message="OrganizationService_GetOnPostEmployeeCount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetOnPostEmployeeCountResponse" message="OrganizationService_GetOnPostEmployeeCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationPostPaging">
+      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostPaging" message="OrganizationService_RelationPostPaging_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostPagingResponse" message="OrganizationService_RelationPostPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationPostAdd">
+      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostAdd" message="OrganizationService_RelationPostAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostAddResponse" message="OrganizationService_RelationPostAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationPostUpdate">
+      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostUpdate" message="OrganizationService_RelationPostUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostUpdateResponse" message="OrganizationService_RelationPostUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationPostDelete">
+      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostDelete" message="OrganizationService_RelationPostDelete_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostDeleteResponse" message="OrganizationService_RelationPostDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationPostByID">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetRelationPostByID" message="OrganizationService_GetRelationPostByID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetRelationPostByIDResponse" message="OrganizationService_GetRelationPostByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLookupOjbects">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetLookupOjbects" message="OrganizationService_GetLookupOjbects_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetLookupOjbectsResponse" message="OrganizationService_GetLookupOjbects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyHistory">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetCompanyHistory" message="OrganizationService_GetCompanyHistory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetCompanyHistoryResponse" message="OrganizationService_GetCompanyHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CompanyHistoryAdd">
+      <wsdl:input wsaw:Action="urn:OrganizationService/CompanyHistoryAdd" message="OrganizationService_CompanyHistoryAdd_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/CompanyHistoryAddResponse" message="OrganizationService_CompanyHistoryAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyHistoryDate">
+      <wsdl:input wsaw:Action="urn:OrganizationService/GetCompanyHistoryDate" message="OrganizationService_GetCompanyHistoryDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:OrganizationService/GetCompanyHistoryDateResponse" message="OrganizationService_GetCompanyHistoryDate_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetDepartmentHistory">
       <wsdl:input wsaw:Action="urn:OrganizationService/GetDepartmentHistory" message="OrganizationService_GetDepartmentHistory_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/GetDepartmentHistoryResponse" message="OrganizationService_GetDepartmentHistory_OutputMessage" />
@@ -649,14 +717,6 @@
     <wsdl:operation name="GetDepartmentBossHeadList">
       <wsdl:input wsaw:Action="urn:OrganizationService/GetDepartmentBossHeadList" message="OrganizationService_GetDepartmentBossHeadList_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/GetDepartmentBossHeadListResponse" message="OrganizationService_GetDepartmentBossHeadList_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDepartmentFatherIsForWP">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetDepartmentFatherIsForWP" message="OrganizationService_GetDepartmentFatherIsForWP_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetDepartmentFatherIsForWPResponse" message="OrganizationService_GetDepartmentFatherIsForWP_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DoWork">
-      <wsdl:input wsaw:Action="urn:OrganizationService/DoWork" message="OrganizationService_DoWork_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/DoWorkResponse" message="OrganizationService_DoWork_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DoDrive">
       <wsdl:input wsaw:Action="urn:OrganizationService/DoDrive" message="OrganizationService_DoDrive_InputMessage" />
@@ -913,86 +973,6 @@
     <wsdl:operation name="PostPaging">
       <wsdl:input wsaw:Action="urn:OrganizationService/PostPaging" message="OrganizationService_PostPaging_InputMessage" />
       <wsdl:output wsaw:Action="urn:OrganizationService/PostPagingResponse" message="OrganizationService_PostPaging_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPostWithSpecifiedTime">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostWithSpecifiedTime" message="OrganizationService_GetPostWithSpecifiedTime_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostWithSpecifiedTimeResponse" message="OrganizationService_GetPostWithSpecifiedTime_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPostById">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostById" message="OrganizationService_GetPostById_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostByIdResponse" message="OrganizationService_GetPostById_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PostAdd">
-      <wsdl:input wsaw:Action="urn:OrganizationService/PostAdd" message="OrganizationService_PostAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/PostAddResponse" message="OrganizationService_PostAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PostUpdate">
-      <wsdl:input wsaw:Action="urn:OrganizationService/PostUpdate" message="OrganizationService_PostUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/PostUpdateResponse" message="OrganizationService_PostUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PostDelete">
-      <wsdl:input wsaw:Action="urn:OrganizationService/PostDelete" message="OrganizationService_PostDelete_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/PostDeleteResponse" message="OrganizationService_PostDelete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PostCancel">
-      <wsdl:input wsaw:Action="urn:OrganizationService/PostCancel" message="OrganizationService_PostCancel_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/PostCancelResponse" message="OrganizationService_PostCancel_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPostNumber">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetPostNumber" message="OrganizationService_GetPostNumber_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetPostNumberResponse" message="OrganizationService_GetPostNumber_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsFatherPost">
-      <wsdl:input wsaw:Action="urn:OrganizationService/IsFatherPost" message="OrganizationService_IsFatherPost_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/IsFatherPostResponse" message="OrganizationService_IsFatherPost_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllPostByDepartId">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetAllPostByDepartId" message="OrganizationService_GetAllPostByDepartId_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetAllPostByDepartIdResponse" message="OrganizationService_GetAllPostByDepartId_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetLackPostEmployeeCount">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetLackPostEmployeeCount" message="OrganizationService_GetLackPostEmployeeCount_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetLackPostEmployeeCountResponse" message="OrganizationService_GetLackPostEmployeeCount_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetOnPostEmployeeCount">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetOnPostEmployeeCount" message="OrganizationService_GetOnPostEmployeeCount_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetOnPostEmployeeCountResponse" message="OrganizationService_GetOnPostEmployeeCount_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RelationPostPaging">
-      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostPaging" message="OrganizationService_RelationPostPaging_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostPagingResponse" message="OrganizationService_RelationPostPaging_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RelationPostAdd">
-      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostAdd" message="OrganizationService_RelationPostAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostAddResponse" message="OrganizationService_RelationPostAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RelationPostUpdate">
-      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostUpdate" message="OrganizationService_RelationPostUpdate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostUpdateResponse" message="OrganizationService_RelationPostUpdate_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RelationPostDelete">
-      <wsdl:input wsaw:Action="urn:OrganizationService/RelationPostDelete" message="OrganizationService_RelationPostDelete_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/RelationPostDeleteResponse" message="OrganizationService_RelationPostDelete_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetRelationPostByID">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetRelationPostByID" message="OrganizationService_GetRelationPostByID_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetRelationPostByIDResponse" message="OrganizationService_GetRelationPostByID_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetLookupOjbects">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetLookupOjbects" message="OrganizationService_GetLookupOjbects_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetLookupOjbectsResponse" message="OrganizationService_GetLookupOjbects_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCompanyHistory">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetCompanyHistory" message="OrganizationService_GetCompanyHistory_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetCompanyHistoryResponse" message="OrganizationService_GetCompanyHistory_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="CompanyHistoryAdd">
-      <wsdl:input wsaw:Action="urn:OrganizationService/CompanyHistoryAdd" message="OrganizationService_CompanyHistoryAdd_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/CompanyHistoryAddResponse" message="OrganizationService_CompanyHistoryAdd_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCompanyHistoryDate">
-      <wsdl:input wsaw:Action="urn:OrganizationService/GetCompanyHistoryDate" message="OrganizationService_GetCompanyHistoryDate_InputMessage" />
-      <wsdl:output wsaw:Action="urn:OrganizationService/GetCompanyHistoryDateResponse" message="OrganizationService_GetCompanyHistoryDate_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

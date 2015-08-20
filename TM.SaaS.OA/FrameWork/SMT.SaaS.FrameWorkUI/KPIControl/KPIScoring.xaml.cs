@@ -257,7 +257,7 @@ namespace SMT.SaaS.FrameworkUI.KPIControl
                                     if (FlowStateCode.ToUpper() == "ENDFLOW")
                                     {
                                         InitialInfo(currentFlow.CREATECOMPANYID, AuditEntity.ModelCode, currentFlow.STATECODE, currentFlow.STATECODE, AuditEntity.FormID,
-                                                    currentFlow.FLOWRECORDDETAILID, currentFlow.FLOWRECORDDETAILID, currentFlow.CREATEDATE,
+                                                    currentFlow.FLOWRECORDDETAILID, currentFlow.FLOWRECORDDETAILID, currentFlow.CREATEDATE.Value,
                                                     currentFlow.EDITDATE.Value, currentFlow.EDITUSERID, currentFlow.EDITUSERID);
                                     }
                                     else
@@ -1391,8 +1391,8 @@ namespace SMT.SaaS.FrameworkUI.KPIControl
             InitParameter();
             //AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
             //                                this.AuditEntity.CreateCompanyID, "");
-            AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
-                                         "", "");
+            //AuditService.GetFlowInfoAsync(this.AuditEntity.FormID, "", "", "", this.AuditEntity.ModelCode,
+            //                             "", "");
             // 2s 冉龙军
             //AuditEntity.EditUserID = "182c962f-fe66-413c-a17e-ea100e8d9a49";
             //AuditService.GetFlowInfoAsync("93753079-6a87-4e7f-95dc-1f45a796a4e3", "", "", "", "T_HR_EMPLOYEEINSURANCE",

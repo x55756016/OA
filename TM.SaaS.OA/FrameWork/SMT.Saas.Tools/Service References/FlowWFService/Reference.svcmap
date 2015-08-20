@@ -14,27 +14,26 @@
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8008/SMT.FlowWFService.Service.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SMT9.xsd" MetadataType="Schema" ID="1ff898e8-4ad9-4f96-bdb2-50c7dbfb94ba" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd8" />
-    <MetadataFile FileName="SMT10.xsd" MetadataType="Schema" ID="d0f7bea7-da90-4159-91b1-d39dacd06537" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd9" />
-    <MetadataFile FileName="SMT2.disco" MetadataType="Disco" ID="842f42bf-7fa6-4aee-91e3-40d05d193728" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?disco" />
-    <MetadataFile FileName="SMT11.xsd" MetadataType="Schema" ID="c8bf2c08-4124-4dd0-9417-9e4dd569bad7" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd4" />
-    <MetadataFile FileName="SMT12.xsd" MetadataType="Schema" ID="b8f9bac7-e275-478a-9872-a87e38b56232" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd5" />
-    <MetadataFile FileName="SMT13.xsd" MetadataType="Schema" ID="bcc1cd76-09fb-4c44-8c54-6301558fd0e8" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd6" />
-    <MetadataFile FileName="SMT14.xsd" MetadataType="Schema" ID="d39fb3ce-eb7a-4b68-b241-c71228725f63" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd7" />
-    <MetadataFile FileName="SMT15.xsd" MetadataType="Schema" ID="4df4d615-564d-43c5-8f59-bfccaa9cb802" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd0" />
-    <MetadataFile FileName="SMT16.xsd" MetadataType="Schema" ID="8fb3937f-0ad9-46be-bafd-0378db1ad640" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd1" />
-    <MetadataFile FileName="SMT17.xsd" MetadataType="Schema" ID="fb34b726-9217-4c78-bc7b-b066b449eec3" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd2" />
-    <MetadataFile FileName="SMT18.xsd" MetadataType="Schema" ID="b0766a41-39a4-4863-b089-35e864579931" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?xsd=xsd3" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="a821400d-094b-41ab-a29a-d04dea5acfc9" SourceId="1" SourceUrl="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc?wsdl" />
+    <MetadataFile FileName="SMT9.xsd" MetadataType="Schema" ID="d28ed0b9-237d-4030-8b83-e2a085a3a16f" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="SMT10.xsd" MetadataType="Schema" ID="cb5198aa-16c5-4aa4-82fc-0683c71716ab" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="SMT11.xsd" MetadataType="Schema" ID="6d2df835-727b-4170-ba4d-e019f0a658f2" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="SMT2.disco" MetadataType="Disco" ID="6a99a708-b13a-450a-a0a9-5e1d1512d545" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?disco" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="313890b9-ee1e-44ed-8143-afeef4b7399b" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?wsdl" />
+    <MetadataFile FileName="SMT12.xsd" MetadataType="Schema" ID="98b202bc-a886-41ab-8125-be02e89e74f2" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="SMT13.xsd" MetadataType="Schema" ID="46eaea83-59f8-4fdf-8810-d3370f0f2522" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="SMT14.xsd" MetadataType="Schema" ID="27a7fd56-da86-432a-92ab-933f0e935f4e" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="SMT15.xsd" MetadataType="Schema" ID="92d9c1b4-142d-49ea-8168-b721d5b4e026" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd8" />
+    <MetadataFile FileName="SMT16.xsd" MetadataType="Schema" ID="1fac7c72-9a7b-4c51-87a2-7d13a0b1e536" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="SMT17.xsd" MetadataType="Schema" ID="5da2a17d-e586-455f-8202-d4c06e9a1401" SourceId="1" SourceUrl="http://localhost:8008/SMT.FlowWFService.Service.svc?xsd=xsd7" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

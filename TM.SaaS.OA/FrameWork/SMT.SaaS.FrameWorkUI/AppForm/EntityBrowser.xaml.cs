@@ -963,6 +963,11 @@ namespace SMT.SaaS.FrameworkUI
         /// <param name="e"></param>
         public void GetBusinessObjectCompleted(Saas.Tools.PublicInterfaceWS.GetBusinessObjectCompletedEventArgs e)
         {
+            if (e.Result == null)
+            {
+                MessageBox.Show("未获取到当前单据的元数据定义文件，无法提交流程，请联系管理员");
+                return;
+            }
             //beyond 防止多次提交
             if (this.btnSubmit != null)
             {

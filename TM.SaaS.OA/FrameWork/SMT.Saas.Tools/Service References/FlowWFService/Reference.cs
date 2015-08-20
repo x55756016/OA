@@ -17,23 +17,173 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
-    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_CONSULTATION_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_CONSULTATION_T : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CONSULTATIONCONTENTField;
+        
+        private System.Nullable<System.DateTime> CONSULTATIONDATEField;
+        
+        private string CONSULTATIONIDField;
+        
+        private string CONSULTATIONUSERIDField;
+        
+        private string CONSULTATIONUSERNAMEField;
+        
+        private string FLAGField;
+        
+        private string FLOWRECORDDETAILIDField;
+        
+        private string REPLYCONTENTField;
+        
+        private System.Nullable<System.DateTime> REPLYDATEField;
+        
+        private string REPLYUSERIDField;
+        
+        private string REPLYUSERNAMEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CONSULTATIONCONTENT {
+            get {
+                return this.CONSULTATIONCONTENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CONSULTATIONCONTENTField, value) != true)) {
+                    this.CONSULTATIONCONTENTField = value;
+                    this.RaisePropertyChanged("CONSULTATIONCONTENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CONSULTATIONDATE {
+            get {
+                return this.CONSULTATIONDATEField;
+            }
+            set {
+                if ((this.CONSULTATIONDATEField.Equals(value) != true)) {
+                    this.CONSULTATIONDATEField = value;
+                    this.RaisePropertyChanged("CONSULTATIONDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CONSULTATIONID {
+            get {
+                return this.CONSULTATIONIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CONSULTATIONIDField, value) != true)) {
+                    this.CONSULTATIONIDField = value;
+                    this.RaisePropertyChanged("CONSULTATIONID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CONSULTATIONUSERID {
+            get {
+                return this.CONSULTATIONUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CONSULTATIONUSERIDField, value) != true)) {
+                    this.CONSULTATIONUSERIDField = value;
+                    this.RaisePropertyChanged("CONSULTATIONUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CONSULTATIONUSERNAME {
+            get {
+                return this.CONSULTATIONUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CONSULTATIONUSERNAMEField, value) != true)) {
+                    this.CONSULTATIONUSERNAMEField = value;
+                    this.RaisePropertyChanged("CONSULTATIONUSERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLAG {
+            get {
+                return this.FLAGField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLAGField, value) != true)) {
+                    this.FLAGField = value;
+                    this.RaisePropertyChanged("FLAG");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLOWRECORDDETAILID {
+            get {
+                return this.FLOWRECORDDETAILIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOWRECORDDETAILIDField, value) != true)) {
+                    this.FLOWRECORDDETAILIDField = value;
+                    this.RaisePropertyChanged("FLOWRECORDDETAILID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REPLYCONTENT {
+            get {
+                return this.REPLYCONTENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REPLYCONTENTField, value) != true)) {
+                    this.REPLYCONTENTField = value;
+                    this.RaisePropertyChanged("REPLYCONTENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> REPLYDATE {
+            get {
+                return this.REPLYDATEField;
+            }
+            set {
+                if ((this.REPLYDATEField.Equals(value) != true)) {
+                    this.REPLYDATEField = value;
+                    this.RaisePropertyChanged("REPLYDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REPLYUSERID {
+            get {
+                return this.REPLYUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REPLYUSERIDField, value) != true)) {
+                    this.REPLYUSERIDField = value;
+                    this.RaisePropertyChanged("REPLYUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REPLYUSERNAME {
+            get {
+                return this.REPLYUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REPLYUSERNAMEField, value) != true)) {
+                    this.REPLYUSERNAMEField = value;
+                    this.RaisePropertyChanged("REPLYUSERNAME");
+                }
+            }
+        }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
@@ -47,42 +197,612 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
-    public partial class EntityObject : SMT.Saas.Tools.FlowWFService.StructuralObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="SubmitData", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public partial class SubmitData : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private SMT.Saas.Tools.FlowWFService.EntityKey EntityKeyField;
+        private string ApprovalContentField;
+        
+        private SMT.Saas.Tools.FlowWFService.ApprovalResult ApprovalResultField;
+        
+        private SMT.Saas.Tools.FlowWFService.UserInfo ApprovalUserField;
+        
+        private System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUserField;
+        
+        private SMT.Saas.Tools.FlowWFService.FlowSelectType FlowSelectTypeField;
+        
+        private SMT.Saas.Tools.FlowWFService.FlowType FlowTypeField;
+        
+        private string FormIDField;
+        
+        private string ModelCodeField;
+        
+        private SMT.Saas.Tools.FlowWFService.UserInfo NextApprovalUserField;
+        
+        private string NextStateCodeField;
+        
+        private SMT.Saas.Tools.FlowWFService.SubmitFlag SubmitFlagField;
+        
+        private string SumbitCompanyIDField;
+        
+        private string SumbitDeparmentIDField;
+        
+        private string SumbitPostIDField;
+        
+        private string SumbitUserIDField;
+        
+        private string SumbitUserNameField;
+        
+        private string XMLField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityKey EntityKey {
+        public string ApprovalContent {
             get {
-                return this.EntityKeyField;
+                return this.ApprovalContentField;
             }
             set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
+                if ((object.ReferenceEquals(this.ApprovalContentField, value) != true)) {
+                    this.ApprovalContentField = value;
+                    this.RaisePropertyChanged("ApprovalContent");
                 }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.ApprovalResult ApprovalResult {
+            get {
+                return this.ApprovalResultField;
+            }
+            set {
+                if ((this.ApprovalResultField.Equals(value) != true)) {
+                    this.ApprovalResultField = value;
+                    this.RaisePropertyChanged("ApprovalResult");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.UserInfo ApprovalUser {
+            get {
+                return this.ApprovalUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApprovalUserField, value) != true)) {
+                    this.ApprovalUserField = value;
+                    this.RaisePropertyChanged("ApprovalUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUser {
+            get {
+                return this.DictCounterUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DictCounterUserField, value) != true)) {
+                    this.DictCounterUserField = value;
+                    this.RaisePropertyChanged("DictCounterUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.FlowSelectType FlowSelectType {
+            get {
+                return this.FlowSelectTypeField;
+            }
+            set {
+                if ((this.FlowSelectTypeField.Equals(value) != true)) {
+                    this.FlowSelectTypeField = value;
+                    this.RaisePropertyChanged("FlowSelectType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.FlowType FlowType {
+            get {
+                return this.FlowTypeField;
+            }
+            set {
+                if ((this.FlowTypeField.Equals(value) != true)) {
+                    this.FlowTypeField = value;
+                    this.RaisePropertyChanged("FlowType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FormID {
+            get {
+                return this.FormIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FormIDField, value) != true)) {
+                    this.FormIDField = value;
+                    this.RaisePropertyChanged("FormID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModelCode {
+            get {
+                return this.ModelCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelCodeField, value) != true)) {
+                    this.ModelCodeField = value;
+                    this.RaisePropertyChanged("ModelCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.UserInfo NextApprovalUser {
+            get {
+                return this.NextApprovalUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextApprovalUserField, value) != true)) {
+                    this.NextApprovalUserField = value;
+                    this.RaisePropertyChanged("NextApprovalUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NextStateCode {
+            get {
+                return this.NextStateCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NextStateCodeField, value) != true)) {
+                    this.NextStateCodeField = value;
+                    this.RaisePropertyChanged("NextStateCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.SubmitFlag SubmitFlag {
+            get {
+                return this.SubmitFlagField;
+            }
+            set {
+                if ((this.SubmitFlagField.Equals(value) != true)) {
+                    this.SubmitFlagField = value;
+                    this.RaisePropertyChanged("SubmitFlag");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SumbitCompanyID {
+            get {
+                return this.SumbitCompanyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SumbitCompanyIDField, value) != true)) {
+                    this.SumbitCompanyIDField = value;
+                    this.RaisePropertyChanged("SumbitCompanyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SumbitDeparmentID {
+            get {
+                return this.SumbitDeparmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SumbitDeparmentIDField, value) != true)) {
+                    this.SumbitDeparmentIDField = value;
+                    this.RaisePropertyChanged("SumbitDeparmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SumbitPostID {
+            get {
+                return this.SumbitPostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SumbitPostIDField, value) != true)) {
+                    this.SumbitPostIDField = value;
+                    this.RaisePropertyChanged("SumbitPostID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SumbitUserID {
+            get {
+                return this.SumbitUserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SumbitUserIDField, value) != true)) {
+                    this.SumbitUserIDField = value;
+                    this.RaisePropertyChanged("SumbitUserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SumbitUserName {
+            get {
+                return this.SumbitUserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SumbitUserNameField, value) != true)) {
+                    this.SumbitUserNameField = value;
+                    this.RaisePropertyChanged("SumbitUserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string XML {
+            get {
+                return this.XMLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.XMLField, value) != true)) {
+                    this.XMLField = value;
+                    this.RaisePropertyChanged("XML");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLE", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public partial class UserInfo : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string CompanyIDField;
+        
+        private string CompanyNameField;
+        
+        private string DepartmentIDField;
+        
+        private string DepartmentNameField;
+        
+        private string IsHeadField;
+        
+        private string IsSuperiorField;
+        
+        private string PostIDField;
+        
+        private string PostNameField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE> RolesField;
+        
+        private string UserIDField;
+        
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyID {
+            get {
+                return this.CompanyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyIDField, value) != true)) {
+                    this.CompanyIDField = value;
+                    this.RaisePropertyChanged("CompanyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentID {
+            get {
+                return this.DepartmentIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentIDField, value) != true)) {
+                    this.DepartmentIDField = value;
+                    this.RaisePropertyChanged("DepartmentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DepartmentName {
+            get {
+                return this.DepartmentNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DepartmentNameField, value) != true)) {
+                    this.DepartmentNameField = value;
+                    this.RaisePropertyChanged("DepartmentName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsHead {
+            get {
+                return this.IsHeadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsHeadField, value) != true)) {
+                    this.IsHeadField = value;
+                    this.RaisePropertyChanged("IsHead");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsSuperior {
+            get {
+                return this.IsSuperiorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsSuperiorField, value) != true)) {
+                    this.IsSuperiorField = value;
+                    this.RaisePropertyChanged("IsSuperior");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostID {
+            get {
+                return this.PostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostIDField, value) != true)) {
+                    this.PostIDField = value;
+                    this.RaisePropertyChanged("PostID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostName {
+            get {
+                return this.PostNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
+                    this.PostNameField = value;
+                    this.RaisePropertyChanged("PostName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE> Roles {
+            get {
+                return this.RolesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RolesField, value) != true)) {
+                    this.RolesField = value;
+                    this.RaisePropertyChanged("Roles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApprovalResult", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public enum ApprovalResult : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoPass = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Pass = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FlowRole", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public partial class FlowRole : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.Nullable<bool> IsOtherCompanyField;
+        
+        private string NameField;
+        
+        private string OtherCompanyIDField;
+        
+        private string RemarkField;
+        
+        private string RoleNameField;
+        
+        private string UserTypeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsOtherCompany {
+            get {
+                return this.IsOtherCompanyField;
+            }
+            set {
+                if ((this.IsOtherCompanyField.Equals(value) != true)) {
+                    this.IsOtherCompanyField = value;
+                    this.RaisePropertyChanged("IsOtherCompany");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OtherCompanyID {
+            get {
+                return this.OtherCompanyIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OtherCompanyIDField, value) != true)) {
+                    this.OtherCompanyIDField = value;
+                    this.RaisePropertyChanged("OtherCompanyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Remark {
+            get {
+                return this.RemarkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RemarkField, value) != true)) {
+                    this.RemarkField = value;
+                    this.RaisePropertyChanged("Remark");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoleName {
+            get {
+                return this.RoleNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
+                    this.RoleNameField = value;
+                    this.RaisePropertyChanged("RoleName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserType {
+            get {
+                return this.UserTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserTypeField, value) != true)) {
+                    this.UserTypeField = value;
+                    this.RaisePropertyChanged("UserType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FlowSelectType", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public enum FlowSelectType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FixedFlow = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FreeFlow = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FlowType", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public enum FlowType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Approval = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Task = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Pending = 2,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SubmitFlag", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
+    public enum SubmitFlag : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        New = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Approval = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Cancel = 5,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_ROLE : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private string CHECKSTATEField;
@@ -418,7 +1138,60 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ENTITYMENUCUSTOMPERM", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
+    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
+    public partial class EntityObject : SMT.Saas.Tools.FlowWFService.StructuralObject {
+        
+        private SMT.Saas.Tools.FlowWFService.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ENTITYMENUCUSTOMPERM", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_ENTITYMENUCUSTOMPERM : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private string COMPANYIDField;
@@ -447,15 +1220,15 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU T_SYS_ENTITYMENUField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReferenceField;
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION T_SYS_PERMISSIONField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv T_SYS_PERMISSIONReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw T_SYS_PERMISSIONReferenceField;
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ROLE T_SYS_ROLEField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -631,7 +1404,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReference {
             get {
                 return this.T_SYS_ENTITYMENUReferenceField;
             }
@@ -657,7 +1430,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv T_SYS_PERMISSIONReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw T_SYS_PERMISSIONReference {
             get {
                 return this.T_SYS_PERMISSIONReferenceField;
             }
@@ -683,7 +1456,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReference {
             get {
                 return this.T_SYS_ROLEReferenceField;
             }
@@ -724,7 +1497,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ENTITYMENU", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ENTITYMENU", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_ENTITYMENU : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private string CHILDSYSTEMNAMEField;
@@ -740,6 +1513,10 @@ namespace SMT.Saas.Tools.FlowWFService {
         private string ENTITYNAMEField;
         
         private string HASSYSTEMMENUField;
+        
+        private string HELPFILEPATHField;
+        
+        private string HELPTITLEField;
         
         private string ISAUTHORITYField;
         
@@ -759,7 +1536,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU T_SYS_ENTITYMENU2Field;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENU2ReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENU2ReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM> T_SYS_ENTITYMENUCUSTOMPERMField;
         
@@ -860,6 +1637,32 @@ namespace SMT.Saas.Tools.FlowWFService {
                 if ((object.ReferenceEquals(this.HASSYSTEMMENUField, value) != true)) {
                     this.HASSYSTEMMENUField = value;
                     this.RaisePropertyChanged("HASSYSTEMMENU");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HELPFILEPATH {
+            get {
+                return this.HELPFILEPATHField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HELPFILEPATHField, value) != true)) {
+                    this.HELPFILEPATHField = value;
+                    this.RaisePropertyChanged("HELPFILEPATH");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HELPTITLE {
+            get {
+                return this.HELPTITLEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HELPTITLEField, value) != true)) {
+                    this.HELPTITLEField = value;
+                    this.RaisePropertyChanged("HELPTITLE");
                 }
             }
         }
@@ -982,7 +1785,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENU2Reference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENU2Reference {
             get {
                 return this.T_SYS_ENTITYMENU2ReferenceField;
             }
@@ -1075,7 +1878,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_PERMISSION", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_PERMISSION", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_PERMISSION : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -1098,7 +1901,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM> T_SYS_ENTITYMENUCUSTOMPERMField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION> T_SYS_ROLEMENUPERMISSIONField;
         
@@ -1237,7 +2040,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReference {
             get {
                 return this.T_SYS_ENTITYMENUReferenceField;
             }
@@ -1291,7 +2094,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLEMENUPERMISSION", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLEMENUPERMISSION", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_ROLEMENUPERMISSION : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -1306,11 +2109,11 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION T_SYS_PERMISSIONField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv T_SYS_PERMISSIONReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw T_SYS_PERMISSIONReferenceField;
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU T_SYS_ROLEENTITYMENUField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv T_SYS_ROLEENTITYMENUReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw T_SYS_ROLEENTITYMENUReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -1395,7 +2198,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv T_SYS_PERMISSIONReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw T_SYS_PERMISSIONReference {
             get {
                 return this.T_SYS_PERMISSIONReferenceField;
             }
@@ -1421,7 +2224,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv T_SYS_ROLEENTITYMENUReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw T_SYS_ROLEENTITYMENUReference {
             get {
                 return this.T_SYS_ROLEENTITYMENUReferenceField;
             }
@@ -1462,7 +2265,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLEENTITYMENU", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_ROLEENTITYMENU", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_ROLEENTITYMENU : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -1475,13 +2278,13 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU T_SYS_ENTITYMENUField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReferenceField;
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ROLE T_SYS_ROLEField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION> T_SYS_ROLEMENUPERMISSIONField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -1553,7 +2356,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv T_SYS_ENTITYMENUReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw T_SYS_ENTITYMENUReference {
             get {
                 return this.T_SYS_ENTITYMENUReferenceField;
             }
@@ -1592,7 +2395,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReference {
             get {
                 return this.T_SYS_ROLEReferenceField;
             }
@@ -1633,7 +2436,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERROLE", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USERROLE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_USERROLE : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -1648,11 +2451,11 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_ROLE T_SYS_ROLEField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReferenceField;
         
         private SMT.Saas.Tools.FlowWFService.T_SYS_USER T_SYS_USERField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv T_SYS_USERReferenceField;
+        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw T_SYS_USERReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -1739,7 +2542,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv T_SYS_ROLEReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw T_SYS_ROLEReference {
             get {
                 return this.T_SYS_ROLEReferenceField;
             }
@@ -1765,7 +2568,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv T_SYS_USERReference {
+        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw T_SYS_USERReference {
             get {
                 return this.T_SYS_USERReferenceField;
             }
@@ -1819,7 +2622,7 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USER", Namespace="http://schemas.datacontract.org/2004/07/SMT_System_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_SYS_USER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_SYS_USER : SMT.Saas.Tools.FlowWFService.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -2125,374 +2928,170 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWRECORDDETAIL_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_FLOWRECORDDETAIL_T : SMT.Saas.Tools.FlowWFService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityKey", Namespace="http://schemas.datacontract.org/2004/07/System.Data", IsReference=true)]
+    public partial class EntityKey : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private System.Nullable<System.DateTime> AGENTEDITDATEField;
+        private string EntityContainerNameField;
         
-        private string AGENTERNAMEField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember> EntityKeyValuesField;
         
-        private string AGENTUSERIDField;
-        
-        private string CHECKSTATEField;
-        
-        private string CONTENTField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.DateTime CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string CREATEUSERNAMEField;
-        
-        private string EDITCOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> EDITDATEField;
-        
-        private string EDITDEPARTMENTIDField;
-        
-        private string EDITPOSTIDField;
-        
-        private string EDITUSERIDField;
-        
-        private string EDITUSERNAMEField;
-        
-        private string FLAGField;
-        
-        private string FLOWRECORDDETAILIDField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T> FLOW_CONSULTATION_TField;
-        
-        private SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T FLOW_FLOWRECORDMASTER_TField;
-        
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK FLOW_FLOWRECORDMASTER_TReferenceField;
-        
-        private string PARENTSTATEIDField;
-        
-        private string STATECODEField;
+        private string EntitySetNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> AGENTEDITDATE {
+        public string EntityContainerName {
             get {
-                return this.AGENTEDITDATEField;
+                return this.EntityContainerNameField;
             }
             set {
-                if ((this.AGENTEDITDATEField.Equals(value) != true)) {
-                    this.AGENTEDITDATEField = value;
-                    this.RaisePropertyChanged("AGENTEDITDATE");
+                if ((object.ReferenceEquals(this.EntityContainerNameField, value) != true)) {
+                    this.EntityContainerNameField = value;
+                    this.RaisePropertyChanged("EntityContainerName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AGENTERNAME {
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember> EntityKeyValues {
             get {
-                return this.AGENTERNAMEField;
+                return this.EntityKeyValuesField;
             }
             set {
-                if ((object.ReferenceEquals(this.AGENTERNAMEField, value) != true)) {
-                    this.AGENTERNAMEField = value;
-                    this.RaisePropertyChanged("AGENTERNAME");
+                if ((object.ReferenceEquals(this.EntityKeyValuesField, value) != true)) {
+                    this.EntityKeyValuesField = value;
+                    this.RaisePropertyChanged("EntityKeyValues");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AGENTUSERID {
+        public string EntitySetName {
             get {
-                return this.AGENTUSERIDField;
+                return this.EntitySetNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.AGENTUSERIDField, value) != true)) {
-                    this.AGENTUSERIDField = value;
-                    this.RaisePropertyChanged("AGENTUSERID");
+                if ((object.ReferenceEquals(this.EntitySetNameField, value) != true)) {
+                    this.EntitySetNameField = value;
+                    this.RaisePropertyChanged("EntitySetName");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONTENT {
-            get {
-                return this.CONTENTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CONTENTField, value) != true)) {
-                    this.CONTENTField = value;
-                    this.RaisePropertyChanged("CONTENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERNAME {
-            get {
-                return this.CREATEUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERNAMEField, value) != true)) {
-                    this.CREATEUSERNAMEField = value;
-                    this.RaisePropertyChanged("CREATEUSERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITCOMPANYID {
-            get {
-                return this.EDITCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITCOMPANYIDField, value) != true)) {
-                    this.EDITCOMPANYIDField = value;
-                    this.RaisePropertyChanged("EDITCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> EDITDATE {
-            get {
-                return this.EDITDATEField;
-            }
-            set {
-                if ((this.EDITDATEField.Equals(value) != true)) {
-                    this.EDITDATEField = value;
-                    this.RaisePropertyChanged("EDITDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITDEPARTMENTID {
-            get {
-                return this.EDITDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITDEPARTMENTIDField, value) != true)) {
-                    this.EDITDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("EDITDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITPOSTID {
-            get {
-                return this.EDITPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITPOSTIDField, value) != true)) {
-                    this.EDITPOSTIDField = value;
-                    this.RaisePropertyChanged("EDITPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITUSERID {
-            get {
-                return this.EDITUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITUSERIDField, value) != true)) {
-                    this.EDITUSERIDField = value;
-                    this.RaisePropertyChanged("EDITUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITUSERNAME {
-            get {
-                return this.EDITUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITUSERNAMEField, value) != true)) {
-                    this.EDITUSERNAMEField = value;
-                    this.RaisePropertyChanged("EDITUSERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FLAG {
-            get {
-                return this.FLAGField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLAGField, value) != true)) {
-                    this.FLAGField = value;
-                    this.RaisePropertyChanged("FLAG");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FLOWRECORDDETAILID {
-            get {
-                return this.FLOWRECORDDETAILIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOWRECORDDETAILIDField, value) != true)) {
-                    this.FLOWRECORDDETAILIDField = value;
-                    this.RaisePropertyChanged("FLOWRECORDDETAILID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T> FLOW_CONSULTATION_T {
-            get {
-                return this.FLOW_CONSULTATION_TField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_CONSULTATION_TField, value) != true)) {
-                    this.FLOW_CONSULTATION_TField = value;
-                    this.RaisePropertyChanged("FLOW_CONSULTATION_T");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T FLOW_FLOWRECORDMASTER_T {
-            get {
-                return this.FLOW_FLOWRECORDMASTER_TField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_FLOWRECORDMASTER_TField, value) != true)) {
-                    this.FLOW_FLOWRECORDMASTER_TField = value;
-                    this.RaisePropertyChanged("FLOW_FLOWRECORDMASTER_T");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK FLOW_FLOWRECORDMASTER_TReference {
-            get {
-                return this.FLOW_FLOWRECORDMASTER_TReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_FLOWRECORDMASTER_TReferenceField, value) != true)) {
-                    this.FLOW_FLOWRECORDMASTER_TReferenceField = value;
-                    this.RaisePropertyChanged("FLOW_FLOWRECORDMASTER_TReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PARENTSTATEID {
-            get {
-                return this.PARENTSTATEIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PARENTSTATEIDField, value) != true)) {
-                    this.PARENTSTATEIDField = value;
-                    this.RaisePropertyChanged("PARENTSTATEID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string STATECODE {
-            get {
-                return this.STATECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.STATECODEField, value) != true)) {
-                    this.STATECODEField = value;
-                    this.RaisePropertyChanged("STATECODE");
-                }
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWRECORDMASTER_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_FLOWRECORDMASTER_T : SMT.Saas.Tools.FlowWFService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityKey))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.StructuralObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.RelatedEnd))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_PERSONALRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.ApprovalResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.UserInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowRole))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowSelectType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitFlag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.DataResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowResult))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.TaskInfo>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.TaskInfo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.UserInfo, SMT.Saas.Tools.FlowWFService.UserInfo>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+    public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string KeyField;
+        
+        private object ValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key {
+            get {
+                return this.KeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWRECORDMASTER_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_FLOWRECORDMASTER_T : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string ACTIVEROLEField;
         
@@ -2502,7 +3101,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private string CREATECOMPANYIDField;
         
-        private System.DateTime CREATEDATEField;
+        private System.Nullable<System.DateTime> CREATEDATEField;
         
         private string CREATEDEPARTMENTIDField;
         
@@ -2589,7 +3188,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATE {
+        public System.Nullable<System.DateTime> CREATEDATE {
             get {
                 return this.CREATEDATEField;
             }
@@ -2808,18 +3407,35 @@ namespace SMT.Saas.Tools.FlowWFService {
                 }
             }
         }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELFLOWRELATION_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_MODELFLOWRELATION_T : SMT.Saas.Tools.FlowWFService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWRECORDDETAIL_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_FLOWRECORDDETAIL_T : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string COMPANYIDField;
+        private System.Nullable<System.DateTime> AGENTEDITDATEField;
+        
+        private string AGENTERNAMEField;
+        
+        private string AGENTUSERIDField;
+        
+        private string CHECKSTATEField;
+        
+        private string CONTENTField;
         
         private string CREATECOMPANYIDField;
         
-        private System.DateTime CREATEDATEField;
+        private System.Nullable<System.DateTime> CREATEDATEField;
         
         private string CREATEDEPARTMENTIDField;
         
@@ -2829,9 +3445,13 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private string CREATEUSERNAMEField;
         
-        private string DEPARTMENTIDField;
+        private string EDITCOMPANYIDField;
         
         private System.Nullable<System.DateTime> EDITDATEField;
+        
+        private string EDITDEPARTMENTIDField;
+        
+        private string EDITPOSTIDField;
         
         private string EDITUSERIDField;
         
@@ -2839,27 +3459,79 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private string FLAGField;
         
-        private string FLOWTYPEField;
+        private string FLOWRECORDDETAILIDField;
         
-        private SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T FLOW_FLOWDEFINE_TField;
+        private string FLOWRECORDMASTERIDField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK FLOW_FLOWDEFINE_TReferenceField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T> FLOW_CONSULTATION_TField;
         
-        private SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T FLOW_MODELDEFINE_TField;
+        private SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T FLOW_FLOWRECORDMASTER_TField;
         
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK FLOW_MODELDEFINE_TReferenceField;
+        private string PARENTSTATEIDField;
         
-        private string MODELFLOWRELATIONIDField;
+        private string STATECODEField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
+        public System.Nullable<System.DateTime> AGENTEDITDATE {
             get {
-                return this.COMPANYIDField;
+                return this.AGENTEDITDATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
+                if ((this.AGENTEDITDATEField.Equals(value) != true)) {
+                    this.AGENTEDITDATEField = value;
+                    this.RaisePropertyChanged("AGENTEDITDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AGENTERNAME {
+            get {
+                return this.AGENTERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AGENTERNAMEField, value) != true)) {
+                    this.AGENTERNAMEField = value;
+                    this.RaisePropertyChanged("AGENTERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AGENTUSERID {
+            get {
+                return this.AGENTUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AGENTUSERIDField, value) != true)) {
+                    this.AGENTUSERIDField = value;
+                    this.RaisePropertyChanged("AGENTUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CONTENT {
+            get {
+                return this.CONTENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CONTENTField, value) != true)) {
+                    this.CONTENTField = value;
+                    this.RaisePropertyChanged("CONTENT");
                 }
             }
         }
@@ -2878,7 +3550,339 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATE {
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERNAME {
+            get {
+                return this.CREATEUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERNAMEField, value) != true)) {
+                    this.CREATEUSERNAMEField = value;
+                    this.RaisePropertyChanged("CREATEUSERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITCOMPANYID {
+            get {
+                return this.EDITCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITCOMPANYIDField, value) != true)) {
+                    this.EDITCOMPANYIDField = value;
+                    this.RaisePropertyChanged("EDITCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> EDITDATE {
+            get {
+                return this.EDITDATEField;
+            }
+            set {
+                if ((this.EDITDATEField.Equals(value) != true)) {
+                    this.EDITDATEField = value;
+                    this.RaisePropertyChanged("EDITDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITDEPARTMENTID {
+            get {
+                return this.EDITDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITDEPARTMENTIDField, value) != true)) {
+                    this.EDITDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("EDITDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITPOSTID {
+            get {
+                return this.EDITPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITPOSTIDField, value) != true)) {
+                    this.EDITPOSTIDField = value;
+                    this.RaisePropertyChanged("EDITPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITUSERID {
+            get {
+                return this.EDITUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITUSERIDField, value) != true)) {
+                    this.EDITUSERIDField = value;
+                    this.RaisePropertyChanged("EDITUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITUSERNAME {
+            get {
+                return this.EDITUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITUSERNAMEField, value) != true)) {
+                    this.EDITUSERNAMEField = value;
+                    this.RaisePropertyChanged("EDITUSERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLAG {
+            get {
+                return this.FLAGField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLAGField, value) != true)) {
+                    this.FLAGField = value;
+                    this.RaisePropertyChanged("FLAG");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLOWRECORDDETAILID {
+            get {
+                return this.FLOWRECORDDETAILIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOWRECORDDETAILIDField, value) != true)) {
+                    this.FLOWRECORDDETAILIDField = value;
+                    this.RaisePropertyChanged("FLOWRECORDDETAILID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLOWRECORDMASTERID {
+            get {
+                return this.FLOWRECORDMASTERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOWRECORDMASTERIDField, value) != true)) {
+                    this.FLOWRECORDMASTERIDField = value;
+                    this.RaisePropertyChanged("FLOWRECORDMASTERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T> FLOW_CONSULTATION_T {
+            get {
+                return this.FLOW_CONSULTATION_TField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOW_CONSULTATION_TField, value) != true)) {
+                    this.FLOW_CONSULTATION_TField = value;
+                    this.RaisePropertyChanged("FLOW_CONSULTATION_T");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T FLOW_FLOWRECORDMASTER_T {
+            get {
+                return this.FLOW_FLOWRECORDMASTER_TField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOW_FLOWRECORDMASTER_TField, value) != true)) {
+                    this.FLOW_FLOWRECORDMASTER_TField = value;
+                    this.RaisePropertyChanged("FLOW_FLOWRECORDMASTER_T");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PARENTSTATEID {
+            get {
+                return this.PARENTSTATEIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PARENTSTATEIDField, value) != true)) {
+                    this.PARENTSTATEIDField = value;
+                    this.RaisePropertyChanged("PARENTSTATEID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string STATECODE {
+            get {
+                return this.STATECODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.STATECODEField, value) != true)) {
+                    this.STATECODEField = value;
+                    this.RaisePropertyChanged("STATECODE");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELFLOWRELATION_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_MODELFLOWRELATION_T : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string COMPANYIDField;
+        
+        private string COMPANYNAMEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string CREATEUSERNAMEField;
+        
+        private string DEPARTMENTIDField;
+        
+        private string DEPARTMENTNAMEField;
+        
+        private string DESCRIPTIONField;
+        
+        private System.Nullable<System.DateTime> EDITDATEField;
+        
+        private string EDITUSERIDField;
+        
+        private string EDITUSERNAMEField;
+        
+        private string FLAGField;
+        
+        private string FLOWCODEField;
+        
+        private string FLOWTYPEField;
+        
+        private SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T FLOW_FLOWDEFINE_TField;
+        
+        private SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T FLOW_MODELDEFINE_TField;
+        
+        private string MODELCODEField;
+        
+        private string MODELFLOWRELATIONIDField;
+        
+        private string SYSTEMCODEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYNAME {
+            get {
+                return this.COMPANYNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYNAMEField, value) != true)) {
+                    this.COMPANYNAMEField = value;
+                    this.RaisePropertyChanged("COMPANYNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
             get {
                 return this.CREATEDATEField;
             }
@@ -2956,6 +3960,32 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DESCRIPTION {
+            get {
+                return this.DESCRIPTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DESCRIPTIONField, value) != true)) {
+                    this.DESCRIPTIONField = value;
+                    this.RaisePropertyChanged("DESCRIPTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> EDITDATE {
             get {
                 return this.EDITDATEField;
@@ -3008,6 +4038,19 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FLOWCODE {
+            get {
+                return this.FLOWCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FLOWCODEField, value) != true)) {
+                    this.FLOWCODEField = value;
+                    this.RaisePropertyChanged("FLOWCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string FLOWTYPE {
             get {
                 return this.FLOWTYPEField;
@@ -3034,19 +4077,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK FLOW_FLOWDEFINE_TReference {
-            get {
-                return this.FLOW_FLOWDEFINE_TReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_FLOWDEFINE_TReferenceField, value) != true)) {
-                    this.FLOW_FLOWDEFINE_TReferenceField = value;
-                    this.RaisePropertyChanged("FLOW_FLOWDEFINE_TReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T FLOW_MODELDEFINE_T {
             get {
                 return this.FLOW_MODELDEFINE_TField;
@@ -3060,14 +4090,14 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK FLOW_MODELDEFINE_TReference {
+        public string MODELCODE {
             get {
-                return this.FLOW_MODELDEFINE_TReferenceField;
+                return this.MODELCODEField;
             }
             set {
-                if ((object.ReferenceEquals(this.FLOW_MODELDEFINE_TReferenceField, value) != true)) {
-                    this.FLOW_MODELDEFINE_TReferenceField = value;
-                    this.RaisePropertyChanged("FLOW_MODELDEFINE_TReference");
+                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
+                    this.MODELCODEField = value;
+                    this.RaisePropertyChanged("MODELCODE");
                 }
             }
         }
@@ -3084,16 +4114,40 @@ namespace SMT.Saas.Tools.FlowWFService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SYSTEMCODE {
+            get {
+                return this.SYSTEMCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SYSTEMCODEField, value) != true)) {
+                    this.SYSTEMCODEField = value;
+                    this.RaisePropertyChanged("SYSTEMCODE");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWDEFINE_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_FLOWDEFINE_T : SMT.Saas.Tools.FlowWFService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_FLOWDEFINE_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_FLOWDEFINE_T : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string BUSINESSOBJECTField;
         
         private string CREATECOMPANYIDField;
         
-        private System.DateTime CREATEDATEField;
+        private System.Nullable<System.DateTime> CREATEDATEField;
         
         private string CREATEDEPARTMENTIDField;
         
@@ -3117,13 +4171,28 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private string FLOWTYPEField;
         
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T> FLOW_MODELFLOWRELATION_TField;
-        
         private string LAYOUTField;
         
         private string RULESField;
         
+        private string SYSTEMCODEField;
+        
+        private string WFLAYOUTField;
+        
         private string XOMLField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BUSINESSOBJECT {
+            get {
+                return this.BUSINESSOBJECTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BUSINESSOBJECTField, value) != true)) {
+                    this.BUSINESSOBJECTField = value;
+                    this.RaisePropertyChanged("BUSINESSOBJECT");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CREATECOMPANYID {
@@ -3139,7 +4208,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATE {
+        public System.Nullable<System.DateTime> CREATEDATE {
             get {
                 return this.CREATEDATEField;
             }
@@ -3295,19 +4364,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T> FLOW_MODELFLOWRELATION_T {
-            get {
-                return this.FLOW_MODELFLOWRELATION_TField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_MODELFLOWRELATION_TField, value) != true)) {
-                    this.FLOW_MODELFLOWRELATION_TField = value;
-                    this.RaisePropertyChanged("FLOW_MODELFLOWRELATION_T");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string LAYOUT {
             get {
                 return this.LAYOUTField;
@@ -3334,6 +4390,32 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SYSTEMCODE {
+            get {
+                return this.SYSTEMCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SYSTEMCODEField, value) != true)) {
+                    this.SYSTEMCODEField = value;
+                    this.RaisePropertyChanged("SYSTEMCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string WFLAYOUT {
+            get {
+                return this.WFLAYOUTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WFLAYOUTField, value) != true)) {
+                    this.WFLAYOUTField = value;
+                    this.RaisePropertyChanged("WFLAYOUT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string XOML {
             get {
                 return this.XOMLField;
@@ -3345,16 +4427,25 @@ namespace SMT.Saas.Tools.FlowWFService {
                 }
             }
         }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELDEFINE_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_MODELDEFINE_T : SMT.Saas.Tools.FlowWFService.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELDEFINE_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_MODELDEFINE_T : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string CREATECOMPANYIDField;
         
-        private System.DateTime CREATEDATEField;
+        private System.Nullable<System.DateTime> CREATEDATEField;
         
         private string CREATEDEPARTMENTIDField;
         
@@ -3372,7 +4463,9 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private string EDITUSERNAMEField;
         
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T> FLOW_MODELFLOWRELATION_TField;
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE> FlowCancelCompanyListField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW> FreeFlowCompanyListField;
         
         private string MODELCODEField;
         
@@ -3381,6 +4474,8 @@ namespace SMT.Saas.Tools.FlowWFService {
         private string PARENTMODELCODEField;
         
         private string SYSTEMCODEField;
+        
+        private string SYSTEMNAMEField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CREATECOMPANYID {
@@ -3396,7 +4491,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATE {
+        public System.Nullable<System.DateTime> CREATEDATE {
             get {
                 return this.CREATEDATEField;
             }
@@ -3513,14 +4608,27 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T> FLOW_MODELFLOWRELATION_T {
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE> FlowCancelCompanyList {
             get {
-                return this.FLOW_MODELFLOWRELATION_TField;
+                return this.FlowCancelCompanyListField;
             }
             set {
-                if ((object.ReferenceEquals(this.FLOW_MODELFLOWRELATION_TField, value) != true)) {
-                    this.FLOW_MODELFLOWRELATION_TField = value;
-                    this.RaisePropertyChanged("FLOW_MODELFLOWRELATION_T");
+                if ((object.ReferenceEquals(this.FlowCancelCompanyListField, value) != true)) {
+                    this.FlowCancelCompanyListField = value;
+                    this.RaisePropertyChanged("FlowCancelCompanyList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW> FreeFlowCompanyList {
+            get {
+                return this.FreeFlowCompanyListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FreeFlowCompanyListField, value) != true)) {
+                    this.FreeFlowCompanyListField = value;
+                    this.RaisePropertyChanged("FreeFlowCompanyList");
                 }
             }
         }
@@ -3576,240 +4684,16 @@ namespace SMT.Saas.Tools.FlowWFService {
                 }
             }
         }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_CONSULTATION_T", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FLOW_CONSULTATION_T : SMT.Saas.Tools.FlowWFService.EntityObject {
-        
-        private string CONSULTATIONCONTENTField;
-        
-        private System.Nullable<System.DateTime> CONSULTATIONDATEField;
-        
-        private string CONSULTATIONIDField;
-        
-        private string CONSULTATIONUSERIDField;
-        
-        private string CONSULTATIONUSERNAMEField;
-        
-        private string FLAGField;
-        
-        private SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T FLOW_FLOWRECORDDETAIL_TField;
-        
-        private SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK FLOW_FLOWRECORDDETAIL_TReferenceField;
-        
-        private string REPLYCONTENTField;
-        
-        private System.Nullable<System.DateTime> REPLYDATEField;
-        
-        private string REPLYUSERIDField;
-        
-        private string REPLYUSERNAMEField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONSULTATIONCONTENT {
+        public string SYSTEMNAME {
             get {
-                return this.CONSULTATIONCONTENTField;
+                return this.SYSTEMNAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.CONSULTATIONCONTENTField, value) != true)) {
-                    this.CONSULTATIONCONTENTField = value;
-                    this.RaisePropertyChanged("CONSULTATIONCONTENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CONSULTATIONDATE {
-            get {
-                return this.CONSULTATIONDATEField;
-            }
-            set {
-                if ((this.CONSULTATIONDATEField.Equals(value) != true)) {
-                    this.CONSULTATIONDATEField = value;
-                    this.RaisePropertyChanged("CONSULTATIONDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONSULTATIONID {
-            get {
-                return this.CONSULTATIONIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CONSULTATIONIDField, value) != true)) {
-                    this.CONSULTATIONIDField = value;
-                    this.RaisePropertyChanged("CONSULTATIONID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONSULTATIONUSERID {
-            get {
-                return this.CONSULTATIONUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CONSULTATIONUSERIDField, value) != true)) {
-                    this.CONSULTATIONUSERIDField = value;
-                    this.RaisePropertyChanged("CONSULTATIONUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CONSULTATIONUSERNAME {
-            get {
-                return this.CONSULTATIONUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CONSULTATIONUSERNAMEField, value) != true)) {
-                    this.CONSULTATIONUSERNAMEField = value;
-                    this.RaisePropertyChanged("CONSULTATIONUSERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FLAG {
-            get {
-                return this.FLAGField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLAGField, value) != true)) {
-                    this.FLAGField = value;
-                    this.RaisePropertyChanged("FLAG");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T FLOW_FLOWRECORDDETAIL_T {
-            get {
-                return this.FLOW_FLOWRECORDDETAIL_TField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_FLOWRECORDDETAIL_TField, value) != true)) {
-                    this.FLOW_FLOWRECORDDETAIL_TField = value;
-                    this.RaisePropertyChanged("FLOW_FLOWRECORDDETAIL_T");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK FLOW_FLOWRECORDDETAIL_TReference {
-            get {
-                return this.FLOW_FLOWRECORDDETAIL_TReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOW_FLOWRECORDDETAIL_TReferenceField, value) != true)) {
-                    this.FLOW_FLOWRECORDDETAIL_TReferenceField = value;
-                    this.RaisePropertyChanged("FLOW_FLOWRECORDDETAIL_TReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REPLYCONTENT {
-            get {
-                return this.REPLYCONTENTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REPLYCONTENTField, value) != true)) {
-                    this.REPLYCONTENTField = value;
-                    this.RaisePropertyChanged("REPLYCONTENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> REPLYDATE {
-            get {
-                return this.REPLYDATEField;
-            }
-            set {
-                if ((this.REPLYDATEField.Equals(value) != true)) {
-                    this.REPLYDATEField = value;
-                    this.RaisePropertyChanged("REPLYDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REPLYUSERID {
-            get {
-                return this.REPLYUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REPLYUSERIDField, value) != true)) {
-                    this.REPLYUSERIDField = value;
-                    this.RaisePropertyChanged("REPLYUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REPLYUSERNAME {
-            get {
-                return this.REPLYUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REPLYUSERNAMEField, value) != true)) {
-                    this.REPLYUSERNAMEField = value;
-                    this.RaisePropertyChanged("REPLYUSERNAME");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityKey", Namespace="http://schemas.datacontract.org/2004/07/System.Data", IsReference=true)]
-    public partial class EntityKey : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string EntityContainerNameField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember> EntityKeyValuesField;
-        
-        private string EntitySetNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntityContainerName {
-            get {
-                return this.EntityContainerNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityContainerNameField, value) != true)) {
-                    this.EntityContainerNameField = value;
-                    this.RaisePropertyChanged("EntityContainerName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember> EntityKeyValues {
-            get {
-                return this.EntityKeyValuesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyValuesField, value) != true)) {
-                    this.EntityKeyValuesField = value;
-                    this.RaisePropertyChanged("EntityKeyValues");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EntitySetName {
-            get {
-                return this.EntitySetNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntitySetNameField, value) != true)) {
-                    this.EntitySetNameField = value;
-                    this.RaisePropertyChanged("EntitySetName");
+                if ((object.ReferenceEquals(this.SYSTEMNAMEField, value) != true)) {
+                    this.SYSTEMNAMEField = value;
+                    this.RaisePropertyChanged("SYSTEMNAME");
                 }
             }
         }
@@ -3826,145 +4710,70 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_PERSONALRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_DOTASK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityKey))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitData))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.ApprovalResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.UserInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.Role_UserType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowSelectType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitFlag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.DataResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowResult))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.TaskInfo>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.TaskInfo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENU>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_PERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEMENUPERMISSION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLEENTITYMENU>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.UserInfo, SMT.Saas.Tools.FlowWFService.UserInfo>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowEntity))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.StructuralObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.RelatedEnd))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK))]
-    public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELDEFINE_FLOWCANCLE", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_MODELDEFINE_FLOWCANCLE : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private string KeyField;
+        private string COMPANYIDField;
         
-        private object ValueField;
+        private string COMPANYNAMEField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Key {
-            get {
-                return this.KeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.KeyField, value) != true)) {
-                    this.KeyField = value;
-                    this.RaisePropertyChanged("Key");
-                }
-            }
-        }
+        private string CREATECOMPANYIDField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public object Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
-                }
-            }
-        }
+        private System.DateTime CREATEDATEField;
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        private string CREATEDEPARTMENTIDField;
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_WF_FORWARDHISTORY", Namespace="http://schemas.datacontract.org/2004/07/EngineDataModel")]
-    public partial class T_WF_FORWARDHISTORY : object, System.ComponentModel.INotifyPropertyChanged {
+        private string CREATEPOSTIDField;
         
-        private System.Nullable<System.DateTime> CREATEDATEField;
+        private string CREATEUSERIDField;
         
-        private string FORWARDHISTORYIDField;
-        
-        private string FROMOWNERIDField;
-        
-        private string FROMOWNERNAMEField;
+        private string CREATEUSERNAMEField;
         
         private string MODELCODEField;
         
-        private string MODELIDField;
-        
-        private string PERSONALRECORDIDField;
-        
-        private string REMARKField;
-        
-        private string TOOWNERIDField;
-        
-        private string TOOWNERNAMEField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
+        private string MODELDEFINEFLOWCANCLEIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYNAME {
+            get {
+                return this.COMPANYNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYNAMEField, value) != true)) {
+                    this.COMPANYNAMEField = value;
+                    this.RaisePropertyChanged("COMPANYNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CREATEDATE {
             get {
                 return this.CREATEDATEField;
             }
@@ -3977,40 +4786,53 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FORWARDHISTORYID {
+        public string CREATEDEPARTMENTID {
             get {
-                return this.FORWARDHISTORYIDField;
+                return this.CREATEDEPARTMENTIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.FORWARDHISTORYIDField, value) != true)) {
-                    this.FORWARDHISTORYIDField = value;
-                    this.RaisePropertyChanged("FORWARDHISTORYID");
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FROMOWNERID {
+        public string CREATEPOSTID {
             get {
-                return this.FROMOWNERIDField;
+                return this.CREATEPOSTIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.FROMOWNERIDField, value) != true)) {
-                    this.FROMOWNERIDField = value;
-                    this.RaisePropertyChanged("FROMOWNERID");
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FROMOWNERNAME {
+        public string CREATEUSERID {
             get {
-                return this.FROMOWNERNAMEField;
+                return this.CREATEUSERIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.FROMOWNERNAMEField, value) != true)) {
-                    this.FROMOWNERNAMEField = value;
-                    this.RaisePropertyChanged("FROMOWNERNAME");
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERNAME {
+            get {
+                return this.CREATEUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERNAMEField, value) != true)) {
+                    this.CREATEUSERNAMEField = value;
+                    this.RaisePropertyChanged("CREATEUSERNAME");
                 }
             }
         }
@@ -4029,79 +4851,14 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELID {
+        public string MODELDEFINEFLOWCANCLEID {
             get {
-                return this.MODELIDField;
+                return this.MODELDEFINEFLOWCANCLEIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.MODELIDField, value) != true)) {
-                    this.MODELIDField = value;
-                    this.RaisePropertyChanged("MODELID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PERSONALRECORDID {
-            get {
-                return this.PERSONALRECORDIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PERSONALRECORDIDField, value) != true)) {
-                    this.PERSONALRECORDIDField = value;
-                    this.RaisePropertyChanged("PERSONALRECORDID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TOOWNERID {
-            get {
-                return this.TOOWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TOOWNERIDField, value) != true)) {
-                    this.TOOWNERIDField = value;
-                    this.RaisePropertyChanged("TOOWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TOOWNERNAME {
-            get {
-                return this.TOOWNERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TOOWNERNAMEField, value) != true)) {
-                    this.TOOWNERNAMEField = value;
-                    this.RaisePropertyChanged("TOOWNERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
+                if ((object.ReferenceEquals(this.MODELDEFINEFLOWCANCLEIDField, value) != true)) {
+                    this.MODELDEFINEFLOWCANCLEIDField = value;
+                    this.RaisePropertyChanged("MODELDEFINEFLOWCANCLEID");
                 }
             }
         }
@@ -4114,6 +4871,248 @@ namespace SMT.Saas.Tools.FlowWFService {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FLOW_MODELDEFINE_FREEFLOW", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model")]
+    public partial class FLOW_MODELDEFINE_FREEFLOW : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string COMPANYIDField;
+        
+        private string COMPANYNAMEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.DateTime CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string CREATEUSERNAMEField;
+        
+        private string MODELCODEField;
+        
+        private string MODELDEFINEFREEFLOWIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYNAME {
+            get {
+                return this.COMPANYNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYNAMEField, value) != true)) {
+                    this.COMPANYNAMEField = value;
+                    this.RaisePropertyChanged("COMPANYNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERNAME {
+            get {
+                return this.CREATEUSERNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERNAMEField, value) != true)) {
+                    this.CREATEUSERNAMEField = value;
+                    this.RaisePropertyChanged("CREATEUSERNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MODELCODE {
+            get {
+                return this.MODELCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
+                    this.MODELCODEField = value;
+                    this.RaisePropertyChanged("MODELCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MODELDEFINEFREEFLOWID {
+            get {
+                return this.MODELDEFINEFREEFLOWIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MODELDEFINEFREEFLOWIDField, value) != true)) {
+                    this.MODELDEFINEFREEFLOWIDField = value;
+                    this.RaisePropertyChanged("MODELDEFINEFREEFLOWID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw : SMT.Saas.Tools.FlowWFService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw))]
+    public partial class EntityReference : SMT.Saas.Tools.FlowWFService.RelatedEnd {
+        
+        private SMT.Saas.Tools.FlowWFService.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.FlowWFService.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw))]
+    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw : SMT.Saas.Tools.FlowWFService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ROLENb42Hbcw : SMT.Saas.Tools.FlowWFService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw : SMT.Saas.Tools.FlowWFService.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_USERNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_SYS_USERNb42Hbcw : SMT.Saas.Tools.FlowWFService.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4358,1061 +5357,6 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_WF_DOTASK", Namespace="http://schemas.datacontract.org/2004/07/SMT.Workflow.Common.Model.FlowEngine")]
-    public partial class T_WF_DOTASK : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string APPFIELDVALUEField;
-        
-        private string APPLICATIONURLField;
-        
-        private string APPXMLField;
-        
-        private System.Nullable<System.DateTime> BEFOREPROCESSDATEField;
-        
-        private System.Nullable<System.DateTime> CLOSEDDATEField;
-        
-        private string COMPANYIDField;
-        
-        private System.DateTime CREATEDATETIMEField;
-        
-        private string DOTASKIDField;
-        
-        private decimal DOTASKSTATUSField;
-        
-        private decimal DOTASKTYPEField;
-        
-        private string ENGINECODEField;
-        
-        private string FLOWXMLField;
-        
-        private decimal ISALARMField;
-        
-        private decimal MAILSTATUSField;
-        
-        private string MESSAGEBODYField;
-        
-        private string MODELCODEField;
-        
-        private string MODELNAMEField;
-        
-        private string ORDERIDField;
-        
-        private decimal ORDERSTATUSField;
-        
-        private string ORDERUSERIDField;
-        
-        private string ORDERUSERNAMEField;
-        
-        private string RECEIVEUSERIDField;
-        
-        private string REMARKField;
-        
-        private decimal RTXSTATUSField;
-        
-        private string SYSTEMCODEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPFIELDVALUE {
-            get {
-                return this.APPFIELDVALUEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPFIELDVALUEField, value) != true)) {
-                    this.APPFIELDVALUEField = value;
-                    this.RaisePropertyChanged("APPFIELDVALUE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPLICATIONURL {
-            get {
-                return this.APPLICATIONURLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPLICATIONURLField, value) != true)) {
-                    this.APPLICATIONURLField = value;
-                    this.RaisePropertyChanged("APPLICATIONURL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string APPXML {
-            get {
-                return this.APPXMLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.APPXMLField, value) != true)) {
-                    this.APPXMLField = value;
-                    this.RaisePropertyChanged("APPXML");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> BEFOREPROCESSDATE {
-            get {
-                return this.BEFOREPROCESSDATEField;
-            }
-            set {
-                if ((this.BEFOREPROCESSDATEField.Equals(value) != true)) {
-                    this.BEFOREPROCESSDATEField = value;
-                    this.RaisePropertyChanged("BEFOREPROCESSDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CLOSEDDATE {
-            get {
-                return this.CLOSEDDATEField;
-            }
-            set {
-                if ((this.CLOSEDDATEField.Equals(value) != true)) {
-                    this.CLOSEDDATEField = value;
-                    this.RaisePropertyChanged("CLOSEDDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CREATEDATETIME {
-            get {
-                return this.CREATEDATETIMEField;
-            }
-            set {
-                if ((this.CREATEDATETIMEField.Equals(value) != true)) {
-                    this.CREATEDATETIMEField = value;
-                    this.RaisePropertyChanged("CREATEDATETIME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DOTASKID {
-            get {
-                return this.DOTASKIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DOTASKIDField, value) != true)) {
-                    this.DOTASKIDField = value;
-                    this.RaisePropertyChanged("DOTASKID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DOTASKSTATUS {
-            get {
-                return this.DOTASKSTATUSField;
-            }
-            set {
-                if ((this.DOTASKSTATUSField.Equals(value) != true)) {
-                    this.DOTASKSTATUSField = value;
-                    this.RaisePropertyChanged("DOTASKSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal DOTASKTYPE {
-            get {
-                return this.DOTASKTYPEField;
-            }
-            set {
-                if ((this.DOTASKTYPEField.Equals(value) != true)) {
-                    this.DOTASKTYPEField = value;
-                    this.RaisePropertyChanged("DOTASKTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENGINECODE {
-            get {
-                return this.ENGINECODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ENGINECODEField, value) != true)) {
-                    this.ENGINECODEField = value;
-                    this.RaisePropertyChanged("ENGINECODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FLOWXML {
-            get {
-                return this.FLOWXMLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FLOWXMLField, value) != true)) {
-                    this.FLOWXMLField = value;
-                    this.RaisePropertyChanged("FLOWXML");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ISALARM {
-            get {
-                return this.ISALARMField;
-            }
-            set {
-                if ((this.ISALARMField.Equals(value) != true)) {
-                    this.ISALARMField = value;
-                    this.RaisePropertyChanged("ISALARM");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal MAILSTATUS {
-            get {
-                return this.MAILSTATUSField;
-            }
-            set {
-                if ((this.MAILSTATUSField.Equals(value) != true)) {
-                    this.MAILSTATUSField = value;
-                    this.RaisePropertyChanged("MAILSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MESSAGEBODY {
-            get {
-                return this.MESSAGEBODYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MESSAGEBODYField, value) != true)) {
-                    this.MESSAGEBODYField = value;
-                    this.RaisePropertyChanged("MESSAGEBODY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELCODE {
-            get {
-                return this.MODELCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELCODEField, value) != true)) {
-                    this.MODELCODEField = value;
-                    this.RaisePropertyChanged("MODELCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MODELNAME {
-            get {
-                return this.MODELNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MODELNAMEField, value) != true)) {
-                    this.MODELNAMEField = value;
-                    this.RaisePropertyChanged("MODELNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERID {
-            get {
-                return this.ORDERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERIDField, value) != true)) {
-                    this.ORDERIDField = value;
-                    this.RaisePropertyChanged("ORDERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal ORDERSTATUS {
-            get {
-                return this.ORDERSTATUSField;
-            }
-            set {
-                if ((this.ORDERSTATUSField.Equals(value) != true)) {
-                    this.ORDERSTATUSField = value;
-                    this.RaisePropertyChanged("ORDERSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERUSERID {
-            get {
-                return this.ORDERUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERUSERIDField, value) != true)) {
-                    this.ORDERUSERIDField = value;
-                    this.RaisePropertyChanged("ORDERUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ORDERUSERNAME {
-            get {
-                return this.ORDERUSERNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ORDERUSERNAMEField, value) != true)) {
-                    this.ORDERUSERNAMEField = value;
-                    this.RaisePropertyChanged("ORDERUSERNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RECEIVEUSERID {
-            get {
-                return this.RECEIVEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RECEIVEUSERIDField, value) != true)) {
-                    this.RECEIVEUSERIDField = value;
-                    this.RaisePropertyChanged("RECEIVEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal RTXSTATUS {
-            get {
-                return this.RTXSTATUSField;
-            }
-            set {
-                if ((this.RTXSTATUSField.Equals(value) != true)) {
-                    this.RTXSTATUSField = value;
-                    this.RaisePropertyChanged("RTXSTATUS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SYSTEMCODE {
-            get {
-                return this.SYSTEMCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SYSTEMCODEField, value) != true)) {
-                    this.SYSTEMCODEField = value;
-                    this.RaisePropertyChanged("SYSTEMCODE");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubmitData", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public partial class SubmitData : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string ApprovalContentField;
-        
-        private SMT.Saas.Tools.FlowWFService.ApprovalResult ApprovalResultField;
-        
-        private SMT.Saas.Tools.FlowWFService.UserInfo ApprovalUserField;
-        
-        private System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUserField;
-        
-        private SMT.Saas.Tools.FlowWFService.FlowSelectType FlowSelectTypeField;
-        
-        private SMT.Saas.Tools.FlowWFService.FlowType FlowTypeField;
-        
-        private string FormIDField;
-        
-        private string ModelCodeField;
-        
-        private string ModelCodeTypeField;
-        
-        private string ModelCodeTypeNameField;
-        
-        private SMT.Saas.Tools.FlowWFService.UserInfo NextApprovalUserField;
-        
-        private string NextStateCodeField;
-        
-        private string OwnerIDField;
-        
-        private string OwnerNameField;
-        
-        private SMT.Saas.Tools.FlowWFService.SubmitFlag SubmitFlagField;
-        
-        private string SumbitCompanyIDField;
-        
-        private string SumbitDeparmentIDField;
-        
-        private string SumbitPostIDField;
-        
-        private string SumbitUserIDField;
-        
-        private string SumbitUserNameField;
-        
-        private string XMLField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ApprovalContent {
-            get {
-                return this.ApprovalContentField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApprovalContentField, value) != true)) {
-                    this.ApprovalContentField = value;
-                    this.RaisePropertyChanged("ApprovalContent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.ApprovalResult ApprovalResult {
-            get {
-                return this.ApprovalResultField;
-            }
-            set {
-                if ((this.ApprovalResultField.Equals(value) != true)) {
-                    this.ApprovalResultField = value;
-                    this.RaisePropertyChanged("ApprovalResult");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.UserInfo ApprovalUser {
-            get {
-                return this.ApprovalUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApprovalUserField, value) != true)) {
-                    this.ApprovalUserField = value;
-                    this.RaisePropertyChanged("ApprovalUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUser {
-            get {
-                return this.DictCounterUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DictCounterUserField, value) != true)) {
-                    this.DictCounterUserField = value;
-                    this.RaisePropertyChanged("DictCounterUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.FlowSelectType FlowSelectType {
-            get {
-                return this.FlowSelectTypeField;
-            }
-            set {
-                if ((this.FlowSelectTypeField.Equals(value) != true)) {
-                    this.FlowSelectTypeField = value;
-                    this.RaisePropertyChanged("FlowSelectType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.FlowType FlowType {
-            get {
-                return this.FlowTypeField;
-            }
-            set {
-                if ((this.FlowTypeField.Equals(value) != true)) {
-                    this.FlowTypeField = value;
-                    this.RaisePropertyChanged("FlowType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FormID {
-            get {
-                return this.FormIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FormIDField, value) != true)) {
-                    this.FormIDField = value;
-                    this.RaisePropertyChanged("FormID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModelCode {
-            get {
-                return this.ModelCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModelCodeField, value) != true)) {
-                    this.ModelCodeField = value;
-                    this.RaisePropertyChanged("ModelCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModelCodeType {
-            get {
-                return this.ModelCodeTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModelCodeTypeField, value) != true)) {
-                    this.ModelCodeTypeField = value;
-                    this.RaisePropertyChanged("ModelCodeType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModelCodeTypeName {
-            get {
-                return this.ModelCodeTypeNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModelCodeTypeNameField, value) != true)) {
-                    this.ModelCodeTypeNameField = value;
-                    this.RaisePropertyChanged("ModelCodeTypeName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.UserInfo NextApprovalUser {
-            get {
-                return this.NextApprovalUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NextApprovalUserField, value) != true)) {
-                    this.NextApprovalUserField = value;
-                    this.RaisePropertyChanged("NextApprovalUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NextStateCode {
-            get {
-                return this.NextStateCodeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NextStateCodeField, value) != true)) {
-                    this.NextStateCodeField = value;
-                    this.RaisePropertyChanged("NextStateCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OwnerID {
-            get {
-                return this.OwnerIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OwnerIDField, value) != true)) {
-                    this.OwnerIDField = value;
-                    this.RaisePropertyChanged("OwnerID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OwnerName {
-            get {
-                return this.OwnerNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OwnerNameField, value) != true)) {
-                    this.OwnerNameField = value;
-                    this.RaisePropertyChanged("OwnerName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.SubmitFlag SubmitFlag {
-            get {
-                return this.SubmitFlagField;
-            }
-            set {
-                if ((this.SubmitFlagField.Equals(value) != true)) {
-                    this.SubmitFlagField = value;
-                    this.RaisePropertyChanged("SubmitFlag");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SumbitCompanyID {
-            get {
-                return this.SumbitCompanyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SumbitCompanyIDField, value) != true)) {
-                    this.SumbitCompanyIDField = value;
-                    this.RaisePropertyChanged("SumbitCompanyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SumbitDeparmentID {
-            get {
-                return this.SumbitDeparmentIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SumbitDeparmentIDField, value) != true)) {
-                    this.SumbitDeparmentIDField = value;
-                    this.RaisePropertyChanged("SumbitDeparmentID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SumbitPostID {
-            get {
-                return this.SumbitPostIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SumbitPostIDField, value) != true)) {
-                    this.SumbitPostIDField = value;
-                    this.RaisePropertyChanged("SumbitPostID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SumbitUserID {
-            get {
-                return this.SumbitUserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SumbitUserIDField, value) != true)) {
-                    this.SumbitUserIDField = value;
-                    this.RaisePropertyChanged("SumbitUserID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SumbitUserName {
-            get {
-                return this.SumbitUserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SumbitUserNameField, value) != true)) {
-                    this.SumbitUserNameField = value;
-                    this.RaisePropertyChanged("SumbitUserName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string XML {
-            get {
-                return this.XMLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.XMLField, value) != true)) {
-                    this.XMLField = value;
-                    this.RaisePropertyChanged("XML");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ApprovalResult", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public enum ApprovalResult : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NoPass = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Pass = 1,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public partial class UserInfo : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private string CompanyIDField;
-        
-        private string CompanyNameField;
-        
-        private string DepartmentIDField;
-        
-        private string DepartmentNameField;
-        
-        private string IsHeadField;
-        
-        private string IsSuperiorField;
-        
-        private string PostIDField;
-        
-        private string PostNameField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE> RolesField;
-        
-        private string UserIDField;
-        
-        private string UserNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyID {
-            get {
-                return this.CompanyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyIDField, value) != true)) {
-                    this.CompanyIDField = value;
-                    this.RaisePropertyChanged("CompanyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CompanyName {
-            get {
-                return this.CompanyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
-                    this.CompanyNameField = value;
-                    this.RaisePropertyChanged("CompanyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentID {
-            get {
-                return this.DepartmentIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DepartmentIDField, value) != true)) {
-                    this.DepartmentIDField = value;
-                    this.RaisePropertyChanged("DepartmentID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DepartmentName {
-            get {
-                return this.DepartmentNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DepartmentNameField, value) != true)) {
-                    this.DepartmentNameField = value;
-                    this.RaisePropertyChanged("DepartmentName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsHead {
-            get {
-                return this.IsHeadField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsHeadField, value) != true)) {
-                    this.IsHeadField = value;
-                    this.RaisePropertyChanged("IsHead");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsSuperior {
-            get {
-                return this.IsSuperiorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsSuperiorField, value) != true)) {
-                    this.IsSuperiorField = value;
-                    this.RaisePropertyChanged("IsSuperior");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostID {
-            get {
-                return this.PostIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostIDField, value) != true)) {
-                    this.PostIDField = value;
-                    this.RaisePropertyChanged("PostID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostName {
-            get {
-                return this.PostNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
-                    this.PostNameField = value;
-                    this.RaisePropertyChanged("PostName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE> Roles {
-            get {
-                return this.RolesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RolesField, value) != true)) {
-                    this.RolesField = value;
-                    this.RaisePropertyChanged("Roles");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserID {
-            get {
-                return this.UserIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserIDField, value) != true)) {
-                    this.UserIDField = value;
-                    this.RaisePropertyChanged("UserID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserName {
-            get {
-                return this.UserNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
-                    this.UserNameField = value;
-                    this.RaisePropertyChanged("UserName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Role_UserType", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public partial class Role_UserType : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Nullable<bool> IsOtherCompanyField;
-        
-        private string NameField;
-        
-        private string OtherCompanyIDField;
-        
-        private string RemarkField;
-        
-        private string RoleNameField;
-        
-        private string UserTypeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<bool> IsOtherCompany {
-            get {
-                return this.IsOtherCompanyField;
-            }
-            set {
-                if ((this.IsOtherCompanyField.Equals(value) != true)) {
-                    this.IsOtherCompanyField = value;
-                    this.RaisePropertyChanged("IsOtherCompany");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OtherCompanyID {
-            get {
-                return this.OtherCompanyIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OtherCompanyIDField, value) != true)) {
-                    this.OtherCompanyIDField = value;
-                    this.RaisePropertyChanged("OtherCompanyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Remark {
-            get {
-                return this.RemarkField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RemarkField, value) != true)) {
-                    this.RemarkField = value;
-                    this.RaisePropertyChanged("Remark");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoleName {
-            get {
-                return this.RoleNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoleNameField, value) != true)) {
-                    this.RoleNameField = value;
-                    this.RaisePropertyChanged("RoleName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UserType {
-            get {
-                return this.UserTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UserTypeField, value) != true)) {
-                    this.UserTypeField = value;
-                    this.RaisePropertyChanged("UserType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FlowSelectType", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public enum FlowSelectType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FixedFlow = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FreeFlow = 1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FlowType", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public enum FlowType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Approval = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Task = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Pending = 2,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubmitFlag", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
-    public enum SubmitFlag : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        New = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Approval = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Cancel = 5,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DataResult", Namespace="http://schemas.datacontract.org/2004/07/SMT.FlowWFService")]
     public partial class DataResult : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -5426,7 +5370,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.UserInfo, SMT.Saas.Tools.FlowWFService.UserInfo> DictAgentUserInfoField;
         
-        private System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUserField;
+        private System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUserField;
         
         private string ErrField;
         
@@ -5514,7 +5458,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUser {
+        public System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>> DictCounterUser {
             get {
                 return this.DictCounterUserField;
             }
@@ -5731,154 +5675,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FlowEntity", Namespace="http://schemas.datacontract.org/2004/07/SMT.EntityFlowSys", IsReference=true)]
-    public partial class FlowEntity : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T> FlowListField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY> ForwardHistoryListField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T> FlowList {
-            get {
-                return this.FlowListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FlowListField, value) != true)) {
-                    this.FlowListField = value;
-                    this.RaisePropertyChanged("FlowList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY> ForwardHistoryList {
-            get {
-                return this.ForwardHistoryListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ForwardHistoryListField, value) != true)) {
-                    this.ForwardHistoryListField = value;
-                    this.RaisePropertyChanged("ForwardHistoryList");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-    public partial class EntityReference : SMT.Saas.Tools.FlowWFService.RelatedEnd {
-        
-        private SMT.Saas.Tools.FlowWFService.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.FlowWFService.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-    public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_PERMISSIONCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_PERMISSIONCIR1sILv : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLECIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ROLECIR1sILv : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_SYS_USERCIR1sILv", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_SYS_USERCIR1sILv : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK : SMT.Saas.Tools.FlowWFService.EntityReference {
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FlowWFService.IService")]
     public interface IService {
@@ -5899,7 +5695,7 @@ namespace SMT.Saas.Tools.FlowWFService {
         SMT.Saas.Tools.FlowWFService.DataResult EndSubimtFlow(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetAppUser", ReplyAction="http://tempuri.org/IService/GetAppUserResponse")]
-        System.IAsyncResult BeginGetAppUser(string CompanyID, string ModelCode, string ModelCodeType, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState);
+        System.IAsyncResult BeginGetAppUser(string CompanyID, string ModelCode, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState);
         
         SMT.Saas.Tools.FlowWFService.DataResult EndGetAppUser(System.IAsyncResult result);
         
@@ -5917,11 +5713,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         System.IAsyncResult BeginGetFlowInfo(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T> EndGetFlowInfo(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetFlowEntity", ReplyAction="http://tempuri.org/IService/GetFlowEntityResponse")]
-        System.IAsyncResult BeginGetFlowEntity(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.FlowWFService.FlowEntity EndGetFlowEntity(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetWaitingApprovalForm", ReplyAction="http://tempuri.org/IService/GetWaitingApprovalFormResponse")]
         System.IAsyncResult BeginGetWaitingApprovalForm(string ModelCode, string EditUserID, System.AsyncCallback callback, object asyncState);
@@ -5964,25 +5755,23 @@ namespace SMT.Saas.Tools.FlowWFService {
         System.Collections.ObjectModel.ObservableCollection<string> EndIsFreeFlowAndIsCancel(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearch", ReplyAction="http://tempuri.org/IService/GetModelFlowRelationInfosListBySearchResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_FORWARDHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_PERSONALRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_DOTASK))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitData))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.ApprovalResult))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.UserInfo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.Role_UserType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowSelectType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowType))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitFlag))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.DataResult))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowResult))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.TaskInfo>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.TaskInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FLOWCANCLE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_FREEFLOW))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_ROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_ENTITYMENUCUSTOMPERM>))]
@@ -5998,34 +5787,32 @@ namespace SMT.Saas.Tools.FlowWFService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USERROLE))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_SYS_USER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.Role_UserType, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.T_WF_PERSONALRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitData))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.ApprovalResult))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.UserInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowRole))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowSelectType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowType))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.SubmitFlag))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.DataResult))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowResult))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.TaskInfo>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.TaskInfo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.FlowRole, System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.UserInfo>>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<SMT.Saas.Tools.FlowWFService.UserInfo, SMT.Saas.Tools.FlowWFService.UserInfo>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_CONSULTATION_T>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FlowEntity))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_FLOWDEFINE_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.FLOW_MODELDEFINE_T))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDMASTER_TgZ_PhGfiK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWRECORDDETAIL_TgZ_PhGfiK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_PERMISSIONCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLECIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_ROLEENTITYMENUCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfT_SYS_USERCIR1sILv))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_FLOWDEFINE_TgZ_PhGfiK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.FlowWFService.EntityReferenceOfFLOW_MODELDEFINE_TgZ_PhGfiK))]
         System.IAsyncResult BeginGetModelFlowRelationInfosListBySearch(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_MODELFLOWRELATION_T> EndGetModelFlowRelationInfosListBySearch(ref int pageCount, System.IAsyncResult result);
@@ -6039,11 +5826,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         System.IAsyncResult BeginUpdateMetadataByFormid(string formid, string xml, System.AsyncCallback callback, object asyncState);
         
         bool EndUpdateMetadataByFormid(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetDoTask", ReplyAction="http://tempuri.org/IService/GetDoTaskResponse")]
-        System.IAsyncResult BeginGetDoTask(string dotaskid, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.FlowWFService.T_WF_DOTASK EndGetDoTask(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -6141,25 +5923,6 @@ namespace SMT.Saas.Tools.FlowWFService {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetFlowEntityCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetFlowEntityCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.FlowWFService.FlowEntity Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.FlowWFService.FlowEntity)(this.results[0]));
             }
         }
     }
@@ -6382,25 +6145,6 @@ namespace SMT.Saas.Tools.FlowWFService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDoTaskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDoTaskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.FlowWFService.T_WF_DOTASK Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.FlowWFService.T_WF_DOTASK)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.FlowWFService.IService>, SMT.Saas.Tools.FlowWFService.IService {
         
         private BeginOperationDelegate onBeginAddConsultationDelegate;
@@ -6444,12 +6188,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         private EndOperationDelegate onEndGetFlowInfoDelegate;
         
         private System.Threading.SendOrPostCallback onGetFlowInfoCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetFlowEntityDelegate;
-        
-        private EndOperationDelegate onEndGetFlowEntityDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetFlowEntityCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetWaitingApprovalFormDelegate;
         
@@ -6517,12 +6255,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         private System.Threading.SendOrPostCallback onUpdateMetadataByFormidCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetDoTaskDelegate;
-        
-        private EndOperationDelegate onEndGetDoTaskDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDoTaskCompletedDelegate;
-        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -6589,8 +6321,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         
         public event System.EventHandler<GetFlowInfoCompletedEventArgs> GetFlowInfoCompleted;
         
-        public event System.EventHandler<GetFlowEntityCompletedEventArgs> GetFlowEntityCompleted;
-        
         public event System.EventHandler<GetWaitingApprovalFormCompletedEventArgs> GetWaitingApprovalFormCompleted;
         
         public event System.EventHandler<GetTaskInfoCompletedEventArgs> GetTaskInfoCompleted;
@@ -6612,8 +6342,6 @@ namespace SMT.Saas.Tools.FlowWFService {
         public event System.EventHandler<GetMetadataByFormidCompletedEventArgs> GetMetadataByFormidCompleted;
         
         public event System.EventHandler<UpdateMetadataByFormidCompletedEventArgs> UpdateMetadataByFormidCompleted;
-        
-        public event System.EventHandler<GetDoTaskCompletedEventArgs> GetDoTaskCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
@@ -6760,8 +6488,8 @@ namespace SMT.Saas.Tools.FlowWFService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.FlowWFService.IService.BeginGetAppUser(string CompanyID, string ModelCode, string ModelCodeType, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetAppUser(CompanyID, ModelCode, ModelCodeType, FlowGUID, xml, callback, asyncState);
+        System.IAsyncResult SMT.Saas.Tools.FlowWFService.IService.BeginGetAppUser(string CompanyID, string ModelCode, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAppUser(CompanyID, ModelCode, FlowGUID, xml, callback, asyncState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -6772,10 +6500,9 @@ namespace SMT.Saas.Tools.FlowWFService {
         private System.IAsyncResult OnBeginGetAppUser(object[] inValues, System.AsyncCallback callback, object asyncState) {
             string CompanyID = ((string)(inValues[0]));
             string ModelCode = ((string)(inValues[1]));
-            string ModelCodeType = ((string)(inValues[2]));
-            string FlowGUID = ((string)(inValues[3]));
-            string xml = ((string)(inValues[4]));
-            return ((SMT.Saas.Tools.FlowWFService.IService)(this)).BeginGetAppUser(CompanyID, ModelCode, ModelCodeType, FlowGUID, xml, callback, asyncState);
+            string FlowGUID = ((string)(inValues[2]));
+            string xml = ((string)(inValues[3]));
+            return ((SMT.Saas.Tools.FlowWFService.IService)(this)).BeginGetAppUser(CompanyID, ModelCode, FlowGUID, xml, callback, asyncState);
         }
         
         private object[] OnEndGetAppUser(System.IAsyncResult result) {
@@ -6791,11 +6518,11 @@ namespace SMT.Saas.Tools.FlowWFService {
             }
         }
         
-        public void GetAppUserAsync(string CompanyID, string ModelCode, string ModelCodeType, string FlowGUID, string xml) {
-            this.GetAppUserAsync(CompanyID, ModelCode, ModelCodeType, FlowGUID, xml, null);
+        public void GetAppUserAsync(string CompanyID, string ModelCode, string FlowGUID, string xml) {
+            this.GetAppUserAsync(CompanyID, ModelCode, FlowGUID, xml, null);
         }
         
-        public void GetAppUserAsync(string CompanyID, string ModelCode, string ModelCodeType, string FlowGUID, string xml, object userState) {
+        public void GetAppUserAsync(string CompanyID, string ModelCode, string FlowGUID, string xml, object userState) {
             if ((this.onBeginGetAppUserDelegate == null)) {
                 this.onBeginGetAppUserDelegate = new BeginOperationDelegate(this.OnBeginGetAppUser);
             }
@@ -6808,7 +6535,6 @@ namespace SMT.Saas.Tools.FlowWFService {
             base.InvokeAsync(this.onBeginGetAppUserDelegate, new object[] {
                         CompanyID,
                         ModelCode,
-                        ModelCodeType,
                         FlowGUID,
                         xml}, this.onEndGetAppUserDelegate, this.onGetAppUserCompletedDelegate, userState);
         }
@@ -6973,64 +6699,6 @@ namespace SMT.Saas.Tools.FlowWFService {
                         ModelCode,
                         CompanyID,
                         EditUserID}, this.onEndGetFlowInfoDelegate, this.onGetFlowInfoCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.FlowWFService.IService.BeginGetFlowEntity(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetFlowEntity(FormID, FlowGUID, CheckState, Flag, ModelCode, CompanyID, EditUserID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.FlowWFService.FlowEntity SMT.Saas.Tools.FlowWFService.IService.EndGetFlowEntity(System.IAsyncResult result) {
-            return base.Channel.EndGetFlowEntity(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetFlowEntity(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string FormID = ((string)(inValues[0]));
-            string FlowGUID = ((string)(inValues[1]));
-            string CheckState = ((string)(inValues[2]));
-            string Flag = ((string)(inValues[3]));
-            string ModelCode = ((string)(inValues[4]));
-            string CompanyID = ((string)(inValues[5]));
-            string EditUserID = ((string)(inValues[6]));
-            return ((SMT.Saas.Tools.FlowWFService.IService)(this)).BeginGetFlowEntity(FormID, FlowGUID, CheckState, Flag, ModelCode, CompanyID, EditUserID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetFlowEntity(System.IAsyncResult result) {
-            SMT.Saas.Tools.FlowWFService.FlowEntity retVal = ((SMT.Saas.Tools.FlowWFService.IService)(this)).EndGetFlowEntity(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetFlowEntityCompleted(object state) {
-            if ((this.GetFlowEntityCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetFlowEntityCompleted(this, new GetFlowEntityCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetFlowEntityAsync(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID) {
-            this.GetFlowEntityAsync(FormID, FlowGUID, CheckState, Flag, ModelCode, CompanyID, EditUserID, null);
-        }
-        
-        public void GetFlowEntityAsync(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID, object userState) {
-            if ((this.onBeginGetFlowEntityDelegate == null)) {
-                this.onBeginGetFlowEntityDelegate = new BeginOperationDelegate(this.OnBeginGetFlowEntity);
-            }
-            if ((this.onEndGetFlowEntityDelegate == null)) {
-                this.onEndGetFlowEntityDelegate = new EndOperationDelegate(this.OnEndGetFlowEntity);
-            }
-            if ((this.onGetFlowEntityCompletedDelegate == null)) {
-                this.onGetFlowEntityCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetFlowEntityCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetFlowEntityDelegate, new object[] {
-                        FormID,
-                        FlowGUID,
-                        CheckState,
-                        Flag,
-                        ModelCode,
-                        CompanyID,
-                        EditUserID}, this.onEndGetFlowEntityDelegate, this.onGetFlowEntityCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -7571,52 +7239,6 @@ namespace SMT.Saas.Tools.FlowWFService {
                         xml}, this.onEndUpdateMetadataByFormidDelegate, this.onUpdateMetadataByFormidCompletedDelegate, userState);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.FlowWFService.IService.BeginGetDoTask(string dotaskid, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDoTask(dotaskid, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.FlowWFService.T_WF_DOTASK SMT.Saas.Tools.FlowWFService.IService.EndGetDoTask(System.IAsyncResult result) {
-            return base.Channel.EndGetDoTask(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDoTask(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string dotaskid = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.FlowWFService.IService)(this)).BeginGetDoTask(dotaskid, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDoTask(System.IAsyncResult result) {
-            SMT.Saas.Tools.FlowWFService.T_WF_DOTASK retVal = ((SMT.Saas.Tools.FlowWFService.IService)(this)).EndGetDoTask(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDoTaskCompleted(object state) {
-            if ((this.GetDoTaskCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDoTaskCompleted(this, new GetDoTaskCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDoTaskAsync(string dotaskid) {
-            this.GetDoTaskAsync(dotaskid, null);
-        }
-        
-        public void GetDoTaskAsync(string dotaskid, object userState) {
-            if ((this.onBeginGetDoTaskDelegate == null)) {
-                this.onBeginGetDoTaskDelegate = new BeginOperationDelegate(this.OnBeginGetDoTask);
-            }
-            if ((this.onEndGetDoTaskDelegate == null)) {
-                this.onEndGetDoTaskDelegate = new EndOperationDelegate(this.OnEndGetDoTask);
-            }
-            if ((this.onGetDoTaskCompletedDelegate == null)) {
-                this.onGetDoTaskCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDoTaskCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDoTaskDelegate, new object[] {
-                        dotaskid}, this.onEndGetDoTaskDelegate, this.onGetDoTaskCompletedDelegate, userState);
-        }
-        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -7732,13 +7354,12 @@ namespace SMT.Saas.Tools.FlowWFService {
                 return _result;
             }
             
-            public System.IAsyncResult BeginGetAppUser(string CompanyID, string ModelCode, string ModelCodeType, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[5];
+            public System.IAsyncResult BeginGetAppUser(string CompanyID, string ModelCode, string FlowGUID, string xml, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[4];
                 _args[0] = CompanyID;
                 _args[1] = ModelCode;
-                _args[2] = ModelCodeType;
-                _args[3] = FlowGUID;
-                _args[4] = xml;
+                _args[2] = FlowGUID;
+                _args[3] = xml;
                 System.IAsyncResult _result = base.BeginInvoke("GetAppUser", _args, callback, asyncState);
                 return _result;
             }
@@ -7797,25 +7418,6 @@ namespace SMT.Saas.Tools.FlowWFService {
             public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T> EndGetFlowInfo(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T>)(base.EndInvoke("GetFlowInfo", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetFlowEntity(string FormID, string FlowGUID, string CheckState, string Flag, string ModelCode, string CompanyID, string EditUserID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[7];
-                _args[0] = FormID;
-                _args[1] = FlowGUID;
-                _args[2] = CheckState;
-                _args[3] = Flag;
-                _args[4] = ModelCode;
-                _args[5] = CompanyID;
-                _args[6] = EditUserID;
-                System.IAsyncResult _result = base.BeginInvoke("GetFlowEntity", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.FlowWFService.FlowEntity EndGetFlowEntity(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.FlowWFService.FlowEntity _result = ((SMT.Saas.Tools.FlowWFService.FlowEntity)(base.EndInvoke("GetFlowEntity", _args, result)));
                 return _result;
             }
             
@@ -7977,19 +7579,6 @@ namespace SMT.Saas.Tools.FlowWFService {
             public bool EndUpdateMetadataByFormid(System.IAsyncResult result) {
                 object[] _args = new object[0];
                 bool _result = ((bool)(base.EndInvoke("UpdateMetadataByFormid", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetDoTask(string dotaskid, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = dotaskid;
-                System.IAsyncResult _result = base.BeginInvoke("GetDoTask", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.FlowWFService.T_WF_DOTASK EndGetDoTask(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.FlowWFService.T_WF_DOTASK _result = ((SMT.Saas.Tools.FlowWFService.T_WF_DOTASK)(base.EndInvoke("GetDoTask", _args, result)));
                 return _result;
             }
         }

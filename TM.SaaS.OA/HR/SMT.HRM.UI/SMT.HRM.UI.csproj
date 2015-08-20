@@ -93,14 +93,19 @@
     <Reference Include="SLVisifire.Charts">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SLVisifire.Charts.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.FileUpLoad">
-      <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.FileUpLoad.dll</HintPath>
+    <Reference Include="SMT.FileUpLoad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.FileUpLoad.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.AnimationEngine">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.AnimationEngine.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Application">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="SMT.SAAS.Behaviors, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.ClientServices">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.ClientServices.dll</HintPath>
@@ -111,11 +116,9 @@
     <Reference Include="SMT.SAAS.CommonReportsModel">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.CommonReportsModel.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit">
-      <HintPath>..\..\..\OA\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SAAS.Controls.Toolkit.Windows">
-      <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Controls.Toolkit.Windows.dll</HintPath>
+    <Reference Include="SMT.SAAS.Controls.Toolkit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Extensions">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Extensions.dll</HintPath>
@@ -126,17 +129,15 @@
     <Reference Include="SMT.SaaS.LocalData">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SaaS.LocalData.dll</HintPath>
     </Reference>
-    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData">
-      <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
+    <Reference Include="SMT.SAAS.Main.CurrentContextLoadData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SMT.SaaS.CommonDll\SMT\Client\SMT.SAAS.Main.CurrentContextLoadData.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SaaS.MoblieXml">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SaaS.MoblieXml.dll</HintPath>
     </Reference>
     <Reference Include="SMT.SAAS.Themes">
       <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SAAS.Themes.dll</HintPath>
-    </Reference>
-    <Reference Include="SMT.SaaS.Window">
-      <HintPath>..\..\CommonDLL\Lib\SMTLib1.1V\Lib\SMT\Client\SMT.SaaS.Window.dll</HintPath>
     </Reference>
     <Reference Include="system" />
     <Reference Include="mscorlib" />
@@ -3086,9 +3087,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FrameWork\SMT.SAAS.Behaviors\SMT.SAAS.Behaviors.csproj">
-      <Project>{7a6afd3c-4870-442c-9a77-d7f480ba8e26}</Project>
-      <Name>SMT.SAAS.Behaviors</Name>
+    <ProjectReference Include="..\..\FrameWork\SMT.Controls.Toolkit.Windows\SMT.SAAS.Controls.Toolkit.Windows.csproj">
+      <Project>{e0139d17-5b27-42c0-9f44-aa2a693a8442}</Project>
+      <Name>SMT.SAAS.Controls.Toolkit.Windows</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\SMT.SaaS.FrameworkUI\SMT.SAAS.FrameworkUI.csproj">
       <Project>{9a42135a-11f2-4210-a41b-3ac06ac0d835}</Project>
@@ -3101,6 +3102,10 @@
     <ProjectReference Include="..\..\FrameWork\SMT.Saas.Tools\SMT.Saas.Tools.csproj">
       <Project>{36e9d744-4747-4f92-8abe-d747adbc811a}</Project>
       <Name>SMT.Saas.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FrameWork\SMT.SaaS.Window\SMT.SaaS.Window.csproj">
+      <Project>{15406e6e-a265-4be9-afb3-e45433e7252c}</Project>
+      <Name>SMT.SaaS.Window</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

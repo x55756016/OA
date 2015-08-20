@@ -56,10 +56,6 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="WSHttpBinding_IService">
-          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
         <binding name="CustomBinding_UseractLogService">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
@@ -73,10 +69,6 @@
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
         <binding name="CustomBinding_FileUploadManager">
-          <binaryMessageEncoding />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
-        <binding name="CustomBinding_OrganizationService1">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
@@ -100,10 +92,6 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
-        <binding name="WSHttpBinding_IEngineWcfGlobalFunction">
-          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
-          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
-        </binding>
         <binding name="CustomBinding_SmtOACommonOffice">
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
@@ -120,15 +108,24 @@
           <binaryMessageEncoding />
           <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
         </binding>
+        <binding name="CustomBinding_OrganizationService1">
+          <binaryMessageEncoding />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IEngineWcfGlobalFunction">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
+        <binding name="WSHttpBinding_IService">
+          <textMessageEncoding messageVersion="Default" writeEncoding="utf-8" />
+          <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+        </binding>
       </customBinding>
     </bindings>
     <client>
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/FileUploadManager.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_FileUploadManager"
         contract="FileUploadWS.FileUploadManager" name="BasicHttpBinding_FileUploadManager" />
-      <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/HR/OrganizationService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService"
-        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
       <endpoint address="http://portal.smt-online.net/SmtOnline/develop/Services/System/UseractLogService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_UseractLogService"
         contract="UseractWS.UseractLogService" name="CustomBinding_UseractLogService" />
@@ -141,9 +138,6 @@
       <endpoint address="http://localhost:3938/TravrlPrintServices.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_TravrlPrintServices"
         contract="TravelPrintWS.TravrlPrintServices" name="CustomBinding_TravrlPrintServices" />
-      <endpoint address="http://localhost:12168/OrganizationService.svc"
-        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
-        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService1" />
       <endpoint address="http://localhost:23938/FBService.svc" binding="basicHttpBinding"
         bindingConfiguration="BasicHttpBinding_FBService" contract="FBServiceWS.FBService"
         name="BasicHttpBinding_FBService" />
@@ -162,12 +156,6 @@
       <endpoint address="http://10.10.0.95/New/Services/SMTEngine/PersonalRecordService.svc"
         binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IPersonalRecordService"
         contract="PersonalRecordWS.IPersonalRecordService" name="BasicHttpBinding_IPersonalRecordService" />
-      <endpoint address="http://10.10.0.95/New/Services/SMTFlow/SMT.FlowWFService.Service.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
-        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
-      <endpoint address="http://10.10.0.93:8080/New/Services/SMTEngine/EngineWcfGlobalFunction.svc"
-        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
-        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
       <endpoint address="http://10.10.0.93:8080/New/Services/FileUploadService/FileUpLoad.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_IUploadService"
         contract="NewFileUploadWS.IUploadService" name="CustomBinding_IUploadService" />
@@ -207,6 +195,15 @@
       <endpoint address="http://localhost:12168/PermissionService.svc"
         binding="customBinding" bindingConfiguration="CustomBinding_PermissionService1"
         contract="PermissionWS.PermissionService" name="CustomBinding_PermissionService" />
+      <endpoint address="http://localhost:12168/OrganizationService.svc"
+        binding="customBinding" bindingConfiguration="CustomBinding_OrganizationService1"
+        contract="OrganizationWS.OrganizationService" name="CustomBinding_OrganizationService" />
+      <endpoint address="http://localhost:4441/EngineWcfGlobalFunction.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IEngineWcfGlobalFunction"
+        contract="EngineWS.IEngineWcfGlobalFunction" name="WSHttpBinding_IEngineWcfGlobalFunction" />
+      <endpoint address="http://localhost:8008/SMT.FlowWFService.Service.svc"
+        binding="customBinding" bindingConfiguration="WSHttpBinding_IService"
+        contract="FlowWFService.IService" name="WSHttpBinding_IService" />
     </client>
 
   </system.serviceModel>

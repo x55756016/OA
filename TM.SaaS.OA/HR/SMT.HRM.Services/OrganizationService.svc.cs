@@ -431,12 +431,12 @@ namespace SMT.HRM.Services
                 IQueryable<T_HR_COMPANY> ents = bll.CompanyPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, checkState);
                 if (ents != null)
                 {
-                    return ents.Count() > 0 ? ents.ToList() : null;
+                    if(ents.Count() > 0 )
+                    {
+                    return  ents.ToList(); 
+                    }
                 }
-                else
-                {
-                    return null;
-                }
+                return null;
             }
             // return ents.Count() > 0 ? ents.ToList() : null;
         }

@@ -17,2489 +17,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENTHISTORY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_DEPARTMENTHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private System.Nullable<System.DateTime> CANCELDATEField;
-        
-        private string CHECKSTATEField;
-        
-        private string COMPANYIDField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string DEPARTMENTBOSSHEADField;
-        
-        private string DEPARTMENTFUNCTIONField;
-        
-        private string DEPARTMENTIDField;
-        
-        private string EDITSTATEField;
-        
-        private string FATHERIDField;
-        
-        private string FATHERTYPEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string RECORDSIDField;
-        
-        private System.Nullable<System.DateTime> REUSEDATEField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReferenceField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CANCELDATE {
-            get {
-                return this.CANCELDATEField;
-            }
-            set {
-                if ((this.CANCELDATEField.Equals(value) != true)) {
-                    this.CANCELDATEField = value;
-                    this.RaisePropertyChanged("CANCELDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTBOSSHEAD {
-            get {
-                return this.DEPARTMENTBOSSHEADField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTBOSSHEADField, value) != true)) {
-                    this.DEPARTMENTBOSSHEADField = value;
-                    this.RaisePropertyChanged("DEPARTMENTBOSSHEAD");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTFUNCTION {
-            get {
-                return this.DEPARTMENTFUNCTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
-                    this.DEPARTMENTFUNCTIONField = value;
-                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTID {
-            get {
-                return this.DEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
-                    this.DEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("DEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERID {
-            get {
-                return this.FATHERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
-                    this.FATHERIDField = value;
-                    this.RaisePropertyChanged("FATHERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERTYPE {
-            get {
-                return this.FATHERTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
-                    this.FATHERTYPEField = value;
-                    this.RaisePropertyChanged("FATHERTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RECORDSID {
-            get {
-                return this.RECORDSIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
-                    this.RECORDSIDField = value;
-                    this.RaisePropertyChanged("RECORDSID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> REUSEDATE {
-            get {
-                return this.REUSEDATEField;
-            }
-            set {
-                if ((this.REUSEDATEField.Equals(value) != true)) {
-                    this.REUSEDATEField = value;
-                    this.RaisePropertyChanged("REUSEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReference {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-    public partial class EntityObject : SMT.Saas.Tools.OrganizationWS.StructuralObject {
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityKey EntityKeyField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityKey EntityKey {
-            get {
-                return this.EntityKeyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
-                    this.EntityKeyField = value;
-                    this.RaisePropertyChanged("EntityKey");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENTDICTIONARY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_DEPARTMENTDICTIONARY : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private string CHECKSTATEField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private string DEPARTMENTCODEField;
-        
-        private string DEPARTMENTDICTIONARYIDField;
-        
-        private string DEPARTMENTFUNCTIONField;
-        
-        private string DEPARTMENTLEVELField;
-        
-        private string DEPARTMENTNAMEField;
-        
-        private string DEPARTMENTTYPEField;
-        
-        private string EDITSTATEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENTField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY> T_HR_DEPARTMENTHISTORYField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY> T_HR_POSTDICTIONARYField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTCODE {
-            get {
-                return this.DEPARTMENTCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTCODEField, value) != true)) {
-                    this.DEPARTMENTCODEField = value;
-                    this.RaisePropertyChanged("DEPARTMENTCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTDICTIONARYID {
-            get {
-                return this.DEPARTMENTDICTIONARYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTDICTIONARYIDField, value) != true)) {
-                    this.DEPARTMENTDICTIONARYIDField = value;
-                    this.RaisePropertyChanged("DEPARTMENTDICTIONARYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTFUNCTION {
-            get {
-                return this.DEPARTMENTFUNCTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
-                    this.DEPARTMENTFUNCTIONField = value;
-                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTLEVEL {
-            get {
-                return this.DEPARTMENTLEVELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTLEVELField, value) != true)) {
-                    this.DEPARTMENTLEVELField = value;
-                    this.RaisePropertyChanged("DEPARTMENTLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTNAME {
-            get {
-                return this.DEPARTMENTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
-                    this.DEPARTMENTNAMEField = value;
-                    this.RaisePropertyChanged("DEPARTMENTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTTYPE {
-            get {
-                return this.DEPARTMENTTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTTYPEField, value) != true)) {
-                    this.DEPARTMENTTYPEField = value;
-                    this.RaisePropertyChanged("DEPARTMENTTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENT {
-            get {
-                return this.T_HR_DEPARTMENTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTField, value) != true)) {
-                    this.T_HR_DEPARTMENTField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY> T_HR_DEPARTMENTHISTORY {
-            get {
-                return this.T_HR_DEPARTMENTHISTORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTHISTORYField, value) != true)) {
-                    this.T_HR_DEPARTMENTHISTORYField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTHISTORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY> T_HR_POSTDICTIONARY {
-            get {
-                return this.T_HR_POSTDICTIONARYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYField, value) != true)) {
-                    this.T_HR_POSTDICTIONARYField = value;
-                    this.RaisePropertyChanged("T_HR_POSTDICTIONARY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENT", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_DEPARTMENT : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private string CENTERHEADField;
-        
-        private string CHECKSTATEField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string DEPARTMENTBOSSHEADField;
-        
-        private string DEPARTMENTFUNCTIONField;
-        
-        private string DEPARTMENTIDField;
-        
-        private string DETPMANAGERField;
-        
-        private string EDITSTATEField;
-        
-        private string FATHERIDField;
-        
-        private string FATHERTYPEField;
-        
-        private System.Nullable<decimal> ISBACKGROUNDField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string REMARKField;
-        
-        private System.Nullable<decimal> SORTINDEXField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANYReferenceField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POSTField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CENTERHEAD {
-            get {
-                return this.CENTERHEADField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CENTERHEADField, value) != true)) {
-                    this.CENTERHEADField = value;
-                    this.RaisePropertyChanged("CENTERHEAD");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTBOSSHEAD {
-            get {
-                return this.DEPARTMENTBOSSHEADField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTBOSSHEADField, value) != true)) {
-                    this.DEPARTMENTBOSSHEADField = value;
-                    this.RaisePropertyChanged("DEPARTMENTBOSSHEAD");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTFUNCTION {
-            get {
-                return this.DEPARTMENTFUNCTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
-                    this.DEPARTMENTFUNCTIONField = value;
-                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTID {
-            get {
-                return this.DEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
-                    this.DEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("DEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DETPMANAGER {
-            get {
-                return this.DETPMANAGERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DETPMANAGERField, value) != true)) {
-                    this.DETPMANAGERField = value;
-                    this.RaisePropertyChanged("DETPMANAGER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERID {
-            get {
-                return this.FATHERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
-                    this.FATHERIDField = value;
-                    this.RaisePropertyChanged("FATHERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERTYPE {
-            get {
-                return this.FATHERTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
-                    this.FATHERTYPEField = value;
-                    this.RaisePropertyChanged("FATHERTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> ISBACKGROUND {
-            get {
-                return this.ISBACKGROUNDField;
-            }
-            set {
-                if ((this.ISBACKGROUNDField.Equals(value) != true)) {
-                    this.ISBACKGROUNDField = value;
-                    this.RaisePropertyChanged("ISBACKGROUND");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SORTINDEX {
-            get {
-                return this.SORTINDEXField;
-            }
-            set {
-                if ((this.SORTINDEXField.Equals(value) != true)) {
-                    this.SORTINDEXField = value;
-                    this.RaisePropertyChanged("SORTINDEX");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY {
-            get {
-                return this.T_HR_COMPANYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANYField, value) != true)) {
-                    this.T_HR_COMPANYField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANYReference {
-            get {
-                return this.T_HR_COMPANYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANYReferenceField, value) != true)) {
-                    this.T_HR_COMPANYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReference {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POST {
-            get {
-                return this.T_HR_POSTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
-                    this.T_HR_POSTField = value;
-                    this.RaisePropertyChanged("T_HR_POST");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_COMPANY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_COMPANY : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private string ACCOUNTCODEField;
-        
-        private string ADDRESSField;
-        
-        private string BANKIDField;
-        
-        private string BRIEFNAMEField;
-        
-        private string BUSSINESSAREAField;
-        
-        private string BUSSINESSLICENCENOField;
-        
-        private string CHECKSTATEField;
-        
-        private string CITYField;
-        
-        private string CNAMEField;
-        
-        private string COMPANRYCODEField;
-        
-        private string COMPANYCATEGORYField;
-        
-        private string COMPANYIDField;
-        
-        private string COMPANYLEVELField;
-        
-        private string COMPANYTYPEField;
-        
-        private string COUNTYTYPEField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string EDITSTATEField;
-        
-        private string EMAILField;
-        
-        private string ENAMEField;
-        
-        private string FATHERIDField;
-        
-        private string FATHERTYPEField;
-        
-        private string FAXNUMBERField;
-        
-        private string LEGALPERSONField;
-        
-        private string LEGALPERSONIDField;
-        
-        private string LINKMANField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string REMARKField;
-        
-        private System.Nullable<decimal> SORTINDEXField;
-        
-        private string TELNUMBERField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> T_HR_COMPANY1Field;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY2Field;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANY2ReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> T_HR_COMPANYHISTORYField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENTField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        private string ZIPCODEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ACCOUNTCODE {
-            get {
-                return this.ACCOUNTCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ACCOUNTCODEField, value) != true)) {
-                    this.ACCOUNTCODEField = value;
-                    this.RaisePropertyChanged("ACCOUNTCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ADDRESS {
-            get {
-                return this.ADDRESSField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
-                    this.ADDRESSField = value;
-                    this.RaisePropertyChanged("ADDRESS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BANKID {
-            get {
-                return this.BANKIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BANKIDField, value) != true)) {
-                    this.BANKIDField = value;
-                    this.RaisePropertyChanged("BANKID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BRIEFNAME {
-            get {
-                return this.BRIEFNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BRIEFNAMEField, value) != true)) {
-                    this.BRIEFNAMEField = value;
-                    this.RaisePropertyChanged("BRIEFNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BUSSINESSAREA {
-            get {
-                return this.BUSSINESSAREAField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BUSSINESSAREAField, value) != true)) {
-                    this.BUSSINESSAREAField = value;
-                    this.RaisePropertyChanged("BUSSINESSAREA");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BUSSINESSLICENCENO {
-            get {
-                return this.BUSSINESSLICENCENOField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BUSSINESSLICENCENOField, value) != true)) {
-                    this.BUSSINESSLICENCENOField = value;
-                    this.RaisePropertyChanged("BUSSINESSLICENCENO");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CITY {
-            get {
-                return this.CITYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
-                    this.CITYField = value;
-                    this.RaisePropertyChanged("CITY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CNAME {
-            get {
-                return this.CNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CNAMEField, value) != true)) {
-                    this.CNAMEField = value;
-                    this.RaisePropertyChanged("CNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANRYCODE {
-            get {
-                return this.COMPANRYCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANRYCODEField, value) != true)) {
-                    this.COMPANRYCODEField = value;
-                    this.RaisePropertyChanged("COMPANRYCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYCATEGORY {
-            get {
-                return this.COMPANYCATEGORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYCATEGORYField, value) != true)) {
-                    this.COMPANYCATEGORYField = value;
-                    this.RaisePropertyChanged("COMPANYCATEGORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYLEVEL {
-            get {
-                return this.COMPANYLEVELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYLEVELField, value) != true)) {
-                    this.COMPANYLEVELField = value;
-                    this.RaisePropertyChanged("COMPANYLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYTYPE {
-            get {
-                return this.COMPANYTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYTYPEField, value) != true)) {
-                    this.COMPANYTYPEField = value;
-                    this.RaisePropertyChanged("COMPANYTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COUNTYTYPE {
-            get {
-                return this.COUNTYTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COUNTYTYPEField, value) != true)) {
-                    this.COUNTYTYPEField = value;
-                    this.RaisePropertyChanged("COUNTYTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMAIL {
-            get {
-                return this.EMAILField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
-                    this.EMAILField = value;
-                    this.RaisePropertyChanged("EMAIL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENAME {
-            get {
-                return this.ENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ENAMEField, value) != true)) {
-                    this.ENAMEField = value;
-                    this.RaisePropertyChanged("ENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERID {
-            get {
-                return this.FATHERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
-                    this.FATHERIDField = value;
-                    this.RaisePropertyChanged("FATHERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERTYPE {
-            get {
-                return this.FATHERTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
-                    this.FATHERTYPEField = value;
-                    this.RaisePropertyChanged("FATHERTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FAXNUMBER {
-            get {
-                return this.FAXNUMBERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FAXNUMBERField, value) != true)) {
-                    this.FAXNUMBERField = value;
-                    this.RaisePropertyChanged("FAXNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEGALPERSON {
-            get {
-                return this.LEGALPERSONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEGALPERSONField, value) != true)) {
-                    this.LEGALPERSONField = value;
-                    this.RaisePropertyChanged("LEGALPERSON");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEGALPERSONID {
-            get {
-                return this.LEGALPERSONIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEGALPERSONIDField, value) != true)) {
-                    this.LEGALPERSONIDField = value;
-                    this.RaisePropertyChanged("LEGALPERSONID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LINKMAN {
-            get {
-                return this.LINKMANField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LINKMANField, value) != true)) {
-                    this.LINKMANField = value;
-                    this.RaisePropertyChanged("LINKMAN");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> SORTINDEX {
-            get {
-                return this.SORTINDEXField;
-            }
-            set {
-                if ((this.SORTINDEXField.Equals(value) != true)) {
-                    this.SORTINDEXField = value;
-                    this.RaisePropertyChanged("SORTINDEX");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TELNUMBER {
-            get {
-                return this.TELNUMBERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TELNUMBERField, value) != true)) {
-                    this.TELNUMBERField = value;
-                    this.RaisePropertyChanged("TELNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> T_HR_COMPANY1 {
-            get {
-                return this.T_HR_COMPANY1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANY1Field, value) != true)) {
-                    this.T_HR_COMPANY1Field = value;
-                    this.RaisePropertyChanged("T_HR_COMPANY1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY2 {
-            get {
-                return this.T_HR_COMPANY2Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANY2Field, value) != true)) {
-                    this.T_HR_COMPANY2Field = value;
-                    this.RaisePropertyChanged("T_HR_COMPANY2");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANY2Reference {
-            get {
-                return this.T_HR_COMPANY2ReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANY2ReferenceField, value) != true)) {
-                    this.T_HR_COMPANY2ReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANY2Reference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> T_HR_COMPANYHISTORY {
-            get {
-                return this.T_HR_COMPANYHISTORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANYHISTORYField, value) != true)) {
-                    this.T_HR_COMPANYHISTORYField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANYHISTORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENT {
-            get {
-                return this.T_HR_DEPARTMENTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTField, value) != true)) {
-                    this.T_HR_DEPARTMENTField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZIPCODE {
-            get {
-                return this.ZIPCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ZIPCODEField, value) != true)) {
-                    this.ZIPCODEField = value;
-                    this.RaisePropertyChanged("ZIPCODE");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_COMPANYHISTORY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_COMPANYHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private string ACCOUNTCODEField;
-        
-        private string ADDRESSField;
-        
-        private string BANKIDField;
-        
-        private string BUSSINESSAREAField;
-        
-        private string BUSSINESSLICENCENOField;
-        
-        private System.Nullable<System.DateTime> CANCELDATEField;
-        
-        private string CHECKSTATEField;
-        
-        private string CITYField;
-        
-        private string CNAMEField;
-        
-        private string COMPANRYCODEField;
-        
-        private string COMPANYCATEGORYField;
-        
-        private string COMPANYIDField;
-        
-        private string COMPANYLEVELField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string EDITSTATEField;
-        
-        private string EMAILField;
-        
-        private string ENAMEField;
-        
-        private string FATHERIDField;
-        
-        private string FATHERTYPEField;
-        
-        private string FAXNUMBERField;
-        
-        private string LEGALPERSONField;
-        
-        private string LEGALPERSONIDField;
-        
-        private string LINKMANField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string RECORDSIDField;
-        
-        private System.Nullable<System.DateTime> REUSEDATEField;
-        
-        private string TELNUMBERField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANYReferenceField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        private string ZIPCODEField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ACCOUNTCODE {
-            get {
-                return this.ACCOUNTCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ACCOUNTCODEField, value) != true)) {
-                    this.ACCOUNTCODEField = value;
-                    this.RaisePropertyChanged("ACCOUNTCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ADDRESS {
-            get {
-                return this.ADDRESSField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
-                    this.ADDRESSField = value;
-                    this.RaisePropertyChanged("ADDRESS");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BANKID {
-            get {
-                return this.BANKIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BANKIDField, value) != true)) {
-                    this.BANKIDField = value;
-                    this.RaisePropertyChanged("BANKID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BUSSINESSAREA {
-            get {
-                return this.BUSSINESSAREAField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BUSSINESSAREAField, value) != true)) {
-                    this.BUSSINESSAREAField = value;
-                    this.RaisePropertyChanged("BUSSINESSAREA");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BUSSINESSLICENCENO {
-            get {
-                return this.BUSSINESSLICENCENOField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BUSSINESSLICENCENOField, value) != true)) {
-                    this.BUSSINESSLICENCENOField = value;
-                    this.RaisePropertyChanged("BUSSINESSLICENCENO");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CANCELDATE {
-            get {
-                return this.CANCELDATEField;
-            }
-            set {
-                if ((this.CANCELDATEField.Equals(value) != true)) {
-                    this.CANCELDATEField = value;
-                    this.RaisePropertyChanged("CANCELDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CITY {
-            get {
-                return this.CITYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
-                    this.CITYField = value;
-                    this.RaisePropertyChanged("CITY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CNAME {
-            get {
-                return this.CNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CNAMEField, value) != true)) {
-                    this.CNAMEField = value;
-                    this.RaisePropertyChanged("CNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANRYCODE {
-            get {
-                return this.COMPANRYCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANRYCODEField, value) != true)) {
-                    this.COMPANRYCODEField = value;
-                    this.RaisePropertyChanged("COMPANRYCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYCATEGORY {
-            get {
-                return this.COMPANYCATEGORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYCATEGORYField, value) != true)) {
-                    this.COMPANYCATEGORYField = value;
-                    this.RaisePropertyChanged("COMPANYCATEGORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYLEVEL {
-            get {
-                return this.COMPANYLEVELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYLEVELField, value) != true)) {
-                    this.COMPANYLEVELField = value;
-                    this.RaisePropertyChanged("COMPANYLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EMAIL {
-            get {
-                return this.EMAILField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
-                    this.EMAILField = value;
-                    this.RaisePropertyChanged("EMAIL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ENAME {
-            get {
-                return this.ENAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ENAMEField, value) != true)) {
-                    this.ENAMEField = value;
-                    this.RaisePropertyChanged("ENAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERID {
-            get {
-                return this.FATHERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
-                    this.FATHERIDField = value;
-                    this.RaisePropertyChanged("FATHERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERTYPE {
-            get {
-                return this.FATHERTYPEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
-                    this.FATHERTYPEField = value;
-                    this.RaisePropertyChanged("FATHERTYPE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FAXNUMBER {
-            get {
-                return this.FAXNUMBERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FAXNUMBERField, value) != true)) {
-                    this.FAXNUMBERField = value;
-                    this.RaisePropertyChanged("FAXNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEGALPERSON {
-            get {
-                return this.LEGALPERSONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEGALPERSONField, value) != true)) {
-                    this.LEGALPERSONField = value;
-                    this.RaisePropertyChanged("LEGALPERSON");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LEGALPERSONID {
-            get {
-                return this.LEGALPERSONIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LEGALPERSONIDField, value) != true)) {
-                    this.LEGALPERSONIDField = value;
-                    this.RaisePropertyChanged("LEGALPERSONID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string LINKMAN {
-            get {
-                return this.LINKMANField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LINKMANField, value) != true)) {
-                    this.LINKMANField = value;
-                    this.RaisePropertyChanged("LINKMAN");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RECORDSID {
-            get {
-                return this.RECORDSIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
-                    this.RECORDSIDField = value;
-                    this.RaisePropertyChanged("RECORDSID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> REUSEDATE {
-            get {
-                return this.REUSEDATEField;
-            }
-            set {
-                if ((this.REUSEDATEField.Equals(value) != true)) {
-                    this.REUSEDATEField = value;
-                    this.RaisePropertyChanged("REUSEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TELNUMBER {
-            get {
-                return this.TELNUMBERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TELNUMBERField, value) != true)) {
-                    this.TELNUMBERField = value;
-                    this.RaisePropertyChanged("TELNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY {
-            get {
-                return this.T_HR_COMPANYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANYField, value) != true)) {
-                    this.T_HR_COMPANYField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo T_HR_COMPANYReference {
-            get {
-                return this.T_HR_COMPANYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_COMPANYReferenceField, value) != true)) {
-                    this.T_HR_COMPANYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_COMPANYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ZIPCODE {
-            get {
-                return this.ZIPCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ZIPCODEField, value) != true)) {
-                    this.ZIPCODEField = value;
-                    this.RaisePropertyChanged("ZIPCODE");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POST", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POST", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_POST : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private string BACKSTAGEField;
         
         private string CHANGEPOSTField;
         
@@ -2523,10 +42,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private string FATHERPOSTIDField;
         
-        private string ISCOREPERSONNELField;
-        
-        private string JOBCATEGORYField;
-        
         private string OWNERCOMPANYIDField;
         
         private string OWNERDEPARTMENTIDField;
@@ -2534,8 +49,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         private string OWNERIDField;
         
         private string OWNERPOSTIDField;
-        
-        private string POSTBRIEFField;
         
         private string POSTCOEFFICIENTField;
         
@@ -2547,46 +60,29 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private System.Nullable<decimal> POSTLEVELField;
         
-        private System.Nullable<decimal> POSTNUMBERField;
+        private System.Nullable<int> POSTNUMBERField;
         
         private string PROMOTEDIRECTIONField;
-        
-        private string PROSCENIUMField;
-        
-        private string REMARKField;
         
         private System.Nullable<decimal> SALARYLEVELField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT T_HR_DEPARTMENTField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo T_HR_DEPARTMENTReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw T_HR_DEPARTMENTReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST> T_HR_EMPLOYEEPOSTField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY T_HR_POSTDICTIONARYField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo T_HR_POSTDICTIONARYReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw T_HR_POSTDICTIONARYReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST> T_HR_RELATIONPOSTField;
         
-        private System.Nullable<decimal> UNDERNUMBERField;
+        private System.Nullable<int> UNDERNUMBERField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
         private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BACKSTAGE {
-            get {
-                return this.BACKSTAGEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BACKSTAGEField, value) != true)) {
-                    this.BACKSTAGEField = value;
-                    this.RaisePropertyChanged("BACKSTAGE");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CHANGEPOST {
@@ -2732,32 +228,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISCOREPERSONNEL {
-            get {
-                return this.ISCOREPERSONNELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ISCOREPERSONNELField, value) != true)) {
-                    this.ISCOREPERSONNELField = value;
-                    this.RaisePropertyChanged("ISCOREPERSONNEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string JOBCATEGORY {
-            get {
-                return this.JOBCATEGORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.JOBCATEGORYField, value) != true)) {
-                    this.JOBCATEGORYField = value;
-                    this.RaisePropertyChanged("JOBCATEGORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string OWNERCOMPANYID {
             get {
                 return this.OWNERCOMPANYIDField;
@@ -2805,19 +275,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                 if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
                     this.OWNERPOSTIDField = value;
                     this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTBRIEF {
-            get {
-                return this.POSTBRIEFField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTBRIEFField, value) != true)) {
-                    this.POSTBRIEFField = value;
-                    this.RaisePropertyChanged("POSTBRIEF");
                 }
             }
         }
@@ -2888,7 +345,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POSTNUMBER {
+        public System.Nullable<int> POSTNUMBER {
             get {
                 return this.POSTNUMBERField;
             }
@@ -2909,32 +366,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                 if ((object.ReferenceEquals(this.PROMOTEDIRECTIONField, value) != true)) {
                     this.PROMOTEDIRECTIONField = value;
                     this.RaisePropertyChanged("PROMOTEDIRECTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PROSCENIUM {
-            get {
-                return this.PROSCENIUMField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PROSCENIUMField, value) != true)) {
-                    this.PROSCENIUMField = value;
-                    this.RaisePropertyChanged("PROSCENIUM");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string REMARK {
-            get {
-                return this.REMARKField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
-                    this.REMARKField = value;
-                    this.RaisePropertyChanged("REMARK");
                 }
             }
         }
@@ -2966,7 +397,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo T_HR_DEPARTMENTReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw T_HR_DEPARTMENTReference {
             get {
                 return this.T_HR_DEPARTMENTReferenceField;
             }
@@ -3005,7 +436,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo T_HR_POSTDICTIONARYReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw T_HR_POSTDICTIONARYReference {
             get {
                 return this.T_HR_POSTDICTIONARYReferenceField;
             }
@@ -3031,7 +462,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> UNDERNUMBER {
+        public System.Nullable<int> UNDERNUMBER {
             get {
                 return this.UNDERNUMBERField;
             }
@@ -3072,7 +503,182 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+    public partial class StructuralObject : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+    public partial class EntityObject : SMT.Saas.Tools.OrganizationWS.StructuralObject {
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityKey EntityKeyField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityKey EntityKey {
+            get {
+                return this.EntityKeyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntityKeyField, value) != true)) {
+                    this.EntityKeyField = value;
+                    this.RaisePropertyChanged("EntityKey");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
+    public partial class V_EMPLOYEEPOST : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST> EMPLOYEEPOSTSField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST> EMPLOYEEPOSTS {
+            get {
+                return this.EMPLOYEEPOSTSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMPLOYEEPOSTSField, value) != true)) {
+                    this.EMPLOYEEPOSTSField = value;
+                    this.RaisePropertyChanged("EMPLOYEEPOSTS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEE {
+            get {
+                return this.T_HR_EMPLOYEEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_EMPLOYEEField, value) != true)) {
+                    this.T_HR_EMPLOYEEField = value;
+                    this.RaisePropertyChanged("T_HR_EMPLOYEE");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEEPOST : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHECKSTATEField;
@@ -3097,13 +703,13 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE> T_HR_LEFTOFFICEField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_POST T_HR_POSTField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo T_HR_POSTReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw T_HR_POSTReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -3253,7 +859,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -3292,7 +898,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo T_HR_POSTReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw T_HR_POSTReference {
             get {
                 return this.T_HR_POSTReferenceField;
             }
@@ -3333,7 +939,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string BANKCARDNUMBERField;
@@ -3472,7 +1078,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_RESUME T_HR_RESUMEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -4369,7 +1975,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReference {
             get {
                 return this.T_HR_RESUMEReferenceField;
             }
@@ -4449,7 +2055,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECHANGEHISTORY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECHANGEHISTORY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEECHANGEHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHANGEREASONField;
@@ -4518,7 +2124,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CHANGEREASON {
@@ -4950,7 +2556,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -4965,7 +2571,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECHECK", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECHECK", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEECHECK : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> BEREGULARDATEField;
@@ -5018,7 +2624,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -5350,7 +2956,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -5391,7 +2997,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMMASTER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ASSESSMENTFORMMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ASSESSMENTFORMMASTERIDField;
@@ -5468,11 +3074,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK T_HR_EMPLOYEECHECKField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo T_HR_EMPLOYEECHECKReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw T_HR_EMPLOYEECHECKReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE T_HR_EMPLOYEEPOSTCHANGEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo T_HR_EMPLOYEEPOSTCHANGEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw T_HR_EMPLOYEEPOSTCHANGEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -5960,7 +3566,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo T_HR_EMPLOYEECHECKReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw T_HR_EMPLOYEECHECKReference {
             get {
                 return this.T_HR_EMPLOYEECHECKReferenceField;
             }
@@ -5986,7 +3592,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo T_HR_EMPLOYEEPOSTCHANGEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw T_HR_EMPLOYEEPOSTCHANGEReference {
             get {
                 return this.T_HR_EMPLOYEEPOSTCHANGEReferenceField;
             }
@@ -6027,7 +3633,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ASSESSMENTFORMDETAIL", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ASSESSMENTFORMDETAIL : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ASSESSMENTFORMDETAILIDField;
@@ -6050,11 +3656,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER T_HR_ASSESSMENTFORMMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo T_HR_ASSESSMENTFORMMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw T_HR_ASSESSMENTFORMMASTERReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo T_HR_CHECKPOINTSETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw T_HR_CHECKPOINTSETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -6191,7 +3797,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo T_HR_ASSESSMENTFORMMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw T_HR_ASSESSMENTFORMMASTERReference {
             get {
                 return this.T_HR_ASSESSMENTFORMMASTERReferenceField;
             }
@@ -6217,7 +3823,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo T_HR_CHECKPOINTSETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw T_HR_CHECKPOINTSETReference {
             get {
                 return this.T_HR_CHECKPOINTSETReferenceField;
             }
@@ -6258,7 +3864,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTSET", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_CHECKPOINTSET : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHECKEMPLOYEETYPEField;
@@ -6283,7 +3889,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET T_HR_CHECKPROJECTSETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo T_HR_CHECKPROJECTSETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw T_HR_CHECKPROJECTSETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -6433,7 +4039,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo T_HR_CHECKPROJECTSETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw T_HR_CHECKPROJECTSETReference {
             get {
                 return this.T_HR_CHECKPROJECTSETReferenceField;
             }
@@ -6474,7 +4080,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTLEVELSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPOINTLEVELSET", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_CHECKPOINTLEVELSET : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -6491,7 +4097,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET T_HR_CHECKPOINTSETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo T_HR_CHECKPOINTSETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw T_HR_CHECKPOINTSETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -6589,7 +4195,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo T_HR_CHECKPOINTSETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw T_HR_CHECKPOINTSETReference {
             get {
                 return this.T_HR_CHECKPOINTSETReferenceField;
             }
@@ -6630,7 +4236,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPROJECTSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_CHECKPROJECTSET", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_CHECKPROJECTSET : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHECKPROJECTField;
@@ -6771,7 +4377,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEPOSTCHANGE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEPOSTCHANGE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEEPOSTCHANGE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHANGEDATEField;
@@ -6840,7 +4446,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -7276,7 +4882,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -7317,7 +4923,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECONTRACT", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECONTRACT", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEECONTRACT : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ALARMDAYField;
@@ -7370,7 +4976,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -7702,7 +5308,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -7743,7 +5349,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEENTRY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEENTRY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEEENTRY : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHECKSTATEField;
@@ -7782,7 +5388,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -8023,7 +5629,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -8064,7 +5670,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEINSURANCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEINSURANCE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEEINSURANCE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ALARMDAYField;
@@ -8115,7 +5721,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -8434,7 +6040,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -8475,7 +6081,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_FAMILYMEMBER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_FAMILYMEMBER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_FAMILYMEMBER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string AGEField;
@@ -8498,7 +6104,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -8635,7 +6241,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -8676,7 +6282,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEFTOFFICE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEFTOFFICE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_LEFTOFFICE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> APPLYDATEField;
@@ -8721,9 +6327,9 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST T_HR_EMPLOYEEPOSTField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo T_HR_EMPLOYEEPOSTReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw T_HR_EMPLOYEEPOSTReferenceField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM> T_HR_LEFTOFFICECONFIRMField;
         
@@ -9005,7 +6611,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo T_HR_EMPLOYEEPOSTReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw T_HR_EMPLOYEEPOSTReference {
             get {
                 return this.T_HR_EMPLOYEEPOSTReferenceField;
             }
@@ -9018,7 +6624,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -9072,7 +6678,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEFTOFFICECONFIRM", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEFTOFFICECONFIRM", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_LEFTOFFICECONFIRM : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> APPLYDATEField;
@@ -9119,7 +6725,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE T_HR_LEFTOFFICEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo T_HR_LEFTOFFICEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw T_HR_LEFTOFFICEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -9412,7 +7018,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo T_HR_LEFTOFFICEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw T_HR_LEFTOFFICEReference {
             get {
                 return this.T_HR_LEFTOFFICEReferenceField;
             }
@@ -9453,7 +7059,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PENSIONMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PENSIONMASTER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_PENSIONMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CARDIDField;
@@ -9502,7 +7108,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL> T_HR_PENSIONDETAILField;
         
@@ -9810,7 +7416,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo T_HR_EMPLOYEEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw T_HR_EMPLOYEEReference {
             get {
                 return this.T_HR_EMPLOYEEReferenceField;
             }
@@ -9864,7 +7470,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PENSIONDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_PENSIONDETAIL", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_PENSIONDETAIL : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<decimal> BIRTHBASEField;
@@ -9979,7 +7585,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER T_HR_PENSIONMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo T_HR_PENSIONMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw T_HR_PENSIONMASTERReferenceField;
         
         private System.Nullable<decimal> UNEMPLOYEDBASEField;
         
@@ -10724,7 +8330,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo T_HR_PENSIONMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw T_HR_PENSIONMASTERReference {
             get {
                 return this.T_HR_PENSIONMASTERReferenceField;
             }
@@ -10830,7 +8436,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_RESUME", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_RESUME", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_RESUME : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string COMRELATIONINFOField;
@@ -11466,7 +9072,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EDUCATEHISTORY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EDUCATEHISTORY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EDUCATEHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -11493,7 +9099,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_RESUME T_HR_RESUMEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -11656,7 +9262,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReference {
             get {
                 return this.T_HR_RESUMEReferenceField;
             }
@@ -11697,7 +9303,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EXPERIENCE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EXPERIENCE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EXPERIENCE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string COMPANYNAMEField;
@@ -11722,7 +9328,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_RESUME T_HR_RESUMEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -11872,7 +9478,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo T_HR_RESUMEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw T_HR_RESUMEReference {
             get {
                 return this.T_HR_RESUMEReferenceField;
             }
@@ -11913,335 +9519,80 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POSTDICTIONARY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_POSTDICTIONARY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_ATTENDANCEDEDUCTMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
+    public partial class V_ATTENDANCEDEDUCTMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
-        private string CHANGEPOSTField;
+        private string ATTENDABNORMALTYPENAMEField;
         
-        private string CHECKSTATEField;
+        private string FINETYPENAMEField;
         
-        private System.Nullable<System.DateTime> CREATEDATEField;
+        private string ISACCUMULATINGNAMEField;
         
-        private string CREATEUSERIDField;
+        private string ISPERFECTATTENDANCEFACTORNAMEField;
         
-        private string EDITSTATEField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string POSTCODEField;
-        
-        private string POSTDICTIONARYIDField;
-        
-        private string POSTFUNCTIONField;
-        
-        private System.Nullable<decimal> POSTLEVELField;
-        
-        private string POSTNAMEField;
-        
-        private string PROMOTEDIRECTIONField;
-        
-        private string SALARYLEVELField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReferenceField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POSTField;
-        
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY> T_HR_POSTHISTORYField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
+        private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTERField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHANGEPOST {
+        public string ATTENDABNORMALTYPENAME {
             get {
-                return this.CHANGEPOSTField;
+                return this.ATTENDABNORMALTYPENAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.CHANGEPOSTField, value) != true)) {
-                    this.CHANGEPOSTField = value;
-                    this.RaisePropertyChanged("CHANGEPOST");
+                if ((object.ReferenceEquals(this.ATTENDABNORMALTYPENAMEField, value) != true)) {
+                    this.ATTENDABNORMALTYPENAMEField = value;
+                    this.RaisePropertyChanged("ATTENDABNORMALTYPENAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
+        public string FINETYPENAME {
             get {
-                return this.CHECKSTATEField;
+                return this.FINETYPENAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
+                if ((object.ReferenceEquals(this.FINETYPENAMEField, value) != true)) {
+                    this.FINETYPENAMEField = value;
+                    this.RaisePropertyChanged("FINETYPENAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
+        public string ISACCUMULATINGNAME {
             get {
-                return this.CREATEDATEField;
+                return this.ISACCUMULATINGNAMEField;
             }
             set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
+                if ((object.ReferenceEquals(this.ISACCUMULATINGNAMEField, value) != true)) {
+                    this.ISACCUMULATINGNAMEField = value;
+                    this.RaisePropertyChanged("ISACCUMULATINGNAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
+        public string ISPERFECTATTENDANCEFACTORNAME {
             get {
-                return this.CREATEUSERIDField;
+                return this.ISPERFECTATTENDANCEFACTORNAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
+                if ((object.ReferenceEquals(this.ISPERFECTATTENDANCEFACTORNAMEField, value) != true)) {
+                    this.ISPERFECTATTENDANCEFACTORNAMEField = value;
+                    this.RaisePropertyChanged("ISPERFECTATTENDANCEFACTORNAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
+        public SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTER {
             get {
-                return this.EDITSTATEField;
+                return this.T_HR_ATTENDANCEDEDUCTMASTERField;
             }
             set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTCODE {
-            get {
-                return this.POSTCODEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTCODEField, value) != true)) {
-                    this.POSTCODEField = value;
-                    this.RaisePropertyChanged("POSTCODE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTDICTIONARYID {
-            get {
-                return this.POSTDICTIONARYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTDICTIONARYIDField, value) != true)) {
-                    this.POSTDICTIONARYIDField = value;
-                    this.RaisePropertyChanged("POSTDICTIONARYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTFUNCTION {
-            get {
-                return this.POSTFUNCTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTFUNCTIONField, value) != true)) {
-                    this.POSTFUNCTIONField = value;
-                    this.RaisePropertyChanged("POSTFUNCTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POSTLEVEL {
-            get {
-                return this.POSTLEVELField;
-            }
-            set {
-                if ((this.POSTLEVELField.Equals(value) != true)) {
-                    this.POSTLEVELField = value;
-                    this.RaisePropertyChanged("POSTLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTNAME {
-            get {
-                return this.POSTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTNAMEField, value) != true)) {
-                    this.POSTNAMEField = value;
-                    this.RaisePropertyChanged("POSTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PROMOTEDIRECTION {
-            get {
-                return this.PROMOTEDIRECTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PROMOTEDIRECTIONField, value) != true)) {
-                    this.PROMOTEDIRECTIONField = value;
-                    this.RaisePropertyChanged("PROMOTEDIRECTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SALARYLEVEL {
-            get {
-                return this.SALARYLEVELField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SALARYLEVELField, value) != true)) {
-                    this.SALARYLEVELField = value;
-                    this.RaisePropertyChanged("SALARYLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo T_HR_DEPARTMENTDICTIONARYReference {
-            get {
-                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
-                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POST {
-            get {
-                return this.T_HR_POSTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
-                    this.T_HR_POSTField = value;
-                    this.RaisePropertyChanged("T_HR_POST");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY> T_HR_POSTHISTORY {
-            get {
-                return this.T_HR_POSTHISTORYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTHISTORYField, value) != true)) {
-                    this.T_HR_POSTHISTORYField = value;
-                    this.RaisePropertyChanged("T_HR_POSTHISTORY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
+                if ((object.ReferenceEquals(this.T_HR_ATTENDANCEDEDUCTMASTERField, value) != true)) {
+                    this.T_HR_ATTENDANCEDEDUCTMASTERField = value;
+                    this.RaisePropertyChanged("T_HR_ATTENDANCEDEDUCTMASTER");
                 }
             }
         }
@@ -12249,619 +9600,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POSTHISTORY", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_POSTHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private System.Nullable<System.DateTime> CANCELDATEField;
-        
-        private string CHANGEPOSTField;
-        
-        private string CHECKSTATEField;
-        
-        private string CHECKUSERField;
-        
-        private string COMPANYIDField;
-        
-        private string CREATECOMPANYIDField;
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEDEPARTMENTIDField;
-        
-        private string CREATEPOSTIDField;
-        
-        private string CREATEUSERIDField;
-        
-        private string DEPARTMENTIDField;
-        
-        private string DEPARTMENTNAMEField;
-        
-        private string EDITSTATEField;
-        
-        private string FATHERPOSTIDField;
-        
-        private string OWNERCOMPANYIDField;
-        
-        private string OWNERDEPARTMENTIDField;
-        
-        private string OWNERIDField;
-        
-        private string OWNERPOSTIDField;
-        
-        private string POSTCOEFFICIENTField;
-        
-        private string POSTFUNCTIONField;
-        
-        private string POSTGOALField;
-        
-        private string POSTIDField;
-        
-        private System.Nullable<decimal> POSTLEVELField;
-        
-        private System.Nullable<decimal> POSTNUMBERField;
-        
-        private string PROMOTEDIRECTIONField;
-        
-        private string RECORDSIDField;
-        
-        private System.Nullable<System.DateTime> REUSEDATEField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY T_HR_POSTDICTIONARYField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo T_HR_POSTDICTIONARYReferenceField;
-        
-        private System.Nullable<decimal> UNDERNUMBERField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CANCELDATE {
-            get {
-                return this.CANCELDATEField;
-            }
-            set {
-                if ((this.CANCELDATEField.Equals(value) != true)) {
-                    this.CANCELDATEField = value;
-                    this.RaisePropertyChanged("CANCELDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHANGEPOST {
-            get {
-                return this.CHANGEPOSTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHANGEPOSTField, value) != true)) {
-                    this.CHANGEPOSTField = value;
-                    this.RaisePropertyChanged("CHANGEPOST");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKSTATE {
-            get {
-                return this.CHECKSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
-                    this.CHECKSTATEField = value;
-                    this.RaisePropertyChanged("CHECKSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CHECKUSER {
-            get {
-                return this.CHECKUSERField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CHECKUSERField, value) != true)) {
-                    this.CHECKUSERField = value;
-                    this.RaisePropertyChanged("CHECKUSER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string COMPANYID {
-            get {
-                return this.COMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
-                    this.COMPANYIDField = value;
-                    this.RaisePropertyChanged("COMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATECOMPANYID {
-            get {
-                return this.CREATECOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
-                    this.CREATECOMPANYIDField = value;
-                    this.RaisePropertyChanged("CREATECOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEDEPARTMENTID {
-            get {
-                return this.CREATEDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
-                    this.CREATEDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEPOSTID {
-            get {
-                return this.CREATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
-                    this.CREATEPOSTIDField = value;
-                    this.RaisePropertyChanged("CREATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTID {
-            get {
-                return this.DEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
-                    this.DEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("DEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DEPARTMENTNAME {
-            get {
-                return this.DEPARTMENTNAMEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
-                    this.DEPARTMENTNAMEField = value;
-                    this.RaisePropertyChanged("DEPARTMENTNAME");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string EDITSTATE {
-            get {
-                return this.EDITSTATEField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
-                    this.EDITSTATEField = value;
-                    this.RaisePropertyChanged("EDITSTATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FATHERPOSTID {
-            get {
-                return this.FATHERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FATHERPOSTIDField, value) != true)) {
-                    this.FATHERPOSTIDField = value;
-                    this.RaisePropertyChanged("FATHERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERCOMPANYID {
-            get {
-                return this.OWNERCOMPANYIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
-                    this.OWNERCOMPANYIDField = value;
-                    this.RaisePropertyChanged("OWNERCOMPANYID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERDEPARTMENTID {
-            get {
-                return this.OWNERDEPARTMENTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
-                    this.OWNERDEPARTMENTIDField = value;
-                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERID {
-            get {
-                return this.OWNERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
-                    this.OWNERIDField = value;
-                    this.RaisePropertyChanged("OWNERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OWNERPOSTID {
-            get {
-                return this.OWNERPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
-                    this.OWNERPOSTIDField = value;
-                    this.RaisePropertyChanged("OWNERPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTCOEFFICIENT {
-            get {
-                return this.POSTCOEFFICIENTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTCOEFFICIENTField, value) != true)) {
-                    this.POSTCOEFFICIENTField = value;
-                    this.RaisePropertyChanged("POSTCOEFFICIENT");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTFUNCTION {
-            get {
-                return this.POSTFUNCTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTFUNCTIONField, value) != true)) {
-                    this.POSTFUNCTIONField = value;
-                    this.RaisePropertyChanged("POSTFUNCTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTGOAL {
-            get {
-                return this.POSTGOALField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTGOALField, value) != true)) {
-                    this.POSTGOALField = value;
-                    this.RaisePropertyChanged("POSTGOAL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string POSTID {
-            get {
-                return this.POSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.POSTIDField, value) != true)) {
-                    this.POSTIDField = value;
-                    this.RaisePropertyChanged("POSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POSTLEVEL {
-            get {
-                return this.POSTLEVELField;
-            }
-            set {
-                if ((this.POSTLEVELField.Equals(value) != true)) {
-                    this.POSTLEVELField = value;
-                    this.RaisePropertyChanged("POSTLEVEL");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> POSTNUMBER {
-            get {
-                return this.POSTNUMBERField;
-            }
-            set {
-                if ((this.POSTNUMBERField.Equals(value) != true)) {
-                    this.POSTNUMBERField = value;
-                    this.RaisePropertyChanged("POSTNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PROMOTEDIRECTION {
-            get {
-                return this.PROMOTEDIRECTIONField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PROMOTEDIRECTIONField, value) != true)) {
-                    this.PROMOTEDIRECTIONField = value;
-                    this.RaisePropertyChanged("PROMOTEDIRECTION");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RECORDSID {
-            get {
-                return this.RECORDSIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
-                    this.RECORDSIDField = value;
-                    this.RaisePropertyChanged("RECORDSID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> REUSEDATE {
-            get {
-                return this.REUSEDATEField;
-            }
-            set {
-                if ((this.REUSEDATEField.Equals(value) != true)) {
-                    this.REUSEDATEField = value;
-                    this.RaisePropertyChanged("REUSEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY T_HR_POSTDICTIONARY {
-            get {
-                return this.T_HR_POSTDICTIONARYField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYField, value) != true)) {
-                    this.T_HR_POSTDICTIONARYField = value;
-                    this.RaisePropertyChanged("T_HR_POSTDICTIONARY");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo T_HR_POSTDICTIONARYReference {
-            get {
-                return this.T_HR_POSTDICTIONARYReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYReferenceField, value) != true)) {
-                    this.T_HR_POSTDICTIONARYReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_POSTDICTIONARYReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> UNDERNUMBER {
-            get {
-                return this.UNDERNUMBERField;
-            }
-            set {
-                if ((this.UNDERNUMBERField.Equals(value) != true)) {
-                    this.UNDERNUMBERField = value;
-                    this.RaisePropertyChanged("UNDERNUMBER");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_RELATIONPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
-    public partial class T_HR_RELATIONPOST : SMT.Saas.Tools.OrganizationWS.EntityObject {
-        
-        private System.Nullable<System.DateTime> CREATEDATEField;
-        
-        private string CREATEUSERIDField;
-        
-        private string RELATEPOSTIDField;
-        
-        private string RELATIONPOSTIDField;
-        
-        private SMT.Saas.Tools.OrganizationWS.T_HR_POST T_HR_POSTField;
-        
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo T_HR_POSTReferenceField;
-        
-        private System.Nullable<System.DateTime> UPDATEDATEField;
-        
-        private string UPDATEUSERIDField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> CREATEDATE {
-            get {
-                return this.CREATEDATEField;
-            }
-            set {
-                if ((this.CREATEDATEField.Equals(value) != true)) {
-                    this.CREATEDATEField = value;
-                    this.RaisePropertyChanged("CREATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CREATEUSERID {
-            get {
-                return this.CREATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
-                    this.CREATEUSERIDField = value;
-                    this.RaisePropertyChanged("CREATEUSERID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RELATEPOSTID {
-            get {
-                return this.RELATEPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RELATEPOSTIDField, value) != true)) {
-                    this.RELATEPOSTIDField = value;
-                    this.RaisePropertyChanged("RELATEPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RELATIONPOSTID {
-            get {
-                return this.RELATIONPOSTIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RELATIONPOSTIDField, value) != true)) {
-                    this.RELATIONPOSTIDField = value;
-                    this.RaisePropertyChanged("RELATIONPOSTID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_POST T_HR_POST {
-            get {
-                return this.T_HR_POSTField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
-                    this.T_HR_POSTField = value;
-                    this.RaisePropertyChanged("T_HR_POST");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo T_HR_POSTReference {
-            get {
-                return this.T_HR_POSTReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.T_HR_POSTReferenceField, value) != true)) {
-                    this.T_HR_POSTReferenceField = value;
-                    this.RaisePropertyChanged("T_HR_POSTReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> UPDATEDATE {
-            get {
-                return this.UPDATEDATEField;
-            }
-            set {
-                if ((this.UPDATEDATEField.Equals(value) != true)) {
-                    this.UPDATEDATEField = value;
-                    this.RaisePropertyChanged("UPDATEDATE");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UPDATEUSERID {
-            get {
-                return this.UPDATEUSERIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
-                    this.UPDATEUSERIDField = value;
-                    this.RaisePropertyChanged("UPDATEUSERID");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCEDEDUCTMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCEDEDUCTMASTER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCEDEDUCTMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ATTENDABNORMALNAMEField;
@@ -13212,7 +9951,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCEDEDUCTDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCEDEDUCTDETAIL", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCEDEDUCTDETAIL : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -13237,7 +9976,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -13387,7 +10126,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo T_HR_ATTENDANCEDEDUCTMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw T_HR_ATTENDANCEDEDUCTMASTERReference {
             get {
                 return this.T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
             }
@@ -13428,7 +10167,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTIONDEDUCT", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTIONDEDUCT", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCESOLUTIONDEDUCT : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -13441,11 +10180,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION T_HR_ATTENDANCESOLUTIONField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -13517,7 +10256,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo T_HR_ATTENDANCEDEDUCTMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw T_HR_ATTENDANCEDEDUCTMASTERReference {
             get {
                 return this.T_HR_ATTENDANCEDEDUCTMASTERReferenceField;
             }
@@ -13543,7 +10282,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReference {
             get {
                 return this.T_HR_ATTENDANCESOLUTIONReferenceField;
             }
@@ -13584,7 +10323,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTION", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTION", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCESOLUTION : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<decimal> ADJUSTEXPIREDVALUEField;
@@ -13659,11 +10398,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD T_HR_OVERTIMEREWARDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo T_HR_OVERTIMEREWARDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw T_HR_OVERTIMEREWARDReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER T_HR_SCHEDULINGTEMPLATEMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -14154,7 +10893,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo T_HR_OVERTIMEREWARDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw T_HR_OVERTIMEREWARDReference {
             get {
                 return this.T_HR_OVERTIMEREWARDReferenceField;
             }
@@ -14180,7 +10919,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo T_HR_SCHEDULINGTEMPLATEMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw T_HR_SCHEDULINGTEMPLATEMASTERReference {
             get {
                 return this.T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
             }
@@ -14325,7 +11064,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTIONASIGN", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCESOLUTIONASIGN", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCESOLUTIONASIGN : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ASSIGNEDOBJECTIDField;
@@ -14362,7 +11101,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION T_HR_ATTENDANCESOLUTIONField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -14590,7 +11329,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReference {
             get {
                 return this.T_HR_ATTENDANCESOLUTIONReferenceField;
             }
@@ -14631,7 +11370,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDFREELEAVE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDFREELEAVE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDFREELEAVE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ATTENDFREELEAVEIDField;
@@ -14644,11 +11383,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION T_HR_ATTENDANCESOLUTIONField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET T_HR_LEAVETYPESETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -14720,7 +11459,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo T_HR_ATTENDANCESOLUTIONReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw T_HR_ATTENDANCESOLUTIONReference {
             get {
                 return this.T_HR_ATTENDANCESOLUTIONReferenceField;
             }
@@ -14746,7 +11485,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReference {
             get {
                 return this.T_HR_LEAVETYPESETReferenceField;
             }
@@ -14787,7 +11526,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEAVETYPESET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_LEAVETYPESET", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_LEAVETYPESET : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CREATECOMPANYIDField;
@@ -15168,7 +11907,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEELEAVERECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEELEAVERECORD", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEELEAVERECORD : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string ATTACHMENTPATHField;
@@ -15225,7 +11964,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET T_HR_LEAVETYPESETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -15587,7 +12326,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReference {
             get {
                 return this.T_HR_LEAVETYPESETReferenceField;
             }
@@ -15654,7 +12393,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ADJUSTLEAVE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ADJUSTLEAVE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ADJUSTLEAVE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<decimal> ADJUSTLEAVEDAYSField;
@@ -15699,7 +12438,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD T_HR_EMPLOYEELEAVERECORDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo T_HR_EMPLOYEELEAVERECORDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw T_HR_EMPLOYEELEAVERECORDReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -15979,7 +12718,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo T_HR_EMPLOYEELEAVERECORDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw T_HR_EMPLOYEELEAVERECORDReference {
             get {
                 return this.T_HR_EMPLOYEELEAVERECORDReferenceField;
             }
@@ -16020,7 +12759,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECANCELLEAVE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEECANCELLEAVE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEECANCELLEAVE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CANCELLEAVEIDField;
@@ -16067,7 +12806,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD T_HR_EMPLOYEELEAVERECORDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo T_HR_EMPLOYEELEAVERECORDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw T_HR_EMPLOYEELEAVERECORDReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -16360,7 +13099,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo T_HR_EMPLOYEELEAVERECORDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw T_HR_EMPLOYEELEAVERECORDReference {
             get {
                 return this.T_HR_EMPLOYEELEAVERECORDReferenceField;
             }
@@ -16401,7 +13140,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_FREELEAVEDAYSET", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_FREELEAVEDAYSET", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_FREELEAVEDAYSET : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CREATECOMPANYIDField;
@@ -16438,7 +13177,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET T_HR_LEAVETYPESETField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -16666,7 +13405,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo T_HR_LEAVETYPESETReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw T_HR_LEAVETYPESETReference {
             get {
                 return this.T_HR_LEAVETYPESETReferenceField;
             }
@@ -16707,7 +13446,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_OVERTIMEREWARD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_OVERTIMEREWARD", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_OVERTIMEREWARD : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CREATECOMPANYIDField;
@@ -16983,7 +13722,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SCHEDULINGTEMPLATEMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SCHEDULINGTEMPLATEMASTER", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_SCHEDULINGTEMPLATEMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CREATECOMPANYIDField;
@@ -17244,7 +13983,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SCHEDULINGTEMPLATEDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SCHEDULINGTEMPLATEDETAIL", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_SCHEDULINGTEMPLATEDETAIL : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> CREATEDATEField;
@@ -17261,11 +14000,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER T_HR_SCHEDULINGTEMPLATEMASTERField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE T_HR_SHIFTDEFINEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo T_HR_SHIFTDEFINEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw T_HR_SHIFTDEFINEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -17363,7 +14102,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo T_HR_SCHEDULINGTEMPLATEMASTERReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw T_HR_SCHEDULINGTEMPLATEMASTERReference {
             get {
                 return this.T_HR_SCHEDULINGTEMPLATEMASTERReferenceField;
             }
@@ -17389,7 +14128,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo T_HR_SHIFTDEFINEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw T_HR_SHIFTDEFINEReference {
             get {
                 return this.T_HR_SHIFTDEFINEReferenceField;
             }
@@ -17430,7 +14169,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SHIFTDEFINE", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_SHIFTDEFINE", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_SHIFTDEFINE : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CREATECOMPANYIDField;
@@ -18171,7 +14910,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCERECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_ATTENDANCERECORD", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_ATTENDANCERECORD : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> ATTENDANCEDATEField;
@@ -18252,7 +14991,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE T_HR_SHIFTDEFINEField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo T_HR_SHIFTDEFINEReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw T_HR_SHIFTDEFINEReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -18766,7 +15505,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo T_HR_SHIFTDEFINEReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw T_HR_SHIFTDEFINEReference {
             get {
                 return this.T_HR_SHIFTDEFINEReferenceField;
             }
@@ -18807,7 +15546,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEABNORMRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEEABNORMRECORD", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEEABNORMRECORD : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> ABNORMALDATEField;
@@ -18844,7 +15583,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD T_HR_ATTENDANCERECORDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo T_HR_ATTENDANCERECORDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw T_HR_ATTENDANCERECORDReferenceField;
         
         private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL> T_HR_EMPLOYEESIGNINDETAILField;
         
@@ -19074,7 +15813,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo T_HR_ATTENDANCERECORDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw T_HR_ATTENDANCERECORDReference {
             get {
                 return this.T_HR_ATTENDANCERECORDReferenceField;
             }
@@ -19128,7 +15867,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEESIGNINDETAIL", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEESIGNINDETAIL", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEESIGNINDETAIL : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private System.Nullable<System.DateTime> ABNORMALDATEField;
@@ -19167,11 +15906,11 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD T_HR_EMPLOYEEABNORMRECORDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo T_HR_EMPLOYEEABNORMRECORDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw T_HR_EMPLOYEEABNORMRECORDReferenceField;
         
         private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD T_HR_EMPLOYEESIGNINRECORDField;
         
-        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo T_HR_EMPLOYEESIGNINRECORDReferenceField;
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw T_HR_EMPLOYEESIGNINRECORDReferenceField;
         
         private System.Nullable<System.DateTime> UPDATEDATEField;
         
@@ -19412,7 +16151,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo T_HR_EMPLOYEEABNORMRECORDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw T_HR_EMPLOYEEABNORMRECORDReference {
             get {
                 return this.T_HR_EMPLOYEEABNORMRECORDReferenceField;
             }
@@ -19438,7 +16177,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo T_HR_EMPLOYEESIGNINRECORDReference {
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw T_HR_EMPLOYEESIGNINRECORDReference {
             get {
                 return this.T_HR_EMPLOYEESIGNINRECORDReferenceField;
             }
@@ -19479,7 +16218,7 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEESIGNINRECORD", Namespace="http://schemas.datacontract.org/2004/07/SMT_HRM_EFModel", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_EMPLOYEESIGNINRECORD", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
     public partial class T_HR_EMPLOYEESIGNINRECORD : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
         private string CHECKSTATEField;
@@ -19785,35 +16524,425 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_EMPLOYEEPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
-    public partial class V_EMPLOYEEPOST : SMT.Saas.Tools.OrganizationWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENT", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_DEPARTMENT : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
-        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST> EMPLOYEEPOSTSField;
+        private string CENTERHEADField;
         
-        private SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEEField;
+        private string CHECKSTATEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPARTMENTBOSSHEADField;
+        
+        private string DEPARTMENTFUNCTIONField;
+        
+        private string DEPARTMENTIDField;
+        
+        private string DETPMANAGERField;
+        
+        private string EDITSTATEField;
+        
+        private string FATHERIDField;
+        
+        private string FATHERTYPEField;
+        
+        private System.Nullable<decimal> ISBACKGROUNDField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string REMARKField;
+        
+        private System.Nullable<decimal> SORTINDEXField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANYReferenceField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POSTField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST> EMPLOYEEPOSTS {
+        public string CENTERHEAD {
             get {
-                return this.EMPLOYEEPOSTSField;
+                return this.CENTERHEADField;
             }
             set {
-                if ((object.ReferenceEquals(this.EMPLOYEEPOSTSField, value) != true)) {
-                    this.EMPLOYEEPOSTSField = value;
-                    this.RaisePropertyChanged("EMPLOYEEPOSTS");
+                if ((object.ReferenceEquals(this.CENTERHEADField, value) != true)) {
+                    this.CENTERHEADField = value;
+                    this.RaisePropertyChanged("CENTERHEAD");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE T_HR_EMPLOYEE {
+        public string CHECKSTATE {
             get {
-                return this.T_HR_EMPLOYEEField;
+                return this.CHECKSTATEField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_EMPLOYEEField, value) != true)) {
-                    this.T_HR_EMPLOYEEField = value;
-                    this.RaisePropertyChanged("T_HR_EMPLOYEE");
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTBOSSHEAD {
+            get {
+                return this.DEPARTMENTBOSSHEADField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTBOSSHEADField, value) != true)) {
+                    this.DEPARTMENTBOSSHEADField = value;
+                    this.RaisePropertyChanged("DEPARTMENTBOSSHEAD");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTFUNCTION {
+            get {
+                return this.DEPARTMENTFUNCTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
+                    this.DEPARTMENTFUNCTIONField = value;
+                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTID {
+            get {
+                return this.DEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
+                    this.DEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("DEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DETPMANAGER {
+            get {
+                return this.DETPMANAGERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DETPMANAGERField, value) != true)) {
+                    this.DETPMANAGERField = value;
+                    this.RaisePropertyChanged("DETPMANAGER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERID {
+            get {
+                return this.FATHERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
+                    this.FATHERIDField = value;
+                    this.RaisePropertyChanged("FATHERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERTYPE {
+            get {
+                return this.FATHERTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
+                    this.FATHERTYPEField = value;
+                    this.RaisePropertyChanged("FATHERTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> ISBACKGROUND {
+            get {
+                return this.ISBACKGROUNDField;
+            }
+            set {
+                if ((this.ISBACKGROUNDField.Equals(value) != true)) {
+                    this.ISBACKGROUNDField = value;
+                    this.RaisePropertyChanged("ISBACKGROUND");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> SORTINDEX {
+            get {
+                return this.SORTINDEXField;
+            }
+            set {
+                if ((this.SORTINDEXField.Equals(value) != true)) {
+                    this.SORTINDEXField = value;
+                    this.RaisePropertyChanged("SORTINDEX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY {
+            get {
+                return this.T_HR_COMPANYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANYField, value) != true)) {
+                    this.T_HR_COMPANYField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANYReference {
+            get {
+                return this.T_HR_COMPANYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANYReferenceField, value) != true)) {
+                    this.T_HR_COMPANYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReference {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POST {
+            get {
+                return this.T_HR_POSTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
+                    this.T_HR_POSTField = value;
+                    this.RaisePropertyChanged("T_HR_POST");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
                 }
             }
         }
@@ -19821,80 +16950,2876 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_ATTENDANCEDEDUCTMASTER", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel", IsReference=true)]
-    public partial class V_ATTENDANCEDEDUCTMASTER : SMT.Saas.Tools.OrganizationWS.EntityObject {
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_COMPANY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_COMPANY : SMT.Saas.Tools.OrganizationWS.EntityObject {
         
-        private string ATTENDABNORMALTYPENAMEField;
+        private string ACCOUNTCODEField;
         
-        private string FINETYPENAMEField;
+        private string ADDRESSField;
         
-        private string ISACCUMULATINGNAMEField;
+        private string BANKIDField;
         
-        private string ISPERFECTATTENDANCEFACTORNAMEField;
+        private string BRIEFNAMEField;
         
-        private SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTERField;
+        private string BUSSINESSAREAField;
+        
+        private string BUSSINESSLICENCENOField;
+        
+        private string CHECKSTATEField;
+        
+        private string CITYField;
+        
+        private string CNAMEField;
+        
+        private string COMPANRYCODEField;
+        
+        private string COMPANYCATEGORYField;
+        
+        private string COMPANYIDField;
+        
+        private string COMPANYLEVELField;
+        
+        private string COMPANYTYPEField;
+        
+        private string COUNTYTYPEField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EDITSTATEField;
+        
+        private string EMAILField;
+        
+        private string ENAMEField;
+        
+        private string FATHERIDField;
+        
+        private string FATHERTYPEField;
+        
+        private string FAXNUMBERField;
+        
+        private string LEGALPERSONField;
+        
+        private string LEGALPERSONIDField;
+        
+        private string LINKMANField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string REMARKField;
+        
+        private System.Nullable<decimal> SORTINDEXField;
+        
+        private string TELNUMBERField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> T_HR_COMPANY1Field;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY2Field;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANY2ReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> T_HR_COMPANYHISTORYField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENTField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        private string ZIPCODEField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ATTENDABNORMALTYPENAME {
+        public string ACCOUNTCODE {
             get {
-                return this.ATTENDABNORMALTYPENAMEField;
+                return this.ACCOUNTCODEField;
             }
             set {
-                if ((object.ReferenceEquals(this.ATTENDABNORMALTYPENAMEField, value) != true)) {
-                    this.ATTENDABNORMALTYPENAMEField = value;
-                    this.RaisePropertyChanged("ATTENDABNORMALTYPENAME");
+                if ((object.ReferenceEquals(this.ACCOUNTCODEField, value) != true)) {
+                    this.ACCOUNTCODEField = value;
+                    this.RaisePropertyChanged("ACCOUNTCODE");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FINETYPENAME {
+        public string ADDRESS {
             get {
-                return this.FINETYPENAMEField;
+                return this.ADDRESSField;
             }
             set {
-                if ((object.ReferenceEquals(this.FINETYPENAMEField, value) != true)) {
-                    this.FINETYPENAMEField = value;
-                    this.RaisePropertyChanged("FINETYPENAME");
+                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
+                    this.ADDRESSField = value;
+                    this.RaisePropertyChanged("ADDRESS");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISACCUMULATINGNAME {
+        public string BANKID {
             get {
-                return this.ISACCUMULATINGNAMEField;
+                return this.BANKIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.ISACCUMULATINGNAMEField, value) != true)) {
-                    this.ISACCUMULATINGNAMEField = value;
-                    this.RaisePropertyChanged("ISACCUMULATINGNAME");
+                if ((object.ReferenceEquals(this.BANKIDField, value) != true)) {
+                    this.BANKIDField = value;
+                    this.RaisePropertyChanged("BANKID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ISPERFECTATTENDANCEFACTORNAME {
+        public string BRIEFNAME {
             get {
-                return this.ISPERFECTATTENDANCEFACTORNAMEField;
+                return this.BRIEFNAMEField;
             }
             set {
-                if ((object.ReferenceEquals(this.ISPERFECTATTENDANCEFACTORNAMEField, value) != true)) {
-                    this.ISPERFECTATTENDANCEFACTORNAMEField = value;
-                    this.RaisePropertyChanged("ISPERFECTATTENDANCEFACTORNAME");
+                if ((object.ReferenceEquals(this.BRIEFNAMEField, value) != true)) {
+                    this.BRIEFNAMEField = value;
+                    this.RaisePropertyChanged("BRIEFNAME");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER T_HR_ATTENDANCEDEDUCTMASTER {
+        public string BUSSINESSAREA {
             get {
-                return this.T_HR_ATTENDANCEDEDUCTMASTERField;
+                return this.BUSSINESSAREAField;
             }
             set {
-                if ((object.ReferenceEquals(this.T_HR_ATTENDANCEDEDUCTMASTERField, value) != true)) {
-                    this.T_HR_ATTENDANCEDEDUCTMASTERField = value;
-                    this.RaisePropertyChanged("T_HR_ATTENDANCEDEDUCTMASTER");
+                if ((object.ReferenceEquals(this.BUSSINESSAREAField, value) != true)) {
+                    this.BUSSINESSAREAField = value;
+                    this.RaisePropertyChanged("BUSSINESSAREA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BUSSINESSLICENCENO {
+            get {
+                return this.BUSSINESSLICENCENOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BUSSINESSLICENCENOField, value) != true)) {
+                    this.BUSSINESSLICENCENOField = value;
+                    this.RaisePropertyChanged("BUSSINESSLICENCENO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CITY {
+            get {
+                return this.CITYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
+                    this.CITYField = value;
+                    this.RaisePropertyChanged("CITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CNAME {
+            get {
+                return this.CNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CNAMEField, value) != true)) {
+                    this.CNAMEField = value;
+                    this.RaisePropertyChanged("CNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANRYCODE {
+            get {
+                return this.COMPANRYCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANRYCODEField, value) != true)) {
+                    this.COMPANRYCODEField = value;
+                    this.RaisePropertyChanged("COMPANRYCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYCATEGORY {
+            get {
+                return this.COMPANYCATEGORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYCATEGORYField, value) != true)) {
+                    this.COMPANYCATEGORYField = value;
+                    this.RaisePropertyChanged("COMPANYCATEGORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYLEVEL {
+            get {
+                return this.COMPANYLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYLEVELField, value) != true)) {
+                    this.COMPANYLEVELField = value;
+                    this.RaisePropertyChanged("COMPANYLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYTYPE {
+            get {
+                return this.COMPANYTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYTYPEField, value) != true)) {
+                    this.COMPANYTYPEField = value;
+                    this.RaisePropertyChanged("COMPANYTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COUNTYTYPE {
+            get {
+                return this.COUNTYTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COUNTYTYPEField, value) != true)) {
+                    this.COUNTYTYPEField = value;
+                    this.RaisePropertyChanged("COUNTYTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMAIL {
+            get {
+                return this.EMAILField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
+                    this.EMAILField = value;
+                    this.RaisePropertyChanged("EMAIL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ENAME {
+            get {
+                return this.ENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ENAMEField, value) != true)) {
+                    this.ENAMEField = value;
+                    this.RaisePropertyChanged("ENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERID {
+            get {
+                return this.FATHERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
+                    this.FATHERIDField = value;
+                    this.RaisePropertyChanged("FATHERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERTYPE {
+            get {
+                return this.FATHERTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
+                    this.FATHERTYPEField = value;
+                    this.RaisePropertyChanged("FATHERTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FAXNUMBER {
+            get {
+                return this.FAXNUMBERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FAXNUMBERField, value) != true)) {
+                    this.FAXNUMBERField = value;
+                    this.RaisePropertyChanged("FAXNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEGALPERSON {
+            get {
+                return this.LEGALPERSONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEGALPERSONField, value) != true)) {
+                    this.LEGALPERSONField = value;
+                    this.RaisePropertyChanged("LEGALPERSON");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEGALPERSONID {
+            get {
+                return this.LEGALPERSONIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEGALPERSONIDField, value) != true)) {
+                    this.LEGALPERSONIDField = value;
+                    this.RaisePropertyChanged("LEGALPERSONID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LINKMAN {
+            get {
+                return this.LINKMANField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LINKMANField, value) != true)) {
+                    this.LINKMANField = value;
+                    this.RaisePropertyChanged("LINKMAN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string REMARK {
+            get {
+                return this.REMARKField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.REMARKField, value) != true)) {
+                    this.REMARKField = value;
+                    this.RaisePropertyChanged("REMARK");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> SORTINDEX {
+            get {
+                return this.SORTINDEXField;
+            }
+            set {
+                if ((this.SORTINDEXField.Equals(value) != true)) {
+                    this.SORTINDEXField = value;
+                    this.RaisePropertyChanged("SORTINDEX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TELNUMBER {
+            get {
+                return this.TELNUMBERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TELNUMBERField, value) != true)) {
+                    this.TELNUMBERField = value;
+                    this.RaisePropertyChanged("TELNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> T_HR_COMPANY1 {
+            get {
+                return this.T_HR_COMPANY1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANY1Field, value) != true)) {
+                    this.T_HR_COMPANY1Field = value;
+                    this.RaisePropertyChanged("T_HR_COMPANY1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY2 {
+            get {
+                return this.T_HR_COMPANY2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANY2Field, value) != true)) {
+                    this.T_HR_COMPANY2Field = value;
+                    this.RaisePropertyChanged("T_HR_COMPANY2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANY2Reference {
+            get {
+                return this.T_HR_COMPANY2ReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANY2ReferenceField, value) != true)) {
+                    this.T_HR_COMPANY2ReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANY2Reference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> T_HR_COMPANYHISTORY {
+            get {
+                return this.T_HR_COMPANYHISTORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANYHISTORYField, value) != true)) {
+                    this.T_HR_COMPANYHISTORYField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANYHISTORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENT {
+            get {
+                return this.T_HR_DEPARTMENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTField, value) != true)) {
+                    this.T_HR_DEPARTMENTField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZIPCODE {
+            get {
+                return this.ZIPCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZIPCODEField, value) != true)) {
+                    this.ZIPCODEField = value;
+                    this.RaisePropertyChanged("ZIPCODE");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_COMPANYHISTORY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_COMPANYHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private string ACCOUNTCODEField;
+        
+        private string ADDRESSField;
+        
+        private string BANKIDField;
+        
+        private string BUSSINESSAREAField;
+        
+        private string BUSSINESSLICENCENOField;
+        
+        private System.Nullable<System.DateTime> CANCELDATEField;
+        
+        private string CHECKSTATEField;
+        
+        private string CITYField;
+        
+        private string CNAMEField;
+        
+        private string COMPANRYCODEField;
+        
+        private string COMPANYCATEGORYField;
+        
+        private string COMPANYIDField;
+        
+        private string COMPANYLEVELField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EDITSTATEField;
+        
+        private string EMAILField;
+        
+        private string ENAMEField;
+        
+        private string FATHERIDField;
+        
+        private string FATHERTYPEField;
+        
+        private string FAXNUMBERField;
+        
+        private string LEGALPERSONField;
+        
+        private string LEGALPERSONIDField;
+        
+        private string LINKMANField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string RECORDSIDField;
+        
+        private System.Nullable<System.DateTime> REUSEDATEField;
+        
+        private string TELNUMBERField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANYReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        private string ZIPCODEField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ACCOUNTCODE {
+            get {
+                return this.ACCOUNTCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ACCOUNTCODEField, value) != true)) {
+                    this.ACCOUNTCODEField = value;
+                    this.RaisePropertyChanged("ACCOUNTCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ADDRESS {
+            get {
+                return this.ADDRESSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ADDRESSField, value) != true)) {
+                    this.ADDRESSField = value;
+                    this.RaisePropertyChanged("ADDRESS");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BANKID {
+            get {
+                return this.BANKIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BANKIDField, value) != true)) {
+                    this.BANKIDField = value;
+                    this.RaisePropertyChanged("BANKID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BUSSINESSAREA {
+            get {
+                return this.BUSSINESSAREAField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BUSSINESSAREAField, value) != true)) {
+                    this.BUSSINESSAREAField = value;
+                    this.RaisePropertyChanged("BUSSINESSAREA");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BUSSINESSLICENCENO {
+            get {
+                return this.BUSSINESSLICENCENOField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BUSSINESSLICENCENOField, value) != true)) {
+                    this.BUSSINESSLICENCENOField = value;
+                    this.RaisePropertyChanged("BUSSINESSLICENCENO");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CANCELDATE {
+            get {
+                return this.CANCELDATEField;
+            }
+            set {
+                if ((this.CANCELDATEField.Equals(value) != true)) {
+                    this.CANCELDATEField = value;
+                    this.RaisePropertyChanged("CANCELDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CITY {
+            get {
+                return this.CITYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CITYField, value) != true)) {
+                    this.CITYField = value;
+                    this.RaisePropertyChanged("CITY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CNAME {
+            get {
+                return this.CNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CNAMEField, value) != true)) {
+                    this.CNAMEField = value;
+                    this.RaisePropertyChanged("CNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANRYCODE {
+            get {
+                return this.COMPANRYCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANRYCODEField, value) != true)) {
+                    this.COMPANRYCODEField = value;
+                    this.RaisePropertyChanged("COMPANRYCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYCATEGORY {
+            get {
+                return this.COMPANYCATEGORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYCATEGORYField, value) != true)) {
+                    this.COMPANYCATEGORYField = value;
+                    this.RaisePropertyChanged("COMPANYCATEGORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYLEVEL {
+            get {
+                return this.COMPANYLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYLEVELField, value) != true)) {
+                    this.COMPANYLEVELField = value;
+                    this.RaisePropertyChanged("COMPANYLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EMAIL {
+            get {
+                return this.EMAILField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EMAILField, value) != true)) {
+                    this.EMAILField = value;
+                    this.RaisePropertyChanged("EMAIL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ENAME {
+            get {
+                return this.ENAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ENAMEField, value) != true)) {
+                    this.ENAMEField = value;
+                    this.RaisePropertyChanged("ENAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERID {
+            get {
+                return this.FATHERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
+                    this.FATHERIDField = value;
+                    this.RaisePropertyChanged("FATHERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERTYPE {
+            get {
+                return this.FATHERTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
+                    this.FATHERTYPEField = value;
+                    this.RaisePropertyChanged("FATHERTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FAXNUMBER {
+            get {
+                return this.FAXNUMBERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FAXNUMBERField, value) != true)) {
+                    this.FAXNUMBERField = value;
+                    this.RaisePropertyChanged("FAXNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEGALPERSON {
+            get {
+                return this.LEGALPERSONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEGALPERSONField, value) != true)) {
+                    this.LEGALPERSONField = value;
+                    this.RaisePropertyChanged("LEGALPERSON");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LEGALPERSONID {
+            get {
+                return this.LEGALPERSONIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LEGALPERSONIDField, value) != true)) {
+                    this.LEGALPERSONIDField = value;
+                    this.RaisePropertyChanged("LEGALPERSONID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LINKMAN {
+            get {
+                return this.LINKMANField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LINKMANField, value) != true)) {
+                    this.LINKMANField = value;
+                    this.RaisePropertyChanged("LINKMAN");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECORDSID {
+            get {
+                return this.RECORDSIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
+                    this.RECORDSIDField = value;
+                    this.RaisePropertyChanged("RECORDSID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> REUSEDATE {
+            get {
+                return this.REUSEDATEField;
+            }
+            set {
+                if ((this.REUSEDATEField.Equals(value) != true)) {
+                    this.REUSEDATEField = value;
+                    this.RaisePropertyChanged("REUSEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TELNUMBER {
+            get {
+                return this.TELNUMBERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TELNUMBERField, value) != true)) {
+                    this.TELNUMBERField = value;
+                    this.RaisePropertyChanged("TELNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY T_HR_COMPANY {
+            get {
+                return this.T_HR_COMPANYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANYField, value) != true)) {
+                    this.T_HR_COMPANYField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw T_HR_COMPANYReference {
+            get {
+                return this.T_HR_COMPANYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_COMPANYReferenceField, value) != true)) {
+                    this.T_HR_COMPANYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_COMPANYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ZIPCODE {
+            get {
+                return this.ZIPCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZIPCODEField, value) != true)) {
+                    this.ZIPCODEField = value;
+                    this.RaisePropertyChanged("ZIPCODE");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENTDICTIONARY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_DEPARTMENTDICTIONARY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private string CHECKSTATEField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPARTMENTCODEField;
+        
+        private string DEPARTMENTDICTIONARYIDField;
+        
+        private string DEPARTMENTFUNCTIONField;
+        
+        private string DEPARTMENTLEVELField;
+        
+        private string DEPARTMENTNAMEField;
+        
+        private string DEPARTMENTTYPEField;
+        
+        private string EDITSTATEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENTField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY> T_HR_DEPARTMENTHISTORYField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY> T_HR_POSTDICTIONARYField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTCODE {
+            get {
+                return this.DEPARTMENTCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTCODEField, value) != true)) {
+                    this.DEPARTMENTCODEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTDICTIONARYID {
+            get {
+                return this.DEPARTMENTDICTIONARYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTDICTIONARYIDField, value) != true)) {
+                    this.DEPARTMENTDICTIONARYIDField = value;
+                    this.RaisePropertyChanged("DEPARTMENTDICTIONARYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTFUNCTION {
+            get {
+                return this.DEPARTMENTFUNCTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
+                    this.DEPARTMENTFUNCTIONField = value;
+                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTLEVEL {
+            get {
+                return this.DEPARTMENTLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTLEVELField, value) != true)) {
+                    this.DEPARTMENTLEVELField = value;
+                    this.RaisePropertyChanged("DEPARTMENTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTTYPE {
+            get {
+                return this.DEPARTMENTTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTTYPEField, value) != true)) {
+                    this.DEPARTMENTTYPEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> T_HR_DEPARTMENT {
+            get {
+                return this.T_HR_DEPARTMENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTField, value) != true)) {
+                    this.T_HR_DEPARTMENTField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY> T_HR_DEPARTMENTHISTORY {
+            get {
+                return this.T_HR_DEPARTMENTHISTORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTHISTORYField, value) != true)) {
+                    this.T_HR_DEPARTMENTHISTORYField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTHISTORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY> T_HR_POSTDICTIONARY {
+            get {
+                return this.T_HR_POSTDICTIONARYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYField, value) != true)) {
+                    this.T_HR_POSTDICTIONARYField = value;
+                    this.RaisePropertyChanged("T_HR_POSTDICTIONARY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_DEPARTMENTHISTORY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_DEPARTMENTHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> CANCELDATEField;
+        
+        private string CHECKSTATEField;
+        
+        private string COMPANYIDField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPARTMENTBOSSHEADField;
+        
+        private string DEPARTMENTFUNCTIONField;
+        
+        private string DEPARTMENTIDField;
+        
+        private string EDITSTATEField;
+        
+        private string FATHERIDField;
+        
+        private string FATHERTYPEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string RECORDSIDField;
+        
+        private System.Nullable<System.DateTime> REUSEDATEField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CANCELDATE {
+            get {
+                return this.CANCELDATEField;
+            }
+            set {
+                if ((this.CANCELDATEField.Equals(value) != true)) {
+                    this.CANCELDATEField = value;
+                    this.RaisePropertyChanged("CANCELDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTBOSSHEAD {
+            get {
+                return this.DEPARTMENTBOSSHEADField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTBOSSHEADField, value) != true)) {
+                    this.DEPARTMENTBOSSHEADField = value;
+                    this.RaisePropertyChanged("DEPARTMENTBOSSHEAD");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTFUNCTION {
+            get {
+                return this.DEPARTMENTFUNCTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTFUNCTIONField, value) != true)) {
+                    this.DEPARTMENTFUNCTIONField = value;
+                    this.RaisePropertyChanged("DEPARTMENTFUNCTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTID {
+            get {
+                return this.DEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
+                    this.DEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("DEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERID {
+            get {
+                return this.FATHERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERIDField, value) != true)) {
+                    this.FATHERIDField = value;
+                    this.RaisePropertyChanged("FATHERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERTYPE {
+            get {
+                return this.FATHERTYPEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERTYPEField, value) != true)) {
+                    this.FATHERTYPEField = value;
+                    this.RaisePropertyChanged("FATHERTYPE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECORDSID {
+            get {
+                return this.RECORDSIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
+                    this.RECORDSIDField = value;
+                    this.RaisePropertyChanged("RECORDSID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> REUSEDATE {
+            get {
+                return this.REUSEDATEField;
+            }
+            set {
+                if ((this.REUSEDATEField.Equals(value) != true)) {
+                    this.REUSEDATEField = value;
+                    this.RaisePropertyChanged("REUSEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReference {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POSTDICTIONARY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_POSTDICTIONARY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private string CHANGEPOSTField;
+        
+        private string CHECKSTATEField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string EDITSTATEField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string POSTCODEField;
+        
+        private string POSTDICTIONARYIDField;
+        
+        private string POSTFUNCTIONField;
+        
+        private System.Nullable<decimal> POSTLEVELField;
+        
+        private string POSTNAMEField;
+        
+        private string PROMOTEDIRECTIONField;
+        
+        private string SALARYLEVELField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReferenceField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POSTField;
+        
+        private System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY> T_HR_POSTHISTORYField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHANGEPOST {
+            get {
+                return this.CHANGEPOSTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHANGEPOSTField, value) != true)) {
+                    this.CHANGEPOSTField = value;
+                    this.RaisePropertyChanged("CHANGEPOST");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTCODE {
+            get {
+                return this.POSTCODEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTCODEField, value) != true)) {
+                    this.POSTCODEField = value;
+                    this.RaisePropertyChanged("POSTCODE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTDICTIONARYID {
+            get {
+                return this.POSTDICTIONARYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTDICTIONARYIDField, value) != true)) {
+                    this.POSTDICTIONARYIDField = value;
+                    this.RaisePropertyChanged("POSTDICTIONARYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTFUNCTION {
+            get {
+                return this.POSTFUNCTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTFUNCTIONField, value) != true)) {
+                    this.POSTFUNCTIONField = value;
+                    this.RaisePropertyChanged("POSTFUNCTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> POSTLEVEL {
+            get {
+                return this.POSTLEVELField;
+            }
+            set {
+                if ((this.POSTLEVELField.Equals(value) != true)) {
+                    this.POSTLEVELField = value;
+                    this.RaisePropertyChanged("POSTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTNAME {
+            get {
+                return this.POSTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTNAMEField, value) != true)) {
+                    this.POSTNAMEField = value;
+                    this.RaisePropertyChanged("POSTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PROMOTEDIRECTION {
+            get {
+                return this.PROMOTEDIRECTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PROMOTEDIRECTIONField, value) != true)) {
+                    this.PROMOTEDIRECTIONField = value;
+                    this.RaisePropertyChanged("PROMOTEDIRECTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SALARYLEVEL {
+            get {
+                return this.SALARYLEVELField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SALARYLEVELField, value) != true)) {
+                    this.SALARYLEVELField = value;
+                    this.RaisePropertyChanged("SALARYLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY T_HR_DEPARTMENTDICTIONARY {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw T_HR_DEPARTMENTDICTIONARYReference {
+            get {
+                return this.T_HR_DEPARTMENTDICTIONARYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_DEPARTMENTDICTIONARYReferenceField, value) != true)) {
+                    this.T_HR_DEPARTMENTDICTIONARYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_DEPARTMENTDICTIONARYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> T_HR_POST {
+            get {
+                return this.T_HR_POSTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
+                    this.T_HR_POSTField = value;
+                    this.RaisePropertyChanged("T_HR_POST");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY> T_HR_POSTHISTORY {
+            get {
+                return this.T_HR_POSTHISTORYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTHISTORYField, value) != true)) {
+                    this.T_HR_POSTHISTORYField = value;
+                    this.RaisePropertyChanged("T_HR_POSTHISTORY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_POSTHISTORY", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_POSTHISTORY : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> CANCELDATEField;
+        
+        private string CHANGEPOSTField;
+        
+        private string CHECKSTATEField;
+        
+        private string CHECKUSERField;
+        
+        private string COMPANYIDField;
+        
+        private string CREATECOMPANYIDField;
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEDEPARTMENTIDField;
+        
+        private string CREATEPOSTIDField;
+        
+        private string CREATEUSERIDField;
+        
+        private string DEPARTMENTIDField;
+        
+        private string DEPARTMENTNAMEField;
+        
+        private string EDITSTATEField;
+        
+        private string FATHERPOSTIDField;
+        
+        private string OWNERCOMPANYIDField;
+        
+        private string OWNERDEPARTMENTIDField;
+        
+        private string OWNERIDField;
+        
+        private string OWNERPOSTIDField;
+        
+        private string POSTCOEFFICIENTField;
+        
+        private string POSTFUNCTIONField;
+        
+        private string POSTGOALField;
+        
+        private string POSTIDField;
+        
+        private System.Nullable<decimal> POSTLEVELField;
+        
+        private System.Nullable<decimal> POSTNUMBERField;
+        
+        private string PROMOTEDIRECTIONField;
+        
+        private string RECORDSIDField;
+        
+        private System.Nullable<System.DateTime> REUSEDATEField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY T_HR_POSTDICTIONARYField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw T_HR_POSTDICTIONARYReferenceField;
+        
+        private System.Nullable<decimal> UNDERNUMBERField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CANCELDATE {
+            get {
+                return this.CANCELDATEField;
+            }
+            set {
+                if ((this.CANCELDATEField.Equals(value) != true)) {
+                    this.CANCELDATEField = value;
+                    this.RaisePropertyChanged("CANCELDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHANGEPOST {
+            get {
+                return this.CHANGEPOSTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHANGEPOSTField, value) != true)) {
+                    this.CHANGEPOSTField = value;
+                    this.RaisePropertyChanged("CHANGEPOST");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKSTATE {
+            get {
+                return this.CHECKSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKSTATEField, value) != true)) {
+                    this.CHECKSTATEField = value;
+                    this.RaisePropertyChanged("CHECKSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CHECKUSER {
+            get {
+                return this.CHECKUSERField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CHECKUSERField, value) != true)) {
+                    this.CHECKUSERField = value;
+                    this.RaisePropertyChanged("CHECKUSER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string COMPANYID {
+            get {
+                return this.COMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COMPANYIDField, value) != true)) {
+                    this.COMPANYIDField = value;
+                    this.RaisePropertyChanged("COMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATECOMPANYID {
+            get {
+                return this.CREATECOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATECOMPANYIDField, value) != true)) {
+                    this.CREATECOMPANYIDField = value;
+                    this.RaisePropertyChanged("CREATECOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEDEPARTMENTID {
+            get {
+                return this.CREATEDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEDEPARTMENTIDField, value) != true)) {
+                    this.CREATEDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("CREATEDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEPOSTID {
+            get {
+                return this.CREATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEPOSTIDField, value) != true)) {
+                    this.CREATEPOSTIDField = value;
+                    this.RaisePropertyChanged("CREATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTID {
+            get {
+                return this.DEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTIDField, value) != true)) {
+                    this.DEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("DEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DEPARTMENTNAME {
+            get {
+                return this.DEPARTMENTNAMEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DEPARTMENTNAMEField, value) != true)) {
+                    this.DEPARTMENTNAMEField = value;
+                    this.RaisePropertyChanged("DEPARTMENTNAME");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EDITSTATE {
+            get {
+                return this.EDITSTATEField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EDITSTATEField, value) != true)) {
+                    this.EDITSTATEField = value;
+                    this.RaisePropertyChanged("EDITSTATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FATHERPOSTID {
+            get {
+                return this.FATHERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FATHERPOSTIDField, value) != true)) {
+                    this.FATHERPOSTIDField = value;
+                    this.RaisePropertyChanged("FATHERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERCOMPANYID {
+            get {
+                return this.OWNERCOMPANYIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERCOMPANYIDField, value) != true)) {
+                    this.OWNERCOMPANYIDField = value;
+                    this.RaisePropertyChanged("OWNERCOMPANYID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERDEPARTMENTID {
+            get {
+                return this.OWNERDEPARTMENTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERDEPARTMENTIDField, value) != true)) {
+                    this.OWNERDEPARTMENTIDField = value;
+                    this.RaisePropertyChanged("OWNERDEPARTMENTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERID {
+            get {
+                return this.OWNERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERIDField, value) != true)) {
+                    this.OWNERIDField = value;
+                    this.RaisePropertyChanged("OWNERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OWNERPOSTID {
+            get {
+                return this.OWNERPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OWNERPOSTIDField, value) != true)) {
+                    this.OWNERPOSTIDField = value;
+                    this.RaisePropertyChanged("OWNERPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTCOEFFICIENT {
+            get {
+                return this.POSTCOEFFICIENTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTCOEFFICIENTField, value) != true)) {
+                    this.POSTCOEFFICIENTField = value;
+                    this.RaisePropertyChanged("POSTCOEFFICIENT");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTFUNCTION {
+            get {
+                return this.POSTFUNCTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTFUNCTIONField, value) != true)) {
+                    this.POSTFUNCTIONField = value;
+                    this.RaisePropertyChanged("POSTFUNCTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTGOAL {
+            get {
+                return this.POSTGOALField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTGOALField, value) != true)) {
+                    this.POSTGOALField = value;
+                    this.RaisePropertyChanged("POSTGOAL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string POSTID {
+            get {
+                return this.POSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.POSTIDField, value) != true)) {
+                    this.POSTIDField = value;
+                    this.RaisePropertyChanged("POSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> POSTLEVEL {
+            get {
+                return this.POSTLEVELField;
+            }
+            set {
+                if ((this.POSTLEVELField.Equals(value) != true)) {
+                    this.POSTLEVELField = value;
+                    this.RaisePropertyChanged("POSTLEVEL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> POSTNUMBER {
+            get {
+                return this.POSTNUMBERField;
+            }
+            set {
+                if ((this.POSTNUMBERField.Equals(value) != true)) {
+                    this.POSTNUMBERField = value;
+                    this.RaisePropertyChanged("POSTNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PROMOTEDIRECTION {
+            get {
+                return this.PROMOTEDIRECTIONField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PROMOTEDIRECTIONField, value) != true)) {
+                    this.PROMOTEDIRECTIONField = value;
+                    this.RaisePropertyChanged("PROMOTEDIRECTION");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECORDSID {
+            get {
+                return this.RECORDSIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECORDSIDField, value) != true)) {
+                    this.RECORDSIDField = value;
+                    this.RaisePropertyChanged("RECORDSID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> REUSEDATE {
+            get {
+                return this.REUSEDATEField;
+            }
+            set {
+                if ((this.REUSEDATEField.Equals(value) != true)) {
+                    this.REUSEDATEField = value;
+                    this.RaisePropertyChanged("REUSEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY T_HR_POSTDICTIONARY {
+            get {
+                return this.T_HR_POSTDICTIONARYField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYField, value) != true)) {
+                    this.T_HR_POSTDICTIONARYField = value;
+                    this.RaisePropertyChanged("T_HR_POSTDICTIONARY");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw T_HR_POSTDICTIONARYReference {
+            get {
+                return this.T_HR_POSTDICTIONARYReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTDICTIONARYReferenceField, value) != true)) {
+                    this.T_HR_POSTDICTIONARYReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_POSTDICTIONARYReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> UNDERNUMBER {
+            get {
+                return this.UNDERNUMBERField;
+            }
+            set {
+                if ((this.UNDERNUMBERField.Equals(value) != true)) {
+                    this.UNDERNUMBERField = value;
+                    this.RaisePropertyChanged("UNDERNUMBER");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="T_HR_RELATIONPOST", Namespace="http://schemas.datacontract.org/2004/07/TM_SaaS_OA_EFModel", IsReference=true)]
+    public partial class T_HR_RELATIONPOST : SMT.Saas.Tools.OrganizationWS.EntityObject {
+        
+        private System.Nullable<System.DateTime> CREATEDATEField;
+        
+        private string CREATEUSERIDField;
+        
+        private string RECORDIDField;
+        
+        private string RELATEPOSTIDField;
+        
+        private string RELATIONPOSTIDField;
+        
+        private SMT.Saas.Tools.OrganizationWS.T_HR_POST T_HR_POSTField;
+        
+        private SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw T_HR_POSTReferenceField;
+        
+        private System.Nullable<System.DateTime> UPDATEDATEField;
+        
+        private string UPDATEUSERIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CREATEDATE {
+            get {
+                return this.CREATEDATEField;
+            }
+            set {
+                if ((this.CREATEDATEField.Equals(value) != true)) {
+                    this.CREATEDATEField = value;
+                    this.RaisePropertyChanged("CREATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CREATEUSERID {
+            get {
+                return this.CREATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CREATEUSERIDField, value) != true)) {
+                    this.CREATEUSERIDField = value;
+                    this.RaisePropertyChanged("CREATEUSERID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RECORDID {
+            get {
+                return this.RECORDIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RECORDIDField, value) != true)) {
+                    this.RECORDIDField = value;
+                    this.RaisePropertyChanged("RECORDID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RELATEPOSTID {
+            get {
+                return this.RELATEPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RELATEPOSTIDField, value) != true)) {
+                    this.RELATEPOSTIDField = value;
+                    this.RaisePropertyChanged("RELATEPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RELATIONPOSTID {
+            get {
+                return this.RELATIONPOSTIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RELATIONPOSTIDField, value) != true)) {
+                    this.RELATIONPOSTIDField = value;
+                    this.RaisePropertyChanged("RELATIONPOSTID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.T_HR_POST T_HR_POST {
+            get {
+                return this.T_HR_POSTField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTField, value) != true)) {
+                    this.T_HR_POSTField = value;
+                    this.RaisePropertyChanged("T_HR_POST");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw T_HR_POSTReference {
+            get {
+                return this.T_HR_POSTReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.T_HR_POSTReferenceField, value) != true)) {
+                    this.T_HR_POSTReferenceField = value;
+                    this.RaisePropertyChanged("T_HR_POSTReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> UPDATEDATE {
+            get {
+                return this.UPDATEDATEField;
+            }
+            set {
+                if ((this.UPDATEDATEField.Equals(value) != true)) {
+                    this.UPDATEDATEField = value;
+                    this.RaisePropertyChanged("UPDATEDATE");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UPDATEUSERID {
+            get {
+                return this.UPDATEUSERIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UPDATEUSERIDField, value) != true)) {
+                    this.UPDATEUSERIDField = value;
+                    this.RaisePropertyChanged("UPDATEUSERID");
                 }
             }
         }
@@ -19962,8 +19887,14 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19971,46 +19902,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityKeyMember", Namespace="http://schemas.datacontract.org/2004/07/System.Data")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -20051,12 +20001,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -20092,25 +20038,10 @@ namespace SMT.Saas.Tools.OrganizationWS {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
     public partial class EntityKeyMember : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string KeyField;
@@ -20155,38 +20086,38 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_COMPANYLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_COMPANYLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_COMPANYNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_COMPANYNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
     public partial class EntityReference : SMT.Saas.Tools.OrganizationWS.RelatedEnd {
         
         private SMT.Saas.Tools.OrganizationWS.EntityKey EntityKeyField;
@@ -20209,31 +20140,31 @@ namespace SMT.Saas.Tools.OrganizationWS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
     public partial class RelatedEnd : object, System.ComponentModel.INotifyPropertyChanged {
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -20248,173 +20179,197 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEELmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEENb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_RESUMELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_RESUMELmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_RESUMENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_RESUMENb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_POSTLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_POSTNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    public partial class EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw : SMT.Saas.Tools.OrganizationWS.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    public partial class EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo : SMT.Saas.Tools.OrganizationWS.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UploadFileModel", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.Services")]
-    public partial class UploadFileModel : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="V_RELATIONPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
+    public partial class V_RELATIONPOST : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private byte[] FileField;
+        private SMT.Saas.Tools.OrganizationWS.T_HR_POST PostField;
         
-        private string FileNameField;
+        private string PostCodeField;
+        
+        private string PostNameField;
+        
+        private string RelationPostIDField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] File {
+        public SMT.Saas.Tools.OrganizationWS.T_HR_POST Post {
             get {
-                return this.FileField;
+                return this.PostField;
             }
             set {
-                if ((object.ReferenceEquals(this.FileField, value) != true)) {
-                    this.FileField = value;
-                    this.RaisePropertyChanged("File");
+                if ((object.ReferenceEquals(this.PostField, value) != true)) {
+                    this.PostField = value;
+                    this.RaisePropertyChanged("Post");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FileName {
+        public string PostCode {
             get {
-                return this.FileNameField;
+                return this.PostCodeField;
             }
             set {
-                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
-                    this.FileNameField = value;
-                    this.RaisePropertyChanged("FileName");
+                if ((object.ReferenceEquals(this.PostCodeField, value) != true)) {
+                    this.PostCodeField = value;
+                    this.RaisePropertyChanged("PostCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PostName {
+            get {
+                return this.PostNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
+                    this.PostNameField = value;
+                    this.RaisePropertyChanged("PostName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RelationPostID {
+            get {
+                return this.RelationPostIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelationPostIDField, value) != true)) {
+                    this.RelationPostIDField = value;
+                    this.RaisePropertyChanged("RelationPostID");
                 }
             }
         }
@@ -20427,71 +20382,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityNames", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL")]
-    public enum EntityNames : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AttendanceSolution = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Company = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Department = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AttendanceDeductMaster = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Post = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Employee = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FreeLeaveDaySet = 6,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LeaveTypeSet = 7,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OvertimeReward = 8,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalarySolution = 9,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalaryStandard = 10,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalaryArchive = 11,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SchedulingTemplateMaster = 12,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CustomGuerdonSet = 13,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ShiftDefine = 14,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalaryItemSet = 15,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalaryLevel = 16,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        AreaCategory = 17,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SalarySystem = 18,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EmployeeLeaveRecord = 19,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21711,65 +21601,35 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="V_RELATIONPOST", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel")]
-    public partial class V_RELATIONPOST : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="UploadFileModel", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.CustomModel.Permission")]
+    public partial class UploadFileModel : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private SMT.Saas.Tools.OrganizationWS.T_HR_POST PostField;
+        private byte[] FileField;
         
-        private string PostCodeField;
-        
-        private string PostNameField;
-        
-        private string RelationPostIDField;
+        private string FileNameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SMT.Saas.Tools.OrganizationWS.T_HR_POST Post {
+        public byte[] File {
             get {
-                return this.PostField;
+                return this.FileField;
             }
             set {
-                if ((object.ReferenceEquals(this.PostField, value) != true)) {
-                    this.PostField = value;
-                    this.RaisePropertyChanged("Post");
+                if ((object.ReferenceEquals(this.FileField, value) != true)) {
+                    this.FileField = value;
+                    this.RaisePropertyChanged("File");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostCode {
+        public string FileName {
             get {
-                return this.PostCodeField;
+                return this.FileNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.PostCodeField, value) != true)) {
-                    this.PostCodeField = value;
-                    this.RaisePropertyChanged("PostCode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PostName {
-            get {
-                return this.PostNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PostNameField, value) != true)) {
-                    this.PostNameField = value;
-                    this.RaisePropertyChanged("PostName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RelationPostID {
-            get {
-                return this.RelationPostIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RelationPostIDField, value) != true)) {
-                    this.RelationPostIDField = value;
-                    this.RaisePropertyChanged("RelationPostID");
+                if ((object.ReferenceEquals(this.FileNameField, value) != true)) {
+                    this.FileNameField = value;
+                    this.RaisePropertyChanged("FileName");
                 }
             }
         }
@@ -21784,9 +21644,460 @@ namespace SMT.Saas.Tools.OrganizationWS {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityNames", Namespace="http://schemas.datacontract.org/2004/07/SMT.HRM.BLL")]
+    public enum EntityNames : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AttendanceSolution = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Company = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Department = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AttendanceDeductMaster = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Post = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Employee = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FreeLeaveDaySet = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LeaveTypeSet = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OvertimeReward = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalarySolution = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalaryStandard = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalaryArchive = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SchedulingTemplateMaster = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomGuerdonSet = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ShiftDefine = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalaryItemSet = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalaryLevel = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AreaCategory = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SalarySystem = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EmployeeLeaveRecord = 19,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="", ConfigurationName="OrganizationWS.OrganizationService")]
     public interface OrganizationService {
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostWithSpecifiedTime", ReplyAction="urn:OrganizationService/GetPostWithSpecifiedTimeResponse")]
+        System.IAsyncResult BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetPostWithSpecifiedTime(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostById", ReplyAction="urn:OrganizationService/GetPostByIdResponse")]
+        System.IAsyncResult BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.OrganizationWS.T_HR_POST EndGetPostById(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostAdd", ReplyAction="urn:OrganizationService/PostAddResponse")]
+        System.IAsyncResult BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndPostAdd(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostUpdate", ReplyAction="urn:OrganizationService/PostUpdateResponse")]
+        System.IAsyncResult BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndPostUpdate(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostDelete", ReplyAction="urn:OrganizationService/PostDeleteResponse")]
+        System.IAsyncResult BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndPostDelete(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostCancel", ReplyAction="urn:OrganizationService/PostCancelResponse")]
+        System.IAsyncResult BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState);
+        
+        void EndPostCancel(ref string strMsg, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostNumber", ReplyAction="urn:OrganizationService/GetPostNumberResponse")]
+        System.IAsyncResult BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState);
+        
+        int EndGetPostNumber(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/IsFatherPost", ReplyAction="urn:OrganizationService/IsFatherPostResponse")]
+        System.IAsyncResult BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState);
+        
+        bool EndIsFatherPost(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetAllPostByDepartId", ReplyAction="urn:OrganizationService/GetAllPostByDepartIdResponse")]
+        System.IAsyncResult BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetAllPostByDepartId(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetLackPostEmployeeCount", ReplyAction="urn:OrganizationService/GetLackPostEmployeeCountResponse")]
+        System.IAsyncResult BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState);
+        
+        int EndGetLackPostEmployeeCount(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetOnPostEmployeeCount", ReplyAction="urn:OrganizationService/GetOnPostEmployeeCountResponse")]
+        System.IAsyncResult BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState);
+        
+        int EndGetOnPostEmployeeCount(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostPaging", ReplyAction="urn:OrganizationService/RelationPostPagingResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
+        System.IAsyncResult BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> EndRelationPostPaging(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostAdd", ReplyAction="urn:OrganizationService/RelationPostAddResponse")]
+        System.IAsyncResult BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState);
+        
+        void EndRelationPostAdd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostUpdate", ReplyAction="urn:OrganizationService/RelationPostUpdateResponse")]
+        System.IAsyncResult BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState);
+        
+        void EndRelationPostUpdate(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostDelete", ReplyAction="urn:OrganizationService/RelationPostDeleteResponse")]
+        System.IAsyncResult BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState);
+        
+        bool EndRelationPostDelete(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetRelationPostByID", ReplyAction="urn:OrganizationService/GetRelationPostByIDResponse")]
+        System.IAsyncResult BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState);
+        
+        SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST EndGetRelationPostByID(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetLookupOjbects", ReplyAction="urn:OrganizationService/GetLookupOjbectsResponse")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
+        System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState);
+        
+        string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetCompanyHistory", ReplyAction="urn:OrganizationService/GetCompanyHistoryResponse")]
+        System.IAsyncResult BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistory(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/CompanyHistoryAdd", ReplyAction="urn:OrganizationService/CompanyHistoryAddResponse")]
+        System.IAsyncResult BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState);
+        
+        void EndCompanyHistoryAdd(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetCompanyHistoryDate", ReplyAction="urn:OrganizationService/GetCompanyHistoryDateResponse")]
+        System.IAsyncResult BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState);
+        
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistoryDate(System.IAsyncResult result);
         
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetDepartmentHistory", ReplyAction="urn:OrganizationService/GetDepartmentHistoryResponse")]
         System.IAsyncResult BeginGetDepartmentHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState);
@@ -21848,16 +22159,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT> EndGetDepartmentBossHeadList(System.IAsyncResult result);
         
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetDepartmentFatherIsForWP", ReplyAction="urn:OrganizationService/GetDepartmentFatherIsForWPResponse")]
-        System.IAsyncResult BeginGetDepartmentFatherIsForWP(string departmentId, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.OrganizationWS.V_COMPANY EndGetDepartmentFatherIsForWP(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/DoWork", ReplyAction="urn:OrganizationService/DoWorkResponse")]
-        System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState);
-        
-        void EndDoWork(System.IAsyncResult result);
-        
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/DoDrive", ReplyAction="urn:OrganizationService/DoDriveResponse")]
         System.IAsyncResult BeginDoDrive(System.AsyncCallback callback, object asyncState);
         
@@ -21881,46 +22182,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/DepartmentDictionaryPaging", ReplyAction="urn:OrganizationService/DepartmentDictionaryPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -21961,12 +22281,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -22003,25 +22319,10 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
         System.IAsyncResult BeginDepartmentDictionaryPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string Checkstate, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY> EndDepartmentDictionaryPaging(ref int pageCount, System.IAsyncResult result);
@@ -22054,46 +22355,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostDictionaryPaging", ReplyAction="urn:OrganizationService/PostDictionaryPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -22134,12 +22454,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -22176,25 +22492,10 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
         System.IAsyncResult BeginPostDictionaryPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string Checkstate, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY> EndPostDictionaryPaging(ref int pageCount, System.IAsyncResult result);
@@ -22272,46 +22573,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/CompanyPaging", ReplyAction="urn:OrganizationService/CompanyPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -22352,12 +22672,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -22394,25 +22710,10 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
         System.IAsyncResult BeginCompanyPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string checkState, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY> EndCompanyPaging(ref int pageCount, System.IAsyncResult result);
@@ -22535,46 +22836,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/DepartmentPaging", ReplyAction="urn:OrganizationService/DepartmentPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -22615,12 +22935,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -22657,25 +22973,10 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
         System.IAsyncResult BeginDepartmentPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string checkState, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT> EndDepartmentPaging(ref int pageCount, System.IAsyncResult result);
@@ -22748,46 +23049,65 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostPaging", ReplyAction="urn:OrganizationService/PostPagingResponse")]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYNb42Hbcw))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDNb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINENb42Hbcw))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
@@ -22828,12 +23148,8 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
@@ -22870,418 +23186,354 @@ namespace SMT.Saas.Tools.OrganizationWS {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
         System.IAsyncResult BeginPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, string checkState, System.AsyncCallback callback, object asyncState);
         
         System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndPostPaging(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostWithSpecifiedTime", ReplyAction="urn:OrganizationService/GetPostWithSpecifiedTimeResponse")]
-        System.IAsyncResult BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetPostWithSpecifiedTime(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostById", ReplyAction="urn:OrganizationService/GetPostByIdResponse")]
-        System.IAsyncResult BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.OrganizationWS.T_HR_POST EndGetPostById(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostAdd", ReplyAction="urn:OrganizationService/PostAddResponse")]
-        System.IAsyncResult BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState);
-        
-        void EndPostAdd(ref string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostUpdate", ReplyAction="urn:OrganizationService/PostUpdateResponse")]
-        System.IAsyncResult BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState);
-        
-        void EndPostUpdate(ref string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostDelete", ReplyAction="urn:OrganizationService/PostDeleteResponse")]
-        System.IAsyncResult BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState);
-        
-        void EndPostDelete(ref string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/PostCancel", ReplyAction="urn:OrganizationService/PostCancelResponse")]
-        System.IAsyncResult BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState);
-        
-        void EndPostCancel(ref string strMsg, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetPostNumber", ReplyAction="urn:OrganizationService/GetPostNumberResponse")]
-        System.IAsyncResult BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState);
-        
-        int EndGetPostNumber(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/IsFatherPost", ReplyAction="urn:OrganizationService/IsFatherPostResponse")]
-        System.IAsyncResult BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState);
-        
-        bool EndIsFatherPost(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetAllPostByDepartId", ReplyAction="urn:OrganizationService/GetAllPostByDepartIdResponse")]
-        System.IAsyncResult BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetAllPostByDepartId(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetLackPostEmployeeCount", ReplyAction="urn:OrganizationService/GetLackPostEmployeeCountResponse")]
-        System.IAsyncResult BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState);
-        
-        int EndGetLackPostEmployeeCount(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetOnPostEmployeeCount", ReplyAction="urn:OrganizationService/GetOnPostEmployeeCountResponse")]
-        System.IAsyncResult BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState);
-        
-        int EndGetOnPostEmployeeCount(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostPaging", ReplyAction="urn:OrganizationService/RelationPostPagingResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        System.IAsyncResult BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> EndRelationPostPaging(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostAdd", ReplyAction="urn:OrganizationService/RelationPostAddResponse")]
-        System.IAsyncResult BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState);
-        
-        void EndRelationPostAdd(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostUpdate", ReplyAction="urn:OrganizationService/RelationPostUpdateResponse")]
-        System.IAsyncResult BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState);
-        
-        void EndRelationPostUpdate(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/RelationPostDelete", ReplyAction="urn:OrganizationService/RelationPostDeleteResponse")]
-        System.IAsyncResult BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState);
-        
-        bool EndRelationPostDelete(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetRelationPostByID", ReplyAction="urn:OrganizationService/GetRelationPostByIDResponse")]
-        System.IAsyncResult BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState);
-        
-        SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST EndGetRelationPostByID(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetLookupOjbects", ReplyAction="urn:OrganizationService/GetLookupOjbectsResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.StructuralObject))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_COMPANYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReference))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.RelatedEnd))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_DEPARTMENTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ASSESSMENTFORMMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPOINTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_CHECKPROJECTSETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEECHECKLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTCHANGELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEPOSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEFTOFFICELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_PENSIONMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_RESUMELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_POSTDICTIONARYLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCEDEDUCTMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCESOLUTIONLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEELEAVERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_LEAVETYPESETLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_OVERTIMEREWARDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SCHEDULINGTEMPLATEMASTERLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_ATTENDANCERECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEEABNORMRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_EMPLOYEESIGNINRECORDLmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityReferenceOfT_HR_SHIFTDEFINELmi1kWPo))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.UploadFileModel))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityNames))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHANGEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECHECK))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ASSESSMENTFORMDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTLEVELSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPROJECTSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_CHECKPOINTSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECONTRACT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEENTRY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEINSURANCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEPOSTCHANGE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FAMILYMEMBER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEFTOFFICECONFIRM))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_PENSIONDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RESUME))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EDUCATEHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EXPERIENCE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_POSTHISTORY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POSTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCEDEDUCTDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONDEDUCT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTIONASIGN))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDFREELEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_LEAVETYPESET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEELEAVERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ADJUSTLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEECANCELLEAVE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_FREELEAVEDAYSET))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_OVERTIMEREWARD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCESOLUTION>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SCHEDULINGTEMPLATEDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_SHIFTDEFINE))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_ATTENDANCERECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEEABNORMRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINDETAIL))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.T_HR_EMPLOYEESIGNINRECORD))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_DEPARTMENTDICTIONARY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKey))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.EntityKeyMember>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.EntityKeyMember))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_COMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_ATTENDANCEDEDUCTMASTER))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_COMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_POST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_POST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<object>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.ObjectModel.ObservableCollection<string>))]
-        System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState);
-        
-        string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetCompanyHistory", ReplyAction="urn:OrganizationService/GetCompanyHistoryResponse")]
-        System.IAsyncResult BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistory(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/CompanyHistoryAdd", ReplyAction="urn:OrganizationService/CompanyHistoryAddResponse")]
-        System.IAsyncResult BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState);
-        
-        void EndCompanyHistoryAdd(System.IAsyncResult result);
-        
-        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="urn:OrganizationService/GetCompanyHistoryDate", ReplyAction="urn:OrganizationService/GetCompanyHistoryDateResponse")]
-        System.IAsyncResult BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState);
-        
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistoryDate(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface OrganizationServiceChannel : SMT.Saas.Tools.OrganizationWS.OrganizationService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPostWithSpecifiedTimeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPostWithSpecifiedTimeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPostByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPostByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.OrganizationWS.T_HR_POST Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PostAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PostAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PostUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PostUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PostDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PostDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class PostCancelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public PostCancelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public string strMsg {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetPostNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetPostNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class IsFatherPostCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public IsFatherPostCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetAllPostByDepartIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetAllPostByDepartIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetLackPostEmployeeCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetLackPostEmployeeCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetOnPostEmployeeCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetOnPostEmployeeCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RelationPostPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RelationPostPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RelationPostDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public RelationPostDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public bool Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetRelationPostByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetRelationPostByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetLookupOjbectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetLookupOjbectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public int pageCount {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
+            }
+        }
+        
+        public string Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCompanyHistoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCompanyHistoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetCompanyHistoryDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetCompanyHistoryDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(this.results[0]));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -23439,25 +23691,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
             get {
                 base.RaiseExceptionIfNecessary();
                 return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetDepartmentFatherIsForWPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetDepartmentFatherIsForWPCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.OrganizationWS.V_COMPANY Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.OrganizationWS.V_COMPANY)(this.results[0]));
             }
         }
     }
@@ -24717,344 +24950,127 @@ namespace SMT.Saas.Tools.OrganizationWS {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPostWithSpecifiedTimeCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPostWithSpecifiedTimeCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPostByIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPostByIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.OrganizationWS.T_HR_POST Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PostAddCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public PostAddCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PostUpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public PostUpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PostDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public PostDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PostCancelCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public PostCancelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public string strMsg {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetPostNumberCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetPostNumberCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class IsFatherPostCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public IsFatherPostCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetAllPostByDepartIdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetAllPostByDepartIdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetLackPostEmployeeCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetLackPostEmployeeCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetOnPostEmployeeCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetOnPostEmployeeCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RelationPostPagingCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public RelationPostPagingCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class RelationPostDeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public RelationPostDeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public bool Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((bool)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetRelationPostByIDCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetRelationPostByIDCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetLookupOjbectsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetLookupOjbectsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public int pageCount {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((int)(this.results[0]));
-            }
-        }
-        
-        public string Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((string)(this.results[1]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetCompanyHistoryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetCompanyHistoryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GetCompanyHistoryDateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        public GetCompanyHistoryDateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> Result {
-            get {
-                base.RaiseExceptionIfNecessary();
-                return ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(this.results[0]));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class OrganizationServiceClient : System.ServiceModel.ClientBase<SMT.Saas.Tools.OrganizationWS.OrganizationService>, SMT.Saas.Tools.OrganizationWS.OrganizationService {
+        
+        private BeginOperationDelegate onBeginGetPostWithSpecifiedTimeDelegate;
+        
+        private EndOperationDelegate onEndGetPostWithSpecifiedTimeDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPostWithSpecifiedTimeCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetPostByIdDelegate;
+        
+        private EndOperationDelegate onEndGetPostByIdDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPostByIdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPostAddDelegate;
+        
+        private EndOperationDelegate onEndPostAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onPostAddCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPostUpdateDelegate;
+        
+        private EndOperationDelegate onEndPostUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onPostUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPostDeleteDelegate;
+        
+        private EndOperationDelegate onEndPostDeleteDelegate;
+        
+        private System.Threading.SendOrPostCallback onPostDeleteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginPostCancelDelegate;
+        
+        private EndOperationDelegate onEndPostCancelDelegate;
+        
+        private System.Threading.SendOrPostCallback onPostCancelCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetPostNumberDelegate;
+        
+        private EndOperationDelegate onEndGetPostNumberDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetPostNumberCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginIsFatherPostDelegate;
+        
+        private EndOperationDelegate onEndIsFatherPostDelegate;
+        
+        private System.Threading.SendOrPostCallback onIsFatherPostCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetAllPostByDepartIdDelegate;
+        
+        private EndOperationDelegate onEndGetAllPostByDepartIdDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetAllPostByDepartIdCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetLackPostEmployeeCountDelegate;
+        
+        private EndOperationDelegate onEndGetLackPostEmployeeCountDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetLackPostEmployeeCountCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetOnPostEmployeeCountDelegate;
+        
+        private EndOperationDelegate onEndGetOnPostEmployeeCountDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetOnPostEmployeeCountCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRelationPostPagingDelegate;
+        
+        private EndOperationDelegate onEndRelationPostPagingDelegate;
+        
+        private System.Threading.SendOrPostCallback onRelationPostPagingCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRelationPostAddDelegate;
+        
+        private EndOperationDelegate onEndRelationPostAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onRelationPostAddCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRelationPostUpdateDelegate;
+        
+        private EndOperationDelegate onEndRelationPostUpdateDelegate;
+        
+        private System.Threading.SendOrPostCallback onRelationPostUpdateCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginRelationPostDeleteDelegate;
+        
+        private EndOperationDelegate onEndRelationPostDeleteDelegate;
+        
+        private System.Threading.SendOrPostCallback onRelationPostDeleteCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetRelationPostByIDDelegate;
+        
+        private EndOperationDelegate onEndGetRelationPostByIDDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetRelationPostByIDCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetLookupOjbectsDelegate;
+        
+        private EndOperationDelegate onEndGetLookupOjbectsDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetLookupOjbectsCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCompanyHistoryDelegate;
+        
+        private EndOperationDelegate onEndGetCompanyHistoryDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCompanyHistoryCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginCompanyHistoryAddDelegate;
+        
+        private EndOperationDelegate onEndCompanyHistoryAddDelegate;
+        
+        private System.Threading.SendOrPostCallback onCompanyHistoryAddCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetCompanyHistoryDateDelegate;
+        
+        private EndOperationDelegate onEndGetCompanyHistoryDateDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetCompanyHistoryDateCompletedDelegate;
         
         private BeginOperationDelegate onBeginGetDepartmentHistoryDelegate;
         
@@ -25127,18 +25143,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         private EndOperationDelegate onEndGetDepartmentBossHeadListDelegate;
         
         private System.Threading.SendOrPostCallback onGetDepartmentBossHeadListCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetDepartmentFatherIsForWPDelegate;
-        
-        private EndOperationDelegate onEndGetDepartmentFatherIsForWPDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetDepartmentFatherIsForWPCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginDoWorkDelegate;
-        
-        private EndOperationDelegate onEndDoWorkDelegate;
-        
-        private System.Threading.SendOrPostCallback onDoWorkCompletedDelegate;
         
         private BeginOperationDelegate onBeginDoDriveDelegate;
         
@@ -25524,126 +25528,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         private System.Threading.SendOrPostCallback onPostPagingCompletedDelegate;
         
-        private BeginOperationDelegate onBeginGetPostWithSpecifiedTimeDelegate;
-        
-        private EndOperationDelegate onEndGetPostWithSpecifiedTimeDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPostWithSpecifiedTimeCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetPostByIdDelegate;
-        
-        private EndOperationDelegate onEndGetPostByIdDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPostByIdCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginPostAddDelegate;
-        
-        private EndOperationDelegate onEndPostAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onPostAddCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginPostUpdateDelegate;
-        
-        private EndOperationDelegate onEndPostUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onPostUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginPostDeleteDelegate;
-        
-        private EndOperationDelegate onEndPostDeleteDelegate;
-        
-        private System.Threading.SendOrPostCallback onPostDeleteCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginPostCancelDelegate;
-        
-        private EndOperationDelegate onEndPostCancelDelegate;
-        
-        private System.Threading.SendOrPostCallback onPostCancelCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetPostNumberDelegate;
-        
-        private EndOperationDelegate onEndGetPostNumberDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetPostNumberCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginIsFatherPostDelegate;
-        
-        private EndOperationDelegate onEndIsFatherPostDelegate;
-        
-        private System.Threading.SendOrPostCallback onIsFatherPostCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetAllPostByDepartIdDelegate;
-        
-        private EndOperationDelegate onEndGetAllPostByDepartIdDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetAllPostByDepartIdCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetLackPostEmployeeCountDelegate;
-        
-        private EndOperationDelegate onEndGetLackPostEmployeeCountDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetLackPostEmployeeCountCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetOnPostEmployeeCountDelegate;
-        
-        private EndOperationDelegate onEndGetOnPostEmployeeCountDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetOnPostEmployeeCountCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRelationPostPagingDelegate;
-        
-        private EndOperationDelegate onEndRelationPostPagingDelegate;
-        
-        private System.Threading.SendOrPostCallback onRelationPostPagingCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRelationPostAddDelegate;
-        
-        private EndOperationDelegate onEndRelationPostAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onRelationPostAddCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRelationPostUpdateDelegate;
-        
-        private EndOperationDelegate onEndRelationPostUpdateDelegate;
-        
-        private System.Threading.SendOrPostCallback onRelationPostUpdateCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginRelationPostDeleteDelegate;
-        
-        private EndOperationDelegate onEndRelationPostDeleteDelegate;
-        
-        private System.Threading.SendOrPostCallback onRelationPostDeleteCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetRelationPostByIDDelegate;
-        
-        private EndOperationDelegate onEndGetRelationPostByIDDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetRelationPostByIDCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetLookupOjbectsDelegate;
-        
-        private EndOperationDelegate onEndGetLookupOjbectsDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetLookupOjbectsCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetCompanyHistoryDelegate;
-        
-        private EndOperationDelegate onEndGetCompanyHistoryDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetCompanyHistoryCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginCompanyHistoryAddDelegate;
-        
-        private EndOperationDelegate onEndCompanyHistoryAddDelegate;
-        
-        private System.Threading.SendOrPostCallback onCompanyHistoryAddCompletedDelegate;
-        
-        private BeginOperationDelegate onBeginGetCompanyHistoryDateDelegate;
-        
-        private EndOperationDelegate onEndGetCompanyHistoryDateDelegate;
-        
-        private System.Threading.SendOrPostCallback onGetCompanyHistoryDateCompletedDelegate;
-        
         private BeginOperationDelegate onBeginOpenDelegate;
         
         private EndOperationDelegate onEndOpenDelegate;
@@ -25696,6 +25580,46 @@ namespace SMT.Saas.Tools.OrganizationWS {
             }
         }
         
+        public event System.EventHandler<GetPostWithSpecifiedTimeCompletedEventArgs> GetPostWithSpecifiedTimeCompleted;
+        
+        public event System.EventHandler<GetPostByIdCompletedEventArgs> GetPostByIdCompleted;
+        
+        public event System.EventHandler<PostAddCompletedEventArgs> PostAddCompleted;
+        
+        public event System.EventHandler<PostUpdateCompletedEventArgs> PostUpdateCompleted;
+        
+        public event System.EventHandler<PostDeleteCompletedEventArgs> PostDeleteCompleted;
+        
+        public event System.EventHandler<PostCancelCompletedEventArgs> PostCancelCompleted;
+        
+        public event System.EventHandler<GetPostNumberCompletedEventArgs> GetPostNumberCompleted;
+        
+        public event System.EventHandler<IsFatherPostCompletedEventArgs> IsFatherPostCompleted;
+        
+        public event System.EventHandler<GetAllPostByDepartIdCompletedEventArgs> GetAllPostByDepartIdCompleted;
+        
+        public event System.EventHandler<GetLackPostEmployeeCountCompletedEventArgs> GetLackPostEmployeeCountCompleted;
+        
+        public event System.EventHandler<GetOnPostEmployeeCountCompletedEventArgs> GetOnPostEmployeeCountCompleted;
+        
+        public event System.EventHandler<RelationPostPagingCompletedEventArgs> RelationPostPagingCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RelationPostAddCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RelationPostUpdateCompleted;
+        
+        public event System.EventHandler<RelationPostDeleteCompletedEventArgs> RelationPostDeleteCompleted;
+        
+        public event System.EventHandler<GetRelationPostByIDCompletedEventArgs> GetRelationPostByIDCompleted;
+        
+        public event System.EventHandler<GetLookupOjbectsCompletedEventArgs> GetLookupOjbectsCompleted;
+        
+        public event System.EventHandler<GetCompanyHistoryCompletedEventArgs> GetCompanyHistoryCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CompanyHistoryAddCompleted;
+        
+        public event System.EventHandler<GetCompanyHistoryDateCompletedEventArgs> GetCompanyHistoryDateCompleted;
+        
         public event System.EventHandler<GetDepartmentHistoryCompletedEventArgs> GetDepartmentHistoryCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DepartmentHistoryAddCompleted;
@@ -25719,10 +25643,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
         public event System.EventHandler<GetAllEmployeePostForWPCompletedEventArgs> GetAllEmployeePostForWPCompleted;
         
         public event System.EventHandler<GetDepartmentBossHeadListCompletedEventArgs> GetDepartmentBossHeadListCompleted;
-        
-        public event System.EventHandler<GetDepartmentFatherIsForWPCompletedEventArgs> GetDepartmentFatherIsForWPCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DoWorkCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> DoDriveCompleted;
         
@@ -25852,49 +25772,966 @@ namespace SMT.Saas.Tools.OrganizationWS {
         
         public event System.EventHandler<PostPagingCompletedEventArgs> PostPagingCompleted;
         
-        public event System.EventHandler<GetPostWithSpecifiedTimeCompletedEventArgs> GetPostWithSpecifiedTimeCompleted;
-        
-        public event System.EventHandler<GetPostByIdCompletedEventArgs> GetPostByIdCompleted;
-        
-        public event System.EventHandler<PostAddCompletedEventArgs> PostAddCompleted;
-        
-        public event System.EventHandler<PostUpdateCompletedEventArgs> PostUpdateCompleted;
-        
-        public event System.EventHandler<PostDeleteCompletedEventArgs> PostDeleteCompleted;
-        
-        public event System.EventHandler<PostCancelCompletedEventArgs> PostCancelCompleted;
-        
-        public event System.EventHandler<GetPostNumberCompletedEventArgs> GetPostNumberCompleted;
-        
-        public event System.EventHandler<IsFatherPostCompletedEventArgs> IsFatherPostCompleted;
-        
-        public event System.EventHandler<GetAllPostByDepartIdCompletedEventArgs> GetAllPostByDepartIdCompleted;
-        
-        public event System.EventHandler<GetLackPostEmployeeCountCompletedEventArgs> GetLackPostEmployeeCountCompleted;
-        
-        public event System.EventHandler<GetOnPostEmployeeCountCompletedEventArgs> GetOnPostEmployeeCountCompleted;
-        
-        public event System.EventHandler<RelationPostPagingCompletedEventArgs> RelationPostPagingCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RelationPostAddCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RelationPostUpdateCompleted;
-        
-        public event System.EventHandler<RelationPostDeleteCompletedEventArgs> RelationPostDeleteCompleted;
-        
-        public event System.EventHandler<GetRelationPostByIDCompletedEventArgs> GetRelationPostByIDCompleted;
-        
-        public event System.EventHandler<GetLookupOjbectsCompletedEventArgs> GetLookupOjbectsCompleted;
-        
-        public event System.EventHandler<GetCompanyHistoryCompletedEventArgs> GetCompanyHistoryCompleted;
-        
-        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CompanyHistoryAddCompleted;
-        
-        public event System.EventHandler<GetCompanyHistoryDateCompletedEventArgs> GetCompanyHistoryDateCompleted;
-        
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> OpenCompleted;
         
         public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> CloseCompleted;
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPostWithSpecifiedTime(startDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostWithSpecifiedTime(System.IAsyncResult result) {
+            return base.Channel.EndGetPostWithSpecifiedTime(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPostWithSpecifiedTime(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string startDate = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostWithSpecifiedTime(startDate, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPostWithSpecifiedTime(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostWithSpecifiedTime(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPostWithSpecifiedTimeCompleted(object state) {
+            if ((this.GetPostWithSpecifiedTimeCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPostWithSpecifiedTimeCompleted(this, new GetPostWithSpecifiedTimeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPostWithSpecifiedTimeAsync(string startDate) {
+            this.GetPostWithSpecifiedTimeAsync(startDate, null);
+        }
+        
+        public void GetPostWithSpecifiedTimeAsync(string startDate, object userState) {
+            if ((this.onBeginGetPostWithSpecifiedTimeDelegate == null)) {
+                this.onBeginGetPostWithSpecifiedTimeDelegate = new BeginOperationDelegate(this.OnBeginGetPostWithSpecifiedTime);
+            }
+            if ((this.onEndGetPostWithSpecifiedTimeDelegate == null)) {
+                this.onEndGetPostWithSpecifiedTimeDelegate = new EndOperationDelegate(this.OnEndGetPostWithSpecifiedTime);
+            }
+            if ((this.onGetPostWithSpecifiedTimeCompletedDelegate == null)) {
+                this.onGetPostWithSpecifiedTimeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostWithSpecifiedTimeCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPostWithSpecifiedTimeDelegate, new object[] {
+                        startDate}, this.onEndGetPostWithSpecifiedTimeDelegate, this.onGetPostWithSpecifiedTimeCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPostById(postID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.OrganizationWS.T_HR_POST SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostById(System.IAsyncResult result) {
+            return base.Channel.EndGetPostById(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPostById(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string postID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostById(postID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPostById(System.IAsyncResult result) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_POST retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostById(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPostByIdCompleted(object state) {
+            if ((this.GetPostByIdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPostByIdCompleted(this, new GetPostByIdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPostByIdAsync(string postID) {
+            this.GetPostByIdAsync(postID, null);
+        }
+        
+        public void GetPostByIdAsync(string postID, object userState) {
+            if ((this.onBeginGetPostByIdDelegate == null)) {
+                this.onBeginGetPostByIdDelegate = new BeginOperationDelegate(this.OnBeginGetPostById);
+            }
+            if ((this.onEndGetPostByIdDelegate == null)) {
+                this.onEndGetPostByIdDelegate = new EndOperationDelegate(this.OnEndGetPostById);
+            }
+            if ((this.onGetPostByIdCompletedDelegate == null)) {
+                this.onGetPostByIdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostByIdCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPostByIdDelegate, new object[] {
+                        postID}, this.onEndGetPostByIdDelegate, this.onGetPostByIdCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPostAdd(entity, ref strMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostAdd(ref string strMsg, System.IAsyncResult result) {
+            base.Channel.EndPostAdd(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginPostAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_POST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
+            string strMsg = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostAdd(entity, ref strMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndPostAdd(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostAdd(ref strMsg, result);
+            return new object[] {
+                    strMsg};
+        }
+        
+        private void OnPostAddCompleted(object state) {
+            if ((this.PostAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PostAddCompleted(this, new PostAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg) {
+            this.PostAddAsync(entity, strMsg, null);
+        }
+        
+        public void PostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg, object userState) {
+            if ((this.onBeginPostAddDelegate == null)) {
+                this.onBeginPostAddDelegate = new BeginOperationDelegate(this.OnBeginPostAdd);
+            }
+            if ((this.onEndPostAddDelegate == null)) {
+                this.onEndPostAddDelegate = new EndOperationDelegate(this.OnEndPostAdd);
+            }
+            if ((this.onPostAddCompletedDelegate == null)) {
+                this.onPostAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginPostAddDelegate, new object[] {
+                        entity,
+                        strMsg}, this.onEndPostAddDelegate, this.onPostAddCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPostUpdate(entity, ref strMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostUpdate(ref string strMsg, System.IAsyncResult result) {
+            base.Channel.EndPostUpdate(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginPostUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_POST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
+            string strMsg = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostUpdate(entity, ref strMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndPostUpdate(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostUpdate(ref strMsg, result);
+            return new object[] {
+                    strMsg};
+        }
+        
+        private void OnPostUpdateCompleted(object state) {
+            if ((this.PostUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PostUpdateCompleted(this, new PostUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg) {
+            this.PostUpdateAsync(entity, strMsg, null);
+        }
+        
+        public void PostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg, object userState) {
+            if ((this.onBeginPostUpdateDelegate == null)) {
+                this.onBeginPostUpdateDelegate = new BeginOperationDelegate(this.OnBeginPostUpdate);
+            }
+            if ((this.onEndPostUpdateDelegate == null)) {
+                this.onEndPostUpdateDelegate = new EndOperationDelegate(this.OnEndPostUpdate);
+            }
+            if ((this.onPostUpdateCompletedDelegate == null)) {
+                this.onPostUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginPostUpdateDelegate, new object[] {
+                        entity,
+                        strMsg}, this.onEndPostUpdateDelegate, this.onPostUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPostDelete(postID, ref strMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostDelete(ref string strMsg, System.IAsyncResult result) {
+            base.Channel.EndPostDelete(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginPostDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string postID = ((string)(inValues[0]));
+            string strMsg = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostDelete(postID, ref strMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndPostDelete(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostDelete(ref strMsg, result);
+            return new object[] {
+                    strMsg};
+        }
+        
+        private void OnPostDeleteCompleted(object state) {
+            if ((this.PostDeleteCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PostDeleteCompleted(this, new PostDeleteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PostDeleteAsync(string postID, string strMsg) {
+            this.PostDeleteAsync(postID, strMsg, null);
+        }
+        
+        public void PostDeleteAsync(string postID, string strMsg, object userState) {
+            if ((this.onBeginPostDeleteDelegate == null)) {
+                this.onBeginPostDeleteDelegate = new BeginOperationDelegate(this.OnBeginPostDelete);
+            }
+            if ((this.onEndPostDeleteDelegate == null)) {
+                this.onEndPostDeleteDelegate = new EndOperationDelegate(this.OnEndPostDelete);
+            }
+            if ((this.onPostDeleteCompletedDelegate == null)) {
+                this.onPostDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostDeleteCompleted);
+            }
+            base.InvokeAsync(this.onBeginPostDeleteDelegate, new object[] {
+                        postID,
+                        strMsg}, this.onEndPostDeleteDelegate, this.onPostDeleteCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginPostCancel(postID, ref strMsg, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostCancel(ref string strMsg, System.IAsyncResult result) {
+            base.Channel.EndPostCancel(ref strMsg, result);
+        }
+        
+        private System.IAsyncResult OnBeginPostCancel(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_POST postID = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
+            string strMsg = ((string)(inValues[1]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostCancel(postID, ref strMsg, callback, asyncState);
+        }
+        
+        private object[] OnEndPostCancel(System.IAsyncResult result) {
+            string strMsg = this.GetDefaultValueForInitialization<string>();
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostCancel(ref strMsg, result);
+            return new object[] {
+                    strMsg};
+        }
+        
+        private void OnPostCancelCompleted(object state) {
+            if ((this.PostCancelCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.PostCancelCompleted(this, new PostCancelCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void PostCancelAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, string strMsg) {
+            this.PostCancelAsync(postID, strMsg, null);
+        }
+        
+        public void PostCancelAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, string strMsg, object userState) {
+            if ((this.onBeginPostCancelDelegate == null)) {
+                this.onBeginPostCancelDelegate = new BeginOperationDelegate(this.OnBeginPostCancel);
+            }
+            if ((this.onEndPostCancelDelegate == null)) {
+                this.onEndPostCancelDelegate = new EndOperationDelegate(this.OnEndPostCancel);
+            }
+            if ((this.onPostCancelCompletedDelegate == null)) {
+                this.onPostCancelCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostCancelCompleted);
+            }
+            base.InvokeAsync(this.onBeginPostCancelDelegate, new object[] {
+                        postID,
+                        strMsg}, this.onEndPostCancelDelegate, this.onPostCancelCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetPostNumber(postID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostNumber(System.IAsyncResult result) {
+            return base.Channel.EndGetPostNumber(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetPostNumber(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string postID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostNumber(postID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetPostNumber(System.IAsyncResult result) {
+            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostNumber(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetPostNumberCompleted(object state) {
+            if ((this.GetPostNumberCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetPostNumberCompleted(this, new GetPostNumberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetPostNumberAsync(string postID) {
+            this.GetPostNumberAsync(postID, null);
+        }
+        
+        public void GetPostNumberAsync(string postID, object userState) {
+            if ((this.onBeginGetPostNumberDelegate == null)) {
+                this.onBeginGetPostNumberDelegate = new BeginOperationDelegate(this.OnBeginGetPostNumber);
+            }
+            if ((this.onEndGetPostNumberDelegate == null)) {
+                this.onEndGetPostNumberDelegate = new EndOperationDelegate(this.OnEndGetPostNumber);
+            }
+            if ((this.onGetPostNumberCompletedDelegate == null)) {
+                this.onGetPostNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostNumberCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetPostNumberDelegate, new object[] {
+                        postID}, this.onEndGetPostNumberDelegate, this.onGetPostNumberCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginIsFatherPost(postID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.OrganizationWS.OrganizationService.EndIsFatherPost(System.IAsyncResult result) {
+            return base.Channel.EndIsFatherPost(result);
+        }
+        
+        private System.IAsyncResult OnBeginIsFatherPost(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string postID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginIsFatherPost(postID, callback, asyncState);
+        }
+        
+        private object[] OnEndIsFatherPost(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndIsFatherPost(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnIsFatherPostCompleted(object state) {
+            if ((this.IsFatherPostCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.IsFatherPostCompleted(this, new IsFatherPostCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void IsFatherPostAsync(string postID) {
+            this.IsFatherPostAsync(postID, null);
+        }
+        
+        public void IsFatherPostAsync(string postID, object userState) {
+            if ((this.onBeginIsFatherPostDelegate == null)) {
+                this.onBeginIsFatherPostDelegate = new BeginOperationDelegate(this.OnBeginIsFatherPost);
+            }
+            if ((this.onEndIsFatherPostDelegate == null)) {
+                this.onEndIsFatherPostDelegate = new EndOperationDelegate(this.OnEndIsFatherPost);
+            }
+            if ((this.onIsFatherPostCompletedDelegate == null)) {
+                this.onIsFatherPostCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIsFatherPostCompleted);
+            }
+            base.InvokeAsync(this.onBeginIsFatherPostDelegate, new object[] {
+                        postID}, this.onEndIsFatherPostDelegate, this.onIsFatherPostCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetAllPostByDepartId(DepartmentID, IsAll, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetAllPostByDepartId(System.IAsyncResult result) {
+            return base.Channel.EndGetAllPostByDepartId(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetAllPostByDepartId(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string DepartmentID = ((string)(inValues[0]));
+            bool IsAll = ((bool)(inValues[1]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetAllPostByDepartId(DepartmentID, IsAll, callback, asyncState);
+        }
+        
+        private object[] OnEndGetAllPostByDepartId(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetAllPostByDepartId(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetAllPostByDepartIdCompleted(object state) {
+            if ((this.GetAllPostByDepartIdCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetAllPostByDepartIdCompleted(this, new GetAllPostByDepartIdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetAllPostByDepartIdAsync(string DepartmentID, bool IsAll) {
+            this.GetAllPostByDepartIdAsync(DepartmentID, IsAll, null);
+        }
+        
+        public void GetAllPostByDepartIdAsync(string DepartmentID, bool IsAll, object userState) {
+            if ((this.onBeginGetAllPostByDepartIdDelegate == null)) {
+                this.onBeginGetAllPostByDepartIdDelegate = new BeginOperationDelegate(this.OnBeginGetAllPostByDepartId);
+            }
+            if ((this.onEndGetAllPostByDepartIdDelegate == null)) {
+                this.onEndGetAllPostByDepartIdDelegate = new EndOperationDelegate(this.OnEndGetAllPostByDepartId);
+            }
+            if ((this.onGetAllPostByDepartIdCompletedDelegate == null)) {
+                this.onGetAllPostByDepartIdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAllPostByDepartIdCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetAllPostByDepartIdDelegate, new object[] {
+                        DepartmentID,
+                        IsAll}, this.onEndGetAllPostByDepartIdDelegate, this.onGetAllPostByDepartIdCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetLackPostEmployeeCount(PostID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetLackPostEmployeeCount(System.IAsyncResult result) {
+            return base.Channel.EndGetLackPostEmployeeCount(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetLackPostEmployeeCount(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string PostID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetLackPostEmployeeCount(PostID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetLackPostEmployeeCount(System.IAsyncResult result) {
+            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetLackPostEmployeeCount(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetLackPostEmployeeCountCompleted(object state) {
+            if ((this.GetLackPostEmployeeCountCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetLackPostEmployeeCountCompleted(this, new GetLackPostEmployeeCountCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetLackPostEmployeeCountAsync(string PostID) {
+            this.GetLackPostEmployeeCountAsync(PostID, null);
+        }
+        
+        public void GetLackPostEmployeeCountAsync(string PostID, object userState) {
+            if ((this.onBeginGetLackPostEmployeeCountDelegate == null)) {
+                this.onBeginGetLackPostEmployeeCountDelegate = new BeginOperationDelegate(this.OnBeginGetLackPostEmployeeCount);
+            }
+            if ((this.onEndGetLackPostEmployeeCountDelegate == null)) {
+                this.onEndGetLackPostEmployeeCountDelegate = new EndOperationDelegate(this.OnEndGetLackPostEmployeeCount);
+            }
+            if ((this.onGetLackPostEmployeeCountCompletedDelegate == null)) {
+                this.onGetLackPostEmployeeCountCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLackPostEmployeeCountCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetLackPostEmployeeCountDelegate, new object[] {
+                        PostID}, this.onEndGetLackPostEmployeeCountDelegate, this.onGetLackPostEmployeeCountCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetOnPostEmployeeCount(PostID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetOnPostEmployeeCount(System.IAsyncResult result) {
+            return base.Channel.EndGetOnPostEmployeeCount(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetOnPostEmployeeCount(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string PostID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetOnPostEmployeeCount(PostID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetOnPostEmployeeCount(System.IAsyncResult result) {
+            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetOnPostEmployeeCount(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetOnPostEmployeeCountCompleted(object state) {
+            if ((this.GetOnPostEmployeeCountCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetOnPostEmployeeCountCompleted(this, new GetOnPostEmployeeCountCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetOnPostEmployeeCountAsync(string PostID) {
+            this.GetOnPostEmployeeCountAsync(PostID, null);
+        }
+        
+        public void GetOnPostEmployeeCountAsync(string PostID, object userState) {
+            if ((this.onBeginGetOnPostEmployeeCountDelegate == null)) {
+                this.onBeginGetOnPostEmployeeCountDelegate = new BeginOperationDelegate(this.OnBeginGetOnPostEmployeeCount);
+            }
+            if ((this.onEndGetOnPostEmployeeCountDelegate == null)) {
+                this.onEndGetOnPostEmployeeCountDelegate = new EndOperationDelegate(this.OnEndGetOnPostEmployeeCount);
+            }
+            if ((this.onGetOnPostEmployeeCountCompletedDelegate == null)) {
+                this.onGetOnPostEmployeeCountCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOnPostEmployeeCountCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetOnPostEmployeeCountDelegate, new object[] {
+                        PostID}, this.onEndGetOnPostEmployeeCountDelegate, this.onGetOnPostEmployeeCountCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRelationPostPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostPaging(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndRelationPostPaging(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginRelationPostPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            int pageIndex = ((int)(inValues[0]));
+            int pageSize = ((int)(inValues[1]));
+            string sort = ((string)(inValues[2]));
+            string filterString = ((string)(inValues[3]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
+            int pageCount = ((int)(inValues[5]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
+        }
+        
+        private object[] OnEndRelationPostPaging(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostPaging(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnRelationPostPagingCompleted(object state) {
+            if ((this.RelationPostPagingCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RelationPostPagingCompleted(this, new RelationPostPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RelationPostPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount) {
+            this.RelationPostPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, null);
+        }
+        
+        public void RelationPostPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, object userState) {
+            if ((this.onBeginRelationPostPagingDelegate == null)) {
+                this.onBeginRelationPostPagingDelegate = new BeginOperationDelegate(this.OnBeginRelationPostPaging);
+            }
+            if ((this.onEndRelationPostPagingDelegate == null)) {
+                this.onEndRelationPostPagingDelegate = new EndOperationDelegate(this.OnEndRelationPostPaging);
+            }
+            if ((this.onRelationPostPagingCompletedDelegate == null)) {
+                this.onRelationPostPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostPagingCompleted);
+            }
+            base.InvokeAsync(this.onBeginRelationPostPagingDelegate, new object[] {
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount}, this.onEndRelationPostPagingDelegate, this.onRelationPostPagingCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRelationPostAdd(entity, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostAdd(System.IAsyncResult result) {
+            base.Channel.EndRelationPostAdd(result);
+        }
+        
+        private System.IAsyncResult OnBeginRelationPostAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostAdd(entity, callback, asyncState);
+        }
+        
+        private object[] OnEndRelationPostAdd(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostAdd(result);
+            return null;
+        }
+        
+        private void OnRelationPostAddCompleted(object state) {
+            if ((this.RelationPostAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RelationPostAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RelationPostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity) {
+            this.RelationPostAddAsync(entity, null);
+        }
+        
+        public void RelationPostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, object userState) {
+            if ((this.onBeginRelationPostAddDelegate == null)) {
+                this.onBeginRelationPostAddDelegate = new BeginOperationDelegate(this.OnBeginRelationPostAdd);
+            }
+            if ((this.onEndRelationPostAddDelegate == null)) {
+                this.onEndRelationPostAddDelegate = new EndOperationDelegate(this.OnEndRelationPostAdd);
+            }
+            if ((this.onRelationPostAddCompletedDelegate == null)) {
+                this.onRelationPostAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginRelationPostAddDelegate, new object[] {
+                        entity}, this.onEndRelationPostAddDelegate, this.onRelationPostAddCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRelationPostUpdate(entity, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostUpdate(System.IAsyncResult result) {
+            base.Channel.EndRelationPostUpdate(result);
+        }
+        
+        private System.IAsyncResult OnBeginRelationPostUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostUpdate(entity, callback, asyncState);
+        }
+        
+        private object[] OnEndRelationPostUpdate(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostUpdate(result);
+            return null;
+        }
+        
+        private void OnRelationPostUpdateCompleted(object state) {
+            if ((this.RelationPostUpdateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RelationPostUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RelationPostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity) {
+            this.RelationPostUpdateAsync(entity, null);
+        }
+        
+        public void RelationPostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, object userState) {
+            if ((this.onBeginRelationPostUpdateDelegate == null)) {
+                this.onBeginRelationPostUpdateDelegate = new BeginOperationDelegate(this.OnBeginRelationPostUpdate);
+            }
+            if ((this.onEndRelationPostUpdateDelegate == null)) {
+                this.onEndRelationPostUpdateDelegate = new EndOperationDelegate(this.OnEndRelationPostUpdate);
+            }
+            if ((this.onRelationPostUpdateCompletedDelegate == null)) {
+                this.onRelationPostUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostUpdateCompleted);
+            }
+            base.InvokeAsync(this.onBeginRelationPostUpdateDelegate, new object[] {
+                        entity}, this.onEndRelationPostUpdateDelegate, this.onRelationPostUpdateCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRelationPostDelete(relationPostIDs, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        bool SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostDelete(System.IAsyncResult result) {
+            return base.Channel.EndRelationPostDelete(result);
+        }
+        
+        private System.IAsyncResult OnBeginRelationPostDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostDelete(relationPostIDs, callback, asyncState);
+        }
+        
+        private object[] OnEndRelationPostDelete(System.IAsyncResult result) {
+            bool retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostDelete(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnRelationPostDeleteCompleted(object state) {
+            if ((this.RelationPostDeleteCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RelationPostDeleteCompleted(this, new RelationPostDeleteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RelationPostDeleteAsync(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs) {
+            this.RelationPostDeleteAsync(relationPostIDs, null);
+        }
+        
+        public void RelationPostDeleteAsync(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, object userState) {
+            if ((this.onBeginRelationPostDeleteDelegate == null)) {
+                this.onBeginRelationPostDeleteDelegate = new BeginOperationDelegate(this.OnBeginRelationPostDelete);
+            }
+            if ((this.onEndRelationPostDeleteDelegate == null)) {
+                this.onEndRelationPostDeleteDelegate = new EndOperationDelegate(this.OnEndRelationPostDelete);
+            }
+            if ((this.onRelationPostDeleteCompletedDelegate == null)) {
+                this.onRelationPostDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostDeleteCompleted);
+            }
+            base.InvokeAsync(this.onBeginRelationPostDeleteDelegate, new object[] {
+                        relationPostIDs}, this.onEndRelationPostDeleteDelegate, this.onRelationPostDeleteCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetRelationPostByID(strID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetRelationPostByID(System.IAsyncResult result) {
+            return base.Channel.EndGetRelationPostByID(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetRelationPostByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string strID = ((string)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetRelationPostByID(strID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetRelationPostByID(System.IAsyncResult result) {
+            SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetRelationPostByID(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetRelationPostByIDCompleted(object state) {
+            if ((this.GetRelationPostByIDCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetRelationPostByIDCompleted(this, new GetRelationPostByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetRelationPostByIDAsync(string strID) {
+            this.GetRelationPostByIDAsync(strID, null);
+        }
+        
+        public void GetRelationPostByIDAsync(string strID, object userState) {
+            if ((this.onBeginGetRelationPostByIDDelegate == null)) {
+                this.onBeginGetRelationPostByIDDelegate = new BeginOperationDelegate(this.OnBeginGetRelationPostByID);
+            }
+            if ((this.onEndGetRelationPostByIDDelegate == null)) {
+                this.onEndGetRelationPostByIDDelegate = new EndOperationDelegate(this.OnEndGetRelationPostByID);
+            }
+            if ((this.onGetRelationPostByIDCompletedDelegate == null)) {
+                this.onGetRelationPostByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetRelationPostByIDCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetRelationPostByIDDelegate, new object[] {
+                        strID}, this.onEndGetRelationPostByIDDelegate, this.onGetRelationPostByIDCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetLookupOjbects(entityName, pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        string SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
+            return base.Channel.EndGetLookupOjbects(ref pageCount, result);
+        }
+        
+        private System.IAsyncResult OnBeginGetLookupOjbects(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.EntityNames entityName = ((SMT.Saas.Tools.OrganizationWS.EntityNames)(inValues[0]));
+            int pageIndex = ((int)(inValues[1]));
+            int pageSize = ((int)(inValues[2]));
+            string sort = ((string)(inValues[3]));
+            string filterString = ((string)(inValues[4]));
+            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[5]));
+            int pageCount = ((int)(inValues[6]));
+            string userID = ((string)(inValues[7]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetLookupOjbects(entityName, pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, callback, asyncState);
+        }
+        
+        private object[] OnEndGetLookupOjbects(System.IAsyncResult result) {
+            int pageCount = this.GetDefaultValueForInitialization<int>();
+            string retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetLookupOjbects(ref pageCount, result);
+            return new object[] {
+                    pageCount,
+                    retVal};
+        }
+        
+        private void OnGetLookupOjbectsCompleted(object state) {
+            if ((this.GetLookupOjbectsCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetLookupOjbectsCompleted(this, new GetLookupOjbectsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetLookupOjbectsAsync(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID) {
+            this.GetLookupOjbectsAsync(entityName, pageIndex, pageSize, sort, filterString, paras, pageCount, userID, null);
+        }
+        
+        public void GetLookupOjbectsAsync(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, object userState) {
+            if ((this.onBeginGetLookupOjbectsDelegate == null)) {
+                this.onBeginGetLookupOjbectsDelegate = new BeginOperationDelegate(this.OnBeginGetLookupOjbects);
+            }
+            if ((this.onEndGetLookupOjbectsDelegate == null)) {
+                this.onEndGetLookupOjbectsDelegate = new EndOperationDelegate(this.OnEndGetLookupOjbects);
+            }
+            if ((this.onGetLookupOjbectsCompletedDelegate == null)) {
+                this.onGetLookupOjbectsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLookupOjbectsCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetLookupOjbectsDelegate, new object[] {
+                        entityName,
+                        pageIndex,
+                        pageSize,
+                        sort,
+                        filterString,
+                        paras,
+                        pageCount,
+                        userID}, this.onEndGetLookupOjbectsDelegate, this.onGetLookupOjbectsCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCompanyHistory(currentDate, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetCompanyHistory(System.IAsyncResult result) {
+            return base.Channel.EndGetCompanyHistory(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCompanyHistory(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            System.DateTime currentDate = ((System.DateTime)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetCompanyHistory(currentDate, callback, asyncState);
+        }
+        
+        private object[] OnEndGetCompanyHistory(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetCompanyHistory(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCompanyHistoryCompleted(object state) {
+            if ((this.GetCompanyHistoryCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCompanyHistoryCompleted(this, new GetCompanyHistoryCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCompanyHistoryAsync(System.DateTime currentDate) {
+            this.GetCompanyHistoryAsync(currentDate, null);
+        }
+        
+        public void GetCompanyHistoryAsync(System.DateTime currentDate, object userState) {
+            if ((this.onBeginGetCompanyHistoryDelegate == null)) {
+                this.onBeginGetCompanyHistoryDelegate = new BeginOperationDelegate(this.OnBeginGetCompanyHistory);
+            }
+            if ((this.onEndGetCompanyHistoryDelegate == null)) {
+                this.onEndGetCompanyHistoryDelegate = new EndOperationDelegate(this.OnEndGetCompanyHistory);
+            }
+            if ((this.onGetCompanyHistoryCompletedDelegate == null)) {
+                this.onGetCompanyHistoryCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCompanyHistoryCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCompanyHistoryDelegate, new object[] {
+                        currentDate}, this.onEndGetCompanyHistoryDelegate, this.onGetCompanyHistoryCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginCompanyHistoryAdd(entity, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndCompanyHistoryAdd(System.IAsyncResult result) {
+            base.Channel.EndCompanyHistoryAdd(result);
+        }
+        
+        private System.IAsyncResult OnBeginCompanyHistoryAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY)(inValues[0]));
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginCompanyHistoryAdd(entity, callback, asyncState);
+        }
+        
+        private object[] OnEndCompanyHistoryAdd(System.IAsyncResult result) {
+            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndCompanyHistoryAdd(result);
+            return null;
+        }
+        
+        private void OnCompanyHistoryAddCompleted(object state) {
+            if ((this.CompanyHistoryAddCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.CompanyHistoryAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void CompanyHistoryAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity) {
+            this.CompanyHistoryAddAsync(entity, null);
+        }
+        
+        public void CompanyHistoryAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, object userState) {
+            if ((this.onBeginCompanyHistoryAddDelegate == null)) {
+                this.onBeginCompanyHistoryAddDelegate = new BeginOperationDelegate(this.OnBeginCompanyHistoryAdd);
+            }
+            if ((this.onEndCompanyHistoryAddDelegate == null)) {
+                this.onEndCompanyHistoryAddDelegate = new EndOperationDelegate(this.OnEndCompanyHistoryAdd);
+            }
+            if ((this.onCompanyHistoryAddCompletedDelegate == null)) {
+                this.onCompanyHistoryAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCompanyHistoryAddCompleted);
+            }
+            base.InvokeAsync(this.onBeginCompanyHistoryAddDelegate, new object[] {
+                        entity}, this.onEndCompanyHistoryAddDelegate, this.onCompanyHistoryAddCompletedDelegate, userState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetCompanyHistoryDate(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetCompanyHistoryDate(System.IAsyncResult result) {
+            return base.Channel.EndGetCompanyHistoryDate(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetCompanyHistoryDate(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetCompanyHistoryDate(callback, asyncState);
+        }
+        
+        private object[] OnEndGetCompanyHistoryDate(System.IAsyncResult result) {
+            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetCompanyHistoryDate(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetCompanyHistoryDateCompleted(object state) {
+            if ((this.GetCompanyHistoryDateCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetCompanyHistoryDateCompleted(this, new GetCompanyHistoryDateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetCompanyHistoryDateAsync() {
+            this.GetCompanyHistoryDateAsync(null);
+        }
+        
+        public void GetCompanyHistoryDateAsync(object userState) {
+            if ((this.onBeginGetCompanyHistoryDateDelegate == null)) {
+                this.onBeginGetCompanyHistoryDateDelegate = new BeginOperationDelegate(this.OnBeginGetCompanyHistoryDate);
+            }
+            if ((this.onEndGetCompanyHistoryDateDelegate == null)) {
+                this.onEndGetCompanyHistoryDateDelegate = new EndOperationDelegate(this.OnEndGetCompanyHistoryDate);
+            }
+            if ((this.onGetCompanyHistoryDateCompletedDelegate == null)) {
+                this.onGetCompanyHistoryDateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCompanyHistoryDateCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetCompanyHistoryDateDelegate, null, this.onEndGetCompanyHistoryDateDelegate, this.onGetCompanyHistoryDateCompletedDelegate, userState);
+        }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetDepartmentHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
@@ -26452,95 +27289,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
             }
             base.InvokeAsync(this.onBeginGetDepartmentBossHeadListDelegate, new object[] {
                         postId}, this.onEndGetDepartmentBossHeadListDelegate, this.onGetDepartmentBossHeadListCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetDepartmentFatherIsForWP(string departmentId, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetDepartmentFatherIsForWP(departmentId, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.OrganizationWS.V_COMPANY SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetDepartmentFatherIsForWP(System.IAsyncResult result) {
-            return base.Channel.EndGetDepartmentFatherIsForWP(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetDepartmentFatherIsForWP(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string departmentId = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetDepartmentFatherIsForWP(departmentId, callback, asyncState);
-        }
-        
-        private object[] OnEndGetDepartmentFatherIsForWP(System.IAsyncResult result) {
-            SMT.Saas.Tools.OrganizationWS.V_COMPANY retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetDepartmentFatherIsForWP(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetDepartmentFatherIsForWPCompleted(object state) {
-            if ((this.GetDepartmentFatherIsForWPCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetDepartmentFatherIsForWPCompleted(this, new GetDepartmentFatherIsForWPCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetDepartmentFatherIsForWPAsync(string departmentId) {
-            this.GetDepartmentFatherIsForWPAsync(departmentId, null);
-        }
-        
-        public void GetDepartmentFatherIsForWPAsync(string departmentId, object userState) {
-            if ((this.onBeginGetDepartmentFatherIsForWPDelegate == null)) {
-                this.onBeginGetDepartmentFatherIsForWPDelegate = new BeginOperationDelegate(this.OnBeginGetDepartmentFatherIsForWP);
-            }
-            if ((this.onEndGetDepartmentFatherIsForWPDelegate == null)) {
-                this.onEndGetDepartmentFatherIsForWPDelegate = new EndOperationDelegate(this.OnEndGetDepartmentFatherIsForWP);
-            }
-            if ((this.onGetDepartmentFatherIsForWPCompletedDelegate == null)) {
-                this.onGetDepartmentFatherIsForWPCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetDepartmentFatherIsForWPCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetDepartmentFatherIsForWPDelegate, new object[] {
-                        departmentId}, this.onEndGetDepartmentFatherIsForWPDelegate, this.onGetDepartmentFatherIsForWPCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginDoWork(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginDoWork(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndDoWork(System.IAsyncResult result) {
-            base.Channel.EndDoWork(result);
-        }
-        
-        private System.IAsyncResult OnBeginDoWork(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginDoWork(callback, asyncState);
-        }
-        
-        private object[] OnEndDoWork(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndDoWork(result);
-            return null;
-        }
-        
-        private void OnDoWorkCompleted(object state) {
-            if ((this.DoWorkCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.DoWorkCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void DoWorkAsync() {
-            this.DoWorkAsync(null);
-        }
-        
-        public void DoWorkAsync(object userState) {
-            if ((this.onBeginDoWorkDelegate == null)) {
-                this.onBeginDoWorkDelegate = new BeginOperationDelegate(this.OnBeginDoWork);
-            }
-            if ((this.onEndDoWorkDelegate == null)) {
-                this.onEndDoWorkDelegate = new EndOperationDelegate(this.OnEndDoWork);
-            }
-            if ((this.onDoWorkCompletedDelegate == null)) {
-                this.onDoWorkCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnDoWorkCompleted);
-            }
-            base.InvokeAsync(this.onBeginDoWorkDelegate, null, this.onEndDoWorkDelegate, this.onDoWorkCompletedDelegate, userState);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -29657,963 +30405,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                         checkState}, this.onEndPostPagingDelegate, this.onPostPagingCompletedDelegate, userState);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPostWithSpecifiedTime(startDate, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostWithSpecifiedTime(System.IAsyncResult result) {
-            return base.Channel.EndGetPostWithSpecifiedTime(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPostWithSpecifiedTime(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string startDate = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostWithSpecifiedTime(startDate, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPostWithSpecifiedTime(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostWithSpecifiedTime(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPostWithSpecifiedTimeCompleted(object state) {
-            if ((this.GetPostWithSpecifiedTimeCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPostWithSpecifiedTimeCompleted(this, new GetPostWithSpecifiedTimeCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPostWithSpecifiedTimeAsync(string startDate) {
-            this.GetPostWithSpecifiedTimeAsync(startDate, null);
-        }
-        
-        public void GetPostWithSpecifiedTimeAsync(string startDate, object userState) {
-            if ((this.onBeginGetPostWithSpecifiedTimeDelegate == null)) {
-                this.onBeginGetPostWithSpecifiedTimeDelegate = new BeginOperationDelegate(this.OnBeginGetPostWithSpecifiedTime);
-            }
-            if ((this.onEndGetPostWithSpecifiedTimeDelegate == null)) {
-                this.onEndGetPostWithSpecifiedTimeDelegate = new EndOperationDelegate(this.OnEndGetPostWithSpecifiedTime);
-            }
-            if ((this.onGetPostWithSpecifiedTimeCompletedDelegate == null)) {
-                this.onGetPostWithSpecifiedTimeCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostWithSpecifiedTimeCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPostWithSpecifiedTimeDelegate, new object[] {
-                        startDate}, this.onEndGetPostWithSpecifiedTimeDelegate, this.onGetPostWithSpecifiedTimeCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPostById(postID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.OrganizationWS.T_HR_POST SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostById(System.IAsyncResult result) {
-            return base.Channel.EndGetPostById(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPostById(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string postID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostById(postID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPostById(System.IAsyncResult result) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_POST retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostById(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPostByIdCompleted(object state) {
-            if ((this.GetPostByIdCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPostByIdCompleted(this, new GetPostByIdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPostByIdAsync(string postID) {
-            this.GetPostByIdAsync(postID, null);
-        }
-        
-        public void GetPostByIdAsync(string postID, object userState) {
-            if ((this.onBeginGetPostByIdDelegate == null)) {
-                this.onBeginGetPostByIdDelegate = new BeginOperationDelegate(this.OnBeginGetPostById);
-            }
-            if ((this.onEndGetPostByIdDelegate == null)) {
-                this.onEndGetPostByIdDelegate = new EndOperationDelegate(this.OnEndGetPostById);
-            }
-            if ((this.onGetPostByIdCompletedDelegate == null)) {
-                this.onGetPostByIdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostByIdCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPostByIdDelegate, new object[] {
-                        postID}, this.onEndGetPostByIdDelegate, this.onGetPostByIdCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginPostAdd(entity, ref strMsg, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostAdd(ref string strMsg, System.IAsyncResult result) {
-            base.Channel.EndPostAdd(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginPostAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_POST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
-            string strMsg = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostAdd(entity, ref strMsg, callback, asyncState);
-        }
-        
-        private object[] OnEndPostAdd(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostAdd(ref strMsg, result);
-            return new object[] {
-                    strMsg};
-        }
-        
-        private void OnPostAddCompleted(object state) {
-            if ((this.PostAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.PostAddCompleted(this, new PostAddCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void PostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg) {
-            this.PostAddAsync(entity, strMsg, null);
-        }
-        
-        public void PostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg, object userState) {
-            if ((this.onBeginPostAddDelegate == null)) {
-                this.onBeginPostAddDelegate = new BeginOperationDelegate(this.OnBeginPostAdd);
-            }
-            if ((this.onEndPostAddDelegate == null)) {
-                this.onEndPostAddDelegate = new EndOperationDelegate(this.OnEndPostAdd);
-            }
-            if ((this.onPostAddCompletedDelegate == null)) {
-                this.onPostAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginPostAddDelegate, new object[] {
-                        entity,
-                        strMsg}, this.onEndPostAddDelegate, this.onPostAddCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginPostUpdate(entity, ref strMsg, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostUpdate(ref string strMsg, System.IAsyncResult result) {
-            base.Channel.EndPostUpdate(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginPostUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_POST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
-            string strMsg = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostUpdate(entity, ref strMsg, callback, asyncState);
-        }
-        
-        private object[] OnEndPostUpdate(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostUpdate(ref strMsg, result);
-            return new object[] {
-                    strMsg};
-        }
-        
-        private void OnPostUpdateCompleted(object state) {
-            if ((this.PostUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.PostUpdateCompleted(this, new PostUpdateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void PostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg) {
-            this.PostUpdateAsync(entity, strMsg, null);
-        }
-        
-        public void PostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, string strMsg, object userState) {
-            if ((this.onBeginPostUpdateDelegate == null)) {
-                this.onBeginPostUpdateDelegate = new BeginOperationDelegate(this.OnBeginPostUpdate);
-            }
-            if ((this.onEndPostUpdateDelegate == null)) {
-                this.onEndPostUpdateDelegate = new EndOperationDelegate(this.OnEndPostUpdate);
-            }
-            if ((this.onPostUpdateCompletedDelegate == null)) {
-                this.onPostUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginPostUpdateDelegate, new object[] {
-                        entity,
-                        strMsg}, this.onEndPostUpdateDelegate, this.onPostUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginPostDelete(postID, ref strMsg, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostDelete(ref string strMsg, System.IAsyncResult result) {
-            base.Channel.EndPostDelete(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginPostDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string postID = ((string)(inValues[0]));
-            string strMsg = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostDelete(postID, ref strMsg, callback, asyncState);
-        }
-        
-        private object[] OnEndPostDelete(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostDelete(ref strMsg, result);
-            return new object[] {
-                    strMsg};
-        }
-        
-        private void OnPostDeleteCompleted(object state) {
-            if ((this.PostDeleteCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.PostDeleteCompleted(this, new PostDeleteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void PostDeleteAsync(string postID, string strMsg) {
-            this.PostDeleteAsync(postID, strMsg, null);
-        }
-        
-        public void PostDeleteAsync(string postID, string strMsg, object userState) {
-            if ((this.onBeginPostDeleteDelegate == null)) {
-                this.onBeginPostDeleteDelegate = new BeginOperationDelegate(this.OnBeginPostDelete);
-            }
-            if ((this.onEndPostDeleteDelegate == null)) {
-                this.onEndPostDeleteDelegate = new EndOperationDelegate(this.OnEndPostDelete);
-            }
-            if ((this.onPostDeleteCompletedDelegate == null)) {
-                this.onPostDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostDeleteCompleted);
-            }
-            base.InvokeAsync(this.onBeginPostDeleteDelegate, new object[] {
-                        postID,
-                        strMsg}, this.onEndPostDeleteDelegate, this.onPostDeleteCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginPostCancel(postID, ref strMsg, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndPostCancel(ref string strMsg, System.IAsyncResult result) {
-            base.Channel.EndPostCancel(ref strMsg, result);
-        }
-        
-        private System.IAsyncResult OnBeginPostCancel(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_POST postID = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(inValues[0]));
-            string strMsg = ((string)(inValues[1]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginPostCancel(postID, ref strMsg, callback, asyncState);
-        }
-        
-        private object[] OnEndPostCancel(System.IAsyncResult result) {
-            string strMsg = this.GetDefaultValueForInitialization<string>();
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndPostCancel(ref strMsg, result);
-            return new object[] {
-                    strMsg};
-        }
-        
-        private void OnPostCancelCompleted(object state) {
-            if ((this.PostCancelCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.PostCancelCompleted(this, new PostCancelCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void PostCancelAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, string strMsg) {
-            this.PostCancelAsync(postID, strMsg, null);
-        }
-        
-        public void PostCancelAsync(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, string strMsg, object userState) {
-            if ((this.onBeginPostCancelDelegate == null)) {
-                this.onBeginPostCancelDelegate = new BeginOperationDelegate(this.OnBeginPostCancel);
-            }
-            if ((this.onEndPostCancelDelegate == null)) {
-                this.onEndPostCancelDelegate = new EndOperationDelegate(this.OnEndPostCancel);
-            }
-            if ((this.onPostCancelCompletedDelegate == null)) {
-                this.onPostCancelCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnPostCancelCompleted);
-            }
-            base.InvokeAsync(this.onBeginPostCancelDelegate, new object[] {
-                        postID,
-                        strMsg}, this.onEndPostCancelDelegate, this.onPostCancelCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetPostNumber(postID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetPostNumber(System.IAsyncResult result) {
-            return base.Channel.EndGetPostNumber(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetPostNumber(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string postID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetPostNumber(postID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetPostNumber(System.IAsyncResult result) {
-            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetPostNumber(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetPostNumberCompleted(object state) {
-            if ((this.GetPostNumberCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetPostNumberCompleted(this, new GetPostNumberCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetPostNumberAsync(string postID) {
-            this.GetPostNumberAsync(postID, null);
-        }
-        
-        public void GetPostNumberAsync(string postID, object userState) {
-            if ((this.onBeginGetPostNumberDelegate == null)) {
-                this.onBeginGetPostNumberDelegate = new BeginOperationDelegate(this.OnBeginGetPostNumber);
-            }
-            if ((this.onEndGetPostNumberDelegate == null)) {
-                this.onEndGetPostNumberDelegate = new EndOperationDelegate(this.OnEndGetPostNumber);
-            }
-            if ((this.onGetPostNumberCompletedDelegate == null)) {
-                this.onGetPostNumberCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetPostNumberCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetPostNumberDelegate, new object[] {
-                        postID}, this.onEndGetPostNumberDelegate, this.onGetPostNumberCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginIsFatherPost(postID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.OrganizationWS.OrganizationService.EndIsFatherPost(System.IAsyncResult result) {
-            return base.Channel.EndIsFatherPost(result);
-        }
-        
-        private System.IAsyncResult OnBeginIsFatherPost(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string postID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginIsFatherPost(postID, callback, asyncState);
-        }
-        
-        private object[] OnEndIsFatherPost(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndIsFatherPost(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnIsFatherPostCompleted(object state) {
-            if ((this.IsFatherPostCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.IsFatherPostCompleted(this, new IsFatherPostCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void IsFatherPostAsync(string postID) {
-            this.IsFatherPostAsync(postID, null);
-        }
-        
-        public void IsFatherPostAsync(string postID, object userState) {
-            if ((this.onBeginIsFatherPostDelegate == null)) {
-                this.onBeginIsFatherPostDelegate = new BeginOperationDelegate(this.OnBeginIsFatherPost);
-            }
-            if ((this.onEndIsFatherPostDelegate == null)) {
-                this.onEndIsFatherPostDelegate = new EndOperationDelegate(this.OnEndIsFatherPost);
-            }
-            if ((this.onIsFatherPostCompletedDelegate == null)) {
-                this.onIsFatherPostCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnIsFatherPostCompleted);
-            }
-            base.InvokeAsync(this.onBeginIsFatherPostDelegate, new object[] {
-                        postID}, this.onEndIsFatherPostDelegate, this.onIsFatherPostCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetAllPostByDepartId(DepartmentID, IsAll, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetAllPostByDepartId(System.IAsyncResult result) {
-            return base.Channel.EndGetAllPostByDepartId(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetAllPostByDepartId(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string DepartmentID = ((string)(inValues[0]));
-            bool IsAll = ((bool)(inValues[1]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetAllPostByDepartId(DepartmentID, IsAll, callback, asyncState);
-        }
-        
-        private object[] OnEndGetAllPostByDepartId(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetAllPostByDepartId(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetAllPostByDepartIdCompleted(object state) {
-            if ((this.GetAllPostByDepartIdCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetAllPostByDepartIdCompleted(this, new GetAllPostByDepartIdCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetAllPostByDepartIdAsync(string DepartmentID, bool IsAll) {
-            this.GetAllPostByDepartIdAsync(DepartmentID, IsAll, null);
-        }
-        
-        public void GetAllPostByDepartIdAsync(string DepartmentID, bool IsAll, object userState) {
-            if ((this.onBeginGetAllPostByDepartIdDelegate == null)) {
-                this.onBeginGetAllPostByDepartIdDelegate = new BeginOperationDelegate(this.OnBeginGetAllPostByDepartId);
-            }
-            if ((this.onEndGetAllPostByDepartIdDelegate == null)) {
-                this.onEndGetAllPostByDepartIdDelegate = new EndOperationDelegate(this.OnEndGetAllPostByDepartId);
-            }
-            if ((this.onGetAllPostByDepartIdCompletedDelegate == null)) {
-                this.onGetAllPostByDepartIdCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetAllPostByDepartIdCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetAllPostByDepartIdDelegate, new object[] {
-                        DepartmentID,
-                        IsAll}, this.onEndGetAllPostByDepartIdDelegate, this.onGetAllPostByDepartIdCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetLackPostEmployeeCount(PostID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetLackPostEmployeeCount(System.IAsyncResult result) {
-            return base.Channel.EndGetLackPostEmployeeCount(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetLackPostEmployeeCount(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string PostID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetLackPostEmployeeCount(PostID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetLackPostEmployeeCount(System.IAsyncResult result) {
-            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetLackPostEmployeeCount(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetLackPostEmployeeCountCompleted(object state) {
-            if ((this.GetLackPostEmployeeCountCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetLackPostEmployeeCountCompleted(this, new GetLackPostEmployeeCountCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetLackPostEmployeeCountAsync(string PostID) {
-            this.GetLackPostEmployeeCountAsync(PostID, null);
-        }
-        
-        public void GetLackPostEmployeeCountAsync(string PostID, object userState) {
-            if ((this.onBeginGetLackPostEmployeeCountDelegate == null)) {
-                this.onBeginGetLackPostEmployeeCountDelegate = new BeginOperationDelegate(this.OnBeginGetLackPostEmployeeCount);
-            }
-            if ((this.onEndGetLackPostEmployeeCountDelegate == null)) {
-                this.onEndGetLackPostEmployeeCountDelegate = new EndOperationDelegate(this.OnEndGetLackPostEmployeeCount);
-            }
-            if ((this.onGetLackPostEmployeeCountCompletedDelegate == null)) {
-                this.onGetLackPostEmployeeCountCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLackPostEmployeeCountCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetLackPostEmployeeCountDelegate, new object[] {
-                        PostID}, this.onEndGetLackPostEmployeeCountDelegate, this.onGetLackPostEmployeeCountCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetOnPostEmployeeCount(PostID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        int SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetOnPostEmployeeCount(System.IAsyncResult result) {
-            return base.Channel.EndGetOnPostEmployeeCount(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetOnPostEmployeeCount(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string PostID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetOnPostEmployeeCount(PostID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetOnPostEmployeeCount(System.IAsyncResult result) {
-            int retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetOnPostEmployeeCount(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetOnPostEmployeeCountCompleted(object state) {
-            if ((this.GetOnPostEmployeeCountCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetOnPostEmployeeCountCompleted(this, new GetOnPostEmployeeCountCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetOnPostEmployeeCountAsync(string PostID) {
-            this.GetOnPostEmployeeCountAsync(PostID, null);
-        }
-        
-        public void GetOnPostEmployeeCountAsync(string PostID, object userState) {
-            if ((this.onBeginGetOnPostEmployeeCountDelegate == null)) {
-                this.onBeginGetOnPostEmployeeCountDelegate = new BeginOperationDelegate(this.OnBeginGetOnPostEmployeeCount);
-            }
-            if ((this.onEndGetOnPostEmployeeCountDelegate == null)) {
-                this.onEndGetOnPostEmployeeCountDelegate = new EndOperationDelegate(this.OnEndGetOnPostEmployeeCount);
-            }
-            if ((this.onGetOnPostEmployeeCountCompletedDelegate == null)) {
-                this.onGetOnPostEmployeeCountCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetOnPostEmployeeCountCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetOnPostEmployeeCountDelegate, new object[] {
-                        PostID}, this.onEndGetOnPostEmployeeCountDelegate, this.onGetOnPostEmployeeCountCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRelationPostPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostPaging(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndRelationPostPaging(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginRelationPostPaging(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            int pageIndex = ((int)(inValues[0]));
-            int pageSize = ((int)(inValues[1]));
-            string sort = ((string)(inValues[2]));
-            string filterString = ((string)(inValues[3]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[4]));
-            int pageCount = ((int)(inValues[5]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostPaging(pageIndex, pageSize, sort, filterString, paras, ref pageCount, callback, asyncState);
-        }
-        
-        private object[] OnEndRelationPostPaging(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostPaging(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnRelationPostPagingCompleted(object state) {
-            if ((this.RelationPostPagingCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RelationPostPagingCompleted(this, new RelationPostPagingCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RelationPostPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount) {
-            this.RelationPostPagingAsync(pageIndex, pageSize, sort, filterString, paras, pageCount, null);
-        }
-        
-        public void RelationPostPagingAsync(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, object userState) {
-            if ((this.onBeginRelationPostPagingDelegate == null)) {
-                this.onBeginRelationPostPagingDelegate = new BeginOperationDelegate(this.OnBeginRelationPostPaging);
-            }
-            if ((this.onEndRelationPostPagingDelegate == null)) {
-                this.onEndRelationPostPagingDelegate = new EndOperationDelegate(this.OnEndRelationPostPaging);
-            }
-            if ((this.onRelationPostPagingCompletedDelegate == null)) {
-                this.onRelationPostPagingCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostPagingCompleted);
-            }
-            base.InvokeAsync(this.onBeginRelationPostPagingDelegate, new object[] {
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount}, this.onEndRelationPostPagingDelegate, this.onRelationPostPagingCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRelationPostAdd(entity, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostAdd(System.IAsyncResult result) {
-            base.Channel.EndRelationPostAdd(result);
-        }
-        
-        private System.IAsyncResult OnBeginRelationPostAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostAdd(entity, callback, asyncState);
-        }
-        
-        private object[] OnEndRelationPostAdd(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostAdd(result);
-            return null;
-        }
-        
-        private void OnRelationPostAddCompleted(object state) {
-            if ((this.RelationPostAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RelationPostAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RelationPostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity) {
-            this.RelationPostAddAsync(entity, null);
-        }
-        
-        public void RelationPostAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, object userState) {
-            if ((this.onBeginRelationPostAddDelegate == null)) {
-                this.onBeginRelationPostAddDelegate = new BeginOperationDelegate(this.OnBeginRelationPostAdd);
-            }
-            if ((this.onEndRelationPostAddDelegate == null)) {
-                this.onEndRelationPostAddDelegate = new EndOperationDelegate(this.OnEndRelationPostAdd);
-            }
-            if ((this.onRelationPostAddCompletedDelegate == null)) {
-                this.onRelationPostAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginRelationPostAddDelegate, new object[] {
-                        entity}, this.onEndRelationPostAddDelegate, this.onRelationPostAddCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRelationPostUpdate(entity, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostUpdate(System.IAsyncResult result) {
-            base.Channel.EndRelationPostUpdate(result);
-        }
-        
-        private System.IAsyncResult OnBeginRelationPostUpdate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostUpdate(entity, callback, asyncState);
-        }
-        
-        private object[] OnEndRelationPostUpdate(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostUpdate(result);
-            return null;
-        }
-        
-        private void OnRelationPostUpdateCompleted(object state) {
-            if ((this.RelationPostUpdateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RelationPostUpdateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RelationPostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity) {
-            this.RelationPostUpdateAsync(entity, null);
-        }
-        
-        public void RelationPostUpdateAsync(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, object userState) {
-            if ((this.onBeginRelationPostUpdateDelegate == null)) {
-                this.onBeginRelationPostUpdateDelegate = new BeginOperationDelegate(this.OnBeginRelationPostUpdate);
-            }
-            if ((this.onEndRelationPostUpdateDelegate == null)) {
-                this.onEndRelationPostUpdateDelegate = new EndOperationDelegate(this.OnEndRelationPostUpdate);
-            }
-            if ((this.onRelationPostUpdateCompletedDelegate == null)) {
-                this.onRelationPostUpdateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostUpdateCompleted);
-            }
-            base.InvokeAsync(this.onBeginRelationPostUpdateDelegate, new object[] {
-                        entity}, this.onEndRelationPostUpdateDelegate, this.onRelationPostUpdateCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginRelationPostDelete(relationPostIDs, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        bool SMT.Saas.Tools.OrganizationWS.OrganizationService.EndRelationPostDelete(System.IAsyncResult result) {
-            return base.Channel.EndRelationPostDelete(result);
-        }
-        
-        private System.IAsyncResult OnBeginRelationPostDelete(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs = ((System.Collections.ObjectModel.ObservableCollection<string>)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginRelationPostDelete(relationPostIDs, callback, asyncState);
-        }
-        
-        private object[] OnEndRelationPostDelete(System.IAsyncResult result) {
-            bool retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndRelationPostDelete(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnRelationPostDeleteCompleted(object state) {
-            if ((this.RelationPostDeleteCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.RelationPostDeleteCompleted(this, new RelationPostDeleteCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void RelationPostDeleteAsync(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs) {
-            this.RelationPostDeleteAsync(relationPostIDs, null);
-        }
-        
-        public void RelationPostDeleteAsync(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, object userState) {
-            if ((this.onBeginRelationPostDeleteDelegate == null)) {
-                this.onBeginRelationPostDeleteDelegate = new BeginOperationDelegate(this.OnBeginRelationPostDelete);
-            }
-            if ((this.onEndRelationPostDeleteDelegate == null)) {
-                this.onEndRelationPostDeleteDelegate = new EndOperationDelegate(this.OnEndRelationPostDelete);
-            }
-            if ((this.onRelationPostDeleteCompletedDelegate == null)) {
-                this.onRelationPostDeleteCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRelationPostDeleteCompleted);
-            }
-            base.InvokeAsync(this.onBeginRelationPostDeleteDelegate, new object[] {
-                        relationPostIDs}, this.onEndRelationPostDeleteDelegate, this.onRelationPostDeleteCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetRelationPostByID(strID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetRelationPostByID(System.IAsyncResult result) {
-            return base.Channel.EndGetRelationPostByID(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetRelationPostByID(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            string strID = ((string)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetRelationPostByID(strID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetRelationPostByID(System.IAsyncResult result) {
-            SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetRelationPostByID(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetRelationPostByIDCompleted(object state) {
-            if ((this.GetRelationPostByIDCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetRelationPostByIDCompleted(this, new GetRelationPostByIDCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetRelationPostByIDAsync(string strID) {
-            this.GetRelationPostByIDAsync(strID, null);
-        }
-        
-        public void GetRelationPostByIDAsync(string strID, object userState) {
-            if ((this.onBeginGetRelationPostByIDDelegate == null)) {
-                this.onBeginGetRelationPostByIDDelegate = new BeginOperationDelegate(this.OnBeginGetRelationPostByID);
-            }
-            if ((this.onEndGetRelationPostByIDDelegate == null)) {
-                this.onEndGetRelationPostByIDDelegate = new EndOperationDelegate(this.OnEndGetRelationPostByID);
-            }
-            if ((this.onGetRelationPostByIDCompletedDelegate == null)) {
-                this.onGetRelationPostByIDCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetRelationPostByIDCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetRelationPostByIDDelegate, new object[] {
-                        strID}, this.onEndGetRelationPostByIDDelegate, this.onGetRelationPostByIDCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetLookupOjbects(entityName, pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        string SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
-            return base.Channel.EndGetLookupOjbects(ref pageCount, result);
-        }
-        
-        private System.IAsyncResult OnBeginGetLookupOjbects(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.EntityNames entityName = ((SMT.Saas.Tools.OrganizationWS.EntityNames)(inValues[0]));
-            int pageIndex = ((int)(inValues[1]));
-            int pageSize = ((int)(inValues[2]));
-            string sort = ((string)(inValues[3]));
-            string filterString = ((string)(inValues[4]));
-            System.Collections.ObjectModel.ObservableCollection<object> paras = ((System.Collections.ObjectModel.ObservableCollection<object>)(inValues[5]));
-            int pageCount = ((int)(inValues[6]));
-            string userID = ((string)(inValues[7]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetLookupOjbects(entityName, pageIndex, pageSize, sort, filterString, paras, ref pageCount, userID, callback, asyncState);
-        }
-        
-        private object[] OnEndGetLookupOjbects(System.IAsyncResult result) {
-            int pageCount = this.GetDefaultValueForInitialization<int>();
-            string retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetLookupOjbects(ref pageCount, result);
-            return new object[] {
-                    pageCount,
-                    retVal};
-        }
-        
-        private void OnGetLookupOjbectsCompleted(object state) {
-            if ((this.GetLookupOjbectsCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetLookupOjbectsCompleted(this, new GetLookupOjbectsCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetLookupOjbectsAsync(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID) {
-            this.GetLookupOjbectsAsync(entityName, pageIndex, pageSize, sort, filterString, paras, pageCount, userID, null);
-        }
-        
-        public void GetLookupOjbectsAsync(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, int pageCount, string userID, object userState) {
-            if ((this.onBeginGetLookupOjbectsDelegate == null)) {
-                this.onBeginGetLookupOjbectsDelegate = new BeginOperationDelegate(this.OnBeginGetLookupOjbects);
-            }
-            if ((this.onEndGetLookupOjbectsDelegate == null)) {
-                this.onEndGetLookupOjbectsDelegate = new EndOperationDelegate(this.OnEndGetLookupOjbects);
-            }
-            if ((this.onGetLookupOjbectsCompletedDelegate == null)) {
-                this.onGetLookupOjbectsCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetLookupOjbectsCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetLookupOjbectsDelegate, new object[] {
-                        entityName,
-                        pageIndex,
-                        pageSize,
-                        sort,
-                        filterString,
-                        paras,
-                        pageCount,
-                        userID}, this.onEndGetLookupOjbectsDelegate, this.onGetLookupOjbectsCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetCompanyHistory(currentDate, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetCompanyHistory(System.IAsyncResult result) {
-            return base.Channel.EndGetCompanyHistory(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetCompanyHistory(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            System.DateTime currentDate = ((System.DateTime)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetCompanyHistory(currentDate, callback, asyncState);
-        }
-        
-        private object[] OnEndGetCompanyHistory(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetCompanyHistory(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetCompanyHistoryCompleted(object state) {
-            if ((this.GetCompanyHistoryCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetCompanyHistoryCompleted(this, new GetCompanyHistoryCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetCompanyHistoryAsync(System.DateTime currentDate) {
-            this.GetCompanyHistoryAsync(currentDate, null);
-        }
-        
-        public void GetCompanyHistoryAsync(System.DateTime currentDate, object userState) {
-            if ((this.onBeginGetCompanyHistoryDelegate == null)) {
-                this.onBeginGetCompanyHistoryDelegate = new BeginOperationDelegate(this.OnBeginGetCompanyHistory);
-            }
-            if ((this.onEndGetCompanyHistoryDelegate == null)) {
-                this.onEndGetCompanyHistoryDelegate = new EndOperationDelegate(this.OnEndGetCompanyHistory);
-            }
-            if ((this.onGetCompanyHistoryCompletedDelegate == null)) {
-                this.onGetCompanyHistoryCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCompanyHistoryCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetCompanyHistoryDelegate, new object[] {
-                        currentDate}, this.onEndGetCompanyHistoryDelegate, this.onGetCompanyHistoryCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginCompanyHistoryAdd(entity, callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        void SMT.Saas.Tools.OrganizationWS.OrganizationService.EndCompanyHistoryAdd(System.IAsyncResult result) {
-            base.Channel.EndCompanyHistoryAdd(result);
-        }
-        
-        private System.IAsyncResult OnBeginCompanyHistoryAdd(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity = ((SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY)(inValues[0]));
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginCompanyHistoryAdd(entity, callback, asyncState);
-        }
-        
-        private object[] OnEndCompanyHistoryAdd(System.IAsyncResult result) {
-            ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndCompanyHistoryAdd(result);
-            return null;
-        }
-        
-        private void OnCompanyHistoryAddCompleted(object state) {
-            if ((this.CompanyHistoryAddCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.CompanyHistoryAddCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void CompanyHistoryAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity) {
-            this.CompanyHistoryAddAsync(entity, null);
-        }
-        
-        public void CompanyHistoryAddAsync(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, object userState) {
-            if ((this.onBeginCompanyHistoryAddDelegate == null)) {
-                this.onBeginCompanyHistoryAddDelegate = new BeginOperationDelegate(this.OnBeginCompanyHistoryAdd);
-            }
-            if ((this.onEndCompanyHistoryAddDelegate == null)) {
-                this.onEndCompanyHistoryAddDelegate = new EndOperationDelegate(this.OnEndCompanyHistoryAdd);
-            }
-            if ((this.onCompanyHistoryAddCompletedDelegate == null)) {
-                this.onCompanyHistoryAddCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnCompanyHistoryAddCompleted);
-            }
-            base.InvokeAsync(this.onBeginCompanyHistoryAddDelegate, new object[] {
-                        entity}, this.onEndCompanyHistoryAddDelegate, this.onCompanyHistoryAddCompletedDelegate, userState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.IAsyncResult SMT.Saas.Tools.OrganizationWS.OrganizationService.BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState) {
-            return base.Channel.BeginGetCompanyHistoryDate(callback, asyncState);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> SMT.Saas.Tools.OrganizationWS.OrganizationService.EndGetCompanyHistoryDate(System.IAsyncResult result) {
-            return base.Channel.EndGetCompanyHistoryDate(result);
-        }
-        
-        private System.IAsyncResult OnBeginGetCompanyHistoryDate(object[] inValues, System.AsyncCallback callback, object asyncState) {
-            return ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).BeginGetCompanyHistoryDate(callback, asyncState);
-        }
-        
-        private object[] OnEndGetCompanyHistoryDate(System.IAsyncResult result) {
-            System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> retVal = ((SMT.Saas.Tools.OrganizationWS.OrganizationService)(this)).EndGetCompanyHistoryDate(result);
-            return new object[] {
-                    retVal};
-        }
-        
-        private void OnGetCompanyHistoryDateCompleted(object state) {
-            if ((this.GetCompanyHistoryDateCompleted != null)) {
-                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
-                this.GetCompanyHistoryDateCompleted(this, new GetCompanyHistoryDateCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
-            }
-        }
-        
-        public void GetCompanyHistoryDateAsync() {
-            this.GetCompanyHistoryDateAsync(null);
-        }
-        
-        public void GetCompanyHistoryDateAsync(object userState) {
-            if ((this.onBeginGetCompanyHistoryDateDelegate == null)) {
-                this.onBeginGetCompanyHistoryDateDelegate = new BeginOperationDelegate(this.OnBeginGetCompanyHistoryDate);
-            }
-            if ((this.onEndGetCompanyHistoryDateDelegate == null)) {
-                this.onEndGetCompanyHistoryDateDelegate = new EndOperationDelegate(this.OnEndGetCompanyHistoryDate);
-            }
-            if ((this.onGetCompanyHistoryDateCompletedDelegate == null)) {
-                this.onGetCompanyHistoryDateCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetCompanyHistoryDateCompleted);
-            }
-            base.InvokeAsync(this.onBeginGetCompanyHistoryDateDelegate, null, this.onEndGetCompanyHistoryDateDelegate, this.onGetCompanyHistoryDateCompletedDelegate, userState);
-        }
-        
         private System.IAsyncResult OnBeginOpen(object[] inValues, System.AsyncCallback callback, object asyncState) {
             return ((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(callback, asyncState);
         }
@@ -30688,6 +30479,293 @@ namespace SMT.Saas.Tools.OrganizationWS {
             
             public OrganizationServiceClientChannel(System.ServiceModel.ClientBase<SMT.Saas.Tools.OrganizationWS.OrganizationService> client) : 
                     base(client) {
+            }
+            
+            public System.IAsyncResult BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = startDate;
+                System.IAsyncResult _result = base.BeginInvoke("GetPostWithSpecifiedTime", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetPostWithSpecifiedTime(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(base.EndInvoke("GetPostWithSpecifiedTime", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = postID;
+                System.IAsyncResult _result = base.BeginInvoke("GetPostById", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.OrganizationWS.T_HR_POST EndGetPostById(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.OrganizationWS.T_HR_POST _result = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(base.EndInvoke("GetPostById", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = entity;
+                _args[1] = strMsg;
+                System.IAsyncResult _result = base.BeginInvoke("PostAdd", _args, callback, asyncState);
+                strMsg = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public void EndPostAdd(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                base.EndInvoke("PostAdd", _args, result);
+                strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = entity;
+                _args[1] = strMsg;
+                System.IAsyncResult _result = base.BeginInvoke("PostUpdate", _args, callback, asyncState);
+                strMsg = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public void EndPostUpdate(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                base.EndInvoke("PostUpdate", _args, result);
+                strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = postID;
+                _args[1] = strMsg;
+                System.IAsyncResult _result = base.BeginInvoke("PostDelete", _args, callback, asyncState);
+                strMsg = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public void EndPostDelete(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                base.EndInvoke("PostDelete", _args, result);
+                strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = postID;
+                _args[1] = strMsg;
+                System.IAsyncResult _result = base.BeginInvoke("PostCancel", _args, callback, asyncState);
+                strMsg = ((string)(_args[1]));
+                return _result;
+            }
+            
+            public void EndPostCancel(ref string strMsg, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = strMsg;
+                base.EndInvoke("PostCancel", _args, result);
+                strMsg = ((string)(_args[0]));
+            }
+            
+            public System.IAsyncResult BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = postID;
+                System.IAsyncResult _result = base.BeginInvoke("GetPostNumber", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndGetPostNumber(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("GetPostNumber", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = postID;
+                System.IAsyncResult _result = base.BeginInvoke("IsFatherPost", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndIsFatherPost(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("IsFatherPost", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[2];
+                _args[0] = DepartmentID;
+                _args[1] = IsAll;
+                System.IAsyncResult _result = base.BeginInvoke("GetAllPostByDepartId", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetAllPostByDepartId(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(base.EndInvoke("GetAllPostByDepartId", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = PostID;
+                System.IAsyncResult _result = base.BeginInvoke("GetLackPostEmployeeCount", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndGetLackPostEmployeeCount(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("GetLackPostEmployeeCount", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = PostID;
+                System.IAsyncResult _result = base.BeginInvoke("GetOnPostEmployeeCount", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public int EndGetOnPostEmployeeCount(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                int _result = ((int)(base.EndInvoke("GetOnPostEmployeeCount", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[6];
+                _args[0] = pageIndex;
+                _args[1] = pageSize;
+                _args[2] = sort;
+                _args[3] = filterString;
+                _args[4] = paras;
+                _args[5] = pageCount;
+                System.IAsyncResult _result = base.BeginInvoke("RelationPostPaging", _args, callback, asyncState);
+                pageCount = ((int)(_args[5]));
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> EndRelationPostPaging(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>)(base.EndInvoke("RelationPostPaging", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entity;
+                System.IAsyncResult _result = base.BeginInvoke("RelationPostAdd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndRelationPostAdd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("RelationPostAdd", _args, result);
+            }
+            
+            public System.IAsyncResult BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entity;
+                System.IAsyncResult _result = base.BeginInvoke("RelationPostUpdate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndRelationPostUpdate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("RelationPostUpdate", _args, result);
+            }
+            
+            public System.IAsyncResult BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = relationPostIDs;
+                System.IAsyncResult _result = base.BeginInvoke("RelationPostDelete", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public bool EndRelationPostDelete(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                bool _result = ((bool)(base.EndInvoke("RelationPostDelete", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = strID;
+                System.IAsyncResult _result = base.BeginInvoke("GetRelationPostByID", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST EndGetRelationPostByID(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST _result = ((SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST)(base.EndInvoke("GetRelationPostByID", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[8];
+                _args[0] = entityName;
+                _args[1] = pageIndex;
+                _args[2] = pageSize;
+                _args[3] = sort;
+                _args[4] = filterString;
+                _args[5] = paras;
+                _args[6] = pageCount;
+                _args[7] = userID;
+                System.IAsyncResult _result = base.BeginInvoke("GetLookupOjbects", _args, callback, asyncState);
+                pageCount = ((int)(_args[6]));
+                return _result;
+            }
+            
+            public string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
+                object[] _args = new object[1];
+                _args[0] = pageCount;
+                string _result = ((string)(base.EndInvoke("GetLookupOjbects", _args, result)));
+                pageCount = ((int)(_args[0]));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = currentDate;
+                System.IAsyncResult _result = base.BeginInvoke("GetCompanyHistory", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistory(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(base.EndInvoke("GetCompanyHistory", _args, result)));
+                return _result;
+            }
+            
+            public System.IAsyncResult BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[1];
+                _args[0] = entity;
+                System.IAsyncResult _result = base.BeginInvoke("CompanyHistoryAdd", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public void EndCompanyHistoryAdd(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                base.EndInvoke("CompanyHistoryAdd", _args, result);
+            }
+            
+            public System.IAsyncResult BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState) {
+                object[] _args = new object[0];
+                System.IAsyncResult _result = base.BeginInvoke("GetCompanyHistoryDate", _args, callback, asyncState);
+                return _result;
+            }
+            
+            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistoryDate(System.IAsyncResult result) {
+                object[] _args = new object[0];
+                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(base.EndInvoke("GetCompanyHistoryDate", _args, result)));
+                return _result;
             }
             
             public System.IAsyncResult BeginGetDepartmentHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
@@ -30847,30 +30925,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                 object[] _args = new object[0];
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT>)(base.EndInvoke("GetDepartmentBossHeadList", _args, result)));
                 return _result;
-            }
-            
-            public System.IAsyncResult BeginGetDepartmentFatherIsForWP(string departmentId, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = departmentId;
-                System.IAsyncResult _result = base.BeginInvoke("GetDepartmentFatherIsForWP", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.OrganizationWS.V_COMPANY EndGetDepartmentFatherIsForWP(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.OrganizationWS.V_COMPANY _result = ((SMT.Saas.Tools.OrganizationWS.V_COMPANY)(base.EndInvoke("GetDepartmentFatherIsForWP", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginDoWork(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("DoWork", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndDoWork(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("DoWork", _args, result);
             }
             
             public System.IAsyncResult BeginDoDrive(System.AsyncCallback callback, object asyncState) {
@@ -31822,293 +31876,6 @@ namespace SMT.Saas.Tools.OrganizationWS {
                 _args[0] = pageCount;
                 System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(base.EndInvoke("PostPaging", _args, result)));
                 pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetPostWithSpecifiedTime(string startDate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = startDate;
-                System.IAsyncResult _result = base.BeginInvoke("GetPostWithSpecifiedTime", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetPostWithSpecifiedTime(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(base.EndInvoke("GetPostWithSpecifiedTime", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetPostById(string postID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = postID;
-                System.IAsyncResult _result = base.BeginInvoke("GetPostById", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.OrganizationWS.T_HR_POST EndGetPostById(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.OrganizationWS.T_HR_POST _result = ((SMT.Saas.Tools.OrganizationWS.T_HR_POST)(base.EndInvoke("GetPostById", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = entity;
-                _args[1] = strMsg;
-                System.IAsyncResult _result = base.BeginInvoke("PostAdd", _args, callback, asyncState);
-                strMsg = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public void EndPostAdd(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                base.EndInvoke("PostAdd", _args, result);
-                strMsg = ((string)(_args[0]));
-            }
-            
-            public System.IAsyncResult BeginPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_POST entity, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = entity;
-                _args[1] = strMsg;
-                System.IAsyncResult _result = base.BeginInvoke("PostUpdate", _args, callback, asyncState);
-                strMsg = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public void EndPostUpdate(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                base.EndInvoke("PostUpdate", _args, result);
-                strMsg = ((string)(_args[0]));
-            }
-            
-            public System.IAsyncResult BeginPostDelete(string postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = postID;
-                _args[1] = strMsg;
-                System.IAsyncResult _result = base.BeginInvoke("PostDelete", _args, callback, asyncState);
-                strMsg = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public void EndPostDelete(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                base.EndInvoke("PostDelete", _args, result);
-                strMsg = ((string)(_args[0]));
-            }
-            
-            public System.IAsyncResult BeginPostCancel(SMT.Saas.Tools.OrganizationWS.T_HR_POST postID, ref string strMsg, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = postID;
-                _args[1] = strMsg;
-                System.IAsyncResult _result = base.BeginInvoke("PostCancel", _args, callback, asyncState);
-                strMsg = ((string)(_args[1]));
-                return _result;
-            }
-            
-            public void EndPostCancel(ref string strMsg, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = strMsg;
-                base.EndInvoke("PostCancel", _args, result);
-                strMsg = ((string)(_args[0]));
-            }
-            
-            public System.IAsyncResult BeginGetPostNumber(string postID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = postID;
-                System.IAsyncResult _result = base.BeginInvoke("GetPostNumber", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public int EndGetPostNumber(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                int _result = ((int)(base.EndInvoke("GetPostNumber", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginIsFatherPost(string postID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = postID;
-                System.IAsyncResult _result = base.BeginInvoke("IsFatherPost", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndIsFatherPost(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("IsFatherPost", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetAllPostByDepartId(string DepartmentID, bool IsAll, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[2];
-                _args[0] = DepartmentID;
-                _args[1] = IsAll;
-                System.IAsyncResult _result = base.BeginInvoke("GetAllPostByDepartId", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> EndGetAllPostByDepartId(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_POST>)(base.EndInvoke("GetAllPostByDepartId", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetLackPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = PostID;
-                System.IAsyncResult _result = base.BeginInvoke("GetLackPostEmployeeCount", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public int EndGetLackPostEmployeeCount(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                int _result = ((int)(base.EndInvoke("GetLackPostEmployeeCount", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetOnPostEmployeeCount(string PostID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = PostID;
-                System.IAsyncResult _result = base.BeginInvoke("GetOnPostEmployeeCount", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public int EndGetOnPostEmployeeCount(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                int _result = ((int)(base.EndInvoke("GetOnPostEmployeeCount", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginRelationPostPaging(int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[6];
-                _args[0] = pageIndex;
-                _args[1] = pageSize;
-                _args[2] = sort;
-                _args[3] = filterString;
-                _args[4] = paras;
-                _args[5] = pageCount;
-                System.IAsyncResult _result = base.BeginInvoke("RelationPostPaging", _args, callback, asyncState);
-                pageCount = ((int)(_args[5]));
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> EndRelationPostPaging(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST>)(base.EndInvoke("RelationPostPaging", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginRelationPostAdd(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = entity;
-                System.IAsyncResult _result = base.BeginInvoke("RelationPostAdd", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndRelationPostAdd(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("RelationPostAdd", _args, result);
-            }
-            
-            public System.IAsyncResult BeginRelationPostUpdate(SMT.Saas.Tools.OrganizationWS.T_HR_RELATIONPOST entity, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = entity;
-                System.IAsyncResult _result = base.BeginInvoke("RelationPostUpdate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndRelationPostUpdate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("RelationPostUpdate", _args, result);
-            }
-            
-            public System.IAsyncResult BeginRelationPostDelete(System.Collections.ObjectModel.ObservableCollection<string> relationPostIDs, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = relationPostIDs;
-                System.IAsyncResult _result = base.BeginInvoke("RelationPostDelete", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public bool EndRelationPostDelete(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                bool _result = ((bool)(base.EndInvoke("RelationPostDelete", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetRelationPostByID(string strID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = strID;
-                System.IAsyncResult _result = base.BeginInvoke("GetRelationPostByID", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST EndGetRelationPostByID(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST _result = ((SMT.Saas.Tools.OrganizationWS.V_RELATIONPOST)(base.EndInvoke("GetRelationPostByID", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetLookupOjbects(SMT.Saas.Tools.OrganizationWS.EntityNames entityName, int pageIndex, int pageSize, string sort, string filterString, System.Collections.ObjectModel.ObservableCollection<object> paras, ref int pageCount, string userID, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[8];
-                _args[0] = entityName;
-                _args[1] = pageIndex;
-                _args[2] = pageSize;
-                _args[3] = sort;
-                _args[4] = filterString;
-                _args[5] = paras;
-                _args[6] = pageCount;
-                _args[7] = userID;
-                System.IAsyncResult _result = base.BeginInvoke("GetLookupOjbects", _args, callback, asyncState);
-                pageCount = ((int)(_args[6]));
-                return _result;
-            }
-            
-            public string EndGetLookupOjbects(ref int pageCount, System.IAsyncResult result) {
-                object[] _args = new object[1];
-                _args[0] = pageCount;
-                string _result = ((string)(base.EndInvoke("GetLookupOjbects", _args, result)));
-                pageCount = ((int)(_args[0]));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginGetCompanyHistory(System.DateTime currentDate, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = currentDate;
-                System.IAsyncResult _result = base.BeginInvoke("GetCompanyHistory", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistory(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(base.EndInvoke("GetCompanyHistory", _args, result)));
-                return _result;
-            }
-            
-            public System.IAsyncResult BeginCompanyHistoryAdd(SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY entity, System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[1];
-                _args[0] = entity;
-                System.IAsyncResult _result = base.BeginInvoke("CompanyHistoryAdd", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public void EndCompanyHistoryAdd(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                base.EndInvoke("CompanyHistoryAdd", _args, result);
-            }
-            
-            public System.IAsyncResult BeginGetCompanyHistoryDate(System.AsyncCallback callback, object asyncState) {
-                object[] _args = new object[0];
-                System.IAsyncResult _result = base.BeginInvoke("GetCompanyHistoryDate", _args, callback, asyncState);
-                return _result;
-            }
-            
-            public System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> EndGetCompanyHistoryDate(System.IAsyncResult result) {
-                object[] _args = new object[0];
-                System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY> _result = ((System.Collections.ObjectModel.ObservableCollection<SMT.Saas.Tools.OrganizationWS.T_HR_COMPANYHISTORY>)(base.EndInvoke("GetCompanyHistoryDate", _args, result)));
                 return _result;
             }
         }

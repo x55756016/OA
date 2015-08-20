@@ -455,32 +455,38 @@
     <None Include="Service References\DailyManagementWS\SMT.Saas.Tools.DailyManagementWS.V_ChargeApplyReport.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.wsdl" />
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction7.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.wsdl" />
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction71.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction72.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction73.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction74.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction75.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction76.xsd">
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_WF_DOTASK.datasource">
+    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_WF_FORWARDHISTORY.datasource">
+    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_WF_DOTASK.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.UserInfo.datasource">
@@ -596,7 +602,10 @@
     </None>
     <None Include="Service References\FlowWFService\Service1.wsdl" />
     <None Include="Service References\FlowWFService\Service11.wsdl" />
-    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.FlowEntity.datasource">
+    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.DataResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T.datasource">
@@ -606,9 +615,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.TaskInfo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.T_WF_DOTASK.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.T_WF_PERSONALRECORD.datasource">
@@ -642,9 +648,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FlowWFService\SMT17.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\FlowWFService\SMT18.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\FlowWFService\SMT2.xsd">
@@ -1016,7 +1019,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\OrganizationWS\OrganizationService1.wsdl" />
-    <None Include="Service References\OrganizationWS\OrganizationService17.xsd">
+    <None Include="Service References\OrganizationWS\OrganizationService1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\OrganizationWS\OrganizationService2.xsd">
@@ -1073,16 +1076,16 @@
     <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_DEPARTMENT.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY3.datasource">
+    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_DEPARTMENTSWITHCOMPANY.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEPOST.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW1.datasource">
+    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_EMPLOYEEVIEW.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO2.datasource">
+    <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_ORGANIZATIONINFO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\OrganizationWS\SMT.Saas.Tools.OrganizationWS.V_POST.datasource">
@@ -1813,12 +1816,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\OrganizationWS\configuration91.svcinfo" />
-    <None Include="Service References\OrganizationWS\configuration.svcinfo" />
-    <None Include="Service References\OrganizationWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Service References\PersonalRecordWS\configuration91.svcinfo" />
     <None Include="Service References\PersonalRecordWS\configuration.svcinfo" />
     <None Include="Service References\PersonalRecordWS\Reference.svcmap">
@@ -1853,7 +1850,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\TravelPrintWS\TravrlPrintServices.disco" />
-    <None Include="Service References\OrganizationWS\OrganizationService.disco" />
     <None Include="Service References\FlowWFService\SMT11.disco" />
     <None Include="Service References\FBServiceWS\FBService1.disco" />
     <None Include="Service References\FlowWFService\SMT12.disco" />
@@ -1887,8 +1883,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PersonalRecordWS\PersonalRecordService1.disco" />
-    <None Include="Service References\FlowWFService\SMT2.disco" />
-    <None Include="Service References\EngineWS\EngineWcfGlobalFunction1.disco" />
     <None Include="Service References\NewFileUploadWS\FileUpLoad.disco" />
     <None Include="Service References\OACommonWS\SmtOACommonOffice1.disco" />
     <None Include="Service References\SmtOACommonOfficeService\SmtOACommonOffice.disco" />
@@ -1966,6 +1960,15 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\PermissionWS\PermissionService1.disco" />
+    <None Include="Service References\OrganizationWS\OrganizationService.disco" />
+    <None Include="Service References\OrganizationWS\configuration91.svcinfo" />
+    <None Include="Service References\OrganizationWS\configuration.svcinfo" />
+    <None Include="Service References\OrganizationWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\FlowWFService\SMT2.disco" />
+    <None Include="Service References\EngineWS\EngineWcfGlobalFunction.disco" />
     <Content Include="ServiceReferences.ClientConfig">
       <SubType>Designer</SubType>
     </Content>
@@ -2068,15 +2071,6 @@
     <None Include="Service References\FlowWFService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_CUSTOMFLOWDEFINE.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_ENGINEMSGLIST.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\EngineWS\SMT.Saas.Tools.EngineWS.T_FLOW_ENGINENOTES.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\FlowDesignerWS\SMT.Saas.Tools.FlowDesignerWS.FLOW_FLOWDEFINE_T.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -2098,12 +2092,6 @@
     <None Include="Service References\FlowWFService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.DataResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDDETAIL_T.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\FlowWFService\SMT.Saas.Tools.FlowWFService.FLOW_FLOWRECORDMASTER_T1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
