@@ -1,6 +1,0 @@
-生成创建数据库、表的代码并同时生成表和列的备注信息。 
-   首先，我们看下MySQL生成表、列备注信息的语法：生成表备注信息一般使用两种方式，即创建时指定[create table test comment '注释' (...)]和修改[alter table 表 comment '表注释';],此例中使用修改法； 
-列备注信息也可以在创建时直接指定或修改，不过，修改的方式非常不好用，需要以修改整个列信息（包括类型、长度、默认值等等）的方式来加上备注信息，语法［alter table tablename modify column char(1) comment '注释';］（找了很多资料，还是没有更好的办法。如果哪位朋友知道，请告诉下我，谢谢！）。创建时可以这样指定：sex varchar(2) default 'n' COMMENT '性别，m男f女n保密'。 
-    好了，现在关键是如何使PDM生成我们需要的这种代码。选择Database->generate database...打开对话框，设置好相关信息。想生成注释息，需要在Format卡中勾择"Generate name in empty comment"复选框。生成结果发现，代码中只有表备注信息，根本没有列备注信息。 
-    打开Database->Edit Current DBMS...对话框,选择Script->Objects->Column->Add，在Value值后面加上“[ COMMENT %.q:COMMENT%]”引号内的内容。重新生成sql，在列的后面就加上了备注信息。 
-    ｛曾经查了些信息，有说将Column->ColumnComment的值设为“comment on [%QUALIFIER%]%TABLE% (%COLUMN% is%.q:COMMENT%)”，可生成的貌似MySQL 5.0不支持的语法。｝ 
