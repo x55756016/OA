@@ -10,23 +10,23 @@ namespace SMT.Foundation.Log
     {
         private static LogConfig _instance = null;
         // private string _errorLogConfigFilePath = ConfigurationManager.AppSettings["ErrorLogConfigFilePath"];
-        private string _errorLogPath;
-        private string _loggers;
-        private string _logRetrieveProvider;
-        private string _traceLevel;
-        private string _tracePath;
-        private string _connectionString;
-        private string _errorEmailReceiver;
-        private string _errorEmailSender;
-        private string _sendErrorEmail;
+        private string _errorLogPath=string.Empty;
+        private string _loggers=string.Empty;
+        private string _logRetrieveProvider=string.Empty;
+        private string _traceLevel=string.Empty;
+        private string _tracePath=string.Empty;
+        private string _connectionString=string.Empty;
+        private string _errorEmailReceiver=string.Empty;
+        private string _errorEmailSender=string.Empty;
+        private string _sendErrorEmail=string.Empty;
         private string[] _loggerArray;
         private string[] _traceLevelArray;
-        private string _smtpServer;
-        private string _smtpLogin;
-        private string _smtpPassword;
-        private string _smtpPort;
-        public string _smtVersion;
-        public string _assemblyVersion;
+        private string _smtpServer=string.Empty;
+        private string _smtpLogin = string.Empty;
+        private string _smtpPassword = string.Empty;
+        private string _smtpPort = string.Empty;
+        public string _smtVersion = string.Empty;
+        public string _assemblyVersion = string.Empty;
         private LogConfig()
         {
             try
@@ -44,7 +44,13 @@ namespace SMT.Foundation.Log
                 _traceLevelArray = _traceLevel.Split(',');
                 _logRetrieveProvider = ConfigurationManager.AppSettings["LogRetrieveProvider"].ToString();
                 _tracePath = ConfigurationManager.AppSettings["TracePath"].ToString();
-                _connectionString = ConfigurationManager.AppSettings["ConnectionString"].ToString();
+                try
+                {
+                    _connectionString = ConfigurationManager.AppSettings["ConnectionString"].ToString();
+                }catch
+                {
+
+                }
                 ///Email
                 _errorEmailReceiver = ConfigurationManager.AppSettings["ErrorEmailReceiver"].ToString();
                 _errorEmailSender = ConfigurationManager.AppSettings["ErrorEmailSender"].ToString();
@@ -59,7 +65,7 @@ namespace SMT.Foundation.Log
             }
             catch (Exception ex)
             {
-                throw new Exception(string.Format("Error config file format or content is not right!The excetpition is {0}", ex.ToString()));
+               // throw new Exception(string.Format("Error config file format or content is not right!The excetpition is {0}", ex.ToString()));
             }
         }
         public string SMTVersion

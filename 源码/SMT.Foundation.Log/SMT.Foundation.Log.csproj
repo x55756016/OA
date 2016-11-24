@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SMT.Foundation.Log</RootNamespace>
-    <AssemblyName>SMT.Foundation.Log</AssemblyName>
+    <AssemblyName>Foundation.Log</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>

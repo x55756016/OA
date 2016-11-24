@@ -98,11 +98,11 @@ namespace SMT.Foundation.Log
             try
             {
                 // traceLevel.Sort();
-                if (checkTracer("Debug"))
-                {
-                    TXTLogger txtLogger = new TXTLogger();
-                    txtLogger.Write(message, level.Debug, myWriteResetEvent);
-                }
+                //if (checkTracer("Debug"))
+                //{
+                TXTLogger txtLogger = new TXTLogger();
+                txtLogger.Write(message, level.Debug, myWriteResetEvent);
+                //}
             }
             catch
             {
